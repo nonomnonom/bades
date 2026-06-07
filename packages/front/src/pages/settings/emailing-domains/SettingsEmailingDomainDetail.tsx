@@ -1,4 +1,4 @@
-import { t, Trans } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 
@@ -26,7 +26,7 @@ export const SettingsEmailingDomainDetail = () => {
   );
 
   if (loading) {
-    return <SettingsEmptyPlaceholder>{t`Memuat...`}</SettingsEmptyPlaceholder>;
+    return <SettingsEmptyPlaceholder>{`Memuat...`}</SettingsEmptyPlaceholder>;
   }
 
   if (isDefined(error) || !isDefined(emailingDomain)) {

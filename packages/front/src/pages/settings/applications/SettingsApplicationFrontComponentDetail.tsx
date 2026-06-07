@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -39,8 +38,8 @@ export const SettingsApplicationFrontComponentDetail = () => {
   );
 
   const tabs = [
-    { id: 'preview', title: t`Pratinjau`, Icon: IconEye },
-    { id: 'settings', title: t`Pengaturan`, Icon: IconSettings },
+    { id: 'preview', title: `Pratinjau`, Icon: IconEye },
+    { id: 'settings', title: `Pengaturan`, Icon: IconSettings },
   ];
 
   const applicationContentHref = getSettingsPath(
@@ -51,15 +50,15 @@ export const SettingsApplicationFrontComponentDetail = () => {
   );
   const breadcrumbLinks = [
     {
-      children: t`Ruang Kerja`,
+      children: `Ruang Kerja`,
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: t`Aplikasi`,
+      children: `Aplikasi`,
       href: getSettingsPath(SettingsPath.Applications),
     },
     { children: application?.name ?? '', href: applicationContentHref },
-    { children: t`Komponen tampilan`, href: applicationContentHref },
+    { children: `Komponen tampilan`, href: applicationContentHref },
     { children: frontComponent?.name ?? '' },
   ];
 
@@ -98,7 +97,7 @@ export const SettingsApplicationFrontComponentDetail = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={frontComponent?.name ?? t`Komponen tampilan`}
+      title={frontComponent?.name ?? `Komponen tampilan`}
       links={breadcrumbLinks}
     >
       <SettingsPageContainer>

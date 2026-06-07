@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t, useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { HorizontalSeparator } from 'ui/display';
@@ -90,11 +89,10 @@ const getCachedLabel = (lastMessage: AgentChatLastMessageUsage): string => {
     (lastMessage.cachedInputTokens / lastMessage.inputTokens) * 100,
   );
 
-  return ` (${t`${cachedPercent}% di-cache`})`;
+  return ` (${`${cachedPercent}% di-cache`})`;
 };
 
 export const AiChatContextUsageButton = () => {
-  const { t } = useLingui();
   const [isHovered, setIsHovered] = useState(false);
   const currentAiChatThread = useAtomStateValue(currentAiChatThreadState);
   const agentChatUsage = useAtomComponentFamilyStateValue(
@@ -155,7 +153,7 @@ export const AiChatContextUsageButton = () => {
       {isHovered && (
         <StyledHoverCard>
           <StyledSection>
-            <StyledSectionTitle>{t`Jendela konteks`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Jendela konteks`}</StyledSectionTitle>
             <StyledRow>
               <StyledContextWindowValue>
                 {formattedPercentage}%
@@ -170,7 +168,7 @@ export const AiChatContextUsageButton = () => {
                   abbreviate: true,
                   decimals: 1,
                 })}{' '}
-                {t`token`}
+                {`token`}
               </StyledContextWindowValue>
             </StyledRow>
             <ProgressBar
@@ -194,23 +192,23 @@ export const AiChatContextUsageButton = () => {
                 color={themeCssVariables.background.tertiary}
               />
               <StyledSection>
-                <StyledSectionTitle>{t`Pesan terakhir`}</StyledSectionTitle>
+                <StyledSectionTitle>{`Pesan terakhir`}</StyledSectionTitle>
                 <SettingsBillingLabelValueItem
-                  label={t`Token masukan`}
+                  label={`Token masukan`}
                   value={`${formatNumber(lastMessage.inputTokens, {
                     abbreviate: true,
                     decimals: 1,
                   })}${getCachedLabel(lastMessage)}`}
                 />
                 <SettingsBillingLabelValueItem
-                  label={t`Token keluaran`}
+                  label={`Token keluaran`}
                   value={formatNumber(lastMessage.outputTokens, {
                     abbreviate: true,
                     decimals: 1,
                   })}
                 />
                 <SettingsBillingLabelValueItem
-                  label={t`Biaya`}
+                  label={`Biaya`}
                   value={formatChatCost(
                     lastMessage.inputCredits + lastMessage.outputCredits,
                   )}
@@ -224,23 +222,23 @@ export const AiChatContextUsageButton = () => {
             color={themeCssVariables.background.tertiary}
           />
           <StyledSection>
-            <StyledSectionTitle>{t`Percakapan`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Percakapan`}</StyledSectionTitle>
             <SettingsBillingLabelValueItem
-              label={t`Token masukan`}
+              label={`Token masukan`}
               value={formatNumber(agentChatUsage.inputTokens, {
                 abbreviate: true,
                 decimals: 1,
               })}
             />
             <SettingsBillingLabelValueItem
-              label={t`Token keluaran`}
+              label={`Token keluaran`}
               value={formatNumber(agentChatUsage.outputTokens, {
                 abbreviate: true,
                 decimals: 1,
               })}
             />
             <SettingsBillingLabelValueItem
-              label={t`Total biaya`}
+              label={`Total biaya`}
               value={formatChatCost(totalCredits)}
             />
           </StyledSection>

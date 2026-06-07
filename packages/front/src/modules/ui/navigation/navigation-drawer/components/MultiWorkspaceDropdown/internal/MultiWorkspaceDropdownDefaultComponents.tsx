@@ -26,7 +26,6 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AppPath, SettingsPath } from 'shared/types';
@@ -57,7 +56,6 @@ const StyledDescription = styled.div`
 
 export const MultiWorkspaceDropdownDefaultComponents = () => {
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
-  const { t } = useLingui();
   const { redirectToWorkspaceDomain } = useRedirectToWorkspaceDomain();
   const availableWorkspaces = useAtomStateValue(availableWorkspacesState);
   const availableWorkspacesCount =
@@ -146,12 +144,12 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                 <DropdownMenuItemsContainer>
                   <MenuItem
                     LeftIcon={IconPlus}
-                    text={t`Buat Ruang Kerja`}
+                    text={`Buat Ruang Kerja`}
                     onClick={createWorkspace}
                   />
                   <MenuItem
                     LeftIcon={IconLogout}
-                    text={t`Keluar`}
+                    text={`Keluar`}
                     onClick={signOut}
                   />
                 </DropdownMenuItemsContainer>
@@ -189,7 +187,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                     }}
                   >
                     <MenuItemSelectAvatar
-                      text={availableWorkspace.displayName ?? t`(Tanpa nama)`}
+                      text={availableWorkspace.displayName ?? `(Tanpa nama)`}
                       avatar={
                         <Avatar
                           placeholder={availableWorkspace.displayName || ''}
@@ -206,7 +204,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             {availableWorkspacesCount > 4 && (
               <MenuItem
                 LeftIcon={IconSwitchHorizontal}
-                text={t`Ruang kerja lain`}
+                text={`Ruang kerja lain`}
                 onClick={() => setMultiWorkspaceDropdown('workspaces-list')}
                 hasSubMenu={true}
               />
@@ -220,7 +218,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
           LeftIcon={colorSchemeList.find(({ id }) => id === colorScheme)?.icon}
           text={
             <>
-              {t`Tema `}
+              {`Tema `}
               <StyledDescription>{` · ${colorScheme}`}</StyledDescription>
             </>
           }
@@ -233,7 +231,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             closeDropdown(MULTI_WORKSPACE_DROPDOWN_ID);
           }}
         >
-          <MenuItem LeftIcon={IconUserPlus} text={t`Undang pengguna`} />
+          <MenuItem LeftIcon={IconUserPlus} text={`Undang pengguna`} />
         </UndecoratedLink>
         <UndecoratedLink
           to={getSettingsPath(SettingsPath.ProfilePage)}
@@ -242,12 +240,12 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             closeDropdown(MULTI_WORKSPACE_DROPDOWN_ID);
           }}
         >
-          <MenuItem LeftIcon={IconSettings} text={t`Pengaturan`} />
+          <MenuItem LeftIcon={IconSettings} text={`Pengaturan`} />
         </UndecoratedLink>
         {isSupportChatConfigured && (
           <MenuItem
             LeftIcon={IconMessage}
-            text={t`Bantuan`}
+            text={`Bantuan`}
             onClick={handleSupport}
           />
         )}

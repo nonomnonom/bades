@@ -3,7 +3,6 @@ import { isSelectedItemIdComponentFamilyState } from '@/ui/layout/selectable-lis
 import { useAtomComponentFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilyStateValue';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconSearch } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -24,8 +23,6 @@ type ViewBarFilterDropdownAnyFieldSearchButtonMenuItemProps = {
 export const ViewBarFilterDropdownAnyFieldSearchButtonMenuItem = ({
   onClick,
 }: ViewBarFilterDropdownAnyFieldSearchButtonMenuItemProps) => {
-  const { t } = useLingui();
-
   const objectFilterDropdownSearchInput = useAtomComponentStateValue(
     objectFilterDropdownSearchInputComponentState,
   );
@@ -46,9 +43,9 @@ export const ViewBarFilterDropdownAnyFieldSearchButtonMenuItem = ({
         LeftIcon={IconSearch}
         text={
           <>
-            {t`Cari di semua kolom`}
+            {`Cari di semua kolom`}
             {objectFilterDropdownSearchInput && (
-              <StyledSearchText>{t`· ${objectFilterDropdownSearchInput}`}</StyledSearchText>
+              <StyledSearchText>{`· ${objectFilterDropdownSearchInput}`}</StyledSearchText>
             )}
           </>
         }

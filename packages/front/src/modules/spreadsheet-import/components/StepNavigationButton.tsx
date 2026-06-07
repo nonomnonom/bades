@@ -1,7 +1,6 @@
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { CircularProgressBar } from 'ui/feedback';
 import { MainButton } from 'ui/input';
 import { ModalFooter } from 'ui/layout';
@@ -26,10 +25,10 @@ type StepNavigationButtonProps = {
 
 export const StepNavigationButton = ({
   onContinue,
-  continueTitle = t`Lanjutkan`,
+  continueTitle = `Lanjutkan`,
   isLoading,
   onBack,
-  backTitle = t`Kembali`,
+  backTitle = `Kembali`,
   isContinueDisabled = false,
 }: StepNavigationButtonProps) => {
   return (

@@ -3,7 +3,6 @@ import { VERTICAL_DISTANCE_BETWEEN_TWO_NODES } from '@/workflow/workflow-diagram
 import { useStartNodeCreation } from '@/workflow/workflow-diagram/hooks/useStartNodeCreation';
 import { type WorkflowDiagramStepNodeData } from '@/workflow/workflow-diagram/types/WorkflowDiagram';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconPlus } from 'ui/display';
 import { IconButton } from 'ui/input';
@@ -59,7 +58,7 @@ export const WorkflowDiagramCreateStepElement = ({
       <IconButton
         Icon={IconPlus}
         size="small"
-        ariaLabel={t`Tambah langkah`}
+        ariaLabel={`Tambah langkah`}
         onClick={addNode}
       />
     </StyledContainer>

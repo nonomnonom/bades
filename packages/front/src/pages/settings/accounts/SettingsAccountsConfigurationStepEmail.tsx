@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { type MessageChannel } from '@/accounts/types/MessageChannel';
 import { SettingsAccountsMessageChannelDetails } from '@/settings/accounts/components/SettingsAccountsMessageChannelDetails';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -23,11 +23,9 @@ export const SettingsAccountsConfigurationStepEmail = ({
   onNext,
   onAddAccount,
 }: SettingsAccountsConfigurationStepEmailProps) => {
-  const { t } = useLingui();
-
   return (
     <SubMenuTopBarContainer
-      title={t`1. Surel`}
+      title={`1. Surel`}
       links={[
         {
           children: <Trans>Pengguna</Trans>,
@@ -38,14 +36,14 @@ export const SettingsAccountsConfigurationStepEmail = ({
           href: getSettingsPath(SettingsPath.Accounts),
         },
         {
-          children: t`1. Surel`,
+          children: `1. Surel`,
         },
       ]}
       actionButton={
         hasNextStep ? (
           <Button
             Icon={IconChevronRight}
-            title={t`Lanjut`}
+            title={`Lanjut`}
             accent="blue"
             size="small"
             variant="secondary"
@@ -55,7 +53,7 @@ export const SettingsAccountsConfigurationStepEmail = ({
         ) : (
           <Button
             Icon={IconPlus}
-            title={t`Tambah akun`}
+            title={`Tambah akun`}
             accent="blue"
             size="small"
             variant="primary"

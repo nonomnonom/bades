@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { FormProvider } from 'react-hook-form';
 import QRCode from 'react-qr-code';
@@ -83,7 +83,6 @@ const StyledDivider = styled.div`
 `;
 
 export const SettingsTwoFactorAuthenticationMethod = () => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const qrCode = useAtomStateValue(qrCodeState);
 
@@ -103,7 +102,7 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
 
     const secret = extractSecretFromOtpUri(qrCode);
     if (secret !== null) {
-      await copyToClipboard(secret, t`Kunci penyiapan tersalin ke papan klip`);
+      await copyToClipboard(secret, `Kunci penyiapan tersalin ke papan klip`);
     }
   };
 
@@ -111,7 +110,7 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...verificationForm.formConfig}>
       <SubMenuTopBarContainer
-        title={t`Autentikasi Dua Faktor`}
+        title={`Autentikasi Dua Faktor`}
         links={[
           {
             children: <Trans>Pengguna</Trans>,
@@ -148,8 +147,8 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
             <Section>
               <TwoFactorAuthenticationSetupForSettingsEffect />
               <H2Title
-                title={t`Aplikasi autentikator`}
-                description={t`Aplikasi autentikator dan ekstensi browser seperti 1Password, Authy, Microsoft Authenticator, dll. membuat kata sandi sekali pakai sebagai faktor kedua untuk memverifikasi identitas Anda saat masuk.`}
+                title={`Aplikasi autentikator`}
+                description={`Aplikasi autentikator dan ekstensi browser seperti 1Password, Authy, Microsoft Authenticator, dll. membuat kata sandi sekali pakai sebagai faktor kedua untuk memverifikasi identitas Anda saat masuk.`}
               />
               <StyledQRCodeContainer>
                 {!qrCode ? (
@@ -174,8 +173,8 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
               <StyledDivider />
 
               <H2Title
-                title={t`Verifikasi kode dari aplikasi`}
-                description={t`Salin dan tempelkan kode di bawah ini`}
+                title={`Verifikasi kode dari aplikasi`}
+                description={`Salin dan tempelkan kode di bawah ini`}
               />
               <StyledOTPContainer>
                 <TwoFactorAuthenticationVerificationForSettings />

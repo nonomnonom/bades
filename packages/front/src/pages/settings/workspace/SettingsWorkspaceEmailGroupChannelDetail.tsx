@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
@@ -32,7 +31,6 @@ const StyledForwardingInputContainer = styled.div`
 `;
 
 export const SettingsWorkspaceEmailGroupChannelDetail = () => {
-  const { t } = useLingui();
   const navigate = useNavigate();
   const { messageChannelId } = useParams<{ messageChannelId: string }>();
   const { channels, loading } = useMyMessageChannels();
@@ -65,7 +63,7 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       navigate(-1);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal menghapus saluran grup surel.`,
+        message: `Gagal menghapus saluran grup surel.`,
       });
     }
   };
@@ -75,11 +73,11 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       title={sourceHandle}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Umum`,
+          children: `Umum`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         { children: sourceHandle },
@@ -87,7 +85,7 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       actionButton={
         <Button
           Icon={IconTrash}
-          title={t`Hapus`}
+          title={`Hapus`}
           variant="secondary"
           accent="danger"
           size="small"
@@ -99,8 +97,8 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Alamat sumber`}
-            description={t`Alamat eksternal yang surelnya diteruskan ke ruang kerja.`}
+            title={`Alamat sumber`}
+            description={`Alamat eksternal yang surelnya diteruskan ke ruang kerja.`}
           />
           <SettingsTextInput
             instanceId="email-group-source"
@@ -111,8 +109,8 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Alamat penerusan`}
-            description={t`Atur penerusan dari alamat sumber ke tujuan ini.`}
+            title={`Alamat penerusan`}
+            description={`Atur penerusan dari alamat sumber ke tujuan ini.`}
           />
           <StyledForwardingRow>
             <StyledForwardingInputContainer>
@@ -125,11 +123,11 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
             </StyledForwardingInputContainer>
             <Button
               Icon={IconCopy}
-              title={t`Salin`}
+              title={`Salin`}
               onClick={() =>
                 copyToClipboard(
                   forwardingAddress,
-                  t`Alamat penerusan disalin ke clipboard`,
+                  `Alamat penerusan disalin ke clipboard`,
                 )
               }
             />
@@ -139,10 +137,10 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       </SettingsPageContainer>
       <ConfirmationModal
         modalInstanceId={DELETE_EMAIL_GROUP_MODAL_ID}
-        title={t`Hapus grup surel`}
-        subtitle={t`Apakah Anda yakin ingin menghapus ${sourceHandle}? Surel yang diteruskan tidak akan masuk ke ruang kerja ini lagi.`}
+        title={`Hapus grup surel`}
+        subtitle={`Apakah Anda yakin ingin menghapus ${sourceHandle}? Surel yang diteruskan tidak akan masuk ke ruang kerja ini lagi.`}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Hapus`}
+        confirmButtonText={`Hapus`}
         confirmButtonAccent="danger"
         loading={deleting}
       />

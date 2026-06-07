@@ -2,7 +2,6 @@ import { type UpgradeStatusRow } from '@/settings/admin-panel/health-status/comp
 import { getUpgradeHealthStatusBadge } from '@/settings/admin-panel/utils/getUpgradeHealthStatusBadge';
 import { getWorkspacesUpgradeHealth } from '@/settings/admin-panel/utils/getWorkspacesUpgradeHealth';
 import { getWorkspacesUpgradeHealthText } from '@/settings/admin-panel/utils/getWorkspacesUpgradeHealthText';
-import { t } from '~/utils/i18n/badesI18n';
 import { Status } from 'ui/display';
 
 export const SettingsAdminUpgradeStatusRightContainer = ({
@@ -14,7 +13,7 @@ export const SettingsAdminUpgradeStatusRightContainer = ({
     return (
       <Status
         color="gray"
-        text={item.inferredVersion ?? t`Tidak diketahui`}
+        text={item.inferredVersion ?? `Tidak diketahui`}
         weight="medium"
       />
     );

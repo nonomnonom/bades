@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { AdvancedFilterLogicalOperatorDropdown } from '@/object-record/advanced-filter/components/AdvancedFilterLogicalOperatorDropdown';
 import { type RecordFilterGroup } from '@/object-record/record-filter-group/types/RecordFilterGroup';
 
@@ -33,7 +32,7 @@ export const AdvancedFilterLogicalOperatorCell = ({
   return (
     <StyledContainer>
       {index === 0 ? (
-        <StyledText>{t`Dimana`}</StyledText>
+        <StyledText>{`Dimana`}</StyledText>
       ) : index === 1 ? (
         <AdvancedFilterLogicalOperatorDropdown
           recordFilterGroup={recordFilterGroup}

@@ -7,7 +7,6 @@ import { WorkflowRunStepJsonContainer } from '@/workflow/workflow-steps/componen
 import { getIsDescendantOfIterator } from '@/workflow/workflow-steps/utils/getIsDescendantOfIterator';
 import { getWorkflowRunStepContext } from '@/workflow/workflow-steps/utils/getWorkflowRunStepContext';
 import { getWorkflowVariablesUsedInStep } from '@/workflow/workflow-steps/utils/getWorkflowVariablesUsedInStep';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconBrackets } from 'ui/display';
 import {
@@ -20,7 +19,6 @@ import { type JsonValue } from 'type-fest';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 
 export const WorkflowRunStepInputDetail = ({ stepId }: { stepId: string }) => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
 
   const workflowRunId = useWorkflowRunIdOrThrow();
@@ -103,11 +101,11 @@ export const WorkflowRunStepInputDetail = ({ stepId }: { stepId: string }) => {
       <WorkflowRunStepJsonContainer>
         <JsonTreeContextProvider
           value={{
-            emptyArrayLabel: t`Array Kosong`,
-            emptyObjectLabel: t`Objek Kosong`,
-            emptyStringLabel: t`[teks kosong]`,
-            arrowButtonCollapsedLabel: t`Tampilkan`,
-            arrowButtonExpandedLabel: t`Ciutkan`,
+            emptyArrayLabel: `Array Kosong`,
+            emptyObjectLabel: `Objek Kosong`,
+            emptyStringLabel: `[teks kosong]`,
+            arrowButtonCollapsedLabel: `Tampilkan`,
+            arrowButtonExpandedLabel: `Ciutkan`,
             getNodeHighlighting,
             shouldExpandNodeInitially: isFirstNodeDepthOfPreviousStep,
             onNodeValueClick: copyToClipboard,

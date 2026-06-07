@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
@@ -25,7 +24,6 @@ import {
 import { MenuItemSelect } from 'ui/navigation';
 
 export const ObjectOptionsDropdownRecordGroupSortContent = () => {
-  const { t } = useLingui();
   const { currentContentId, onContentChange } = useObjectOptionsDropdown();
 
   const hiddenRecordGroupIds = useAtomComponentSelectorValue(
@@ -69,7 +67,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
           />
         }
       >
-        {t`Urutkan`}
+        {`Urutkan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -86,7 +84,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
                 handleRecordGroupSortChange(RecordGroupSort.Manual)
               }
               LeftIcon={IconHandMove}
-              text={t`Manual`}
+              text={`Manual`}
               selected={recordIndexRecordGroupSort === RecordGroupSort.Manual}
               focused={selectedItemId === RecordGroupSort.Manual}
             />
@@ -102,7 +100,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
                 handleRecordGroupSortChange(RecordGroupSort.Alphabetical)
               }
               LeftIcon={IconSortAZ}
-              text={t`Alfabetis`}
+              text={`Alfabetis`}
               selected={
                 recordIndexRecordGroupSort === RecordGroupSort.Alphabetical
               }
@@ -120,7 +118,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
                 handleRecordGroupSortChange(RecordGroupSort.ReverseAlphabetical)
               }
               LeftIcon={IconSortZA}
-              text={t`Alfabetis terbalik`}
+              text={`Alfabetis terbalik`}
               selected={
                 recordIndexRecordGroupSort ===
                 RecordGroupSort.ReverseAlphabetical

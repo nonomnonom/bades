@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext, useState } from 'react';
 
 import { ActivityTargetChips } from '@/activities/components/ActivityTargetChips';
@@ -101,7 +100,7 @@ export const ActivityTargetsInlineCell = ({
                 showLabel: showLabel,
                 readonly: isReadOnly,
                 labelWidth: fieldDefinition?.labelWidth,
-                label: t`Relasi`,
+                label: `Relasi`,
                 displayModeContent: (
                   <ActivityTargetChips
                     activityTargetObjectRecords={activityTargetObjectRecords}

@@ -1,4 +1,4 @@
-import { t, Trans } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { motion } from 'framer-motion';
 import { useCallback, useContext } from 'react';
@@ -243,7 +243,7 @@ export const RecordDetailRelationRecordsListItem = ({
                 <DropdownMenuItemsContainer>
                   <MenuItem
                     LeftIcon={IconUnlink}
-                    text={t`Lepas`}
+                    text={`Lepas`}
                     onClick={handleDetach}
                   />
                   {!isAccountOwnerRelation &&
@@ -275,7 +275,7 @@ export const RecordDetailRelationRecordsListItem = ({
       {createPortal(
         <ConfirmationModal
           modalInstanceId={getDeleteRelationModalId(relationRecord.id)}
-          title={t`Hapus Data Terkait ${relationObjectTypeName}`}
+          title={`Hapus Data Terkait ${relationObjectTypeName}`}
           subtitle={
             <Trans>
               Apakah Anda yakin ingin menghapus{' '}
@@ -285,7 +285,7 @@ export const RecordDetailRelationRecordsListItem = ({
             </Trans>
           }
           onConfirmClick={handleConfirmDelete}
-          confirmButtonText={t`Hapus ${relationObjectTypeName}`}
+          confirmButtonText={`Hapus ${relationObjectTypeName}`}
         />,
         document.body,
       )}

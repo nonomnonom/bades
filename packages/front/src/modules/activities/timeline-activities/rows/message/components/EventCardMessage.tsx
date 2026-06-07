@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { type EmailThreadMessage } from '@/activities/emails/types/EmailThreadMessage';
@@ -6,7 +7,6 @@ import { EventCardMessageForbidden } from '@/activities/timeline-activities/rows
 import { useOpenRecordInSidePanel } from '@/side-panel/hooks/useOpenRecordInSidePanel';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useFindOneRecord } from '@/object-record/hooks/useFindOneRecord';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { FIELD_RESTRICTED_ADDITIONAL_PERMISSIONS_REQUIRED } from 'shared/constants';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { isDefined } from 'shared/utils';
@@ -61,7 +61,6 @@ export const EventCardMessage = ({
   messageId: string;
   authorFullName: string;
 }) => {
-  const { t } = useLingui();
   const { openRecordInSidePanel } = useOpenRecordInSidePanel();
 
   const {
@@ -144,7 +143,7 @@ export const EventCardMessage = ({
             {message.subject !==
             FIELD_RESTRICTED_ADDITIONAL_PERMISSIONS_REQUIRED
               ? message.subject
-              : t`Subjek tidak dibagikan`}
+              : `Subjek tidak dibagikan`}
           </StyledEmailTitle>
           <StyledEmailParticipants>
             <OverflowingTextWithTooltip text={messageParticipantHandles} />

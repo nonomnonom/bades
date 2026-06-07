@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 type SettingsAdminVersionDisplayProps = {
@@ -35,7 +34,7 @@ export const SettingsAdminVersionDisplay = ({
   noVersionMessage,
 }: SettingsAdminVersionDisplayProps) => {
   if (loading) {
-    return <StyledSpan>{t`Memuat...`}</StyledSpan>;
+    return <StyledSpan>{`Memuat...`}</StyledSpan>;
   }
 
   if (!version) {

@@ -1,6 +1,5 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
-
 import { useMyMessageChannels } from '@/settings/accounts/hooks/useMyMessageChannels';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
@@ -61,7 +60,6 @@ const StyledFooter = styled.div`
 `;
 
 export const SettingsWorkspaceEmailGroupSection = () => {
-  const { t } = useLingui();
   const navigateSettings = useNavigateSettings();
   const { channels } = useMyMessageChannels();
 
@@ -72,8 +70,8 @@ export const SettingsWorkspaceEmailGroupSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`Grup Email`}
-        description={t`Alamat email bersama tingkat ruang kerja yang menerima pesan yang diteruskan.`}
+        title={`Grup Email`}
+        description={`Alamat email bersama tingkat ruang kerja yang menerima pesan yang diteruskan.`}
       />
       {emailGroupChannels.length > 0 && (
         <Table>
@@ -125,7 +123,7 @@ export const SettingsWorkspaceEmailGroupSection = () => {
       <StyledFooter>
         <Button
           Icon={IconPlus}
-          title={t`Tambah grup email`}
+          title={`Tambah grup email`}
           variant="secondary"
           size="small"
           onClick={() => navigateSettings(SettingsPath.NewEmailGroupChannel)}

@@ -7,7 +7,6 @@ import {
 } from '@/auth/states/signInUpStepState';
 import { AuthenticatedMethod } from '@/auth/types/AuthenticatedMethod.enum';
 import { type SocialSSOSignInUpActionType } from '@/auth/types/socialSSOSignInUp.type';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { memo, useContext } from 'react';
 import { HorizontalSeparator, IconGoogle } from 'ui/display';
 import { MainButton } from 'ui/input';
@@ -28,7 +27,6 @@ export const SignInUpWithGoogle = ({
   action: SocialSSOSignInUpActionType;
   isGlobalScope?: boolean;
 }) => {
-  const { t } = useLingui();
   const signInUpStep = useAtomStateValue(signInUpStepState);
   const [lastAuthenticatedMethod, setLastAuthenticatedMethod] = useAtomState(
     lastAuthenticatedMethodState,
@@ -48,7 +46,7 @@ export const SignInUpWithGoogle = ({
       <StyledSSOButtonContainer>
         <MainButton
           Icon={GoogleIcon}
-          title={t`Lanjutkan dengan Google`}
+          title={`Lanjutkan dengan Google`}
           onClick={handleClick}
           variant={signInUpStep === SignInUpStep.Init ? undefined : 'secondary'}
           fullWidth

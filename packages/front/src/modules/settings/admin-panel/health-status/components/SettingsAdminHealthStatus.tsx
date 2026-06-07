@@ -6,7 +6,6 @@ import { SettingsAdminMaintenanceModeFetchEffect } from '@/settings/admin-panel/
 import { SettingsAdminSigningKeysTable } from '@/settings/admin-panel/signing-keys/components/SettingsAdminSigningKeysTable';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import {
@@ -44,8 +43,8 @@ export const SettingsAdminHealthStatus = () => {
       <SettingsAdminMaintenanceModeFetchEffect />
       <Section>
         <H2Title
-          title={t`Status Kesehatan`}
-          description={t`Kondisi sistem Anda`}
+          title={`Status Kesehatan`}
+          description={`Kondisi sistem Anda`}
         />
         <SettingsAdminHealthStatusListCard
           services={services}
@@ -55,16 +54,16 @@ export const SettingsAdminHealthStatus = () => {
       {upgradeStatus && (
         <Section>
           <H2Title
-            title={t`Status Pembaruan`}
-            description={t`Kesehatan pembaruan di seluruh instansi dan ruang kerja`}
+            title={`Status Pembaruan`}
+            description={`Kesehatan pembaruan di seluruh instansi dan ruang kerja`}
           />
           <SettingsAdminUpgradeStatusListCard upgradeStatus={upgradeStatus} />
         </Section>
       )}
       <Section>
         <H2Title
-          title={t`Kunci Penandatanganan`}
-          description={t`Kunci publik asimetris yang digunakan untuk menandatangani dan memverifikasi token akses. Mencabut kunci segera membatalkan semua JWT yang ditandatangani dengannya.`}
+          title={`Kunci Penandatanganan`}
+          description={`Kunci publik asimetris yang digunakan untuk menandatangani dan memverifikasi token akses. Mencabut kunci segera membatalkan semua JWT yang ditandatangani dengannya.`}
         />
         <SettingsAdminSigningKeysTable />
       </Section>

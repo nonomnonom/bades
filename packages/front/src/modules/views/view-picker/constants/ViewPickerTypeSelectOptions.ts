@@ -1,10 +1,8 @@
 import { ViewType, viewTypeIconMapping } from '@/views/types/ViewType';
-import { msg } from '~/utils/i18n/badesI18n';
-
 export const VIEW_PICKER_TYPE_SELECT_OPTIONS = [
   {
     value: ViewType.TABLE,
-    label: msg`Tabel`,
+    label: `Tabel`,
     Icon: viewTypeIconMapping(ViewType.TABLE),
   },
   {
@@ -14,12 +12,12 @@ export const VIEW_PICKER_TYPE_SELECT_OPTIONS = [
   },
   {
     value: ViewType.CALENDAR,
-    label: msg`Kalender`,
+    label: `Kalender`,
     Icon: viewTypeIconMapping(ViewType.CALENDAR),
   },
   {
     value: ViewType.MAP,
-    label: msg`Peta`,
+    label: `Peta`,
     Icon: viewTypeIconMapping(ViewType.MAP),
   },
 ];

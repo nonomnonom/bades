@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -30,7 +29,7 @@ export const FormMultiTextFieldInput = ({
   const instanceId = useId();
 
   const editor = useMultiItemFieldEditor({
-    placeholder: placeholder ?? t`Masukkan nilai, pisahkan dengan koma`,
+    placeholder: placeholder ?? `Masukkan nilai, pisahkan dengan koma`,
     readonly,
     defaultValue,
     onUpdate: (editor) => {

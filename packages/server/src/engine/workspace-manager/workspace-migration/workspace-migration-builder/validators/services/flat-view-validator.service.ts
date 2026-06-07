@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { type ALL_METADATA_NAME } from 'shared/metadata';
 import { FieldMetadataType, ViewType } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -40,7 +40,7 @@ export class FlatViewValidatorService {
     if (!isDefined(existingFlatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
 
@@ -70,7 +70,7 @@ export class FlatViewValidatorService {
     ) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View kanban aggregate field metadata not found`,
+        message: `View kanban aggregate field metadata not found`,
         userFriendlyMessage: msg`View kanban aggregate field metadata not found`,
       });
     }
@@ -85,7 +85,7 @@ export class FlatViewValidatorService {
       ) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban view must have a main group by field`,
+          message: `Kanban view must have a main group by field`,
           userFriendlyMessage: msg`Kanban view must have a main group by field`,
         });
 
@@ -101,13 +101,13 @@ export class FlatViewValidatorService {
       if (!isDefined(mainGroupByFieldMetadata)) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban main group by field metadata not found`,
+          message: `Kanban main group by field metadata not found`,
           userFriendlyMessage: msg`Kanban main group by field metadata not found`,
         });
       } else if (mainGroupByFieldMetadata.type !== FieldMetadataType.SELECT) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban main group by field must be a SELECT field`,
+          message: `Kanban main group by field must be a SELECT field`,
           userFriendlyMessage: msg`Kanban main group by field must be a select field`,
         });
       }
@@ -130,13 +130,13 @@ export class FlatViewValidatorService {
       if (!isDefined(mainGroupByFieldMetadata)) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban main group by field metadata not found`,
+          message: `Kanban main group by field metadata not found`,
           userFriendlyMessage: msg`Kanban main group by field metadata not found`,
         });
       } else if (mainGroupByFieldMetadata.type !== FieldMetadataType.SELECT) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban main group by field must be a SELECT field`,
+          message: `Kanban main group by field must be a SELECT field`,
           userFriendlyMessage: msg`Kanban main group by field must be a select field`,
         });
       }
@@ -170,7 +170,7 @@ export class FlatViewValidatorService {
     if (!isDefined(existingFlatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
 
@@ -197,7 +197,7 @@ export class FlatViewValidatorService {
       if (viewsForSameObject.length <= 1) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Cannot delete the only view for this object`,
+          message: `Cannot delete the only view for this object`,
           userFriendlyMessage: msg`Cannot delete the only view for this object`,
         });
       }
@@ -232,7 +232,7 @@ export class FlatViewValidatorService {
     if (!isDefined(optimisticFlatObjectMetadata)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`Object metadata not found`,
+        message: `Object metadata not found`,
         userFriendlyMessage: msg`Object metadata not found`,
       });
     }
@@ -247,7 +247,7 @@ export class FlatViewValidatorService {
     ) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View with same universal identifier already exists`,
+        message: `View with same universal identifier already exists`,
         userFriendlyMessage: msg`View already exists`,
       });
     }
@@ -266,7 +266,7 @@ export class FlatViewValidatorService {
     ) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View kanban aggregate field metadata not found`,
+        message: `View kanban aggregate field metadata not found`,
         userFriendlyMessage: msg`View kanban aggregate field metadata not found`,
       });
     }
@@ -281,7 +281,7 @@ export class FlatViewValidatorService {
       ) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban view must have a main group by field`,
+          message: `Kanban view must have a main group by field`,
           userFriendlyMessage: msg`Kanban view must have a main group by field`,
         });
 
@@ -297,13 +297,13 @@ export class FlatViewValidatorService {
       if (!isDefined(mainGroupByFieldMetadata)) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban main group by field metadata not found`,
+          message: `Kanban main group by field metadata not found`,
           userFriendlyMessage: msg`Kanban main group by field metadata not found`,
         });
       } else if (mainGroupByFieldMetadata.type !== FieldMetadataType.SELECT) {
         validationResult.errors.push({
           code: ViewExceptionCode.INVALID_VIEW_DATA,
-          message: t`Kanban main group by field must be a SELECT field`,
+          message: `Kanban main group by field must be a SELECT field`,
           userFriendlyMessage: msg`Kanban main group by field must be a select field`,
         });
       }

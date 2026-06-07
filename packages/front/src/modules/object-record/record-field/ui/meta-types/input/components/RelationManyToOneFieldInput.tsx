@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
 import { useRelationField } from '@/object-record/record-field/ui/meta-types/hooks/useRelationField';
 
@@ -21,7 +20,6 @@ import { CustomError, isDefined } from 'shared/utils';
 import { IconForbid } from 'ui/display';
 
 export const RelationManyToOneFieldInput = () => {
-  const { t } = useLingui();
   const { fieldDefinition, recordId } = useRelationField<ObjectRecord>();
 
   const { objectMetadataItems } = useObjectMetadataItems();
@@ -108,7 +106,7 @@ export const RelationManyToOneFieldInput = () => {
       focusId={instanceId}
       componentInstanceId={instanceId}
       EmptyIcon={IconForbid}
-      emptyLabel={t`Tidak ada ${fieldLabel}`}
+      emptyLabel={`Tidak ada ${fieldLabel}`}
       onCancel={onCancel}
       onCreate={
         isDefined(createNewRecordAndOpenSidePanel) ? handleCreateNew : undefined

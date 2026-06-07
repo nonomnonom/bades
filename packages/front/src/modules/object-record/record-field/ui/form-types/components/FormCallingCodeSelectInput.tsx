@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { FormSelectFieldInput } from '@/object-record/record-field/ui/form-types/components/FormSelectFieldInput';
@@ -41,7 +40,7 @@ export const FormCallingCodeSelectInput = ({
     );
     return [
       {
-        label: t`Tanpa kode panggil`,
+        label: `Tanpa kode panggil`,
         value: '',
         Icon: IconCircleOff,
       },

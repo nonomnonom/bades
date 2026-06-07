@@ -16,7 +16,6 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -39,8 +38,6 @@ type WidgetSettingsManageSectionProps = {
 export const WidgetSettingsManageSection = ({
   pageLayoutId,
 }: WidgetSettingsManageSectionProps) => {
-  const { t } = useLingui();
-
   const { widgetInEditMode } = useWidgetInEditMode(pageLayoutId);
 
   const pageLayoutEditingWidgetId = useAtomComponentStateValue(
@@ -95,13 +92,13 @@ export const WidgetSettingsManageSection = ({
 
   return (
     <>
-      <SidePanelGroup heading={t`Kelola`}>
+      <SidePanelGroup heading={`Kelola`}>
         <SelectableListItem
           itemId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
         >
           <CommandMenuItemDropdown
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
-            label={t`Pembatasan Visibilitas`}
+            label={`Pembatasan Visibilitas`}
             Icon={IconEyeX}
             dropdownId={
               WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION
@@ -124,7 +121,7 @@ export const WidgetSettingsManageSection = ({
             <CommandMenuItem
               id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
               Icon={IconRefreshDot}
-              label={t`Setel ulang ke bawaan`}
+              label={`Setel ulang ke bawaan`}
               onClick={handleResetToDefault}
               disabled={isResetToDefaultDisabled}
             />
@@ -133,7 +130,7 @@ export const WidgetSettingsManageSection = ({
         {isResetToDefaultDisabled && (
           <AppTooltip
             anchorSelect={`#${RESET_WIDGET_TO_DEFAULT_MENU_ITEM_ID}`}
-            content={t`Tidak ada konfigurasi bawaan untuk widget ini`}
+            content={`Tidak ada konfigurasi bawaan untuk widget ini`}
             noArrow
             place="bottom"
           />
@@ -145,7 +142,7 @@ export const WidgetSettingsManageSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.REPLACE_WIDGET}
             Icon={IconSwitchHorizontal}
-            label={t`Ganti widget`}
+            label={`Ganti widget`}
             hasSubMenu
             onClick={handleReplaceWidget}
           />
@@ -157,17 +154,17 @@ export const WidgetSettingsManageSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.DELETE_WIDGET}
             Icon={IconTrash}
-            label={t`Hapus widget`}
+            label={`Hapus widget`}
             onClick={handleDeleteWidget}
           />
         </SelectableListItem>
       </SidePanelGroup>
       <ConfirmationModal
         modalInstanceId={RESET_WIDGET_TO_DEFAULT_MODAL_ID}
-        title={t`Setel ulang ke bawaan`}
-        subtitle={t`Ini akan membatalkan semua perubahan pada widget. Tindakan ini tidak dapat dibatalkan.`}
+        title={`Setel ulang ke bawaan`}
+        subtitle={`Ini akan membatalkan semua perubahan pada widget. Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleConfirmReset}
-        confirmButtonText={t`Setel ulang`}
+        confirmButtonText={`Setel ulang`}
         confirmButtonAccent="danger"
       />
     </>

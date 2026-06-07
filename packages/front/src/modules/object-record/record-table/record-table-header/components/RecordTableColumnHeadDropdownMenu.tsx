@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 
@@ -38,8 +37,6 @@ export const RecordTableColumnHeadDropdownMenu = ({
   recordField,
   objectMetadataId,
 }: RecordTableColumnHeadDropdownMenuProps) => {
-  const { t } = useLingui();
-
   const { toggleScrollXWrapper, toggleScrollYWrapper } =
     useToggleScrollWrapper();
 
@@ -142,14 +139,14 @@ export const RecordTableColumnHeadDropdownMenu = ({
             <MenuItem
               LeftIcon={IconFilter}
               onClick={handleFilterClick}
-              text={t`Filter`}
+              text={`Filter`}
             />
           )}
           {isSortable && (
             <MenuItem
               LeftIcon={IconSortDescending}
               onClick={handleSortClick}
-              text={t`Urutkan`}
+              text={`Urutkan`}
             />
           )}
           {showSeparator && <DropdownMenuSeparator />}
@@ -157,21 +154,21 @@ export const RecordTableColumnHeadDropdownMenu = ({
             <MenuItem
               LeftIcon={IconArrowLeft}
               onClick={handleColumnMoveLeft}
-              text={t`Geser kiri`}
+              text={`Geser kiri`}
             />
           )}
           {canMoveRight && (
             <MenuItem
               LeftIcon={IconArrowRight}
               onClick={handleColumnMoveRight}
-              text={t`Geser kanan`}
+              text={`Geser kanan`}
             />
           )}
           {canHide && (
             <MenuItem
               LeftIcon={IconEyeOff}
               onClick={async () => await handleColumnVisibility()}
-              text={t`Sembunyikan`}
+              text={`Sembunyikan`}
             />
           )}
         </DropdownMenuItemsContainer>

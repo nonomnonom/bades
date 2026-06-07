@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react';
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -44,10 +43,10 @@ export const AiChatWriteConfirmationActions = ({
           arguments: pendingConfirmation.arguments,
         },
       });
-      enqueueSuccessSnackBar({ message: t`Operasi penulisan dikonfirmasi` });
+      enqueueSuccessSnackBar({ message: `Operasi penulisan dikonfirmasi` });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal mengeksekusi operasi yang dikonfirmasi`,
+        message: `Gagal mengeksekusi operasi yang dikonfirmasi`,
       });
     }
   };
@@ -55,12 +54,12 @@ export const AiChatWriteConfirmationActions = ({
   return (
     <StyledContainer>
       <div>
-        {t`Konfirmasi diperlukan untuk operasi`} {pendingConfirmation.operation}{' '}
-        {t`pada`} {pendingConfirmation.objectNameSingular}.
+        {`Konfirmasi diperlukan untuk operasi`} {pendingConfirmation.operation}{' '}
+        {`pada`} {pendingConfirmation.objectNameSingular}.
       </div>
       <StyledActions>
         <Button
-          title={t`Konfirmasi`}
+          title={`Konfirmasi`}
           variant="primary"
           accent="blue"
           disabled={loading}

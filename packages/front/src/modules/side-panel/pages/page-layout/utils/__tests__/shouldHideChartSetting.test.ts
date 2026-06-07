@@ -3,14 +3,13 @@ import { CHART_CONFIGURATION_SETTING_IDS } from '@/side-panel/pages/page-layout/
 import { type ChartSettingsItem } from '@/side-panel/pages/page-layout/types/ChartSettingsGroup';
 import { shouldHideChartSetting } from '@/side-panel/pages/page-layout/utils/shouldHideChartSetting';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
-import { msg } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType } from 'shared/types';
 import { IconChartBar } from 'ui/display';
 
 describe('shouldHideChartSetting', () => {
   const mockItemWithoutDependencies: ChartSettingsItem = {
     id: CHART_CONFIGURATION_SETTING_IDS.DATA_LABELS,
-    label: msg`Data Labels`,
+    label: `Data Labels`,
     Icon: IconChartBar,
     isBoolean: true,
     isNumberInput: false,
@@ -18,7 +17,7 @@ describe('shouldHideChartSetting', () => {
 
   const mockItemDependingOnSource: ChartSettingsItem = {
     id: CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_X,
-    label: msg`X Axis Data`,
+    label: `X Axis Data`,
     Icon: IconChartBar,
     isBoolean: false,
     isNumberInput: false,
@@ -27,7 +26,7 @@ describe('shouldHideChartSetting', () => {
 
   const mockItemDependingOnGroupBy: ChartSettingsItem = {
     id: CHART_CONFIGURATION_SETTING_IDS.SORT_BY_GROUP_BY_FIELD,
-    label: msg`Sort By Group`,
+    label: `Sort By Group`,
     Icon: IconChartBar,
     isBoolean: false,
     isNumberInput: false,
@@ -36,7 +35,7 @@ describe('shouldHideChartSetting', () => {
 
   const mockItemWithMultipleDependencies: ChartSettingsItem = {
     id: CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_X,
-    label: msg`X Axis Data`,
+    label: `X Axis Data`,
     Icon: IconChartBar,
     isBoolean: false,
     isNumberInput: false,
@@ -148,7 +147,7 @@ describe('shouldHideChartSetting', () => {
     it('should handle undefined dependsOn array', () => {
       const itemWithUndefinedDependsOn: ChartSettingsItem = {
         id: CHART_CONFIGURATION_SETTING_IDS.DATA_LABELS,
-        label: msg`Data Labels`,
+        label: `Data Labels`,
         Icon: IconChartBar,
         isBoolean: true,
         isNumberInput: false,
@@ -167,7 +166,7 @@ describe('shouldHideChartSetting', () => {
     it('should handle empty dependsOn array', () => {
       const itemWithEmptyDependsOn: ChartSettingsItem = {
         id: CHART_CONFIGURATION_SETTING_IDS.DATA_LABELS,
-        label: msg`Data Labels`,
+        label: `Data Labels`,
         Icon: IconChartBar,
         isBoolean: true,
         isNumberInput: false,
@@ -183,7 +182,7 @@ describe('shouldHideChartSetting', () => {
   describe('date granularity visibility based on field type', () => {
     const mockDateGranularityXItem: ChartSettingsItem = {
       id: CHART_CONFIGURATION_SETTING_IDS.DATE_GRANULARITY_X,
-      label: msg`Date Granularity X`,
+      label: `Date Granularity X`,
       Icon: IconChartBar,
       isBoolean: false,
       isNumberInput: false,
@@ -191,7 +190,7 @@ describe('shouldHideChartSetting', () => {
 
     const mockDateGranularityYItem: ChartSettingsItem = {
       id: CHART_CONFIGURATION_SETTING_IDS.DATE_GRANULARITY_Y,
-      label: msg`Date Granularity Y`,
+      label: `Date Granularity Y`,
       Icon: IconChartBar,
       isBoolean: false,
       isNumberInput: false,
@@ -199,7 +198,7 @@ describe('shouldHideChartSetting', () => {
 
     const mockDateGranularityItem: ChartSettingsItem = {
       id: CHART_CONFIGURATION_SETTING_IDS.DATE_GRANULARITY,
-      label: msg`Date Granularity`,
+      label: `Date Granularity`,
       Icon: IconChartBar,
       isBoolean: false,
       isNumberInput: false,
@@ -489,7 +488,7 @@ describe('shouldHideChartSetting', () => {
   describe('split multi-value fields visibility based on grouped field types', () => {
     const splitMultiValueFieldsXItem: ChartSettingsItem = {
       id: CHART_CONFIGURATION_SETTING_IDS.SPLIT_MULTI_VALUE_FIELDS_X,
-      label: msg`Split multiple values`,
+      label: `Split multiple values`,
       Icon: IconChartBar,
       isBoolean: true,
       isNumberInput: false,
@@ -497,7 +496,7 @@ describe('shouldHideChartSetting', () => {
 
     const splitMultiValueFieldsYItem: ChartSettingsItem = {
       id: CHART_CONFIGURATION_SETTING_IDS.SPLIT_MULTI_VALUE_FIELDS_Y,
-      label: msg`Split multiple values`,
+      label: `Split multiple values`,
       Icon: IconChartBar,
       isBoolean: true,
       isNumberInput: false,

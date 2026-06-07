@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
@@ -240,7 +239,7 @@ export const FormMultiSelectFieldInput = ({
                 data-open={draftValue.editingMode === 'edit'}
                 onClick={handleDisplayModeClick}
               >
-                <VisibilityHidden>{t`Ubah`}</VisibilityHidden>
+                <VisibilityHidden>{`Ubah`}</VisibilityHidden>
 
                 {isDefined(selectedOptions) && selectedOptions.length > 0 ? (
                   <MultiSelectDisplay

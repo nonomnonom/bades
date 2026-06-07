@@ -1,4 +1,4 @@
-import { msg, useLingui } from '~/utils/i18n/badesI18n';
+import { i18n, useLingui } from '~/utils/i18n/badesI18n';
 import { useInputFocusWithoutScrollOnMount } from '@/ui/input/hooks/useInputFocusWithoutScrollOnMount';
 import { styled } from '@linaria/react';
 import { forwardRef, type InputHTMLAttributes } from 'react';
@@ -47,7 +47,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const defaultSearchPlaceholder = msg`Cari`;
+const defaultSearchPlaceholder = `Cari`;
 
 export const DropdownMenuSearchInput = forwardRef<
   HTMLInputElement,

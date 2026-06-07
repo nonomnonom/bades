@@ -1,6 +1,5 @@
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useMutation } from '@apollo/client/react';
@@ -27,12 +26,12 @@ export const useEndSubscriptionTrialPeriod = () => {
       }
 
       enqueueErrorSnackBar({
-        message: t`Tautan pembayaran belum tersedia. Silakan coba lagi atau hubungi tim Bades.`,
+        message: `Tautan pembayaran belum tersedia. Silakan coba lagi atau hubungi tim Bades.`,
       });
       return { success: false };
     } catch {
       enqueueErrorSnackBar({
-        message: t`Terjadi kesalahan saat mengakhiri masa uji coba. Silakan hubungi tim Bades.`,
+        message: `Terjadi kesalahan saat mengakhiri masa uji coba. Silakan hubungi tim Bades.`,
       });
       return { success: false };
     } finally {

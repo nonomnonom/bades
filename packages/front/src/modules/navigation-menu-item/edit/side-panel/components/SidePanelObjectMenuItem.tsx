@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { CommandMenuItem } from '@/command-menu/components/CommandMenuItem';
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';
@@ -27,7 +26,6 @@ export const SidePanelObjectMenuItem = ({
   dragIndex,
   disableDrag = false,
 }: SidePanelObjectMenuItemProps) => {
-  const { t } = useLingui();
   const { currentDraft } = useDraftNavigationMenuItems();
   const { objectMetadataIdsInWorkspace } =
     useNavigationMenuObjectMetadataFromDraft(currentDraft);
@@ -77,7 +75,7 @@ export const SidePanelObjectMenuItem = ({
           onClick={handleClick}
           disabled={isDisabled}
           description={
-            isAlreadyInNavbar ? t`Sudah ada di bilah sisi` : undefined
+            isAlreadyInNavbar ? `Sudah ada di bilah sisi` : undefined
           }
         />
       )}

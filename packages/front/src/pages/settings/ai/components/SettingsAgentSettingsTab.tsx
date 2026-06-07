@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { IconPicker } from '@/ui/input/components/IconPicker';
@@ -50,7 +49,6 @@ export const SettingsAgentSettingsTab = ({
   disabled,
   agent,
 }: SettingsAgentSettingsTabProps) => {
-  const { t } = useLingui();
   const { openModal } = useModal();
 
   const fillNameFromLabel = (label: string) => {
@@ -74,7 +72,7 @@ export const SettingsAgentSettingsTab = ({
           <StyledNameContainer>
             <SettingsTextInput
               instanceId="agent-label-input"
-              placeholder={t`Masukkan nama agen*`}
+              placeholder={`Masukkan nama agen*`}
               value={formValues.label}
               onChange={(value) => {
                 onFieldChange('label', value);
@@ -89,7 +87,7 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-description-textarea"
-          placeholder={t`Tulis deskripsi untuk agen ini`}
+          placeholder={`Tulis deskripsi untuk agen ini`}
           minRows={3}
           value={formValues.description || ''}
           onChange={(value) => onFieldChange('description', value)}
@@ -99,8 +97,8 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-prompt-textarea"
-          label={t`Prompt Sistem`}
-          placeholder={t`Masukkan prompt sistem yang mendefinisikan perilaku dan kemampuan agen ini`}
+          label={`Prompt Sistem`}
+          placeholder={`Masukkan prompt sistem yang mendefinisikan perilaku dan kemampuan agen ini`}
           minRows={6}
           maxRows={15}
           value={formValues.prompt}
@@ -119,11 +117,11 @@ export const SettingsAgentSettingsTab = ({
       </StyledFormContainer>
       {!disabled && agent && formValues.isCustom && (
         <Section>
-          <H2Title title={t`Zona berbahaya`} description={t`Hapus agen ini`} />
+          <H2Title title={`Zona berbahaya`} description={`Hapus agen ini`} />
           <Button
             accent="danger"
             variant="secondary"
-            title={t`Hapus Agen`}
+            title={`Hapus Agen`}
             Icon={IconTrash}
             onClick={() => openModal(DELETE_AGENT_MODAL_ID)}
           />

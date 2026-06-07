@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
 import { SettingsPath } from 'shared/types';
@@ -51,7 +50,6 @@ const AddConnectionDropdown = ({
   provider: FrontendApplicationConnectionProvider;
   onPick: (visibility: 'user' | 'workspace') => void;
 }) => {
-  const { t } = useLingui();
   const dropdownId = `app-connection-add-${provider.id}`;
   const { closeDropdown } = useCloseDropdown();
 
@@ -66,7 +64,7 @@ const AddConnectionDropdown = ({
       dropdownPlacement="bottom-start"
       clickableComponent={
         <Button
-          title={t`Tambah koneksi`}
+          title={`Tambah koneksi`}
           Icon={IconPlus}
           variant="secondary"
           accent="default"
@@ -77,12 +75,12 @@ const AddConnectionDropdown = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Hanya untuk saya`}
+              text={`Hanya untuk saya`}
               LeftIcon={IconUser}
               onClick={() => handleSelect('user')}
             />
             <MenuItem
-              text={t`Dibagikan ke ruang kerja`}
+              text={`Dibagikan ke ruang kerja`}
               LeftIcon={IconUsers}
               onClick={() => handleSelect('workspace')}
             />
@@ -98,7 +96,6 @@ export const SettingsApplicationConnectionsSection = ({
 }: {
   applicationId: string;
 }) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const { triggerAppOAuth } = useTriggerAppOAuth();
   const { connectionProviders, loading } =
@@ -124,12 +121,12 @@ export const SettingsApplicationConnectionsSection = ({
           <Section key={provider.id}>
             <H2Title
               title={provider.displayName}
-              description={t`Kelola koneksi yang digunakan aplikasi ini untuk mengakses ${provider.displayName}.`}
+              description={`Kelola koneksi yang digunakan aplikasi ini untuk mengakses ${provider.displayName}.`}
             />
             {isOAuth && !isClientCredentialsConfigured && (
               <Info
                 accent="danger"
-                text={t`OAuth ${provider.displayName} belum dikonfigurasi oleh administrator server. Mereka perlu mengisi Client ID dan secret OAuth pada registrasi aplikasi sebelum Anda dapat menambah koneksi.`}
+                text={`OAuth ${provider.displayName} belum dikonfigurasi oleh administrator server. Mereka perlu mengisi Client ID dan secret OAuth pada registrasi aplikasi sebelum Anda dapat menambah koneksi.`}
               />
             )}
             {providerConnections.length > 0 && (
@@ -139,9 +136,9 @@ export const SettingsApplicationConnectionsSection = ({
                     CONNECTION_TABLE_ROW_GRID_TEMPLATE_COLUMNS
                   }
                 >
-                  <TableHeader>{t`Koneksi`}</TableHeader>
-                  <TableHeader>{t`Status`}</TableHeader>
-                  <TableHeader>{t`Visibilitas`}</TableHeader>
+                  <TableHeader>{`Koneksi`}</TableHeader>
+                  <TableHeader>{`Status`}</TableHeader>
+                  <TableHeader>{`Visibilitas`}</TableHeader>
                   <TableHeader />
                 </TableRow>
                 <StyledTableRowsContainer>
@@ -170,9 +167,9 @@ export const SettingsApplicationConnectionsSection = ({
                       </TableCell>
                       <TableCell clickable>
                         {connection.authFailedAt ? (
-                          <Status color="red" text={t`Perlu sambung ulang`} />
+                          <Status color="red" text={`Perlu sambung ulang`} />
                         ) : (
-                          <Status color="green" text={t`Terhubung`} />
+                          <Status color="green" text={`Terhubung`} />
                         )}
                       </TableCell>
                       <TableCell clickable>
@@ -184,8 +181,8 @@ export const SettingsApplicationConnectionsSection = ({
                           }
                           text={
                             connection.visibility === 'workspace'
-                              ? t`Dibagikan ke ruang kerja`
-                              : t`Hanya untuk saya`
+                              ? `Dibagikan ke ruang kerja`
+                              : `Hanya untuk saya`
                           }
                         />
                       </TableCell>

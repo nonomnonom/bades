@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useState } from 'react';
 
 import { CalendarEventParticipantsResponseStatus } from '@/activities/calendar/components/CalendarEventParticipantsResponseStatus';
@@ -93,7 +92,6 @@ const StyledPropertyBoxContainer = styled.div`
 export const CalendarEventDetails = ({
   calendarEvent,
 }: CalendarEventDetailsProps) => {
-  const { t } = useLingui();
   const { objectMetadataItem } = useObjectMetadataItem({
     objectNameSingular: CoreObjectNameSingular.CalendarEvent,
   });
@@ -219,7 +217,7 @@ export const CalendarEventDetails = ({
             variant={ChipVariant.Highlighted}
             clickable={false}
             leftComponent={<AvatarOrIcon Icon={IconCalendarEvent} />}
-            label={t`Jadwal`}
+            label={`Jadwal`}
           />
         </StyledEventChipWrapper>
         <StyledHeader>
@@ -227,7 +225,7 @@ export const CalendarEventDetails = ({
             {calendarEvent.title}
           </StyledTitle>
           <StyledCreatedAt>
-            {t`Dibuat`}{' '}
+            {`Dibuat`}{' '}
             {beautifyPastDateRelativeToNow(
               new Date(calendarEvent.externalCreatedAt),
             )}

@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -26,7 +26,6 @@ type FieldErrors = Partial<
 >;
 export const SettingsNewEmailingDomain = () => {
   const navigate = useNavigateSettings();
-  const { t } = useLingui();
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
   const [formValues, setFormValues] =
@@ -86,7 +85,7 @@ export const SettingsNewEmailingDomain = () => {
         },
         onCompleted: (data) => {
           enqueueSuccessSnackBar({
-            message: t`Domain pengiriman surel berhasil dibuat. Verifikasi domain untuk mulai menggunakannya.`,
+            message: `Domain pengiriman surel berhasil dibuat. Verifikasi domain untuk mulai menggunakannya.`,
           });
           if (!data.createEmailingDomain?.id) return;
 
@@ -111,7 +110,7 @@ export const SettingsNewEmailingDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Domain Pengiriman Surel Baru`}
+      title={`Domain Pengiriman Surel Baru`}
       actionButton={
         <SaveAndCancelButtons
           onCancel={() => navigate(SettingsPath.Applications)}
@@ -138,8 +137,8 @@ export const SettingsNewEmailingDomain = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Domain`}
-            description={t`Nama domain yang ingin digunakan untuk pengiriman surel`}
+            title={`Domain`}
+            description={`Nama domain yang ingin digunakan untuk pengiriman surel`}
           />
           <SettingsTextInput
             instanceId="emailing-domain"

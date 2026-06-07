@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Card, Section } from 'ui/layout';
 import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsOptions/SettingsOptionCardContentToggle';
 import { IconArrowBarToDown } from 'ui/display';
@@ -20,8 +19,6 @@ export const SettingsAdminApplicationRegistrationGeneralToggles = ({
 }: {
   registration: ApplicationRegistration;
 }) => {
-  const { t } = useLingui();
-
   const [updateRegistration] = useMutation(
     UpdateApplicationRegistrationDocument,
   );
@@ -32,8 +29,8 @@ export const SettingsAdminApplicationRegistrationGeneralToggles = ({
         <Card rounded fullWidth>
           <SettingsOptionCardContentToggle
             Icon={IconArrowBarToDown}
-            title={t`Izinkan pemasangan`}
-            description={t`Tampilkan aplikasi ini dalam daftar paket NPM`}
+            title={`Izinkan pemasangan`}
+            description={`Tampilkan aplikasi ini dalam daftar paket NPM`}
             checked={registration.isListed}
             onChange={(checked) =>
               updateRegistration({

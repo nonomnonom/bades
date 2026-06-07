@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useFieldFocus } from '@/object-record/record-field/ui/hooks/useFieldFocus';
 import { usePhonesFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/usePhonesFieldDisplay';
 import { PhonesDisplay } from '@/ui/field/display/components/PhonesDisplay';
@@ -11,8 +10,6 @@ export const PhonesFieldDisplay = () => {
   const { copyToClipboard } = useCopyToClipboard();
   const { isFocused } = useFieldFocus();
 
-  const { t } = useLingui();
-
   const onClickAction = fieldDefinition.metadata.settings?.clickAction;
 
   const handleClick = async (
@@ -21,7 +18,7 @@ export const PhonesFieldDisplay = () => {
   ) => {
     if (onClickAction === FieldMetadataSettingsOnClickAction.COPY) {
       event.preventDefault();
-      copyToClipboard(phoneNumber, t`Nomor telepon berhasil disalin`);
+      copyToClipboard(phoneNumber, `Nomor telepon berhasil disalin`);
     }
   };
 

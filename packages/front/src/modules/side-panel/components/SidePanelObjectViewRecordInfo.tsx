@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { OverflowingTextWithTooltip } from 'ui/display';
 
 import { SidePanelPageInfoLayout } from '@/side-panel/components/SidePanelPageInfoLayout';
@@ -9,7 +8,6 @@ import { useSelectedNavigationMenuItemEditItemLabel } from '@/navigation-menu-it
 import { useSelectedNavigationMenuItemEditItemObjectMetadata } from '@/navigation-menu-item/edit/hooks/useSelectedNavigationMenuItemEditItemObjectMetadata';
 
 export const SidePanelObjectViewRecordInfo = () => {
-  const { t } = useLingui();
   const { selectedItem } = useSelectedNavigationMenuItemEditItem();
   const { selectedItemLabel } = useSelectedNavigationMenuItemEditItemLabel();
   const { selectedItemObjectMetadata } =
@@ -38,8 +36,8 @@ export const SidePanelObjectViewRecordInfo = () => {
     navItem.type === NavigationMenuItemType.RECORD
       ? selectedItemObjectMetadata?.labelSingular
       : navItem.type === NavigationMenuItemType.OBJECT
-        ? t`Objek`
-        : t`Tampilan`;
+        ? `Objek`
+        : `Tampilan`;
 
   return (
     <SidePanelPageInfoLayout

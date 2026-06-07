@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { SkillExceptionCode } from 'src/engine/metadata-modules/skill/skill.exception';
@@ -17,7 +17,7 @@ export const validateSkillLabelIsDefined = ({
   return [
     {
       code: SkillExceptionCode.INVALID_SKILL_INPUT,
-      message: t`Label cannot be empty`,
+      message: `Label cannot be empty`,
       userFriendlyMessage: msg`Label cannot be empty`,
     },
   ];
@@ -35,7 +35,7 @@ export const validateSkillContentIsDefined = ({
   return [
     {
       code: SkillExceptionCode.INVALID_SKILL_INPUT,
-      message: t`Content cannot be empty`,
+      message: `Content cannot be empty`,
       userFriendlyMessage: msg`Content cannot be empty`,
     },
   ];

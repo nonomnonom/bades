@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { IconSearch, IconSettings } from 'ui/display';
@@ -25,21 +24,19 @@ export const BackgroundMockNavigationDrawer = ({
   className,
 }: BackgroundMockNavigationDrawerProps) => {
   const isMobile = useIsMobile();
-  const { t } = useLingui();
-
   return (
     <NavigationDrawer className={className} title={DEFAULT_WORKSPACE_NAME}>
       {!isMobile && (
         <StyledMainSectionWrapper>
           <NavigationDrawerSection>
             <NavigationDrawerItem
-              label={t`Cari`}
+              label={`Cari`}
               Icon={IconSearch}
               onClick={() => {}}
               modifier={{ keyboard: [getOsControlSymbol(), 'K'] }}
             />
             <NavigationDrawerItem
-              label={t`Pengaturan`}
+              label={`Pengaturan`}
               to={getSettingsPath(SettingsPath.ProfilePage)}
               onClick={() => {}}
               Icon={IconSettings}
@@ -48,7 +45,7 @@ export const BackgroundMockNavigationDrawer = ({
         </StyledMainSectionWrapper>
       )}
       <NavigationDrawerSection>
-        <NavigationDrawerSectionTitle label={t`Ruang Kerja`} />
+        <NavigationDrawerSectionTitle label={`Ruang Kerja`} />
         {BACKGROUND_MOCK_WORKSPACE_ITEMS.map((item, index) => (
           <NavigationDrawerItem
             key={item.label}
@@ -61,7 +58,7 @@ export const BackgroundMockNavigationDrawer = ({
         ))}
       </NavigationDrawerSection>
       <NavigationDrawerSection>
-        <NavigationDrawerSectionTitle label={t`Lainnya`} />
+        <NavigationDrawerSectionTitle label={`Lainnya`} />
         {BACKGROUND_MOCK_OTHER_ITEMS.map((item) => (
           <NavigationDrawerItem
             key={item.label}

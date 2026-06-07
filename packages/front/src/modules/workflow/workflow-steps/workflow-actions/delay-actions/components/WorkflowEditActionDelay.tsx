@@ -6,7 +6,6 @@ import { type WorkflowDelayAction } from '@/workflow/types/Workflow';
 import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowStepBody';
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import {
   HorizontalSeparator,
@@ -71,12 +70,12 @@ export const WorkflowEditActionDelay = ({
 
   const delayOptions: Array<SelectOption<'SCHEDULED_DATE' | 'DURATION'>> = [
     {
-      label: t`Pada tanggal atau waktu tertentu`,
+      label: `Pada tanggal atau waktu tertentu`,
       value: 'SCHEDULED_DATE',
       Icon: IconCalendar,
     },
     {
-      label: t`Setelah durasi waktu tertentu`,
+      label: `Setelah durasi waktu tertentu`,
       value: 'DURATION',
       Icon: IconHourglassHigh,
     },
@@ -174,7 +173,7 @@ export const WorkflowEditActionDelay = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-action-delay-type"
-          label={t`Lanjutkan`}
+          label={`Lanjutkan`}
           options={delayOptions}
           dropdownWidth={GenericDropdownContentWidth.Large}
           value={action.settings.input.delayType}
@@ -185,51 +184,51 @@ export const WorkflowEditActionDelay = ({
 
         {action.settings.input.delayType === 'SCHEDULED_DATE' && (
           <FormDateTimeFieldInput
-            label={t`Tunda hingga tanggal`}
+            label={`Tunda hingga tanggal`}
             defaultValue={action.settings.input.scheduledDateTime ?? undefined}
             onChange={handleDateTimeChange}
             readonly={actionOptions.readonly}
             VariablePicker={WorkflowVariablePicker}
-            placeholder={t`Pilih tanggal`}
+            placeholder={`Pilih tanggal`}
           />
         )}
         {action.settings.input.delayType === 'DURATION' && (
           <>
             <FormNumberFieldInput
-              label={t`Hari`}
+              label={`Hari`}
               defaultValue={localDuration.days}
               onChange={(value) => handleDurationDraftChange('days', value)}
               onBlur={handleDurationCommit}
               readonly={actionOptions.readonly}
               VariablePicker={WorkflowVariablePicker}
-              placeholder={t`0`}
+              placeholder={`0`}
             />
             <FormNumberFieldInput
-              label={t`Jam`}
+              label={`Jam`}
               defaultValue={localDuration.hours}
               onChange={(value) => handleDurationDraftChange('hours', value)}
               onBlur={handleDurationCommit}
               readonly={actionOptions.readonly}
               VariablePicker={WorkflowVariablePicker}
-              placeholder={t`0`}
+              placeholder={`0`}
             />
             <FormNumberFieldInput
-              label={t`Menit`}
+              label={`Menit`}
               defaultValue={localDuration.minutes}
               onChange={(value) => handleDurationDraftChange('minutes', value)}
               onBlur={handleDurationCommit}
               readonly={actionOptions.readonly}
               VariablePicker={WorkflowVariablePicker}
-              placeholder={t`0`}
+              placeholder={`0`}
             />
             <FormNumberFieldInput
-              label={t`Detik`}
+              label={`Detik`}
               defaultValue={localDuration.seconds}
               onChange={(value) => handleDurationDraftChange('seconds', value)}
               onBlur={handleDurationCommit}
               readonly={actionOptions.readonly}
               VariablePicker={WorkflowVariablePicker}
-              placeholder={t`0`}
+              placeholder={`0`}
             />
           </>
         )}

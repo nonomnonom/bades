@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsNewAccountSection } from '@/settings/accounts/components/SettingsNewAccountSection';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -8,17 +7,17 @@ import { getSettingsPath } from 'shared/utils';
 export const SettingsNewAccount = () => {
   return (
     <SubMenuTopBarContainer
-      title={t`Akun Baru`}
+      title={`Akun Baru`}
       links={[
         {
-          children: t`Pengguna`,
+          children: `Pengguna`,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: t`Akun`,
+          children: `Akun`,
           href: getSettingsPath(SettingsPath.Accounts),
         },
-        { children: t`Baru` },
+        { children: `Baru` },
       ]}
     >
       <SettingsPageContainer>

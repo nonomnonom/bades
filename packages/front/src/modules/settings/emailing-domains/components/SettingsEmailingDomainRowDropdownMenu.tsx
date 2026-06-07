@@ -4,7 +4,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconTrash } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -45,7 +44,7 @@ export const SettingsEmailingDomainRowDropdownMenu = ({
       });
 
       enqueueSuccessSnackBar({
-        message: t`Domain email berhasil dihapus`,
+        message: `Domain email berhasil dihapus`,
       });
 
       await refetchEmailingDomains();
@@ -69,7 +68,7 @@ export const SettingsEmailingDomainRowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Hapus`}
+              text={`Hapus`}
               onClick={() => {
                 handleDeleteEmailingDomain();
                 closeDropdown(dropdownId);

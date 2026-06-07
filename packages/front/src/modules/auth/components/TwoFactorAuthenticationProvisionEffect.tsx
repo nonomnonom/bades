@@ -3,7 +3,6 @@ import { qrCodeState } from '@/auth/states/qrCode';
 import { useOrigin } from '@/domain-manager/hooks/useOrigin';
 import { useCurrentUserWorkspaceTwoFactorAuthentication } from '@/settings/two-factor-authentication/hooks/useCurrentUserWorkspaceTwoFactorAuthentication';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { AppPath } from 'shared/types';
@@ -22,8 +21,6 @@ export const TwoFactorAuthenticationSetupEffect = () => {
   const qrCode = useAtomStateValue(qrCodeState);
   const setQrCode = useSetAtomState(qrCodeState);
 
-  const { t } = useLingui();
-
   useEffect(() => {
     if (isDefined(qrCode)) {
       return;
@@ -33,7 +30,7 @@ export const TwoFactorAuthenticationSetupEffect = () => {
       try {
         if (!loginToken) {
           enqueueErrorSnackBar({
-            message: t`Token masuk tidak ditemukan. Pengaturan Autentikasi Dua Faktor tidak dapat dimulai.`,
+            message: `Token masuk tidak ditemukan. Pengaturan Autentikasi Dua Faktor tidak dapat dimulai.`,
             options: {
               dedupeKey: 'invalid-session-dedupe-key',
             },
@@ -57,7 +54,7 @@ export const TwoFactorAuthenticationSetupEffect = () => {
         );
       } catch {
         enqueueErrorSnackBar({
-          message: t`Penyiapan autentikasi dua faktor gagal.`,
+          message: `Penyiapan autentikasi dua faktor gagal.`,
           options: {
             dedupeKey:
               'two-factor-authentication-provisioning-initiation-failed',

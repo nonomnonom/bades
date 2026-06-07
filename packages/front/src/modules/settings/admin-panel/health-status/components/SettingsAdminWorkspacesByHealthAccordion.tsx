@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
@@ -114,7 +113,7 @@ export const SettingsAdminWorkspacesByHealthAccordion = ({
                       { workspaceId: workspace.id },
                     )}
                   >
-                    {workspace.name ?? t`Ruang kerja tidak diketahui`}
+                    {workspace.name ?? `Ruang kerja tidak diketahui`}
                     {' - '}
                     {workspace.id}
                   </StyledWorkspaceLink>

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { isDefined } from 'shared/utils';
 
@@ -135,7 +134,7 @@ export const useGetBrowsingContext = () => {
             (field) => field.id === filter.fieldMetadataId,
           );
           const fieldLabel =
-            fieldMetadataItem?.label ?? t`Kolom tidak diketahui`;
+            fieldMetadataItem?.label ?? `Kolom tidak diketahui`;
 
           return `${fieldLabel} ${filter.operand} "${filter.displayValue}"`;
         },

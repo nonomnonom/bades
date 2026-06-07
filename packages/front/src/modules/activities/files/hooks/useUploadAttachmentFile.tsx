@@ -5,7 +5,6 @@ import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadata
 import { CoreObjectNameSingular } from 'shared/types';
 import { useCreateOneRecord } from '@/object-record/hooks/useCreateOneRecord';
 import { useApolloClient, useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 import {
   FieldMetadataType,
@@ -37,7 +36,7 @@ export const useUploadAttachmentFile = () => {
   ) => {
     assertIsDefinedOrThrow(
       filesFieldMetadataId,
-      new Error(t`Kolom berkas tidak ditemukan untuk objek lampiran`),
+      new Error(`Kolom berkas tidak ditemukan untuk objek lampiran`),
     );
 
     const result = await uploadFilesFieldFile({
@@ -47,7 +46,7 @@ export const useUploadAttachmentFile = () => {
     const uploadedFile = result?.data?.uploadFilesFieldFile;
 
     if (!isDefined(uploadedFile)) {
-      throw new Error(t`Gagal mengunggah lampiran.`);
+      throw new Error(`Gagal mengunggah lampiran.`);
     }
 
     const targetableObjectFieldIdName = getActivityTargetObjectFieldIdName({

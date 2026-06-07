@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { useDeleteOneObjectMetadataItem } from '@/object-metadata/hooks/useDeleteOneObjectMetadataItem';
@@ -68,8 +67,6 @@ export const SettingsObjectTable = ({
   withSearchBar?: boolean;
 }) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const isAdvancedModeEnabled = useAtomStateValue(isAdvancedModeEnabledState);
   const isDDLLocked = useAtomStateValue(isDDLLockedState);
 
@@ -152,7 +149,7 @@ export const SettingsObjectTable = ({
       {withSearchBar && (
         <StyledSearchInputContainer>
           <SearchInput
-            placeholder={t`Cari objek...`}
+            placeholder={`Cari objek...`}
             value={searchTerm}
             onChange={setSearchTerm}
             filterDropdown={(filterButton: ReactNode) => (
@@ -170,7 +167,7 @@ export const SettingsObjectTable = ({
                           setShowDeactivated(!showDeactivated)
                         }
                         toggled={showDeactivated}
-                        text={t`Dinonaktifkan`}
+                        text={`Dinonaktifkan`}
                         toggleSize="small"
                       />
                       {isAdvancedModeEnabled && (
@@ -180,7 +177,7 @@ export const SettingsObjectTable = ({
                             setShowSystemObjects(!showSystemObjects)
                           }
                           toggled={showSystemObjects}
-                          text={t`Objek sistem`}
+                          text={`Objek sistem`}
                           toggleSize="small"
                         />
                       )}
@@ -209,7 +206,7 @@ export const SettingsObjectTable = ({
                     >
                       <SortableTableHeader
                         fieldName={settingsObjectsTableMetadataField.fieldName}
-                        label={t(settingsObjectsTableMetadataField.fieldLabel)}
+                        label={settingsObjectsTableMetadataField.fieldLabel}
                         tableId={GET_SETTINGS_OBJECT_TABLE_METADATA.tableId}
                         align={settingsObjectsTableMetadataField.align}
                         initialSort={
@@ -221,7 +218,7 @@ export const SettingsObjectTable = ({
                     <SortableTableHeader
                       key={settingsObjectsTableMetadataField.fieldName}
                       fieldName={settingsObjectsTableMetadataField.fieldName}
-                      label={t(settingsObjectsTableMetadataField.fieldLabel)}
+                      label={settingsObjectsTableMetadataField.fieldLabel}
                       tableId={GET_SETTINGS_OBJECT_TABLE_METADATA.tableId}
                       align={settingsObjectsTableMetadataField.align}
                       initialSort={

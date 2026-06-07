@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useRef } from 'react';
 import { useStore } from 'jotai';
 
@@ -114,7 +113,7 @@ export const MultipleRecordPicker = ({
         <CreateNewButton
           onClick={handleCreateNewButtonClick}
           LeftIcon={IconPlus}
-          text={t`Tambah Baru`}
+          text={`Tambah Baru`}
         />
       </DropdownMenuItemsContainer>
     ) : null;

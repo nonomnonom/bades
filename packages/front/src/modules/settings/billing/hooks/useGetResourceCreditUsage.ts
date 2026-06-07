@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 import { useQuery } from '@apollo/client/react';
 import { isDefined } from 'shared/utils';
 import {
@@ -20,7 +18,7 @@ export const useGetResourceCreditUsage = () => {
 
   const getResourceCreditUsage = () => {
     if (!data) {
-      throw new Error(t`Penggunaan kredit resource belum dimuat`);
+      throw new Error(`Penggunaan kredit resource belum dimuat`);
     }
 
     const usage = data.getResourceCreditUsage.find(
@@ -29,7 +27,7 @@ export const useGetResourceCreditUsage = () => {
     );
 
     if (!isDefined(usage)) {
-      throw new Error(t`Penggunaan RESOURCE_CREDIT tidak ditemukan`);
+      throw new Error(`Penggunaan RESOURCE_CREDIT tidak ditemukan`);
     }
 
     return usage;

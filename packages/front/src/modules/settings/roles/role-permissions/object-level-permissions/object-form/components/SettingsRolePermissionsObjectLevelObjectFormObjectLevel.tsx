@@ -5,7 +5,6 @@ import { type SettingsRolePermissionsObjectLevelPermission } from '@/settings/ro
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -44,22 +43,22 @@ export const SettingsRolePermissionsObjectLevelObjectFormObjectLevel = ({
     [
       {
         key: 'canReadObjectRecords',
-        label: t`Lihat ${objectLabelPlural}`,
+        label: `Lihat ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canReadObjectRecords,
       },
       {
         key: 'canUpdateObjectRecords',
-        label: t`Ubah ${objectLabelPlural}`,
+        label: `Ubah ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canUpdateObjectRecords,
       },
       {
         key: 'canSoftDeleteObjectRecords',
-        label: t`Hapus ${objectLabelPlural}`,
+        label: `Hapus ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canSoftDeleteObjectRecords,
       },
       {
         key: 'canDestroyObjectRecords',
-        label: t`Hapus permanen ${objectLabelPlural}`,
+        label: `Hapus permanen ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canDestroyObjectRecords,
       },
     ];
@@ -67,8 +66,8 @@ export const SettingsRolePermissionsObjectLevelObjectFormObjectLevel = ({
   return (
     <Section>
       <H2Title
-        title={t`Tingkat Objek`}
-        description={t`Tindakan yang dapat dilakukan pengguna pada objek ini`}
+        title={`Tingkat Objek`}
+        description={`Tindakan yang dapat dilakukan pengguna pada objek ini`}
       />
       <StyledTable>
         <SettingsRolePermissionsObjectLevelObjectFormObjectLevelTableHeader />

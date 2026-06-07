@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type NonReadableViewFieldInfo } from '@/object-record/record-index/hooks/useHasCurrentViewNonReadableFields';
 import { getNonReadableViewFieldSubTitle } from '@/object-record/record-index/utils/getNonReadableViewFieldSubTitle';
 import { styled } from '@linaria/react';
@@ -30,13 +29,13 @@ export const RecordIndexEmptyStateNotShared = ({
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
             {isDefined(nonReadableViewFieldInfo)
-              ? t`Tampilan tidak dibagikan`
-              : t`Objek tidak dibagikan`}
+              ? `Tampilan tidak dibagikan`
+              : `Objek tidak dibagikan`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
             {isDefined(nonReadableViewFieldInfo)
               ? getNonReadableViewFieldSubTitle(nonReadableViewFieldInfo)
-              : t`Anda tidak memiliki akses ke objek ini.`}
+              : `Anda tidak memiliki akses ke objek ini.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

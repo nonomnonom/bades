@@ -5,7 +5,6 @@ import { DraggableItem } from '@/ui/layout/draggable-list/components/DraggableIt
 import { FieldsConfigurationFieldEditor } from '@/page-layout/widgets/fields/components/FieldsConfigurationFieldEditor';
 import { type FieldsWidgetGroupField } from '@/page-layout/widgets/fields/types/FieldsWidgetGroup';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconNewSection } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 
@@ -28,8 +27,6 @@ export const FieldsConfigurationUngroupedEditor = ({
   onToggleFieldVisibility,
   onAddGroup,
 }: FieldsConfigurationUngroupedEditorProps) => {
-  const { t } = useLingui();
-
   const sortedFields = [...ungroupedFields].sort(
     (a, b) => a.position - b.position,
   );
@@ -82,7 +79,7 @@ export const FieldsConfigurationUngroupedEditor = ({
 
             <MenuItem
               LeftIcon={IconNewSection}
-              text={t`Tambah grup`}
+              text={`Tambah grup`}
               onClick={onAddGroup}
               withIconContainer
               withIconContainerBackground={false}

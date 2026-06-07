@@ -4,7 +4,6 @@ import { anyFieldFilterValueComponentState } from '@/object-record/record-filter
 import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 
 export const useOpenAnyFieldSearchFilterFromViewBar = () => {
@@ -23,7 +22,7 @@ export const useOpenAnyFieldSearchFilterFromViewBar = () => {
     objectFilterDropdownSearchInputComponentState,
   );
 
-  const translatedLabel = t`Cari di semua kolom`;
+  const translatedLabel = `Cari di semua kolom`;
 
   const openAnyFieldSearchFilterFromViewBar = () => {
     const userHasAlreadyEnteredSearchInputForObjectDropdownSearch =

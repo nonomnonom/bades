@@ -5,8 +5,6 @@ import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataIte
 import { fieldMetadataItemSchema } from '@/object-metadata/validation-schemas/fieldMetadataItemSchema';
 
 import { TextArea } from '@/ui/input/components/TextArea';
-import { t } from '~/utils/i18n/badesI18n';
-
 export const settingsDataModelFieldDescriptionFormSchema = () => {
   return fieldMetadataItemSchema([]).pick({
     description: true,
@@ -39,7 +37,7 @@ export const SettingsDataModelFieldDescriptionForm = ({
       render={({ field: { onChange, value } }) => (
         <TextArea
           textAreaId={descriptionTextAreaId}
-          placeholder={t`Tulis deskripsi`}
+          placeholder={`Tulis deskripsi`}
           minRows={4}
           value={value ?? undefined}
           onChange={onChange}

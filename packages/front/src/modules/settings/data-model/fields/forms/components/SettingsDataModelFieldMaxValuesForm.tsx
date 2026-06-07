@@ -3,7 +3,6 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetadataItemById';
 import { SettingsOptionCardContentCounter } from '@/settings/components/SettingsOptions/SettingsOptionCardContentCounter';
 import { type SettingsDataModelFieldMaxValuesFormValues } from '@/settings/data-model/fields/forms/utils/settingsDataModelFieldMaxValuesSchema';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   MULTI_ITEM_FIELD_DEFAULT_MAX_VALUES,
   MULTI_ITEM_FIELD_MIN_MAX_VALUES,
@@ -25,7 +24,6 @@ export const SettingsDataModelFieldMaxValuesForm = ({
   existingFieldMetadataId,
   fieldType,
 }: SettingsDataModelFieldMaxValuesFormProps) => {
-  const { t } = useLingui();
   const { control } =
     useFormContext<SettingsDataModelFieldMaxValuesFormValues>();
 
@@ -38,24 +36,24 @@ export const SettingsDataModelFieldMaxValuesForm = ({
 
   switch (fieldType) {
     case FieldMetadataType.PHONES:
-      title = t`Maks. nomor telepon`;
-      description = t`Kemampuan menambahkan lebih dari satu nomor telepon`;
+      title = `Maks. nomor telepon`;
+      description = `Kemampuan menambahkan lebih dari satu nomor telepon`;
       break;
     case FieldMetadataType.EMAILS:
-      title = t`Maks. alamat email`;
-      description = t`Kemampuan menambahkan lebih dari satu alamat email`;
+      title = `Maks. alamat email`;
+      description = `Kemampuan menambahkan lebih dari satu alamat email`;
       break;
     case FieldMetadataType.LINKS:
-      title = t`Maks. URL`;
-      description = t`Kemampuan menambahkan lebih dari satu URL`;
+      title = `Maks. URL`;
+      description = `Kemampuan menambahkan lebih dari satu URL`;
       break;
     case FieldMetadataType.ARRAY:
-      title = t`Maks. nilai`;
-      description = t`Batasi berapa banyak nilai yang dapat ditambahkan ke kolom ini`;
+      title = `Maks. nilai`;
+      description = `Batasi berapa banyak nilai yang dapat ditambahkan ke kolom ini`;
       break;
     case FieldMetadataType.FILES:
-      title = t`Maks. berkas`;
-      description = t`Batasi berapa banyak berkas yang dapat dilampirkan ke kolom ini`;
+      title = `Maks. berkas`;
+      description = `Batasi berapa banyak berkas yang dapat dilampirkan ke kolom ini`;
       break;
     default:
       return null;

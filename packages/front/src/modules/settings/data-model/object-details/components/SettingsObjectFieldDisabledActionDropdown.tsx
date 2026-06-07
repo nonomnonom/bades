@@ -3,7 +3,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   IconArchiveOff,
   IconDotsVertical,
@@ -59,7 +58,7 @@ export const SettingsObjectFieldInactiveActionDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Opsi Kolom Nonaktif`}
+          aria-label={`Opsi Kolom Nonaktif`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -68,20 +67,20 @@ export const SettingsObjectFieldInactiveActionDropdown = ({
         <DropdownContent widthInPixels={GenericDropdownContentWidth.Narrow}>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={isCustomField && !readonly ? t`Ubah` : t`Lihat`}
+              text={isCustomField && !readonly ? `Ubah` : `Lihat`}
               LeftIcon={isCustomField ? IconPencil : IconEye}
               onClick={handleEdit}
             />
             {!readonly && (
               <MenuItem
-                text={t`Aktifkan`}
+                text={`Aktifkan`}
                 LeftIcon={IconArchiveOff}
                 onClick={handleActivate}
               />
             )}
             {isDeletable && !readonly && (
               <MenuItem
-                text={t`Hapus`}
+                text={`Hapus`}
                 accent="danger"
                 LeftIcon={IconTrash}
                 onClick={handleDelete}

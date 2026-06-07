@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { isViewFieldInLowestPosition } from 'src/engine/metadata-modules/flat-view-field/utils/is-view-field-in-lowest-position.util';
@@ -25,7 +25,7 @@ export const validateLabelIdentifierFieldMetadataIdFlatViewField = ({
   ) {
     errors.push({
       code: ViewExceptionCode.INVALID_VIEW_DATA,
-      message: t`Label identifier view field has to be in the lowest position`,
+      message: `Label identifier view field has to be in the lowest position`,
       userFriendlyMessage: msg`Label identifier view field has to be in the lowest position`,
     });
   }
@@ -33,7 +33,7 @@ export const validateLabelIdentifierFieldMetadataIdFlatViewField = ({
   if (flatViewFieldToValidate.isVisible === false) {
     errors.push({
       code: ViewExceptionCode.INVALID_VIEW_DATA,
-      message: t`Label identifier view field has to be visible`,
+      message: `Label identifier view field has to be visible`,
       userFriendlyMessage: msg`Label identifier view field has to be visible`,
     });
   }
@@ -41,7 +41,7 @@ export const validateLabelIdentifierFieldMetadataIdFlatViewField = ({
   if (isDefined(flatViewFieldToValidate.deletedAt)) {
     errors.push({
       code: ViewExceptionCode.INVALID_VIEW_DATA,
-      message: t`Label identifier view field cannot be deleted`,
+      message: `Label identifier view field cannot be deleted`,
       userFriendlyMessage: msg`Label identifier view field cannot be deleted`,
     });
   }

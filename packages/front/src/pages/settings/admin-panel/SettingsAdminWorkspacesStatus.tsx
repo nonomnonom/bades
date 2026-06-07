@@ -1,4 +1,4 @@
-import { plural, t } from '~/utils/i18n/badesI18n';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsAdminWorkspacesByHealthAccordion } from '@/settings/admin-panel/health-status/components/SettingsAdminWorkspacesByHealthAccordion';
 import { SettingsAdminWorkspacesStatusSummaryCard } from '@/settings/admin-panel/health-status/components/SettingsAdminWorkspacesStatusSummaryCard';
@@ -57,14 +57,14 @@ export const SettingsAdminWorkspacesStatus = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Status pembaruan disegarkan`,
+        message: `Status pembaruan disegarkan`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Gagal menyegarkan status pembaruan`,
+            : `Gagal menyegarkan status pembaruan`,
       });
     }
   };
@@ -73,23 +73,23 @@ export const SettingsAdminWorkspacesStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Kesehatan`,
+          children: `Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Status ruang kerja`,
+          children: `Status ruang kerja`,
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Status ruang kerja`}
-            description={t`Kesehatan pembaruan di semua ruang kerja`}
+            title={`Status ruang kerja`}
+            description={`Kesehatan pembaruan di semua ruang kerja`}
           />
           <SettingsAdminWorkspacesStatusSummaryCard
             behindCount={behindCount}
@@ -99,7 +99,7 @@ export const SettingsAdminWorkspacesStatus = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Segarkan status`}
+              title={`Segarkan status`}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />
@@ -107,8 +107,8 @@ export const SettingsAdminWorkspacesStatus = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Detail per ruang kerja`}
-            description={t`Daftar ruang kerja berdasarkan status pembaruan`}
+            title={`Detail per ruang kerja`}
+            description={`Daftar ruang kerja berdasarkan status pembaruan`}
           />
           <StyledAccordionCardsContainer>
             <SettingsAdminWorkspacesByHealthAccordion
@@ -116,7 +116,7 @@ export const SettingsAdminWorkspacesStatus = () => {
                 one: '# ruang kerja tertinggal',
                 other: '# ruang kerja tertinggal',
               })}
-              emptyLabel={t`Tidak ada ruang kerja tertinggal`}
+              emptyLabel={`Tidak ada ruang kerja tertinggal`}
               workspaces={upgradeStatus?.workspacesBehind ?? []}
               defaultExpanded={true}
             />
@@ -125,7 +125,7 @@ export const SettingsAdminWorkspacesStatus = () => {
                 one: '# ruang kerja gagal',
                 other: '# ruang kerja gagal',
               })}
-              emptyLabel={t`Tidak ada ruang kerja gagal`}
+              emptyLabel={`Tidak ada ruang kerja gagal`}
               workspaces={upgradeStatus?.workspacesFailed ?? []}
             />
           </StyledAccordionCardsContainer>

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { RecordIndexCommandMenu } from '@/command-menu-item/components/RecordIndexCommandMenu';
 import { SidePanelToggleButton } from '@/side-panel/components/SidePanelToggleButton';
 import { MAIN_CONTEXT_STORE_INSTANCE_ID } from '@/context-store/constants/MainContextStoreInstanceId';
@@ -52,7 +51,7 @@ export const RecordIndexPageHeader = () => {
         <StyledTitle>{label}</StyledTitle>
         <>{'->'}</>
         <StyledSelectedRecordsCount>
-          {t`${contextStoreNumberOfSelectedRecords} selected`}
+          {`${contextStoreNumberOfSelectedRecords} selected`}
         </StyledSelectedRecordsCount>
       </StyledTitleWithSelectedRecords>
     ) : (

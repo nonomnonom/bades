@@ -16,7 +16,7 @@ import { DateFormat } from '@/localization/constants/DateFormat';
 import { TimeFormat } from '@/localization/constants/TimeFormat';
 import { CustomError, isDefined } from 'shared/utils';
 
-import { i18n, plural, t } from '~/utils/i18n/badesI18n';
+import { i18n, plural } from '~/utils/i18n/badesI18n';
 import { logError } from './logError';
 
 // TODO: review all of this with Temporal
@@ -82,7 +82,7 @@ export const beautifyExactDate = (dateToBeautify: Date | string | number) => {
   const parsedDate = parseDate(dateToBeautify);
   const isTodayDate = isToday(parsedDate);
   if (isTodayDate) {
-    return t`Hari ini`;
+    return `Hari ini`;
   }
   return formatDate(dateToBeautify, 'MMM d, yyyy');
 };

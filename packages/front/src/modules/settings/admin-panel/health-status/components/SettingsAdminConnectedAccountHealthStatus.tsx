@@ -1,7 +1,6 @@
 import { SettingsAdminHealthAccountSyncCountersTable } from '@/settings/admin-panel/health-status/components/SettingsAdminHealthAccountSyncCountersTable';
 import { SettingsAdminIndicatorHealthContext } from '@/settings/admin-panel/health-status/contexts/SettingsAdminIndicatorHealthContext';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { AdminPanelHealthServiceStatus } from '~/generated-admin/graphql';
@@ -35,13 +34,13 @@ export const SettingsAdminConnectedAccountHealthStatus = () => {
 
   const getErrorMessage = () => {
     if (isMessageSyncDown && isCalendarSyncDown) {
-      return t`Sinkronisasi Pesan dan Sinkronisasi Kalender tidak tersedia karena layanan sedang mati`;
+      return `Sinkronisasi Pesan dan Sinkronisasi Kalender tidak tersedia karena layanan sedang mati`;
     }
     if (isMessageSyncDown) {
-      return t`Sinkronisasi Pesan tidak tersedia karena layanan sedang mati`;
+      return `Sinkronisasi Pesan tidak tersedia karena layanan sedang mati`;
     }
     if (isCalendarSyncDown) {
-      return t`Sinkronisasi Kalender tidak tersedia karena layanan sedang mati`;
+      return `Sinkronisasi Kalender tidak tersedia karena layanan sedang mati`;
     }
     return null;
   };
@@ -55,16 +54,16 @@ export const SettingsAdminConnectedAccountHealthStatus = () => {
       {!isMessageSyncDown && serviceDetails.messageSync?.details && (
         <SettingsAdminHealthAccountSyncCountersTable
           details={serviceDetails.messageSync.details}
-          title={t`Sinkronisasi Pesan`}
-          description={t`Pantau eksekusi pekerjaan sinkronisasi email Anda`}
+          title={`Sinkronisasi Pesan`}
+          description={`Pantau eksekusi pekerjaan sinkronisasi email Anda`}
         />
       )}
 
       {!isCalendarSyncDown && serviceDetails.calendarSync?.details && (
         <SettingsAdminHealthAccountSyncCountersTable
           details={serviceDetails.calendarSync.details}
-          title={t`Sinkronisasi Kalender`}
-          description={t`Pantau eksekusi pekerjaan sinkronisasi acara kalender Anda`}
+          title={`Sinkronisasi Kalender`}
+          description={`Pantau eksekusi pekerjaan sinkronisasi acara kalender Anda`}
         />
       )}
     </StyledContainer>

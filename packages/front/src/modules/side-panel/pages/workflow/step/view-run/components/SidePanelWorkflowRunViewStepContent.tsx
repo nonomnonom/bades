@@ -24,7 +24,6 @@ import { getWorkflowRunStepExecutionStatus } from '@/workflow/workflow-steps/uti
 import { WorkflowIteratorSubStepSwitcher } from '@/workflow/workflow-steps/workflow-actions/iterator-action/components/WorkflowIteratorSubStepSwitcher';
 import { styled } from '@linaria/react';
 import { isNull } from '@sniptt/guards';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconLogin2, IconLogout, IconStepInto } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -98,7 +97,7 @@ export const SidePanelWorkflowRunViewStepContent = () => {
   const tabs: SingleTabProps<TabId>[] = [
     {
       id: WorkflowRunTabId.OUTPUT,
-      title: t`Keluaran`,
+      title: `Keluaran`,
       Icon: IconLogout,
       disabled: isOutputTabDisabled,
     },
@@ -109,7 +108,7 @@ export const SidePanelWorkflowRunViewStepContent = () => {
     },
     {
       id: WorkflowRunTabId.INPUT,
-      title: t`Masukan`,
+      title: `Masukan`,
       Icon: IconLogin2,
       disabled: isInputTabDisabled,
     },

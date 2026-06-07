@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -40,7 +40,7 @@ export class FlatPageLayoutTabValidatorService {
     if (!isDefined(referencedPageLayout)) {
       validationResult.errors.push({
         code: PageLayoutExceptionCode.PAGE_LAYOUT_NOT_FOUND,
-        message: t`Page layout not found`,
+        message: `Page layout not found`,
         userFriendlyMessage: msg`Page layout not found`,
       });
     }
@@ -73,7 +73,7 @@ export class FlatPageLayoutTabValidatorService {
     if (!isDefined(existingPageLayoutTab)) {
       validationResult.errors.push({
         code: PAGE_LAYOUT_TAB_EXCEPTION_CODE.PAGE_LAYOUT_TAB_NOT_FOUND,
-        message: t`Page layout tab not found`,
+        message: `Page layout tab not found`,
         userFriendlyMessage: msg`Page layout tab not found`,
       });
 
@@ -107,7 +107,7 @@ export class FlatPageLayoutTabValidatorService {
     if (!isDefined(fromFlatPageLayoutTab)) {
       validationResult.errors.push({
         code: PAGE_LAYOUT_TAB_EXCEPTION_CODE.PAGE_LAYOUT_TAB_NOT_FOUND,
-        message: t`Page layout tab not found`,
+        message: `Page layout tab not found`,
         userFriendlyMessage: msg`Page layout tab not found`,
       });
 

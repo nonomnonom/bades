@@ -3,7 +3,6 @@ import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAto
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { TitleInput } from '@/ui/input/components/TitleInput';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledHeaderTitle = styled.div`
@@ -48,7 +47,7 @@ export const SettingsRoleLabelContainer = ({
         sizeVariant="md"
         value={settingsDraftRole.label}
         onChange={handleChange}
-        placeholder={t`Nama peran`}
+        placeholder={`Nama peran`}
       />
     </StyledHeaderTitle>
   );

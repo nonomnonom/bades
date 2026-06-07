@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useOpenEmailInAppOrFallback } from '@/activities/emails/hooks/useOpenEmailInAppOrFallback';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import {
@@ -65,7 +64,7 @@ export const useGetSecondaryRecordTableCellButton = () => {
       window.open(`tel:${phoneNumber}`, '_blank');
     };
     copyOnClick = () => {
-      copyToClipboard(phoneNumber, t`Nomor telepon disalin`);
+      copyToClipboard(phoneNumber, `Nomor telepon disalin`);
     };
   }
 
@@ -75,7 +74,7 @@ export const useGetSecondaryRecordTableCellButton = () => {
       window.open(`mailto:${email}`, '_blank');
     };
     copyOnClick = () => {
-      copyToClipboard(email, t`Email disalin`);
+      copyToClipboard(email, `Email disalin`);
     };
     openInAppOnClick = () => {
       openEmail(email);
@@ -88,7 +87,7 @@ export const useGetSecondaryRecordTableCellButton = () => {
       window.open(ensureAbsoluteUrl(url), '_blank');
     };
     copyOnClick = () => {
-      copyToClipboard(url, t`Tautan disalin`);
+      copyToClipboard(url, `Tautan disalin`);
     };
   }
 

@@ -3,7 +3,6 @@ import { useCallback } from 'react';
 import { useOrigin } from '@/domain-manager/hooks/useOrigin';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMutation } from '@apollo/client/react';
 import { ResendEmailVerificationTokenDocument } from '~/generated-metadata/graphql';
 
@@ -19,7 +18,7 @@ export const useHandleResendEmailVerificationToken = () => {
       return async () => {
         if (!email) {
           enqueueErrorSnackBar({
-            message: t`Email tidak valid`,
+            message: `Email tidak valid`,
           });
           return;
         }
@@ -34,7 +33,7 @@ export const useHandleResendEmailVerificationToken = () => {
 
           if (data?.resendEmailVerificationToken?.success === true) {
             enqueueSuccessSnackBar({
-              message: t`Tautan verifikasi email telah dikirim ulang!`,
+              message: `Tautan verifikasi email telah dikirim ulang!`,
             });
           } else {
             enqueueErrorSnackBar({});

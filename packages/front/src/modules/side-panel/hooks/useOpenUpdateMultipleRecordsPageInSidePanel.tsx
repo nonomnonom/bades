@@ -1,7 +1,7 @@
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { SidePanelPages } from 'shared/types';
 
-import { msg, t } from '~/utils/i18n/badesI18n';
+import { msg } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { IconBoxMultiple } from 'ui/display';
 
@@ -17,7 +17,7 @@ export const useOpenUpdateMultipleRecordsPageInSidePanel = ({
   const openUpdateMultipleRecordsPageInSidePanel = useCallback(async () => {
     navigateSidePanel({
       page: SidePanelPages.UpdateRecords,
-      pageTitle: t(msg`Perbarui data`),
+      pageTitle: `Perbarui data`,
       pageIcon: IconBoxMultiple,
       pageId: contextStoreInstanceId,
     });

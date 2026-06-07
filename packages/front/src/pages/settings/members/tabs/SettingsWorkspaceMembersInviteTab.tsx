@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
 import { useQuery } from '@apollo/client/react';
@@ -73,7 +73,6 @@ const StyledTableRows = styled.div`
 
 export const SettingsWorkspaceMembersInviteTab = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { enqueueErrorSnackBar } = useSnackBar();
   const roles = useSettingsAllRoles();
   const { localeCatalog } = useAtomStateValue(dateLocaleState);
@@ -100,7 +99,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
     const result = await deleteWorkspaceInvitation({ appTokenId });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Gagal menghapus undangan`,
+        message: `Gagal menghapus undangan`,
         options: {
           duration: 2000,
         },
@@ -112,7 +111,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
     const result = await resendInvitation({ appTokenId });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Gagal mengirim ulang undangan`,
+        message: `Gagal mengirim ulang undangan`,
         options: {
           duration: 2000,
         },
@@ -122,7 +121,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
 
   const getExpiresAtText = (expiresAt: string) => {
     const expirationDate = new Date(expiresAt);
-    if (expirationDate.getTime() <= Date.now()) return t`Kedaluwarsa`;
+    if (expirationDate.getTime() <= Date.now()) return `Kedaluwarsa`;
     return formatDistanceToNow(expirationDate, { locale: localeCatalog });
   };
 
@@ -132,8 +131,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
         currentWorkspace?.isPublicInviteLinkEnabled && (
           <Section>
             <H2Title
-              title={t`Undang lewat tautan`}
-              description={t`Bagikan tautan ini untuk mengundang pengguna bergabung ke ruang kerja`}
+              title={`Undang lewat tautan`}
+              description={`Bagikan tautan ini untuk mengundang pengguna bergabung ke ruang kerja`}
             />
             <WorkspaceInviteLink
               inviteLink={`${window.location.origin}/invite/${currentWorkspace?.inviteHash}`}
@@ -142,8 +141,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
         )}
       <Section>
         <H2Title
-          title={t`Undang lewat surel`}
-          description={t`Kirim surel undangan ke anggota tim`}
+          title={`Undang lewat surel`}
+          description={`Kirim surel undangan ke anggota tim`}
         />
         <WorkspaceInviteTeam roles={roles} />
         {isNonEmptyArray(workspaceInvitations) && (
@@ -197,7 +196,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
                     <TableCell minWidth="0" overflow="hidden">
                       <StyledTextContainerWithEllipsis>
                         {rolesById.get(workspaceInvitation.roleId ?? '')
-                          ?.label ?? t`Peran bawaan`}
+                          ?.label ?? `Peran bawaan`}
                       </StyledTextContainerWithEllipsis>
                     </TableCell>
                     <TableCell align="center">
@@ -239,8 +238,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Domain yang Disetujui`}
-          description={t`Siapa pun dengan alamat surel di domain ini diizinkan mendaftar ke ruang kerja ini.`}
+          title={`Domain yang Disetujui`}
+          description={`Siapa pun dengan alamat surel di domain ini diizinkan mendaftar ke ruang kerja ini.`}
         />
         <SettingsApprovedAccessDomainsListCard />
       </Section>

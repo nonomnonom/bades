@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
@@ -45,8 +44,6 @@ type RecordDetailRelationSectionProps = {
 export const RecordDetailRelationSection = ({
   loading,
 }: RecordDetailRelationSectionProps) => {
-  const { t } = useLingui();
-
   const { scopeInstanceId } = useRecordFieldsScopeContextOrThrow();
   const { recordId, fieldDefinition } = useContext(FieldContext);
 
@@ -196,7 +193,7 @@ export const RecordDetailRelationSection = ({
                 to: filterLinkHref,
                 label:
                   relationRecordsCount > 0
-                    ? t`Semua (${relationRecordsCount})`
+                    ? `Semua (${relationRecordsCount})`
                     : '',
               }
             : undefined

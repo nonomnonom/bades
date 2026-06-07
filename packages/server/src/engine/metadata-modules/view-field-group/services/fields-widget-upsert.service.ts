@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -61,7 +60,7 @@ export class FieldsWidgetUpsertService {
 
     if (hasGroups === hasFields) {
       throw new ViewFieldGroupException(
-        t`Exactly one of "groups" or "fields" must be provided`,
+        `Exactly one of "groups" or "fields" must be provided`,
         ViewFieldGroupExceptionCode.INVALID_VIEW_FIELD_GROUP_DATA,
       );
     }
@@ -108,7 +107,7 @@ export class FieldsWidgetUpsertService {
       )
     ) {
       throw new ViewFieldGroupException(
-        t`Fields widget not found`,
+        `Fields widget not found`,
         ViewFieldGroupExceptionCode.FIELDS_WIDGET_NOT_FOUND,
       );
     }
@@ -117,7 +116,7 @@ export class FieldsWidgetUpsertService {
 
     if (!isDefined(viewId)) {
       throw new ViewFieldGroupException(
-        t`Fields widget has no associated view`,
+        `Fields widget has no associated view`,
         ViewFieldGroupExceptionCode.VIEW_NOT_FOUND,
       );
     }
@@ -187,7 +186,7 @@ export class FieldsWidgetUpsertService {
 
     if (!isDefined(view)) {
       throw new ViewFieldGroupException(
-        t`View not found after upsert`,
+        `View not found after upsert`,
         ViewFieldGroupExceptionCode.VIEW_NOT_FOUND,
       );
     }

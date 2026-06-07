@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { RESET_RECORD_PAGE_LAYOUT_MODAL_ID } from '@/layout-customization/constants/ResetRecordPageLayoutModalId';
 import { useRefreshPageLayoutAfterReset } from '@/page-layout/hooks/useRefreshPageLayoutAfterReset';
 import { useResetPageLayoutToDefault } from '@/page-layout/hooks/useResetPageLayoutToDefault';
@@ -12,8 +10,6 @@ type LayoutCustomizationBarResetConfirmationModalProps = {
 export const LayoutCustomizationBarResetConfirmationModal = ({
   pageLayoutId,
 }: LayoutCustomizationBarResetConfirmationModalProps) => {
-  const { t } = useLingui();
-
   const { resetPageLayoutToDefault } = useResetPageLayoutToDefault();
   const { refreshPageLayoutAfterReset } =
     useRefreshPageLayoutAfterReset(pageLayoutId);
@@ -26,10 +22,10 @@ export const LayoutCustomizationBarResetConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={RESET_RECORD_PAGE_LAYOUT_MODAL_ID}
-      title={t`Setel ulang ke bawaan`}
-      subtitle={t`Tindakan ini tidak dapat dibatalkan.`}
+      title={`Setel ulang ke bawaan`}
+      subtitle={`Tindakan ini tidak dapat dibatalkan.`}
       onConfirmClick={handleConfirmReset}
-      confirmButtonText={t`Setel ulang`}
+      confirmButtonText={`Setel ulang`}
       confirmButtonAccent="danger"
     />
   );

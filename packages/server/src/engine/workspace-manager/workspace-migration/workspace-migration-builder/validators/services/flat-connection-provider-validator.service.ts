@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
@@ -34,7 +34,7 @@ export class FlatConnectionProviderValidatorService {
     if (!isNonEmptyString(flatConnectionProvider.name)) {
       validationResult.errors.push({
         code: ConnectionProviderExceptionCode.INVALID_CONNECTION_PROVIDER_INPUT,
-        message: t`Connection provider name is required`,
+        message: `Connection provider name is required`,
         userFriendlyMessage: msg`Connection provider name is required`,
       });
     }
@@ -42,7 +42,7 @@ export class FlatConnectionProviderValidatorService {
     if (!isNonEmptyString(flatConnectionProvider.displayName)) {
       validationResult.errors.push({
         code: ConnectionProviderExceptionCode.INVALID_CONNECTION_PROVIDER_INPUT,
-        message: t`Connection provider displayName is required`,
+        message: `Connection provider displayName is required`,
         userFriendlyMessage: msg`Connection provider display name is required`,
       });
     }
@@ -53,7 +53,7 @@ export class FlatConnectionProviderValidatorService {
       if (!isDefined(oauthConfig)) {
         validationResult.errors.push({
           code: ConnectionProviderExceptionCode.INVALID_CONNECTION_PROVIDER_INPUT,
-          message: t`Connection provider with type 'oauth' is missing oauthConfig`,
+          message: `Connection provider with type 'oauth' is missing oauthConfig`,
           userFriendlyMessage: msg`OAuth connection provider is missing its oauth config block`,
         });
       } else {
@@ -71,7 +71,7 @@ export class FlatConnectionProviderValidatorService {
           if (!isNonEmptyString(oauthConfig[key])) {
             validationResult.errors.push({
               code: ConnectionProviderExceptionCode.INVALID_CONNECTION_PROVIDER_INPUT,
-              message: t`Connection provider oauthConfig.${label} is required`,
+              message: `Connection provider oauthConfig.${label} is required`,
               userFriendlyMessage: msg`OAuth ${label} is required`,
             });
           }
@@ -94,7 +94,7 @@ export class FlatConnectionProviderValidatorService {
     if (isDefined(existingByName)) {
       validationResult.errors.push({
         code: ConnectionProviderExceptionCode.CONNECTION_PROVIDER_NAME_ALREADY_EXISTS,
-        message: t`Connection provider with name ${flatConnectionProvider.name} already exists for this application`,
+        message: `Connection provider with name ${flatConnectionProvider.name} already exists for this application`,
         userFriendlyMessage: msg`A connection provider with this name already exists for this application`,
       });
     }
@@ -127,7 +127,7 @@ export class FlatConnectionProviderValidatorService {
     if (!isDefined(existingConnectionProvider)) {
       validationResult.errors.push({
         code: ConnectionProviderExceptionCode.CONNECTION_PROVIDER_NOT_FOUND,
-        message: t`Connection provider not found`,
+        message: `Connection provider not found`,
         userFriendlyMessage: msg`Connection provider not found`,
       });
 
@@ -161,7 +161,7 @@ export class FlatConnectionProviderValidatorService {
     if (!isDefined(fromFlatConnectionProvider)) {
       validationResult.errors.push({
         code: ConnectionProviderExceptionCode.CONNECTION_PROVIDER_NOT_FOUND,
-        message: t`Connection provider not found`,
+        message: `Connection provider not found`,
         userFriendlyMessage: msg`Connection provider not found`,
       });
 

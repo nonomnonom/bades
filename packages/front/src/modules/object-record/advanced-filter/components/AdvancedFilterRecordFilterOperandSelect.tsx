@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { AdvancedFilterRecordFilterOperandSelectContent } from '@/object-record/advanced-filter/components/AdvancedFilterRecordFilterOperandSelectContent';
 import { getOperandLabel } from '@/object-record/object-filter-dropdown/utils/getOperandLabel';
 import { useTimeZoneAbbreviationForNowInUserTimeZone } from '@/object-record/record-filter/hooks/useTimeZoneAbbreviationForNowInUserTimeZone';
@@ -55,7 +54,7 @@ export const AdvancedFilterRecordFilterOperandSelect = ({
         selectedOption={{
           label: filter?.operand
             ? getOperandLabel(filter.operand, timeZoneAbbreviation)
-            : t`Pilih operand`,
+            : `Pilih operand`,
           value: null,
         }}
         isDisabled

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { type FieldCurrencyValue } from '@/object-record/record-field/ui/types/FieldMetadata';
@@ -141,7 +140,7 @@ export const CurrencyFieldInput = () => {
       currencyCode={currencyCode}
       decimals={decimals}
       autoFocus
-      placeholder={t`Mata Uang`}
+      placeholder={`Mata Uang`}
       onClickOutside={handleClickOutside}
       onEnter={handleEnter}
       onEscape={handleEscape}

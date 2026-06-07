@@ -11,7 +11,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { type DropResult } from '@hello-pangea/dnd';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconEyeOff, useIcons } from 'ui/display';
 import { MenuItemDraggable, MenuItemNavigate } from 'ui/navigation';
@@ -156,7 +155,7 @@ export const RecordTableFieldsDropdownVisibleFieldsContent = ({
         <MenuItemNavigate
           onClick={onShowHiddenFields}
           LeftIcon={IconEyeOff}
-          text={t`Kolom Tersembunyi`}
+          text={`Kolom Tersembunyi`}
         />
       </DropdownMenuItemsContainer>
     </DropdownContent>

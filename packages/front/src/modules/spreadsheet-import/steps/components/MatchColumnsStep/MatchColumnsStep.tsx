@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useCallback, useMemo, useState } from 'react';
 
@@ -30,7 +31,6 @@ import { type SpreadsheetColumns } from '@/spreadsheet-import/types/SpreadsheetC
 import { type SpreadsheetImportField } from '@/spreadsheet-import/types/SpreadsheetImportField';
 import { useAtomFamilySelectorState } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorState';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledColumnsContainer = styled.div`
@@ -83,8 +83,6 @@ export const MatchColumnsStep = ({
   );
 
   const { matchColumnsStepHook } = useSpreadsheetImportInternal();
-
-  const { t } = useLingui();
 
   const onIgnore = useCallback(
     (columnIndex: number) => {
@@ -199,8 +197,8 @@ export const MatchColumnsStep = ({
   const handleOnContinue = useCallback(async () => {
     if (unmatchedRequiredFields.length > 0) {
       enqueueDialog({
-        title: t`Ada kolom yang belum dicocokkan`,
-        message: t`Ada kolom wajib yang belum dicocokkan atau diabaikan. Lanjutkan?`,
+        title: `Ada kolom yang belum dicocokkan`,
+        message: `Ada kolom wajib yang belum dicocokkan atau diabaikan. Lanjutkan?`,
         children: (
           <StyledColumnsContainer>
             <StyledColumns>
@@ -212,9 +210,9 @@ export const MatchColumnsStep = ({
           </StyledColumnsContainer>
         ),
         buttons: [
-          { title: t`Batal` },
+          { title: `Batal` },
           {
-            title: t`Lanjutkan`,
+            title: `Lanjutkan`,
             onClick: handleAlertOnContinue,
             variant: 'primary',
             role: 'confirm',
@@ -238,7 +236,6 @@ export const MatchColumnsStep = ({
     columns,
     data,
     fields,
-    t,
   ]);
 
   const hasMatchedColumns = columns.some(
@@ -255,12 +252,12 @@ export const MatchColumnsStep = ({
 
   const openRestartDialog = () => {
     enqueueDialog({
-      title: t`Mulai Ulang Impor`,
-      message: t`Semua pemetaan kolom Anda akan hilang.`,
+      title: `Mulai Ulang Impor`,
+      message: `Semua pemetaan kolom Anda akan hilang.`,
       buttons: [
-        { title: t`Batal` },
+        { title: `Batal` },
         {
-          title: t`Mulai Ulang`,
+          title: `Mulai Ulang`,
           onClick: onBackConfirmation,
           accent: 'danger',
           role: 'confirm',
@@ -303,8 +300,8 @@ export const MatchColumnsStep = ({
       <StepNavigationButton
         onContinue={handleOnContinue}
         isLoading={isLoading}
-        continueTitle={t`Langkah Berikutnya`}
-        backTitle={t`Mulai Ulang Impor`}
+        continueTitle={`Langkah Berikutnya`}
+        backTitle={`Mulai Ulang Impor`}
         onBack={openRestartDialog}
         isContinueDisabled={!hasMatchedColumns}
       />

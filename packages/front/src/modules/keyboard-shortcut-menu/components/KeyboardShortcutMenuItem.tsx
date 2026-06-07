@@ -22,7 +22,7 @@ export const KeyboardMenuItem = ({ shortcut }: KeyboardMenuItemProps) => {
         ) : (
           <StyledShortcutKeyContainer>
             <StyledShortcutKey>{shortcut.firstHotKey}</StyledShortcutKey>
-            t`lalu`
+            `lalu`
             <StyledShortcutKey>{shortcut.secondHotKey}</StyledShortcutKey>
           </StyledShortcutKeyContainer>
         )

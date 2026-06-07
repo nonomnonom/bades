@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type AllFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/all-flat-entity-maps.type';
@@ -39,7 +38,7 @@ export const fromUpdatePageLayoutInputToFlatPageLayoutToUpdateOrThrow = ({
 
   if (!isDefined(existingFlatPageLayoutToUpdate)) {
     throw new PageLayoutException(
-      t`Page layout to update not found`,
+      `Page layout to update not found`,
       PageLayoutExceptionCode.PAGE_LAYOUT_NOT_FOUND,
     );
   }

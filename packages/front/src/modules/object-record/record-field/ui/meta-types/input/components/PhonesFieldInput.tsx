@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { usePhonesField } from '@/object-record/record-field/ui/meta-types/hooks/usePhonesField';
 import { PhonesFieldMenuItem } from '@/object-record/record-field/ui/meta-types/input/components/PhonesFieldMenuItem';
 import { recordFieldInputIsFieldInErrorComponentState } from '@/object-record/record-field/ui/states/recordFieldInputIsFieldInErrorComponentState';
@@ -159,7 +158,7 @@ export const PhonesFieldInput = () => {
       onClickOutside={handleClickOutside}
       onEscape={handleEscape}
       onEnter={handleEnter}
-      placeholder={t`Telepon`}
+      placeholder={`Telepon`}
       fieldMetadataType={FieldMetadataType.PHONES}
       validateInput={validateInput}
       formatInput={(input) => {

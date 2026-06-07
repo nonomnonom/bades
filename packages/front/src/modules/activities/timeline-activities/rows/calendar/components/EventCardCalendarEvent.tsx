@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isUndefined } from '@sniptt/guards';
 
 import { CalendarEventNotSharedContent } from '@/activities/calendar/components/CalendarEventNotSharedContent';
@@ -136,22 +135,22 @@ export const EventCardCalendarEvent = ({
       );
 
       if (shouldHandleNotFound) {
-        return <div>{t`Jadwal tidak ditemukan`}</div>;
+        return <div>{`Jadwal tidak ditemukan`}</div>;
       }
     }
 
-    return <div>{t`Gagal memuat jadwal`}</div>;
+    return <div>{`Gagal memuat jadwal`}</div>;
   }
 
   if (loading || isUndefined(calendarEvent)) {
-    return <div>{t`Memuat...`}</div>;
+    return <div>{`Memuat...`}</div>;
   }
 
   const startsAtDate = calendarEvent?.startsAt;
   const endsAtDate = calendarEvent?.endsAt;
 
   if (isUndefinedOrNull(startsAtDate)) {
-    throw new Error(t`Tidak dapat merender kalender tanpa tanggal mulai`);
+    throw new Error(`Tidak dapat merender kalender tanpa tanggal mulai`);
   }
 
   const startsAtMonth = formatToHumanReadableMonth(startsAtDate, timeZone);

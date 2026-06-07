@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { OBJECTS_WITH_CHANNEL_VISIBILITY_CONSTRAINTS } from 'shared/constants';
 import { IconCube, TintedIconTile } from 'ui/display';
@@ -31,7 +30,6 @@ export const SidePanelObjectFilterDropdownContent = ({
   selectedObjectNameSingular,
   onSelectObject,
 }: SidePanelObjectFilterDropdownContentProps) => {
-  const { t } = useLingui();
   const [filterSearch, setFilterSearch] = useState('');
   const [sidePanelShowHiddenObjects, setSidePanelShowHiddenObjects] =
     useAtomState(sidePanelShowHiddenObjectsState);
@@ -73,7 +71,7 @@ export const SidePanelObjectFilterDropdownContent = ({
 
   return (
     <DropdownContent>
-      <DropdownMenuHeader>{t`Objek`}</DropdownMenuHeader>
+      <DropdownMenuHeader>{`Objek`}</DropdownMenuHeader>
       <DropdownMenuSearchInput
         value={filterSearch}
         onChange={(event) => setFilterSearch(event.target.value)}
@@ -92,7 +90,7 @@ export const SidePanelObjectFilterDropdownContent = ({
           >
             <MenuItemSelectAvatar
               avatar={<TintedIconTile Icon={IconCube} />}
-              text={t`Semua objek`}
+              text={`Semua objek`}
               selected={selectedObjectNameSingular === null}
               onClick={() => handleSelect(null)}
               focused={selectedItemId === ALL_OBJECTS_ITEM_ID}
@@ -132,7 +130,7 @@ export const SidePanelObjectFilterDropdownContent = ({
             setSidePanelShowHiddenObjects(!sidePanelShowHiddenObjects)
           }
           toggled={sidePanelShowHiddenObjects}
-          text={t`Tampilkan objek tersembunyi`}
+          text={`Tampilkan objek tersembunyi`}
           toggleSize="small"
         />
       </DropdownMenuItemsContainer>

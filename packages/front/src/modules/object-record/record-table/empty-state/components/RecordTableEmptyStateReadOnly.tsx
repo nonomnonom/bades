@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectLabel } from '@/object-metadata/hooks/useObjectLabel';
 import { useRecordTableContextOrThrow } from '@/object-record/record-table/contexts/RecordTableContext';
 import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty-state/components/RecordTableEmptyStateDisplay';
@@ -9,12 +8,12 @@ export const RecordTableEmptyStateReadOnly = () => {
 
   const objectLabelSingular = useObjectLabel(objectMetadataItem);
 
-  const buttonTitle = t`Tambah ${objectLabelSingular}`;
+  const buttonTitle = `Tambah ${objectLabelSingular}`;
 
   return (
     <RecordTableEmptyStateDisplay
-      title={t`Tidak ada data ditemukan`}
-      subTitle={t`Anda tidak memiliki izin untuk membuat data pada objek ini`}
+      title={`Tidak ada data ditemukan`}
+      subTitle={`Anda tidak memiliki izin untuk membuat data pada objek ini`}
       animatedPlaceholderType="noRecord"
       buttonTitle={buttonTitle}
       ButtonIcon={IconPlus}

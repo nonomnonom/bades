@@ -6,8 +6,6 @@ import { AnimatedExpandableContainer } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
 import { ShimmeringText } from '@/ai/components/ShimmeringText';
-import { t } from '~/utils/i18n/badesI18n';
-
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -82,7 +80,7 @@ export const ReasoningSummaryDisplay = ({
           <ShimmeringText>
             <StyledIconContainer>
               <IconBrain size={theme.icon.size.sm} />
-              <StyledThinkingText>{t`Sedang berpikir...`}</StyledThinkingText>
+              <StyledThinkingText>{`Sedang berpikir...`}</StyledThinkingText>
             </StyledIconContainer>
           </ShimmeringText>
           <StyledReasoningContainer>
@@ -96,7 +94,7 @@ export const ReasoningSummaryDisplay = ({
           <StyledToggleButton onClick={() => setIsExpanded(!isExpanded)}>
             <StyledIconContainer>
               <IconBrain size={theme.icon.size.sm} />
-              <span>{t`Selesai berpikir`}</span>
+              <span>{`Selesai berpikir`}</span>
             </StyledIconContainer>
             {isExpanded ? (
               <IconChevronUp size={theme.icon.size.sm} />

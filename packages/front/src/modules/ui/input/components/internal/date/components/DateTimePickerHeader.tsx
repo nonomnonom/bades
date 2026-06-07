@@ -14,7 +14,6 @@ import { getTimeMask } from '@/ui/input/components/internal/date/utils/getTimeMa
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { ClickOutsideListenerContext } from '@/ui/utilities/pointer-event/contexts/ClickOutsideListenerContext';
-import { t } from '~/utils/i18n/badesI18n';
 import { type Temporal } from 'temporal-polyfill';
 import { SOURCE_LOCALE } from 'shared/translations';
 import { isDefined } from 'shared/utils';
@@ -225,7 +224,7 @@ export const DateTimePickerHeader = ({
               <LightIconButton
                 Icon={IconCalendar}
                 size="medium"
-                aria-label={t`Pilih bulan dan tahun`}
+                aria-label={`Pilih bulan dan tahun`}
               />
             }
             dropdownPlacement="bottom-start"

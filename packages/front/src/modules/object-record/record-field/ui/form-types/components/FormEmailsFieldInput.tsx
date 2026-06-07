@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormNestedFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormNestedFieldInputContainer';
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
@@ -21,8 +20,6 @@ export const FormEmailsFieldInput = ({
   readonly,
   VariablePicker,
 }: FormEmailsFieldInputProps) => {
-  const { t } = useLingui();
-
   const handleChange = (email: string) => {
     onChange({
       primaryEmail: email,
@@ -35,10 +32,10 @@ export const FormEmailsFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`Email Utama`}
+          label={`Email Utama`}
           defaultValue={defaultValue?.primaryEmail}
           onChange={handleChange}
-          placeholder={t`Email Utama`}
+          placeholder={`Email Utama`}
           readonly={readonly}
           VariablePicker={VariablePicker}
         />

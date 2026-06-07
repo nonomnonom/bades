@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
@@ -33,7 +32,6 @@ import {
 import { MenuItem, MenuItemNavigate, MenuItemToggle } from 'ui/navigation';
 
 export const ObjectOptionsDropdownRecordGroupsContent = () => {
-  const { t } = useLingui();
   const {
     viewType,
     currentContentId,
@@ -113,7 +111,7 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
           />
         }
       >
-        {t`Kelompok`}
+        {`Kelompok`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -135,7 +133,7 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
                   disabled={hasOnlyOneGroupByOption}
                   onClick={() => onContentChange('recordGroupFields')}
                   LeftIcon={IconLayoutList}
-                  text={t`Kelompokkan berdasarkan`}
+                  text={`Kelompokkan berdasarkan`}
                   contextualText={recordIndexGroupFieldMetadataItem?.label}
                   contextualTextPosition="right"
                   hasSubMenu
@@ -149,7 +147,7 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
                   focused={selectedItemId === 'Urutkan'}
                   onClick={() => onContentChange('recordGroupSort')}
                   LeftIcon={IconSortDescending}
-                  text={t`Urutkan`}
+                  text={`Urutkan`}
                   contextualText={recordIndexRecordGroupSort}
                   contextualTextPosition="right"
                   hasSubMenu
@@ -166,7 +164,7 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
               LeftIcon={IconCircleOff}
               onToggleChange={handleHideEmptyRecordGroupChange}
               toggled={shouldHideEmptyGroups}
-              text={t`Sembunyikan kelompok kosong`}
+              text={`Sembunyikan kelompok kosong`}
               toggleSize="small"
             />
           </SelectableListItem>
@@ -176,7 +174,7 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
         <>
           <DropdownMenuSeparator />
           <RecordGroupsVisibilityDropdownSection
-            title={t`Kelompok terlihat`}
+            title={`Kelompok terlihat`}
             recordGroupIds={visibleRecordGroupIds}
             onDragEnd={handleRecordGroupOrderChangeWithModal}
             onVisibilityChange={handleRecordGroupVisibilityChange}
@@ -201,7 +199,7 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
                 <MenuItemNavigate
                   onClick={() => onContentChange('hiddenRecordGroups')}
                   LeftIcon={IconEyeOff}
-                  text={`${t`Tersembunyi`} ${recordIndexGroupFieldMetadataItem?.label ?? ''}`}
+                  text={`${`Tersembunyi`} ${recordIndexGroupFieldMetadataItem?.label ?? ''}`}
                 />
               </SelectableListItem>
             </SelectableList>

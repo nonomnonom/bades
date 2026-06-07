@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -22,7 +22,7 @@ export const validateBaseGraphFields = ({
   ) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Aggregate field metadata is required for graph widget "${widgetTitle}"`,
+      message: `Aggregate field metadata is required for graph widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Aggregate field is required for graph widget`,
     });
   }
@@ -30,7 +30,7 @@ export const validateBaseGraphFields = ({
   if (!isDefined(graphUniversalConfiguration.aggregateOperation)) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Aggregate operation is required for graph widget "${widgetTitle}"`,
+      message: `Aggregate operation is required for graph widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Aggregate operation is required for graph widget`,
     });
   }

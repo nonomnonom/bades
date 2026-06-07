@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useCallback, useState } from 'react';
 
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
@@ -63,7 +63,6 @@ const StyledActivateButtonWrapper = styled.div`
 export const SettingsEnterprise = ({
   isAdminPanelTab = false,
 }: SettingsEnterpriseProps = {}) => {
-  const { t } = useLingui();
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const [enterpriseKey, setEnterpriseKey] = useState('');
   const [isActivating, setIsActivating] = useState(false);
@@ -93,13 +92,13 @@ export const SettingsEnterprise = ({
 
       if (result.data?.setEnterpriseKey.isValid === true) {
         enqueueSuccessSnackBar({
-          message: t`Lisensi enterprise berhasil diaktifkan.`,
+          message: `Lisensi enterprise berhasil diaktifkan.`,
         });
         setEnterpriseKey('');
         await loadCurrentUser();
       } else {
         enqueueErrorSnackBar({
-          message: t`Gagal mengaktifkan lisensi enterprise. Periksa kunci lisensi atau hubungi tim Bades.`,
+          message: `Gagal mengaktifkan lisensi enterprise. Periksa kunci lisensi atau hubungi tim Bades.`,
         });
       }
     } catch (error) {
@@ -110,7 +109,7 @@ export const SettingsEnterprise = ({
         });
       } else {
         enqueueErrorSnackBar({
-          message: t`Terjadi kesalahan saat mengaktifkan lisensi enterprise.`,
+          message: `Terjadi kesalahan saat mengaktifkan lisensi enterprise.`,
         });
       }
     } finally {
@@ -122,24 +121,23 @@ export const SettingsEnterprise = ({
     enqueueErrorSnackBar,
     enqueueSuccessSnackBar,
     loadCurrentUser,
-    t,
   ]);
 
   const innerContent = (
     <>
       <Section>
         <H2Title
-          title={t`Lisensi enterprise`}
+          title={`Lisensi enterprise`}
           description={
             isEnterpriseActive
-              ? t`Kapabilitas enterprise pada ruang kerja ini aktif.`
-              : t`Kapabilitas enterprise membuka fitur seperti SSO, keamanan tingkat baris, dan log audit. Hubungi tim Bades untuk mendapatkan kunci lisensi.`
+              ? `Kapabilitas enterprise pada ruang kerja ini aktif.`
+              : `Kapabilitas enterprise membuka fitur seperti SSO, keamanan tingkat baris, dan log audit. Hubungi tim Bades untuk mendapatkan kunci lisensi.`
           }
         />
         {isEnterpriseActive && (
           <SubscriptionInfoContainer>
             <SubscriptionInfoRowContainer
-              label={t`Status`}
+              label={`Status`}
               Icon={IconCheck}
               currentValue={
                 <StyledStatusContainer>
@@ -153,8 +151,8 @@ export const SettingsEnterprise = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Aktifkan kunci lisensi`}
-          description={t`Tempel kunci lisensi enterprise dari tim Bades untuk mengaktifkannya.`}
+          title={`Aktifkan kunci lisensi`}
+          description={`Tempel kunci lisensi enterprise dari tim Bades untuk mengaktifkannya.`}
         />
         <StyledInputContainer>
           <StyledInputWrapper>
@@ -162,7 +160,7 @@ export const SettingsEnterprise = ({
               instanceId="enterprise-key-input"
               value={enterpriseKey}
               onChange={(value) => setEnterpriseKey(value)}
-              placeholder={t`Tempel kunci lisensi enterprise di sini`}
+              placeholder={`Tempel kunci lisensi enterprise di sini`}
               fullWidth
               onInputEnter={handleActivate}
             />
@@ -170,7 +168,7 @@ export const SettingsEnterprise = ({
           <StyledActivateButtonWrapper>
             <Button
               Icon={IconKey}
-              title={isActivating ? t`Mengaktifkan...` : t`Aktifkan`}
+              title={isActivating ? `Mengaktifkan...` : `Aktifkan`}
               accent="blue"
               onClick={handleActivate}
               disabled={isActivating || !enterpriseKey.trim()}

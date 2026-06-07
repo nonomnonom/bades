@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { BaseChip } from '@/object-record/record-field/ui/form-types/components/BaseChip';
 import { useSearchVariable } from '@/workflow/workflow-variables/hooks/useSearchVariable';
 import { useContext } from 'react';
@@ -18,7 +17,6 @@ export const VariableChip = ({
   onRemove,
   isFullRecord = false,
 }: VariableChipProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
 
   const { variableLabel, variablePathLabel } = useSearchVariable({
@@ -31,9 +29,9 @@ export const VariableChip = ({
   });
 
   const isVariableNotFound = !isDefined(variableLabel);
-  const label = isVariableNotFound ? t`Tidak Ditemukan` : variableLabel;
+  const label = isVariableNotFound ? `Tidak Ditemukan` : variableLabel;
   const title = isVariableNotFound
-    ? t`Variabel tidak ditemukan`
+    ? `Variabel tidak ditemukan`
     : variablePathLabel;
 
   return (
@@ -41,7 +39,7 @@ export const VariableChip = ({
       label={label}
       title={title}
       onRemove={onRemove}
-      removeAriaLabel={t`Hapus variabel`}
+      removeAriaLabel={`Hapus variabel`}
       danger={isVariableNotFound}
       leftIcon={
         isVariableNotFound ? (

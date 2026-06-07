@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMergeRecordsSelectedRecords } from '@/object-record/record-merge/hooks/useMergeRecordsSelectedRecords';
 import { useMergeRecordsSettings } from '@/object-record/record-merge/hooks/useMergeRecordsSettings';
 import { getPositionNumberIcon } from '@/object-record/record-merge/utils/getPositionNumberIcon';
@@ -22,7 +21,7 @@ export const MergeSettingsTab = () => {
     const positionLabel = getPositionWordLabel(index);
     return {
       value: index,
-      label: t`${positionLabel} record holds priority`,
+      label: `${positionLabel} record holds priority`,
       Icon: getPositionNumberIcon(index),
       recordIndex: index,
     };
@@ -44,7 +43,7 @@ export const MergeSettingsTab = () => {
           options={priorityOptions}
           value={mergeSettings.conflictPriorityIndex}
           onChange={handleSelectionChange}
-          label={t`Konflik kolom`}
+          label={`Konflik kolom`}
         />
       </Section>
     </StyledSectionContainer>

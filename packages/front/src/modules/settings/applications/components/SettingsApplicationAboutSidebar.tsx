@@ -1,6 +1,5 @@
 import { isNonEmptyString } from '@sniptt/guards';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { type ReactNode } from 'react';
 import { isDefined } from 'shared/utils';
 import { Tag } from 'ui/components';
@@ -130,21 +129,21 @@ export const SettingsApplicationAboutSidebar = ({
 
       {isDefined(author) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Dibuat oleh`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{`Dibuat oleh`}</StyledSidebarLabel>
           <StyledSidebarValue>{author}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {isDefined(category) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Kategori`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{`Kategori`}</StyledSidebarLabel>
           <StyledSidebarValue>{category}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {filteredContentEntries.length > 0 && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Konten`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{`Konten`}</StyledSidebarLabel>
           <StyledContentList>
             {filteredContentEntries.map((entry) => (
               <Tag
@@ -162,21 +161,21 @@ export const SettingsApplicationAboutSidebar = ({
 
       {isDefined(currentVersion) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Versi saat ini`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{`Versi saat ini`}</StyledSidebarLabel>
           <StyledSidebarValue>{currentVersion}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {isDefined(latestAvailableVersion) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Versi terbaru`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{`Versi terbaru`}</StyledSidebarLabel>
           <StyledSidebarValue>{latestAvailableVersion}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {hasDeveloperLinks && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Tautan pengembang`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{`Tautan pengembang`}</StyledSidebarLabel>
           {isSafeUrl(developerLinks.websiteUrl) && (
             <StyledLink
               href={developerLinks.websiteUrl}
@@ -184,7 +183,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconWorld size={16} />
-              {t`Situs web`}
+              {`Situs web`}
             </StyledLink>
           )}
           {isSafeUrl(developerLinks.termsUrl) && (
@@ -194,7 +193,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconLink size={16} />
-              {t`Syarat / Privasi`}
+              {`Syarat / Privasi`}
             </StyledLink>
           )}
           {isNonEmptyString(developerLinks.emailSupport) && (
@@ -204,7 +203,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconMail size={16} />
-              {t`Dukungan email`}
+              {`Dukungan email`}
             </StyledLink>
           )}
           {isSafeUrl(developerLinks.issueReportUrl) && (
@@ -214,7 +213,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconAlertTriangle size={16} />
-              {t`Laporkan masalah`}
+              {`Laporkan masalah`}
             </StyledLink>
           )}
           {isSafeUrl(developerLinks.sourcePackageUrl) && (
@@ -224,7 +223,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconBrandNpm size={16} />
-              {t`Paket npm`}
+              {`Paket npm`}
             </StyledLink>
           )}
         </StyledSidebarSection>

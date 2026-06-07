@@ -9,7 +9,7 @@ import { getFieldLabelWithSubField } from '@/side-panel/pages/page-layout/utils/
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { getAggregateOperationLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationLabel';
 import { convertAggregateOperationToExtendedAggregateOperation } from '@/object-record/utils/convertAggregateOperationToExtendedAggregateOperation';
-import { plural, t } from '~/utils/i18n/badesI18n';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { type CompositeFieldSubFieldName } from 'shared/types';
 import { capitalize, isDefined } from 'shared/utils';
@@ -176,7 +176,7 @@ export const useChartSettingsValues = ({
 
           const optionValue = configuration.ratioAggregateConfig.optionValue;
           const getBooleanLabel = (value: string) =>
-            value === 'true' ? t`Ya` : t`Tidak`;
+            value === 'true' ? `Ya` : `Tidak`;
 
           const ratioOptionLabel =
             ratioField?.options?.find((option) => option.value === optionValue)
@@ -185,7 +185,7 @@ export const useChartSettingsValues = ({
               ? getBooleanLabel(optionValue)
               : capitalize(optionValue));
 
-          return [aggregateField?.label, `(${t`Rasio`}: ${ratioOptionLabel})`]
+          return [aggregateField?.label, `(${`Rasio`}: ${ratioOptionLabel})`]
             .filter(isDefined)
             .join(' ');
         }

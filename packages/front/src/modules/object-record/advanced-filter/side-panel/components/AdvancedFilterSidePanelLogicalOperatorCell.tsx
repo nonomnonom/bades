@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { AdvancedFilterLogicalOperatorDropdown } from '@/object-record/advanced-filter/components/AdvancedFilterLogicalOperatorDropdown';
 import { ADVANCED_FILTER_LOGICAL_OPERATOR_OPTIONS } from '@/object-record/advanced-filter/constants/AdvancedFilterLogicalOperatorOptions';
 import { DEFAULT_ADVANCED_FILTER_DROPDOWN_OFFSET } from '@/object-record/advanced-filter/constants/DefaultAdvancedFilterDropdownOffset';
@@ -40,7 +39,7 @@ export const AdvancedFilterSidePanelLogicalOperatorCell = ({
   return (
     <StyledContainer>
       {index === 0 ? (
-        <StyledText>{t`Dimana`}</StyledText>
+        <StyledText>{`Dimana`}</StyledText>
       ) : index === 1 ? (
         readonly ? (
           <Select

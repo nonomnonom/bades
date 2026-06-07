@@ -1,7 +1,6 @@
 /* @license Enterprise */
 
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconFilter, IconPlus } from 'ui/display';
 import { Button } from 'ui/input';
@@ -140,8 +139,8 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFilterBuilde
               <CommandMenuButton
                 command={{
                   Icon: IconPlus,
-                  label: t`Tambah aturan`,
-                  shortLabel: t`Tambah aturan`,
+                  label: `Tambah aturan`,
+                  shortLabel: `Tambah aturan`,
                   key: 'add-rule',
                 }}
                 onClick={() => handleAddFilter(rootRecordFilterGroup)}
@@ -155,8 +154,8 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFilterBuilde
             variant="secondary"
             accent="default"
             onClick={handleCreateFirstFilter}
-            ariaLabel={t`Tambah filter`}
-            title={t`Tambah filter`}
+            ariaLabel={`Tambah filter`}
+            title={`Tambah filter`}
           />
         )}
       </AdvancedFilterContext.Provider>

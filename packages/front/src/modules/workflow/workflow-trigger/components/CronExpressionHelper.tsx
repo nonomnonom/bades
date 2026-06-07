@@ -7,7 +7,6 @@ import { normalizeCronExpression } from '@/workflow/workflow-trigger/utils/cron-
 import { getTriggerScheduleDescription } from '@/workflow/workflow-trigger/utils/getTriggerScheduleDescription';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { CronExpressionParser } from 'cron-parser';
 import { dateLocaleState } from '~/localization/states/dateLocaleState';
 import { formatDateTimeString } from '~/utils/string/formatDateTimeString';
@@ -119,14 +118,14 @@ export const CronExpressionHelper = ({
   } catch (error) {
     isValid = false;
     errorMessage =
-      error instanceof Error ? error.message : t`Kesalahan tidak diketahui`;
+      error instanceof Error ? error.message : `Kesalahan tidak diketahui`;
   }
 
   if (!isValid) {
     return (
       <StyledContainer>
         <InputHint danger>
-          {errorMessage || t`Periksa sintaks ekspresi cron Anda.`}
+          {errorMessage || `Periksa sintaks ekspresi cron Anda.`}
         </InputHint>
       </StyledContainer>
     );
@@ -138,7 +137,7 @@ export const CronExpressionHelper = ({
     <StyledContainer>
       {isScheduleVisible && (
         <StyledSection>
-          <StyledScheduleTitle>{t`Jadwal`}</StyledScheduleTitle>
+          <StyledScheduleTitle>{`Jadwal`}</StyledScheduleTitle>
           <StyledScheduleDescription>
             {customDescription}
           </StyledScheduleDescription>
@@ -146,7 +145,7 @@ export const CronExpressionHelper = ({
       )}
       {nextExecutions.length > 0 && isUpcomingExecutionVisible && (
         <StyledSection>
-          <StyledScheduleTitle>{t`Waktu eksekusi berikutnya (${timeZone})`}</StyledScheduleTitle>
+          <StyledScheduleTitle>{`Waktu eksekusi berikutnya (${timeZone})`}</StyledScheduleTitle>
           {nextExecutions.slice(0, 3).map((execution, index) => (
             <StyledExecutionItem key={index}>
               {formatDateTimeString({

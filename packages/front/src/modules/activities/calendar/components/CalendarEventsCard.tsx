@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,
@@ -10,8 +8,6 @@ import {
 } from 'ui/layout';
 
 export const CalendarEventsCard = () => {
-  const { t } = useLingui();
-
   return (
     <AnimatedPlaceholderEmptyContainer
       // oxlint-disable-next-line react/jsx-props-no-spreading
@@ -20,10 +16,10 @@ export const CalendarEventsCard = () => {
       <AnimatedPlaceholder type="noMatchRecord" />
       <AnimatedPlaceholderEmptyTextContainer>
         <AnimatedPlaceholderEmptyTitle>
-          {t`Belum ada jadwal`}
+          {`Belum ada jadwal`}
         </AnimatedPlaceholderEmptyTitle>
         <AnimatedPlaceholderEmptySubTitle>
-          {t`Belum ada jadwal yang tercatat untuk data ini.`}
+          {`Belum ada jadwal yang tercatat untuk data ini.`}
         </AnimatedPlaceholderEmptySubTitle>
       </AnimatedPlaceholderEmptyTextContainer>
     </AnimatedPlaceholderEmptyContainer>

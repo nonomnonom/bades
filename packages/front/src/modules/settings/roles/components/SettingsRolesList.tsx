@@ -3,8 +3,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { SettingsRolesTableHeader } from '@/settings/roles/components/SettingsRolesTableHeader';
 import { SettingsRolesTableRow } from '@/settings/roles/components/SettingsRolesTableRow';
 import { useSettingsAllRoles } from '@/settings/roles/hooks/useSettingsAllRoles';
@@ -81,8 +79,8 @@ export const SettingsRolesList = () => {
   return (
     <Section>
       <H2Title
-        title={t`Semua peran`}
-        description={t`Tetapkan peran untuk menentukan izin akses`}
+        title={`Semua peran`}
+        description={`Tetapkan peran untuk menentukan izin akses`}
       />
 
       <StyledSearchAndFilterContainer>
@@ -90,7 +88,7 @@ export const SettingsRolesList = () => {
           <SettingsTextInput
             instanceId="settings-roles-search"
             LeftIcon={IconSearch}
-            placeholder={t`Cari peran...`}
+            placeholder={`Cari peran...`}
             value={searchTerm}
             onChange={setSearchTerm}
           />
@@ -105,7 +103,7 @@ export const SettingsRolesList = () => {
               size="medium"
               variant="secondary"
               accent="default"
-              ariaLabel={t`Filter`}
+              ariaLabel={`Filter`}
             />
           }
           dropdownComponents={
@@ -115,14 +113,14 @@ export const SettingsRolesList = () => {
                   LeftIcon={IconRobot}
                   onToggleChange={() => setShowAgentRoles(!showAgentRoles)}
                   toggled={showAgentRoles}
-                  text={t`Peran agen`}
+                  text={`Peran agen`}
                   toggleSize="small"
                 />
                 <MenuItemToggle
                   LeftIcon={IconKey}
                   onToggleChange={() => setShowApiKeyRoles(!showApiKeyRoles)}
                   toggled={showApiKeyRoles}
-                  text={t`Peran kunci API`}
+                  text={`Peran kunci API`}
                   toggleSize="small"
                 />
               </DropdownMenuItemsContainer>
@@ -136,7 +134,7 @@ export const SettingsRolesList = () => {
         <StyledTableRows>
           {filteredRoles.length === 0 ? (
             <TableCell color={themeCssVariables.font.color.tertiary}>
-              {t`Tidak ada peran ditemukan`}
+              {`Tidak ada peran ditemukan`}
             </TableCell>
           ) : (
             filteredRoles.map((role) => (
@@ -149,7 +147,7 @@ export const SettingsRolesList = () => {
         <Section>
           <Button
             Icon={IconPlus}
-            title={t`Buat Peran`}
+            title={`Buat Peran`}
             variant="secondary"
             size="small"
             onClick={() => navigateSettings(SettingsPath.RoleCreate)}

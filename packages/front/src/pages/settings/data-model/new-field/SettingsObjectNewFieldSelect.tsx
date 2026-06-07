@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsDataModelNewFieldBreadcrumbDropDown } from '@/settings/data-model/components/SettingsDataModelNewFieldBreadcrumbDropDown';
@@ -65,13 +64,13 @@ export const SettingsObjectNewFieldSelect = () => {
       {...formMethods}
     >
       <SubMenuTopBarContainer
-        title={t`1. Pilih tipe kolom`}
+        title={`1. Pilih tipe kolom`}
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`Objek`, href: getSettingsPath(SettingsPath.Objects) },
+          { children: `Objek`, href: getSettingsPath(SettingsPath.Objects) },
           {
             children: activeObjectMetadataItem.labelPlural,
             href: getSettingsPath(SettingsPath.ObjectDetail, {

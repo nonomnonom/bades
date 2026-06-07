@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
 
@@ -60,7 +59,7 @@ export const RatingInput = ({
   return (
     <StyledContainer
       role="slider"
-      aria-label={t`Penilaian`}
+      aria-label={`Penilaian`}
       aria-valuemax={RATING_VALUES.length}
       aria-valuemin={1}
       aria-valuenow={selectedIndex + 1}

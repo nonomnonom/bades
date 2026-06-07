@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconCheck, IconX } from 'ui/display';
 const iconSizeSm = 14;
 
@@ -28,7 +27,7 @@ export const BooleanDisplay = ({ value }: BooleanDisplayProps) => {
     <StyledContainer>
       {isTrue ? <IconCheck size={iconSizeSm} /> : <IconX size={iconSizeSm} />}
       <StyledBooleanFieldValue>
-        {isTrue ? t`Ya` : t`Tidak`}
+        {isTrue ? `Ya` : `Tidak`}
       </StyledBooleanFieldValue>
     </StyledContainer>
   );

@@ -1,3 +1,4 @@
+import { i18n } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
@@ -10,7 +11,6 @@ import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { useCreateWorkspaceInvitation } from '@/workspace-invitation/hooks/useCreateWorkspaceInvitation';
 import { sanitizeEmailList } from '@/workspace/utils/sanitizeEmailList';
-import { i18n, msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   IconLock,
@@ -52,7 +52,7 @@ const StyledRoleContainer = styled.div`
   }
 `;
 
-const emailsEmptyErrorMessage = msg`Email tidak boleh kosong`;
+const emailsEmptyErrorMessage = `Email tidak boleh kosong`;
 
 const validationSchema = z.object({
   emails: z.string().superRefine((value, ctx) => {
@@ -97,7 +97,6 @@ type WorkspaceInviteTeamProps = {
 };
 
 export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
 
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
@@ -116,7 +115,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
     }));
 
   const emptyRoleOption = {
-    label: t`Peran bawaan`,
+    label: `Peran bawaan`,
     value: '',
     Icon: IconLock,
   };
@@ -146,7 +145,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
     if (data.sendInvitations.result.length > 0) {
       const invitationCount = data.sendInvitations.result.length;
       enqueueSuccessSnackBar({
-        message: t`${invitationCount} undangan terkirim`,
+        message: `${invitationCount} undangan terkirim`,
         options: {
           duration: 2000,
         },
@@ -219,7 +218,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
           Icon={IconSend}
           variant="primary"
           accent="blue"
-          title={t`Undang`}
+          title={`Undang`}
           type="submit"
           disabled={isEmailsEmpty || !!errors.emails}
         />

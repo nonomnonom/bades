@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useFormContext } from 'react-hook-form';
 import { FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -21,7 +20,6 @@ type SettingsDataModelFieldRelationJunctionFormProps = {
 export const SettingsDataModelFieldRelationJunctionForm = ({
   objectNameSingular,
 }: SettingsDataModelFieldRelationJunctionFormProps) => {
-  const { t } = useLingui();
   const { watch, setValue } =
     useFormContext<SettingsDataModelFieldEditFormValues>();
 
@@ -153,8 +151,8 @@ export const SettingsDataModelFieldRelationJunctionForm = ({
     <>
       <SettingsOptionCardContentToggle
         Icon={IconLink}
-        title={t`Ini adalah relasi ke Objek Junction`}
-        description={t`Bangun relasi banyak-ke-banyak`}
+        title={`Ini adalah relasi ke Objek Junction`}
+        description={`Bangun relasi banyak-ke-banyak`}
         checked={isJunctionConfigEnabled}
         onChange={handleJunctionToggle}
         divider={isJunctionConfigEnabled}
@@ -163,8 +161,8 @@ export const SettingsDataModelFieldRelationJunctionForm = ({
 
       {isJunctionConfigEnabled && (
         <SettingsOptionCardContentSelect
-          title={t`Relasi target pada Objek Junction`}
-          description={t`Lewati objek junction (mirip relasi banyak-ke-banyak)`}
+          title={`Relasi target pada Objek Junction`}
+          description={`Lewati objek junction (mirip relasi banyak-ke-banyak)`}
         >
           <Select
             dropdownId="junction-target-field-select"

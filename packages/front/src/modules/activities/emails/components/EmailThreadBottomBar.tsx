@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconArrowBackUp, IconUserCircle } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -18,19 +17,19 @@ export const ThreadBottomBar = () => {
     <StyledThreadBottomBar>
       <Button
         Icon={IconArrowBackUp}
-        title={t`Balas`}
+        title={`Balas`}
         variant="secondary"
         accent="default"
       />
       <Button
         Icon={IconArrowBackUp}
-        title={t`Balas semua`}
+        title={`Balas semua`}
         variant="secondary"
         accent="default"
       />
       <Button
         Icon={IconUserCircle}
-        title={t`Bagikan`}
+        title={`Bagikan`}
         variant="secondary"
         accent="default"
       />

@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { FLAT_ROLE_REQUIRED_PROPERTIES } from 'src/engine/metadata-modules/flat-role/constants/flat-role-required-properties.constants';
@@ -20,7 +20,7 @@ export const validateRoleRequiredPropertiesAreDefined = ({
       return [
         {
           code: PermissionsExceptionCode.INVALID_ARG,
-          message: t`Property ${property} is required for role`,
+          message: `Property ${property} is required for role`,
           userFriendlyMessage: msg`Some of the information provided is invalid. Please check your input and try again.`,
         },
       ];

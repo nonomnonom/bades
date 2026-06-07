@@ -2,7 +2,6 @@ import { detectTimeZone } from '@/localization/utils/detection/detectTimeZone';
 import { findAvailableTimeZoneOption } from '@/localization/utils/findAvailableTimeZoneOption';
 import { AVAILABLE_TIMEZONE_OPTIONS } from '@/settings/experience/constants/AvailableTimezoneOptions';
 import { Select } from '@/ui/input/components/Select';
-import { t } from '~/utils/i18n/badesI18n';
 import { type SelectOption } from 'ui/input';
 
 type DateTimeSettingsTimeZoneSelectProps = {
@@ -21,12 +20,12 @@ export const DateTimeSettingsTimeZoneSelect = ({
   return (
     <Select
       dropdownId="datetime-settings-time-zone"
-      label={t`Zona waktu`}
+      label={`Zona waktu`}
       dropdownWidth={480}
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`Ikuti sistem`,
+        label: `Ikuti sistem`,
         value: 'system',
         contextualText: systemTimeZoneOption?.label,
       }}

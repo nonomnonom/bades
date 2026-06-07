@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconChevronLeft } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
 
@@ -27,7 +26,6 @@ type AiChatThreadFilterDropdownLastActivityMenuProps = {
 export const AiChatThreadFilterDropdownLastActivityMenu = ({
   onBack,
 }: AiChatThreadFilterDropdownLastActivityMenuProps) => {
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
   const [
     agentChatThreadLastActivityFilter,
@@ -44,13 +42,13 @@ export const AiChatThreadFilterDropdownLastActivityMenu = ({
           />
         }
       >
-        {t`Aktivitas terakhir`}
+        {`Aktivitas terakhir`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_OPTIONS.map((option) => (
           <MenuItemSelect
             key={option}
-            text={t(AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_LABELS[option])}
+            text={AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_LABELS[option]}
             selected={agentChatThreadLastActivityFilter === option}
             onClick={() => {
               setAgentChatThreadLastActivityFilter(option);

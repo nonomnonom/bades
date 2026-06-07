@@ -6,7 +6,6 @@ import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/c
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormActionField';
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import camelCase from 'lodash.camelcase';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -34,7 +33,7 @@ export const WorkflowFormFieldSettingsSelect = ({
 }: WorkflowFormFieldSettingsSelectProps) => {
   const selectTypeOptions = [
     {
-      label: t`Field yang Ada`,
+      label: `Field yang Ada`,
       value: 'EXISTING_FIELD',
     },
   ];
@@ -67,7 +66,7 @@ export const WorkflowFormFieldSettingsSelect = ({
     <StyledFormFieldSettingsSelect>
       <StyledRowContainer>
         <FormFieldInputContainer>
-          <InputLabel>{t`Nama Field`}</InputLabel>
+          <InputLabel>{`Nama Field`}</InputLabel>
           <FormTextFieldInput
             onChange={(newLabel: string) => {
               onChange({
@@ -81,7 +80,7 @@ export const WorkflowFormFieldSettingsSelect = ({
           />
         </FormFieldInputContainer>
         <FormFieldInputContainer>
-          <InputLabel>{t`Tipe Pilihan`}</InputLabel>
+          <InputLabel>{`Tipe Pilihan`}</InputLabel>
           <FormSelectFieldInput
             onChange={(newSelectType: string | null) => {
               if (newSelectType === null) {

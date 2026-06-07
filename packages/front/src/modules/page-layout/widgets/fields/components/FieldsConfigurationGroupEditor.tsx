@@ -1,7 +1,5 @@
 import { Droppable, type DraggableProvided } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { DraggableItem } from '@/ui/layout/draggable-list/components/DraggableItem';
 
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
@@ -95,8 +93,6 @@ export const FieldsConfigurationGroupEditor = ({
   onRenamingGroupValueChange,
   onStartRename,
 }: FieldsConfigurationGroupEditorProps) => {
-  const { t } = useLingui();
-
   const renameDropdownId = getFieldsConfigurationGroupRenameDropdownId(
     group.id,
   );
@@ -184,7 +180,7 @@ export const FieldsConfigurationGroupEditor = ({
           >
             {sortedFields.length === 0 && (
               <StyledEmptyGroupDropZone>
-                {t`Taruh kolom di sini`}
+                {`Taruh kolom di sini`}
               </StyledEmptyGroupDropZone>
             )}
             {sortedFields.map((field, fieldIndex) => {

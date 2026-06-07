@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { SettingsCard } from '@/settings/components/SettingsCard';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -18,7 +18,6 @@ import { Section } from 'ui/layout';
 import { UndecoratedLink } from 'ui/navigation';
 
 export const SettingsProfile = () => {
-  const { t } = useLingui();
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
   const { currentUserWorkspaceTwoFactorAuthenticationMethods } =
@@ -36,7 +35,7 @@ export const SettingsProfile = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Profil`}
+      title={`Profil`}
       links={[
         {
           children: <Trans>Pengguna</Trans>,
@@ -47,29 +46,29 @@ export const SettingsProfile = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Foto`} />
+          <H2Title title={`Foto`} />
           <WorkspaceMemberPictureUploader
             workspaceMemberId={currentWorkspaceMember.id}
           />
         </Section>
         <Section>
           <H2Title
-            title={t`Nama`}
-            description={t`Nama Anda sebagaimana ditampilkan di sistem`}
+            title={`Nama`}
+            description={`Nama Anda sebagaimana ditampilkan di sistem`}
           />
           <NameFields />
         </Section>
         <Section>
           <H2Title
-            title={t`Surel`}
-            description={t`Alamat surel yang terhubung ke akun Anda`}
+            title={`Surel`}
+            description={`Alamat surel yang terhubung ke akun Anda`}
           />
           <EmailField />
         </Section>
         <Section>
           <H2Title
-            title={t`Autentikasi Dua Faktor`}
-            description={t`Meningkatkan keamanan dengan meminta kode verifikasi tambahan saat masuk`}
+            title={`Autentikasi Dua Faktor`}
+            description={`Meningkatkan keamanan dengan meminta kode verifikasi tambahan saat masuk`}
           />
           <UndecoratedLink
             to={getSettingsPath(
@@ -78,13 +77,13 @@ export const SettingsProfile = () => {
             )}
           >
             <SettingsCard
-              title={t`Aplikasi Autentikator`}
+              title={`Aplikasi Autentikator`}
               Icon={<IconShield />}
               Status={
                 has2FAMethod ? (
-                  <Status text={t`Aktif`} color="turquoise" />
+                  <Status text={`Aktif`} color="turquoise" />
                 ) : (
-                  <Status text={t`Nonaktif`} color="gray" />
+                  <Status text={`Nonaktif`} color="gray" />
                 )
               }
             />

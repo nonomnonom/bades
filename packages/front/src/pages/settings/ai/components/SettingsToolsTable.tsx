@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
@@ -103,7 +102,6 @@ export const SettingsToolsTable = () => {
       logo?: string | null;
     }>;
   }>(FIND_MANY_MARKETPLACE_APPS_FOR_TOOL_TABLE);
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
   const [showCustomTools, setShowCustomTools] = useState(true);
   const [showManagedTools, setShowManagedTools] = useState(true);
@@ -201,12 +199,12 @@ export const SettingsToolsTable = () => {
   return (
     <Section>
       <H2Title
-        title={t`Alat`}
-        description={t`Gunakan filter untuk melihat alat yang ada atau buat alat Anda sendiri`}
+        title={`Alat`}
+        description={`Gunakan filter untuk melihat alat yang ada atau buat alat Anda sendiri`}
       />
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Cari alat...`}
+          placeholder={`Cari alat...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton: ReactNode) => (
@@ -224,7 +222,7 @@ export const SettingsToolsTable = () => {
                         setShowCustomTools(!showCustomTools)
                       }
                       toggled={showCustomTools}
-                      text={t`Kustom`}
+                      text={`Kustom`}
                       toggleSize="small"
                     />
                     <MenuItemToggle
@@ -233,7 +231,7 @@ export const SettingsToolsTable = () => {
                         setShowManagedTools(!showManagedTools)
                       }
                       toggled={showManagedTools}
-                      text={t`Terkelola`}
+                      text={`Terkelola`}
                       toggleSize="small"
                     />
                     <MenuItemToggle
@@ -242,7 +240,7 @@ export const SettingsToolsTable = () => {
                         setShowStandardTools(!showStandardTools)
                       }
                       toggled={showStandardTools}
-                      text={t`Standar`}
+                      text={`Standar`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>
@@ -255,8 +253,8 @@ export const SettingsToolsTable = () => {
       <Table>
         <StyledTableHeaderRowContainer>
           <TableRow gridTemplateColumns={TOOL_TABLE_ROW_GRID_TEMPLATE_COLUMNS}>
-            <TableHeader>{t`Nama`}</TableHeader>
-            <TableHeader>{t`Aplikasi`}</TableHeader>
+            <TableHeader>{`Nama`}</TableHeader>
+            <TableHeader>{`Aplikasi`}</TableHeader>
             <TableHeader />
           </TableRow>
         </StyledTableHeaderRowContainer>

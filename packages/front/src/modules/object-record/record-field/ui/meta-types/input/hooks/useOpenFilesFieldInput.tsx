@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useFileUpload } from '@/file-upload/hooks/useFileUpload';
 import { useUploadFilesFieldFile } from '@/object-record/record-field/ui/meta-types/hooks/useUploadFilesFieldFile';
 import { uploadMultipleFiles } from '@/object-record/record-field/ui/meta-types/utils/uploadMultipleFiles';
@@ -19,7 +18,6 @@ export const useOpenFilesFieldInput = () => {
   const { uploadFile } = useUploadFilesFieldFile();
   const { pushFocusItemToFocusStack } = usePushFocusItemToFocusStack();
   const { enqueueErrorSnackBar } = useSnackBar();
-  const { t } = useLingui();
   const store = useStore();
 
   const openFilesFieldInput = useCallback(
@@ -89,7 +87,7 @@ export const useOpenFilesFieldInput = () => {
         onUpload: async (selectedFiles: File[]) => {
           if (selectedFiles.length + currentFileCount > maxNumberOfValues) {
             enqueueErrorSnackBar({
-              message: t`Tidak dapat mengunggah lebih dari ${maxNumberOfValues} berkas`,
+              message: `Tidak dapat mengunggah lebih dari ${maxNumberOfValues} berkas`,
             });
 
             store.set(
@@ -142,7 +140,6 @@ export const useOpenFilesFieldInput = () => {
       uploadFile,
       pushFocusItemToFocusStack,
       enqueueErrorSnackBar,
-      t,
       store,
     ],
   );

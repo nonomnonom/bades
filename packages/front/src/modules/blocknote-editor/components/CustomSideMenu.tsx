@@ -10,7 +10,6 @@ import {
   SideMenuController,
 } from '@blocknote/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconColorSwatch, IconPlus, IconTrash } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -23,7 +22,6 @@ const StyledDivToCreateGap = styled.div`
 `;
 
 export const CustomSideMenu = ({ editor }: CustomSideMenuProps) => {
-  const { t } = useLingui();
   return (
     <SideMenuController
       sideMenu={() => (
@@ -34,21 +32,21 @@ export const CustomSideMenu = ({ editor }: CustomSideMenuProps) => {
                 <CustomAddBlockItem editor={editor}>
                   <CustomSideMenuOptions
                     LeftIcon={IconPlus}
-                    text={t`Tambah Blok`}
+                    text={`Tambah Blok`}
                     Variant="normal"
                   />
                 </CustomAddBlockItem>
                 <BlockColorsItem>
                   <CustomSideMenuOptions
                     LeftIcon={IconColorSwatch}
-                    text={t`Ubah Warna`}
+                    text={`Ubah Warna`}
                     Variant="normal"
                   />
                 </BlockColorsItem>
                 <RemoveBlockItem>
                   <CustomSideMenuOptions
                     LeftIcon={IconTrash}
-                    text={t`Hapus`}
+                    text={`Hapus`}
                     Variant="danger"
                   />
                 </RemoveBlockItem>

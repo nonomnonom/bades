@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useOpenEmailInAppOrFallback } from '@/activities/emails/hooks/useOpenEmailInAppOrFallback';
 import { useEmailsFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useEmailsFieldDisplay';
 import { EmailsDisplay } from '@/ui/field/display/components/EmailsDisplay';
@@ -9,8 +8,6 @@ import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 export const EmailsFieldDisplay = () => {
   const { fieldValue, fieldDefinition } = useEmailsFieldDisplay();
   const { copyToClipboard } = useCopyToClipboard();
-  const { t } = useLingui();
-
   const onClickAction =
     fieldDefinition.metadata.settings?.clickAction ??
     FieldMetadataSettingsOnClickAction.OPEN_IN_APP;
@@ -26,7 +23,7 @@ export const EmailsFieldDisplay = () => {
   ) => {
     if (onClickAction === FieldMetadataSettingsOnClickAction.COPY) {
       event.preventDefault();
-      copyToClipboard(email, t`Email berhasil disalin`);
+      copyToClipboard(email, `Email berhasil disalin`);
 
       return;
     }

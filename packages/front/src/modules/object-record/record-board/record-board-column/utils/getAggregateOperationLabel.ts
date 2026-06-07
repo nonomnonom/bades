@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { AggregateOperations } from '@/object-record/record-table/constants/AggregateOperations';
 import { DateAggregateOperations } from '@/object-record/record-table/constants/DateAggregateOperations';
 import { type ExtendedAggregateOperations } from '@/object-record/record-table/types/ExtendedAggregateOperations';
@@ -9,33 +8,33 @@ export const getAggregateOperationLabel = (
 ) => {
   switch (operation) {
     case AggregateOperations.MIN:
-      return t`Min`;
+      return `Min`;
     case AggregateOperations.MAX:
-      return t`Maks`;
+      return `Maks`;
     case AggregateOperations.AVG:
-      return t`Rata-rata`;
+      return `Rata-rata`;
     case AggregateOperations.SUM:
-      return t`Jumlah`;
+      return `Jumlah`;
     case AggregateOperations.COUNT:
-      return t`Hitung semua`;
+      return `Hitung semua`;
     case AggregateOperations.COUNT_EMPTY:
-      return t`Hitung yang kosong`;
+      return `Hitung yang kosong`;
     case AggregateOperations.COUNT_NOT_EMPTY:
-      return t`Hitung yang terisi`;
+      return `Hitung yang terisi`;
     case AggregateOperations.COUNT_UNIQUE_VALUES:
-      return t`Hitung nilai unik`;
+      return `Hitung nilai unik`;
     case AggregateOperations.PERCENTAGE_EMPTY:
-      return t`Persentase kosong`;
+      return `Persentase kosong`;
     case AggregateOperations.PERCENTAGE_NOT_EMPTY:
-      return t`Persentase terisi`;
+      return `Persentase terisi`;
     case DateAggregateOperations.EARLIEST:
-      return t`Tanggal terlama`;
+      return `Tanggal terlama`;
     case DateAggregateOperations.LATEST:
-      return t`Tanggal terbaru`;
+      return `Tanggal terbaru`;
     case AggregateOperations.COUNT_TRUE:
-      return t`Hitung yang benar`;
+      return `Hitung yang benar`;
     case AggregateOperations.COUNT_FALSE:
-      return t`Hitung yang salah`;
+      return `Hitung yang salah`;
     default:
       throw new CustomError(
         `Unknown aggregate operation: ${operation}`,

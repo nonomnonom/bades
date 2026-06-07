@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
 import { useEmailsField } from '@/object-record/record-field/ui/meta-types/hooks/useEmailsField';
 import { EmailsFieldMenuItem } from '@/object-record/record-field/ui/meta-types/input/components/EmailsFieldMenuItem';
@@ -18,8 +17,6 @@ import { MultiItemFieldInput } from './MultiItemFieldInput';
 export const EmailsFieldInput = () => {
   const { setDraftValue, draftValue, fieldDefinition } = useEmailsField();
   const { copyToClipboard } = useCopyToClipboard();
-  const { t } = useLingui();
-
   const { onEscape, onClickOutside, onEnter } = useContext(
     FieldInputEventContext,
   );
@@ -77,7 +74,7 @@ export const EmailsFieldInput = () => {
   };
 
   const handleCopy = (email: string) => {
-    copyToClipboard(email, t`Email berhasil disalin`);
+    copyToClipboard(email, `Email berhasil disalin`);
   };
 
   const handleClickOutside = (
@@ -109,7 +106,7 @@ export const EmailsFieldInput = () => {
       onEnter={handleEnter}
       onEscape={handleEscape}
       onClickOutside={handleClickOutside}
-      placeholder={t`Email`}
+      placeholder={`Email`}
       fieldMetadataType={FieldMetadataType.EMAILS}
       validateInput={validateInput}
       renderItem={({

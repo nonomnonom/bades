@@ -7,7 +7,6 @@ import {
 } from '@/auth/states/signInUpStepState';
 import { AuthenticatedMethod } from '@/auth/types/AuthenticatedMethod.enum';
 import { type SocialSSOSignInUpActionType } from '@/auth/types/socialSSOSignInUp.type';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { HorizontalSeparator, IconMicrosoft } from 'ui/display';
 import { MainButton } from 'ui/input';
@@ -25,8 +24,6 @@ export const SignInUpWithMicrosoft = ({
   isGlobalScope?: boolean;
 }) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const signInUpStep = useAtomStateValue(signInUpStepState);
   const [lastAuthenticatedMethod, setLastAuthenticatedMethod] = useAtomState(
     lastAuthenticatedMethodState,
@@ -46,7 +43,7 @@ export const SignInUpWithMicrosoft = ({
       <StyledSSOButtonContainer>
         <MainButton
           Icon={() => <IconMicrosoft size={theme.icon.size.md} />}
-          title={t`Lanjutkan dengan Microsoft`}
+          title={`Lanjutkan dengan Microsoft`}
           onClick={handleClick}
           variant={signInUpStep === SignInUpStep.Init ? undefined : 'secondary'}
           fullWidth

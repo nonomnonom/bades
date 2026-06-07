@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   IconBuildingSkyscraper,
   IconDotsVertical,
@@ -28,14 +27,14 @@ export const BackgroundMockPage = () => {
   return (
     <PageContainer>
       <PageHeader
-        title={t`Data Desa`}
+        title={`Data Desa`}
         Icon={() => (
           <TintedIconTile Icon={IconBuildingSkyscraper} color="blue" />
         )}
       >
         <Button
           Icon={IconPlus}
-          title={t`Tambah Data`}
+          title={`Tambah Data`}
           variant="primary"
           accent="default"
           size="small"

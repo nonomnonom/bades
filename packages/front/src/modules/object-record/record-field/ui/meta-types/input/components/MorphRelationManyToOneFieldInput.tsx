@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
 
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
@@ -89,7 +88,7 @@ export const MorphRelationManyToOneFieldInput = () => {
       focusId={instanceId}
       componentInstanceId={instanceId}
       EmptyIcon={IconForbid}
-      emptyLabel={t`Tidak ada ${fieldLabel}`}
+      emptyLabel={`Tidak ada ${fieldLabel}`}
       onCancel={onCancel}
       onMorphItemSelected={handleMorphItemSelected}
       objectNameSingulars={objectNameSingulars}

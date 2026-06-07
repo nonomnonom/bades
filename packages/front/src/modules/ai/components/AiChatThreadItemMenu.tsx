@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconArchive,
   IconArchiveOff,
@@ -36,7 +35,6 @@ export const AiChatThreadItemMenu = ({
   surface,
   onRenameRequested,
 }: AiChatThreadItemMenuProps) => {
-  const { t } = useLingui();
   const dropdownId = getAiChatThreadItemMenuDropdownId(threadId, surface);
   const { closeDropdown } = useCloseDropdown();
   const { openModal } = useModal();
@@ -76,7 +74,7 @@ export const AiChatThreadItemMenu = ({
       dropdownPlacement="bottom-end"
       clickableComponent={
         <LightIconButton
-          aria-label={t`Aksi obrolan`}
+          aria-label={`Aksi obrolan`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -85,18 +83,18 @@ export const AiChatThreadItemMenu = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Ubah nama`}
+              text={`Ubah nama`}
               LeftIcon={IconPencil}
               onClick={handleRename}
             />
             <MenuItem
-              text={isArchived ? t`Batalkan arsip` : t`Arsipkan`}
+              text={isArchived ? `Batalkan arsip` : `Arsipkan`}
               LeftIcon={isArchived ? IconArchiveOff : IconArchive}
               onClick={handleArchive}
             />
             <MenuItem
               accent="danger"
-              text={t`Hapus`}
+              text={`Hapus`}
               LeftIcon={IconTrash}
               onClick={handleDelete}
             />

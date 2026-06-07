@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsAdminHealthStatusRightContainer } from '@/settings/admin-panel/health-status/components/SettingsAdminHealthStatusRightContainer';
 import { SettingsAdminIndicatorHealthStatusContent } from '@/settings/admin-panel/health-status/components/SettingsAdminIndicatorHealthStatusContent';
@@ -28,7 +27,6 @@ const StyledTitleContainer = styled.div`
 `;
 
 export const SettingsAdminIndicatorHealthStatus = () => {
-  const { t } = useLingui();
   const { indicatorId } = useParams();
   const apolloAdminClient = useApolloAdminClient();
   const { data, loading: loadingIndicatorHealthStatus } = useQuery(
@@ -50,11 +48,11 @@ export const SettingsAdminIndicatorHealthStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Kesehatan`,
+          children: `Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         { children: `${data?.getIndicatorHealthStatus?.label}` },
@@ -91,7 +89,7 @@ export const SettingsAdminIndicatorHealthStatus = () => {
               data?.getIndicatorHealthStatus?.id !==
                 HealthIndicatorId.connectedAccount && (
                 <H2Title
-                  title={t`Status`}
+                  title={`Status`}
                   description={data?.getIndicatorHealthStatus?.description}
                 />
               )}

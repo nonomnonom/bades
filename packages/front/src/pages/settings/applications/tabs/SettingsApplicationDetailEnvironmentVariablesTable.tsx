@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type ApplicationVariable } from '~/generated-metadata/graphql';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
@@ -31,11 +30,11 @@ export const SettingsApplicationDetailEnvironmentVariablesTable = ({
   );
   const description =
     editedEnvVariables.length > 0
-      ? t`Atur variabel konfigurasi aplikasi Anda`
-      : t`Tidak ada variabel yang perlu diatur untuk aplikasi ini`;
+      ? `Atur variabel konfigurasi aplikasi Anda`
+      : `Tidak ada variabel yang perlu diatur untuk aplikasi ini`;
   return (
     <Section>
-      <H2Title title={t`Konfigurasi`} description={description} />
+      <H2Title title={`Konfigurasi`} description={description} />
       <StyledContainer>
         {editedEnvVariables.map((editedEnvVariable) => (
           <TextInput
@@ -53,7 +52,7 @@ export const SettingsApplicationDetailEnvironmentVariablesTable = ({
               );
               onUpdateDebounced({ ...editedEnvVariable, value: newValue });
             }}
-            placeholder={t`Nilai`}
+            placeholder={`Nilai`}
             fullWidth
           />
         ))}

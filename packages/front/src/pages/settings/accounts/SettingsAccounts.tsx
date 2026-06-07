@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { SettingsAccountsBlocklistSection } from '@/settings/accounts/components/SettingsAccountsBlocklistSection';
@@ -12,19 +11,17 @@ import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 
 export const SettingsAccounts = () => {
-  const { t } = useLingui();
-
   const { accounts: allAccounts, loading } = useMyConnectedAccounts();
 
   return (
     <SubMenuTopBarContainer
-      title={t`Akun`}
+      title={`Akun`}
       links={[
         {
-          children: t`Pengguna`,
+          children: `Pengguna`,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
-        { children: t`Akun` },
+        { children: `Akun` },
       ]}
     >
       <SettingsPageContainer>
@@ -34,8 +31,8 @@ export const SettingsAccounts = () => {
           <>
             <Section>
               <H2Title
-                title={t`Akun terhubung`}
-                description={t`Kelola akun internet Anda.`}
+                title={`Akun terhubung`}
+                description={`Kelola akun internet Anda.`}
               />
               <SettingsAccountsConnectedAccountsListCard
                 accounts={allAccounts}

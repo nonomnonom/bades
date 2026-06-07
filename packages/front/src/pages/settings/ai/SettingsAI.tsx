@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -52,7 +51,7 @@ export const SettingsAI = () => {
 
       if (result.status === 'successful' && isDefined(result.response?.data)) {
         const newLogicFunction = result.response.data.createOneLogicFunction;
-        enqueueSuccessSnackBar({ message: t`Alat berhasil dibuat` });
+        enqueueSuccessSnackBar({ message: `Alat berhasil dibuat` });
 
         const applicationId = (newLogicFunction as { applicationId?: string })
           .applicationId;
@@ -71,7 +70,7 @@ export const SettingsAI = () => {
           );
         }
       } else {
-        enqueueErrorSnackBar({ message: t`Gagal membuat alat` });
+        enqueueErrorSnackBar({ message: `Gagal membuat alat` });
       }
     } finally {
       setIsCreatingTool(false);
@@ -81,22 +80,22 @@ export const SettingsAI = () => {
   const tabs = [
     {
       id: SETTINGS_AI_TABS.TABS_IDS.SKILLS,
-      title: t`Keahlian`,
+      title: `Keahlian`,
       Icon: IconSparkles,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.TOOLS,
-      title: t`Alat`,
+      title: `Alat`,
       Icon: IconTool,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.USAGE,
-      title: t`Pemakaian`,
+      title: `Pemakaian`,
       Icon: IconChartBar,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.MORE,
-      title: t`Lainnya`,
+      title: `Lainnya`,
       Icon: IconSettingsBolt,
     },
   ];
@@ -114,7 +113,7 @@ export const SettingsAI = () => {
           <UndecoratedLink to={getSettingsPath(SettingsPath.AiNewSkill)}>
             <Button
               Icon={IconPlus}
-              title={t`Keahlian Baru`}
+              title={`Keahlian Baru`}
               accent="blue"
               size="small"
             />
@@ -122,7 +121,7 @@ export const SettingsAI = () => {
         ) : isToolsTab ? (
           <Button
             Icon={IconPlus}
-            title={t`Alat Baru`}
+            title={`Alat Baru`}
             accent="blue"
             size="small"
             onClick={handleCreateTool}
@@ -132,7 +131,7 @@ export const SettingsAI = () => {
       }
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         { children: 'AI' },

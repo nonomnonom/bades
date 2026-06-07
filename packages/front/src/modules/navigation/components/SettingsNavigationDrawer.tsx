@@ -4,7 +4,6 @@ import { NavigationDrawerFixedContent } from '@/ui/navigation/navigation-drawer/
 import { NavigationDrawerScrollableContent } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerScrollableContent';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { AdvancedSettingsToggle } from 'ui/navigation';
 
 export const SettingsNavigationDrawer = ({
@@ -12,13 +11,12 @@ export const SettingsNavigationDrawer = ({
 }: {
   className?: string;
 }) => {
-  const { t } = useLingui();
   const [isAdvancedModeEnabled, setIsAdvancedModeEnabled] = useAtomState(
     isAdvancedModeEnabledState,
   );
 
   return (
-    <NavigationDrawer className={className} title={t`Keluar Pengaturan`}>
+    <NavigationDrawer className={className} title={`Keluar Pengaturan`}>
       <NavigationDrawerScrollableContent>
         <SettingsNavigationDrawerItems />
       </NavigationDrawerScrollableContent>
@@ -27,7 +25,7 @@ export const SettingsNavigationDrawer = ({
         <AdvancedSettingsToggle
           isAdvancedModeEnabled={isAdvancedModeEnabled}
           setIsAdvancedModeEnabled={setIsAdvancedModeEnabled}
-          label={t`Lanjutan:`}
+          label={`Lanjutan:`}
         />
       </NavigationDrawerFixedContent>
     </NavigationDrawer>

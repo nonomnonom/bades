@@ -24,7 +24,6 @@ import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/Workflo
 import { useEmailForm } from '@/workflow/workflow-steps/workflow-actions/hooks/useEmailForm';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { ConnectedAccountProvider, SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -159,7 +158,7 @@ export const WorkflowEditActionEmailBase = ({
       : null;
 
   let emptyOption: SelectOption<string | null> = {
-    label: t`Tidak ada`,
+    label: `Tidak ada`,
     value: null,
   };
   const connectedAccountOptions: SelectOption<string | null>[] = [];
@@ -201,7 +200,7 @@ export const WorkflowEditActionEmailBase = ({
         <WorkflowStepBody>
           <Select
             dropdownId="select-connected-account-id"
-            label={t`Akun`}
+            label={`Akun`}
             fullWidth
             emptyOption={emptyOption}
             value={formData.connectedAccountId}
@@ -212,7 +211,7 @@ export const WorkflowEditActionEmailBase = ({
                 navigate(SettingsPath.NewAccount);
               },
               Icon: IconPlus,
-              text: t`Tambah akun`,
+              text: `Tambah akun`,
             }}
             onChange={(connectedAccountId) => {
               handleConnectedAccountChange(connectedAccountId);
@@ -225,18 +224,18 @@ export const WorkflowEditActionEmailBase = ({
             <>
               <Callout
                 variant={'error'}
-                title={t`Izin draft email tidak ada.`}
-                description={t`Akun ini sudah terhubung, namun kami belum memiliki izin untuk membuat draf email atas nama Anda. Anda akan diarahkan untuk menyetujui akses ini.`}
+                title={`Izin draft email tidak ada.`}
+                description={`Akun ini sudah terhubung, namun kami belum memiliki izin untuk membuat draf email atas nama Anda. Anda akan diarahkan untuk menyetujui akses ini.`}
                 action={{
-                  label: t`Otorisasi Ulang`,
+                  label: `Otorisasi Ulang`,
                   onClick: handleReauthorize,
                 }}
               />
             </>
           )}
           <FormMultiTextFieldInput
-            label={t`Kepada`}
-            placeholder={t`Masukkan email, pisahkan dengan koma`}
+            label={`Kepada`}
+            placeholder={`Masukkan email, pisahkan dengan koma`}
             readonly={actionOptions.readonly}
             defaultValue={formData.recipients.to}
             onChange={(value) => {
@@ -249,8 +248,8 @@ export const WorkflowEditActionEmailBase = ({
           />
           {visibleAdvancedFields.cc && (
             <FormMultiTextFieldInput
-              label={t`CC`}
-              placeholder={t`Masukkan email CC, pisahkan dengan koma`}
+              label={`CC`}
+              placeholder={`Masukkan email CC, pisahkan dengan koma`}
               readonly={actionOptions.readonly}
               defaultValue={formData.recipients.cc}
               onChange={(value) => {
@@ -264,8 +263,8 @@ export const WorkflowEditActionEmailBase = ({
           )}
           {visibleAdvancedFields.bcc && (
             <FormMultiTextFieldInput
-              label={t`BCC`}
-              placeholder={t`Masukkan email BCC, pisahkan dengan koma`}
+              label={`BCC`}
+              placeholder={`Masukkan email BCC, pisahkan dengan koma`}
               readonly={actionOptions.readonly}
               defaultValue={formData.recipients.bcc}
               onChange={(value) => {
@@ -279,8 +278,8 @@ export const WorkflowEditActionEmailBase = ({
           )}
           {visibleAdvancedFields.inReplyTo && (
             <FormTextFieldInput
-              label={t`Balasan untuk`}
-              placeholder={t`Masukkan Message-ID untuk dibalas`}
+              label={`Balasan untuk`}
+              placeholder={`Masukkan Message-ID untuk dibalas`}
               readonly={actionOptions.readonly}
               defaultValue={formData.inReplyTo}
               onChange={(value) => {
@@ -295,7 +294,7 @@ export const WorkflowEditActionEmailBase = ({
               dropdownPlacement="bottom-start"
               clickableComponent={
                 <Button
-                  title={t`Opsi lanjutan`}
+                  title={`Opsi lanjutan`}
                   variant="secondary"
                   accent="default"
                   size="small"
@@ -308,7 +307,7 @@ export const WorkflowEditActionEmailBase = ({
                   <DropdownMenuItemsContainer>
                     {!visibleAdvancedFields.cc && (
                       <MenuItem
-                        text={t`Tambah CC`}
+                        text={`Tambah CC`}
                         onClick={() => {
                           setVisibleAdvancedFields((prev) => ({
                             ...prev,
@@ -320,7 +319,7 @@ export const WorkflowEditActionEmailBase = ({
                     )}
                     {!visibleAdvancedFields.bcc && (
                       <MenuItem
-                        text={t`Tambah BCC`}
+                        text={`Tambah BCC`}
                         onClick={() => {
                           setVisibleAdvancedFields((prev) => ({
                             ...prev,
@@ -332,7 +331,7 @@ export const WorkflowEditActionEmailBase = ({
                     )}
                     {!visibleAdvancedFields.inReplyTo && (
                       <MenuItem
-                        text={t`Tambah Balasan untuk`}
+                        text={`Tambah Balasan untuk`}
                         onClick={() => {
                           setVisibleAdvancedFields((prev) => ({
                             ...prev,
@@ -348,8 +347,8 @@ export const WorkflowEditActionEmailBase = ({
             />
           )}
           <FormTextFieldInput
-            label={t`Subjek`}
-            placeholder={t`Masukkan subjek email`}
+            label={`Subjek`}
+            placeholder={`Masukkan subjek email`}
             readonly={actionOptions.readonly}
             defaultValue={formData.subject}
             onChange={(subject) => {
@@ -358,7 +357,7 @@ export const WorkflowEditActionEmailBase = ({
             VariablePicker={WorkflowVariablePicker}
           />
           <FormAdvancedTextFieldInput
-            label={t`Isi Email`}
+            label={`Isi Email`}
             readonly={actionOptions.readonly}
             defaultValue={formData.body}
             onChange={(body: string) => {
@@ -368,22 +367,22 @@ export const WorkflowEditActionEmailBase = ({
             enableFullScreen={true}
             fullScreenBreadcrumbs={[
               {
-                children: workflow?.name?.trim() || t`Alur Kerja Tanpa Nama`,
+                children: workflow?.name?.trim() || `Alur Kerja Tanpa Nama`,
                 href: '#',
               },
               {
-                children: isDefined(action.name) ? action.name : t`Kirim Email`,
+                children: isDefined(action.name) ? action.name : `Kirim Email`,
                 href: '#',
               },
               {
-                children: t`Editor Email`,
+                children: `Editor Email`,
               },
             ]}
             minHeight={EMAIL_EDITOR_MIN_HEIGHT}
             maxWidth={EMAIL_EDITOR_MAX_WIDTH}
           />
           <WorkflowSendEmailAttachments
-            label={t`Lampiran`}
+            label={`Lampiran`}
             files={formData.files}
             onChange={(files) => {
               handleFieldChange('files', files);

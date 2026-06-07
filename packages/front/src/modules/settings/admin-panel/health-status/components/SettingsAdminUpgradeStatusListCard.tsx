@@ -1,6 +1,5 @@
 import { SettingsAdminUpgradeStatusRightContainer } from '@/settings/admin-panel/health-status/components/SettingsAdminUpgradeStatusRightContainer';
 import { SettingsListCard } from '@/settings/components/SettingsListCard';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import {
@@ -62,19 +61,19 @@ export const SettingsAdminUpgradeStatusListCard = ({
     {
       id: 'inferred-version',
       kind: 'inferred-version',
-      label: t`Versi terdeteksi`,
+      label: `Versi terdeteksi`,
       ...sharedRowProps,
     },
     {
       id: 'instance-status',
       kind: 'instance-status',
-      label: t`Status instansi`,
+      label: `Status instansi`,
       ...sharedRowProps,
     },
     {
       id: 'workspaces-status',
       kind: 'workspaces-status',
-      label: t`Status ruang kerja`,
+      label: `Status ruang kerja`,
       ...sharedRowProps,
     },
   ];

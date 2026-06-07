@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { IconPicker } from '@/ui/input/components/IconPicker';
@@ -39,8 +38,6 @@ export const SettingsAiAgentForm = ({
   onFieldChange,
   disabled,
 }: SettingsAiAgentFormProps) => {
-  const { t } = useLingui();
-
   const fillNameFromLabel = (label: string) => {
     isDefined(label) &&
       onFieldChange('name', computeMetadataNameFromLabel(label));
@@ -61,7 +58,7 @@ export const SettingsAiAgentForm = ({
           <StyledNameContainer>
             <SettingsTextInput
               instanceId="agent-label-input"
-              placeholder={t`Masukkan nama agen*`}
+              placeholder={`Masukkan nama agen*`}
               value={formValues.label}
               onChange={(value) => {
                 onFieldChange('label', value);
@@ -77,7 +74,7 @@ export const SettingsAiAgentForm = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-description-textarea"
-          placeholder={t`Tulis deskripsi untuk agen ini`}
+          placeholder={`Tulis deskripsi untuk agen ini`}
           minRows={3}
           value={formValues.description || ''}
           onChange={(value) => onFieldChange('description', value)}
@@ -88,8 +85,8 @@ export const SettingsAiAgentForm = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-prompt-textarea"
-          label={t`Prompt Sistem`}
-          placeholder={t`Masukkan prompt sistem yang mendefinisikan perilaku dan kemampuan agen ini`}
+          label={`Prompt Sistem`}
+          placeholder={`Masukkan prompt sistem yang mendefinisikan perilaku dan kemampuan agen ini`}
           minRows={6}
           maxRows={15}
           value={formValues.prompt}

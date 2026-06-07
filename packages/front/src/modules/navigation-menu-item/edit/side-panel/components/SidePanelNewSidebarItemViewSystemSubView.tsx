@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { CommandMenuItem } from '@/command-menu/components/CommandMenuItem';
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
@@ -22,7 +20,6 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
   onSearchChange,
   onSelectObject,
 }: SidePanelNewSidebarItemViewSystemSubViewProps) => {
-  const { t } = useLingui();
   const {
     filteredItems: filteredSystemObjectMetadataItems,
     selectableItemIds,
@@ -34,12 +31,12 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
     getSearchableValues: (item) => [item.labelPlural],
   });
   const noResultsText = hasSearchQuery
-    ? t`Tidak ada hasil`
-    : t`Belum ada objek sistem dengan tampilan`;
+    ? `Tidak ada hasil`
+    : `Belum ada objek sistem dengan tampilan`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Cari objek sistem...`}
+      searchPlaceholder={`Cari objek sistem...`}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >
@@ -48,7 +45,7 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
         noResults={isEmpty}
         noResultsText={noResultsText}
       >
-        <SidePanelGroup heading={t`Objek sistem`}>
+        <SidePanelGroup heading={`Objek sistem`}>
           {filteredSystemObjectMetadataItems.map((objectMetadataItem) => (
             <SelectableListItem
               key={objectMetadataItem.id}

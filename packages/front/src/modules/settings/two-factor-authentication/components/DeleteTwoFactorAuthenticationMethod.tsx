@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useAuth } from '@/auth/hooks/useAuth';
 import { currentUserState } from '@/auth/states/currentUserState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -5,7 +6,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -20,7 +20,6 @@ import { useCurrentWorkspaceTwoFactorAuthenticationPolicy } from '@/settings/two
 const DELETE_TWO_FACTOR_AUTHENTICATION_MODAL_ID =
   'delete-two-factor-authentication-modal';
 export const DeleteTwoFactorAuthentication = () => {
-  const { t } = useLingui();
   const { openModal } = useModal();
 
   const { enqueueErrorSnackBar, enqueueSuccessSnackBar } = useSnackBar();
@@ -51,7 +50,7 @@ export const DeleteTwoFactorAuthentication = () => {
       )
     ) {
       enqueueErrorSnackBar({
-        message: t`Informasi 2FA tidak valid.`,
+        message: `Informasi 2FA tidak valid.`,
         options: {
           dedupeKey: '2fa-dedupe-key',
         },
@@ -69,7 +68,7 @@ export const DeleteTwoFactorAuthentication = () => {
     });
 
     enqueueSuccessSnackBar({
-      message: t`Metode 2FA berhasil dihapus.`,
+      message: `Metode 2FA berhasil dihapus.`,
       options: {
         dedupeKey: '2fa-dedupe-key',
       },
@@ -86,22 +85,22 @@ export const DeleteTwoFactorAuthentication = () => {
   return (
     <>
       <H2Title
-        title={t`Hapus Metode Autentikasi Dua Faktor`}
-        description={t`Menghapus metode ini akan menghapusnya secara permanen dari akun Anda.`}
+        title={`Hapus Metode Autentikasi Dua Faktor`}
+        description={`Menghapus metode ini akan menghapusnya secara permanen dari akun Anda.`}
       />
 
       <Button
         accent="danger"
         onClick={() => openModal(DELETE_TWO_FACTOR_AUTHENTICATION_MODAL_ID)}
         variant="secondary"
-        title={t`Setel ulang 2FA`}
+        title={`Setel ulang 2FA`}
       />
 
       <ConfirmationModal
         confirmationValue={userEmail}
         confirmationPlaceholder={userEmail ?? ''}
         modalInstanceId={DELETE_TWO_FACTOR_AUTHENTICATION_MODAL_ID}
-        title={t`Setel Ulang Metode 2FA`}
+        title={`Setel Ulang Metode 2FA`}
         subtitle={
           isTwoFactorAuthenticationEnforced ? (
             <Trans>
@@ -122,7 +121,7 @@ export const DeleteTwoFactorAuthentication = () => {
           )
         }
         onConfirmClick={reset2FA}
-        confirmButtonText={t`Setel ulang 2FA`}
+        confirmButtonText={`Setel ulang 2FA`}
       />
     </>
   );

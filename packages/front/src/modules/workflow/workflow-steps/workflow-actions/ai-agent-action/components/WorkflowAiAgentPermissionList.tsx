@@ -1,7 +1,6 @@
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { type SettingsRoleObjectPermissionKey } from '@/settings/roles/role-permissions/objects-permissions/constants/SettingsRoleObjectPermissionIconConfig';
 import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
-import { t } from '~/utils/i18n/badesI18n';
 import { type ObjectPermission } from '~/generated-metadata/graphql';
 import { filterBySearchQuery } from '~/utils/filterBySearchQuery';
 import { CRUD_PERMISSIONS } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/constants/WorkflowAiAgentCrudPermissions';
@@ -94,7 +93,7 @@ export const WorkflowAiAgentPermissionList = ({
   }
 
   return (
-    <SidePanelGroup heading={t`Hak Akses Data`}>
+    <SidePanelGroup heading={`Hak Akses Data`}>
       {filteredPermissions.map((permission) => (
         <WorkflowAiAgentPermissionsPermissionRow
           key={`${permission.objectMetadataId}-${permission.permissionKey}`}

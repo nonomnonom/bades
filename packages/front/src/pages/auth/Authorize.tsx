@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -194,15 +194,14 @@ const OAUTH_SCOPE_ICONS: { [scope: string]: IconComponent | undefined } = {
 };
 
 export const Authorize = () => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigateApp();
   const [searchParam] = useSearchParams();
   const { redirect } = useRedirect();
 
   const oauthScopeLabels: { [scope: string]: string | undefined } = {
-    api: t`Akses data ruang kerja Anda`,
-    profile: t`Baca profil Anda`,
+    api: `Akses data ruang kerja Anda`,
+    profile: `Baca profil Anda`,
   };
 
   // Support both camelCase (legacy) and standard OAuth snake_case params
@@ -255,7 +254,7 @@ export const Authorize = () => {
         onError: (error) => {
           setIsAuthorizing(false);
           setAuthorizeError(
-            error.message || t`Otorisasi gagal. Silakan coba lagi.`,
+            error.message || `Otorisasi gagal. Silakan coba lagi.`,
           );
         },
       });
@@ -272,7 +271,7 @@ export const Authorize = () => {
               fontColor={H1TitleFontColor.Primary}
             />
             <StyledErrorText>
-              {t`Tidak dapat memuat detail aplikasi. Silakan coba lagi nanti.`}
+              {`Tidak dapat memuat detail aplikasi. Silakan coba lagi nanti.`}
             </StyledErrorText>
           </ModalContent>
         </StyledCardWrapper>
@@ -356,7 +355,7 @@ export const Authorize = () => {
             <StyledCancelLinkContainer>
               <UndecoratedLink to={AppPath.Index} fullWidth>
                 <MainButton
-                  title={t`Batal`}
+                  title={`Batal`}
                   variant="secondary"
                   fullWidth
                   disabled={isAuthorizing}
@@ -364,7 +363,7 @@ export const Authorize = () => {
               </UndecoratedLink>
             </StyledCancelLinkContainer>
             <StyledAuthorizeButton
-              title={isAuthorizing ? t`Mengotorisasi...` : t`Otorisasi`}
+              title={isAuthorizing ? `Mengotorisasi...` : `Otorisasi`}
               onClick={handleAuthorize}
               disabled={isAuthorizing}
               fullWidth

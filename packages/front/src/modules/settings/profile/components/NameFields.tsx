@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -25,7 +24,6 @@ type NameFieldsProps = {
 };
 
 export const NameFields = ({ autoSave = true }: NameFieldsProps) => {
-  const { t } = useLingui();
   const currentUser = useAtomStateValue(currentUserState);
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
   const { canEdit: canEditFirstName } = useCanEditProfileField('firstName');
@@ -100,19 +98,19 @@ export const NameFields = ({ autoSave = true }: NameFieldsProps) => {
     <StyledComboInputContainer>
       <SettingsTextInput
         instanceId={firstNameTextInputId}
-        label={t`Nama Depan`}
+        label={`Nama Depan`}
         value={firstName}
         onChange={setFirstName}
-        placeholder={t`Budi`}
+        placeholder={`Budi`}
         fullWidth
         disabled={!canEditFirstName}
       />
       <SettingsTextInput
         instanceId={lastNameTextInputId}
-        label={t`Nama Belakang`}
+        label={`Nama Belakang`}
         value={lastName}
         onChange={setLastName}
-        placeholder={t`Santoso`}
+        placeholder={`Santoso`}
         fullWidth
         disabled={!canEditLastName}
       />

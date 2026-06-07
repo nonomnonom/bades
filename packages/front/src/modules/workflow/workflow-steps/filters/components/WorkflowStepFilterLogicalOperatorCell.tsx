@@ -5,7 +5,6 @@ import { useUpsertStepFilterSettings } from '@/workflow/workflow-steps/filters/h
 import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/states/context/WorkflowStepFilterContext';
 
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useMemo } from 'react';
 import { StepLogicalOperator, type StepFilterGroup } from 'shared/types';
 import { capitalize, isDefined } from 'shared/utils';
@@ -44,8 +43,7 @@ export const WorkflowStepFilterLogicalOperatorCell = ({
   elseIfIndex,
 }: WorkflowStepFilterLogicalOperatorCellProps) => {
   const { readonly } = useContext(WorkflowStepFilterContext);
-  const { t } = useLingui();
-  const defaultFirstFilterLabel = t`Jika`;
+  const defaultFirstFilterLabel = `Jika`;
 
   const { upsertStepFilterSettings } = useUpsertStepFilterSettings();
 
@@ -53,14 +51,14 @@ export const WorkflowStepFilterLogicalOperatorCell = ({
     () => [
       {
         value: StepLogicalOperator.AND,
-        label: t`Dan`,
+        label: `Dan`,
       },
       {
         value: StepLogicalOperator.OR,
-        label: t`Atau`,
+        label: `Atau`,
       },
     ],
-    [t],
+    [],
   );
 
   const handleChange = (value: StepLogicalOperator) => {

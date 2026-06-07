@@ -7,7 +7,6 @@ import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownM
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { type StepOutputSchemaV2 } from '@/workflow/workflow-variables/types/StepOutputSchemaV2';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconX, OverflowingTextWithTooltip, useIcons } from 'ui/display';
 import { MenuItem, MenuItemSelect } from 'ui/navigation';
@@ -44,7 +43,7 @@ export const WorkflowVariablesDropdownSteps = ({
           />
         }
       >
-        <OverflowingTextWithTooltip text={t`Pilih Langkah`} />
+        <OverflowingTextWithTooltip text={`Pilih Langkah`} />
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
@@ -69,7 +68,7 @@ export const WorkflowVariablesDropdownSteps = ({
           <MenuItem
             key="no-steps"
             onClick={() => {}}
-            text={t`Tidak ada variabel tersedia`}
+            text={`Tidak ada variabel tersedia`}
             LeftIcon={undefined}
             hasSubMenu={false}
           />

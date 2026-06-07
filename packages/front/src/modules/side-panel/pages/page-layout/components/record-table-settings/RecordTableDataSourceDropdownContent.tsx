@@ -18,7 +18,6 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { MenuItemSelect } from 'ui/navigation';
@@ -117,7 +116,7 @@ export const RecordTableDataSourceDropdownContent = () => {
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Cari objek`}
+        placeholder={`Cari objek`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

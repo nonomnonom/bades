@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import React, { useMemo } from 'react';
 
 import { type FieldPhonesValue } from '@/object-record/record-field/ui/types/FieldMetadata';
@@ -129,7 +128,7 @@ const parseAdditionalPhones = (additionalPhones?: any) => {
     try {
       return JSON.parse(additionalPhones);
     } catch (error) {
-      logError(t`Error parsing additional phones: ${error}`);
+      logError(`Error parsing additional phones: ${error}`);
     }
   }
 

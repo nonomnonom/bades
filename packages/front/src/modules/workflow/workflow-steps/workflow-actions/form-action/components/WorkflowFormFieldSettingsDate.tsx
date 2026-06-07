@@ -3,7 +3,6 @@ import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/c
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormActionField';
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
-import { t } from '~/utils/i18n/badesI18n';
 import camelCase from 'lodash.camelcase';
 import { FieldMetadataType } from 'shared/types';
 
@@ -18,7 +17,7 @@ export const WorkflowFormFieldSettingsDate = ({
 }: WorkflowFormFieldSettingsDateProps) => {
   return (
     <FormFieldInputContainer>
-      <InputLabel>{t`Nama Field`}</InputLabel>
+      <InputLabel>{`Nama Field`}</InputLabel>
       <FormTextFieldInput
         onChange={(newLabel: string) => {
           onChange({

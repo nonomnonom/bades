@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import {
   type SubscriptionInterval,
   type BillingPlanKey,
@@ -15,12 +14,12 @@ export const useBaseLicensedPriceByPlanKeyAndInterval = () => {
   ) => {
     const baseProduct = getBaseProductByPlanKey(planKey);
 
-    if (!baseProduct.prices) throw new Error(t`Harga produk tidak ditentukan.`);
+    if (!baseProduct.prices) throw new Error(`Harga produk tidak ditentukan.`);
 
     return findOrThrow(
       baseProduct.prices,
       (price) => price.recurringInterval === interval,
-      new Error(t`Harga langganan dasar tidak ditemukan`),
+      new Error(`Harga langganan dasar tidak ditemukan`),
     );
   };
 

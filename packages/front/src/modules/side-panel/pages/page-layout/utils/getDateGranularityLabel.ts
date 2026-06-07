@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { ObjectRecordGroupByDateGranularity } from 'shared/types';
 
 export const getDateGranularityLabel = (
@@ -6,23 +5,23 @@ export const getDateGranularityLabel = (
 ): string => {
   switch (granularity) {
     case ObjectRecordGroupByDateGranularity.DAY:
-      return t`Hari`;
+      return `Hari`;
     case ObjectRecordGroupByDateGranularity.WEEK:
-      return t`Minggu`;
+      return `Minggu`;
     case ObjectRecordGroupByDateGranularity.MONTH:
-      return t`Bulan`;
+      return `Bulan`;
     case ObjectRecordGroupByDateGranularity.QUARTER:
-      return t`Kuartal`;
+      return `Kuartal`;
     case ObjectRecordGroupByDateGranularity.YEAR:
-      return t`Tahun`;
+      return `Tahun`;
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
-      return t`Hari dalam seminggu`;
+      return `Hari dalam seminggu`;
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
-      return t`Bulan dalam setahun`;
+      return `Bulan dalam setahun`;
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
-      return t`Kuartal dalam setahun`;
+      return `Kuartal dalam setahun`;
     case ObjectRecordGroupByDateGranularity.NONE:
-      return t`Tidak ada`;
+      return `Tidak ada`;
     default:
       return granularity;
   }

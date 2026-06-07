@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext, useMemo, useState } from 'react';
 import { IconFolder, IconFolderPlus, IconHeartOff } from 'ui/display';
 import { LightIconButton } from 'ui/input';
@@ -62,8 +61,6 @@ export const FavoritesSection = () => {
     isNavigationMenuItemFolderCreating,
     setIsNavigationMenuItemFolderCreating,
   ] = useAtomState(isNavigationMenuItemFolderCreatingState);
-
-  const { t } = useLingui();
 
   const { toggleNavigationSection, openNavigationSection } =
     useNavigationSection('Favorites');
@@ -145,7 +142,7 @@ export const FavoritesSection = () => {
 
   return (
     <NavigationMenuItemSection
-      title={t`Favorit`}
+      title={`Favorit`}
       isOpen={isNavigationSectionOpen}
       onToggle={toggleNavigationSection}
       rightIcon={

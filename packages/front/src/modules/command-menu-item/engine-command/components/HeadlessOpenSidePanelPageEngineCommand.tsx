@@ -2,7 +2,6 @@ import { HeadlessEngineCommandWrapperEffect } from '@/command-menu-item/engine-c
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { t } from '~/utils/i18n/badesI18n';
 import { type SidePanelPages } from 'shared/types';
 import { type IconComponent } from 'ui/display';
 
@@ -23,7 +22,7 @@ export const HeadlessOpenSidePanelPageEngineCommand = ({
   const onExecute = () => {
     navigateSidePanel({
       page,
-      pageTitle: t(pageTitle),
+      pageTitle: pageTitle,
       pageIcon,
     });
 

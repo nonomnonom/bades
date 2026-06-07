@@ -3,7 +3,6 @@ import { useAccountToReconnect } from '@/information-banner/hooks/useAccountToRe
 import { useDismissReconnectAccountBanner } from '@/information-banner/hooks/useDismissReconnectAccountBanner';
 import { InformationBannerKeys } from '@/information-banner/types/InformationBannerKeys';
 import { useTriggerProviderReconnect } from '@/settings/accounts/hooks/useTriggerProviderReconnect';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconRefresh } from 'ui/display';
 
 const COMPONENT_INSTANCE_ID =
@@ -33,8 +32,8 @@ export const InformationBannerReconnectAccountInsufficientPermissions = () => {
     <InformationBanner
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
-      message={t`Sinkronisasi terputus dengan kotak surat ${mailboxHandle}. Sambungkan ulang untuk pembaruan:`}
-      buttonTitle={t`Sambungkan Ulang`}
+      message={`Sinkronisasi terputus dengan kotak surat ${mailboxHandle}. Sambungkan ulang untuk pembaruan:`}
+      buttonTitle={`Sambungkan Ulang`}
       buttonIcon={IconRefresh}
       buttonOnClick={() =>
         triggerProviderReconnect(

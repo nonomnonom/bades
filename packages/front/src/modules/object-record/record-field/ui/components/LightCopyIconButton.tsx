@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { IconCopy } from 'ui/display';
 import { LightIconButton } from 'ui/input';
@@ -15,16 +14,14 @@ export type LightCopyIconButtonProps = {
 
 export const LightCopyIconButton = ({ copyText }: LightCopyIconButtonProps) => {
   const { copyToClipboard } = useCopyToClipboard();
-  const { t } = useLingui();
-
   return (
     <StyledButtonContainer>
       <LightIconButton
         Icon={IconCopy}
         onClick={() => {
-          copyToClipboard(copyText, t`Teks berhasil disalin`);
+          copyToClipboard(copyText, `Teks berhasil disalin`);
         }}
-        aria-label={t`Salin ke Papan Klip`}
+        aria-label={`Salin ke Papan Klip`}
       />
     </StyledButtonContainer>
   );

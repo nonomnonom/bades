@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useState } from 'react';
 
@@ -94,7 +94,6 @@ export type EventLogFiltersState = {
 const RECORDS_PER_PAGE = 100;
 
 export const SettingsEventLogs = () => {
-  const { t } = useLingui();
   const navigateSettings = useNavigateSettings();
   const [selectedTable, setSelectedTable] = useState<EventLogTable>(
     EventLogTable.PAGEVIEW,
@@ -154,21 +153,21 @@ export const SettingsEventLogs = () => {
 
     if (isClickHouseError) {
       return {
-        title: t`ClickHouse Belum Dikonfigurasi`,
-        message: t`Log audit memerlukan ClickHouse yang dikonfigurasi. Hubungi administrator Anda untuk menyiapkan ClickHouse.`,
+        title: `ClickHouse Belum Dikonfigurasi`,
+        message: `Log audit memerlukan ClickHouse yang dikonfigurasi. Hubungi administrator Anda untuk menyiapkan ClickHouse.`,
       };
     }
 
     if (isEntitlementError) {
       return {
-        title: t`Fitur Enterprise`,
-        message: t`Log audit tersedia dengan langganan Enterprise. Tingkatkan paket untuk mengakses fitur ini.`,
+        title: `Fitur Enterprise`,
+        message: `Log audit tersedia dengan langganan Enterprise. Tingkatkan paket untuk mengakses fitur ini.`,
       };
     }
 
     return {
-      title: t`Gagal Memuat Log Audit`,
-      message: errorMessage || t`Terjadi kesalahan tak terduga. Coba lagi.`,
+      title: `Gagal Memuat Log Audit`,
+      message: errorMessage || `Terjadi kesalahan tak terduga. Coba lagi.`,
     };
   };
 
@@ -198,7 +197,7 @@ export const SettingsEventLogs = () => {
             <StyledErrorTitle>{errorContent.title}</StyledErrorTitle>
             <StyledErrorMessage>{errorContent.message}</StyledErrorMessage>
             <Button
-              title={t`Kembali`}
+              title={`Kembali`}
               variant="secondary"
               onClick={handleExitFullScreen}
             />
@@ -217,14 +216,14 @@ export const SettingsEventLogs = () => {
               />
               <StyledHeaderRow>
                 <StyledRecordCount>
-                  {t`${recordCount} dari ${totalCount} catatan`}
+                  {`${recordCount} dari ${totalCount} catatan`}
                 </StyledRecordCount>
                 <Button
                   Icon={IconRefresh}
                   variant="tertiary"
                   size="small"
                   onClick={() => refetch()}
-                  title={t`Segarkan`}
+                  title={`Segarkan`}
                 />
               </StyledHeaderRow>
             </StyledHeader>

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSignInUp } from '@/auth/sign-in-up/hooks/useSignInUp';
 import { useSignInUpForm } from '@/auth/sign-in-up/hooks/useSignInUpForm';
 import {
@@ -82,7 +81,6 @@ const StandardContent = ({
 };
 
 export const SignInUp = () => {
-  const { t } = useLingui();
   const setSignInUpStep = useSetAtomState(signInUpStepState);
   const clientConfigApiStatus = useAtomStateValue(clientConfigApiStatusState);
 
@@ -110,38 +108,37 @@ export const SignInUp = () => {
   const title = useMemo(() => {
     if (isDefined(workspaceInviteHash)) {
       const workspaceName = workspaceFromInviteHash?.displayName ?? '';
-      return t`Bergabung dengan tim ${workspaceName}`;
+      return `Bergabung dengan tim ${workspaceName}`;
     }
 
     if (signInUpStep === SignInUpStep.WorkspaceSelection) {
-      return t`Pilih Desa`;
+      return `Pilih Desa`;
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationProvision) {
-      return t`Atur autentikasi dua faktor`;
+      return `Atur autentikasi dua faktor`;
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationVerification) {
-      return t`Masukkan kode dari aplikasi`;
+      return `Masukkan kode dari aplikasi`;
     }
 
     if (isGlobalScope) {
-      return t`Selamat datang di Bades.id`;
+      return `Selamat datang di Bades.id`;
     }
 
     const workspaceName = workspacePublicData?.displayName;
 
     if (!workspaceName) {
-      return t`Selamat datang di ruang kerja Anda`;
+      return `Selamat datang di ruang kerja Anda`;
     }
 
-    return t`Selamat datang, ${workspaceName}.`;
+    return `Selamat datang, ${workspaceName}.`;
   }, [
     workspaceInviteHash,
     signInUpStep,
     workspacePublicData?.displayName,
     isGlobalScope,
-    t,
     workspaceFromInviteHash?.displayName,
   ]);
 

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMultipleRecordPickerPerformSearch } from '@/object-record/record-picker/multiple-record-picker/hooks/useMultipleRecordPickerPerformSearch';
 import { MultipleRecordPickerComponentInstanceContext } from '@/object-record/record-picker/multiple-record-picker/states/contexts/MultipleRecordPickerComponentInstanceContext';
 
@@ -123,7 +122,7 @@ export const MultipleRecordPickerFetchMoreLoader = () => {
     <>
       <StyledIntersectionObserver ref={ref} />
       {multipleRecordPickerIsFetchingMore && (
-        <StyledText>{t`Memuat lebih banyak...`}</StyledText>
+        <StyledText>{`Memuat lebih banyak...`}</StyledText>
       )}
     </>
   );

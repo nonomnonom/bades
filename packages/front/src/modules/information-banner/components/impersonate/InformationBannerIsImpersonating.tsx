@@ -2,7 +2,6 @@ import { useImpersonationSession } from '@/auth/hooks/useImpersonationSession';
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { isImpersonatingState } from '@/auth/states/isImpersonatingState';
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
-import { t } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { isDefined } from 'shared/utils';
 import { IconLogout } from 'ui/display';
@@ -22,8 +21,8 @@ export const InformationBannerIsImpersonating = () => {
   return (
     <InformationBanner
       componentInstanceId="information-banner-is-impersonating"
-      message={t`Masuk sebagai ${impersonatedUser}`}
-      buttonTitle={t`Hentikan peniruan identitas`}
+      message={`Masuk sebagai ${impersonatedUser}`}
+      buttonTitle={`Hentikan peniruan identitas`}
       buttonIcon={IconLogout}
       buttonOnClick={stopImpersonating}
     />

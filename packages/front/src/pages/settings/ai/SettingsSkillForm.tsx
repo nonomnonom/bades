@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
 import { useParams } from 'react-router-dom';
@@ -158,7 +157,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         setOriginalFormValues(initialValues);
       } else {
         enqueueErrorSnackBar({
-          message: t`Keahlian tidak ditemukan`,
+          message: `Keahlian tidak ditemukan`,
         });
         navigateApp(AppPath.NotFound);
       }
@@ -393,21 +392,21 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
   const breadcrumbText = !isCreateMode
     ? loading
-      ? t`Keahlian`
+      ? `Keahlian`
       : skill?.label
-    : t`Keahlian Baru`;
+    : `Keahlian Baru`;
 
   const isNameEditEnabled =
     !isReadonlyMode && !formValues.isLabelSyncedWithName;
 
   const apiNameTooltipText = formValues.isLabelSyncedWithName
-    ? t`Nonaktifkan "Sinkronkan Label dan Nama API" untuk mengatur nama API kustom`
-    : t`Input harus dalam format camelCase dan tidak boleh diawali dengan angka`;
+    ? `Nonaktifkan "Sinkronkan Label dan Nama API" untuk mengatur nama API kustom`
+    : `Input harus dalam format camelCase dan tidak boleh diawali dengan angka`;
 
   const title = isCreateMode ? (
-    t`Keahlian Baru`
+    `Keahlian Baru`
   ) : loading ? (
-    t`Keahlian`
+    `Keahlian`
   ) : (
     <StyledHeaderTitle>
       <TitleInput
@@ -416,7 +415,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         sizeVariant="md"
         value={formValues.label}
         onChange={(value) => handleFieldChange('label', value)}
-        placeholder={t`Nama keahlian`}
+        placeholder={`Nama keahlian`}
       />
     </StyledHeaderTitle>
   );
@@ -437,7 +436,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
       }
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         { children: 'AI', href: getSettingsPath(SettingsPath.AI) },
@@ -453,8 +452,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
           <>
             <Section>
               <H2Title
-                title={t`Tentang`}
-                description={t`Tentukan nama dan instruksi untuk keahlian ini`}
+                title={`Tentang`}
+                description={`Tentukan nama dan instruksi untuk keahlian ini`}
               />
               <StyledFormContainer>
                 <StyledIconNameRow>
@@ -468,7 +467,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                   <StyledNameContainer>
                     <SettingsTextInput
                       instanceId="skill-label-input"
-                      placeholder={t`Nama keahlian`}
+                      placeholder={`Nama keahlian`}
                       value={formValues.label}
                       onChange={(value) => handleFieldChange('label', value)}
                       disabled={isReadonlyMode}
@@ -479,7 +478,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
                 <TextArea
                   textAreaId="skill-description-textarea"
-                  placeholder={t`Tulis deskripsi`}
+                  placeholder={`Tulis deskripsi`}
                   minRows={3}
                   value={formValues.description}
                   onChange={(value) =>
@@ -490,7 +489,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
                 <FormAdvancedTextFieldInput
                   key={originalFormValues?.content ?? 'loading'}
-                  label={t`Instruksi`}
+                  label={`Instruksi`}
                   readonly={isReadonlyMode}
                   defaultValue={formValues.content}
                   contentType="markdown"
@@ -500,11 +499,11 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                   enableFullScreen={true}
                   fullScreenBreadcrumbs={[
                     {
-                      children: formValues.label || t`Keahlian`,
+                      children: formValues.label || `Keahlian`,
                       href: '#',
                     },
                     {
-                      children: t`Editor Instruksi`,
+                      children: `Editor Instruksi`,
                     },
                   ]}
                   minHeight={300}
@@ -516,8 +515,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                     <StyledAdvancedSettingsContainer>
                       <SettingsTextInput
                         instanceId="skill-api-name"
-                        label={t`Nama API`}
-                        placeholder={t`mySkill`}
+                        label={`Nama API`}
+                        placeholder={`mySkill`}
                         value={formValues.name}
                         onChange={(value) => handleFieldChange('name', value)}
                         disabled={!isNameEditEnabled}
@@ -547,8 +546,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                       <Card rounded>
                         <SettingsOptionCardContentToggle
                           Icon={IconRefresh}
-                          title={t`Sinkronkan Label dan Nama API`}
-                          description={t`Apakah mengubah label juga mengubah nama API?`}
+                          title={`Sinkronkan Label dan Nama API`}
+                          description={`Apakah mengubah label juga mengubah nama API?`}
                           checked={formValues.isLabelSyncedWithName}
                           disabled={isReadonlyMode}
                           advancedMode
@@ -566,20 +565,20 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             {skill && (
               <Section>
                 <H2Title
-                  title={t`Zona berbahaya`}
-                  description={t`Nonaktifkan atau hapus keahlian ini`}
+                  title={`Zona berbahaya`}
+                  description={`Nonaktifkan atau hapus keahlian ini`}
                 />
                 <StyledDangerButtonsContainer>
                   <Button
                     Icon={skill.isActive ? IconArchive : IconArchiveOff}
-                    title={skill.isActive ? t`Nonaktifkan` : t`Aktifkan`}
+                    title={skill.isActive ? `Nonaktifkan` : `Aktifkan`}
                     size="small"
                     onClick={skill.isActive ? handleDeactivate : handleActivate}
                   />
                   {skill.isCustom && (
                     <Button
                       Icon={IconTrash}
-                      title={t`Hapus`}
+                      title={`Hapus`}
                       size="small"
                       accent="danger"
                       variant="secondary"
@@ -595,10 +594,10 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
       <ConfirmationModal
         modalInstanceId={DELETE_SKILL_MODAL_ID}
-        title={t`Hapus Keahlian`}
-        subtitle={t`Yakin ingin menghapus keahlian ini? Tindakan ini tidak dapat dibatalkan.`}
+        title={`Hapus Keahlian`}
+        subtitle={`Yakin ingin menghapus keahlian ini? Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Hapus`}
+        confirmButtonText={`Hapus`}
         loading={isSubmitting}
       />
     </SubMenuTopBarContainer>

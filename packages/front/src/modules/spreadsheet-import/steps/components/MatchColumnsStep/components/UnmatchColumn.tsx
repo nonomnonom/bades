@@ -7,7 +7,6 @@ import { type SpreadsheetColumns } from '@/spreadsheet-import/types/SpreadsheetC
 import { SpreadsheetColumnType } from '@/spreadsheet-import/types/SpreadsheetColumnType';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
-import { t, useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { AnimatedExpandableContainer } from 'ui/layout';
@@ -24,7 +23,7 @@ const getExpandableContainerTitle = (
     'matchedOptions' in column &&
     column.matchedOptions?.filter((option) => !isDefined(option.value)).length;
 
-  return t`Cocokkan ${fieldLabel} (${unmatchedCount} belum dicocokkan)`;
+  return `Cocokkan ${fieldLabel} (${unmatchedCount} belum dicocokkan)`;
 };
 
 type UnmatchColumnProps = {
@@ -55,8 +54,6 @@ export const UnmatchColumn = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const column = columns[columnIndex];
   const isSelect = 'matchedOptions' in column;
-  const { t } = useLingui();
-
   const allMatched = column.type === SpreadsheetColumnType.matchedSelectOptions;
 
   if (!isSelect) return null;
@@ -82,7 +79,7 @@ export const UnmatchColumn = ({
               column={column}
               onSubChange={onSubChange}
               key={option.entry}
-              placeholder={t`Pilih opsi`}
+              placeholder={`Pilih opsi`}
             />
           ))}
         </StyledContentWrapper>

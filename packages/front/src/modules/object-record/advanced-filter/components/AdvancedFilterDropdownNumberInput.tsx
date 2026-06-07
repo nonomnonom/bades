@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useApplyObjectFilterDropdownFilterValue } from '@/object-record/object-filter-dropdown/hooks/useApplyObjectFilterDropdownFilterValue';
 import { useObjectFilterDropdownFilterValue } from '@/object-record/object-filter-dropdown/hooks/useObjectFilterDropdownFilterValue';
 import { fieldMetadataItemUsedInDropdownComponentSelector } from '@/object-record/object-filter-dropdown/states/fieldMetadataItemUsedInDropdownComponentSelector';
@@ -34,7 +33,7 @@ export const AdvancedFilterDropdownNumberInput = () => {
     <TextInput
       value={objectFilterDropdownFilterValue}
       onChange={handleChange}
-      placeholder={t`Masukkan nilai`}
+      placeholder={`Masukkan nilai`}
       fullWidth
       type="number"
     />

@@ -9,7 +9,6 @@ import {
   type TriggerKind,
 } from '@/settings/logic-functions/utils/getTriggerSamplePayload';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   H2Title,
@@ -64,8 +63,6 @@ export const SettingsLogicFunctionTestTab = ({
   formValues: LogicFunctionFormValues;
   isTesting?: boolean;
 }) => {
-  const { t } = useLingui();
-
   const { updateLogicFunctionInput, logicFunctionTestData } =
     useExecuteLogicFunction({
       logicFunctionId,
@@ -83,17 +80,17 @@ export const SettingsLogicFunctionTestTab = ({
     triggerButtons.push({ kind: 'http', label: 'HTTP', Icon: IconWebhook });
   }
   if (isDefined(cronTriggerSettings)) {
-    triggerButtons.push({ kind: 'cron', label: t`Terjadwal`, Icon: IconClock });
+    triggerButtons.push({ kind: 'cron', label: `Terjadwal`, Icon: IconClock });
   }
   if (isDefined(databaseEventTriggerSettings)) {
     triggerButtons.push({
       kind: 'databaseEvent',
-      label: t`Perubahan data`,
+      label: `Perubahan data`,
       Icon: IconDatabase,
     });
   }
   if (isDefined(toolTriggerSettings)) {
-    triggerButtons.push({ kind: 'tool', label: t`Alat AI`, Icon: IconTool });
+    triggerButtons.push({ kind: 'tool', label: `Alat AI`, Icon: IconTool });
   }
 
   const onChange = (value: string) => {
@@ -127,13 +124,13 @@ export const SettingsLogicFunctionTestTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Uji coba fungsi`}
-        description={t`Masukkan input JSON, lalu tekan "Jalankan Fungsi".`}
+        title={`Uji coba fungsi`}
+        description={`Masukkan input JSON, lalu tekan "Jalankan Fungsi".`}
       />
       <StyledInputsContainer>
         {triggerButtons.length > 0 && (
           <div>
-            <StyledTriggerLabel>{t`Isi dengan contoh masukan dari`}</StyledTriggerLabel>
+            <StyledTriggerLabel>{`Isi dengan contoh masukan dari`}</StyledTriggerLabel>
             <StyledTriggerButtonRow>
               {triggerButtons.map((trigger) => (
                 <Button
@@ -150,11 +147,11 @@ export const SettingsLogicFunctionTestTab = ({
         )}
         <StyledCodeEditorContainer>
           <CoreEditorHeader
-            title={t`Masukan`}
+            title={`Masukan`}
             rightNodes={[
               <Button
                 key="run-function"
-                title={t`Jalankan Fungsi`}
+                title={`Jalankan Fungsi`}
                 variant="primary"
                 accent="blue"
                 size="small"

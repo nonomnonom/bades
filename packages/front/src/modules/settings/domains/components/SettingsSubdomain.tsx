@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
@@ -10,7 +11,6 @@ import { TextInput } from '@/ui/input/components/TextInput';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
@@ -25,7 +25,6 @@ const StyledDomainFormWrapper = styled.div`
 
 export const SettingsSubdomain = () => {
   const navigate = useNavigateSettings();
-  const { t } = useLingui();
   const domainConfiguration = useAtomStateValue(domainConfigurationState);
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
@@ -42,7 +41,7 @@ export const SettingsSubdomain = () => {
   return (
     <>
       <SubMenuTopBarContainer
-        title={t`Subdomain`}
+        title={`Subdomain`}
         links={[
           {
             children: <Trans>Ruang Kerja</Trans>,
@@ -66,8 +65,8 @@ export const SettingsSubdomain = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Subdomain`}
-              description={t`Atur nama subdomain Anda`}
+              title={`Subdomain`}
+              description={`Atur nama subdomain Anda`}
             />
             <StyledDomainFormWrapper>
               <TextInput
@@ -89,8 +88,8 @@ export const SettingsSubdomain = () => {
       </SubMenuTopBarContainer>
       <ConfirmationModal
         modalInstanceId={SUBDOMAIN_CHANGE_CONFIRMATION_MODAL_ID}
-        title={t`Ubah subdomain?`}
-        subtitle={t`Anda akan mengubah subdomain ruang kerja. Tindakan ini akan mengeluarkan semua pengguna.`}
+        title={`Ubah subdomain?`}
+        subtitle={`Anda akan mengubah subdomain ruang kerja. Tindakan ini akan mengeluarkan semua pengguna.`}
         onConfirmClick={handleConfirm}
       />
     </>

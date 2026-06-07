@@ -4,7 +4,6 @@ import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetada
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsOptions/SettingsOptionCardContentSelect';
 import { canBeUnique } from '@/settings/data-model/fields/forms/utils/canBeUnique';
-import { t } from '~/utils/i18n/badesI18n';
 import { type FieldMetadataType } from 'shared/types';
 import { IconKey } from 'ui/display';
 import { Toggle } from 'ui/input';
@@ -67,8 +66,8 @@ export const SettingsDataModelFieldIsUniqueForm = ({
           <>
             <SettingsOptionCardContentSelect
               Icon={IconKey}
-              title={t`Unik`}
-              description={t`Mencegah nilai yang sama diterapkan ke data berbeda`}
+              title={`Unik`}
+              description={`Mencegah nilai yang sama diterapkan ke data berbeda`}
             >
               <Toggle
                 toggleSize="small"

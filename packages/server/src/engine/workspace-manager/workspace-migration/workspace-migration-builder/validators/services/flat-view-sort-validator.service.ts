@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -46,7 +46,7 @@ export class FlatViewSortValidatorService {
 
       validationResult.errors.push({
         code: ViewSortExceptionCode.INVALID_VIEW_SORT_DATA,
-        message: t`View sort with id ${flatViewSortId} already exists`,
+        message: `View sort with id ${flatViewSortId} already exists`,
         userFriendlyMessage: msg`View sort already exists`,
       });
     }
@@ -60,7 +60,7 @@ export class FlatViewSortValidatorService {
     if (!isDefined(flatFieldMetadata)) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.INVALID_VIEW_SORT_DATA,
-        message: t`Field metadata not found`,
+        message: `Field metadata not found`,
         userFriendlyMessage: msg`Field metadata not found`,
       });
     }
@@ -73,7 +73,7 @@ export class FlatViewSortValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.VIEW_NOT_FOUND,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
 
@@ -97,7 +97,7 @@ export class FlatViewSortValidatorService {
     if (equivalentExistingFlatViewSortExists) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.INVALID_VIEW_SORT_DATA,
-        message: t`View sort with same fieldMetadataId and viewId already exists`,
+        message: `View sort with same fieldMetadataId and viewId already exists`,
         userFriendlyMessage: msg`View sort already exists`,
       });
     }
@@ -110,7 +110,7 @@ export class FlatViewSortValidatorService {
     ) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.INVALID_VIEW_SORT_DATA,
-        message: t`View sort with invalid direction`,
+        message: `View sort with invalid direction`,
         userFriendlyMessage: msg`View sort with invalid direction, should be ASC or DESC`,
       });
     }
@@ -144,7 +144,7 @@ export class FlatViewSortValidatorService {
     if (!isDefined(existingFlatViewSort)) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.VIEW_SORT_NOT_FOUND,
-        message: t`View sort to update not found`,
+        message: `View sort to update not found`,
         userFriendlyMessage: msg`View sort to update not found`,
       });
 
@@ -165,7 +165,7 @@ export class FlatViewSortValidatorService {
     ) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.INVALID_VIEW_SORT_DATA,
-        message: t`Correct direction is required`,
+        message: `Correct direction is required`,
         userFriendlyMessage: msg`Correct direction is required`,
       });
     }
@@ -183,7 +183,7 @@ export class FlatViewSortValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.VIEW_NOT_FOUND,
-        message: t`View sort to update parent view not found`,
+        message: `View sort to update parent view not found`,
         userFriendlyMessage: msg`View sort to update parent view not found`,
       });
 
@@ -217,7 +217,7 @@ export class FlatViewSortValidatorService {
     if (!isDefined(existingFlatViewSort)) {
       validationResult.errors.push({
         code: ViewSortExceptionCode.VIEW_SORT_NOT_FOUND,
-        message: t`View sort to delete not found`,
+        message: `View sort to delete not found`,
         userFriendlyMessage: msg`View sort to delete not found`,
       });
 

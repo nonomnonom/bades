@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormNestedFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormNestedFieldInputContainer';
 import { FormNumberFieldInput } from '@/object-record/record-field/ui/form-types/components/FormNumberFieldInput';
@@ -29,7 +28,7 @@ export const FormCurrencyFieldInput = ({
   const currencies = useMemo(() => {
     return [
       {
-        label: t`Tanpa mata uang`,
+        label: `Tanpa mata uang`,
         value: '',
         Icon: IconCircleOff,
       },
@@ -58,7 +57,7 @@ export const FormCurrencyFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormSelectFieldInput
-          label={t`Kode Mata Uang`}
+          label={`Kode Mata Uang`}
           defaultValue={defaultValue?.currencyCode ?? ''}
           onChange={handleCurrencyCodeChange}
           options={currencies}
@@ -66,11 +65,11 @@ export const FormCurrencyFieldInput = ({
           readonly={readonly}
         />
         <FormNumberFieldInput
-          label={t`Jumlah (Mikro)`}
+          label={`Jumlah (Mikro)`}
           defaultValue={defaultValue?.amountMicros ?? ''}
           onChange={handleAmountMicrosChange}
           VariablePicker={VariablePicker}
-          hint={t`Masukkan jumlah x 1.000.000 (contoh: Rp3.210 → 3210000)`}
+          hint={`Masukkan jumlah x 1.000.000 (contoh: Rp3.210 → 3210000)`}
           readonly={readonly}
         />
       </FormNestedFieldInputContainer>

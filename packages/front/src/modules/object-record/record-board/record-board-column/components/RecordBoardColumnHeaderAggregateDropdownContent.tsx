@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useDropdownContextStateManagement } from '@/dropdown-context-state-management/hooks/useDropdownContextStateManagement';
 import { getNonReadableFieldMetadataIdsFromObjectPermissions } from '@/object-metadata/utils/getNonReadableFieldMetadataIdsFromObjectPermissions';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
@@ -44,7 +43,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={availableAggregations}
-          title={t`Jumlah`}
+          title={`Jumlah`}
         />
       );
     }
@@ -57,7 +56,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={availableAggregations}
-          title={t`Persentase`}
+          title={`Persentase`}
         />
       );
     }
@@ -73,7 +72,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={datesAvailableAggregations}
-          title={t`Tanggal`}
+          title={`Tanggal`}
         />
       );
     }
@@ -86,7 +85,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={availableAggregationsWithoutDates}
-          title={t`Opsi lainnya`}
+          title={`Opsi lainnya`}
         />
       );
     }

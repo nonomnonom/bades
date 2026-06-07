@@ -8,7 +8,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   ColorSample,
   IconCheck,
@@ -225,7 +224,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                 {isDefault ? (
                   <MenuItem
                     LeftIcon={IconX}
-                    text={t`Hapus sebagai bawaan`}
+                    text={`Hapus sebagai bawaan`}
                     onClick={() => {
                       onRemoveAsDefault?.();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);
@@ -234,7 +233,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                 ) : (
                   <MenuItem
                     LeftIcon={IconCheck}
-                    text={t`Jadikan bawaan`}
+                    text={`Jadikan bawaan`}
                     onClick={() => {
                       onSetAsDefault?.();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);
@@ -245,7 +244,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                   <MenuItem
                     accent="danger"
                     LeftIcon={IconTrash}
-                    text={t`Hapus pilihan`}
+                    text={`Hapus pilihan`}
                     onClick={() => {
                       onRemove();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);

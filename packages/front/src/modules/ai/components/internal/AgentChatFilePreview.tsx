@@ -6,7 +6,6 @@ import { getFileCategoryFromExtension } from '@/object-record/record-field/ui/ut
 import { filePreviewState } from '@/ui/field/display/states/filePreviewState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext } from 'react';
 import { type ExtendedFileUIPart } from 'shared/ai';
 import { isDefined } from 'shared/utils';
@@ -39,7 +38,7 @@ export const AgentChatFilePreview = ({
   const fileName =
     file instanceof File
       ? file.name
-      : (file.filename ?? t`File tidak diketahui`);
+      : (file.filename ?? `File tidak diketahui`);
 
   const fileUrl = file instanceof File ? undefined : file.url;
   const fileId = file instanceof File ? undefined : file.fileId;
@@ -93,7 +92,7 @@ export const AgentChatFilePreview = ({
     >
       <Chip
         label={fileName}
-        emptyLabel={t`Tanpa judul`}
+        emptyLabel={`Tanpa judul`}
         variant={ChipVariant.Static}
         clickable={isClickable}
         leftComponent={leftComponent}

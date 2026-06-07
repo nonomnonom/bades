@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { format, type Locale } from 'date-fns';
 import { isDefined } from 'shared/utils';
 
@@ -50,7 +49,7 @@ export const getMonthsDescription = (
       if (stepNum === 1) {
         return '';
       }
-      return t`setiap ${stepNumStr} bulan`;
+      return `setiap ${stepNumStr} bulan`;
     }
 
     // Range with step (e.g., "1-6/2")
@@ -66,10 +65,10 @@ export const getMonthsDescription = (
         monthStartIndexZero,
         localeCatalog,
       );
-      return t`setiap ${stepNumStr} bulan, antara ${startMonth} dan ${endMonth}`;
+      return `setiap ${stepNumStr} bulan, antara ${startMonth} dan ${endMonth}`;
     }
 
-    return t`setiap ${stepNumStr} bulan`;
+    return `setiap ${stepNumStr} bulan`;
   }
 
   // Range values (e.g., "1-6")
@@ -85,7 +84,7 @@ export const getMonthsDescription = (
       monthStartIndexZero,
       localeCatalog,
     );
-    return t`antara ${startMonth} dan ${endMonth}`;
+    return `antara ${startMonth} dan ${endMonth}`;
   }
 
   // List values (e.g., "1,6,12")
@@ -100,16 +99,16 @@ export const getMonthsDescription = (
 
     if (monthNames.length === 1) {
       const monthName = monthNames[0];
-      return t`hanya pada ${monthName}`;
+      return `hanya pada ${monthName}`;
     }
     if (monthNames.length === 2) {
       const firstMonth = monthNames[0];
       const secondMonth = monthNames[1];
-      return t`hanya pada ${firstMonth} dan ${secondMonth}`;
+      return `hanya pada ${firstMonth} dan ${secondMonth}`;
     }
     const lastMonth = monthNames.pop();
     const remainingMonths = monthNames.join(', ');
-    return t`hanya pada ${remainingMonths} dan ${lastMonth}`;
+    return `hanya pada ${remainingMonths} dan ${lastMonth}`;
   }
 
   // Single month value
@@ -120,7 +119,7 @@ export const getMonthsDescription = (
       monthStartIndexZero,
       localeCatalog,
     );
-    return t`hanya pada ${monthName}`;
+    return `hanya pada ${monthName}`;
   }
 
   return months;

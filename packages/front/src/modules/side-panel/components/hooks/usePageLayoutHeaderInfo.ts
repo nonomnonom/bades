@@ -3,7 +3,6 @@ import { type PageLayoutWidget } from '@/page-layout/types/PageLayoutWidget';
 import { GRAPH_TYPE_INFORMATION } from '@/side-panel/pages/page-layout/constants/GraphTypeInformation';
 import { getCurrentGraphTypeFromConfig } from '@/side-panel/pages/page-layout/utils/getCurrentGraphTypeFromConfig';
 import { isWidgetConfigurationOfTypeGraph } from '@/side-panel/pages/page-layout/utils/isWidgetConfigurationOfTypeGraph';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -79,7 +78,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: resolvedTabIcon ?? IconAppWindow,
         headerIconColor: iconColor,
-        headerType: isCanvasTab ? t`Widget tab penuh` : t`Tab`,
+        headerType: isCanvasTab ? `Widget tab penuh` : `Tab`,
         title,
         isReadonly: false,
         tab,
@@ -111,7 +110,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconFrame,
         headerIconColor: iconColor,
-        headerType: t`Widget iFrame`,
+        headerType: `Widget iFrame`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -152,7 +151,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: graphTypeInfo.icon,
         headerIconColor: iconColor,
-        headerType: t`Grafik`,
+        headerType: `Grafik`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -184,7 +183,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconList,
         headerIconColor: iconColor,
-        headerType: t`Widget Kolom`,
+        headerType: `Widget Kolom`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -216,7 +215,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconList,
         headerIconColor: iconColor,
-        headerType: t`Widget Kolom Tunggal`,
+        headerType: `Widget Kolom Tunggal`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -248,7 +247,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconTable,
         headerIconColor: iconColor,
-        headerType: t`Tampilan`,
+        headerType: `Tampilan`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -263,7 +262,7 @@ export const usePageLayoutHeaderInfo = ({
         headerIcon: IconPlus,
         headerIconColor: iconColor,
         headerType: '',
-        title: t`Widget baru`,
+        title: `Widget baru`,
         isReadonly: true,
         tab: undefined,
         widgetInEditMode: undefined,
@@ -277,7 +276,7 @@ export const usePageLayoutHeaderInfo = ({
         headerIcon: IconPlus,
         headerIconColor: iconColor,
         headerType: '',
-        title: t`Widget baru`,
+        title: `Widget baru`,
         isReadonly: true,
         tab: undefined,
         widgetInEditMode: undefined,

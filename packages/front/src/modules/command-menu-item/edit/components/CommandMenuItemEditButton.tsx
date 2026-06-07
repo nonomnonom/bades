@@ -5,13 +5,11 @@ import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { isSidePanelOpenedState } from '@/side-panel/states/isSidePanelOpenedState';
 import { sidePanelPageState } from '@/side-panel/states/sidePanelPageState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { IconPencil, IconX } from 'ui/display';
 import { AnimatedButton } from 'ui/input';
 
 export const CommandMenuItemEditButton = () => {
-  const { t } = useLingui();
   const { navigateSidePanel } = useNavigateSidePanel();
   const { closeSidePanelMenu } = useSidePanelMenu();
 
@@ -37,7 +35,7 @@ export const CommandMenuItemEditButton = () => {
 
     navigateSidePanel({
       page: SidePanelPages.CommandMenuEdit,
-      pageTitle: t`Ubah aksi`,
+      pageTitle: `Ubah aksi`,
       pageIcon: IconPencil,
       resetNavigationStack: true,
     });
@@ -52,7 +50,7 @@ export const CommandMenuItemEditButton = () => {
           InactiveIcon={IconPencil}
         />
       }
-      title={t`Ubah aksi`}
+      title={`Ubah aksi`}
       variant="secondary"
       size="small"
       onClick={handleClick}

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -40,7 +40,7 @@ export class FlatRoleTargetValidatorService {
     if (isDefined(existingRoleTarget)) {
       validationResult.errors.push({
         code: RoleTargetExceptionCode.INVALID_ROLE_TARGET_DATA,
-        message: t`Role target with this universal identifier already exists`,
+        message: `Role target with this universal identifier already exists`,
         userFriendlyMessage: msg`Role target already exists`,
       });
     }
@@ -59,7 +59,7 @@ export class FlatRoleTargetValidatorService {
     if (!isDefined(referencedRole)) {
       validationResult.errors.push({
         code: RoleTargetExceptionCode.INVALID_ROLE_TARGET_DATA,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
     } else {
@@ -98,7 +98,7 @@ export class FlatRoleTargetValidatorService {
     if (!isDefined(existingRoleTarget)) {
       validationResult.errors.push({
         code: RoleTargetExceptionCode.ROLE_TARGET_NOT_FOUND,
-        message: t`Role target not found`,
+        message: `Role target not found`,
         userFriendlyMessage: msg`Role target not found`,
       });
 
@@ -134,7 +134,7 @@ export class FlatRoleTargetValidatorService {
     if (!isDefined(existingRoleTarget)) {
       validationResult.errors.push({
         code: RoleTargetExceptionCode.ROLE_TARGET_NOT_FOUND,
-        message: t`Role target not found`,
+        message: `Role target not found`,
         userFriendlyMessage: msg`Role target not found`,
       });
 
@@ -160,7 +160,7 @@ export class FlatRoleTargetValidatorService {
     if (!isDefined(referencedRole)) {
       validationResult.errors.push({
         code: RoleTargetExceptionCode.INVALID_ROLE_TARGET_DATA,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
 

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useNavigate } from 'react-router-dom';
 import { SidePanelPages } from 'shared/types';
@@ -52,7 +51,6 @@ const computeInsertionPosition = (
 
 export const useNavigationMenuItemEditOrganizeActions =
   (): OrganizeActionsProps => {
-    const { t } = useLingui();
     const navigate = useNavigate();
     const { closeSidePanelMenu } = useSidePanelMenu();
     const { navigateSidePanel } = useNavigateSidePanel();
@@ -132,7 +130,7 @@ export const useNavigationMenuItemEditOrganizeActions =
         }
         navigateSidePanel({
           page: SidePanelPages.NavigationMenuItemEdit,
-          pageTitle: t`Edit`,
+          pageTitle: `Edit`,
           pageIcon: IconDotsVertical,
           resetNavigationStack: true,
         });
@@ -152,9 +150,7 @@ export const useNavigationMenuItemEditOrganizeActions =
       if (!insertion) return;
 
       const title =
-        offset === 0
-          ? t`Tambah item menu sebelum`
-          : t`Tambah item menu sesudah`;
+        offset === 0 ? `Tambah item menu sebelum` : `Tambah item menu sesudah`;
 
       setPendingInsertionNavigationMenuItem(insertion);
       navigateToSidePanelSubPage(

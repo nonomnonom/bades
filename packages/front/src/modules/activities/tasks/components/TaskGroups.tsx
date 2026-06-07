@@ -9,7 +9,6 @@ import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadata
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import groupBy from 'lodash.groupby';
 import { CoreObjectNameSingular } from 'shared/types';
 import { IconPlus } from 'ui/display';
@@ -78,16 +77,16 @@ export const TaskGroups = ({ targetableObject }: TaskGroupsProps) => {
         <AnimatedPlaceholder type="noTask" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`Semua tugas selesai!`}
+            {`Semua tugas selesai!`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`Semua tugas sudah ditangani. Pertahankan semangat kerjanya.`}
+            {`Semua tugas sudah ditangani. Pertahankan semangat kerjanya.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
         {hasObjectUpdatePermissions && (
           <Button
             Icon={IconPlus}
-            title={t`Tugas baru`}
+            title={`Tugas baru`}
             variant="secondary"
             onClick={() =>
               openCreateActivity({

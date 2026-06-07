@@ -5,7 +5,6 @@ import { SETTINGS_ADMIN_TABS } from '@/settings/admin-panel/constants/SettingsAd
 import { SETTINGS_ADMIN_TABS_ID } from '@/settings/admin-panel/constants/SettingsAdminTabsId';
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   IconApps,
   IconHeart,
@@ -25,31 +24,31 @@ export const SettingsAdminContent = () => {
   const tabs = [
     {
       id: SETTINGS_ADMIN_TABS.GENERAL,
-      title: t`Umum`,
+      title: `Umum`,
       Icon: IconSettings2,
       disabled: !canAccessFullAdminPanel && !canImpersonate,
     },
     {
       id: SETTINGS_ADMIN_TABS.APPS,
-      title: t`Aplikasi`,
+      title: `Aplikasi`,
       Icon: IconApps,
       disabled: !canAccessFullAdminPanel,
     },
     {
       id: SETTINGS_ADMIN_TABS.AI,
-      title: t`AI`,
+      title: `AI`,
       Icon: IconSparkles,
       disabled: !canAccessFullAdminPanel,
     },
     {
       id: SETTINGS_ADMIN_TABS.CONFIG_VARIABLES,
-      title: t`Konfigurasi`,
+      title: `Konfigurasi`,
       Icon: IconVariable,
       disabled: !canAccessFullAdminPanel,
     },
     {
       id: SETTINGS_ADMIN_TABS.HEALTH_STATUS,
-      title: t`Kesehatan`,
+      title: `Kesehatan`,
       Icon: IconHeart,
       disabled: !canAccessFullAdminPanel,
     },
@@ -57,7 +56,7 @@ export const SettingsAdminContent = () => {
       ? [
           {
             id: SETTINGS_ADMIN_TABS.ENTERPRISE,
-            title: t`Perusahaan`,
+            title: `Perusahaan`,
             Icon: IconKey,
             disabled: !canAccessFullAdminPanel && !canImpersonate,
           },

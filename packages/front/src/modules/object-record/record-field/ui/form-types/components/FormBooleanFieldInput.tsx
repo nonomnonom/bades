@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -45,7 +44,6 @@ export const FormBooleanFieldInput = ({
   readonly,
   VariablePicker,
 }: FormBooleanFieldInputProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
 
   const instanceId = useId();
@@ -77,7 +75,7 @@ export const FormBooleanFieldInput = ({
   );
 
   const defaultEmptyOption = {
-    label: t`Pilih nilai`,
+    label: `Pilih nilai`,
     value: '',
     icon: IconCircleOff,
   };
@@ -124,8 +122,8 @@ export const FormBooleanFieldInput = ({
           <Select
             dropdownId={`${instanceId}-select-display`}
             options={[
-              { label: t`Ya`, value: 'true', Icon: IconCheck },
-              { label: t`Tidak`, value: 'false', Icon: IconX },
+              { label: `Ya`, value: 'true', Icon: IconCheck },
+              { label: `Tidak`, value: 'false', Icon: IconX },
             ]}
             value={castBooleanToStringifiedBoolean(draftValue.value)}
             onChange={onSelect}

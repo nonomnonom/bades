@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
@@ -31,7 +31,7 @@ export class FlatFrontComponentValidatorService {
     if (!isNonEmptyString(flatFrontComponent.name)) {
       validationResult.errors.push({
         code: FrontComponentExceptionCode.INVALID_FRONT_COMPONENT_INPUT,
-        message: t`Front component name is required`,
+        message: `Front component name is required`,
         userFriendlyMessage: msg`Front component name is required`,
       });
     }
@@ -64,7 +64,7 @@ export class FlatFrontComponentValidatorService {
     if (!isDefined(existingFrontComponent)) {
       validationResult.errors.push({
         code: FrontComponentExceptionCode.FRONT_COMPONENT_NOT_FOUND,
-        message: t`Front component not found`,
+        message: `Front component not found`,
         userFriendlyMessage: msg`Front component not found`,
       });
 
@@ -98,7 +98,7 @@ export class FlatFrontComponentValidatorService {
     if (!isDefined(fromFlatFrontComponent)) {
       validationResult.errors.push({
         code: FrontComponentExceptionCode.FRONT_COMPONENT_NOT_FOUND,
-        message: t`Front component not found`,
+        message: `Front component not found`,
         userFriendlyMessage: msg`Front component not found`,
       });
 

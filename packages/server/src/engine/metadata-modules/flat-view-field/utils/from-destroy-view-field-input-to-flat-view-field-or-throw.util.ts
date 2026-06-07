@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatViewFieldMaps } from 'src/engine/metadata-modules/flat-view-field/types/flat-view-field-maps.type';
@@ -29,7 +28,7 @@ export const fromDestroyViewFieldInputToFlatViewFieldOrThrow = ({
 
   if (!isDefined(existingFlatViewFieldToDestroy)) {
     throw new ViewFieldException(
-      t`View field to destroy not found`,
+      `View field to destroy not found`,
       ViewFieldExceptionCode.VIEW_FIELD_NOT_FOUND,
     );
   }

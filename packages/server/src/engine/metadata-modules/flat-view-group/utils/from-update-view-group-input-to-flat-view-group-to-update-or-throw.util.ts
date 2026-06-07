@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import {
   extractAndSanitizeObjectStringFields,
   isDefined,
@@ -37,7 +36,7 @@ export const fromUpdateViewGroupInputToFlatViewGroupToUpdateOrThrow = ({
 
   if (!isDefined(existingFlatViewGroupToUpdate)) {
     throw new ViewGroupException(
-      t`View group to update not found`,
+      `View group to update not found`,
       ViewGroupExceptionCode.VIEW_GROUP_NOT_FOUND,
     );
   }

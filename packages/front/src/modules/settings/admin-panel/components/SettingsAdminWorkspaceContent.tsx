@@ -6,7 +6,6 @@ import { DEFAULT_WORKSPACE_LOGO } from '@/ui/navigation/navigation-drawer/consta
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { UserContext } from '@/users/contexts/UserContext';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useContext } from 'react';
 import { SettingsPath } from 'shared/types';
@@ -51,7 +50,6 @@ export const SettingsAdminWorkspaceContent = ({
   activeWorkspace,
   workspaceUpgradeStatus,
 }: SettingsAdminWorkspaceContentProps) => {
-  const { t } = useLingui();
   const { dateFormat, timeFormat, timeZone } = useContext(UserContext);
   const { localeCatalog } = useAtomStateValue(dateLocaleState);
 
@@ -74,7 +72,7 @@ export const SettingsAdminWorkspaceContent = ({
   const workspaceInfoItems = [
     {
       Icon: IconHome,
-      label: t`Nama`,
+      label: `Nama`,
       value: activeWorkspace?.id ? (
         <LinkChip
           label={activeWorkspace?.name ?? ''}
@@ -101,36 +99,36 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconId,
-      label: t`ID`,
+      label: `ID`,
       value: activeWorkspace?.id,
     },
     {
       Icon: IconId,
-      label: t`Nama skema`,
+      label: `Nama skema`,
       value: isDefined(activeWorkspace?.id)
         ? getWorkspaceSchemaName(activeWorkspace.id)
         : '',
     },
     {
       Icon: IconLink,
-      label: t`URL`,
+      label: `URL`,
       value: activeWorkspace?.workspaceUrls
         ? getWorkspaceUrl(activeWorkspace.workspaceUrls)
         : '',
     },
     {
       Icon: IconUser,
-      label: t`Anggota`,
+      label: `Anggota`,
       value: activeWorkspace?.totalUsers,
     },
     {
       Icon: IconStatusChange,
-      label: t`Status`,
+      label: `Status`,
       value: activeWorkspace?.activationStatus,
     },
     {
       Icon: IconCalendar,
-      label: t`Dibuat`,
+      label: `Dibuat`,
       value: activeWorkspace?.createdAt
         ? new Date(activeWorkspace.createdAt).toLocaleDateString()
         : '',
@@ -143,8 +141,8 @@ export const SettingsAdminWorkspaceContent = ({
     <StyledContainer>
       <Section>
         <H2Title
-          title={t`Info Ruang Kerja`}
-          description={t`Tentang ruang kerja ini`}
+          title={`Info Ruang Kerja`}
+          description={`Tentang ruang kerja ini`}
         />
         <SettingsTableCard
           items={workspaceInfoItems}
@@ -154,14 +152,14 @@ export const SettingsAdminWorkspaceContent = ({
       {workspaceUpgradeStatus && (
         <Section>
           <H2Title
-            title={t`Status Pembaruan`}
-            description={t`Kesehatan pembaruan ruang kerja`}
+            title={`Status Pembaruan`}
+            description={`Kesehatan pembaruan ruang kerja`}
           />
           <SettingsTableCard
             items={[
               {
                 Icon: IconStatusChange,
-                label: t`Status`,
+                label: `Status`,
                 value: (
                   <Status
                     color={upgradeHealthStatusBadge.color}
@@ -172,13 +170,13 @@ export const SettingsAdminWorkspaceContent = ({
               },
               {
                 Icon: IconId,
-                label: t`Versi terdeteksi`,
+                label: `Versi terdeteksi`,
                 value:
-                  workspaceUpgradeStatus.inferredVersion ?? t`Tidak diketahui`,
+                  workspaceUpgradeStatus.inferredVersion ?? `Tidak diketahui`,
               },
               {
                 Icon: IconCalendar,
-                label: t`Perintah terakhir`,
+                label: `Perintah terakhir`,
                 value: (
                   <OverflowingTextWithTooltip
                     text={
@@ -186,32 +184,32 @@ export const SettingsAdminWorkspaceContent = ({
                         ? formatUpgradeCommandName(
                             workspaceUpgradeStatus.latestCommand.name,
                           )
-                        : t`Tidak ada`
+                        : `Tidak ada`
                     }
                   />
                 ),
               },
               {
                 Icon: IconCalendar,
-                label: t`Terakhir diperbarui`,
+                label: `Terakhir diperbarui`,
                 value: isNonEmptyString(formattedLastUpdated)
                   ? formattedLastUpdated
-                  : t`T/A`,
+                  : `T/A`,
               },
               {
                 Icon: IconStatusChange,
-                label: t`Hasil perintah terakhir`,
+                label: `Hasil perintah terakhir`,
                 value: workspaceUpgradeStatus.latestCommand?.status
                   ? workspaceUpgradeStatus.latestCommand.status === 'completed'
-                    ? t`Selesai`
-                    : t`Gagal`
-                  : t`T/A`,
+                    ? `Selesai`
+                    : `Gagal`
+                  : `T/A`,
               },
               ...(workspaceUpgradeStatus.latestCommand?.errorMessage
                 ? [
                     {
                       Icon: IconStatusChange,
-                      label: t`Error terakhir`,
+                      label: `Error terakhir`,
                       value: (
                         <OverflowingTextWithTooltip
                           text={

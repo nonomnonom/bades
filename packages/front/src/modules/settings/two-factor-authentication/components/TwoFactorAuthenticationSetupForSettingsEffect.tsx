@@ -2,7 +2,6 @@ import { currentUserState } from '@/auth/states/currentUserState';
 import { qrCodeState } from '@/auth/states/qrCode';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 import { isDefined } from 'shared/utils';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
@@ -13,8 +12,6 @@ export const TwoFactorAuthenticationSetupForSettingsEffect = () => {
   const { enqueueErrorSnackBar } = useSnackBar();
   const [qrCode, setQrCode] = useAtomState(qrCodeState);
   const currentUser = useAtomStateValue(currentUserState);
-
-  const { t } = useLingui();
 
   const [initiateOTPProvisioningForAuthenticatedUser] = useMutation(
     InitiateOtpProvisioningForAuthenticatedUserDocument,
@@ -34,7 +31,7 @@ export const TwoFactorAuthenticationSetupForSettingsEffect = () => {
           !initiateOTPProvisioningResult.data
             ?.initiateOTPProvisioningForAuthenticatedUser.uri
         ) {
-          throw new Error(t`URI tidak dikembalikan dari provisioning OTP`);
+          throw new Error(`URI tidak dikembalikan dari provisioning OTP`);
         }
 
         setQrCode(
@@ -43,7 +40,7 @@ export const TwoFactorAuthenticationSetupForSettingsEffect = () => {
         );
       } catch {
         enqueueErrorSnackBar({
-          message: t`Penyediaan autentikasi dua faktor gagal.`,
+          message: `Penyediaan autentikasi dua faktor gagal.`,
           options: {
             dedupeKey:
               'two-factor-authentication-provisioning-initiation-failed',
@@ -56,7 +53,6 @@ export const TwoFactorAuthenticationSetupForSettingsEffect = () => {
   }, [
     enqueueErrorSnackBar,
     initiateOTPProvisioningForAuthenticatedUser,
-    t,
     setQrCode,
     qrCode,
     currentUser,

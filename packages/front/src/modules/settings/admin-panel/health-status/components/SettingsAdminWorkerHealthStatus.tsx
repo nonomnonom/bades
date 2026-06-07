@@ -1,6 +1,5 @@
 import { SettingsAdminWorkerQueueMetricsSection } from '@/settings/admin-panel/health-status/components/SettingsAdminWorkerQueueMetricsSection';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { AdminPanelHealthServiceStatus } from '~/generated-admin/graphql';
 import { SettingsAdminIndicatorHealthContext } from '@/settings/admin-panel/health-status/contexts/SettingsAdminIndicatorHealthContext';
@@ -22,7 +21,7 @@ export const SettingsAdminWorkerHealthStatus = () => {
     <>
       {isWorkerDown ? (
         <StyledErrorMessage>
-          {t`Informasi antrian tidak tersedia karena worker sedang mati`}
+          {`Informasi antrian tidak tersedia karena worker sedang mati`}
         </StyledErrorMessage>
       ) : (
         (indicatorHealth.queues ?? []).map((queue) => (

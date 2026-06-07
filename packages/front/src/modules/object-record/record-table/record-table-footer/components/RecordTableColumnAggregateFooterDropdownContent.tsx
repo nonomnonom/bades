@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useDropdownContextStateManagement } from '@/dropdown-context-state-management/hooks/useDropdownContextStateManagement';
 import { type AggregateOperations } from '@/object-record/record-table/constants/AggregateOperations';
 import { type DateAggregateOperations } from '@/object-record/record-table/constants/DateAggregateOperations';
@@ -12,7 +11,6 @@ import { STANDARD_AGGREGATE_OPERATION_OPTIONS } from '@/object-record/record-tab
 import { getAvailableAggregateOperationsForFieldMetadataType } from '@/object-record/record-table/record-table-footer/utils/getAvailableAggregateOperationsForFieldMetadataType';
 
 export const RecordTableColumnAggregateFooterDropdownContent = () => {
-  const { t } = useLingui();
   const { currentContentId, fieldMetadataType } =
     useDropdownContextStateManagement({
       context: RecordTableColumnAggregateFooterDropdownContext,
@@ -35,7 +33,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Opsi lainnya`}
+          title={`Opsi lainnya`}
         />
       );
     }
@@ -49,7 +47,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Jumlah`}
+          title={`Jumlah`}
         />
       );
     }
@@ -63,7 +61,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Persentase`}
+          title={`Persentase`}
         />
       );
     }
@@ -77,7 +75,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Tanggal`}
+          title={`Tanggal`}
         />
       );
     }

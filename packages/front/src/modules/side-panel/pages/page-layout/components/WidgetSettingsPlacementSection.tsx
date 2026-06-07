@@ -15,7 +15,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -35,8 +34,6 @@ type WidgetSettingsPlacementSectionProps = {
 export const WidgetSettingsPlacementSection = ({
   pageLayoutId,
 }: WidgetSettingsPlacementSectionProps) => {
-  const { t } = useLingui();
-
   const pageLayoutEditingWidgetId = useAtomComponentStateValue(
     pageLayoutEditingWidgetIdComponentState,
     pageLayoutId,
@@ -113,7 +110,7 @@ export const WidgetSettingsPlacementSection = ({
   };
 
   return (
-    <SidePanelGroup heading={t`Penempatan`}>
+    <SidePanelGroup heading={`Penempatan`}>
       {showMoveUp && (
         <SelectableListItem
           itemId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_UP}
@@ -122,7 +119,7 @@ export const WidgetSettingsPlacementSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_UP}
             Icon={IconChevronUp}
-            label={t`Naikkan`}
+            label={`Naikkan`}
             onClick={handleMoveUp}
           />
         </SelectableListItem>
@@ -135,7 +132,7 @@ export const WidgetSettingsPlacementSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_DOWN}
             Icon={IconChevronDown}
-            label={t`Turunkan`}
+            label={`Turunkan`}
             onClick={handleMoveDown}
           />
         </SelectableListItem>
@@ -145,7 +142,7 @@ export const WidgetSettingsPlacementSection = ({
       >
         <CommandMenuItemDropdown
           id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_TO_TAB}
-          label={t`Pindah ke tab lain`}
+          label={`Pindah ke tab lain`}
           Icon={IconArrowsVertical}
           dropdownId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_TO_TAB}
           dropdownComponents={
@@ -163,7 +160,7 @@ export const WidgetSettingsPlacementSection = ({
         <CommandMenuItem
           id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.ADD_WIDGET_ABOVE}
           Icon={IconRowInsertTop}
-          label={t`Tambah widget di atas`}
+          label={`Tambah widget di atas`}
           onClick={handleAddWidgetAbove}
         />
       </SelectableListItem>
@@ -174,7 +171,7 @@ export const WidgetSettingsPlacementSection = ({
         <CommandMenuItem
           id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.ADD_WIDGET_BELOW}
           Icon={IconRowInsertBottom}
-          label={t`Tambah widget di bawah`}
+          label={`Tambah widget di bawah`}
           onClick={handleAddWidgetBelow}
         />
       </SelectableListItem>

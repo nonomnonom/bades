@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -22,7 +22,7 @@ export const validateBarChartConfiguration = ({
   ) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Primary axis group by field is required for bar chart widget "${widgetTitle}"`,
+      message: `Primary axis group by field is required for bar chart widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Primary axis group by field is required for bar chart`,
     });
   }
@@ -30,7 +30,7 @@ export const validateBarChartConfiguration = ({
   if (!isDefined(graphUniversalConfiguration.layout)) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Layout is required for bar chart widget "${widgetTitle}"`,
+      message: `Layout is required for bar chart widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Layout is required for bar chart`,
     });
   }

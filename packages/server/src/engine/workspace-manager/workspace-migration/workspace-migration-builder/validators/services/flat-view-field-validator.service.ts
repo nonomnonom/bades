@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { ViewType } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -46,7 +46,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(existingFlatViewField)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field to update not found`,
+        message: `View field to update not found`,
         userFriendlyMessage: msg`View field to update not found`,
       });
 
@@ -73,7 +73,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field to update parent view not found`,
+        message: `View field to update parent view not found`,
         userFriendlyMessage: msg`View field to update parent view not found`,
       });
 
@@ -88,7 +88,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(flatObjectMetadata)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field to update parent view object not found`,
+        message: `View field to update parent view object not found`,
         userFriendlyMessage: msg`View field to update parent view object not found`,
       });
 
@@ -147,7 +147,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(existingFlatViewField)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field to delete not found`,
+        message: `View field to delete not found`,
         userFriendlyMessage: msg`View field to delete not found`,
       });
 
@@ -188,7 +188,7 @@ export class FlatViewFieldValidatorService {
     if (isDefined(existingFlatViewField)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field metadata with this universal identifier already exists`,
+        message: `View field metadata with this universal identifier already exists`,
         userFriendlyMessage: msg`View field metadata already exists`,
       });
     }
@@ -202,7 +202,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(flatFieldMetadata)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`Field metadata not found`,
+        message: `Field metadata not found`,
         userFriendlyMessage: msg`Field metadata not found`,
       });
     }
@@ -215,7 +215,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
 
@@ -238,7 +238,7 @@ export class FlatViewFieldValidatorService {
     if (equivalentExistingFlatViewFieldExists) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field with same fieldMetadataUniversalIdentifier and viewUniversalIdentifier already exists`,
+        message: `View field with same fieldMetadataUniversalIdentifier and viewUniversalIdentifier already exists`,
         userFriendlyMessage: msg`View field already exists`,
       });
     }
@@ -251,7 +251,7 @@ export class FlatViewFieldValidatorService {
     if (!isDefined(flatObjectMetadata)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field related view object metadata not found`,
+        message: `View field related view object metadata not found`,
         userFriendlyMessage: msg`View field related view object metadata not found`,
       });
 
@@ -283,7 +283,7 @@ export class FlatViewFieldValidatorService {
     ) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field position cannot be lower than label identifier view field position`,
+        message: `View field position cannot be lower than label identifier view field position`,
         userFriendlyMessage: msg`View field position cannot be lower than label identifier view field position`,
       });
     }

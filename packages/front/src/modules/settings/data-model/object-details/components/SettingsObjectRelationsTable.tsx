@@ -13,7 +13,6 @@ import { type TableMetadata } from '@/ui/layout/table/types/TableMetadata';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { FieldMetadataType } from 'shared/types';
 import { IconArchive, IconFilter, IconSearch, IconSettings } from 'ui/display';
@@ -43,19 +42,19 @@ const SETTINGS_OBJECT_RELATION_TABLE_METADATA: TableMetadata<FieldMetadataItem> 
     tableId: 'settingsObjectRelations',
     fields: [
       {
-        fieldLabel: msg`Nama`,
+        fieldLabel: `Nama`,
         fieldName: 'label',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Aplikasi`,
+        fieldLabel: `Aplikasi`,
         fieldName: 'isCustom',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Tipe`,
+        fieldLabel: `Tipe`,
         fieldName: 'type',
         fieldType: 'string',
         align: 'left',
@@ -74,7 +73,6 @@ type SettingsObjectRelationsTableProps = {
 export const SettingsObjectRelationsTable = ({
   objectMetadataItem,
 }: SettingsObjectRelationsTableProps) => {
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
   const [showInactive, setShowInactive] = useState(true);
   const [showSystemRelations, setShowSystemRelations] = useState(false);
@@ -117,7 +115,7 @@ export const SettingsObjectRelationsTable = ({
           <SettingsTextInput
             instanceId="object-relation-table-search"
             LeftIcon={IconSearch}
-            placeholder={t`Cari kolom...`}
+            placeholder={`Cari kolom...`}
             value={searchTerm}
             onChange={setSearchTerm}
           />
@@ -132,7 +130,7 @@ export const SettingsObjectRelationsTable = ({
               size="medium"
               variant="secondary"
               accent="default"
-              ariaLabel={t`Filter`}
+              ariaLabel={`Filter`}
             />
           }
           dropdownComponents={
@@ -142,7 +140,7 @@ export const SettingsObjectRelationsTable = ({
                   LeftIcon={IconArchive}
                   onToggleChange={() => setShowInactive(!showInactive)}
                   toggled={showInactive}
-                  text={t`Nonaktif`}
+                  text={`Nonaktif`}
                   toggleSize="small"
                 />
                 {isAdvancedModeEnabled && (
@@ -152,7 +150,7 @@ export const SettingsObjectRelationsTable = ({
                       setShowSystemRelations(!showSystemRelations)
                     }
                     toggled={showSystemRelations}
-                    text={t`Relasi sistem`}
+                    text={`Relasi sistem`}
                     toggleSize="small"
                   />
                 )}
@@ -169,7 +167,7 @@ export const SettingsObjectRelationsTable = ({
             <SortableTableHeader
               key={item.fieldName}
               fieldName={item.fieldName}
-              label={t(item.fieldLabel)}
+              label={item.fieldLabel}
               tableId={tableMetadata.tableId}
               initialSort={tableMetadata.initialSort}
             />

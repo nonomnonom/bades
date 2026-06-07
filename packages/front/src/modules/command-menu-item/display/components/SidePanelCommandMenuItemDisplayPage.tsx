@@ -9,14 +9,11 @@ import { SidePanelList } from '@/side-panel/components/SidePanelList';
 import { useFilterCommandMenuItemsWithSidePanelSearch } from '@/side-panel/pages/root/hooks/useFilterCommandMenuItemsWithSidePanelSearch';
 import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNumber } from '@sniptt/guards';
 import { useContext, useMemo } from 'react';
 import { CommandMenuItemAvailabilityType } from '~/generated-metadata/graphql';
 
 export const SidePanelCommandMenuItemDisplayPage = () => {
-  const { t } = useLingui();
-
   const sidePanelSearch = useAtomStateValue(sidePanelSearchState);
   const { commandMenuItems, commandMenuContextApi } =
     useContext(CommandMenuContext);
@@ -101,21 +98,21 @@ export const SidePanelCommandMenuItemDisplayPage = () => {
   return (
     <SidePanelList selectableItemIds={selectableItemIds} noResults={noResults}>
       {matchingPinnedItems.length > 0 && (
-        <SidePanelGroup heading={t`Disematkan`}>
+        <SidePanelGroup heading={`Disematkan`}>
           {matchingPinnedItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}
         </SidePanelGroup>
       )}
       {matchingOtherItems.length > 0 && (
-        <SidePanelGroup heading={t`Lainnya`}>
+        <SidePanelGroup heading={`Lainnya`}>
           {matchingOtherItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}
         </SidePanelGroup>
       )}
       {noResults && fallbackCommandMenuItems.length > 0 && (
-        <SidePanelGroup heading={t`Cadangan`}>
+        <SidePanelGroup heading={`Cadangan`}>
           {fallbackCommandMenuItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}

@@ -10,7 +10,6 @@ import { useAvailableVariablesInWorkflowStep } from '@/workflow/workflow-variabl
 import { useSearchVariable } from '@/workflow/workflow-variables/hooks/useSearchVariable';
 import { type StepOutputSchemaV2 } from '@/workflow/workflow-variables/types/StepOutputSchemaV2';
 
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { type StepFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -31,7 +30,6 @@ export const WorkflowStepFilterFieldSelect = ({
   stepFilter,
 }: WorkflowStepFilterFieldSelectProps) => {
   const { readonly } = useContext(WorkflowStepFilterContext);
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
   const { getIcon } = useIcons();
   const { getSelectIconPropsFromObjectMetadataItem } =
@@ -88,7 +86,7 @@ export const WorkflowStepFilterFieldSelect = ({
 
   const isSelectedFieldNotFound = !isDefined(variableLabel);
   const label = isSelectedFieldNotFound
-    ? t`Pilih field dari langkah sebelumnya`
+    ? `Pilih field dari langkah sebelumnya`
     : variableLabel;
 
   const fullRecordIconProps = stepFilter.isFullRecord
@@ -107,7 +105,7 @@ export const WorkflowStepFilterFieldSelect = ({
 
   if (readonly || noAvailableVariables) {
     const disabledLabel = noAvailableVariables
-      ? t`Tidak ada field yang tersedia`
+      ? `Tidak ada field yang tersedia`
       : label;
 
     return (

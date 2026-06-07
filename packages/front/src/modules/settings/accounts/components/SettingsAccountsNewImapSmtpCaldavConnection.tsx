@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormProvider } from 'react-hook-form';
 
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
@@ -13,7 +12,6 @@ import { SettingsAccountsConnectionForm } from '@/settings/accounts/components/S
 import { useImapSmtpCaldavConnectionForm } from '@/settings/accounts/hooks/useImapSmtpCaldavConnectionForm';
 
 export const SettingsAccountsNewImapSmtpCaldavConnection = () => {
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
 
   const {
@@ -31,17 +29,17 @@ export const SettingsAccountsNewImapSmtpCaldavConnection = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...formMethods}>
       <SubMenuTopBarContainer
-        title={t`Akun Baru`}
+        title={`Akun Baru`}
         links={[
           {
-            children: t`Pengguna`,
+            children: `Pengguna`,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: t`Akun`,
+            children: `Akun`,
             href: getSettingsPath(SettingsPath.Accounts),
           },
-          { children: t`Akun Baru` },
+          { children: `Akun Baru` },
         ]}
         actionButton={
           <SaveAndCancelButtons

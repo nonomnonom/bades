@@ -4,7 +4,6 @@ import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsO
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { capitalize } from 'shared/utils';
 import { IconGoogle, IconMicrosoft, IconPassword } from 'ui/display';
 import { Card } from 'ui/layout';
@@ -24,8 +23,6 @@ const StyledSettingsSecurityOptionsList = styled.div`
 `;
 
 export const SettingsSecurityAuthBypassOptionsList = () => {
-  const { t } = useLingui();
-
   const { enqueueErrorSnackBar } = useSnackBar();
   const authProviders = useAtomStateValue(authProvidersState);
 
@@ -46,13 +43,13 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
     authProvider: keyof Omit<AuthProviders, '__typename' | 'magicLink' | 'sso'>,
   ) => {
     if (!currentWorkspace?.id) {
-      throw new Error(t`Pengguna belum masuk`);
+      throw new Error(`Pengguna belum masuk`);
     }
 
     const key = `is${capitalize(authProvider)}AuthBypassEnabled`;
 
     if (!isValidAuthProvider(key)) {
-      throw new Error(t`Penyedia bypass autentikasi tidak valid`);
+      throw new Error(`Penyedia bypass autentikasi tidak valid`);
     }
 
     setCurrentWorkspace({
@@ -87,8 +84,8 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
         {authProviders.google === true && (
           <SettingsOptionCardContentToggle
             Icon={IconGoogle}
-            title={t`Google`}
-            description={t`Izinkan masuk menggunakan Google untuk pengguna dengan izin bypass SSO.`}
+            title={`Google`}
+            description={`Izinkan masuk menggunakan Google untuk pengguna dengan izin bypass SSO.`}
             checked={currentWorkspace.isGoogleAuthBypassEnabled}
             advancedMode
             divider
@@ -98,8 +95,8 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
         {authProviders.microsoft === true && (
           <SettingsOptionCardContentToggle
             Icon={IconMicrosoft}
-            title={t`Microsoft`}
-            description={t`Izinkan masuk menggunakan Microsoft untuk pengguna dengan izin bypass SSO.`}
+            title={`Microsoft`}
+            description={`Izinkan masuk menggunakan Microsoft untuk pengguna dengan izin bypass SSO.`}
             checked={currentWorkspace.isMicrosoftAuthBypassEnabled}
             advancedMode
             divider
@@ -109,8 +106,8 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
         {authProviders.password && (
           <SettingsOptionCardContentToggle
             Icon={IconPassword}
-            title={t`Kata Sandi`}
-            description={t`Izinkan masuk dengan email & kata sandi untuk pengguna bypass SSO.`}
+            title={`Kata Sandi`}
+            description={`Izinkan masuk dengan email & kata sandi untuk pengguna bypass SSO.`}
             checked={currentWorkspace.isPasswordAuthBypassEnabled}
             advancedMode
             onChange={() => toggleAuthBypassMethod('password')}

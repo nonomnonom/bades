@@ -1,7 +1,5 @@
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { themeCssVariables } from 'ui/theme-constants';
 import { dateLocaleState } from '~/localization/states/dateLocaleState';
 import { beautifyPastDateRelativeToNow } from '~/utils/date-utils';
@@ -56,7 +54,7 @@ export const EmailThreadHeader = ({
         <StyledHeading>{subject}</StyledHeading>
         {lastMessageSentAt && (
           <StyledContent>
-            {t`Pesan terakhir ${lastMessageSentAtFormatted}`}
+            {`Pesan terakhir ${lastMessageSentAtFormatted}`}
           </StyledContent>
         )}
       </StyledHead>

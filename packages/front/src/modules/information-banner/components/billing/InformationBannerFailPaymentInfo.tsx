@@ -1,7 +1,6 @@
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { useQuery } from '@apollo/client/react';
@@ -36,12 +35,10 @@ export const InformationBannerFailPaymentInfo = () => {
       variant="secondary"
       message={
         hasPermissionToUpdateBillingDetails
-          ? t`Pembayaran terakhir gagal. Perbarui informasi pembayaran Anda.`
-          : t`Pembayaran terakhir gagal. Silakan hubungi admin Anda.`
+          ? `Pembayaran terakhir gagal. Perbarui informasi pembayaran Anda.`
+          : `Pembayaran terakhir gagal. Silakan hubungi admin Anda.`
       }
-      buttonTitle={
-        hasPermissionToUpdateBillingDetails ? t`Perbarui` : undefined
-      }
+      buttonTitle={hasPermissionToUpdateBillingDetails ? `Perbarui` : undefined}
       buttonOnClick={() => openBillingPortal()}
       isButtonDisabled={loading || !isDefined(data)}
     />

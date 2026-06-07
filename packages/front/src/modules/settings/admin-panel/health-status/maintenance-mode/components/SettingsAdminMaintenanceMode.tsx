@@ -1,6 +1,5 @@
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useCallback } from 'react';
 import { isDefined } from 'shared/utils';
@@ -99,7 +98,7 @@ export const SettingsAdminMaintenanceMode = () => {
           message:
             error instanceof Error
               ? error.message
-              : t`Gagal mengatur mode pemeliharaan.`,
+              : `Gagal mengatur mode pemeliharaan.`,
         });
       }
     },
@@ -184,19 +183,19 @@ export const SettingsAdminMaintenanceMode = () => {
     : '';
 
   const toggleDescription = isScheduled
-    ? t`Direncanakan untuk ${formattedStartDate}`
+    ? `Direncanakan untuk ${formattedStartDate}`
     : undefined;
 
   return (
     <Section>
       <H2Title
-        title={t`Pemeliharaan`}
-        description={t`Jadwalkan jendela pemeliharaan dan beri tahu semua pengguna`}
+        title={`Pemeliharaan`}
+        description={`Jadwalkan jendela pemeliharaan dan beri tahu semua pengguna`}
       />
       <Card rounded>
         <SettingsOptionCardContentToggle
           Icon={IconTool}
-          title={t`Mode pemeliharaan`}
+          title={`Mode pemeliharaan`}
           description={toggleDescription}
           checked={isEnabled}
           onChange={handleToggle}
@@ -205,25 +204,25 @@ export const SettingsAdminMaintenanceMode = () => {
           <CardContent>
             <StyledFormContainer>
               <SettingsDatePickerInput
-                label={t`Tanggal mulai`}
+                label={`Tanggal mulai`}
                 value={startDate}
                 onChange={handleDateChange('startAt')}
               />
               <div>
                 <SettingsDatePickerInput
-                  label={t`Tanggal selesai`}
+                  label={`Tanggal selesai`}
                   value={endDate}
                   onChange={handleDateChange('endAt')}
                 />
                 {isDefined(startDate) &&
                   isDefined(endDate) &&
                   !hasValidDateRange && (
-                    <InputHint>{t`Tanggal selesai harus setelah tanggal mulai.`}</InputHint>
+                    <InputHint>{`Tanggal selesai harus setelah tanggal mulai.`}</InputHint>
                   )}
               </div>
               <div>
                 <TextInput
-                  label={t`Tautan`}
+                  label={`Tautan`}
                   type="url"
                   value={adminPanelMaintenanceMode.link ?? ''}
                   onChange={handleLinkChange}
@@ -233,14 +232,14 @@ export const SettingsAdminMaintenanceMode = () => {
                   fullWidth
                 />
                 <InputHint>
-                  {t`Jika tidak ada tautan, tombol tidak akan muncul.`}
+                  {`Jika tidak ada tautan, tombol tidak akan muncul.`}
                 </InputHint>
               </div>
               {isScheduled && (
                 <StyledStatusRow>
                   <Status
                     color="orange"
-                    text={t`Direncanakan untuk ${formattedStartDate}`}
+                    text={`Direncanakan untuk ${formattedStartDate}`}
                   />
                 </StyledStatusRow>
               )}

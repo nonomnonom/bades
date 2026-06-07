@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { isNonEmptyString, isNumber } from '@sniptt/guards';
 import {
   FieldMetadataType,
@@ -55,7 +54,7 @@ export const formatDimensionValue = ({
   firstDayOfTheWeek,
 }: FormatDimensionValueParams): string => {
   if (!isDefined(value)) {
-    return t`Not Set`;
+    return `Not Set`;
   }
 
   const effectiveDateGranularity = (dateGranularity ??
@@ -85,7 +84,7 @@ export const formatDimensionValue = ({
     }
 
     case FieldMetadataType.BOOLEAN: {
-      return value === true ? t`Yes` : t`No`;
+      return value === true ? `Yes` : `No`;
     }
 
     case FieldMetadataType.DATE:
@@ -139,7 +138,7 @@ export const formatDimensionValue = ({
         subFieldName === 'currencyCode'
       ) {
         if (!isNonEmptyString(value)) {
-          return t`Not Set`;
+          return `Not Set`;
         }
 
         return String(value);

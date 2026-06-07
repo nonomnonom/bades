@@ -12,7 +12,6 @@ import { useAddressSettingsFormInitialValues } from '@/settings/data-model/field
 import { useCountries } from '@/ui/input/components/internal/hooks/useCountries';
 import { Select } from '@/ui/input/components/Select';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type MouseEvent } from 'react';
 import {
   IconCircleOff,
@@ -45,11 +44,10 @@ export const SettingsDataModelFieldAddressForm = ({
   disabled,
   existingFieldMetadataId,
 }: SettingsDataModelFieldAddressFormProps) => {
-  const { t } = useLingui();
   const { control } = useFormContext<SettingsDataModelFieldTextFormValues>();
   const countries = [
     {
-      label: t`Tidak ada negara`,
+      label: `Tidak ada negara`,
       value: '',
       Icon: IconCircleOff,
     },
@@ -85,8 +83,8 @@ export const SettingsDataModelFieldAddressForm = ({
           return (
             <SettingsOptionCardContentSelect
               Icon={IconMap}
-              title={t`Negara Bawaan`}
-              description={t`Negara bawaan untuk alamat baru`}
+              title={`Negara Bawaan`}
+              description={`Negara bawaan untuk alamat baru`}
             >
               <Select<string>
                 dropdownWidth={220}
@@ -117,21 +115,21 @@ export const SettingsDataModelFieldAddressForm = ({
           return (
             <SettingsOptionCardContentSelect
               Icon={IconList}
-              title={t`Sub-Kolom`}
-              description={t`Pilih sub-kolom alamat yang ingin ditampilkan`}
+              title={`Sub-Kolom`}
+              description={`Pilih sub-kolom alamat yang ingin ditampilkan`}
             >
               <MultiSelectAddressFields<string>
                 options={DEFAULT_SELECTION_ADDRESS_WITH_MESSAGES.map(
                   (option) => ({
                     ...option,
-                    label: t(option.label),
+                    label: option.label,
                   }),
                 )}
                 values={values}
                 dropdownId="addressSubFieldsId"
                 onChange={onChange}
                 callToActionButton={{
-                  text: t`Setel ulang ke bawaan`,
+                  text: `Setel ulang ke bawaan`,
                   onClick: (event: MouseEvent<HTMLDivElement>) => {
                     event.preventDefault();
                     reset();

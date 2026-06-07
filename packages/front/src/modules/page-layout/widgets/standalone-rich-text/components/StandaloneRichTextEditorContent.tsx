@@ -21,7 +21,6 @@ import '@blocknote/core/fonts/inter.css';
 import '@blocknote/mantine/style.css';
 import { useCreateBlockNote } from '@blocknote/react';
 import '@blocknote/react/style.css';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useDebouncedCallback } from 'use-debounce';
 import { WidgetConfigurationType } from '~/generated-metadata/graphql';
@@ -77,7 +76,7 @@ export const StandaloneRichTextEditorContent = ({
     domAttributes: { editor: { class: 'editor' } },
     schema: DASHBOARD_BLOCK_SCHEMA,
     placeholders: {
-      default: t`Ketik teks atau '/' untuk perintah`,
+      default: `Ketik teks atau '/' untuk perintah`,
     },
   });
 

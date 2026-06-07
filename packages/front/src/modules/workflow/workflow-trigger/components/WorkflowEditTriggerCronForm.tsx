@@ -12,7 +12,6 @@ import {
 import { getCronTriggerDefaultSettings } from '@/workflow/workflow-trigger/utils/getCronTriggerDefaultSettings';
 import { getTriggerScheduleDescription } from '@/workflow/workflow-trigger/utils/getTriggerScheduleDescription';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNumber } from '@sniptt/guards';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
@@ -63,8 +62,8 @@ export const WorkflowEditTriggerCronForm = ({
     <>
       <WorkflowStepBody>
         <FormSelectFieldInput
-          label={t`Interval pemicu`}
-          hint={t`Penjadwalan akan dijalankan pada waktu UTC`}
+          label={`Interval pemicu`}
+          hint={`Penjadwalan akan dijalankan pada waktu UTC`}
           defaultValue={trigger.settings.type}
           options={CRON_TRIGGER_INTERVAL_OPTIONS}
           readonly={triggerOptions.readonly}
@@ -90,8 +89,8 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'CUSTOM' && (
           <>
             <FormTextFieldInput
-              label={t`Ekspresi`}
-              placeholder={t`0 */1 * * *`}
+              label={`Ekspresi`}
+              placeholder={`0 */1 * * *`}
               error={errorMessagesVisible ? errorMessages.CUSTOM : undefined}
               onBlur={onBlur}
               hint={customDescription ?? ''}
@@ -107,11 +106,11 @@ export const WorkflowEditTriggerCronForm = ({
                 try {
                   CronExpressionParser.parse(newPattern);
                 } catch (error) {
-                  const unknownError = t`Kesalahan tidak diketahui`;
+                  const unknownError = `Kesalahan tidak diketahui`;
                   const errorMessage =
                     error instanceof Error ? error.message : unknownError;
                   setErrorMessages({
-                    CUSTOM: t`Pola cron tidak valid: ${errorMessage}`,
+                    CUSTOM: `Pola cron tidak valid: ${errorMessage}`,
                   });
                   return;
                 }
@@ -141,7 +140,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'DAYS' && (
           <>
             <FormNumberFieldInput
-              label={t`Jarak hari antar pemicu`}
+              label={`Jarak hari antar pemicu`}
               error={errorMessagesVisible ? errorMessages.DAYS_day : undefined}
               onBlur={onBlur}
               defaultValue={trigger.settings.schedule.day}
@@ -157,7 +156,7 @@ export const WorkflowEditTriggerCronForm = ({
                 if (!isNumber(newDay) || newDay <= 0) {
                   setErrorMessages((prev) => ({
                     ...prev,
-                    DAYS_day: t`Nilai hari tidak valid '${newDay}'. Harus bilangan bulat lebih dari 1`,
+                    DAYS_day: `Nilai hari tidak valid '${newDay}'. Harus bilangan bulat lebih dari 1`,
                   }));
                   return;
                 }
@@ -186,11 +185,11 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Masukkan angka lebih dari 1`}
+              placeholder={`Masukkan angka lebih dari 1`}
               readonly={triggerOptions.readonly}
             />
             <FormNumberFieldInput
-              label={t`Pemicu pada jam (UTC)`}
+              label={`Pemicu pada jam (UTC)`}
               error={errorMessagesVisible ? errorMessages.DAYS_hour : undefined}
               onBlur={onBlur}
               defaultValue={trigger.settings.schedule.hour}
@@ -206,7 +205,7 @@ export const WorkflowEditTriggerCronForm = ({
                 if (!isNumber(newHour) || newHour < 0 || newHour > 23) {
                   setErrorMessages((prev) => ({
                     ...prev,
-                    DAYS_hour: t`Nilai jam tidak valid '${newHour}'. Harus bilangan bulat antara 0 dan 23`,
+                    DAYS_hour: `Nilai jam tidak valid '${newHour}'. Harus bilangan bulat antara 0 dan 23`,
                   }));
                   return;
                 }
@@ -235,11 +234,11 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Masukkan angka antara 0 dan 23`}
+              placeholder={`Masukkan angka antara 0 dan 23`}
               readonly={triggerOptions.readonly}
             />
             <FormNumberFieldInput
-              label={t`Pemicu pada menit (UTC)`}
+              label={`Pemicu pada menit (UTC)`}
               error={
                 errorMessagesVisible ? errorMessages.DAYS_minute : undefined
               }
@@ -257,7 +256,7 @@ export const WorkflowEditTriggerCronForm = ({
                 if (!isNumber(newMinute) || newMinute < 0 || newMinute > 59) {
                   setErrorMessages((prev) => ({
                     ...prev,
-                    DAYS_minute: t`Nilai menit tidak valid '${newMinute}'. Harus bilangan bulat antara 0 dan 59`,
+                    DAYS_minute: `Nilai menit tidak valid '${newMinute}'. Harus bilangan bulat antara 0 dan 59`,
                   }));
                   return;
                 }
@@ -286,7 +285,7 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Masukkan angka antara 0 dan 59`}
+              placeholder={`Masukkan angka antara 0 dan 59`}
               readonly={triggerOptions.readonly}
             />
             <CronExpressionHelperLazy
@@ -302,7 +301,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'HOURS' && (
           <>
             <FormNumberFieldInput
-              label={t`Jarak jam antar pemicu`}
+              label={`Jarak jam antar pemicu`}
               error={
                 errorMessagesVisible ? errorMessages.HOURS_hour : undefined
               }
@@ -320,7 +319,7 @@ export const WorkflowEditTriggerCronForm = ({
                 if (!isNumber(newHour) || newHour <= 0) {
                   setErrorMessages((prev) => ({
                     ...prev,
-                    HOURS_hour: t`Nilai jam tidak valid '${newHour}'. Harus bilangan bulat lebih dari 1`,
+                    HOURS_hour: `Nilai jam tidak valid '${newHour}'. Harus bilangan bulat lebih dari 1`,
                   }));
                   return;
                 }
@@ -345,11 +344,11 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Masukkan angka lebih dari 1`}
+              placeholder={`Masukkan angka lebih dari 1`}
               readonly={triggerOptions.readonly}
             />
             <FormNumberFieldInput
-              label={t`Pemicu pada menit (UTC)`}
+              label={`Pemicu pada menit (UTC)`}
               error={
                 errorMessagesVisible ? errorMessages.HOURS_minute : undefined
               }
@@ -367,7 +366,7 @@ export const WorkflowEditTriggerCronForm = ({
                 if (!isNumber(newMinute) || newMinute < 0 || newMinute > 59) {
                   setErrorMessages((prev) => ({
                     ...prev,
-                    HOURS_minute: t`Nilai menit tidak valid '${newMinute}'. Harus bilangan bulat antara 0 dan 59`,
+                    HOURS_minute: `Nilai menit tidak valid '${newMinute}'. Harus bilangan bulat antara 0 dan 59`,
                   }));
                   return;
                 }
@@ -392,7 +391,7 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Masukkan angka antara 0 dan 59`}
+              placeholder={`Masukkan angka antara 0 dan 59`}
               readonly={triggerOptions.readonly}
             />
             <CronExpressionHelperLazy
@@ -406,7 +405,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'MINUTES' && (
           <>
             <FormNumberFieldInput
-              label={t`Jarak menit antar pemicu`}
+              label={`Jarak menit antar pemicu`}
               error={errorMessagesVisible ? errorMessages.MINUTES : undefined}
               onBlur={onBlur}
               defaultValue={trigger.settings.schedule.minute}
@@ -421,14 +420,14 @@ export const WorkflowEditTriggerCronForm = ({
 
                 if (!isNumber(newMinute) || newMinute <= 0) {
                   setErrorMessages({
-                    MINUTES: t`Nilai menit tidak valid '${newMinute}'. Harus bilangan bulat lebih dari 1`,
+                    MINUTES: `Nilai menit tidak valid '${newMinute}'. Harus bilangan bulat lebih dari 1`,
                   });
                   return;
                 }
 
                 if (newMinute > 60) {
                   setErrorMessages({
-                    MINUTES: t`Nilai menit tidak boleh melebihi 60. Untuk interval lebih dari 60 menit, gunakan tipe pemicu "Jam" atau ekspresi cron kustom`,
+                    MINUTES: `Nilai menit tidak boleh melebihi 60. Untuk interval lebih dari 60 menit, gunakan tipe pemicu "Jam" atau ekspresi cron kustom`,
                   });
                   return;
                 }
@@ -449,7 +448,7 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Masukkan angka antara 1 dan 60`}
+              placeholder={`Masukkan angka antara 1 dan 60`}
               readonly={triggerOptions.readonly}
             />
             <CronExpressionHelperLazy

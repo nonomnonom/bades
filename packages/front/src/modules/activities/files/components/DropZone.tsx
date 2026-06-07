@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { useDropzone } from 'react-dropzone';
 
@@ -50,7 +49,6 @@ export const DropZone = ({
   onUploadFiles,
 }: DropZoneProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { maxFileSize } = useSpreadsheetImportInternal();
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -90,9 +88,9 @@ export const DropZone = ({
               size={theme.icon.size.lg}
             />
           </StyledUploadIconContainer>
-          <StyledUploadDragTitle>{t`Unggah berkas`}</StyledUploadDragTitle>
+          <StyledUploadDragTitle>{`Unggah berkas`}</StyledUploadDragTitle>
           <StyledUploadDragSubTitle>
-            {t`Seret dan Lepas di Sini`}
+            {`Seret dan Lepas di Sini`}
           </StyledUploadDragSubTitle>
         </>
       )}

@@ -9,7 +9,6 @@ import { getInputSchemaPropertyAtPath } from '@/workflow/workflow-steps/workflow
 import { getWorkflowCodeFieldsEnumSelectOptions } from '@/workflow/workflow-steps/workflow-actions/code-action/utils/getWorkflowCodeFieldsEnumSelectOptions';
 import { getWorkflowCodeFieldsLeafKind } from '@/workflow/workflow-steps/workflow-actions/code-action/utils/getWorkflowCodeFieldsLeafKind';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyArray, isNonEmptyString, isObject } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { type FunctionInput, type InputSchema } from 'shared/workflow';
@@ -149,7 +148,7 @@ export const WorkflowEditActionCodeFields = ({
           <FormTextFieldInput
             key={pathKey}
             label={displayLabel}
-            placeholder={t`Masukkan nilai`}
+            placeholder={`Masukkan nilai`}
             defaultValue={inputValue ? `${inputValue}` : ''}
             readonly={readonly}
             onChange={(value) => onInputChange?.(value, currentPath)}

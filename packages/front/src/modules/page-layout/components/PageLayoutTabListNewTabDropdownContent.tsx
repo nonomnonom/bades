@@ -12,7 +12,6 @@ import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownM
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useMemo } from 'react';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -28,7 +27,6 @@ export const PageLayoutTabListNewTabDropdownContent = ({
   onCreate,
   dropdownId,
 }: PageLayoutTabListNewTabDropdownContentProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const { closeDropdown } = useCloseDropdown();
 
@@ -74,18 +72,18 @@ export const PageLayoutTabListNewTabDropdownContent = ({
 
   return (
     <DropdownContent>
-      <DropdownMenuHeader>{t`Tab baru`}</DropdownMenuHeader>
+      <DropdownMenuHeader>{`Tab baru`}</DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <MenuItem
           LeftIcon={IconPlus}
-          text={t`Tab kosong`}
+          text={`Tab kosong`}
           onClick={handleCreateEmptyTab}
         />
       </DropdownMenuItemsContainer>
       {inactiveTabs.length > 0 && (
         <>
           <DropdownMenuSeparator />
-          <DropdownMenuSectionLabel label={t`Dinonaktifkan`} />
+          <DropdownMenuSectionLabel label={`Dinonaktifkan`} />
           <DropdownMenuItemsContainer>
             {inactiveTabs.map((tab) => (
               <MenuItem

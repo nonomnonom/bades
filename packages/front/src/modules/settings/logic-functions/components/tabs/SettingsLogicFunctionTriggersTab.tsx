@@ -5,7 +5,6 @@ import { SettingsLogicFunctionHttpTriggerSection } from '@/settings/logic-functi
 import { SettingsLogicFunctionToolTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionToolTriggerSection';
 import { SettingsLogicFunctionWorkflowActionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionWorkflowActionTriggerSection';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { Callout, IconInfoCircle } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -37,8 +36,6 @@ export const SettingsLogicFunctionTriggersTab = ({
   readonly?: boolean;
   applicationName?: string;
 }) => {
-  const { t } = useLingui();
-
   const hasAnyTrigger =
     isDefined(formValues.httpRouteTriggerSettings) ||
     isDefined(formValues.cronTriggerSettings) ||
@@ -52,13 +49,13 @@ export const SettingsLogicFunctionTriggersTab = ({
         <Callout
           variant="info"
           Icon={IconInfoCircle}
-          title={t`Disertakan bersama ${applicationName}`}
-          description={t`Fungsi ini tidak memiliki pemicu yang dikonfigurasi, sehingga hanya dapat dipanggil dari tab Uji Coba atau oleh fungsi lain.`}
+          title={`Disertakan bersama ${applicationName}`}
+          description={`Fungsi ini tidak memiliki pemicu yang dikonfigurasi, sehingga hanya dapat dipanggil dari tab Uji Coba atau oleh fungsi lain.`}
         />
       </StyledCalloutWrapper>
     ) : (
       <StyledEmptyState>
-        {t`Tidak ada pemicu yang dikonfigurasi untuk fungsi ini.`}
+        {`Tidak ada pemicu yang dikonfigurasi untuk fungsi ini.`}
       </StyledEmptyState>
     );
   }
@@ -92,7 +89,7 @@ export const SettingsLogicFunctionTriggersTab = ({
       />
       {!readonly && !hasAnyTrigger && (
         <StyledEmptyState>
-          {t`Tidak ada pemicu yang aktif. Aktifkan salah satu opsi di atas untuk memilih cara fungsi ini dipanggil.`}
+          {`Tidak ada pemicu yang aktif. Aktifkan salah satu opsi di atas untuk memilih cara fungsi ini dipanggil.`}
         </StyledEmptyState>
       )}
     </>

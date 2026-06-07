@@ -8,7 +8,6 @@ import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAto
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { httpRequestTestDataFamilyState } from '@/workflow/workflow-steps/workflow-actions/http-request-action/states/httpRequestTestDataFamilyState';
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isObject, isString } from '@sniptt/guards';
 import { useState } from 'react';
 import { isDefined, parseJson, resolveInput } from 'shared/utils';
@@ -102,7 +101,7 @@ export const useTestHttpRequest = (actionId: string) => {
       const response = result?.data?.testHttpRequest;
 
       if (!response) {
-        throw new Error(t`Tidak ada respons dari server`);
+        throw new Error(`Tidak ada respons dari server`);
       }
 
       if (response.success === true) {
@@ -134,7 +133,7 @@ export const useTestHttpRequest = (actionId: string) => {
       const duration = Date.now() - startTime;
 
       const rawErrorMessage =
-        error instanceof Error ? error.message : t`Permintaan HTTP gagal`;
+        error instanceof Error ? error.message : `Permintaan HTTP gagal`;
 
       const jsonParsedErrorMessage = parseJson(rawErrorMessage);
 

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconChevronLeft } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
 
@@ -25,7 +24,6 @@ type AiChatThreadFilterDropdownStatusMenuProps = {
 export const AiChatThreadFilterDropdownStatusMenu = ({
   onBack,
 }: AiChatThreadFilterDropdownStatusMenuProps) => {
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
   const [agentChatThreadFilterStatus, setAgentChatThreadFilterStatus] =
     useAtomState(agentChatThreadFilterStatusState);
@@ -40,14 +38,14 @@ export const AiChatThreadFilterDropdownStatusMenu = ({
           />
         }
       >
-        {t`Status`}
+        {`Status`}
       </DropdownMenuHeader>
 
       <DropdownMenuItemsContainer>
         {AGENT_CHAT_THREAD_FILTER_STATUS_OPTIONS.map((option) => (
           <MenuItemSelect
             key={option}
-            text={t(AGENT_CHAT_THREAD_FILTER_STATUS_LABELS[option])}
+            text={AGENT_CHAT_THREAD_FILTER_STATUS_LABELS[option]}
             selected={agentChatThreadFilterStatus === option}
             onClick={() => {
               setAgentChatThreadFilterStatus(option);

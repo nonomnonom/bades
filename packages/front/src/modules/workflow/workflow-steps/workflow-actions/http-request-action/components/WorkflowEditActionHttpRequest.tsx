@@ -14,7 +14,6 @@ import { getBodyTypeFromHeaders } from '@/workflow/workflow-steps/workflow-actio
 import { isMethodWithBody } from '@/workflow/workflow-steps/workflow-actions/http-request-action/utils/isMethodWithBody';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect } from 'react';
 import { IconPlayerPlay, IconSettings } from 'ui/display';
 import {
@@ -87,7 +86,6 @@ export const WorkflowEditActionHttpRequest = ({
   action,
   actionOptions,
 }: WorkflowEditActionHttpRequestProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const activeTabId = useAtomComponentStateValue(
     activeTabIdComponentState,
@@ -118,12 +116,12 @@ export const WorkflowEditActionHttpRequest = ({
   const tabs = [
     {
       id: WorkflowHttpRequestTabId.CONFIGURATION,
-      title: t`Konfigurasi`,
+      title: `Konfigurasi`,
       Icon: IconSettings,
     },
     {
       id: WorkflowHttpRequestTabId.TEST,
-      title: t`Uji Coba`,
+      title: `Uji Coba`,
       Icon: IconPlayerPlay,
     },
   ];
@@ -143,7 +141,7 @@ export const WorkflowEditActionHttpRequest = ({
         {activeTabId === WorkflowHttpRequestTabId.CONFIGURATION && (
           <StyledConfigurationTabContent>
             <FormTextFieldInput
-              label={t`URL`}
+              label={`URL`}
               placeholder={'https://api.example.com/endpoint'}
               readonly={actionOptions.readonly}
               defaultValue={formData.url}
@@ -151,7 +149,7 @@ export const WorkflowEditActionHttpRequest = ({
               VariablePicker={WorkflowVariablePicker}
             />
             <Select
-              label={t`Metode HTTP`}
+              label={`Metode HTTP`}
               dropdownId="http-method"
               options={[...HTTP_METHODS]}
               value={formData.method}
@@ -165,12 +163,12 @@ export const WorkflowEditActionHttpRequest = ({
 
             <KeyValuePairInput
               key={getBodyTypeFromHeaders(formData.headers) || 'none'}
-              label={t`Header Permintaan`}
+              label={`Header Permintaan`}
               defaultValue={formData.headers}
               onChange={(value) => handleFieldChange('headers', value)}
               readonly={actionOptions.readonly}
-              keyPlaceholder={t`Nama header`}
-              valuePlaceholder={t`Nilai header`}
+              keyPlaceholder={`Nama header`}
+              valuePlaceholder={`Nilai header`}
             />
 
             {isMethodWithBody(formData.method) && (
@@ -186,7 +184,7 @@ export const WorkflowEditActionHttpRequest = ({
 
             <StyledFullHeightFormRawJsonFieldInputContainer>
               <FormRawJsonFieldInput
-                label={t`Format Respons yang Diharapkan`}
+                label={`Format Respons yang Diharapkan`}
                 placeholder={JSON_RESPONSE_PLACEHOLDER}
                 defaultValue={outputSchema}
                 onChange={handleOutputSchemaChange}
@@ -218,7 +216,7 @@ export const WorkflowEditActionHttpRequest = ({
               ? [
                   <WorkflowStepCmdEnterButton
                     key="test"
-                    title={t`Uji Coba`}
+                    title={`Uji Coba`}
                     onClick={handleTestRequest}
                     disabled={isTesting}
                   />,

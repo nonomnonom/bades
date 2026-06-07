@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useApolloClient, useMutation } from '@apollo/client/react';
 import { isDefined } from 'shared/utils';
@@ -13,8 +12,6 @@ export const useUploadFilesFieldFile = () => {
     client: apolloClient,
   });
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
-  const { t } = useLingui();
-
   const uploadFile = async (file: File, fieldMetadataId: string) => {
     try {
       const result = await uploadFilesFieldFile({
@@ -24,12 +21,12 @@ export const useUploadFilesFieldFile = () => {
       const uploadedFile = result?.data?.uploadFilesFieldFile;
 
       if (!isDefined(uploadedFile)) {
-        throw new Error(t`Unggahan berkas gagal`);
+        throw new Error(`Unggahan berkas gagal`);
       }
 
       const fileName = file.name;
       enqueueSuccessSnackBar({
-        message: t`Berkas "${fileName}" berhasil diunggah`,
+        message: `Berkas "${fileName}" berhasil diunggah`,
       });
 
       return {
@@ -42,11 +39,11 @@ export const useUploadFilesFieldFile = () => {
       const fileNameForError = file.name;
       const errorMessage = String(error);
       enqueueErrorSnackBar({
-        message: t`Gagal mengunggah "${fileNameForError}"`,
+        message: `Gagal mengunggah "${fileNameForError}"`,
       });
 
       throw new Error(
-        t`Gagal mengunggah berkas "${fileNameForError}": ${errorMessage}`,
+        `Gagal mengunggah berkas "${fileNameForError}": ${errorMessage}`,
       );
     }
   };

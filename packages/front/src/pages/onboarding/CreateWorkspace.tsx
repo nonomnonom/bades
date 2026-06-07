@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback, useState } from 'react';
@@ -65,7 +65,6 @@ const StyledPendingCreationLoader = styled.div`
 `;
 
 export const CreateWorkspace = () => {
-  const { t } = useLingui();
   const { enqueueErrorSnackBar } = useSnackBar();
   const setNextOnboardingStatus = useSetNextOnboardingStatus();
   const { loadCurrentUser } = useLoadCurrentUser();
@@ -77,7 +76,7 @@ export const CreateWorkspace = () => {
 
   const validationSchema = z
     .object({
-      name: z.string().min(1, { message: t`Nama tidak boleh kosong` }),
+      name: z.string().min(1, { message: `Nama tidak boleh kosong` }),
     })
     .required();
 
@@ -118,7 +117,7 @@ export const CreateWorkspace = () => {
         });
 
         if (isDefined(result.error)) {
-          throw result.error ?? new Error(t`Terjadi kesalahan tidak diketahui`);
+          throw result.error ?? new Error(`Terjadi kesalahan tidak diketahui`);
         }
 
         await loadCurrentUser();
@@ -136,7 +135,6 @@ export const CreateWorkspace = () => {
       enqueueErrorSnackBar,
       loadCurrentUser,
       setNextOnboardingStatus,
-      t,
     ],
   );
 
@@ -197,13 +195,13 @@ export const CreateWorkspace = () => {
 
           <StyledContentContainer>
             <StyledSectionContainer>
-              <H2Title title={t`Logo ruang kerja`} />
+              <H2Title title={`Logo ruang kerja`} />
               <WorkspaceLogoUploader />
             </StyledSectionContainer>
             <StyledSectionContainer>
               <H2Title
-                title={t`Nama ruang kerja`}
-                description={t`Nama instansi atau organisasi Anda`}
+                title={`Nama ruang kerja`}
+                description={`Nama instansi atau organisasi Anda`}
               />
               <Controller
                 name="name"
@@ -215,7 +213,7 @@ export const CreateWorkspace = () => {
                   <TextInput
                     autoFocus
                     value={value}
-                    placeholder={t`Desa Maju Jaya`}
+                    placeholder={`Desa Maju Jaya`}
                     onBlur={onBlur}
                     onChange={onChange}
                     error={error?.message}
@@ -228,7 +226,7 @@ export const CreateWorkspace = () => {
           </StyledContentContainer>
           <StyledButtonContainer>
             <MainButton
-              title={t`Lanjutkan`}
+              title={`Lanjutkan`}
               onClick={handleSubmit(onSubmit)}
               disabled={!isValid || isSubmitting}
               Icon={() => isSubmitting && <Loader />}

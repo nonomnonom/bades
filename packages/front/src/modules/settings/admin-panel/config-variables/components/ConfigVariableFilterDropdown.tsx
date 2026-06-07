@@ -2,7 +2,6 @@ import { type ConfigVariableFilterCategory } from '@/settings/admin-panel/config
 import { type ConfigVariableGroupFilter } from '@/settings/admin-panel/config-variables/types/ConfigVariableGroupFilter';
 import { type ConfigVariableSourceFilter } from '@/settings/admin-panel/config-variables/types/ConfigVariableSourceFilter';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconSettings } from 'ui/display';
 import { Button } from 'ui/input';
@@ -42,7 +41,7 @@ export const ConfigVariableFilterDropdown = ({
         <Button
           variant="secondary"
           size="medium"
-          title={t`Opsi`}
+          title={`Opsi`}
           Icon={IconSettings}
         />
       }

@@ -1,6 +1,5 @@
 import { type AppErrorDisplayProps } from '@/error-handler/types/AppErrorDisplayProps';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconReload } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -101,7 +100,7 @@ const StyledIconContainer = styled.span`
 
 export const AppRootErrorFallback = ({
   resetErrorBoundary,
-  title = t`Maaf, terjadi kesalahan`,
+  title = `Maaf, terjadi kesalahan`,
 }: AppRootErrorFallbackProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -112,24 +111,24 @@ export const AppRootErrorFallback = ({
           <StyledImageContainer>
             <StyledBackgroundImage
               src="/images/placeholders/background/error_index_bg.png"
-              alt={t`Latar Belakang`}
+              alt={`Latar Belakang`}
             />
             <StyledInnerImage
               src="/images/placeholders/moving-image/error_index.png"
-              alt={t`Ilustrasi kesalahan`}
+              alt={`Ilustrasi kesalahan`}
             />
           </StyledImageContainer>
           <StyledEmptyTextContainer>
             <StyledEmptyTitle>{title}</StyledEmptyTitle>
             <StyledEmptySubTitle>
-              {t`Silakan muat ulang halaman.`}
+              {`Silakan muat ulang halaman.`}
             </StyledEmptySubTitle>
           </StyledEmptyTextContainer>
           <StyledButton onClick={resetErrorBoundary}>
             <StyledIconContainer>
               <IconReload size={theme.icon.size.md} />
             </StyledIconContainer>
-            {t`Muat Ulang`}
+            {`Muat Ulang`}
           </StyledButton>
         </StyledEmptyContainer>
       </StyledPanel>

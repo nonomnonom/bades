@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -83,7 +83,7 @@ export class FlatSkillValidatorService {
     if (!isDefined(existingSkill)) {
       validationResult.errors.push({
         code: SkillExceptionCode.SKILL_NOT_FOUND,
-        message: t`Skill not found`,
+        message: `Skill not found`,
         userFriendlyMessage: msg`Skill not found`,
       });
 
@@ -100,7 +100,7 @@ export class FlatSkillValidatorService {
     ) {
       validationResult.errors.push({
         code: SkillExceptionCode.SKILL_IS_STANDARD,
-        message: t`Cannot delete standard skill`,
+        message: `Cannot delete standard skill`,
         userFriendlyMessage: msg`Cannot delete standard skill`,
       });
     }
@@ -134,7 +134,7 @@ export class FlatSkillValidatorService {
     if (!isDefined(fromFlatSkill)) {
       validationResult.errors.push({
         code: SkillExceptionCode.SKILL_NOT_FOUND,
-        message: t`Skill not found`,
+        message: `Skill not found`,
         userFriendlyMessage: msg`Skill not found`,
       });
 
@@ -160,7 +160,7 @@ export class FlatSkillValidatorService {
     ) {
       validationResult.errors.push({
         code: SkillExceptionCode.SKILL_IS_STANDARD,
-        message: t`Cannot update standard skill properties (only activation/deactivation allowed)`,
+        message: `Cannot update standard skill properties (only activation/deactivation allowed)`,
         userFriendlyMessage: msg`Cannot update standard skill properties (only activation/deactivation allowed)`,
       });
     }

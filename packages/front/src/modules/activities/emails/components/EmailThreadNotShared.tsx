@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { AppTooltip, IconLock, TooltipDelay } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -34,7 +33,6 @@ export const EmailThreadNotShared = ({
   visibility,
 }: EmailThreadNotSharedProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const containerId = 'email-thread-not-shared';
   const isCompact = visibility === MessageChannelVisibility.SUBJECT;
 
@@ -42,12 +40,12 @@ export const EmailThreadNotShared = ({
     <>
       <StyledContainer id={containerId} isCompact={isCompact}>
         <IconLock size={theme.icon.size.sm} />
-        {t`Tidak dibagikan`}
+        {`Tidak dibagikan`}
       </StyledContainer>
       {visibility === MessageChannelVisibility.SUBJECT && (
         <AppTooltip
           anchorSelect={`#${containerId}`}
-          content={t`Hanya subjek yang dibagikan`}
+          content={`Hanya subjek yang dibagikan`}
           delay={TooltipDelay.mediumDelay}
           noArrow
           place="bottom"

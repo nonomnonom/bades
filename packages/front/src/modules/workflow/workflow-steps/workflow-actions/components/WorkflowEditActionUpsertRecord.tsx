@@ -14,7 +14,6 @@ import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowS
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { shouldDisplayFormField } from '@/workflow/workflow-steps/workflow-actions/utils/shouldDisplayFormField';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { canObjectBeManagedByWorkflow } from 'shared/workflow';
@@ -217,11 +216,11 @@ export const WorkflowEditActionUpsertRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-upsert-record-object-name"
-          label={t`Objek`}
+          label={`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectName}
-          emptyOption={{ label: t`Pilih opsi`, value: '' }}
+          emptyOption={{ label: `Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             const newFormData: UpsertRecordFormData = {
@@ -241,7 +240,7 @@ export const WorkflowEditActionUpsertRecord = ({
           isDefined(uniqueFieldMetadataItems) &&
           uniqueFieldMetadataItems.length > 0 && (
             <WorkflowFieldsMultiSelect
-              label={t`Field unik`}
+              label={`Field unik`}
               objectMetadataItem={objectMetadataItem}
               handleFieldsChange={() => {}}
               defaultFields={
@@ -249,9 +248,9 @@ export const WorkflowEditActionUpsertRecord = ({
                   (fieldMetadataItem) => fieldMetadataItem.name,
                 ) ?? []
               }
-              placeholder={t`Field unik objek`}
+              placeholder={`Field unik objek`}
               readonly
-              hint={t`Kami mencocokkan berdasarkan field-field ini. Jika ${objectLabelSingular} sudah ada, kami memperbaruinya. Jika belum, kami membuat yang baru.`}
+              hint={`Kami mencocokkan berdasarkan field-field ini. Jika ${objectLabelSingular} sudah ada, kami memperbaruinya. Jika belum, kami membuat yang baru.`}
               actionType="UPSERT_RECORD"
             />
           )}
@@ -266,7 +265,7 @@ export const WorkflowEditActionUpsertRecord = ({
               <FormSingleRecordPicker
                 key="id"
                 testId="workflow-upsert-record-id"
-                label={t`Data (ID)`}
+                label={`Data (ID)`}
                 onChange={(recordId) => {
                   handleFieldChange('id', recordId);
                 }}

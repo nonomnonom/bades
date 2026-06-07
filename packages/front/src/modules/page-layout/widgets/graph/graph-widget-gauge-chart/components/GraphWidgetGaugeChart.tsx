@@ -11,7 +11,6 @@ import {
   type GraphValueFormatOptions,
 } from '@/page-layout/widgets/graph/utils/graphFormatters';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   type RadialBarCustomLayerProps,
   ResponsiveRadialBar,
@@ -96,7 +95,7 @@ export const GraphWidgetGaugeChart = ({
   const { createTooltipData } = useGaugeChartTooltip({
     value: data.value,
     normalizedValue,
-    label: data.label || t`Nilai`,
+    label: data.label || `Nilai`,
     colorScheme,
     formatOptions,
   });
@@ -152,7 +151,7 @@ export const GraphWidgetGaugeChart = ({
           items={[
             {
               id: 'gauge',
-              label: data.label || t`Nilai`,
+              label: data.label || `Nilai`,
               color: colorScheme.solid,
             },
           ]}

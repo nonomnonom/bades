@@ -8,7 +8,6 @@ import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { workflowAiAgentActionAgentState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentActionAgentState';
 import { workflowAiAgentPermissionsIsAddingPermissionState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentPermissionsIsAddingPermissionState';
 import { workflowAiAgentPermissionsSelectedObjectIdState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentPermissionsSelectedObjectIdState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { v4 } from 'uuid';
@@ -87,9 +86,9 @@ export const useWorkflowAiAgentPermissionActions = ({
     const agentDisplayName =
       workflowAiAgentActionAgent.label ??
       workflowAiAgentActionAgent.name ??
-      t`Agen`;
+      `Agen`;
     const agentIdPrefix = workflowAiAgentActionAgent.id.substring(0, 8);
-    const roleName = t`Peran ${agentDisplayName} (${agentIdPrefix})`;
+    const roleName = `Peran ${agentDisplayName} (${agentIdPrefix})`;
     const generatedRoleId = v4();
 
     await createRole({
@@ -97,7 +96,7 @@ export const useWorkflowAiAgentPermissionActions = ({
         createRoleInput: {
           id: generatedRoleId,
           label: roleName,
-          description: t`Peran otomatis untuk ${agentDisplayName}`,
+          description: `Peran otomatis untuk ${agentDisplayName}`,
           icon: 'IconRobot',
           canAccessAllTools: false,
           canUpdateAllSettings: false,
@@ -291,7 +290,7 @@ export const useWorkflowAiAgentPermissionActions = ({
 
     if (isDefined(permissionLabel)) {
       enqueueSuccessSnackBar({
-        message: t`Izin ${permissionLabel} dihapus`,
+        message: `Izin ${permissionLabel} dihapus`,
       });
     }
   };
@@ -353,7 +352,7 @@ export const useWorkflowAiAgentPermissionActions = ({
 
     if (isDefined(permissionLabel)) {
       enqueueSuccessSnackBar({
-        message: t`Izin ${permissionLabel} dihapus`,
+        message: `Izin ${permissionLabel} dihapus`,
       });
     }
   };

@@ -1,6 +1,5 @@
 import { approvedAccessDomainsState } from '@/settings/security/states/ApprovedAccessDomainsState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
@@ -38,7 +37,7 @@ export const SettingsSecurityApprovedAccessDomainValidationEffect = () => {
             })),
           );
           enqueueSuccessSnackBar({
-            message: t`Domain akses berhasil divalidasi`,
+            message: `Domain akses berhasil divalidasi`,
             options: {
               dedupeKey: 'approved-access-domain-validation-dedupe-key',
             },
@@ -48,7 +47,7 @@ export const SettingsSecurityApprovedAccessDomainValidationEffect = () => {
           enqueueErrorSnackBar({
             message: error?.message
               ? error.message
-              : t`Gagal memvalidasi domain akses`,
+              : `Gagal memvalidasi domain akses`,
             options: {
               dedupeKey: 'approved-access-domain-validation-error-dedupe-key',
             },

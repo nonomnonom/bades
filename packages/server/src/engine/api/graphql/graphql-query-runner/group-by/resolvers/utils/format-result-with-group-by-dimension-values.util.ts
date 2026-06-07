@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import {
   type ObjectRecord,
   ObjectRecordGroupByDateGranularity,
@@ -126,48 +125,48 @@ const getTranslatedValueIfApplicable = <T>(
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
       switch (value) {
         case 'Monday':
-          return t`Monday`;
+          return `Monday`;
         case 'Tuesday':
-          return t`Tuesday`;
+          return `Tuesday`;
         case 'Wednesday':
-          return t`Wednesday`;
+          return `Wednesday`;
         case 'Thursday':
-          return t`Thursday`;
+          return `Thursday`;
         case 'Friday':
-          return t`Friday`;
+          return `Friday`;
         case 'Saturday':
-          return t`Saturday`;
+          return `Saturday`;
         case 'Sunday':
-          return t`Sunday`;
+          return `Sunday`;
         default:
           return value;
       }
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
       switch (value) {
         case 'January':
-          return t`January`;
+          return `January`;
         case 'February':
-          return t`February`;
+          return `February`;
         case 'March':
-          return t`March`;
+          return `March`;
         case 'April':
-          return t`April`;
+          return `April`;
         case 'May':
-          return t`May`;
+          return `May`;
         case 'June':
-          return t`June`;
+          return `June`;
         case 'July':
-          return t`July`;
+          return `July`;
         case 'August':
-          return t`August`;
+          return `August`;
         case 'September':
-          return t`September`;
+          return `September`;
         case 'October':
-          return t`October`;
+          return `October`;
         case 'November':
-          return t`November`;
+          return `November`;
         case 'December':
-          return t`December`;
+          return `December`;
         default:
           return value;
       }

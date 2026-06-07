@@ -1,7 +1,6 @@
 import { isDefined } from 'shared/utils';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { SettingsDnsRecordsTable } from '@/settings/components/SettingsDnsRecordsTable';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { type ThemeColor } from 'ui/theme';
@@ -59,8 +58,8 @@ export const SettingsDomainRecords = ({
   return (
     <Section>
       <H2Title
-        title={t`Pengaturan Domain`}
-        description={t`Konfigurasikan rekaman DNS berikut di penyedia domain Anda`}
+        title={`Pengaturan Domain`}
+        description={`Konfigurasikan rekaman DNS berikut di penyedia domain Anda`}
       />
       <SettingsDnsRecordsTable records={transformedRecords} />
     </Section>

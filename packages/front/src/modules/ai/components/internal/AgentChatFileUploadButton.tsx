@@ -2,7 +2,6 @@ import { useAiChatFileUpload } from '@/ai/hooks/useAiChatFileUpload';
 import { agentChatSelectedFilesState } from '@/ai/states/agentChatSelectedFilesState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import React, { useRef } from 'react';
 import { IconPaperclip } from 'ui/display';
 import { IconButton } from 'ui/input';
@@ -53,7 +52,7 @@ export const AgentChatFileUploadButton = () => {
           fileInputRef.current?.click();
         }}
         Icon={IconPaperclip}
-        ariaLabel={t`Lampirkan file`}
+        ariaLabel={`Lampirkan file`}
       />
     </StyledFileUploadContainer>
   );

@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { lazy, Suspense } from 'react';
 
 const BackgroundMockPage = lazy(() =>
@@ -42,11 +42,9 @@ const StyledButtonContainer = styled.div`
 `;
 
 export const NotFound = () => {
-  const { t } = useLingui();
-
   return (
     <>
-      <PageTitle title={t`Halaman Tidak Ditemukan | Bades.id`} />
+      <PageTitle title={`Halaman Tidak Ditemukan | Bades.id`} />
       <StyledBackDrop>
         <AnimatedPlaceholderErrorContainer>
           <AnimatedPlaceholder type="error404" />
@@ -63,7 +61,7 @@ export const NotFound = () => {
           </AnimatedPlaceholderEmptyTextContainer>
           <StyledButtonContainer>
             <UndecoratedLink to={AppPath.Index}>
-              <MainButton title={t`Kembali ke Beranda`} fullWidth />
+              <MainButton title={`Kembali ke Beranda`} fullWidth />
             </UndecoratedLink>
           </StyledButtonContainer>
         </AnimatedPlaceholderErrorContainer>

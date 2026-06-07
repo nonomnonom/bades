@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { NavigationMenuItemType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {
@@ -41,7 +40,6 @@ export const SidePanelNewSidebarItemMainMenu = ({
   onSelectView,
   onSelectRecord,
 }: SidePanelNewSidebarItemMainMenuProps) => {
-  const { t } = useLingui();
   const pendingInsertionNavigationMenuItem = useAtomStateValue(
     pendingInsertionNavigationMenuItemState,
   );
@@ -63,7 +61,7 @@ export const SidePanelNewSidebarItemMainMenu = ({
         <SidePanelList selectableItemIds={selectableItemIds}>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <div ref={innerRef} {...droppableProps}>
-            <SidePanelGroup heading={t`Data`}>
+            <SidePanelGroup heading={`Data`}>
               <SelectableListItem
                 itemId={NavigationMenuItemType.OBJECT}
                 onEnter={onSelectObject}
@@ -75,7 +73,7 @@ export const SidePanelNewSidebarItemMainMenu = ({
                       color="blue"
                     />
                   )}
-                  label={t`Objek`}
+                  label={`Objek`}
                   id={NavigationMenuItemType.OBJECT}
                   hasSubMenu={true}
                   onClick={onSelectObject}
@@ -87,7 +85,7 @@ export const SidePanelNewSidebarItemMainMenu = ({
               >
                 <CommandMenuItem
                   Icon={() => <TintedIconTile Icon={IconTable} />}
-                  label={t`Tampilan`}
+                  label={`Tampilan`}
                   id={NavigationMenuItemType.VIEW}
                   hasSubMenu={true}
                   onClick={onSelectView}
@@ -105,28 +103,28 @@ export const SidePanelNewSidebarItemMainMenu = ({
                       backgroundColor={themeCssVariables.color.green4}
                     />
                   )}
-                  label={t`Rekod`}
+                  label={`Rekod`}
                   id={NavigationMenuItemType.RECORD}
                   hasSubMenu={true}
                   onClick={onSelectRecord}
                 />
               </SelectableListItem>
             </SidePanelGroup>
-            <SidePanelGroup heading={t`Lainnya`}>
+            <SidePanelGroup heading={`Lainnya`}>
               <SelectableListItem
                 itemId={NavigationMenuItemType.FOLDER}
                 onEnter={isAddingToFolder ? undefined : handleAddFolder}
               >
                 <SidePanelItemWithAddToNavigationDrag
                   icon={IconFolder}
-                  label={t`Folder`}
+                  label={`Folder`}
                   id={NavigationMenuItemType.FOLDER}
                   onClick={handleAddFolder}
                   dragIndex={3}
                   payload={{
                     type: NavigationMenuItemType.FOLDER,
                     folderId: 'new',
-                    name: t`Folder baru`,
+                    name: `Folder baru`,
                   }}
                   disabled={isAddingToFolder}
                 />
@@ -137,14 +135,14 @@ export const SidePanelNewSidebarItemMainMenu = ({
               >
                 <SidePanelItemWithAddToNavigationDrag
                   icon={IconLink}
-                  label={t`Tautan`}
+                  label={`Tautan`}
                   id={NavigationMenuItemType.LINK}
                   onClick={handleAddLink}
                   dragIndex={4}
                   payload={{
                     type: NavigationMenuItemType.LINK,
                     linkId: 'new',
-                    name: t`Label tautan`,
+                    name: `Label tautan`,
                     link: 'https://www.example.com',
                   }}
                 />

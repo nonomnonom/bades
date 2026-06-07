@@ -6,13 +6,9 @@ import { useMutation } from '@apollo/client/react';
 import { SignUpInNewWorkspaceDocument } from '~/generated-metadata/graphql';
 import { getWorkspaceUrl } from '~/utils/getWorkspaceUrl';
 import { assertIsDefinedOrThrow } from 'shared/utils';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 export const useSignUpInNewWorkspace = () => {
   const { redirectToWorkspaceDomain } = useRedirectToWorkspaceDomain();
   const { enqueueErrorSnackBar } = useSnackBar();
-  const { t } = useLingui();
-
   const [signUpInNewWorkspaceMutation] = useMutation(
     SignUpInNewWorkspaceDocument,
   );
@@ -37,7 +33,7 @@ export const useSignUpInNewWorkspace = () => {
               message:
                 error instanceof Error
                   ? error.message
-                  : t`Pembuatan ruang kerja gagal`,
+                  : `Pembuatan ruang kerja gagal`,
             },
       );
     }

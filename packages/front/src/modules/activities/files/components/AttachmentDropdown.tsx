@@ -3,7 +3,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconDotsVertical,
   IconDownload,
@@ -28,7 +27,6 @@ export const AttachmentDropdown = ({
   attachmentId,
   hasDownloadPermission,
 }: AttachmentDropdownProps) => {
-  const { t } = useLingui();
   const dropdownId = `${attachmentId}-attachment-dropdown`;
 
   const { closeDropdown } = useCloseDropdown();
@@ -59,18 +57,18 @@ export const AttachmentDropdown = ({
           <DropdownMenuItemsContainer>
             {hasDownloadPermission && (
               <MenuItem
-                text={t`Unduh`}
+                text={`Unduh`}
                 LeftIcon={IconDownload}
                 onClick={handleDownload}
               />
             )}
             <MenuItem
-              text={t`Ganti nama`}
+              text={`Ganti nama`}
               LeftIcon={IconPencil}
               onClick={handleRename}
             />
             <MenuItem
-              text={t`Hapus`}
+              text={`Hapus`}
               accent="danger"
               LeftIcon={IconTrash}
               onClick={handleDelete}

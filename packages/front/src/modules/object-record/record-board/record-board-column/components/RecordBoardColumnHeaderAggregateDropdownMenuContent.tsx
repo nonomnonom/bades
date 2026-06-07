@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useDropdownContextStateManagement } from '@/dropdown-context-state-management/hooks/useDropdownContextStateManagement';
 import {
   RecordBoardColumnHeaderAggregateDropdownContext,
@@ -10,8 +9,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { MenuItem } from 'ui/navigation';
 
 export const RecordBoardColumnHeaderAggregateDropdownMenuContent = () => {
-  const { t } = useLingui();
-
   const { onContentChange } =
     useDropdownContextStateManagement<RecordBoardColumnHeaderAggregateDropdownContextValue>(
       {
@@ -26,28 +23,28 @@ export const RecordBoardColumnHeaderAggregateDropdownMenuContent = () => {
           onClick={() => {
             onContentChange('countAggregateOperationsOptions');
           }}
-          text={t`Jumlah`}
+          text={`Jumlah`}
           hasSubMenu
         />
         <MenuItem
           onClick={() => {
             onContentChange('percentAggregateOperationsOptions');
           }}
-          text={t`Persentase`}
+          text={`Persentase`}
           hasSubMenu
         />
         <MenuItem
           onClick={() => {
             onContentChange('datesAggregateOperationOptions');
           }}
-          text={t`Tanggal`}
+          text={`Tanggal`}
           hasSubMenu
         />
         <MenuItem
           onClick={() => {
             onContentChange('moreAggregateOperationOptions');
           }}
-          text={t`Opsi lainnya`}
+          text={`Opsi lainnya`}
           hasSubMenu
         />
       </DropdownMenuItemsContainer>

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useIsSettingsPage } from '@/navigation/hooks/useIsSettingsPage';
 import { styled } from '@linaria/react';
 import { isNonEmptyString } from '@sniptt/guards';
@@ -68,7 +67,7 @@ export const MobileBreadcrumb = ({
           <IconChevronLeft size={theme.icon.size.md} />
           <StyledLinkContainer>
             <Link title={text} to={previousLink.href}>
-              {t`Kembali ke ${linkText}`}
+              {`Kembali ke ${linkText}`}
             </Link>
           </StyledLinkContainer>
         </>

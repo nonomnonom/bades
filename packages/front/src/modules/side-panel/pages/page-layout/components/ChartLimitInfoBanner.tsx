@@ -1,5 +1,4 @@
 import { getChartLimitMessage } from '@/side-panel/pages/page-layout/utils/getChartLimitMessage';
-import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelInformationBanner } from 'ui/display';
 import { type WidgetConfigurationType } from '~/generated-metadata/graphql';
 
@@ -25,8 +24,8 @@ export const ChartLimitInfoBanner = ({
       })}
       tooltipMessage={
         isPrimaryAxisDate
-          ? t`Pertimbangkan menambahkan filter atau mengubah granularitas tanggal untuk menampilkan lebih banyak data.`
-          : t`Pertimbangkan menambahkan filter untuk menampilkan lebih banyak data.`
+          ? `Pertimbangkan menambahkan filter atau mengubah granularitas tanggal untuk menampilkan lebih banyak data.`
+          : `Pertimbangkan menambahkan filter untuk menampilkan lebih banyak data.`
       }
       variant="warning"
     />

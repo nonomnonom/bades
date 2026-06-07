@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { getOperationName } from '~/utils/getOperationName';
 import { styled } from '@linaria/react';
 import { useState } from 'react';
@@ -46,7 +45,6 @@ export const SettingsAgentRoleTab = ({
   agentId,
   agentLabel,
 }: SettingsAgentRoleTabProps) => {
-  const { t } = useLingui();
   const [isCreatingRole, setIsCreatingRole] = useState(false);
 
   const { data: rolesData } = useQuery(GetRolesDocument);
@@ -87,14 +85,14 @@ export const SettingsAgentRoleTab = ({
     setIsCreatingRole(true);
     try {
       const roleId = v4();
-      const roleName = t`Peran Agen ${agentLabel}`;
+      const roleName = `Peran Agen ${agentLabel}`;
 
       const { data } = await createRole({
         variables: {
           createRoleInput: {
             id: roleId,
             label: roleName,
-            description: t`Peran untuk agen ${agentLabel}`,
+            description: `Peran untuk agen ${agentLabel}`,
             icon: 'IconLock',
             canUpdateAllSettings: false,
             canAccessAllTools: false,
@@ -150,12 +148,12 @@ export const SettingsAgentRoleTab = ({
       {!formValues.role ? (
         <>
           <H2Title
-            title={t`Peran`}
-            description={t`Buat peran untuk menentukan izin agen ini.`}
+            title={`Peran`}
+            description={`Buat peran untuk menentukan izin agen ini.`}
           />
           <Button
             Icon={IconPlus}
-            title={t`Buat Peran`}
+            title={`Buat Peran`}
             variant="secondary"
             onClick={handleCreateRole}
             disabled={disabled || isCreatingRole}
@@ -167,7 +165,7 @@ export const SettingsAgentRoleTab = ({
             <>
               {isRoleShared && (
                 <StyledWarningText>
-                  {t`Peran ini digunakan bersama pengguna atau agen lain dan tidak dapat diedit di sini.`}
+                  {`Peran ini digunakan bersama pengguna atau agen lain dan tidak dapat diedit di sini.`}
                 </StyledWarningText>
               )}
               <SettingsRolePermissions

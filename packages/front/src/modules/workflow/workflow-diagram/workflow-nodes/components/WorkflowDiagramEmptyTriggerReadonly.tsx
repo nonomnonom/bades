@@ -14,7 +14,6 @@ import { WorkflowNodeLabel } from '@/workflow/workflow-diagram/workflow-nodes/co
 import { WorkflowNodeLabelWithCounterPart } from '@/workflow/workflow-diagram/workflow-nodes/components/WorkflowNodeLabelWithCounterPart';
 import { WorkflowNodeRightPart } from '@/workflow/workflow-diagram/workflow-nodes/components/WorkflowNodeRightPart';
 import { WorkflowNodeTitle } from '@/workflow/workflow-diagram/workflow-nodes/components/WorkflowNodeTitle';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
@@ -22,8 +21,6 @@ import { useIcons } from 'ui/display';
 
 export const WorkflowDiagramEmptyTriggerReadonly = ({ id }: { id: string }) => {
   const { getIcon } = useIcons();
-  const { t } = useLingui();
-
   const workflowVisualizerWorkflowId = useAtomComponentStateValue(
     workflowVisualizerWorkflowIdComponentState,
   );
@@ -65,7 +62,7 @@ export const WorkflowDiagramEmptyTriggerReadonly = ({ id }: { id: string }) => {
     openWorkflowViewStepInSidePanel({
       workflowId: workflowVisualizerWorkflowId,
       workflowVersionId: workflowVisualizerWorkflowVersionId,
-      title: t`Tambah Pemicu`,
+      title: `Tambah Pemicu`,
       icon: getIcon(null),
       stepId: TRIGGER_STEP_ID,
     });
@@ -81,11 +78,11 @@ export const WorkflowDiagramEmptyTriggerReadonly = ({ id }: { id: string }) => {
 
       <WorkflowNodeRightPart>
         <WorkflowNodeLabelWithCounterPart>
-          <WorkflowNodeLabel selected={selected}>{t`Pemicu`}</WorkflowNodeLabel>
+          <WorkflowNodeLabel selected={selected}>{`Pemicu`}</WorkflowNodeLabel>
         </WorkflowNodeLabelWithCounterPart>
 
         <WorkflowNodeTitle selected={selected}>
-          {t`Tambah Pemicu`}
+          {`Tambah Pemicu`}
         </WorkflowNodeTitle>
       </WorkflowNodeRightPart>
     </WorkflowNodeContainer>

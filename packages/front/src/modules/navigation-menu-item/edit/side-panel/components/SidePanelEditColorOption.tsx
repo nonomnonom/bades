@@ -8,7 +8,6 @@ import { ThemeColorPickerMenu } from '@/ui/input/components/ThemeColorPickerMenu
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { capitalize } from 'shared/utils';
 import { IconColorSwatch } from 'ui/display';
 import { DEFAULT_COLOR_LABELS } from 'ui/navigation';
@@ -31,7 +30,6 @@ export const SidePanelEditColorOption = ({
   navigationMenuItemId,
   color,
 }: SidePanelEditColorOptionProps) => {
-  const { t } = useLingui();
   const { updateNavigationMenuItemInDraft } =
     useUpdateNavigationMenuItemInDraft();
   const { closeDropdown } = useCloseDropdown();
@@ -62,7 +60,7 @@ export const SidePanelEditColorOption = ({
   return (
     <CommandMenuItemDropdown
       id="edit-navigation-menu-item-color"
-      label={t`Warna`}
+      label={`Warna`}
       Icon={IconColorSwatch}
       dropdownId={NAVIGATION_MENU_ITEM_COLOR_DROPDOWN_ID}
       dropdownPlacement="bottom-start"

@@ -1,4 +1,4 @@
-import { t, Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsBillingLabelValueItem } from '@/settings/billing/components/internal/SettingsBillingLabelValueItem';
 import { SubscriptionInfoContainer } from '@/settings/billing/components/SubscriptionInfoContainer';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -67,24 +67,24 @@ export const SettingsAiUsageUserDetail = () => {
           <Section>
             <SubscriptionInfoContainer>
               <SettingsBillingLabelValueItem
-                label={t`Belum ada data pemakaian`}
-                value={t`Tidak ada pemakaian AI tercatat untuk pengguna ini.`}
+                label={`Belum ada data pemakaian`}
+                value={`Tidak ada pemakaian AI tercatat untuk pengguna ini.`}
               />
             </SubscriptionInfoContainer>
           </Section>
         )}
 
         <UsageDailyChartSection
-          title={t`Pemakaian AI Harian`}
-          description={t`Konsumsi AI per hari.`}
+          title={`Pemakaian AI Harian`}
+          description={`Konsumsi AI per hari.`}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           chartId="ai-user-daily"
-          chartLabel={t`Pemakaian AI`}
+          chartLabel={`Pemakaian AI`}
         />
         <UsageBreakdownPieSection
-          title={t`Pemakaian AI per Jenis`}
+          title={`Pemakaian AI per Jenis`}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
@@ -92,8 +92,8 @@ export const SettingsAiUsageUserDetail = () => {
           sectionId="ai-user-type"
         />
         <UsageBreakdownPieSection
-          title={t`Pemakaian AI per Model`}
-          description={t`Rincian lintas model AI.`}
+          title={`Pemakaian AI per Model`}
+          description={`Rincian lintas model AI.`}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}

@@ -11,7 +11,6 @@ import { contextStoreNumberOfSelectedRecordsComponentState } from '@/context-sto
 import { contextStoreTargetedRecordsRuleComponentState } from '@/context-store/states/contextStoreTargetedRecordsRuleComponentState';
 import { ContextStoreViewType } from '@/context-store/types/ContextStoreViewType';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { act } from 'react';
 import { SidePanelPages } from 'shared/types';
 import { IconBolt, IconSettingsAutomation, useIcons } from 'ui/display';
@@ -135,7 +134,7 @@ describe('useSidePanelWorkflowNavigation', () => {
 
     expect(mockNavigateCommandMenu).toHaveBeenCalledWith({
       page: SidePanelPages.WorkflowTriggerSelectType,
-      pageTitle: t`Jenis Pemicu`,
+      pageTitle: `Jenis Pemicu`,
       pageIcon: IconBolt,
       pageId: 'mocked-uuid',
     });
@@ -152,7 +151,7 @@ describe('useSidePanelWorkflowNavigation', () => {
 
     expect(mockNavigateCommandMenu).toHaveBeenCalledWith({
       page: SidePanelPages.WorkflowStepCreate,
-      pageTitle: t`Pilih Aksi`,
+      pageTitle: `Pilih Aksi`,
       pageIcon: IconSettingsAutomation,
       pageId: 'mocked-uuid',
     });
@@ -169,7 +168,7 @@ describe('useSidePanelWorkflowNavigation', () => {
 
     expect(mockNavigateCommandMenu).toHaveBeenCalledWith({
       page: SidePanelPages.WorkflowStepEditType,
-      pageTitle: t`Pilih aksi`,
+      pageTitle: `Pilih aksi`,
       pageIcon: IconSettingsAutomation,
       pageId: 'mocked-uuid',
     });

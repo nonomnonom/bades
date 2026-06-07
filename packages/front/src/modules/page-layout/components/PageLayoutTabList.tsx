@@ -7,7 +7,6 @@ import {
   type ResponderProvided,
 } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IconPlus, useIcons } from 'ui/display';
@@ -106,8 +105,6 @@ export const PageLayoutTabList = ({
   pageLayoutType,
 }: PageLayoutTabListProps) => {
   const { getIcon } = useIcons();
-  const { t } = useLingui();
-
   const tabsWithIcons: SingleTabProps[] = tabs.map((tab) => ({
     id: tab.id,
     title: tab.title,
@@ -345,7 +342,7 @@ export const PageLayoutTabList = ({
                 <TabButton
                   id="add-tab"
                   LeftIcon={IconPlus}
-                  title={t`Tab baru`}
+                  title={`Tab baru`}
                   disableTestId
                 />
               </StyledAddButton>
@@ -395,7 +392,7 @@ export const PageLayoutTabList = ({
                   <TabButton
                     id="add-tab"
                     LeftIcon={IconPlus}
-                    title={t`Tab baru`}
+                    title={`Tab baru`}
                     onClick={() => addTabStrategy.onCreate()}
                     disableTestId
                   />
@@ -409,7 +406,7 @@ export const PageLayoutTabList = ({
                       <TabButton
                         id="add-tab"
                         LeftIcon={IconPlus}
-                        title={t`Tab baru`}
+                        title={`Tab baru`}
                         disableTestId
                       />
                     }
@@ -458,7 +455,7 @@ export const PageLayoutTabList = ({
                 <TabButton
                   id="add-tab"
                   LeftIcon={IconPlus}
-                  title={t`Tab baru`}
+                  title={`Tab baru`}
                   onClick={() => addTabStrategy.onCreate()}
                   disableTestId
                 />
@@ -472,7 +469,7 @@ export const PageLayoutTabList = ({
                     <TabButton
                       id="add-tab"
                       LeftIcon={IconPlus}
-                      title={t`Tab baru`}
+                      title={`Tab baru`}
                       disableTestId
                     />
                   }

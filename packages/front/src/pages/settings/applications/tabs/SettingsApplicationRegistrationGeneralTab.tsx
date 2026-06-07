@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ApplicationRegistration } from '~/generated-metadata/graphql';
 
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +15,6 @@ export const SettingsApplicationRegistrationGeneralTab = ({
   registration: ApplicationRegistration;
   fromAdmin?: boolean;
 }) => {
-  const { t } = useLingui();
   const navigate = useNavigate();
 
   return (
@@ -24,9 +22,9 @@ export const SettingsApplicationRegistrationGeneralTab = ({
       {!registration.isConfigured && fromAdmin && (
         <InlineBanner
           color="danger"
-          message={t`Aplikasi ini memiliki variabel server wajib yang belum dikonfigurasi. Pengguna tidak akan dapat memasangnya sampai semua variabel wajib diisi.`}
+          message={`Aplikasi ini memiliki variabel server wajib yang belum dikonfigurasi. Pengguna tidak akan dapat memasangnya sampai semua variabel wajib diisi.`}
           button={{
-            title: t`Konfigurasi`,
+            title: `Konfigurasi`,
             onClick: () => navigate('#config'),
           }}
         />

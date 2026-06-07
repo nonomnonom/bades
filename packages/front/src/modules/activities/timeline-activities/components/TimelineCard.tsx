@@ -6,7 +6,6 @@ import { EventList } from '@/activities/timeline-activities/components/EventList
 import { useTimelineActivities } from '@/activities/timeline-activities/hooks/useTimelineActivities';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,
@@ -66,10 +65,10 @@ export const TimelineCard = () => {
         <AnimatedPlaceholder type="emptyTimeline" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`Belum ada aktivitas`}
+            {`Belum ada aktivitas`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`Tidak ada aktivitas yang terkait dengan data ini.`}
+            {`Tidak ada aktivitas yang terkait dengan data ini.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>
@@ -88,7 +87,7 @@ export const TimelineCard = () => {
     <StyledMainContainer>
       <EventList
         targetableObject={targetRecord}
-        title={t`Semua`}
+        title={`Semua`}
         events={timelineActivities ?? []}
       />
       <CustomResolverFetchMoreLoader

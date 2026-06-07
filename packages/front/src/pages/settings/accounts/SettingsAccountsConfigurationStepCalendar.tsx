@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { type CalendarChannel } from '@/accounts/types/CalendarChannel';
 import { type MessageChannel } from '@/accounts/types/MessageChannel';
 import { SettingsAccountsCalendarChannelDetails } from '@/settings/accounts/components/SettingsAccountsCalendarChannelDetails';
@@ -22,10 +22,8 @@ export const SettingsAccountsConfigurationStepCalendar = ({
   isSubmitting,
   onAddAccount,
 }: SettingsAccountsConfigurationStepCalendarProps) => {
-  const { t } = useLingui();
-
   const stepNumber = isDefined(messageChannel) ? 2 : 1;
-  const stepTitle = t`${stepNumber}. Kalender`;
+  const stepTitle = `${stepNumber}. Kalender`;
 
   return (
     <SubMenuTopBarContainer
@@ -46,7 +44,7 @@ export const SettingsAccountsConfigurationStepCalendar = ({
       actionButton={
         <Button
           Icon={IconDeviceFloppy}
-          title={t`Selesaikan Penyiapan`}
+          title={`Selesaikan Penyiapan`}
           accent="blue"
           size="small"
           variant="primary"

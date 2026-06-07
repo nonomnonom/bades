@@ -1,3 +1,4 @@
+import { i18n } from '~/utils/i18n/badesI18n';
 import { getMonthsDescription } from '@/workflow/workflow-trigger/utils/cron-to-human/descriptors/getMonthsDescription';
 import { DEFAULT_CRON_DESCRIPTION_OPTIONS } from '@/workflow/workflow-trigger/utils/cron-to-human/types/cronDescriptionOptions';
 

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { IconPlus } from 'ui/display';
@@ -31,7 +30,7 @@ export const AddSelectOptionMenuItem = ({
     <MenuItem
       onClick={handleClick}
       LeftIcon={IconPlus}
-      text={t`Tambah "${trimmedName}" ke pilihan`}
+      text={`Tambah "${trimmedName}" ke pilihan`}
     />
   );
 };

@@ -6,22 +6,19 @@ import { useStepBar } from '@/ui/navigation/step-bar/hooks/useStepBar';
 
 import { spreadsheetImportDialogState } from '@/spreadsheet-import/states/spreadsheetImportDialogState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 import { ModalHeader } from 'ui/layout';
 import { SpreadsheetImportStepper } from './SpreadsheetImportStepper';
 
 export const SpreadsheetImportStepperContainer = () => {
-  const { t } = useLingui();
-
   const spreadsheetImportDialog = useAtomStateValue(
     spreadsheetImportDialogState,
   );
 
   const stepTitles = {
-    uploadStep: t`Unggah Berkas`,
-    matchColumnsStep: t`Cocokkan Kolom`,
-    validationStep: t`Validasi Data`,
+    uploadStep: `Unggah Berkas`,
+    matchColumnsStep: `Cocokkan Kolom`,
+    validationStep: `Validasi Data`,
   };
 
   const { initialStepState } = useSpreadsheetImportInternal();

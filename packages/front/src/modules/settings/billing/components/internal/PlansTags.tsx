@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tag } from 'ui/components';
-import { t } from '~/utils/i18n/badesI18n';
 import { BillingPlanKey } from '~/generated-metadata/graphql';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -18,13 +17,13 @@ const StyledTagsWrapper = styled.div`
 export const PlansTags = ({ plan, isTrialPeriod = false }: PlansTagsProps) => {
   const planDescriptor =
     plan === BillingPlanKey.PRO
-      ? { color: 'sky' as const, label: t`Pro` }
-      : { color: 'purple' as const, label: t`Organisasi` };
+      ? { color: 'sky' as const, label: `Pro` }
+      : { color: 'purple' as const, label: `Organisasi` };
 
   return (
     <StyledTagsWrapper>
       <Tag color={planDescriptor.color} text={planDescriptor.label} />
-      {isTrialPeriod && <Tag color="blue" text={t`Uji coba`} preventShrink />}
+      {isTrialPeriod && <Tag color="blue" text={`Uji coba`} preventShrink />}
     </StyledTagsWrapper>
   );
 };

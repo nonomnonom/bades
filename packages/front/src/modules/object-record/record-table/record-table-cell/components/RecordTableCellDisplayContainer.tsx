@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { type Ref } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -53,7 +52,7 @@ export const RecordTableCellDisplayContainer = ({
   >
     {placeholderForEmptyCell ? (
       <StyledEmptyPlaceholderField>
-        {t`Isi ${placeholderForEmptyCell}`}
+        {`Isi ${placeholderForEmptyCell}`}
       </StyledEmptyPlaceholderField>
     ) : (
       <StyledInnerContainer>{children}</StyledInnerContainer>

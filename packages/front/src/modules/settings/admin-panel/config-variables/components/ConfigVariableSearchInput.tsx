@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SearchInput } from 'ui/input';
 
 type ConfigVariableSearchInputProps = {
@@ -12,7 +11,7 @@ export const ConfigVariableSearchInput = ({
 }: ConfigVariableSearchInputProps) => {
   return (
     <SearchInput
-      placeholder={t`Cari variabel konfigurasi`}
+      placeholder={`Cari variabel konfigurasi`}
       value={value}
       onChange={onChange}
     />

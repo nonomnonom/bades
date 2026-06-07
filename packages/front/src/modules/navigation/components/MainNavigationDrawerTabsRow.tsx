@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   IconComment,
   IconHome,
@@ -186,7 +185,7 @@ export const MainNavigationDrawerTabsRow = () => {
   return (
     <StyledRow isExpanded={isExpanded}>
       <NavigationDrawerAnimatedCollapseWrapper>
-        <StyledTabsPill role="tablist" aria-label={t`Tab navigasi`}>
+        <StyledTabsPill role="tablist" aria-label={`Tab navigasi`}>
           <StyledTabWrapper
             isActive={
               navigationDrawerActiveTab ===
@@ -197,7 +196,7 @@ export const MainNavigationDrawerTabsRow = () => {
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.NAVIGATION_MENU
             }
-            aria-label={t`Beranda`}
+            aria-label={`Beranda`}
             tabIndex={
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.NAVIGATION_MENU
@@ -227,7 +226,7 @@ export const MainNavigationDrawerTabsRow = () => {
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.AI_CHAT_HISTORY
             }
-            aria-label={t`Obrolan`}
+            aria-label={`Obrolan`}
             tabIndex={
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.AI_CHAT_HISTORY
@@ -253,14 +252,14 @@ export const MainNavigationDrawerTabsRow = () => {
         <StyledNewChatButton
           role="button"
           tabIndex={0}
-          aria-label={t`Obrolan baru`}
+          aria-label={`Obrolan baru`}
           onClick={handleNewChatClick}
           onKeyDown={handleNewChatKeyDown}
         >
           <StyledNewChatIcon>
             <IconMessageCirclePlus size={theme.icon.size.md} />
           </StyledNewChatIcon>
-          {isExpanded && <OverflowingTextWithTooltip text={t`Obrolan baru`} />}
+          {isExpanded && <OverflowingTextWithTooltip text={`Obrolan baru`} />}
         </StyledNewChatButton>
       </StyledNewChatButtonWrapper>
     </StyledRow>

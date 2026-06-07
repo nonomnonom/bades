@@ -5,7 +5,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { t } from '~/utils/i18n/badesI18n';
 import React, { useState } from 'react';
 import {
   IconCheck,
@@ -62,7 +61,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
           onChange={(newKey) =>
             setEditedEnvVariable({ ...editedEnvVariable, key: newKey })
           }
-          placeholder={t`Nama`}
+          placeholder={`Nama`}
           fullWidth
         />
       </TableCell>
@@ -72,7 +71,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
           onChange={(newValue) =>
             setEditedEnvVariable({ ...editedEnvVariable, value: newValue })
           }
-          placeholder={t`Nilai`}
+          placeholder={`Nilai`}
           fullWidth
         />
       </TableCell>
@@ -114,7 +113,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
           dropdownId={dropDownId}
           clickableComponent={
             <LightIconButton
-              aria-label={t`Opsi Variabel Lingkungan`}
+              aria-label={`Opsi Variabel Lingkungan`}
               Icon={IconDotsVertical}
               accent="tertiary"
             />
@@ -123,7 +122,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
             <DropdownContent>
               <DropdownMenuItemsContainer>
                 <MenuItem
-                  text={t`Ubah`}
+                  text={`Ubah`}
                   LeftIcon={IconPencil}
                   onClick={() => {
                     setEditMode(true);
@@ -131,7 +130,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
                   }}
                 />
                 <MenuItem
-                  text={t`Hapus`}
+                  text={`Hapus`}
                   LeftIcon={IconTrash}
                   onClick={() => {
                     onDelete();

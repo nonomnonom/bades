@@ -6,7 +6,6 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { type RoleWithPartialMembers } from '@/settings/roles/types/RoleWithPartialMembers';
 import { Select } from '@/ui/input/components/Select';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { H2Title, IconUserPin, useIcons } from 'ui/display';
 import { Card, Section } from 'ui/layout';
@@ -71,14 +70,14 @@ export const SettingsRoleDefaultRole = ({
   return (
     <Section>
       <H2Title
-        title={t`Peran Default`}
-        description={t`Ditetapkan ke pengguna yang bergabung melalui tautan undangan, domain yang diizinkan, atau SSO, dan digunakan sebagai cadangan ketika peran yang ditugaskan dihapus`}
+        title={`Peran Default`}
+        description={`Ditetapkan ke pengguna yang bergabung melalui tautan undangan, domain yang diizinkan, atau SSO, dan digunakan sebagai cadangan ketika peran yang ditugaskan dihapus`}
       />
       <Card rounded>
         <SettingsOptionCardContentSelect
           Icon={IconUserPin}
-          title={t`Peran Default`}
-          description={t`Tetapkan peran default untuk ruang kerja ini`}
+          title={`Peran Default`}
+          description={`Tetapkan peran default untuk ruang kerja ini`}
         >
           <Select
             selectSizeVariant="small"

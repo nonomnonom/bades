@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -58,7 +58,7 @@ export class FlatPageLayoutValidatorService {
     if (!isDefined(existingPageLayout)) {
       validationResult.errors.push({
         code: PAGE_LAYOUT_EXCEPTION_CODE.PAGE_LAYOUT_NOT_FOUND,
-        message: t`Page layout not found`,
+        message: `Page layout not found`,
         userFriendlyMessage: msg`Page layout not found`,
       });
 
@@ -92,7 +92,7 @@ export class FlatPageLayoutValidatorService {
     if (!isDefined(fromFlatPageLayout)) {
       validationResult.errors.push({
         code: PAGE_LAYOUT_EXCEPTION_CODE.PAGE_LAYOUT_NOT_FOUND,
-        message: t`Page layout not found`,
+        message: `Page layout not found`,
         userFriendlyMessage: msg`Page layout not found`,
       });
 

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { Key } from 'ts-key-enum';
 
 import { type SelectableItem } from '@/object-record/select/types/SelectableItem';
@@ -118,7 +117,7 @@ export const MultipleSelectDropdown = ({
             </SelectableListItem>
           );
         })}
-        {showNoResult && <MenuItem text={t`Tidak ada hasil`} />}
+        {showNoResult && <MenuItem text={`Tidak ada hasil`} />}
         {loadingItems && <DropdownMenuSkeletonItem />}
       </DropdownMenuItemsContainer>
     </SelectableList>

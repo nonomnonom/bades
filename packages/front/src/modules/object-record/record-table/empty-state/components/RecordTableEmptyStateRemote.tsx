@@ -1,5 +1,4 @@
 /* oxlint-disable bades/no-navigate-prefer-link */
-import { t } from '~/utils/i18n/badesI18n';
 import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty-state/components/RecordTableEmptyStateDisplay';
 import { SettingsPath } from 'shared/types';
 import { IconSettings } from 'ui/display';
@@ -14,9 +13,9 @@ export const RecordTableEmptyStateRemote = () => {
 
   return (
     <RecordTableEmptyStateDisplay
-      buttonTitle={t`Buka Pengaturan`}
-      subTitle={t`Jika ini tidak terduga, periksa kembali pengaturan Anda.`}
-      title={t`Tidak ada data tersedia untuk tabel jarak jauh`}
+      buttonTitle={`Buka Pengaturan`}
+      subTitle={`Jika ini tidak terduga, periksa kembali pengaturan Anda.`}
+      title={`Tidak ada data tersedia untuk tabel jarak jauh`}
       ButtonIcon={IconSettings}
       animatedPlaceholderType="noRecord"
       onClick={handleButtonClick}

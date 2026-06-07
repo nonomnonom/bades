@@ -3,7 +3,6 @@ import { H3Title, IconCheck, IconPencil, IconX } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Section } from 'ui/layout';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { type Dispatch, type SetStateAction, useState } from 'react';
@@ -57,8 +56,6 @@ export const ConfigVariableEdit = ({
   editDisabled = false,
   helpContent,
 }: ConfigVariableEditProps) => {
-  const { t } = useLingui();
-
   const { openModal } = useModal();
 
   const { enqueueErrorSnackBar, enqueueSuccessSnackBar } = useSnackBar();
@@ -70,11 +67,11 @@ export const ConfigVariableEdit = ({
       setIsSubmitting(true);
       await onSave?.();
       enqueueSuccessSnackBar({
-        message: t`Variabel ${title} diperbarui`,
+        message: `Variabel ${title} diperbarui`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal memperbarui variabel`,
+        message: `Gagal memperbarui variabel`,
       });
     } finally {
       setIsSubmitting(false);
@@ -87,11 +84,11 @@ export const ConfigVariableEdit = ({
       setIsSubmitting(true);
       await onConfirmReset?.();
       enqueueSuccessSnackBar({
-        message: t`Variabel ${title} direset`,
+        message: `Variabel ${title} direset`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal mereset variabel`,
+        message: `Gagal mereset variabel`,
       });
     } finally {
       setIsSubmitting(false);
@@ -154,10 +151,10 @@ export const ConfigVariableEdit = ({
           )}
           <ConfirmationModal
             modalInstanceId={RESET_VARIABLE_MODAL_ID}
-            title={t`Setel ulang variabel`}
-            subtitle={t`Apakah Anda yakin ingin menyetel ulang variabel ini?`}
+            title={`Setel ulang variabel`}
+            subtitle={`Apakah Anda yakin ingin menyetel ulang variabel ini?`}
             onConfirmClick={handleConfirmReset}
-            confirmButtonText={t`Setel ulang`}
+            confirmButtonText={`Setel ulang`}
             confirmButtonAccent="danger"
           />
         </StyledRow>

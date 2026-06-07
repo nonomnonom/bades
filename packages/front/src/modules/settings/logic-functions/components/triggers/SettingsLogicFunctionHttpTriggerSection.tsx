@@ -5,7 +5,6 @@ import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { type HttpRouteTriggerSettings } from 'shared/application';
 import { HTTPMethod } from 'shared/types';
@@ -70,7 +69,6 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
   onChange,
   readonly,
 }: SettingsLogicFunctionHttpTriggerSectionProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const { copyToClipboard } = useCopyToClipboard();
 
@@ -90,8 +88,8 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`HTTP`}
-      description={t`Menjalankan fungsi melalui permintaan HTTP`}
+      title={`HTTP`}
+      description={`Menjalankan fungsi melalui permintaan HTTP`}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_HTTP_SETTINGS : null)
@@ -102,7 +100,7 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
         <StyledFields>
           <Select
             dropdownId="logic-function-http-trigger-method"
-            label={t`Metode`}
+            label={`Metode`}
             fullWidth
             disabled={readonly}
             value={value.httpMethod as HTTPMethod}
@@ -113,7 +111,7 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
           />
           <SettingsTextInput
             instanceId="logic-function-http-trigger-path"
-            label={t`Jalur`}
+            label={`Jalur`}
             placeholder="/my-route"
             value={value.path}
             onChange={(newPath: string) => updateField('path', newPath)}
@@ -122,14 +120,14 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
           />
           <SettingsTextInput
             instanceId="logic-function-http-trigger-url"
-            label={t`URL Aktif`}
+            label={`URL Aktif`}
             value={fullUrl}
             onChange={() => {}}
             readOnly
             fullWidth
             RightIcon={IconCopy}
             onRightIconClick={() =>
-              copyToClipboard(fullUrl, t`URL berhasil disalin`)
+              copyToClipboard(fullUrl, `URL berhasil disalin`)
             }
           />
           <StyledAuthRow>
@@ -140,14 +138,14 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
               toggleSize="small"
               color={theme.color.blue}
             />
-            <StyledAuthLabel>{t`Wajib autentikasi`}</StyledAuthLabel>
+            <StyledAuthLabel>{`Wajib autentikasi`}</StyledAuthLabel>
           </StyledAuthRow>
           <SettingsLogicFunctionTriggerPayloadFormat
             payload={buildHttpPayload(value)}
             hint={
               value.httpMethod === HTTPMethod.GET
-                ? t`Handler Anda menerima objek ini. Body kosong karena permintaan GET tidak membawa payload.`
-                : t`Handler Anda menerima objek ini. Body berisi JSON yang dikirimkan oleh klien.`
+                ? `Handler Anda menerima objek ini. Body kosong karena permintaan GET tidak membawa payload.`
+                : `Handler Anda menerima objek ini. Body berisi JSON yang dikirimkan oleh klien.`
             }
           />
         </StyledFields>

@@ -13,7 +13,6 @@ import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/Workflo
 import { type UpdateRecordFormData } from '@/workflow/workflow-steps/workflow-actions/types/update-record-form-data.type';
 import { shouldDisplayFormField } from '@/workflow/workflow-steps/workflow-actions/utils/shouldDisplayFormField';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { canObjectBeManagedByWorkflow } from 'shared/workflow';
@@ -149,11 +148,11 @@ export const WorkflowEditActionUpdateRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-update-record-object-name"
-          label={t`Objek`}
+          label={`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectNameSingular}
-          emptyOption={{ label: t`Pilih opsi`, value: '' }}
+          emptyOption={{ label: `Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             const newFormData: UpdateRecordFormData = {
@@ -176,7 +175,7 @@ export const WorkflowEditActionUpdateRecord = ({
         {isDefined(objectNameSingular) && (
           <FormSingleRecordPicker
             testId="workflow-update-record-object-record-id"
-            label={t`Data`}
+            label={`Data`}
             onChange={(objectRecordId) =>
               handleFieldChange('objectRecordId', objectRecordId)
             }
@@ -189,8 +188,8 @@ export const WorkflowEditActionUpdateRecord = ({
 
         {isDefined(selectedObjectMetadataItem) && (
           <WorkflowFieldsMultiSelect
-            label={t`Field yang diperbarui`}
-            placeholder={t`Pilih field untuk diperbarui`}
+            label={`Field yang diperbarui`}
+            placeholder={`Pilih field untuk diperbarui`}
             objectMetadataItem={selectedObjectMetadataItem}
             handleFieldsChange={(fieldsToUpdate) =>
               handleFieldChange('fieldsToUpdate', fieldsToUpdate)

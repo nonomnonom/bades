@@ -2,7 +2,6 @@ import { AppErrorDisplay } from '@/error-handler/components/internal/AppErrorDis
 import { type AppErrorDisplayProps } from '@/error-handler/types/AppErrorDisplayProps';
 import { PageBody } from '@/ui/layout/page/components/PageBody';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 type AppFullScreenErrorFallbackProps = AppErrorDisplayProps;
@@ -20,7 +19,7 @@ const StyledContainer = styled.div`
 export const AppFullScreenErrorFallback = ({
   error,
   resetErrorBoundary,
-  title = t`Maaf, terjadi kesalahan`,
+  title = `Maaf, terjadi kesalahan`,
 }: AppFullScreenErrorFallbackProps) => {
   return (
     <StyledContainer>

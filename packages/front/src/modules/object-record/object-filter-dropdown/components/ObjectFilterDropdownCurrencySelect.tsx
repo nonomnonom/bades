@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useApplyObjectFilterDropdownFilterValue } from '@/object-record/object-filter-dropdown/hooks/useApplyObjectFilterDropdownFilterValue';
 import { fieldMetadataItemUsedInDropdownComponentSelector } from '@/object-record/object-filter-dropdown/states/fieldMetadataItemUsedInDropdownComponentSelector';
 import { objectFilterDropdownCurrentRecordFilterComponentState } from '@/object-record/object-filter-dropdown/states/objectFilterDropdownCurrentRecordFilterComponentState';
@@ -60,8 +59,6 @@ export const ObjectFilterDropdownCurrencySelect = () => {
       selectedCurrencies.includes(selectableItem.id),
   );
 
-  const { t } = useLingui();
-
   const handleMultipleItemSelectChange = (
     itemToSelect: SelectableItem,
     newSelectedValue: boolean,
@@ -106,7 +103,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
         autoFocus
         type="text"
         value={searchText}
-        placeholder={t`Cari mata uang`}
+        placeholder={`Cari mata uang`}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setSearchText(event.target.value);
         }}
@@ -139,7 +136,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
             />
           );
         })}
-        {showNoResult && <MenuItem text={t`Tidak ada hasil`} />}
+        {showNoResult && <MenuItem text={`Tidak ada hasil`} />}
       </DropdownMenuItemsContainer>
     </DropdownContent>
   );

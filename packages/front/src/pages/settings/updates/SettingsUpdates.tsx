@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsCard } from '@/settings/components/SettingsCard';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsLabContent } from '@/settings/lab/components/SettingsLabContent';
@@ -18,18 +17,18 @@ export const SettingsUpdates = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <SubMenuTopBarContainer
-      title={t`Pembaruan`}
+      title={`Pembaruan`}
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.Updates),
         },
-        { children: t`Pembaruan` },
+        { children: `Pembaruan` },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Rilis`} description={t`Lihat rilis terbaru kami`} />
+          <H2Title title={`Rilis`} description={`Lihat rilis terbaru kami`} />
           <StyledCardLink
             href="https://bades.id/releases"
             target="_blank"
@@ -42,15 +41,15 @@ export const SettingsUpdates = () => {
                   stroke={theme.icon.stroke.sm}
                 />
               }
-              title={t`Baca catatan perubahan`}
+              title={`Baca catatan perubahan`}
             />
           </StyledCardLink>
         </Section>
 
         <Section>
           <H2Title
-            title={t`Akses awal`}
-            description={t`Coba fitur-fitur mendatang kami. Fitur ini masih dalam tahap beta. Laporkan masalah yang Anda temukan.`}
+            title={`Akses awal`}
+            description={`Coba fitur-fitur mendatang kami. Fitur ini masih dalam tahap beta. Laporkan masalah yang Anda temukan.`}
           />
           <SettingsLabContent />
         </Section>

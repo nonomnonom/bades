@@ -8,7 +8,6 @@ import { RecordTableSettingsSortsContent } from '@/side-panel/pages/page-layout/
 import { RecordTableSettingsSortsInitializeStateEffect } from '@/side-panel/pages/page-layout/components/record-table-settings/RecordTableSettingsSortsInitializeStateEffect';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { useIcons } from 'ui/display';
 import { type SelectOption } from 'ui/input';
@@ -72,18 +71,18 @@ export const RecordTableSettingsSorts = ({
 
   const directionOptions: Array<SelectOption<ViewSortDirection>> = [
     {
-      label: t`Menaik`,
+      label: `Menaik`,
       value: ViewSortDirection.ASC,
     },
     {
-      label: t`Menurun`,
+      label: `Menurun`,
       value: ViewSortDirection.DESC,
     },
   ];
 
   return (
     <StyledSortSettingsContainer>
-      <InputLabel>{t`Urutan`}</InputLabel>
+      <InputLabel>{`Urutan`}</InputLabel>
       <RecordSortsComponentInstanceContext.Provider
         value={{ instanceId: recordIndexId }}
       >

@@ -7,7 +7,6 @@ import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconPlayerPlay } from 'ui/display';
 import { Button, CoreEditorHeader } from 'ui/input';
 import { Section } from 'ui/layout';
@@ -37,7 +36,7 @@ export const SettingsLogicFunctionCodeEditorTab = ({
   );
   const TestButton = (
     <Button
-      title={t`Uji coba`}
+      title={`Uji coba`}
       variant="primary"
       accent="blue"
       size="small"
@@ -61,8 +60,8 @@ export const SettingsLogicFunctionCodeEditorTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Tulis kode fungsi`}
-        description={t`Tulis fungsi Anda (dalam TypeScript) di bawah ini`}
+        title={`Tulis kode fungsi`}
+        description={`Tulis fungsi Anda (dalam TypeScript) di bawah ini`}
       />
       <CoreEditorHeader leftNodes={[HeaderTabList]} rightNodes={[TestButton]} />
       {activeTabId && (

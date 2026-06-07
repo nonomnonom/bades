@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconClock,
   IconLayoutList,
@@ -33,7 +32,6 @@ export const AiChatThreadFilterDropdownRootMenu = ({
   dropdownId,
   onSelectPage,
 }: AiChatThreadFilterDropdownRootMenuProps) => {
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
 
   const [agentChatThreadFilterStatus, setAgentChatThreadFilterStatus] =
@@ -66,10 +64,10 @@ export const AiChatThreadFilterDropdownRootMenu = ({
       <DropdownMenuItemsContainer>
         <MenuItem
           LeftIcon={IconStatusChange}
-          text={t`Status`}
-          contextualText={t(
-            AGENT_CHAT_THREAD_FILTER_STATUS_LABELS[agentChatThreadFilterStatus],
-          )}
+          text={`Status`}
+          contextualText={
+            AGENT_CHAT_THREAD_FILTER_STATUS_LABELS[agentChatThreadFilterStatus]
+          }
           contextualTextPosition="right"
           hasSubMenu
           onClick={() =>
@@ -78,10 +76,10 @@ export const AiChatThreadFilterDropdownRootMenu = ({
         />
         <MenuItem
           LeftIcon={IconLayoutList}
-          text={t`Kelompokkan berdasarkan`}
-          contextualText={t(
-            AGENT_CHAT_THREAD_GROUP_BY_LABELS[agentChatThreadGroupBy],
-          )}
+          text={`Kelompokkan berdasarkan`}
+          contextualText={
+            AGENT_CHAT_THREAD_GROUP_BY_LABELS[agentChatThreadGroupBy]
+          }
           contextualTextPosition="right"
           hasSubMenu
           onClick={() =>
@@ -90,12 +88,12 @@ export const AiChatThreadFilterDropdownRootMenu = ({
         />
         <MenuItem
           LeftIcon={IconClock}
-          text={t`Aktivitas terakhir`}
-          contextualText={t(
+          text={`Aktivitas terakhir`}
+          contextualText={
             AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_LABELS[
               agentChatThreadLastActivityFilter
-            ],
-          )}
+            ]
+          }
           contextualTextPosition="right"
           hasSubMenu
           onClick={() =>
@@ -108,7 +106,7 @@ export const AiChatThreadFilterDropdownRootMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Hapus filter`}
+              text={`Hapus filter`}
               onClick={handleClearFilters}
             />
           </>

@@ -15,7 +15,6 @@ import { groupThreadsByDate } from '@/ai/utils/groupThreadsByDate';
 import { NavigationDrawerSectionTitle } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerSectionTitle';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { Key } from 'ts-key-enum';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -95,7 +94,7 @@ export const AiChatThreadsList = () => {
           ) : (
             <>
               <NavigationDrawerSectionTitle
-                label={t`Terbaru`}
+                label={`Terbaru`}
                 alwaysShowRightIcon
                 rightIcon={filterDropdown}
               />
@@ -115,7 +114,7 @@ export const AiChatThreadsList = () => {
             variant="primary"
             accent="blue"
             size="medium"
-            title={t`Obrolan baru`}
+            title={`Obrolan baru`}
             onClick={() => switchToNewChat()}
             hotkeys={[getOsControlSymbol(), '⏎']}
           />

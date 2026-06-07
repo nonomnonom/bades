@@ -1,7 +1,5 @@
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import {
   type MessageChannelContactAutoCreationPolicy,
   MessageChannelType,
@@ -92,8 +90,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       {supportsFolderImportPolicy && (
         <Section>
           <H2Title
-            title={t`Impor`}
-            description={t`Email dari daftar blokir akan diabaikan. Kelola daftar blokir di halaman pengaturan "Akun".`}
+            title={`Impor`}
+            description={`Email dari daftar blokir akan diabaikan. Kelola daftar blokir di halaman pengaturan "Akun".`}
           />
           <SettingsAccountsMessageFolderCard
             onChange={handleMessageFolderImportPolicyChange}
@@ -105,8 +103,8 @@ export const SettingsAccountsMessageChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconUsers}
-            title={t`Kecualikan email grup`}
-            description={t`Jangan sinkronkan email dari team@ support@ noreply@...`}
+            title={`Kecualikan email grup`}
+            description={`Jangan sinkronkan email dari team@ support@ noreply@...`}
             checked={messageChannel.excludeGroupEmails}
             onChange={() =>
               handleIsGroupEmailExcludedToggle(
@@ -118,8 +116,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Visibilitas`}
-          description={t`Tentukan apa yang akan terlihat oleh pengguna lain di Ruang Kerja Anda`}
+          title={`Visibilitas`}
+          description={`Tentukan apa yang akan terlihat oleh pengguna lain di Ruang Kerja Anda`}
         />
         <SettingsAccountsMessageVisibilityCard
           value={messageChannel.visibility}
@@ -128,8 +126,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Pembuatan kontak otomatis`}
-          description={t`Otomatis membuat kontak saat menerima atau mengirim email`}
+          title={`Pembuatan kontak otomatis`}
+          description={`Otomatis membuat kontak saat menerima atau mengirim email`}
         />
         <SettingsAccountsMessageAutoCreationCard
           value={messageChannel.contactAutoCreationPolicy}
@@ -140,8 +138,8 @@ export const SettingsAccountsMessageChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconBriefcase}
-            title={t`Kecualikan email non-profesional`}
-            description={t`Jangan buat kontak dari/ke email Gmail, Outlook`}
+            title={`Kecualikan email non-profesional`}
+            description={`Jangan buat kontak dari/ke email Gmail, Outlook`}
             checked={messageChannel.excludeNonProfessionalEmails}
             onChange={() => {
               handleIsNonProfessionalEmailExcludedToggle(

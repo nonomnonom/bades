@@ -1,6 +1,5 @@
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
 import { SettingsAccountsVisibilityIcon } from '@/settings/accounts/components/SettingsAccountsVisibilityIcon';
-import { msg } from '~/utils/i18n/badesI18n';
 import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 
 type SettingsAccountsMessageVisibilityCardProps = {
@@ -10,8 +9,8 @@ type SettingsAccountsMessageVisibilityCardProps = {
 
 const inboxSettingsVisibilityOptions = [
   {
-    title: msg`Semua`,
-    description: msg`Subjek, isi, dan lampiran akan dibagikan ke tim Anda.`,
+    title: `Semua`,
+    description: `Subjek, isi, dan lampiran akan dibagikan ke tim Anda.`,
     value: MessageChannelVisibility.SHARE_EVERYTHING,
     cardMedia: (
       <SettingsAccountsVisibilityIcon
@@ -22,8 +21,8 @@ const inboxSettingsVisibilityOptions = [
     ),
   },
   {
-    title: msg`Subjek dan metadata`,
-    description: msg`Subjek dan metadata akan dibagikan ke tim Anda.`,
+    title: `Subjek dan metadata`,
+    description: `Subjek dan metadata akan dibagikan ke tim Anda.`,
     value: MessageChannelVisibility.SUBJECT,
     cardMedia: (
       <SettingsAccountsVisibilityIcon
@@ -34,8 +33,8 @@ const inboxSettingsVisibilityOptions = [
     ),
   },
   {
-    title: msg`Metadata`,
-    description: msg`Waktu dan peserta akan dibagikan ke tim Anda.`,
+    title: `Metadata`,
+    description: `Waktu dan peserta akan dibagikan ke tim Anda.`,
     value: MessageChannelVisibility.METADATA,
     cardMedia: (
       <SettingsAccountsVisibilityIcon

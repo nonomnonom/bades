@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import Cal from '@calcom/embed-react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -23,7 +22,6 @@ import {
 export const BookCall = () => {
   const { colorScheme } = useContext(ThemeContext);
 
-  const { t } = useLingui();
   const calendarBookingPageId = useAtomStateValue(calendarBookingPageIdState);
   const setNextOnboardingStatus = useSetNextOnboardingStatus();
   const currentUser = useAtomStateValue(currentUserState);
@@ -66,12 +64,12 @@ export const BookCall = () => {
       <ModalFooter autoHeight centered smallPadding>
         {isPlanRequired ? (
           <Link to={AppPath.PlanRequired}>
-            <LightButton Icon={IconChevronLeft} title={t`Kembali`} />
+            <LightButton Icon={IconChevronLeft} title={`Kembali`} />
           </Link>
         ) : (
           <LightButton
             Icon={IconChevronRightPipe}
-            title={t`Lewati`}
+            title={`Lewati`}
             onClick={handleCompleteOnboarding}
           />
         )}

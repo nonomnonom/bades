@@ -12,7 +12,6 @@ import { IDENTIFIER_MAX_CHAR_LENGTH } from 'shared/metadata';
 import { getErrorMessageFromError } from '@/settings/data-model/fields/forms/utils/errorMessages';
 import { IconPicker } from '@/ui/input/components/IconPicker';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {
@@ -97,8 +96,6 @@ export const SettingsDataModelFieldIconLabelForm = ({
   const { theme } = useContext(ThemeContext);
   const label = watch('label');
 
-  const { t } = useLingui();
-
   const labelTextInputId = `${fieldMetadataItem?.id}-label`;
   const nameTextInputId = `${fieldMetadataItem?.id}-name`;
 
@@ -109,8 +106,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
       : true);
 
   const apiNameTooltipText = isLabelSyncedWithName
-    ? t`Nonaktifkan "Sinkronkan Label Kolom dan Nama API" untuk mengatur nama API kustom`
-    : t`Masukan harus dalam format camelCase dan tidak boleh diawali angka`;
+    ? `Nonaktifkan "Sinkronkan Label Kolom dan Nama API" untuk mengatur nama API kustom`
+    : `Masukan harus dalam format camelCase dan tidak boleh diawali angka`;
 
   const fillNameFromLabel = (label: string) => {
     isDefined(label) &&
@@ -160,7 +157,7 @@ export const SettingsDataModelFieldIconLabelForm = ({
           render={({ field: { onChange, value } }) => (
             <SettingsTextInput
               instanceId={labelTextInputId}
-              placeholder={t`Nama Kolom`}
+              placeholder={`Nama Kolom`}
               value={value}
               disabled={!isLabelEditEnabled || readonly}
               onChange={(value) => {
@@ -195,8 +192,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
                       <>
                         <SettingsTextInput
                           instanceId={nameTextInputId}
-                          label={t`Nama API`}
-                          placeholder={t`namaKolom`}
+                          label={`Nama API`}
+                          placeholder={`namaKolom`}
                           value={value}
                           onChange={onChange}
                           readOnly={readonly}
@@ -243,8 +240,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
                       <Card rounded>
                         <SettingsOptionCardContentToggle
                           Icon={IconRefresh}
-                          title={t`Sinkronkan Label Kolom dan Nama API`}
-                          description={t`Apakah perubahan label kolom juga mengubah nama API?`}
+                          title={`Sinkronkan Label Kolom dan Nama API`}
+                          description={`Apakah perubahan label kolom juga mengubah nama API?`}
                           checked={value ?? true}
                           disabled={readonly}
                           advancedMode

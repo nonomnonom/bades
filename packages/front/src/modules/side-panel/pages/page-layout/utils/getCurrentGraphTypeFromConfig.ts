@@ -1,7 +1,6 @@
 import { type ChartConfiguration } from '@/side-panel/pages/page-layout/types/ChartConfiguration';
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
 import { isWidgetConfigurationOfType } from '@/side-panel/pages/page-layout/utils/isWidgetConfigurationOfType';
-import { t } from '~/utils/i18n/badesI18n';
 import { BarChartLayout } from '~/generated-metadata/graphql';
 
 export const getCurrentGraphTypeFromConfig = (
@@ -31,5 +30,5 @@ export const getCurrentGraphTypeFromConfig = (
     return GraphType.GAUGE;
   }
 
-  throw new Error(t`Jenis konfigurasi grafik tidak dikenal`);
+  throw new Error(`Jenis konfigurasi grafik tidak dikenal`);
 };

@@ -1,4 +1,3 @@
-import { msg } from '~/utils/i18n/badesI18n';
 import {
   IconLayoutDashboard,
   IconPlus,
@@ -41,18 +40,18 @@ export const generateSuggestedPrompts = ({
     ...objectPrompts,
     {
       id: 'dashboard',
-      label: msg`Buat dasbor`,
+      label: `Buat dasbor`,
       Icon: IconLayoutDashboard,
       prefillPrompts: [
-        msg`Buat dasbor operasional harian dari objek data utama workspace ini.`,
+        `Buat dasbor operasional harian dari objek data utama workspace ini.`,
       ],
     },
     {
       id: 'workflow',
-      label: msg`Buat alur kerja`,
+      label: `Buat alur kerja`,
       Icon: IconSettingsAutomation,
       prefillPrompts: [
-        msg`Buat alur kerja otomatis untuk mempercepat proses administrasi desa.`,
+        `Buat alur kerja otomatis untuk mempercepat proses administrasi desa.`,
       ],
     },
   ].slice(0, 3);

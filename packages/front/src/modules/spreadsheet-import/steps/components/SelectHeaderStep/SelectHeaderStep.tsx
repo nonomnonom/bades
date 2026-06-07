@@ -12,7 +12,6 @@ import { useComputeColumnSuggestionsAndAutoMatch } from '@/spreadsheet-import/ho
 import { useSpreadsheetImportInternal } from '@/spreadsheet-import/hooks/useSpreadsheetImportInternal';
 import { type SpreadsheetImportStep } from '@/spreadsheet-import/steps/types/SpreadsheetImportStep';
 import { SpreadsheetImportStepType } from '@/spreadsheet-import/steps/types/SpreadsheetImportStepType';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SelectHeaderTable } from './components/SelectHeaderTable';
 
 const StyledHeadingContainer = styled.div`
@@ -100,13 +99,11 @@ export const SelectHeaderStep = ({
     setIsLoading(false);
   }, [handleContinue, importedRows, selectedRowIndexes]);
 
-  const { t } = useLingui();
-
   return (
     <>
       <ModalContent>
         <StyledHeadingContainer>
-          <Heading title={t`Pilih baris judul kolom`} />
+          <Heading title={`Pilih baris judul kolom`} />
         </StyledHeadingContainer>
         <StyledTableContainer>
           <SelectHeaderTable
@@ -119,7 +116,7 @@ export const SelectHeaderStep = ({
       <StepNavigationButton
         onContinue={handleOnContinue}
         onBack={onBack}
-        continueTitle={t`Lanjutkan`}
+        continueTitle={`Lanjutkan`}
         isLoading={isLoading}
       />
     </>

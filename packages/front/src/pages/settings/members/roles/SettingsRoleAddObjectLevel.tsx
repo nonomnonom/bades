@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsRolesQueryEffect } from '@/settings/roles/components/SettingsRolesQueryEffect';
 import { SettingsRolePermissionsObjectLevelObjectPicker } from '@/settings/roles/role-permissions/object-level-permissions/components/SettingsRolePermissionsObjectLevelObjectPicker';
@@ -36,7 +35,7 @@ export const SettingsRoleAddObjectLevel = () => {
     fromAgentId && isDefined(agent)
       ? [
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
@@ -50,25 +49,25 @@ export const SettingsRoleAddObjectLevel = () => {
             }),
           },
           {
-            children: t`Tambah izin objek`,
+            children: `Tambah izin objek`,
           },
         ]
       : [
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Anggota`,
+            children: `Anggota`,
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
-          { children: t`Peran`, href: getSettingsPath(SettingsPath.Roles) },
+          { children: `Peran`, href: getSettingsPath(SettingsPath.Roles) },
           {
             children: settingsDraftRole.label ?? '',
             href: getSettingsPath(SettingsPath.RoleDetail, { roleId }),
           },
           {
-            children: t`Tambah izin objek`,
+            children: `Tambah izin objek`,
             href: getSettingsPath(SettingsPath.RoleAddObjectLevel, { roleId }),
           },
         ];

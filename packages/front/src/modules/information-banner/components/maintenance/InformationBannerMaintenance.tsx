@@ -5,7 +5,6 @@ import { InformationBanner } from '@/information-banner/components/InformationBa
 import { useMaintenanceModeBannerDismissal } from '@/information-banner/hooks/useMaintenanceModeBannerDismissal';
 import { useDateTimeFormat } from '@/localization/hooks/useDateTimeFormat';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { getSafeUrl, isDefined } from 'shared/utils';
 import { IconExternalLink } from 'ui/display';
 
@@ -47,7 +46,7 @@ export const InformationBannerMaintenance = () => {
     timeZone,
   );
 
-  const message = t`Pemeliharaan terjadwal: ${startFormatted} — ${endFormatted}`;
+  const message = `Pemeliharaan terjadwal: ${startFormatted} — ${endFormatted}`;
   const maintenanceLink = getSafeUrl(maintenanceMode.link?.trim());
 
   return (
@@ -56,7 +55,7 @@ export const InformationBannerMaintenance = () => {
       variant="secondary"
       message={message}
       buttonTitle={
-        isDefined(maintenanceLink) ? t`Pelajari lebih lanjut` : undefined
+        isDefined(maintenanceLink) ? `Pelajari lebih lanjut` : undefined
       }
       buttonIcon={isDefined(maintenanceLink) ? IconExternalLink : undefined}
       buttonOnClick={

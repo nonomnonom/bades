@@ -1,5 +1,5 @@
+import { i18n } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { i18n, msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isNumber } from '@sniptt/guards';
 import { useEffect, useState } from 'react';
 import { QUERY_MAX_RECORDS } from 'shared/constants';
@@ -45,7 +45,7 @@ const StyledRecordTypeSelectContainer = styled.div<{ fullWidth?: boolean }>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
 `;
 
-const defaultSelectedOptionMessage = msg`Pilih opsi`;
+const defaultSelectedOptionMessage = `Pilih opsi`;
 
 type WorkflowEditActionFindRecordsProps = {
   action: WorkflowFindRecordsAction;
@@ -80,7 +80,6 @@ export const WorkflowEditActionFindRecords = ({
   action,
   actionOptions,
 }: WorkflowEditActionFindRecordsProps) => {
-  const { t } = useLingui();
   const { getSelectIconPropsFromObjectMetadataItem } =
     useObjectMetadataSelectHelpers();
   const maxRecordsFormatted = QUERY_MAX_RECORDS.toLocaleString();
@@ -183,7 +182,7 @@ export const WorkflowEditActionFindRecords = ({
     <>
       <WorkflowStepBody>
         <StyledRecordTypeSelectContainer fullWidth>
-          <StyledLabel>{t`Objek`}</StyledLabel>
+          <StyledLabel>{`Objek`}</StyledLabel>
           <Dropdown
             dropdownId={dropdownId}
             dropdownPlacement="bottom-start"
@@ -207,7 +206,7 @@ export const WorkflowEditActionFindRecords = ({
         <HorizontalSeparator noMargin />
         {isDefined(selectedObjectMetadataItem) && (
           <div>
-            <InputLabel>{t`Filter`}</InputLabel>
+            <InputLabel>{`Filter`}</InputLabel>
             <RecordIndexContextProvider
               value={{
                 indexIdentifierUrl: () => '',
@@ -260,7 +259,7 @@ export const WorkflowEditActionFindRecords = ({
         {isDefined(selectedObjectMetadataItem) && (
           <>
             <div>
-              <InputLabel>{t`Urutan`}</InputLabel>
+              <InputLabel>{`Urutan`}</InputLabel>
               <WorkflowFindRecordsSorts
                 recordSorts={formData.orderBy?.recordSorts ?? []}
                 objectMetadataItem={selectedObjectMetadataItem}
@@ -297,11 +296,11 @@ export const WorkflowEditActionFindRecords = ({
         )}
 
         <FormNumberFieldInput
-          label={t`Batas Data`}
+          label={`Batas Data`}
           defaultValue={formData.limit}
-          placeholder={t`Masukkan batas`}
+          placeholder={`Masukkan batas`}
           readonly={isFormDisabled}
-          hint={t`Aksi ini dapat mengembalikan hingga ${maxRecordsFormatted} data.`}
+          hint={`Aksi ini dapat mengembalikan hingga ${maxRecordsFormatted} data.`}
           error={limitError}
           onChange={(limit) => {
             if (isFormDisabled === true || !isNumber(limit)) {
@@ -311,7 +310,7 @@ export const WorkflowEditActionFindRecords = ({
             const normalizedLimit = Math.floor(limit);
 
             if (normalizedLimit <= 0) {
-              setLimitError(t`Batas harus lebih dari 0.`);
+              setLimitError(`Batas harus lebih dari 0.`);
               return;
             }
 
@@ -319,7 +318,7 @@ export const WorkflowEditActionFindRecords = ({
 
             setLimitError(
               normalizedLimit > QUERY_MAX_RECORDS
-                ? t`Batas tidak boleh melebihi ${maxRecordsFormatted} data.`
+                ? `Batas tidak boleh melebihi ${maxRecordsFormatted} data.`
                 : undefined,
             );
 

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { useMergeManyRecords } from '@/object-record/hooks/useMergeManyRecords';
 import { useMergeRecordsSelectedRecords } from '@/object-record/record-merge/hooks/useMergeRecordsSelectedRecords';
@@ -27,7 +26,6 @@ export const useMergeRecordsActions = ({
 
   const setIsMergeInProgress = useSetAtomState(isMergeInProgressState);
 
-  const { t } = useLingui();
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
   const { closeSidePanelMenu } = useSidePanelMenu();
 
@@ -48,7 +46,7 @@ export const useMergeRecordsActions = ({
       const recordCount = selectedRecords.length;
 
       enqueueSuccessSnackBar({
-        message: t`Berhasil menggabungkan ${recordCount} data`,
+        message: `Berhasil menggabungkan ${recordCount} data`,
       });
       closeSidePanelMenu();
 
@@ -61,7 +59,7 @@ export const useMergeRecordsActions = ({
         message:
           error instanceof Error
             ? error.message
-            : t`Gagal menggabungkan data. Silakan coba lagi.`,
+            : `Gagal menggabungkan data. Silakan coba lagi.`,
       });
     } finally {
       setIsMergeInProgress(false);

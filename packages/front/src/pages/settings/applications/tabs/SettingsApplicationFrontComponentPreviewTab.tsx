@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { Suspense, lazy } from 'react';
 import { Section } from 'ui/layout';
@@ -59,8 +58,8 @@ export const SettingsApplicationFrontComponentPreviewTab = ({
       <StyledPreviewFrame>
         {isHeadless ? (
           <StyledHeadlessNotice>
-            <StyledHeadlessTitle>{t`Komponen tanpa UI`}</StyledHeadlessTitle>
-            <span>{t`Komponen ini berjalan tanpa antarmuka dan tidak menampilkan apa pun di sini.`}</span>
+            <StyledHeadlessTitle>{`Komponen tanpa UI`}</StyledHeadlessTitle>
+            <span>{`Komponen ini berjalan tanpa antarmuka dan tidak menampilkan apa pun di sini.`}</span>
           </StyledHeadlessNotice>
         ) : (
           <StyledRendererContainer>

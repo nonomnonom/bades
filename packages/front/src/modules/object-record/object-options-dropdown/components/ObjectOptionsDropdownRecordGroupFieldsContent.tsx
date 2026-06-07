@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 
 import { useObjectNamePluralFromSingular } from '@/object-metadata/hooks/useObjectNamePluralFromSingular';
@@ -28,7 +27,6 @@ import { MenuItem, MenuItemSelect, UndecoratedLink } from 'ui/navigation';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
 export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
 
   const {
@@ -113,19 +111,19 @@ export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {
           />
         }
       >
-        {t`Kelompokkan berdasarkan`}
+        {`Kelompokkan berdasarkan`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
         value={recordGroupFieldSearchInput}
-        placeholder={t`Cari kolom`}
+        placeholder={`Cari kolom`}
         onChange={(event) => setRecordGroupFieldSearchInput(event.target.value)}
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer>
         {viewType === ViewType.TABLE && (
           <MenuItemSelect
-            text={t`Tidak ada`}
+            text={`Tidak ada`}
             selected={!isDefined(recordIndexGroupFieldMetadataItem)}
             onClick={handleResetRecordGroupField}
           />
@@ -151,7 +149,7 @@ export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {
             closeDropdown();
           }}
         >
-          <MenuItem LeftIcon={IconSettings} text={t`Buat kolom pilihan`} />
+          <MenuItem LeftIcon={IconSettings} text={`Buat kolom pilihan`} />
         </UndecoratedLink>
       </DropdownMenuItemsContainer>
     </DropdownContent>

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
 import { SingleRecordPickerLoadingEffect } from '@/object-record/record-picker/single-record-picker/components/SingleRecordPickerLoadingEffect';
@@ -89,7 +88,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
                 <CreateNewButton
                   onClick={handleCreateNew}
                   LeftIcon={IconPlus}
-                  text={t`Tambah Baru`}
+                  text={`Tambah Baru`}
                 />
               </DropdownMenuItemsContainer>
               <DropdownMenuSeparator />
@@ -138,7 +137,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
                 <CreateNewButton
                   onClick={handleCreateNew}
                   LeftIcon={IconPlus}
-                  text={t`Tambah Baru`}
+                  text={`Tambah Baru`}
                 />
               </DropdownMenuItemsContainer>
             </>

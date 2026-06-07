@@ -5,7 +5,6 @@ import { usePageLayoutIdFromContextStore } from '@/side-panel/pages/page-layout/
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { MenuItem } from 'ui/navigation';
 import { PageLayoutTabLayoutMode } from '~/generated-metadata/graphql';
@@ -46,7 +45,7 @@ export const MoveToTabDropdownContent = () => {
   if (eligibleTabs.length === 0) {
     return (
       <DropdownMenuItemsContainer>
-        <MenuItem text={t`Tidak ada tab tersedia`} />
+        <MenuItem text={`Tidak ada tab tersedia`} />
       </DropdownMenuItemsContainer>
     );
   }

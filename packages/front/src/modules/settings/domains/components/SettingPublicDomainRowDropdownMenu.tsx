@@ -3,7 +3,6 @@ import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconTrash } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -20,8 +19,6 @@ export const SettingPublicDomainRowDropdownMenu = ({
   publicDomain: PublicDomain;
 }) => {
   const dropdownId = `settings-public-domain-row-${publicDomain.id}`;
-  const { t } = useLingui();
-
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
   const { closeDropdown } = useCloseDropdown();
@@ -39,7 +36,7 @@ export const SettingPublicDomainRowDropdownMenu = ({
       },
       onCompleted: () =>
         enqueueSuccessSnackBar({
-          message: t`Domain publik berhasil dihapus`,
+          message: `Domain publik berhasil dihapus`,
         }),
       onError: (error) => enqueueErrorSnackBar({ apolloError: error }),
     });
@@ -58,7 +55,7 @@ export const SettingPublicDomainRowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Hapus`}
+              text={`Hapus`}
               onClick={async () => {
                 await handleDeletePublicDomain();
                 closeDropdown(dropdownId);

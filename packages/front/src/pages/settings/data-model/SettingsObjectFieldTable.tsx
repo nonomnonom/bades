@@ -1,4 +1,3 @@
-import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { isHiddenSystemField } from '@/object-metadata/utils/isHiddenSystemField';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
@@ -39,19 +38,19 @@ const SETTINGS_OBJECT_FIELD_TABLE_METADATA: TableMetadata<SettingsObjectDetailTa
     tableId: 'settingsObjectDetail',
     fields: [
       {
-        fieldLabel: msg`Nama`,
+        fieldLabel: `Nama`,
         fieldName: 'label',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Aplikasi`,
+        fieldLabel: `Aplikasi`,
         fieldName: 'fieldType',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Tipe data`,
+        fieldLabel: `Tipe data`,
         fieldName: 'dataType',
         fieldType: 'string',
         align: 'left',
@@ -75,7 +74,6 @@ export const SettingsObjectFieldTable = ({
   mode,
   excludeRelations = false,
 }: SettingsObjectFieldTableProps) => {
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
   const [showInactive, setShowInactive] = useState(true);
   const [showSystemFields, setShowSystemFields] = useState(false);
@@ -151,7 +149,7 @@ export const SettingsObjectFieldTable = ({
     <>
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Cari kolom...`}
+          placeholder={`Cari kolom...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -167,7 +165,7 @@ export const SettingsObjectFieldTable = ({
                       LeftIcon={IconArchive}
                       onToggleChange={() => setShowInactive(!showInactive)}
                       toggled={showInactive}
-                      text={t`Tidak aktif`}
+                      text={`Tidak aktif`}
                       toggleSize="small"
                     />
                     {isAdvancedModeEnabled && (
@@ -177,7 +175,7 @@ export const SettingsObjectFieldTable = ({
                           setShowSystemFields(!showSystemFields)
                         }
                         toggled={showSystemFields}
-                        text={t`Kolom sistem`}
+                        text={`Kolom sistem`}
                         toggleSize="small"
                       />
                     )}
@@ -196,7 +194,7 @@ export const SettingsObjectFieldTable = ({
             <SortableTableHeader
               key={item.fieldName}
               fieldName={item.fieldName}
-              label={t(item.fieldLabel)}
+              label={item.fieldLabel}
               tableId={tableMetadata.tableId}
               initialSort={tableMetadata.initialSort}
             />

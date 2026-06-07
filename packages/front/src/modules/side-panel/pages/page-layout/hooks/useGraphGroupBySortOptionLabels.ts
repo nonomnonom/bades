@@ -1,7 +1,6 @@
 import { getFieldLabelWithSubField } from '@/side-panel/pages/page-layout/utils/getFieldLabelWithSubField';
 import { getSortLabelSuffixForFieldType } from '@/side-panel/pages/page-layout/utils/getSortLabelSuffixForFieldType';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
-import { t } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { type CompositeFieldSubFieldName } from 'shared/types';
 import { assertUnreachable } from 'shared/utils';
@@ -52,7 +51,7 @@ export const useGraphGroupBySortOptionLabels = ({
       case GraphOrderBy.VALUE_DESC:
         return '';
       case GraphOrderBy.MANUAL:
-        return t`Manual (susun sendiri)`;
+        return `Manual (susun sendiri)`;
       default:
         assertUnreachable(graphOrderBy);
     }

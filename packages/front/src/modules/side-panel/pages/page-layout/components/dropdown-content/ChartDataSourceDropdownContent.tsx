@@ -18,7 +18,7 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t, Trans } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconChevronLeft, IconSettings } from 'ui/display';
@@ -130,7 +130,7 @@ export const ChartDataSourceDropdownContent = () => {
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Cari objek`}
+        placeholder={`Cari objek`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />
@@ -175,7 +175,7 @@ export const ChartDataSourceDropdownContent = () => {
               onEnter={handleAdvancedObjectsClick}
             >
               <MenuItem
-                text={t`Objek sistem`}
+                text={`Objek sistem`}
                 LeftIcon={IconSettings}
                 onClick={handleAdvancedObjectsClick}
                 hasSubMenu

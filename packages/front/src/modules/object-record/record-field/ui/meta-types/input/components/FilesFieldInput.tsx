@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isAttachmentPreviewEnabledState } from '@/client-config/states/isAttachmentPreviewEnabledState';
 import { useFileUpload } from '@/file-upload/hooks/useFileUpload';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
@@ -25,7 +24,6 @@ export const FilesFieldInput = () => {
   const { setDraftValue, draftValue, fieldDefinition } = useFilesField();
   const { uploadFile } = useUploadFilesFieldFile();
   const { openFileUpload } = useFileUpload();
-  const { t } = useLingui();
   const [isUploading, setIsUploading] = useState(false);
   const { enqueueErrorSnackBar } = useSnackBar();
   const setFilePreview = useSetAtomState(filePreviewState);
@@ -84,7 +82,7 @@ export const FilesFieldInput = () => {
           files.length > 0
         ) {
           enqueueErrorSnackBar({
-            message: t`Tidak dapat mengunggah lebih dari ${maxNumberOfValues} berkas`,
+            message: `Tidak dapat mengunggah lebih dari ${maxNumberOfValues} berkas`,
           });
           return;
         }
@@ -114,7 +112,6 @@ export const FilesFieldInput = () => {
     files,
     maxNumberOfValues,
     enqueueErrorSnackBar,
-    t,
     uploadFile,
     handleChange,
     onEnter,
@@ -191,7 +188,7 @@ export const FilesFieldInput = () => {
       onEnter={handleEnter}
       onEscape={handleEscape}
       onClickOutside={handleClickOutside}
-      placeholder={t`Label berkas`}
+      placeholder={`Label berkas`}
       fieldMetadataType={FieldMetadataType.FILES}
       validateInput={validateInput}
       formatInput={formatInput}
@@ -205,7 +202,7 @@ export const FilesFieldInput = () => {
           onClick={() => handlePreview(file)}
         />
       )}
-      newItemLabel={isUploading ? t`Mengunggah...` : t`Unggah berkas`}
+      newItemLabel={isUploading ? `Mengunggah...` : `Unggah berkas`}
       onAddClick={handleUploadClick}
       onError={handleError}
       maxItemCount={maxNumberOfValues}

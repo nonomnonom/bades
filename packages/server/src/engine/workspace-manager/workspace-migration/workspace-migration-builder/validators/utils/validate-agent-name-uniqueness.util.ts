@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 
 import { AiExceptionCode } from 'src/engine/metadata-modules/ai/ai.exception';
 import { type UniversalFlatAgent } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-agent.type';
@@ -16,7 +16,7 @@ export const validateAgentNameUniqueness = ({
   if (existingFlatAgents.some((agent) => agent.name === name)) {
     errors.push({
       code: AiExceptionCode.AGENT_ALREADY_EXISTS,
-      message: t`Agent with name "${name}" already exists`,
+      message: `Agent with name "${name}" already exists`,
       userFriendlyMessage: msg`An agent with this name already exists`,
     });
   }

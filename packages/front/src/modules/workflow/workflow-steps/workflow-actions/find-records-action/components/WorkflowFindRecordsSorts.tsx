@@ -3,7 +3,6 @@ import { filterSortableFieldMetadataItems } from '@/object-metadata/utils/filter
 import { type RecordSort } from '@/object-record/record-sort/types/RecordSort';
 import { Select } from '@/ui/input/components/Select';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconArrowsSort, IconTrash, useIcons } from 'ui/display';
 import { Button, type SelectOption } from 'ui/input';
 import { v4 as uuidv4 } from 'uuid';
@@ -39,7 +38,6 @@ export const WorkflowFindRecordsSorts = ({
   objectMetadataItem,
   readonly,
 }: WorkflowFindRecordsSortsProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
 
   const sortableFields = objectMetadataItem.fields
@@ -52,11 +50,11 @@ export const WorkflowFindRecordsSorts = ({
 
   const directionOptions: Array<SelectOption<ViewSortDirection>> = [
     {
-      label: t`Naik`,
+      label: `Naik`,
       value: ViewSortDirection.ASC,
     },
     {
-      label: t`Turun`,
+      label: `Turun`,
       value: ViewSortDirection.DESC,
     },
   ];
@@ -154,8 +152,8 @@ export const WorkflowFindRecordsSorts = ({
           variant="secondary"
           accent="default"
           onClick={handleAddSort}
-          ariaLabel={t`Tambah urutan`}
-          title={t`Tambah urutan`}
+          ariaLabel={`Tambah urutan`}
+          title={`Tambah urutan`}
           disabled={readonly}
         />
       </StyledAddButtonContainer>

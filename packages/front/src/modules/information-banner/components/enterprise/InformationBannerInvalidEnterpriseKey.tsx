@@ -3,7 +3,6 @@ import { InformationBanner } from '@/information-banner/components/InformationBa
 import { informationBannerIsOpenComponentState } from '@/information-banner/states/informationBannerIsOpenComponentState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useNavigate } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -12,7 +11,6 @@ import { IconKey } from 'ui/display';
 const COMPONENT_INSTANCE_ID = 'information-banner-invalid-enterprise-key';
 
 export const InformationBannerInvalidEnterpriseKey = () => {
-  const { t } = useLingui();
   const navigate = useNavigate();
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
@@ -34,8 +32,8 @@ export const InformationBannerInvalidEnterpriseKey = () => {
     <InformationBanner
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
-      message={t`Kunci lisensi lanjutan Anda tidak lagi valid. Aktifkan kunci baru untuk melanjutkan.`}
-      buttonTitle={t`Aktifkan`}
+      message={`Kunci lisensi lanjutan Anda tidak lagi valid. Aktifkan kunci baru untuk melanjutkan.`}
+      buttonTitle={`Aktifkan`}
       buttonIcon={IconKey}
       buttonOnClick={() =>
         navigate(getSettingsPath(SettingsPath.AdminPanelEnterprise))

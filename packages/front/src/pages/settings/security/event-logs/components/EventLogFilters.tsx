@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceMembersState } from '@/auth/states/currentWorkspaceMembersState';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { Select } from '@/ui/input/components/Select';
@@ -38,7 +37,6 @@ export const EventLogFilters = ({
   value,
   onChange,
 }: EventLogFiltersProps) => {
-  const { t } = useLingui();
   const currentWorkspaceMembers = useAtomStateValue(
     currentWorkspaceMembersState,
   );
@@ -82,10 +80,10 @@ export const EventLogFilters = ({
   };
 
   const eventLabel =
-    table === EventLogTable.PAGEVIEW ? t`Nama Halaman` : t`Tipe Peristiwa`;
+    table === EventLogTable.PAGEVIEW ? `Nama Halaman` : `Tipe Peristiwa`;
 
   const userWorkspaceOptions: SelectOption<string | null>[] = [
-    { label: t`Semua Anggota`, value: null, Icon: IconUser },
+    { label: `Semua Anggota`, value: null, Icon: IconUser },
     ...currentWorkspaceMembers
       .filter((member) => member.userWorkspaceId)
       .map((workspaceMember) => ({
@@ -97,7 +95,7 @@ export const EventLogFilters = ({
   ];
 
   const objectMetadataOptions: SelectOption<string | null>[] = [
-    { label: t`Semua Objek`, value: null, Icon: IconBox },
+    { label: `Semua Objek`, value: null, Icon: IconBox },
     ...objectMetadataItems.map((item) => ({
       label: item.labelPlural,
       value: item.id,
@@ -112,7 +110,7 @@ export const EventLogFilters = ({
           label={eventLabel}
           value={value.eventType ?? ''}
           onChange={handleEventTypeChange}
-          placeholder={t`Filter berdasarkan peristiwa`}
+          placeholder={`Filter berdasarkan peristiwa`}
           fullWidth
         />
       </StyledFilterItem>
@@ -120,7 +118,7 @@ export const EventLogFilters = ({
       <StyledFilterItem>
         <Select
           dropdownId="event-log-user-workspace-filter"
-          label={t`Anggota Ruang Kerja`}
+          label={`Anggota Ruang Kerja`}
           value={value.userWorkspaceId ?? null}
           options={userWorkspaceOptions}
           onChange={handleUserWorkspaceChange}
@@ -131,7 +129,7 @@ export const EventLogFilters = ({
 
       <StyledFilterItem>
         <EventLogDatePickerInput
-          label={t`Tanggal Mulai`}
+          label={`Tanggal Mulai`}
           value={value.dateRange?.start}
           onChange={handleStartDateChange}
         />
@@ -139,7 +137,7 @@ export const EventLogFilters = ({
 
       <StyledFilterItem>
         <EventLogDatePickerInput
-          label={t`Tanggal Selesai`}
+          label={`Tanggal Selesai`}
           value={value.dateRange?.end}
           onChange={handleEndDateChange}
         />
@@ -150,7 +148,7 @@ export const EventLogFilters = ({
           <StyledFilterItem>
             <Select
               dropdownId="event-log-object-type-filter"
-              label={t`Tipe Objek`}
+              label={`Tipe Objek`}
               value={value.objectMetadataId ?? null}
               options={objectMetadataOptions}
               onChange={handleObjectMetadataIdChange}
@@ -161,10 +159,10 @@ export const EventLogFilters = ({
 
           <StyledFilterItem>
             <TextInput
-              label={t`ID Catatan`}
+              label={`ID Catatan`}
               value={value.recordId ?? ''}
               onChange={handleRecordIdChange}
-              placeholder={t`Filter berdasarkan ID catatan`}
+              placeholder={`Filter berdasarkan ID catatan`}
               fullWidth
             />
           </StyledFilterItem>

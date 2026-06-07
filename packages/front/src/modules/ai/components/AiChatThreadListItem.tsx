@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { Key } from 'ts-key-enum';
 import { IconArchive, IconSparkles } from 'ui/display';
@@ -86,7 +85,6 @@ type AiChatThreadListItemProps = {
 
 export const AiChatThreadListItem = ({ thread }: AiChatThreadListItemProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { handleThreadClick } = useAiChatThreadClick();
   const {
     isRenaming,
@@ -99,7 +97,7 @@ export const AiChatThreadListItem = ({ thread }: AiChatThreadListItemProps) => {
 
   const isArchived = Boolean(thread.deletedAt);
   const ThreadIcon = isArchived ? IconArchive : IconSparkles;
-  const displayTitle = thread.title ?? t`Tanpa judul`;
+  const displayTitle = thread.title ?? `Tanpa judul`;
   const itemMenuDropdownId = getAiChatThreadItemMenuDropdownId(
     thread.id,
     AI_CHAT_THREAD_ACTIONS_SURFACE.SIDE_PANEL,
@@ -140,7 +138,7 @@ export const AiChatThreadListItem = ({ thread }: AiChatThreadListItemProps) => {
             sizeVariant="sm"
             fullWidth
             autoFocus
-            aria-label={t`Ubah nama obrolan`}
+            aria-label={`Ubah nama obrolan`}
           />
         ) : (
           <StyledThreadTitle>{displayTitle}</StyledThreadTitle>

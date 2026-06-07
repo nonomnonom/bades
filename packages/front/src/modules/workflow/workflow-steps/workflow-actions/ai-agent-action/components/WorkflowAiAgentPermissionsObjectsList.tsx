@@ -1,6 +1,5 @@
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
-import { t } from '~/utils/i18n/badesI18n';
 import { WorkflowAiAgentPermissionsObjectRow } from './WorkflowAiAgentPermissionsObjectRow';
 
 type WorkflowAiAgentPermissionsObjectsListProps = {
@@ -20,7 +19,7 @@ export const WorkflowAiAgentPermissionsObjectsList = ({
   readonly,
 }: WorkflowAiAgentPermissionsObjectsListProps) => {
   return (
-    <SidePanelGroup heading={t`Objek`}>
+    <SidePanelGroup heading={`Objek`}>
       {objects.map((objectMetadata) => (
         <WorkflowAiAgentPermissionsObjectRow
           key={objectMetadata.id}

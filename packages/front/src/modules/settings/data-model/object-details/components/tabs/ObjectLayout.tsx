@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { H2Title, IconLayoutDashboard, IconReload } from 'ui/display';
@@ -34,7 +33,6 @@ type ObjectLayoutProps = {
 
 export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const navigateApp = useNavigateApp();
   const { enterLayoutCustomizationMode } = useEnterLayoutCustomizationMode();
   const { openModal } = useModal();
@@ -84,11 +82,11 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
     <StyledContentContainer>
       <Section>
         <H2Title
-          title={t`Sesuaikan`}
-          description={t`Sesuaikan tata letak untuk peran ini`}
+          title={`Sesuaikan`}
+          description={`Sesuaikan tata letak untuk peran ini`}
         />
         <SettingsCard
-          title={t`Sesuaikan halaman data`}
+          title={`Sesuaikan halaman data`}
           Icon={<IconLayoutDashboard size={theme.icon.size.md} />}
           onClick={handleCustomizeRecordPage}
           disabled={!isDefined(firstRecord)}
@@ -96,11 +94,11 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
       </Section>
       <Section>
         <H2Title
-          title={t`Setel ulang`}
-          description={t`Kembalikan semua perubahan tata letak ke tampilan bawaan aplikasi`}
+          title={`Setel ulang`}
+          description={`Kembalikan semua perubahan tata letak ke tampilan bawaan aplikasi`}
         />
         <Button
-          title={t`Setel ulang ke bawaan`}
+          title={`Setel ulang ke bawaan`}
           variant="secondary"
           size="small"
           Icon={IconReload}
@@ -110,10 +108,10 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
       </Section>
       <ConfirmationModal
         modalInstanceId={RESET_PAGE_LAYOUT_MODAL_ID}
-        title={t`Setel ulang ke bawaan`}
-        subtitle={t`Tindakan ini tidak dapat dibatalkan.`}
+        title={`Setel ulang ke bawaan`}
+        subtitle={`Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleConfirmReset}
-        confirmButtonText={t`Setel ulang`}
+        confirmButtonText={`Setel ulang`}
         confirmButtonAccent="danger"
       />
     </StyledContentContainer>

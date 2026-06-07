@@ -1,8 +1,8 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { availableWorkspacesState } from '@/auth/states/availableWorkspacesState';
 import { returnToPathState } from '@/auth/states/returnToPathState';
 import { useBuildWorkspaceUrl } from '@/domain-manager/hooks/useBuildWorkspaceUrl';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { FormProvider } from 'react-hook-form';
 import { ClickToActionLink, UndecoratedLink } from 'ui/navigation';
 
@@ -144,8 +144,6 @@ export const SignInUpGlobalScopeForm = () => {
 
   const { createWorkspace } = useSignUpInNewWorkspace();
   const availableWorkspaces = useAtomStateValue(availableWorkspacesState);
-  const { t } = useLingui();
-
   const { form } = useSignInUpForm();
   const { handleResetPassword } = useHandleResetPassword();
   const returnToPath = useAtomStateValue(returnToPathState);
@@ -215,7 +213,7 @@ export const SignInUpGlobalScopeForm = () => {
                     <IconPlus size={theme.icon.size.lg} />
                   </StyledWorkspaceLogo>
                   <StyledWorkspaceTextContainer>
-                    <StyledWorkspaceName>{t`Buat desa baru`}</StyledWorkspaceName>
+                    <StyledWorkspaceName>{`Buat desa baru`}</StyledWorkspaceName>
                   </StyledWorkspaceTextContainer>
                   <StyledChevronIcon>
                     <IconChevronRight size={theme.icon.size.md} />

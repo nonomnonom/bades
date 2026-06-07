@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatViewGroupMaps } from 'src/engine/metadata-modules/flat-view-group/types/flat-view-group-maps.type';
@@ -29,7 +28,7 @@ export const fromDestroyViewGroupInputToFlatViewGroupOrThrow = ({
 
   if (!isDefined(existingFlatViewGroupToDestroy)) {
     throw new ViewGroupException(
-      t`View group to destroy not found`,
+      `View group to destroy not found`,
       ViewGroupExceptionCode.VIEW_GROUP_NOT_FOUND,
     );
   }

@@ -13,7 +13,6 @@ import { useWidgetSettingsPlacementSelectableItemIds } from '@/side-panel/pages/
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconLayoutSidebarRight, IconListDetails } from 'ui/display';
 import {
@@ -35,7 +34,6 @@ const StyledSidePanelContainer = styled.div`
 `;
 
 export const SidePanelRecordPageFieldSettings = () => {
-  const { t } = useLingui();
   const { pageLayoutId } = usePageLayoutIdFromContextStore();
 
   const { placementSelectableItemIds } =
@@ -60,9 +58,9 @@ export const SidePanelRecordPageFieldSettings = () => {
   const fieldLabel = currentFieldMetadataItem?.label ?? '';
 
   const displayModeLabels: Record<string, string> = {
-    [FieldDisplayMode.FIELD]: t`Kolom`,
-    [FieldDisplayMode.CARD]: t`Kartu`,
-    [FieldDisplayMode.EDITOR]: t`Editor`,
+    [FieldDisplayMode.FIELD]: `Kolom`,
+    [FieldDisplayMode.CARD]: `Kartu`,
+    [FieldDisplayMode.EDITOR]: `Editor`,
   };
 
   const layoutLabel = isDefined(currentDisplayMode)
@@ -83,11 +81,11 @@ export const SidePanelRecordPageFieldSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Data dan tampilan`}>
+          <SidePanelGroup heading={`Data dan tampilan`}>
             <SelectableListItem itemId="field">
               <CommandMenuItemDropdown
                 id="field"
-                label={t`Kolom`}
+                label={`Kolom`}
                 Icon={IconListDetails}
                 dropdownId="field"
                 dropdownComponents={
@@ -103,7 +101,7 @@ export const SidePanelRecordPageFieldSettings = () => {
             <SelectableListItem itemId="layout">
               <CommandMenuItemDropdown
                 id="layout"
-                label={t`Tata Letak`}
+                label={`Tata Letak`}
                 Icon={IconLayoutSidebarRight}
                 dropdownId="layout"
                 dropdownComponents={

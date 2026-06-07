@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { IconSettings } from 'ui/display';
 import { AnimatedExpandableContainer } from 'ui/layout';
@@ -13,7 +12,6 @@ import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAto
 import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
 export const NavigationDrawerOtherSection = () => {
-  const { t } = useLingui();
   const navigateSettings = useNavigateSettings();
 
   const { toggleNavigationSection } = useNavigationSection('Other');
@@ -30,7 +28,7 @@ export const NavigationDrawerOtherSection = () => {
     <NavigationDrawerSection>
       <NavigationDrawerAnimatedCollapseWrapper>
         <NavigationDrawerSectionTitle
-          label={t`Lainnya`}
+          label={`Lainnya`}
           onClick={toggleNavigationSection}
           isOpen={isNavigationSectionOpen}
         />
@@ -43,7 +41,7 @@ export const NavigationDrawerOtherSection = () => {
         initial={false}
       >
         <NavigationDrawerItem
-          label={t`Pengaturan`}
+          label={`Pengaturan`}
           Icon={IconSettings}
           onClick={handleSettingsClick}
         />

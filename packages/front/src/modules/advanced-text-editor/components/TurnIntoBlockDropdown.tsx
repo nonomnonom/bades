@@ -4,7 +4,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useToggleDropdown } from '@/ui/layout/dropdown/hooks/useToggleDropdown';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { type Editor } from '@tiptap/react';
 import { useContext, useId } from 'react';
 import { IconPilcrow } from 'ui/display';
@@ -50,7 +49,7 @@ export const TurnIntoBlockDropdown = ({
 
   const options = useTurnIntoBlockOptions(editor);
   const activeItem = options.find((option) => option.isActive());
-  const { icon: ActiveIcon = IconPilcrow, title: activeTitle = t`Paragraf` } =
+  const { icon: ActiveIcon = IconPilcrow, title: activeTitle = `Paragraf` } =
     activeItem ?? {};
 
   return (

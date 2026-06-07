@@ -5,7 +5,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useRemoveStepFilterGroup } from '@/workflow/workflow-steps/filters/hooks/useRemoveStepFilterGroup';
 import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/states/context/WorkflowStepFilterContext';
 import { useContext } from 'react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconTrash } from 'ui/display';
 import { IconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -26,7 +25,7 @@ export const WorkflowStepFilterGroupOptionsDropdown = ({
       dropdownId={`step-filter-group-options-${stepFilterGroupId}`}
       clickableComponent={
         <IconButton
-          aria-label={t`Opsi grup filter langkah`}
+          aria-label={`Opsi grup filter langkah`}
           variant="tertiary"
           Icon={IconDotsVertical}
           disabled={readonly}
@@ -37,7 +36,7 @@ export const WorkflowStepFilterGroupOptionsDropdown = ({
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconTrash}
-              text={t`Hapus grup`}
+              text={`Hapus grup`}
               onClick={() => removeStepFilterGroup(stepFilterGroupId)}
               accent="danger"
             />

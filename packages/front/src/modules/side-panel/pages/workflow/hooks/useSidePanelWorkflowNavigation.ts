@@ -6,7 +6,6 @@ import { sidePanelWorkflowVersionIdComponentState } from '@/side-panel/pages/wor
 import { type WorkflowRunStepStatus } from '@/workflow/types/Workflow';
 import { useSetInitialWorkflowRunSidePanelTab } from '@/workflow/workflow-diagram/hooks/useSetInitialWorkflowRunSidePanelTab';
 import { workflowSelectedNodeComponentState } from '@/workflow/workflow-diagram/states/workflowSelectedNodeComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -37,7 +36,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowTriggerSelectType,
-        pageTitle: t`Jenis Pemicu`,
+        pageTitle: `Jenis Pemicu`,
         pageIcon: IconBolt,
         pageId,
       });
@@ -58,7 +57,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowStepCreate,
-        pageTitle: t`Pilih Aksi`,
+        pageTitle: `Pilih Aksi`,
         pageIcon: IconSettingsAutomation,
         pageId,
       });
@@ -121,7 +120,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowStepEditType,
-        pageTitle: t`Pilih aksi`,
+        pageTitle: `Pilih aksi`,
         pageIcon: IconSettingsAutomation,
         pageId,
       });

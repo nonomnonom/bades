@@ -3,7 +3,6 @@ import { SettingsOptionCardContentCounter } from '@/settings/components/Settings
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { TextArea } from '@/ui/input/components/TextArea';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconClockHour8 } from 'ui/display';
 import { Card, Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -31,13 +30,13 @@ export const SettingsLogicFunctionNewForm = ({
   return (
     <Section>
       <H2Title
-        title={t`Tentang`}
-        description={t`Beri nama dan deskripsi untuk fungsi ini`}
+        title={`Tentang`}
+        description={`Beri nama dan deskripsi untuk fungsi ini`}
       />
       <StyledInputsContainer>
         <SettingsTextInput
           instanceId={nameTextInputId}
-          placeholder={t`Nama`}
+          placeholder={`Nama`}
           fullWidth
           autoFocusOnMount
           value={formValues.name}
@@ -46,7 +45,7 @@ export const SettingsLogicFunctionNewForm = ({
         />
         <TextArea
           textAreaId={descriptionTextAreaId}
-          placeholder={t`Deskripsi`}
+          placeholder={`Deskripsi`}
           minRows={4}
           value={formValues.description}
           onChange={onChange('description')}
@@ -55,8 +54,8 @@ export const SettingsLogicFunctionNewForm = ({
         <Card rounded>
           <SettingsOptionCardContentCounter
             Icon={IconClockHour8}
-            title={t`Batas waktu`}
-            description={t`Waktu eksekusi maksimum dalam detik (1-900)`}
+            title={`Batas waktu`}
+            description={`Waktu eksekusi maksimum dalam detik (1-900)`}
             value={formValues.timeoutSeconds}
             onChange={onChange('timeoutSeconds')}
             minValue={1}

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { LazyMarkdownRenderer } from '@/ai/components/LazyMarkdownRenderer';
@@ -79,7 +78,7 @@ export const SettingsAdminChatThreadMessageList = ({
             color={themeCssVariables.font.color.tertiary}
             align="center"
           >
-            {t`Tidak ada pesan.`}
+            {`Tidak ada pesan.`}
           </TableCell>
         </TableRow>
       </Card>
@@ -113,7 +112,7 @@ export const SettingsAdminChatThreadMessageList = ({
             )}
             {toolParts.map((part, index) => (
               <StyledMessageContent key={index} isUser={false}>
-                {t`Panggilan alat: ${part.toolName}`}
+                {`Panggilan alat: ${part.toolName}`}
               </StyledMessageContent>
             ))}
             <StyledTimestamp>

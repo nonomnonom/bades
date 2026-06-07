@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   H2Title,
   IconBox,
@@ -54,8 +53,6 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
 }: {
   registration: ApplicationRegistration;
 }) => {
-  const { t } = useLingui();
-
   const applicationRegistrationId = registration.id;
 
   const { data: tarballUrlData } = useQuery(
@@ -96,7 +93,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
     const items: TableItem[] = [
       {
         Icon: IconWorld,
-        label: t`ID Universal`,
+        label: `ID Universal`,
         value: registration.universalIdentifier,
       },
     ];
@@ -104,7 +101,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
     if (isDefined(ownerWorkspace?.displayName)) {
       items.push({
         Icon: IconTag,
-        label: t`Pemilik`,
+        label: `Pemilik`,
         value: (
           <Chip
             size={ChipSize.Large}
@@ -126,14 +123,14 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
       case ApplicationRegistrationSourceType.NPM:
         items.push({
           Icon: IconBox,
-          label: t`Paket`,
+          label: `Paket`,
           value: 'NPM',
         });
         break;
       case ApplicationRegistrationSourceType.TARBALL:
         items.push({
           Icon: IconBox,
-          label: t`Sumber`,
+          label: `Sumber`,
           value: isNonEmptyString(
             tarballUrlData?.applicationRegistrationTarballUrl,
           ) ? (
@@ -154,14 +151,14 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
       case ApplicationRegistrationSourceType.LOCAL:
         items.push({
           Icon: IconBox,
-          label: t`Sumber`,
+          label: `Sumber`,
           value: 'Lokal',
         });
         break;
       case ApplicationRegistrationSourceType.OAUTH_ONLY:
         items.push({
           Icon: IconBox,
-          label: t`Sumber`,
+          label: `Sumber`,
           value: 'OAuth',
         });
         break;
@@ -170,18 +167,18 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
     if (isNonEmptyString(registration.latestAvailableVersion)) {
       items.push({
         Icon: IconGitBranch,
-        label: t`Versi terbaru`,
+        label: `Versi terbaru`,
         value: registration.latestAvailableVersion,
       });
     }
 
     items.push({
       Icon: IconDownload,
-      label: t`Terpasang`,
+      label: `Terpasang`,
       value: isApplicationInstalled ? (
-        <Tag color="green" text={t`Ya`} />
+        <Tag color="green" text={`Ya`} />
       ) : (
-        <Tag color="orange" text={t`Tidak`} />
+        <Tag color="orange" text={`Tidak`} />
       ),
     });
 
@@ -190,7 +187,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
 
   return (
     <Section>
-      <H2Title title={t`Umum`} description={t`Tentang aplikasi Anda`} />
+      <H2Title title={`Umum`} description={`Tentang aplikasi Anda`} />
       <StyledGeneralContainer>
         <SettingsTableCard
           rounded

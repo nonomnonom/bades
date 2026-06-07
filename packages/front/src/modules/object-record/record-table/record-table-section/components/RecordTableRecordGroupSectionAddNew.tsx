@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { useCurrentRecordGroupId } from '@/object-record/record-group/hooks/useCurrentRecordGroupId';
 import { recordGroupDefinitionFamilyState } from '@/object-record/record-group/states/recordGroupDefinitionFamilyState';
@@ -50,7 +49,7 @@ export const RecordTableRecordGroupSectionAddNew = () => {
   return (
     <RecordTableActionRow
       LeftIcon={IconPlus}
-      text={t`Tambah baru`}
+      text={`Tambah baru`}
       onClick={() => {
         if (!fieldMetadataItem) {
           return;

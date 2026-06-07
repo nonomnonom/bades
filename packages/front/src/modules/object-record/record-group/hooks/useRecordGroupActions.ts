@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { RecordBoardColumnContext } from '@/object-record/record-board/record-board-column/contexts/RecordBoardColumnContext';
 import { useRecordGroupVisibility } from '@/object-record/record-group/hooks/useRecordGroupVisibility';
@@ -101,7 +100,7 @@ export const useRecordGroupActions = ({
   const recordGroupActions: RecordGroupAction[] = [
     {
       id: 'edit',
-      label: t`Ubah`,
+      label: `Ubah`,
       icon: IconSettings,
       position: 0,
       condition: hasAccessToDataModelSettings,
@@ -109,7 +108,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'moveRight',
-      label: t`Geser kanan`,
+      label: `Geser kanan`,
       icon: IconArrowRight,
       condition:
         !isCurrentRecordGroupNotFound &&
@@ -123,7 +122,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'moveLeft',
-      label: t`Geser kiri`,
+      label: `Geser kiri`,
       icon: IconArrowLeft,
       condition: !isCurrentRecordGroupNotFound && currentIndex > 0,
       position: 2,
@@ -135,7 +134,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'hide',
-      label: t`Sembunyikan`,
+      label: `Sembunyikan`,
       icon: IconEyeOff,
       position: 3,
       callback: () =>

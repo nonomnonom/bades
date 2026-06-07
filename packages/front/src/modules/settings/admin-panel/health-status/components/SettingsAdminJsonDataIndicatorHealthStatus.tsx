@@ -1,6 +1,5 @@
 import { SettingsAdminIndicatorHealthContext } from '@/settings/admin-panel/health-status/contexts/SettingsAdminIndicatorHealthContext';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { JsonTree } from 'ui/json-visualizer';
 import { Section } from 'ui/layout';
@@ -24,7 +23,6 @@ const StyledErrorMessage = styled.div`
 `;
 
 export const SettingsAdminJsonDataIndicatorHealthStatus = () => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
 
   const { indicatorHealth } = useContext(SettingsAdminIndicatorHealthContext);
@@ -46,7 +44,7 @@ export const SettingsAdminJsonDataIndicatorHealthStatus = () => {
       {isDown && (
         <StyledErrorMessage>
           {indicatorHealth.errorMessage ||
-            t`Layanan ${serviceLabel} tidak dapat dijangkau`}
+            `Layanan ${serviceLabel} tidak dapat dijangkau`}
         </StyledErrorMessage>
       )}
       {parsedDetails && (
@@ -54,11 +52,11 @@ export const SettingsAdminJsonDataIndicatorHealthStatus = () => {
           <JsonTree
             value={parsedDetails}
             shouldExpandNodeInitially={isAnyNode}
-            emptyArrayLabel={t`Array Kosong`}
-            emptyObjectLabel={t`Objek Kosong`}
-            emptyStringLabel={t`[string kosong]`}
-            arrowButtonCollapsedLabel={t`Perluas`}
-            arrowButtonExpandedLabel={t`Ciutkan`}
+            emptyArrayLabel={`Array Kosong`}
+            emptyObjectLabel={`Objek Kosong`}
+            emptyStringLabel={`[string kosong]`}
+            arrowButtonCollapsedLabel={`Perluas`}
+            arrowButtonExpandedLabel={`Ciutkan`}
             onNodeValueClick={copyToClipboard}
           />
         </StyledDetailsContainer>

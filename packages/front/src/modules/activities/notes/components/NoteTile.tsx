@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { ActivityTargetsInlineCell } from '@/activities/inline-cell/components/ActivityTargetsInlineCell';
 import { useActivityTargetsComponentInstanceId } from '@/activities/inline-cell/hooks/useActivityTargetsComponentInstanceId';
 import { type Note } from '@/activities/types/Note';
@@ -91,7 +89,7 @@ export const NoteTile = ({
           })
         }
       >
-        <StyledNoteTitle>{note.title ?? t`Judul Catatan`}</StyledNoteTitle>
+        <StyledNoteTitle>{note.title ?? `Judul Catatan`}</StyledNoteTitle>
         <StyledCardContent>{body}</StyledCardContent>
       </StyledCardDetailsContainer>
       <StyledFooter>

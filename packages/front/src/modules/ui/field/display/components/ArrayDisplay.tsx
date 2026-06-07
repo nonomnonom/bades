@@ -1,6 +1,5 @@
 import { type FieldArrayValue } from '@/object-record/record-field/ui/types/FieldMetadata';
 import { ExpandableList } from '@/ui/layout/expandable-list/components/ExpandableList';
-import { t } from '~/utils/i18n/badesI18n';
 import { Chip, ChipVariant } from 'ui/components';
 
 type ArrayDisplayProps = {
@@ -15,7 +14,7 @@ export const ArrayDisplay = ({ value }: ArrayDisplayProps) => {
           key={`${item}-${index}`}
           variant={ChipVariant.Highlighted}
           label={item}
-          emptyLabel={t`Tanpa judul`}
+          emptyLabel={`Tanpa judul`}
         />
       ))}
     </ExpandableList>

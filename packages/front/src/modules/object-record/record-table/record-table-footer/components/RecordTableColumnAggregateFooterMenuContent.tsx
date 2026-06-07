@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type AggregateOperations } from '@/object-record/record-table/constants/AggregateOperations';
 import { useRecordTableContextOrThrow } from '@/object-record/record-table/contexts/RecordTableContext';
 import { RecordTableColumnAggregateFooterDropdownContext } from '@/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterDropdownContext';
@@ -60,7 +59,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
           onClick={() => {
             onContentChange('countAggregateOperationsOptions');
           }}
-          text={t`Jumlah`}
+          text={`Jumlah`}
           hasSubMenu
         />
         {!fieldIsRelation && (
@@ -68,7 +67,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             onClick={() => {
               onContentChange('percentAggregateOperationsOptions');
             }}
-            text={t`Persentase`}
+            text={`Persentase`}
             hasSubMenu
           />
         )}
@@ -77,7 +76,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             onClick={() => {
               onContentChange('datesAggregateOperationsOptions');
             }}
-            text={t`Tanggal`}
+            text={`Tanggal`}
             hasSubMenu
           />
         )}
@@ -86,7 +85,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             onClick={() => {
               onContentChange('moreAggregateOperationOptions');
             }}
-            text={t`Opsi lainnya`}
+            text={`Opsi lainnya`}
             hasSubMenu
           />
         ) : null}
@@ -97,7 +96,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             resetContent();
             closeDropdown(dropdownId);
           }}
-          text={t`Tidak ada`}
+          text={`Tidak ada`}
           RightIcon={
             !isDefined(currentViewFieldAggregateOperation)
               ? IconCheck

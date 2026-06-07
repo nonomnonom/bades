@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
@@ -108,7 +107,7 @@ export const SettingsAgentLogsTab = ({
           });
         }
         enqueueSuccessSnackBar({
-          message: t`Giliran berhasil dievaluasi`,
+          message: `Giliran berhasil dievaluasi`,
         });
         refetch();
       },
@@ -124,7 +123,7 @@ export const SettingsAgentLogsTab = ({
         return next;
       });
       enqueueErrorSnackBar({
-        message: t`Gagal mengevaluasi giliran`,
+        message: `Gagal mengevaluasi giliran`,
       });
     });
   };
@@ -152,9 +151,9 @@ export const SettingsAgentLogsTab = ({
         <Table>
           <StyledTableHeaderRowContainer>
             <TableRow gridTemplateColumns="140px 80px 1fr 40px">
-              <TableHeader>{t`Tanggal`}</TableHeader>
-              <TableHeader>{t`Skor`}</TableHeader>
-              <TableHeader>{t`Input`}</TableHeader>
+              <TableHeader>{`Tanggal`}</TableHeader>
+              <TableHeader>{`Skor`}</TableHeader>
+              <TableHeader>{`Input`}</TableHeader>
               <TableHeader />
             </TableRow>
           </StyledTableHeaderRowContainer>
@@ -172,10 +171,10 @@ export const SettingsAgentLogsTab = ({
         <AnimatedPlaceholder type="emptyTimeline" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`Belum ada log`}
+            {`Belum ada log`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`Riwayat percakapan agen akan muncul di sini setelah agen digunakan`}
+            {`Riwayat percakapan agen akan muncul di sini setelah agen digunakan`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>
@@ -187,9 +186,9 @@ export const SettingsAgentLogsTab = ({
       <Table>
         <StyledTableHeaderRowContainer>
           <TableRow gridTemplateColumns="140px 80px 1fr 40px">
-            <TableHeader>{t`Tanggal`}</TableHeader>
-            <TableHeader>{t`Skor`}</TableHeader>
-            <TableHeader>{t`Input`}</TableHeader>
+            <TableHeader>{`Tanggal`}</TableHeader>
+            <TableHeader>{`Skor`}</TableHeader>
+            <TableHeader>{`Input`}</TableHeader>
             <TableHeader />
           </TableRow>
         </StyledTableHeaderRowContainer>
@@ -215,14 +214,14 @@ export const SettingsAgentLogsTab = ({
                   />
                 ) : evaluatingTurnIds.has(turn.id) ||
                   backgroundEvaluatingTurnIds.has(turn.id) ? (
-                  <Status color="blue" text={t`Mengevaluasi`} isLoaderVisible />
+                  <Status color="blue" text={`Mengevaluasi`} isLoaderVisible />
                 ) : (
                   <Button
                     size="small"
                     variant="secondary"
                     onClick={() => handleEvaluateTurn(turn.id)}
                     disabled={evaluating}
-                    title={t`Evaluasi`}
+                    title={`Evaluasi`}
                   />
                 )}
               </TableCell>
@@ -231,7 +230,7 @@ export const SettingsAgentLogsTab = ({
                 textOverflow="ellipsis"
                 whiteSpace="nowrap"
               >
-                {userInput || t`Tidak ada input`}
+                {userInput || `Tidak ada input`}
               </TableCell>
               <TableCell
                 align="right"
@@ -245,7 +244,7 @@ export const SettingsAgentLogsTab = ({
                   >
                     <LightIconButton
                       Icon={IconChevronRight}
-                      title={t`Lihat semua evaluasi`}
+                      title={`Lihat semua evaluasi`}
                       accent="tertiary"
                     />
                   </UndecoratedLink>

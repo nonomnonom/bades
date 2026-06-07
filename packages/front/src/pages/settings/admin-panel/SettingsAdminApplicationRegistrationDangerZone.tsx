@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
@@ -55,7 +55,6 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
   registration: ApplicationRegistration;
   fromAdmin?: boolean;
 }) => {
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
   const { openModal, closeModal } = useModal();
@@ -119,11 +118,11 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
       }
 
       enqueueSuccessSnackBar({
-        message: t`Aplikasi berhasil dihapus`,
+        message: `Aplikasi berhasil dihapus`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Terjadi kesalahan saat menghapus aplikasi`,
+        message: `Terjadi kesalahan saat menghapus aplikasi`,
       });
     } finally {
       setIsLoading(false);
@@ -146,13 +145,13 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
         },
       });
       enqueueSuccessSnackBar({
-        message: t`Kepemilikan berhasil dipindahkan`,
+        message: `Kepemilikan berhasil dipindahkan`,
       });
       setTransferSubdomain('');
       navigate(SettingsPath.Applications);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal memindahkan kepemilikan. Periksa apakah subdomain sudah benar.`,
+        message: `Gagal memindahkan kepemilikan. Periksa apakah subdomain sudah benar.`,
       });
     } finally {
       setIsTransferring(false);
@@ -165,15 +164,15 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
     <>
       <Section>
         <H2Title
-          title={t`Zona berbahaya`}
-          description={t`Hapus atau pindahkan registrasi aplikasi ini`}
+          title={`Zona berbahaya`}
+          description={`Hapus atau pindahkan registrasi aplikasi ini`}
         />
         <StyledDangerButtonGroup>
           <Button
             id={DELETE_REGISTRATION_BUTTON_ID}
             accent="danger"
             variant="secondary"
-            title={t`Hapus aplikasi`}
+            title={`Hapus aplikasi`}
             Icon={IconTrash}
             disabled={hasActiveInstalls}
             onClick={() => openModal(DELETE_REGISTRATION_MODAL_ID)}
@@ -181,7 +180,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           {hasActiveInstalls && (
             <AppTooltip
               anchorSelect={`#${DELETE_REGISTRATION_BUTTON_ID}`}
-              content={t`Copot pemasangan aplikasi ini dari semua ruang kerja sebelum menghapusnya`}
+              content={`Copot pemasangan aplikasi ini dari semua ruang kerja sebelum menghapusnya`}
               noArrow
               place="bottom"
               positionStrategy="fixed"
@@ -191,7 +190,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           <Button
             accent="default"
             variant="secondary"
-            title={t`Pindahkan kepemilikan`}
+            title={`Pindahkan kepemilikan`}
             Icon={IconShare}
             onClick={() => openModal(TRANSFER_OWNERSHIP_MODAL_ID)}
           />
@@ -202,7 +201,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
         confirmationPlaceholder={confirmationValue}
         confirmationValue={confirmationValue}
         modalInstanceId={DELETE_REGISTRATION_MODAL_ID}
-        title={t`Hapus aplikasi`}
+        title={`Hapus aplikasi`}
         subtitle={
           <Trans>
             Ketik {`"${confirmationValue}"`} untuk mengonfirmasi penghapusan
@@ -211,7 +210,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           </Trans>
         }
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Hapus`}
+        confirmButtonText={`Hapus`}
         loading={isLoading}
       />
 
@@ -224,7 +223,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
       >
         <StyledAppModalTitle>
           <H1Title
-            title={t`Pindahkan kepemilikan`}
+            title={`Pindahkan kepemilikan`}
             fontColor={H1TitleFontColor.Primary}
           />
         </StyledAppModalTitle>
@@ -232,17 +231,17 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           alignment={SectionAlignment.Center}
           fontColor={SectionFontColor.Primary}
         >
-          {t`Masukkan subdomain ruang kerja tujuan pemindahan aplikasi ini. Anda akan kehilangan akses untuk mengelolanya.`}
+          {`Masukkan subdomain ruang kerja tujuan pemindahan aplikasi ini. Anda akan kehilangan akses untuk mengelolanya.`}
         </StyledAppModalSection>
         <Section>
           <SettingsTextInput
             instanceId="transfer-ownership-subdomain"
             value={transferSubdomain}
             onChange={setTransferSubdomain}
-            placeholder={t`cth. my-workspace`}
+            placeholder={`cth. my-workspace`}
             fullWidth
             disableHotkeys
-            label={t`Subdomain ruang kerja tujuan`}
+            label={`Subdomain ruang kerja tujuan`}
             autoFocusOnMount
           />
         </Section>
@@ -252,14 +251,14 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
             setTransferSubdomain('');
           }}
           variant="secondary"
-          title={t`Batal`}
+          title={`Batal`}
           fullWidth
         />
         <StyledAppModalButton
           onClick={handleTransferOwnership}
           variant="secondary"
           accent="danger"
-          title={t`Pindahkan`}
+          title={`Pindahkan`}
           disabled={
             !isNonEmptyString(transferSubdomain.trim()) || isTransferring
           }

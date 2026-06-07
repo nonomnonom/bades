@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
@@ -40,7 +39,7 @@ export const SettingsSkillInactiveMenuDropDown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Opsi Keahlian Tidak Aktif`}
+          aria-label={`Opsi Keahlian Tidak Aktif`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -49,13 +48,13 @@ export const SettingsSkillInactiveMenuDropDown = ({
         <DropdownContent widthInPixels={GenericDropdownContentWidth.Narrow}>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Aktifkan`}
+              text={`Aktifkan`}
               LeftIcon={IconArchiveOff}
               onClick={handleActivate}
             />
             {isCustomSkill && (
               <MenuItem
-                text={t`Hapus`}
+                text={`Hapus`}
                 LeftIcon={IconTrash}
                 accent="danger"
                 onClick={handleDelete}

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconSettings, TintedIconTile } from 'ui/display';
 
 import { CommandMenuItem } from '@/command-menu/components/CommandMenuItem';
@@ -38,7 +37,6 @@ export const SidePanelObjectPickerSubView = ({
   emptyNoResultsText,
   disableDrag = false,
 }: SidePanelObjectPickerSubViewProps) => {
-  const { t } = useLingui();
   const { filteredItems, selectableItemIds, isEmpty, hasSearchQuery } =
     useSidePanelFilteredPickerItems({
       items: objects,
@@ -48,13 +46,13 @@ export const SidePanelObjectPickerSubView = ({
     });
 
   const noResultsText = hasSearchQuery
-    ? t`Tidak ada hasil`
-    : (emptyNoResultsText ?? t`Semua objek sudah ada di bilah samping`);
+    ? `Tidak ada hasil`
+    : (emptyNoResultsText ?? `Semua objek sudah ada di bilah samping`);
 
   const isAddVariant = objectMenuItemVariant === 'add';
 
   const listContent = (
-    <SidePanelGroup heading={t`Objek`}>
+    <SidePanelGroup heading={`Objek`}>
       {filteredItems.map((objectMetadataItem, index) => (
         <SidePanelObjectPickerItem
           key={objectMetadataItem.id}
@@ -70,7 +68,7 @@ export const SidePanelObjectPickerSubView = ({
       <SelectableListItem itemId="system" onEnter={onOpenSystemPicker}>
         <CommandMenuItem
           Icon={() => <TintedIconTile Icon={IconSettings} />}
-          label={t`Objek sistem`}
+          label={`Objek sistem`}
           id="system"
           hasSubMenu
           onClick={onOpenSystemPicker}
@@ -81,7 +79,7 @@ export const SidePanelObjectPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Cari objek...`}
+      searchPlaceholder={`Cari objek...`}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >

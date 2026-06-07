@@ -3,7 +3,6 @@ import { VERIFY_TWO_FACTOR_AUTHENTICATION_METHOD_FOR_AUTHENTICATED_USER } from '
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { SettingsPath } from 'shared/types';
@@ -12,7 +11,6 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 export const useTwoFactorVerificationForSettings = () => {
   const { enqueueErrorSnackBar, enqueueSuccessSnackBar } = useSnackBar();
   const navigate = useNavigateSettings();
-  const { t } = useLingui();
   const [isLoading, setIsLoading] = useState(false);
   const { loadCurrentUser } = useLoadCurrentUser();
 
@@ -33,7 +31,7 @@ export const useTwoFactorVerificationForSettings = () => {
 
   const handleVerificationSuccess = async () => {
     enqueueSuccessSnackBar({
-      message: t`Pengaturan autentikasi dua faktor berhasil diselesaikan!`,
+      message: `Pengaturan autentikasi dua faktor berhasil diselesaikan!`,
     });
 
     // Reload current user to refresh 2FA status
@@ -56,7 +54,7 @@ export const useTwoFactorVerificationForSettings = () => {
       await handleVerificationSuccess();
     } catch {
       enqueueErrorSnackBar({
-        message: t`Kode verifikasi tidak valid. Silakan coba lagi.`,
+        message: `Kode verifikasi tidak valid. Silakan coba lagi.`,
       });
     } finally {
       setIsLoading(false);

@@ -8,7 +8,6 @@ import {
   signInUpStepState,
 } from '@/auth/states/signInUpStepState';
 import { OnboardingModalCircularIcon } from '@/onboarding/components/OnboardingModalCircularIcon';
-import { t } from '~/utils/i18n/badesI18n';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { IconGmail, IconMail, IconMailX, IconMicrosoft } from 'ui/display';
 import { MainButton } from 'ui/input';
@@ -108,23 +107,23 @@ export const EmailVerificationSent = ({
     setSignInUpStep(SignInUpStep.Email);
   };
 
-  const title = isError ? t`Verifikasi Email Gagal` : t`Periksa Email Anda`;
+  const title = isError ? `Verifikasi Email Gagal` : `Periksa Email Anda`;
   const subtitle = isError
-    ? t`Kami menemui kendala saat memverifikasi`
-    : t`Email verifikasi telah dikirim ke`;
+    ? `Kami menemui kendala saat memverifikasi`
+    : `Email verifikasi telah dikirim ke`;
 
   const Icon = isError ? IconMailX : IconMail;
 
   const mainButtons = isError ? (
     <>
       <MainButton
-        title={t`Coba dengan email lain`}
+        title={`Coba dengan email lain`}
         onClick={handleChangeEmail}
         variant="secondary"
         fullWidth
       />
       <MainButton
-        title={isLoading ? t`Mengirim...` : t`Kirim ulang email`}
+        title={isLoading ? `Mengirim...` : `Kirim ulang email`}
         onClick={handleResendEmailVerificationToken(email)}
         disabled={isLoading}
         fullWidth
@@ -133,14 +132,14 @@ export const EmailVerificationSent = ({
   ) : (
     <>
       <MainButton
-        title={t`Buka Gmail`}
+        title={`Buka Gmail`}
         onClick={handleOpenGmail}
         Icon={IconGmail}
         variant="secondary"
         fullWidth
       />
       <MainButton
-        title={t`Buka Outlook`}
+        title={`Buka Outlook`}
         onClick={handleOpenOutlook}
         Icon={IconMicrosoft}
         variant="secondary"
@@ -172,11 +171,11 @@ export const EmailVerificationSent = ({
             onClick={handleResendEmailVerificationToken(email)}
             disabled={isLoading}
           >
-            {isLoading ? t`Mengirim...` : t`Kirim ulang email`}
+            {isLoading ? `Mengirim...` : `Kirim ulang email`}
           </StyledLinkButton>
           <StyledDot />
           <StyledLinkButton onClick={handleChangeEmail}>
-            {t`Ganti email`}
+            {`Ganti email`}
           </StyledLinkButton>
         </StyledBottomLinks>
       )}

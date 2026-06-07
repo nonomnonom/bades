@@ -22,7 +22,6 @@ import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
 import { VIEW_BAR_FILTER_BOTTOM_MENU_ITEM_IDS } from '@/views/constants/ViewBarFilterBottomMenuItemIds';
 import { ViewBarFilterDropdownIds } from '@/views/constants/ViewBarFilterDropdownIds';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconX } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -86,8 +85,6 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
     selectableVisibleFieldMetadataItems.length > 0;
   const shouldShowHiddenFields = selectableHiddenFieldMetadataItems.length > 0;
 
-  const { t } = useLingui();
-
   return (
     <DropdownContent widthInPixels={GenericDropdownContentWidth.ExtraLarge}>
       <DropdownMenuHeader
@@ -98,13 +95,13 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
           />
         }
       >
-        {t`Filter`}
+        {`Filter`}
       </DropdownMenuHeader>
       <ScrollWrapper componentInstanceId="view-bar-dropdown-filter-field-select-menu">
         <StyledInput
           value={objectFilterDropdownSearchInput}
           autoFocus
-          placeholder={t`Cari kolom`}
+          placeholder={`Cari kolom`}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setObjectFilterDropdownSearchInput(event.target.value)
           }
@@ -116,7 +113,7 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
         >
           {shouldShowVisibleFields && (
             <>
-              <DropdownMenuSectionLabel label={t`Kolom terlihat`} />
+              <DropdownMenuSectionLabel label={`Kolom terlihat`} />
               <DropdownMenuItemsContainer scrollable={false}>
                 {selectableVisibleFieldMetadataItems.map(
                   (visibleFieldMetadataItem) => (
@@ -132,7 +129,7 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
           {shouldShowSeparator && <DropdownMenuSeparator />}
           {shouldShowHiddenFields && (
             <>
-              <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
+              <DropdownMenuSectionLabel label={`Kolom tersembunyi`} />
               <DropdownMenuItemsContainer scrollable={false}>
                 {selectableHiddenFieldMetadataItems.map(
                   (hiddenFieldMetadataItem) => (

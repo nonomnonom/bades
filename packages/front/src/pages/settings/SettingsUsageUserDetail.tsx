@@ -1,4 +1,4 @@
-import { t, Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsBillingLabelValueItem } from '@/settings/billing/components/internal/SettingsBillingLabelValueItem';
 import { SubscriptionInfoContainer } from '@/settings/billing/components/SubscriptionInfoContainer';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -129,7 +129,7 @@ export const SettingsUsageUserDetail = () => {
           <StyledUserInfo>
             <StyledUserName>{displayName}</StyledUserName>
             <StyledUserCredits>
-              {t`${formatUsageValue(totalCredits)} digunakan`}
+              {`${formatUsageValue(totalCredits)} digunakan`}
             </StyledUserCredits>
           </StyledUserInfo>
         </StyledUserHeader>
@@ -138,23 +138,23 @@ export const SettingsUsageUserDetail = () => {
           <Section>
             <SubscriptionInfoContainer>
               <SettingsBillingLabelValueItem
-                label={t`Belum ada data pemakaian`}
-                value={t`Tidak ada konsumsi kredit tercatat untuk pengguna ini.`}
+                label={`Belum ada data pemakaian`}
+                value={`Tidak ada konsumsi kredit tercatat untuk pengguna ini.`}
               />
             </SubscriptionInfoContainer>
           </Section>
         )}
 
         <UsageDailyChartSection
-          title={t`Pemakaian Harian`}
-          description={t`Konsumsi kredit per hari.`}
+          title={`Pemakaian Harian`}
+          description={`Konsumsi kredit per hari.`}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           chartId="user-daily"
-          chartLabel={t`Kredit`}
+          chartLabel={`Kredit`}
         />
         <UsageBreakdownPieSection
-          title={t`Pemakaian per Jenis`}
+          title={`Pemakaian per Jenis`}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           breakdownField="operationType"

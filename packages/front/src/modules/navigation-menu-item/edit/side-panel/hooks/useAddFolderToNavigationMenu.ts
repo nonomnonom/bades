@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconFolder } from 'ui/display';
 
@@ -11,7 +10,6 @@ import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 export const useAddFolderToNavigationMenu = () => {
-  const { t } = useLingui();
   const { addFolderToDraft } = useAddFolderToNavigationMenuDraft();
   const { workspaceNavigationMenuItems } = useNavigationMenuItemsDraftState();
   const navigationMenuItemsDraft = useAtomStateValue(
@@ -39,7 +37,7 @@ export const useAddFolderToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Ubah folder`,
+      pageTitle: `Ubah folder`,
       pageIcon: IconFolder,
       focusTitleInput: true,
     });

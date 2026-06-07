@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconArchive, IconComment } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -61,7 +60,6 @@ export const NavigationDrawerAiChatThreadItem = ({
   isActive,
   onClick,
 }: NavigationDrawerAiChatThreadItemProps) => {
-  const { t } = useLingui();
   const {
     isRenaming,
     draftTitle,
@@ -73,7 +71,7 @@ export const NavigationDrawerAiChatThreadItem = ({
 
   const isArchived = Boolean(thread.deletedAt);
   const ThreadIcon = isArchived ? IconArchive : IconComment;
-  const displayLabel = thread.title || t`Obrolan baru`;
+  const displayLabel = thread.title || `Obrolan baru`;
   const timestamp = beautifyPastDateRelativeToNowShort(
     thread.lastMessageAt ?? thread.updatedAt ?? thread.createdAt,
   );
@@ -95,7 +93,7 @@ export const NavigationDrawerAiChatThreadItem = ({
         onSubmit={commitRename}
         onCancel={cancelRename}
         onClickOutside={(_event, value) => commitRename(value)}
-        placeholder={t`Nama obrolan`}
+        placeholder={`Nama obrolan`}
       />
     );
   }

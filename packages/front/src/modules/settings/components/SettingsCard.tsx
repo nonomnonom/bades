@@ -1,7 +1,6 @@
 import { styled } from '@linaria/react';
 
 import { type ReactNode, useContext } from 'react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Card, CardContent } from 'ui/layout';
 import { IconChevronRight } from 'ui/display';
 import { Pill } from 'ui/components';
@@ -112,7 +111,7 @@ export const SettingsCard = ({
               <StyledIconContainer>{Icon}</StyledIconContainer>
               <StyledTitle disabled={disabled}>
                 {title}
-                {soon && <Pill label={t`Segera`} />}
+                {soon && <Pill label={`Segera`} />}
               </StyledTitle>
               {isDefined(Status) && Status}
               <StyledIconChevronRightContainer>

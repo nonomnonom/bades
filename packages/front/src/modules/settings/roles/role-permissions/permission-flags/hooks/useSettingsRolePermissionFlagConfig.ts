@@ -1,5 +1,4 @@
 import { type SettingsRolePermissionsSettingPermission } from '@/settings/roles/role-permissions/permission-flags/types/SettingsRolePermissionsSettingPermission';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import {
   IconApps,
@@ -43,8 +42,8 @@ export const useSettingsRolePermissionFlagConfig = ({
     const allPermissions: SettingsRolePermissionsSettingPermission[] = [
       {
         key: PermissionFlagType.WORKSPACE,
-        name: t`Ruang Kerja`,
-        description: t`Atur preferensi ruang kerja global`,
+        name: `Ruang Kerja`,
+        description: `Atur preferensi ruang kerja global`,
         Icon: IconSettings,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -52,8 +51,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.WORKSPACE_MEMBERS,
-        name: t`Pengguna`,
-        description: t`Tambah atau hapus pengguna`,
+        name: `Pengguna`,
+        description: `Tambah atau hapus pengguna`,
         Icon: IconUsers,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -61,8 +60,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.ROLES,
-        name: t`Peran`,
-        description: t`Tentukan peran dan tingkat akses pengguna`,
+        name: `Peran`,
+        description: `Tentukan peran dan tingkat akses pengguna`,
         Icon: IconLockOpen,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -70,8 +69,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.DATA_MODEL,
-        name: t`Model Data`,
-        description: t`Ubah struktur data dan kolom`,
+        name: `Model Data`,
+        description: `Ubah struktur data dan kolom`,
         Icon: IconHierarchy,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -79,8 +78,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.SECURITY,
-        name: t`Keamanan`,
-        description: t`Kelola kebijakan keamanan`,
+        name: `Keamanan`,
+        description: `Kelola kebijakan keamanan`,
         Icon: IconKey,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -88,8 +87,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.WORKFLOWS,
-        name: t`Alur Kerja`,
-        description: t`Kelola alur kerja`,
+        name: `Alur Kerja`,
+        description: `Kelola alur kerja`,
         Icon: IconSettingsAutomation,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -97,8 +96,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.SSO_BYPASS,
-        name: t`Lewati SSO`,
-        description: t`Aktifkan opsi bypass SSO`,
+        name: `Lewati SSO`,
+        description: `Aktifkan opsi bypass SSO`,
         Icon: IconShield,
         isRelevantForAgents: false,
         isRelevantForApiKeys: false,
@@ -106,8 +105,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.IMPERSONATE,
-        name: t`Representasi Pengguna`,
-        description: t`Bertindak sebagai pengguna ruang kerja lain`,
+        name: `Representasi Pengguna`,
+        description: `Bertindak sebagai pengguna ruang kerja lain`,
         Icon: IconSpy,
         isRelevantForAgents: false,
         isRelevantForApiKeys: false,
@@ -115,8 +114,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.APPLICATIONS,
-        name: t`Aplikasi`,
-        description: t`Pasang dan kelola aplikasi`,
+        name: `Aplikasi`,
+        description: `Pasang dan kelola aplikasi`,
         Icon: IconApps,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -124,8 +123,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.LAYOUTS,
-        name: t`Tata Letak`,
-        description: t`Sesuaikan tata letak halaman dan struktur antarmuka`,
+        name: `Tata Letak`,
+        description: `Sesuaikan tata letak halaman dan struktur antarmuka`,
         Icon: IconLayoutSidebarRightCollapse,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,
@@ -133,8 +132,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.BILLING,
-        name: t`Tagihan`,
-        description: t`Kelola tagihan dan langganan`,
+        name: `Tagihan`,
+        description: `Kelola tagihan dan langganan`,
         Icon: IconCreditCard,
         isRelevantForAgents: false,
         isRelevantForApiKeys: false,
@@ -142,8 +141,8 @@ export const useSettingsRolePermissionFlagConfig = ({
       },
       {
         key: PermissionFlagType.AI_SETTINGS,
-        name: t`AI`,
-        description: t`Buat dan konfigurasi agen AI`,
+        name: `AI`,
+        description: `Buat dan konfigurasi agen AI`,
         Icon: IconSparkles,
         isRelevantForAgents: true,
         isRelevantForApiKeys: true,

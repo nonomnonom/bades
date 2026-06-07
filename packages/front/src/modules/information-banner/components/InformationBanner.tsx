@@ -2,7 +2,6 @@ import { InformationBannerComponentInstanceContext } from '@/information-banner/
 import { informationBannerIsOpenComponentState } from '@/information-banner/states/informationBannerIsOpenComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   Banner,
   type BannerColor,
@@ -90,7 +89,7 @@ export const InformationBanner = ({
                 size="small"
                 variant="tertiary"
                 onClick={onClose}
-                ariaLabel={t`Tutup banner`}
+                ariaLabel={`Tutup banner`}
               />
             ) : (
               <IconButton
@@ -99,7 +98,7 @@ export const InformationBanner = ({
                 variant="tertiary"
                 accent={buttonAccent}
                 onClick={onClose}
-                ariaLabel={t`Tutup banner`}
+                ariaLabel={`Tutup banner`}
               />
             ))}
         </Banner>

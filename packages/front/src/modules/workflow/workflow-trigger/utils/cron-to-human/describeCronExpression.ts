@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type Locale } from 'date-fns';
 import { isDefined } from 'shared/utils';
 
@@ -63,7 +62,7 @@ export const describeCronExpression = (
       }
     } else if (parts.hours === '*' && parts.minutes === '0') {
       // Pattern like "0 * * * *" - should be "every hour", not "at the top of the hour"
-      descriptions.push(t`setiap jam`);
+      descriptions.push(`setiap jam`);
     } else if (isDefined(hoursDescription) && hoursDescription !== '') {
       // Use hours description for specific hours or hour patterns
       descriptions.push(hoursDescription);
@@ -104,7 +103,7 @@ export const describeCronExpression = (
     }
 
     if (descriptions.length === 0) {
-      return t`setiap menit`;
+      return `setiap menit`;
     }
     // Simple joining - just use spaces, no commas for cleaner descriptions
     return descriptions.join(' ');

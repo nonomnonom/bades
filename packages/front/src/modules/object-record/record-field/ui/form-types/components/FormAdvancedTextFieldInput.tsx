@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { AdvancedTextEditor } from '@/advanced-text-editor/components/AdvancedTextEditor';
 import {
   type AdvancedTextEditorContentType,
@@ -108,7 +107,6 @@ export const FormAdvancedTextFieldInput = ({
   const isMobile = useIsMobile();
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  const { t } = useLingui();
   const { pushFocusItemToFocusStack } = usePushFocusItemToFocusStack();
   const { removeFocusItemFromFocusStackById } =
     useRemoveFocusItemFromFocusStackById();
@@ -169,7 +167,7 @@ export const FormAdvancedTextFieldInput = ({
 
   const defaultBreadcrumbs: BreadcrumbProps['links'] = [
     {
-      children: t`Editor Teks`,
+      children: `Editor Teks`,
     },
   ];
 

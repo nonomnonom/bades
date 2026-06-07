@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { useAdvancedFilterFieldSelectDropdown } from '@/object-record/advanced-filter/hooks/useAdvancedFilterFieldSelectDropdown';
 import { useApplyAdvancedFilterCompositeSubField } from '@/object-record/advanced-filter/hooks/useApplyAdvancedFilterCompositeSubField';
@@ -150,7 +149,7 @@ export const AdvancedFilterCompositeSubFieldSelectMenu = ({
                     });
                   }}
                   LeftIcon={getIcon(fieldMetadataItemUsedInDropdown.icon)}
-                  text={t`Semua kolom ${fieldLabel}`}
+                  text={`Semua kolom ${fieldLabel}`}
                 />
               </SelectableListItem>
             )}

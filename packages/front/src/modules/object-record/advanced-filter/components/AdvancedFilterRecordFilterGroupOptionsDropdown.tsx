@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useChildRecordFiltersAndRecordFilterGroups } from '@/object-record/advanced-filter/hooks/useChildRecordFiltersAndRecordFilterGroups';
 import { useRemoveRecordFilterGroup } from '@/object-record/record-filter-group/hooks/useRemoveRecordFilterGroup';
 import { useRemoveRootRecordFilterGroupIfEmpty } from '@/object-record/record-filter-group/hooks/useRemoveRootRecordFilterGroupIfEmpty';
@@ -49,7 +48,7 @@ export const AdvancedFilterRecordFilterGroupOptionsDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <IconButton
-          aria-label={t`Opsi grup aturan filter`}
+          aria-label={`Opsi grup aturan filter`}
           variant="tertiary"
           Icon={IconDotsVertical}
         />
@@ -58,7 +57,7 @@ export const AdvancedFilterRecordFilterGroupOptionsDropdown = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Hapus grup aturan`}
+              text={`Hapus grup aturan`}
               onClick={handleRemove}
               LeftIcon={IconTrash}
               accent="danger"

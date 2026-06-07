@@ -5,7 +5,6 @@ import { TAB_SETTINGS_SELECTABLE_ITEM_IDS } from '@/side-panel/pages/page-layout
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   AppTooltip,
   IconChevronLeft,
@@ -47,7 +46,6 @@ export const RegularTabSettingsContent = ({
   onResetToDefault,
   onDelete,
 }: RegularTabSettingsContentProps) => {
-  const { t } = useLingui();
   const { openModal } = useModal();
 
   const handleResetToDefault = () => {
@@ -69,7 +67,7 @@ export const RegularTabSettingsContent = ({
   return (
     <>
       <SidePanelList selectableItemIds={selectableItemIds}>
-        <SidePanelGroup heading={t`Pengaturan`}>
+        <SidePanelGroup heading={`Pengaturan`}>
           {canMoveLeft && (
             <SelectableListItem
               itemId={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_LEFT}
@@ -78,7 +76,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_LEFT}
                 Icon={IconChevronLeft}
-                label={t`Pindah ke kiri`}
+                label={`Pindah ke kiri`}
                 onClick={onMoveLeft}
               />
             </SelectableListItem>
@@ -91,7 +89,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_RIGHT}
                 Icon={IconChevronRight}
-                label={t`Pindah ke kanan`}
+                label={`Pindah ke kanan`}
                 onClick={onMoveRight}
               />
             </SelectableListItem>
@@ -104,7 +102,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.SET_AS_PINNED}
                 Icon={IconPinned}
-                label={t`Setel sebagai tab disematkan`}
+                label={`Setel sebagai tab disematkan`}
                 onClick={onSetAsPinned}
               />
             </SelectableListItem>
@@ -116,7 +114,7 @@ export const RegularTabSettingsContent = ({
             <CommandMenuItem
               id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.DUPLICATE}
               Icon={IconCopyPlus}
-              label={t`Duplikat`}
+              label={`Duplikat`}
               onClick={onDuplicate}
             />
           </SelectableListItem>
@@ -128,7 +126,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
                 Icon={IconRefreshDot}
-                label={t`Setel ulang ke bawaan`}
+                label={`Setel ulang ke bawaan`}
                 onClick={handleResetToDefault}
                 disabled={isResetToDefaultDisabled}
               />
@@ -137,7 +135,7 @@ export const RegularTabSettingsContent = ({
           {isResetToDefaultDisabled && (
             <AppTooltip
               anchorSelect={`#${RESET_TAB_TO_DEFAULT_MENU_ITEM_ID}`}
-              content={t`Tidak ada konfigurasi bawaan untuk tab ini`}
+              content={`Tidak ada konfigurasi bawaan untuk tab ini`}
               noArrow
               place="bottom"
             />
@@ -150,7 +148,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.DELETE}
                 Icon={IconTrash}
-                label={t`Hapus`}
+                label={`Hapus`}
                 onClick={onDelete}
               />
             </SelectableListItem>
@@ -159,10 +157,10 @@ export const RegularTabSettingsContent = ({
       </SidePanelList>
       <ConfirmationModal
         modalInstanceId={RESET_TAB_TO_DEFAULT_MODAL_ID}
-        title={t`Setel ulang ke bawaan`}
-        subtitle={t`Ini akan membatalkan semua perubahan pada tab dan widget-nya. Mode edit akan dibatalkan dan halaman akan dimuat ulang. Tindakan ini tidak dapat dibatalkan.`}
+        title={`Setel ulang ke bawaan`}
+        subtitle={`Ini akan membatalkan semua perubahan pada tab dan widget-nya. Mode edit akan dibatalkan dan halaman akan dimuat ulang. Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={onResetToDefault}
-        confirmButtonText={t`Setel ulang`}
+        confirmButtonText={`Setel ulang`}
         confirmButtonAccent="danger"
       />
     </>

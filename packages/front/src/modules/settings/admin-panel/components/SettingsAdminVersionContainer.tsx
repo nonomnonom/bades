@@ -1,7 +1,6 @@
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsAdminVersionDisplay } from '@/settings/admin-panel/components/SettingsAdminVersionDisplay';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconCircleDot, IconStatusChange } from 'ui/display';
 import { useQuery } from '@apollo/client/react';
 import { GetVersionInfoDocument } from '~/generated-admin/graphql';
@@ -16,23 +15,23 @@ export const SettingsAdminVersionContainer = () => {
   const versionItems = [
     {
       Icon: IconCircleDot,
-      label: t`Versi saat ini`,
+      label: `Versi saat ini`,
       value: (
         <SettingsAdminVersionDisplay
           version={currentVersion}
           loading={loading}
-          noVersionMessage={t`Tidak diketahui`}
+          noVersionMessage={`Tidak diketahui`}
         />
       ),
     },
     {
       Icon: IconStatusChange,
-      label: t`Versi terbaru`,
+      label: `Versi terbaru`,
       value: (
         <SettingsAdminVersionDisplay
           version={latestVersion}
           loading={loading}
-          noVersionMessage={t`Tidak ada versi terbaru`}
+          noVersionMessage={`Tidak ada versi terbaru`}
         />
       ),
     },

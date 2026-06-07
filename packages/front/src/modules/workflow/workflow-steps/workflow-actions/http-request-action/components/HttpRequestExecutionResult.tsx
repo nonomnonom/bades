@@ -3,8 +3,6 @@ import {
   WorkflowStepExecutionResult,
 } from '@/workflow/components/WorkflowStepExecutionResult';
 import type { HttpRequestTestData } from '@/workflow/workflow-steps/workflow-actions/http-request-action/types/HttpRequestTestData';
-import { t } from '~/utils/i18n/badesI18n';
-
 export const HttpRequestExecutionResult = ({
   httpRequestTestData,
   isTesting = false,
@@ -45,12 +43,12 @@ export const HttpRequestExecutionResult = ({
             ? ` - ${httpRequestTestData.output.duration}ms`
             : ''
         }`
-      : t`Permintaan Gagal`,
+      : `Permintaan Gagal`,
     additionalInfo:
       isSuccess && headersCount > 0
-        ? t`${headersCount} header diterima`
+        ? `${headersCount} header diterima`
         : isError
-          ? t`Terjadi kesalahan`
+          ? `Terjadi kesalahan`
           : undefined,
   };
 
@@ -61,8 +59,8 @@ export const HttpRequestExecutionResult = ({
       height="100%"
       status={status}
       isTesting={isTesting}
-      loadingMessage={t`Mengirim permintaan...`}
-      idleMessage={t`Respons`}
+      loadingMessage={`Mengirim permintaan...`}
+      idleMessage={`Respons`}
     />
   );
 };

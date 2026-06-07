@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormProvider } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 
@@ -26,7 +25,6 @@ const StyledLoadingContainer = styled.div`
 `;
 
 export const SettingsAccountsEditImapSmtpCaldavConnection = () => {
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const { connectedAccountId } = useParams<{ connectedAccountId: string }>();
 
@@ -65,17 +63,17 @@ export const SettingsAccountsEditImapSmtpCaldavConnection = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...formMethods}>
       <SubMenuTopBarContainer
-        title={t`Ubah Akun`}
+        title={`Ubah Akun`}
         links={[
           {
-            children: t`Pengguna`,
+            children: `Pengguna`,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: t`Akun`,
+            children: `Akun`,
             href: getSettingsPath(SettingsPath.Accounts),
           },
-          { children: t`Ubah Akun` },
+          { children: `Ubah Akun` },
         ]}
         actionButton={
           <SaveAndCancelButtons

@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { Tag } from 'ui/components';
 import {
@@ -112,7 +111,6 @@ const BillingIdDisplay = ({ id }: { id: string }) => (
 export const SettingsAdminWorkspaceBillingContent = ({
   workspaceId,
 }: SettingsAdminWorkspaceBillingContentProps) => {
-  const { t } = useLingui();
   const { formatNumber } = useNumberFormat();
   const apolloAdminClient = useApolloAdminClient();
 
@@ -140,8 +138,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
       <StyledContainer>
         <Section>
           <H2Title
-            title={t`Tagihan`}
-            description={t`Tidak ada data tagihan untuk ruang kerja ini.`}
+            title={`Tagihan`}
+            description={`Tidak ada data tagihan untuk ruang kerja ini.`}
           />
         </Section>
       </StyledContainer>
@@ -153,7 +151,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
   const customerItems = [
     {
       Icon: IconId,
-      label: t`ID pelanggan billing`,
+      label: `ID pelanggan billing`,
       value: isDefined(billingCustomerId) ? (
         <BillingIdDisplay id={billingCustomerId} />
       ) : (
@@ -162,18 +160,18 @@ export const SettingsAdminWorkspaceBillingContent = ({
     },
     {
       Icon: IconCoins,
-      label: t`Saldo kredit`,
+      label: `Saldo kredit`,
       value: isDefined(creditBalance)
-        ? `${formatNumber(creditBalance, { abbreviate: true, decimals: 2 })} ${t`kredit`}`
+        ? `${formatNumber(creditBalance, { abbreviate: true, decimals: 2 })} ${`kredit`}`
         : EM_DASH,
     },
   ];
 
   const intervalLabel =
     subscription?.interval === SubscriptionInterval.Month
-      ? t`Bulanan`
+      ? `Bulanan`
       : subscription?.interval === SubscriptionInterval.Year
-        ? t`Tahunan`
+        ? `Tahunan`
         : null;
 
   const formatPeriod = (start: string, end: string): string =>
@@ -190,11 +188,11 @@ export const SettingsAdminWorkspaceBillingContent = ({
     const parts: string[] = [];
 
     if (isDefined(item.quantity)) {
-      parts.push(`${formatNumber(item.quantity)} ${t`pengguna`}`);
+      parts.push(`${formatNumber(item.quantity)} ${`pengguna`}`);
     }
     if (isDefined(item.includedCredits)) {
       parts.push(
-        `${formatNumber(item.includedCredits, { abbreviate: true, decimals: 2 })} ${t`kredit/periode`}`,
+        `${formatNumber(item.includedCredits, { abbreviate: true, decimals: 2 })} ${`kredit/periode`}`,
       );
     }
     if (isDefined(item.unitAmount) && isDefined(subscription)) {
@@ -208,12 +206,12 @@ export const SettingsAdminWorkspaceBillingContent = ({
     ? [
         {
           Icon: IconCreditCard,
-          label: t`ID langganan billing`,
+          label: `ID langganan billing`,
           value: <BillingIdDisplay id={subscription.subscriptionId} />,
         },
         {
           Icon: IconStatusChange,
-          label: t`Status`,
+          label: `Status`,
           value: (
             <Tag
               color={STATUS_COLORS[subscription.status]}
@@ -225,7 +223,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconTag,
-                label: t`Paket`,
+                label: `Paket`,
                 value: <PlansTags plan={planKey} isTrialPeriod={isTrialing} />,
               },
             ]
@@ -234,14 +232,14 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCalendarEvent,
-                label: t`Interval tagihan`,
+                label: `Interval tagihan`,
                 value: intervalLabel,
               },
             ]
           : []),
         {
           Icon: IconCalendarRepeat,
-          label: t`Periode berjalan`,
+          label: `Periode berjalan`,
           value: formatPeriod(
             subscription.currentPeriodStart,
             subscription.currentPeriodEnd,
@@ -252,7 +250,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCalendarRepeat,
-                label: t`Periode percobaan`,
+                label: `Periode percobaan`,
                 value: formatPeriod(
                   subscription.trialStart,
                   subscription.trialEnd,
@@ -264,8 +262,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Dibatalkan di akhir periode`,
-                value: t`Ya`,
+                label: `Dibatalkan di akhir periode`,
+                value: `Ya`,
               },
             ]
           : []),
@@ -273,7 +271,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Dibatalkan pada`,
+                label: `Dibatalkan pada`,
                 value: beautifyExactDate(subscription.cancelAt),
               },
             ]
@@ -282,7 +280,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Dibatalkan tanggal`,
+                label: `Dibatalkan tanggal`,
                 value: beautifyExactDate(subscription.canceledAt),
               },
             ]
@@ -294,7 +292,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
               : item.productKey === RESOURCE_CREDIT_KEY
                 ? IconCoins
                 : IconBox,
-          label: item.productName || t`Produk tanpa nama`,
+          label: item.productName || `Produk tanpa nama`,
           value: (
             <StyledItemValue>
               <span>{formatItemValue(item)}</span>
@@ -311,8 +309,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
     <StyledContainer>
       <Section>
         <H2Title
-          title={t`Pelanggan billing`}
-          description={t`Akun billing yang terhubung ke workspace ini`}
+          title={`Pelanggan billing`}
+          description={`Akun billing yang terhubung ke workspace ini`}
         />
         <SettingsTableCard
           rounded
@@ -323,11 +321,11 @@ export const SettingsAdminWorkspaceBillingContent = ({
 
       <Section>
         <H2Title
-          title={t`Langganan`}
+          title={`Langganan`}
           description={
             subscription
-              ? t`Status langganan aktif dan rincian item`
-              : t`Tidak ada langganan aktif.`
+              ? `Status langganan aktif dan rincian item`
+              : `Tidak ada langganan aktif.`
           }
         />
         {subscription && (

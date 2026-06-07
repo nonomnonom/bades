@@ -3,7 +3,6 @@ import { CalendarContext } from '@/activities/calendar/contexts/CalendarContext'
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { SettingsAccountsCalendarDisplaySettings } from '@/settings/accounts/components/SettingsAccountsCalendarDisplaySettings';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Section } from '@react-email/components';
 import { addMinutes, endOfDay, min, startOfDay } from 'date-fns';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -57,7 +56,7 @@ export const SettingsAccountsCalendarChannelsGeneral = () => {
     description: '',
     isCanceled: false,
     location: '',
-    title: t`Rapat orientasi`,
+    title: `Rapat orientasi`,
     visibility: CalendarChannelVisibility.SHARE_EVERYTHING,
   };
 
@@ -65,15 +64,15 @@ export const SettingsAccountsCalendarChannelsGeneral = () => {
     <StyledGeneralContainer>
       <Section>
         <H2Title
-          title={t`Tampilan`}
-          description={t`Atur bagaimana acara Anda ditampilkan di kalender`}
+          title={`Tampilan`}
+          description={`Atur bagaimana acara Anda ditampilkan di kalender`}
         />
         <SettingsAccountsCalendarDisplaySettings />
       </Section>
       <Section>
         <H2Title
-          title={t`Kode warna`}
-          description={t`Acara yang Anda ikuti ditampilkan dengan warna merah.`}
+          title={`Kode warna`}
+          description={`Acara yang Anda ikuti ditampilkan dengan warna merah.`}
         />
         <CalendarContext.Provider
           value={{

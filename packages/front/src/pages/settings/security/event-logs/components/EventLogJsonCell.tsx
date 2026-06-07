@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useRef, useState } from 'react';
 
@@ -52,11 +51,11 @@ export const EventLogJsonCell = ({ value }: EventLogJsonCellProps) => {
           <JsonTree
             value={value as JsonValue}
             shouldExpandNodeInitially={isTwoFirstDepths}
-            emptyArrayLabel={t`Array kosong`}
-            emptyObjectLabel={t`Objek kosong`}
-            emptyStringLabel={t`[string kosong]`}
-            arrowButtonCollapsedLabel={t`Perluas`}
-            arrowButtonExpandedLabel={t`Ciutkan`}
+            emptyArrayLabel={`Array kosong`}
+            emptyObjectLabel={`Objek kosong`}
+            emptyStringLabel={`[string kosong]`}
+            arrowButtonCollapsedLabel={`Perluas`}
+            arrowButtonExpandedLabel={`Ciutkan`}
             onNodeValueClick={copyToClipboard}
           />
         </ExpandedFieldDisplay>

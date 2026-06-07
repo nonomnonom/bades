@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { OBJECT_SETTINGS_WIDTH } from '@/settings/data-model/constants/ObjectSettings';
 import { styled } from '@linaria/react';
 import { Avatar, IconEyeOff } from 'ui/display';
@@ -86,7 +85,7 @@ export const SettingsApplicationDetailTitle = ({
       {isUnlisted && (
         <StyledUnlistedBanner>
           <IconEyeOff size={16} />
-          {t`Aplikasi ini tidak terdaftar di katalog. Dibagikan melalui tautan langsung`}
+          {`Aplikasi ini tidak terdaftar di katalog. Dibagikan melalui tautan langsung`}
         </StyledUnlistedBanner>
       )}
       <StyledHeader>

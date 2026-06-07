@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { styled } from '@linaria/react';
 import { type ComponentType, useContext } from 'react';
@@ -91,7 +90,7 @@ export const SettingsToolParameterTable = ({
 
   if (entries.length === 0 && !functionLink) {
     return (
-      <SettingsEmptyPlaceholder>{t`Tidak ada parameter`}</SettingsEmptyPlaceholder>
+      <SettingsEmptyPlaceholder>{`Tidak ada parameter`}</SettingsEmptyPlaceholder>
     );
   }
 
@@ -101,9 +100,9 @@ export const SettingsToolParameterTable = ({
         <>
           <StyledTableHeaderRow>
             <TableRow gridTemplateColumns={PARAMETER_TABLE_GRID}>
-              <TableHeader>{t`Nama`}</TableHeader>
-              <TableHeader>{t`Tipe`}</TableHeader>
-              <TableHeader>{t`Wajib`}</TableHeader>
+              <TableHeader>{`Nama`}</TableHeader>
+              <TableHeader>{`Tipe`}</TableHeader>
+              <TableHeader>{`Wajib`}</TableHeader>
               <TableHeader />
             </TableRow>
           </StyledTableHeaderRow>
@@ -131,7 +130,7 @@ export const SettingsToolParameterTable = ({
                     {getDisplayType(property)}
                   </TableCell>
                   <TableCell color={themeCssVariables.font.color.tertiary}>
-                    {requiredFields?.includes(paramName) ? t`Ya` : ''}
+                    {requiredFields?.includes(paramName) ? `Ya` : ''}
                   </TableCell>
                   <TableCell>
                     {property.description && (
@@ -165,7 +164,7 @@ export const SettingsToolParameterTable = ({
           <UndecoratedLink to={functionLink}>
             <Button
               Icon={IconArrowUpRight}
-              title={t`Lihat fungsi`}
+              title={`Lihat fungsi`}
               size="small"
               variant="secondary"
             />

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useLogicFunctionForm } from '@/logic-functions/hooks/useLogicFunctionForm';
@@ -78,9 +77,9 @@ export const SettingsLogicFunctionDetail = () => {
       disabled: isReadonly,
       hide: isReadonly,
     },
-    { id: 'settings', title: t`Pengaturan`, Icon: IconSettings },
-    { id: 'test', title: t`Uji`, Icon: IconPlayerPlay },
-    { id: 'triggers', title: t`Pemicu`, Icon: IconBolt },
+    { id: 'settings', title: `Pengaturan`, Icon: IconSettings },
+    { id: 'test', title: `Uji`, Icon: IconPlayerPlay },
+    { id: 'triggers', title: `Pemicu`, Icon: IconBolt },
   ];
 
   const isEditorTab = activeTabId === 'editor';
@@ -98,28 +97,28 @@ export const SettingsLogicFunctionDetail = () => {
         );
         return [
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Aplikasi`,
+            children: `Aplikasi`,
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: applicationName ?? '', href: applicationContentHref },
-          { children: t`Fungsi logika`, href: applicationContentHref },
+          { children: `Fungsi logika`, href: applicationContentHref },
           { children: logicFunction?.name ?? '' },
         ];
       })()
     : [
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
           children: 'AI',
           href: getSettingsPath(SettingsPath.AI),
         },
-        { children: t`Fungsi logika` },
+        { children: `Fungsi logika` },
         { children: logicFunction?.name ?? '' },
       ];
 

@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { SettingsBillingCreditsSection } from '@/settings/billing/components/SettingsBillingCreditsSection';
@@ -19,8 +17,6 @@ import {
   SubscriptionStatus,
 } from '~/generated-metadata/graphql';
 export const SettingsBillingContent = () => {
-  const { t } = useLingui();
-
   const { redirect } = useRedirect();
 
   useMidtransPaymentResult();
@@ -80,12 +76,12 @@ export const SettingsBillingContent = () => {
         )}
       <Section>
         <H2Title
-          title={t`Kelola informasi pembayaran`}
-          description={t`Ubah metode pembayaran, lihat riwayat tagihan, dan lainnya`}
+          title={`Kelola informasi pembayaran`}
+          description={`Ubah metode pembayaran, lihat riwayat tagihan, dan lainnya`}
         />
         <Button
           Icon={IconCreditCard}
-          title={t`Lihat detail tagihan`}
+          title={`Lihat detail tagihan`}
           variant="secondary"
           onClick={openBillingPortal}
           disabled={billingPortalButtonDisabled}
@@ -94,12 +90,12 @@ export const SettingsBillingContent = () => {
       {hasNotCanceledCurrentSubscription && (
         <Section>
           <H2Title
-            title={t`Batalkan langganan`}
-            description={t`Ruang kerja Anda akan dinonaktifkan`}
+            title={`Batalkan langganan`}
+            description={`Ruang kerja Anda akan dinonaktifkan`}
           />
           <Button
             Icon={IconCircleX}
-            title={t`Batalkan langganan`}
+            title={`Batalkan langganan`}
             variant="secondary"
             accent="danger"
             onClick={openBillingPortal}

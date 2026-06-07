@@ -1,4 +1,4 @@
-import { i18n, msg, Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { i18n, Trans } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -48,8 +48,8 @@ const StyledComboInputContainer = styled.div`
   }
 `;
 
-const firstNameErrorMessage = msg`Nama depan tidak boleh kosong`;
-const lastNameErrorMessage = msg`Nama belakang tidak boleh kosong`;
+const firstNameErrorMessage = `Nama depan tidak boleh kosong`;
+const lastNameErrorMessage = `Nama belakang tidak boleh kosong`;
 
 const validationSchema = z
   .object({
@@ -65,7 +65,6 @@ const validationSchema = z
 type Form = z.infer<typeof validationSchema>;
 
 export const CreateProfile = () => {
-  const { t } = useLingui();
   const setNextOnboardingStatus = useSetNextOnboardingStatus();
   const { enqueueErrorSnackBar } = useSnackBar();
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
@@ -179,7 +178,7 @@ export const CreateProfile = () => {
       </SubTitle>
       <StyledContentContainer>
         <StyledSectionContainer>
-          <H2Title title={t`Foto`} />
+          <H2Title title={`Foto`} />
           {currentWorkspaceMember?.id && (
             <WorkspaceMemberPictureUploader
               workspaceMemberId={currentWorkspaceMember.id}
@@ -188,8 +187,8 @@ export const CreateProfile = () => {
         </StyledSectionContainer>
         <StyledSectionContainer>
           <H2Title
-            title={t`Nama`}
-            description={t`Nama Anda yang akan ditampilkan dalam aplikasi`}
+            title={`Nama`}
+            description={`Nama Anda yang akan ditampilkan dalam aplikasi`}
           />
           {/* TODO: When react-web-hook-form is added to edit page we should create a dedicated component with context */}
           <StyledComboInputContainer>
@@ -202,7 +201,7 @@ export const CreateProfile = () => {
               }) => (
                 <TextInput
                   autoFocus
-                  label={t`Nama Depan`}
+                  label={`Nama Depan`}
                   value={value}
                   onFocus={() => setIsEditingMode(true)}
                   onBlur={() => {
@@ -210,7 +209,7 @@ export const CreateProfile = () => {
                     setIsEditingMode(false);
                   }}
                   onChange={onChange}
-                  placeholder={t`Budi`}
+                  placeholder={`Budi`}
                   error={error?.message}
                   fullWidth
                 />
@@ -224,7 +223,7 @@ export const CreateProfile = () => {
                 fieldState: { error },
               }) => (
                 <TextInput
-                  label={t`Nama Belakang`}
+                  label={`Nama Belakang`}
                   value={value}
                   onFocus={() => setIsEditingMode(true)}
                   onBlur={() => {
@@ -232,7 +231,7 @@ export const CreateProfile = () => {
                     setIsEditingMode(false);
                   }}
                   onChange={onChange}
-                  placeholder={t`Santoso`}
+                  placeholder={`Santoso`}
                   error={error?.message}
                   fullWidth
                 />
@@ -243,7 +242,7 @@ export const CreateProfile = () => {
       </StyledContentContainer>
       <StyledButtonContainer>
         <MainButton
-          title={t`Lanjutkan`}
+          title={`Lanjutkan`}
           onClick={handleSubmit(onSubmit)}
           disabled={!isValid || isSubmitting}
           fullWidth

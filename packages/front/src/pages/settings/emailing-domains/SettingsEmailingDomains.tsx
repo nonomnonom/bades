@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { SettingsCard } from '@/settings/components/SettingsCard';
@@ -25,7 +24,6 @@ const StyledLinkContainer = styled.div`
 `;
 
 export const SettingsEmailingDomains = () => {
-  const { t } = useLingui();
   const { localeCatalog } = useAtomStateValue(dateLocaleState);
   const navigate = useNavigate();
 
@@ -37,14 +35,14 @@ export const SettingsEmailingDomains = () => {
       createdAt,
       localeCatalog,
     );
-    return t`Ditambahkan ${beautifyPastDateRelative}`;
+    return `Ditambahkan ${beautifyPastDateRelative}`;
   };
 
   return isLoading || !emailingDomains.length ? (
     <StyledLinkContainer>
       <Link to={getSettingsPath(SettingsPath.NewEmailingDomain)}>
         <SettingsCard
-          title={t`Tambah Domain Pengiriman Surel`}
+          title={`Tambah Domain Pengiriman Surel`}
           Icon={<IconMail />}
         />
       </Link>
@@ -75,7 +73,7 @@ export const SettingsEmailingDomains = () => {
           </>
         )}
         hasFooter
-        footerButtonLabel={t`Tambah Domain Pengiriman Surel`}
+        footerButtonLabel={`Tambah Domain Pengiriman Surel`}
         onFooterButtonClick={() =>
           navigate(getSettingsPath(SettingsPath.NewEmailingDomain))
         }

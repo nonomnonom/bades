@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import {
   IDENTIFIER_MAX_CHAR_LENGTH,
   RESERVED_METADATA_NAME_KEYWORDS,
@@ -25,7 +25,7 @@ export const validateFlatFieldMetadataName = ({
   if (name.length > IDENTIFIER_MAX_CHAR_LENGTH) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Name is too long`,
+      message: `Name is too long`,
       userFriendlyMessage: msg`Name is too long`,
       value: name,
     });
@@ -34,7 +34,7 @@ export const validateFlatFieldMetadataName = ({
   if (name.length < IDENTIFIER_MIN_CHAR_LENGTH) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Name is too short`,
+      message: `Name is too short`,
       userFriendlyMessage: msg`Name is too short`,
       value: name,
     });
@@ -47,7 +47,7 @@ export const validateFlatFieldMetadataName = ({
   ) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Name is not valid: it must start with lowercase letter and contain only alphanumeric letters`,
+      message: `Name is not valid: it must start with lowercase letter and contain only alphanumeric letters`,
       userFriendlyMessage: msg`Name is not valid: it must start with lowercase letter and contain only alphanumeric letters`,
       value: name,
     });
@@ -59,7 +59,7 @@ export const validateFlatFieldMetadataName = ({
   ) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`This name is reserved. Use a different name or the system will add "Custom" suffix.`,
+      message: `This name is reserved. Use a different name or the system will add "Custom" suffix.`,
       userFriendlyMessage: msg`This name is reserved. Use a different name or the system will add "Custom" suffix.`,
       value: name,
     });

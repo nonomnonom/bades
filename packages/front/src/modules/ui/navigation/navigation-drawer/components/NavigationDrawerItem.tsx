@@ -8,7 +8,6 @@ import { isNavigationDrawerExpandedState } from '@/ui/navigation/states/isNaviga
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { type ReactNode, useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -387,13 +386,13 @@ export const NavigationDrawerItem = ({
 
           {isSoon && (
             <NavigationDrawerAnimatedCollapseWrapper>
-              <Pill label={t`Segera`} />
+              <Pill label={`Segera`} />
             </NavigationDrawerAnimatedCollapseWrapper>
           )}
 
           {isNew && (
             <NavigationDrawerAnimatedCollapseWrapper>
-              <Pill label={t`Baru`} />
+              <Pill label={`Baru`} />
             </NavigationDrawerAnimatedCollapseWrapper>
           )}
 

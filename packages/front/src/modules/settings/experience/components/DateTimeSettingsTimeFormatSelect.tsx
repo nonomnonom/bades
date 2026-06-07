@@ -4,8 +4,6 @@ import { TimeFormat } from '@/localization/constants/TimeFormat';
 import { detectTimeFormat } from '@/localization/utils/detection/detectTimeFormat';
 import { detectTimeZone } from '@/localization/utils/detection/detectTimeZone';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 type DateTimeSettingsTimeFormatSelectProps = {
   value: TimeFormat;
   onChange: (nextValue: TimeFormat) => void;
@@ -17,7 +15,6 @@ export const DateTimeSettingsTimeFormatSelect = ({
   timeZone,
   value,
 }: DateTimeSettingsTimeFormatSelectProps) => {
-  const { t } = useLingui();
   const systemTimeZone = detectTimeZone();
 
   const usedTimeZone = timeZone === 'system' ? systemTimeZone : timeZone;
@@ -46,12 +43,12 @@ export const DateTimeSettingsTimeFormatSelect = ({
     <Select
       dropdownId="datetime-settings-time-format"
       dropdownWidth={218}
-      label={t`Format waktu`}
+      label={`Format waktu`}
       dropdownWidthAuto
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`Ikuti sistem`,
+        label: `Ikuti sistem`,
         value: TimeFormat.SYSTEM,
         contextualText: systemTimeFormatLabel,
       }}

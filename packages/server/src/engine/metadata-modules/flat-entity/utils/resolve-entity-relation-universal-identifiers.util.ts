@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { type AllMetadataName } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -115,7 +114,7 @@ export const resolveEntityRelationUniversalIdentifiers = <
 
     if (!isDefined(resolvedUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        t`Could not find ${targetMetadataName} for given ${foreignKey}`,
+        `Could not find ${targetMetadataName} for given ${foreignKey}`,
         FlatEntityMapsExceptionCode.RELATION_UNIVERSAL_IDENTIFIER_NOT_FOUND,
       );
     }

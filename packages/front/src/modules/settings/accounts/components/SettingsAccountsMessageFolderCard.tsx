@@ -1,7 +1,6 @@
 import { SettingsAccountsMessageFoldersCard } from '@/settings/accounts/components/message-folders/SettingsAccountsMessageFoldersCard';
 import { SettingsAccountsMessageFolderIcon } from '@/settings/accounts/components/SettingsAccountsMessageFolderIcon';
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
-import { msg } from '~/utils/i18n/badesI18n';
 import { MessageFolderImportPolicy } from 'shared/types';
 
 type SettingsAccountsMessageFolderCardProps = {
@@ -11,8 +10,8 @@ type SettingsAccountsMessageFolderCardProps = {
 
 const INBOX_SETTINGS_VISIBILITY_OPTIONS = [
   {
-    title: msg`Semua`,
-    description: msg`Impor semua email`,
+    title: `Semua`,
+    description: `Impor semua email`,
     value: MessageFolderImportPolicy.ALL_FOLDERS,
     cardMedia: (
       <SettingsAccountsMessageFolderIcon
@@ -21,8 +20,8 @@ const INBOX_SETTINGS_VISIBILITY_OPTIONS = [
     ),
   },
   {
-    title: msg`Beberapa folder`,
-    description: msg`Impor hanya folder/label yang dipilih`,
+    title: `Beberapa folder`,
+    description: `Impor hanya folder/label yang dipilih`,
     value: MessageFolderImportPolicy.SELECTED_FOLDERS,
     cardMedia: (
       <SettingsAccountsMessageFolderIcon

@@ -1,7 +1,6 @@
 import { GET_MIDTRANS_TRANSACTION_STATUS } from '@/settings/billing/graphql/queries/getMidtransTransactionStatus';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
@@ -57,16 +56,16 @@ export const useMidtransPaymentResult = () => {
     if (SUCCESS_STATUSES.includes(status)) {
       enqueueSuccessSnackBar({
         message: isTopUp
-          ? t`Pembayaran berhasil. Saldo kredit akan segera ditambahkan.`
-          : t`Pembayaran berhasil. Langganan Anda akan segera aktif.`,
+          ? `Pembayaran berhasil. Saldo kredit akan segera ditambahkan.`
+          : `Pembayaran berhasil. Langganan Anda akan segera aktif.`,
       });
     } else if (PENDING_STATUSES.includes(status)) {
       enqueueSuccessSnackBar({
-        message: t`Pembayaran sedang diproses. Status akan diperbarui setelah pembayaran selesai.`,
+        message: `Pembayaran sedang diproses. Status akan diperbarui setelah pembayaran selesai.`,
       });
     } else {
       enqueueErrorSnackBar({
-        message: t`Pembayaran belum selesai atau dibatalkan. Silakan coba lagi.`,
+        message: `Pembayaran belum selesai atau dibatalkan. Silakan coba lagi.`,
       });
     }
 

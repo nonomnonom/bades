@@ -1,6 +1,5 @@
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { plural, t } from '~/utils/i18n/badesI18n';
-
+import { plural } from '~/utils/i18n/badesI18n';
 type SettingsAdminDeleteJobsConfirmationModalProps = {
   modalInstanceId: string;
   jobCount: number;
@@ -31,7 +30,7 @@ export const SettingsAdminDeleteJobsConfirmationModal = ({
       subtitle={subtitle}
       onConfirmClick={onConfirm}
       onClose={onClose}
-      confirmButtonText={t`Hapus`}
+      confirmButtonText={`Hapus`}
       confirmButtonAccent="danger"
     />
   );

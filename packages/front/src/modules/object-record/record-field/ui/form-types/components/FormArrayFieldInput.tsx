@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -91,7 +90,6 @@ export const FormArrayFieldInput = ({
   placeholder,
   testId,
 }: FormArrayFieldInputProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const instanceId = useId();
 
@@ -323,7 +321,7 @@ export const FormArrayFieldInput = ({
               <StyledInputContainer>
                 <TextInput
                   instanceId={formFieldInputInstanceId}
-                  placeholder={t`Masukkan item`}
+                  placeholder={`Masukkan item`}
                   value={newItemDraftValue}
                   copyButton={false}
                   onChange={handleFirstItemInputChange}
@@ -383,7 +381,7 @@ export const FormArrayFieldInput = ({
                         <MenuItem
                           onClick={handleAddItemButtonClick}
                           LeftIcon={IconPlus}
-                          text={t`Tambah item`}
+                          text={`Tambah item`}
                         />
                       </DropdownMenuItemsContainer>
                     )}

@@ -1,6 +1,5 @@
 import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
 import { type SettingsRoleObjectPermissionKey } from '@/settings/roles/role-permissions/objects-permissions/constants/SettingsRoleObjectPermissionIconConfig';
-import { t } from '~/utils/i18n/badesI18n';
 import { type ObjectPermission } from '~/generated-metadata/graphql';
 import { WorkflowAiAgentPermissionsPermissionRow } from './WorkflowAiAgentPermissionsPermissionRow';
 
@@ -26,7 +25,7 @@ export const WorkflowAiAgentPermissionsCrudList = ({
   objectMetadataId,
 }: WorkflowAiAgentPermissionsCrudListProps) => {
   return (
-    <SidePanelGroup heading={t`Hak Akses Data`}>
+    <SidePanelGroup heading={`Hak Akses Data`}>
       {permissions.map((permission) => {
         const isEnabled = Boolean(objectPermissions?.[permission.key]);
 

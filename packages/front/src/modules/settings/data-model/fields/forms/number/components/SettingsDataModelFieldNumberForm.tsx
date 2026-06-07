@@ -1,3 +1,4 @@
+import { plural } from '~/utils/i18n/badesI18n';
 import { Controller, useFormContext } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -8,7 +9,6 @@ import { SettingsOptionCardContentCounter } from '@/settings/components/Settings
 import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsOptions/SettingsOptionCardContentSelect';
 import { NUMBER_DATA_MODEL_SELECT_OPTIONS } from '@/settings/data-model/fields/forms/number/constants/NumberDataModelSelectOptions';
 import { Select } from '@/ui/input/components/Select';
-import { plural, useLingui } from '~/utils/i18n/badesI18n';
 import { IconDecimal, IconEye } from 'ui/display';
 import { DEFAULT_DECIMAL_VALUE } from '~/utils/format/formatNumber';
 
@@ -29,7 +29,6 @@ export const SettingsDataModelFieldNumberForm = ({
   disabled,
   existingFieldMetadataId,
 }: SettingsDataModelFieldNumberFormProps) => {
-  const { t } = useLingui();
   const { control } = useFormContext<SettingsDataModelFieldNumberFormValues>();
 
   const { fieldMetadataItem } = useFieldMetadataItemById(
@@ -53,8 +52,8 @@ export const SettingsDataModelFieldNumberForm = ({
           <>
             <SettingsOptionCardContentSelect
               Icon={IconEye}
-              title={t`Tipe angka`}
-              description={t`Tampilkan sebagai angka biasa atau persentase`}
+              title={`Tipe angka`}
+              description={`Tampilkan sebagai angka biasa atau persentase`}
             >
               <Select<string>
                 selectSizeVariant="small"
@@ -72,7 +71,7 @@ export const SettingsDataModelFieldNumberForm = ({
                 needIconCheck={false}
                 options={NUMBER_DATA_MODEL_SELECT_OPTIONS.map((option) => ({
                   ...option,
-                  label: t(option.label),
+                  label: option.label,
                 }))}
               />
             </SettingsOptionCardContentSelect>
@@ -80,7 +79,7 @@ export const SettingsDataModelFieldNumberForm = ({
             {type !== 'shortNumber' && (
               <SettingsOptionCardContentCounter
                 Icon={IconDecimal}
-                title={t`Jumlah desimal`}
+                title={`Jumlah desimal`}
                 description={plural(count, {
                   one: `Mis. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} untuk ${count} desimal`,
                   other: `Mis. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} untuk ${count} desimal`,

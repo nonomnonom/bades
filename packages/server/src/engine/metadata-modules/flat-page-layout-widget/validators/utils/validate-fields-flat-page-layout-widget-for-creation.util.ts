@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 import { validate as uuidValidate } from 'uuid';
 
@@ -17,7 +17,7 @@ export const validateFieldsFlatPageLayoutWidgetForCreation = (
   if (!isDefined(universalConfiguration)) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Configuration is required for fields widget "${widgetTitle}"`,
+      message: `Configuration is required for fields widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Configuration is required for fields widget`,
     });
 
@@ -32,7 +32,7 @@ export const validateFieldsFlatPageLayoutWidgetForCreation = (
 
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Invalid configuration type for fields widget "${widgetTitle}". Expected FIELDS, got ${actualString}`,
+      message: `Invalid configuration type for fields widget "${widgetTitle}". Expected FIELDS, got ${actualString}`,
       userFriendlyMessage: msg`Invalid configuration type for fields widget`,
       value: universalConfiguration.configurationType,
     });
@@ -54,7 +54,7 @@ export const validateFieldsFlatPageLayoutWidgetForCreation = (
     ) {
       errors.push({
         code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-        message: t`Invalid viewUniversalIdentifier for fields widget "${widgetTitle}". Expected a valid UUID`,
+        message: `Invalid viewUniversalIdentifier for fields widget "${widgetTitle}". Expected a valid UUID`,
         userFriendlyMessage: msg`Invalid viewUniversalIdentifier for fields widget`,
         value: viewUniversalIdentifier,
       });

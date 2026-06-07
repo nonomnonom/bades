@@ -13,7 +13,6 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useMemo, useState } from 'react';
 import { Label } from 'ui/display';
@@ -60,7 +59,6 @@ const StyledLabelContainer = styled.span`
 `;
 
 export const SettingsAccountsMessageFoldersCard = () => {
-  const { t } = useLingui();
   const [search, setSearch] = useState('');
 
   const { enqueueErrorSnackBar } = useSnackBar();
@@ -149,18 +147,18 @@ export const SettingsAccountsMessageFoldersCard = () => {
       <Table>
         <StyledSearchInputContainer>
           <SettingsTextInput
-            placeholder={t`Cari folder...`}
+            placeholder={`Cari folder...`}
             value={search}
             onChange={setSearch}
             instanceId={'message-folders-search'}
           />
         </StyledSearchInputContainer>
         <StyledLabelContainer>
-          <Label>{t`Folder`}</Label>
+          <Label>{`Folder`}</Label>
         </StyledLabelContainer>
 
         <StyledSectionHeader>
-          <Label>{t`Aktifkan/nonaktifkan semua folder`}</Label>
+          <Label>{`Aktifkan/nonaktifkan semua folder`}</Label>
           <TableCell
             align="right"
             padding={`0 ${themeCssVariables.spacing[1]} 0 ${themeCssVariables.spacing[2]}`}

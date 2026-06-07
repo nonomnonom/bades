@@ -1,6 +1,5 @@
 import { useNumberFormat } from '@/localization/hooks/useNumberFormat';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 import { SubscriptionInterval } from '~/generated-metadata/graphql';
 
@@ -31,7 +30,6 @@ const formatYearlyPriceToMonthly = (price: number): number => {
 };
 
 export const SubscriptionPrice = ({ type, price }: SubscriptionPriceProps) => {
-  const { t } = useLingui();
   const { formatNumber } = useNumberFormat();
 
   const pricePerSeat =
@@ -42,10 +40,10 @@ export const SubscriptionPrice = ({ type, price }: SubscriptionPriceProps) => {
   let priceUnit = '';
   switch (type) {
     case SubscriptionInterval.Month:
-      priceUnit = t`kursi / bulan`;
+      priceUnit = `kursi / bulan`;
       break;
     case SubscriptionInterval.Year:
-      priceUnit = t`kursi / bulan - ditagih tahunan`;
+      priceUnit = `kursi / bulan - ditagih tahunan`;
       break;
   }
 

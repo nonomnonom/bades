@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { IconLock, IconUserPlus, IconUsers } from 'ui/display';
@@ -21,8 +21,6 @@ const MEMBERS_TAB_INVITE_ID = 'invite';
 const MEMBERS_TAB_ROLES_ID = 'roles';
 
 export const SettingsWorkspaceMembers = () => {
-  const { t } = useLingui();
-
   const hasRolesPermission = useHasPermissionFlag(PermissionFlagType.ROLES);
 
   const activeTabId = useAtomComponentStateValue(
@@ -31,10 +29,10 @@ export const SettingsWorkspaceMembers = () => {
   );
 
   const tabs = [
-    { id: MEMBERS_TAB_TEAM_ID, title: t`Tim`, Icon: IconUsers },
-    { id: MEMBERS_TAB_INVITE_ID, title: t`Undang`, Icon: IconUserPlus },
+    { id: MEMBERS_TAB_TEAM_ID, title: `Tim`, Icon: IconUsers },
+    { id: MEMBERS_TAB_INVITE_ID, title: `Undang`, Icon: IconUserPlus },
     ...(hasRolesPermission
-      ? [{ id: MEMBERS_TAB_ROLES_ID, title: t`Peran`, Icon: IconLock }]
+      ? [{ id: MEMBERS_TAB_ROLES_ID, title: `Peran`, Icon: IconLock }]
       : []),
   ];
 
@@ -55,7 +53,7 @@ export const SettingsWorkspaceMembers = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Anggota`}
+      title={`Anggota`}
       links={[
         {
           children: <Trans>Ruang Kerja</Trans>,

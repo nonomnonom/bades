@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { getAggregateOperationLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationLabel';
 import { RecordTableColumnAggregateFooterDropdownContext } from '@/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterDropdownContext';
 import { useViewFieldAggregateOperation } from '@/object-record/record-table/record-table-footer/hooks/useViewFieldAggregateOperation';
@@ -16,8 +15,6 @@ export const RecordTableColumnAggregateFooterAggregateOperationMenuItems = ({
   aggregateOperations: ExtendedAggregateOperations[];
   children?: ReactNode;
 }) => {
-  const { t } = useLingui();
-
   const {
     updateViewFieldAggregateOperation,
     currentViewFieldAggregateOperation,
@@ -54,7 +51,7 @@ export const RecordTableColumnAggregateFooterAggregateOperationMenuItems = ({
           resetContent();
           closeDropdown(dropdownId);
         }}
-        text={t`Tidak ada`}
+        text={`Tidak ada`}
         RightIcon={
           !isDefined(currentViewFieldAggregateOperation) ? IconCheck : undefined
         }

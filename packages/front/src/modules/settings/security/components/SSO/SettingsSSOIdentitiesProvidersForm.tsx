@@ -7,7 +7,6 @@ import { SettingsSSOSAMLForm } from '@/settings/security/components/SSO/Settings
 import { type SettingSecurityNewSSOIdentityFormValues } from '@/settings/security/types/SSOIdentityProvider';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { type ReactElement, useMemo } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { H2Title, type IconComponent, IconKey } from 'ui/display';
@@ -82,7 +81,7 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
   return (
     <SettingsPageContainer>
       <Section>
-        <H2Title title={t`Nama`} description={t`Nama koneksi SSO Anda`} />
+        <H2Title title={`Nama`} description={`Nama koneksi SSO Anda`} />
         <StyledInputsContainer>
           <Controller
             name="name"
@@ -91,7 +90,7 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
               <SettingsTextInput
                 instanceId="sso-identity-provider-name"
                 autoComplete="off"
-                label={t`Nama`}
+                label={`Nama`}
                 value={value}
                 onChange={onChange}
                 fullWidth
@@ -103,8 +102,8 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Tipe`}
-          description={t`Pilih antara protokol OIDC atau SAML`}
+          title={`Tipe`}
+          description={`Pilih antara protokol OIDC atau SAML`}
         />
         <StyledInputsContainer>
           <Controller

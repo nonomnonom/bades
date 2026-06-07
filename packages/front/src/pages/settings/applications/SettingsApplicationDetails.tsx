@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { CurrentApplicationContext } from '@/applications/contexts/CurrentApplicationContext';
 import { useResolvedApplicationDescription } from '@/applications/hooks/useResolvedApplicationDescription';
 import { isBadesStandardApplication } from '@/applications/utils/isBadesStandardApplication';
@@ -90,7 +89,7 @@ export const SettingsApplicationDetails = () => {
   const resolvedDescription = useResolvedApplicationDescription(application);
 
   const displayName =
-    app?.displayName ?? application?.name ?? t`Detail aplikasi`;
+    app?.displayName ?? application?.name ?? `Detail aplikasi`;
   const description = app?.description ?? resolvedDescription;
 
   const getScreenshots = () => {
@@ -150,11 +149,11 @@ export const SettingsApplicationDetails = () => {
         variables: { universalIdentifier: application.universalIdentifier },
       });
       enqueueSuccessSnackBar({
-        message: t`Aplikasi berhasil dihapus.`,
+        message: `Aplikasi berhasil dihapus.`,
       });
       navigate(SettingsPath.Applications);
     } catch {
-      enqueueErrorSnackBar({ message: t`Gagal menghapus aplikasi.` });
+      enqueueErrorSnackBar({ message: `Gagal menghapus aplikasi.` });
     } finally {
       setIsUninstalling(false);
     }
@@ -185,44 +184,44 @@ export const SettingsApplicationDetails = () => {
     {
       icon: IconBox,
       count: (application?.objects ?? []).length,
-      one: t`objek`,
-      many: t`objek`,
+      one: `objek`,
+      many: `objek`,
     },
     {
       icon: IconListDetails,
       count: appFieldExtensionsCount,
-      one: t`field`,
-      many: t`field`,
+      one: `field`,
+      many: `field`,
     },
     {
       icon: IconCommand,
       count: (application?.logicFunctions ?? []).length,
-      one: t`fungsi logika`,
-      many: t`fungsi logika`,
+      one: `fungsi logika`,
+      many: `fungsi logika`,
     },
     {
       icon: IconGraph,
       count: (application?.frontComponents ?? []).length,
-      one: t`komponen tampilan`,
-      many: t`komponen tampilan`,
+      one: `komponen tampilan`,
+      many: `komponen tampilan`,
     },
     {
       icon: IconLego,
       count: (application?.agents ?? []).length,
-      one: t`agen`,
-      many: t`agen`,
+      one: `agen`,
+      many: `agen`,
     },
   ];
 
   const tabs: SingleTabProps[] = [
-    { id: 'about', title: t`Tentang`, Icon: IconInfoCircle },
-    { id: 'content', title: t`Konten`, Icon: IconBox },
+    { id: 'about', title: `Tentang`, Icon: IconInfoCircle },
+    { id: 'content', title: `Konten`, Icon: IconBox },
     {
       id: 'permissions',
-      title: t`Izin`,
+      title: `Izin`,
       Icon: IconLock,
       tooltipContent: !isDefined(application?.defaultRoleId)
-        ? t`Tidak ada izin yang didefinisikan untuk aplikasi ini`
+        ? `Tidak ada izin yang didefinisikan untuk aplikasi ini`
         : undefined,
       disabled: !isDefined(application?.defaultRoleId),
     },
@@ -233,16 +232,16 @@ export const SettingsApplicationDetails = () => {
 
       return {
         id: 'settings',
-        title: t`Pengaturan`,
+        title: `Pengaturan`,
         Icon: IconSettings,
         tooltipContent: hasNothingToConfigure
-          ? t`Tidak ada yang perlu dikonfigurasi untuk aplikasi ini`
+          ? `Tidak ada yang perlu dikonfigurasi untuk aplikasi ini`
           : undefined,
         disabled: hasNothingToConfigure,
       };
     })(),
     ...(isDefined(settingsCustomTabFrontComponentId)
-      ? [{ id: 'custom', title: t`Kustom`, Icon: IconApps }]
+      ? [{ id: 'custom', title: `Kustom`, Icon: IconApps }]
       : []),
   ];
 
@@ -335,11 +334,11 @@ export const SettingsApplicationDetails = () => {
         }
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Aplikasi`,
+            children: `Aplikasi`,
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: displayName },

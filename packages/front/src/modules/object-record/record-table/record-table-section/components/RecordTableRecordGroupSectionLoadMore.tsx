@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCurrentRecordGroupId } from '@/object-record/record-group/hooks/useCurrentRecordGroupId';
 import { useRecordIndexTableQuery } from '@/object-record/record-index/hooks/useRecordIndexTableQuery';
 import { recordIndexHasFetchedAllRecordsByGroupComponentState } from '@/object-record/record-index/states/recordIndexHasFetchedAllRecordsByGroupComponentState';
@@ -31,7 +30,7 @@ export const RecordTableRecordGroupSectionLoadMore = () => {
   return (
     <RecordTableActionRow
       LeftIcon={IconArrowDown}
-      text={t`Muat lagi`}
+      text={`Muat lagi`}
       onClick={handleLoadMore}
     />
   );

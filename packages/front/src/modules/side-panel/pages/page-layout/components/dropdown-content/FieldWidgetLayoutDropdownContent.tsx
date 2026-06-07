@@ -11,7 +11,6 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import {
   type IconComponent,
@@ -33,8 +32,6 @@ const DISPLAY_MODE_ICONS: Record<FieldDisplayMode, IconComponent> = {
 };
 
 export const FieldWidgetLayoutDropdownContent = () => {
-  const { t } = useLingui();
-
   const { pageLayoutId } = usePageLayoutIdFromContextStore();
 
   const { widgetInEditMode } = useWidgetInEditMode(pageLayoutId);
@@ -82,9 +79,9 @@ export const FieldWidgetLayoutDropdownContent = () => {
   };
 
   const layoutLabels: Record<string, string> = {
-    [FieldDisplayMode.FIELD]: t`Kolom`,
-    [FieldDisplayMode.CARD]: t`Kartu`,
-    [FieldDisplayMode.EDITOR]: t`Editor`,
+    [FieldDisplayMode.FIELD]: `Kolom`,
+    [FieldDisplayMode.CARD]: `Kartu`,
+    [FieldDisplayMode.EDITOR]: `Editor`,
   };
 
   return (

@@ -3,7 +3,6 @@ import { agentChatUploadedFilesState } from '@/ai/states/agentChatUploadedFilesS
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useApolloClient, useMutation } from '@apollo/client/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 
 import { type AgentChatFileUIPart } from '@/ai/types/agent-chat-file-ui-part.type';
@@ -14,7 +13,6 @@ export const useAiChatFileUpload = () => {
   const [uploadAiChatFile] = useMutation(UploadAiChatFileDocument, {
     client: apolloClient,
   });
-  const { t } = useLingui();
   const { enqueueErrorSnackBar } = useSnackBar();
   const [agentChatSelectedFiles, setAgentChatSelectedFiles] = useAtomState(
     agentChatSelectedFilesState,
@@ -34,7 +32,7 @@ export const useAiChatFileUpload = () => {
       const response = result?.data?.uploadAiChatFile;
 
       if (!isDefined(response)) {
-        throw new Error(t`Gagal mengunggah file.`);
+        throw new Error(`Gagal mengunggah file.`);
       }
 
       setAgentChatSelectedFiles(
@@ -50,7 +48,7 @@ export const useAiChatFileUpload = () => {
     } catch {
       const fileName = file.name;
       enqueueErrorSnackBar({
-        message: t`Gagal mengunggah file: ${fileName}`,
+        message: `Gagal mengunggah file: ${fileName}`,
       });
       return null;
     }
@@ -83,7 +81,7 @@ export const useAiChatFileUpload = () => {
     ).length;
     if (failedCount > 0) {
       enqueueErrorSnackBar({
-        message: t`${failedCount} file gagal diunggah`,
+        message: `${failedCount} file gagal diunggah`,
       });
     }
   };

@@ -10,7 +10,6 @@ import { workspaceAuthProvidersState } from '@/workspace/states/workspaceAuthPro
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { HorizontalSeparator, IconLock } from 'ui/display';
 import { MainButton } from 'ui/input';
@@ -21,7 +20,6 @@ import { ThemeContext } from 'ui/theme-constants';
 
 export const SignInUpWithSSO = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const setSignInUpStep = useSetAtomState(signInUpStepState);
   const workspaceAuthProviders = useAtomStateValue(workspaceAuthProvidersState);
   const signInUpStep = useAtomStateValue(signInUpStepState);
@@ -51,7 +49,7 @@ export const SignInUpWithSSO = () => {
       <StyledSSOButtonContainer>
         <MainButton
           Icon={() => <IconLock size={theme.icon.size.md} />}
-          title={t`Masuk dengan SSO`}
+          title={`Masuk dengan SSO`}
           onClick={signInWithSSO}
           variant={signInUpStep === SignInUpStep.Init ? undefined : 'secondary'}
           fullWidth

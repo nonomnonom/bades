@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -39,7 +39,7 @@ export class FlatLogicFunctionValidatorService {
     if (!isDefined(existingFlatLogicFunction)) {
       validationResult.errors.push({
         code: LogicFunctionExceptionCode.LOGIC_FUNCTION_NOT_FOUND,
-        message: t`Logic function not found`,
+        message: `Logic function not found`,
         userFriendlyMessage: msg`Logic function not found`,
       });
     }
@@ -71,7 +71,7 @@ export class FlatLogicFunctionValidatorService {
     if (!isDefined(existingFlatLogicFunction)) {
       validationResult.errors.push({
         code: LogicFunctionExceptionCode.LOGIC_FUNCTION_NOT_FOUND,
-        message: t`Logic function not found`,
+        message: `Logic function not found`,
         userFriendlyMessage: msg`Logic function not found`,
       });
     }
@@ -105,7 +105,7 @@ export class FlatLogicFunctionValidatorService {
     ) {
       validationResult.errors.push({
         code: LogicFunctionExceptionCode.LOGIC_FUNCTION_ALREADY_EXIST,
-        message: t`Logic function with same universal identifier already exists`,
+        message: `Logic function with same universal identifier already exists`,
         userFriendlyMessage: msg`Logic function already exists`,
       });
     }

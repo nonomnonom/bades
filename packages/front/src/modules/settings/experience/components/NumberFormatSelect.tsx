@@ -1,7 +1,6 @@
 import { NumberFormat } from '@/localization/constants/NumberFormat';
 import { detectNumberFormat } from '@/localization/utils/detection/detectNumberFormat';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { formatNumber as utilFormatNumber } from '~/utils/format/formatNumber';
 
 type NumberFormatSelectProps = {
@@ -13,8 +12,6 @@ export const NumberFormatSelect = ({
   onChange,
   value,
 }: NumberFormatSelectProps) => {
-  const { t } = useLingui();
-
   const systemNumberFormat = NumberFormat[detectNumberFormat()];
 
   const systemNumberFormatLabel = utilFormatNumber(1234.56, {
@@ -42,33 +39,33 @@ export const NumberFormatSelect = ({
     <Select
       dropdownId="number-format-select"
       dropdownWidth={218}
-      label={t`Format angka`}
+      label={`Format angka`}
       dropdownWidthAuto
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`Ikuti sistem`,
+        label: `Ikuti sistem`,
         value: NumberFormat.SYSTEM,
         contextualText: systemNumberFormatLabel,
       }}
       options={[
         {
-          label: t`Koma dan titik`,
+          label: `Koma dan titik`,
           value: NumberFormat.COMMAS_AND_DOT,
           contextualText: commasAndDotExample,
         },
         {
-          label: t`Spasi dan koma`,
+          label: `Spasi dan koma`,
           value: NumberFormat.SPACES_AND_COMMA,
           contextualText: spacesAndCommaExample,
         },
         {
-          label: t`Titik dan koma`,
+          label: `Titik dan koma`,
           value: NumberFormat.DOTS_AND_COMMA,
           contextualText: dotsAndCommaExample,
         },
         {
-          label: t`Apostrof dan titik`,
+          label: `Apostrof dan titik`,
           value: NumberFormat.APOSTROPHE_AND_DOT,
           contextualText: apostropheAndDotExample,
         },

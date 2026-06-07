@@ -13,7 +13,6 @@ import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModa
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { styled } from '@linaria/react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { H2Title, IconArchive, IconTrash } from 'ui/display';
 import { Button } from 'ui/input';
@@ -51,7 +50,6 @@ export const ObjectSettings = ({
   isDeleting,
   setIsDeleting,
 }: ObjectSettingsProps) => {
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const { updateOneObjectMetadataItem } = useUpdateOneObjectMetadataItem();
   const { deleteOneObjectMetadataItem } = useDeleteOneObjectMetadataItem();
@@ -84,7 +82,7 @@ export const ObjectSettings = ({
 
     if (result.status === 'successful') {
       enqueueSuccessSnackBar({
-        message: t`Objek berhasil dihapus`,
+        message: `Objek berhasil dihapus`,
       });
       closeModal(DELETE_OBJECT_MODAL_ID);
       navigate(SettingsPath.Objects);
@@ -102,8 +100,8 @@ export const ObjectSettings = ({
       <StyledFormSectionContainer>
         <Section>
           <H2Title
-            title={t`Tentang`}
-            description={t`Nama dalam bentuk tunggal (mis. 'Surat') dan jamak (mis. 'Surat-surat').`}
+            title={`Tentang`}
+            description={`Nama dalam bentuk tunggal (mis. 'Surat') dan jamak (mis. 'Surat-surat').`}
           />
           <SettingsUpdateDataModelObjectAboutForm
             objectMetadataItem={objectMetadataItem}
@@ -113,8 +111,8 @@ export const ObjectSettings = ({
       <StyledFormSectionContainer>
         <Section>
           <H2Title
-            title={t`Opsi`}
-            description={t`Pilih kolom yang akan mengidentifikasi data Anda`}
+            title={`Opsi`}
+            description={`Pilih kolom yang akan mengidentifikasi data Anda`}
           />
           <SettingsDataModelObjectSettingsFormCard
             objectMetadataItem={objectMetadataItem}
@@ -125,8 +123,8 @@ export const ObjectSettings = ({
         <StyledFormSectionContainer>
           <Section>
             <H2Title
-              title={t`Pencarian`}
-              description={t`Atur bagaimana objek ini muncul dalam hasil pencarian`}
+              title={`Pencarian`}
+              description={`Atur bagaimana objek ini muncul dalam hasil pencarian`}
             />
             <SettingsObjectSearchSection
               objectMetadataItem={objectMetadataItem}
@@ -139,20 +137,20 @@ export const ObjectSettings = ({
         <StyledFormSectionContainer>
           <Section>
             <H2Title
-              title={t`Zona berbahaya`}
-              description={t`Nonaktifkan objek`}
+              title={`Zona berbahaya`}
+              description={`Nonaktifkan objek`}
             />
             <StyledDangerButtonsContainer>
               <Button
                 Icon={IconArchive}
-                title={t`Nonaktifkan`}
+                title={`Nonaktifkan`}
                 size="small"
                 onClick={handleDisable}
               />
               {objectMetadataItem.isCustom && (
                 <Button
                   Icon={IconTrash}
-                  title={t`Hapus`}
+                  title={`Hapus`}
                   size="small"
                   accent="danger"
                   variant="secondary"
@@ -165,9 +163,9 @@ export const ObjectSettings = ({
       )}
       <ConfirmationModal
         modalInstanceId={DELETE_OBJECT_MODAL_ID}
-        title={t`Hapus objek ${objectLabel}?`}
-        subtitle={t`Ini akan menghapus objek beserta seluruh datanya secara permanen. Ketik "ya" untuk konfirmasi.`}
-        confirmButtonText={t`Hapus`}
+        title={`Hapus objek ${objectLabel}?`}
+        subtitle={`Ini akan menghapus objek beserta seluruh datanya secara permanen. Ketik "ya" untuk konfirmasi.`}
+        confirmButtonText={`Hapus`}
         onConfirmClick={confirmDelete}
         onClose={() => closeModal(DELETE_OBJECT_MODAL_ID)}
         confirmationValue="ya"

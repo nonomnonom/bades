@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -15,19 +15,17 @@ import { UndecoratedLink } from 'ui/navigation';
 import { SettingsObjectTable } from '~/pages/settings/data-model/SettingsObjectTable';
 
 export const SettingsObjects = () => {
-  const { t } = useLingui();
-
   const { objectMetadataItems } = useFilteredObjectMetadataItems();
   const isDDLLocked = useAtomStateValue(isDDLLockedState);
 
   return (
     <SubMenuTopBarContainer
-      title={t`Model data`}
+      title={`Model data`}
       actionButton={
         isDDLLocked ? (
           <Button
             Icon={IconPlus}
-            title={t`Tambah objek`}
+            title={`Tambah objek`}
             accent="blue"
             size="small"
             disabled
@@ -36,7 +34,7 @@ export const SettingsObjects = () => {
           <UndecoratedLink to={getSettingsPath(SettingsPath.NewObject)}>
             <Button
               Icon={IconPlus}
-              title={t`Tambah objek`}
+              title={`Tambah objek`}
               accent="blue"
               size="small"
             />
@@ -55,7 +53,7 @@ export const SettingsObjects = () => {
         <>
           <SettingsObjectCoverImage />
           <Section>
-            <H2Title title={t`Objek yang ada`} />
+            <H2Title title={`Objek yang ada`} />
 
             <SettingsObjectTable objectMetadataItems={objectMetadataItems} />
           </Section>

@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { type ChangeEvent, useRef, useState } from 'react';
 
@@ -10,7 +11,6 @@ import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadata
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { useHasPermissionFlag } from '@/settings/roles/hooks/useHasPermissionFlag';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconPlus } from 'ui/display';
 import { Button } from 'ui/input';
@@ -47,8 +47,6 @@ export const FilesCard = () => {
   const { uploadAttachmentFile } = useUploadAttachmentFile();
 
   const [isDraggingFile, setIsDraggingFile] = useState(false);
-
-  const { t } = useLingui();
 
   const onUploadFile = async (file: File) => {
     await uploadAttachmentFile(file, targetRecord);
@@ -125,7 +123,7 @@ export const FilesCard = () => {
             {canUploadFiles && (
               <Button
                 Icon={IconPlus}
-                title={t`Tambah berkas`}
+                title={`Tambah berkas`}
                 variant="secondary"
                 onClick={handleUploadFileClick}
               />
@@ -146,7 +144,7 @@ export const FilesCard = () => {
       />
       <AttachmentList
         targetableObject={targetRecord}
-        title={t`Semua`}
+        title={`Semua`}
         attachments={attachments ?? []}
         button={
           canUploadFiles && (
@@ -154,7 +152,7 @@ export const FilesCard = () => {
               Icon={IconPlus}
               size="small"
               variant="secondary"
-              title={t`Tambah berkas`}
+              title={`Tambah berkas`}
               onClick={handleUploadFileClick}
             ></Button>
           )

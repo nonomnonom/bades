@@ -16,7 +16,6 @@ import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 import { RelationType } from '~/generated-metadata/graphql';
@@ -79,7 +78,6 @@ export const SettingsDataModelFieldRelationForm = ({
   sourceObjectMetadataId,
   disabled = false,
 }: SettingsDataModelFieldRelationFormProps) => {
-  const { t } = useLingui();
   const { control, watch } = useFormContext();
 
   const currentIds = watch('morphRelationObjectMetadataIds') as
@@ -130,7 +128,7 @@ export const SettingsDataModelFieldRelationForm = ({
           defaultValue={initialRelationType}
           render={({ field: { onChange, value } }) => (
             <Select
-              label={t`Tipe relasi`}
+              label={`Tipe relasi`}
               dropdownId="relation-type-select"
               fullWidth
               disabled={disabled || disableRelationEdition}
@@ -147,7 +145,7 @@ export const SettingsDataModelFieldRelationForm = ({
           defaultValue={initialMorphRelationsObjectMetadataIds}
           render={({ field: { onChange, value } }) => (
             <SettingsMorphRelationMultiSelect
-              label={t`Objek tujuan`}
+              label={`Objek tujuan`}
               dropdownId="object-destination-select"
               fullWidth
               disabled={disableRelationEdition}
@@ -156,14 +154,14 @@ export const SettingsDataModelFieldRelationForm = ({
               onChange={onChange}
               error={
                 isSelfInDestinationForMorphRelation
-                  ? t`Relasi tidak dapat menyertakan objek sumber jika beberapa tujuan dipilih.`
+                  ? `Relasi tidak dapat menyertakan objek sumber jika beberapa tujuan dipilih.`
                   : undefined
               }
             />
           )}
         />
       </StyledSelectsContainer>
-      <StyledInputsLabel>{t`Kolom pada tujuan`}</StyledInputsLabel>
+      <StyledInputsLabel>{`Kolom pada tujuan`}</StyledInputsLabel>
       <StyledInputsContainer>
         <Controller
           name="iconOnDestination"
@@ -187,7 +185,7 @@ export const SettingsDataModelFieldRelationForm = ({
             <SettingsTextInput
               instanceId="relation-field-label"
               disabled={disableFieldEdition}
-              placeholder={t`Nama kolom`}
+              placeholder={`Nama kolom`}
               value={value}
               onChange={onChange}
               fullWidth

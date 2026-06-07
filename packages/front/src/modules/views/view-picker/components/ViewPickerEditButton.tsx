@@ -10,7 +10,6 @@ import { useViewPickerMode } from '@/views/view-picker/hooks/useViewPickerMode';
 import { viewPickerIsPersistingComponentState } from '@/views/view-picker/states/viewPickerIsPersistingComponentState';
 import { viewPickerMainGroupByFieldMetadataIdComponentState } from '@/views/view-picker/states/viewPickerMainGroupByFieldMetadataIdComponentState';
 import { viewPickerTypeComponentState } from '@/views/view-picker/states/viewPickerTypeComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { Button } from 'ui/input';
 
 export const ViewPickerEditButton = () => {
@@ -43,7 +42,7 @@ export const ViewPickerEditButton = () => {
   if (viewPickerMode === 'edit') {
     return (
       <Button
-        title={t`Hapus`}
+        title={`Hapus`}
         onClick={destroyViewFromCurrentState}
         accent="danger"
         fullWidth
@@ -62,7 +61,7 @@ export const ViewPickerEditButton = () => {
   ) {
     return (
       <Button
-        title={t`Buka Pengaturan`}
+        title={`Buka Pengaturan`}
         onClick={navigateToSelectSettings}
         size="small"
         accent="blue"
@@ -78,7 +77,7 @@ export const ViewPickerEditButton = () => {
   ) {
     return (
       <Button
-        title={t`Buat`}
+        title={`Buat`}
         onClick={createViewFromCurrentState}
         accent="blue"
         fullWidth

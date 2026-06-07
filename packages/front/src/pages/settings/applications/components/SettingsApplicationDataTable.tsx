@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { SETTINGS_OBJECT_TABLE_COLUMN_WIDTH } from '@/settings/data-model/object-details/components/SettingsObjectItemTableRowStyledComponents';
 import { Table } from '@/ui/layout/table/components/Table';
@@ -74,37 +73,37 @@ export const SettingsApplicationDataTable = ({
   return (
     <Section>
       <H2Title
-        title={t`Data`}
-        description={t`Objek dan kolom yang dikelola oleh aplikasi ini`}
+        title={`Data`}
+        description={`Objek dan kolom yang dikelola oleh aplikasi ini`}
       />
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Cari objek...`}
+          placeholder={`Cari objek...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
       </StyledSearchInputContainer>
       {hasNoResults ? (
-        <SettingsEmptyPlaceholder>{t`Tidak ada objek ditemukan`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder>{`Tidak ada objek ditemukan`}</SettingsEmptyPlaceholder>
       ) : (
         <Table>
           <TableRow gridAutoColumns={MAIN_ROW_GRID_COLUMNS}>
-            <TableHeader>{t`Nama`}</TableHeader>
-            <TableHeader>{t`Aplikasi`}</TableHeader>
-            <TableHeader align="right">{t`Kolom`}</TableHeader>
+            <TableHeader>{`Nama`}</TableHeader>
+            <TableHeader>{`Aplikasi`}</TableHeader>
+            <TableHeader align="right">{`Kolom`}</TableHeader>
             <StyledEmptyHeaderContainer>
               <TableHeader />
             </StyledEmptyHeaderContainer>
           </TableRow>
           {shouldDisplayObjects && (
-            <TableSection title={t`Objek`}>
+            <TableSection title={`Objek`}>
               {filteredObjectRows.map((row) => (
                 <SettingsApplicationDataTableRow key={row.key} row={row} />
               ))}
             </TableSection>
           )}
           {shouldDisplayFields && (
-            <TableSection title={t`Kolom`}>
+            <TableSection title={`Kolom`}>
               {filteredFieldGroupRows.map((row) => (
                 <SettingsApplicationDataTableRow key={row.key} row={row} />
               ))}

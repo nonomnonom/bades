@@ -1,6 +1,4 @@
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { t } from '~/utils/i18n/badesI18n';
-
 type MemberNameFieldsProps = {
   memberId: string;
   firstName: string;
@@ -21,9 +19,9 @@ export const MemberNameFields = ({
     <>
       <SettingsTextInput
         instanceId={firstNameInstanceId}
-        label={t`Nama Depan`}
+        label={`Nama Depan`}
         value={firstName}
-        placeholder={t`Budi`}
+        placeholder={`Budi`}
         onChange={(value) => {
           onChange('firstName', value);
         }}
@@ -31,9 +29,9 @@ export const MemberNameFields = ({
       />
       <SettingsTextInput
         instanceId={lastNameInstanceId}
-        label={t`Nama Belakang`}
+        label={`Nama Belakang`}
         value={lastName}
-        placeholder={t`Santoso`}
+        placeholder={`Santoso`}
         onChange={(value) => {
           onChange('lastName', value);
         }}

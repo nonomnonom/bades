@@ -23,7 +23,6 @@ import { getBranchLabel } from '@/workflow/workflow-steps/workflow-actions/if-el
 import { useStepsOutputSchema } from '@/workflow/workflow-variables/hooks/useStepsOutputSchema';
 import { useTidyUpWorkflowVersion } from '@/workflow/workflow-version/hooks/useTidyUpWorkflowVersion';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Fragment } from 'react';
 import { isDefined } from 'shared/utils';
 import { type StepIfElseBranch } from 'shared/workflow';
@@ -247,7 +246,7 @@ export const WorkflowEditActionIfElseBody = ({
 
   return (
     <WorkflowStepBody rowGap={themeCssVariables.spacing[2]}>
-      <InputLabel>{t`Kondisi`}</InputLabel>
+      <InputLabel>{`Kondisi`}</InputLabel>
       <StyledContainer>
         {branches.map((branch, branchIndex) => {
           const branchFilterGroup = isDefined(branch.filterGroupId)
@@ -266,7 +265,7 @@ export const WorkflowEditActionIfElseBody = ({
                   <HorizontalSeparator noMargin />
                   <Button
                     Icon={IconPlus}
-                    title={t`Tambah cabang`}
+                    title={`Tambah cabang`}
                     variant="secondary"
                     size="small"
                     onClick={(event: React.MouseEvent<HTMLButtonElement>) =>

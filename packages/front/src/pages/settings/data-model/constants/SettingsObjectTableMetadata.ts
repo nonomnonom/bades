@@ -1,4 +1,3 @@
-import { msg } from '~/utils/i18n/badesI18n';
 import { type TableMetadata } from '@/ui/layout/table/types/TableMetadata';
 import { type SettingsObjectTableItem } from '~/pages/settings/data-model/types/SettingsObjectTableItem';
 
@@ -7,25 +6,25 @@ export const GET_SETTINGS_OBJECT_TABLE_METADATA: TableMetadata<SettingsObjectTab
     tableId: 'settingsObject',
     fields: [
       {
-        fieldLabel: msg`Nama`,
+        fieldLabel: `Nama`,
         fieldName: 'labelPlural',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Aplikasi`,
+        fieldLabel: `Aplikasi`,
         fieldName: 'objectTypeLabel',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Kolom`,
+        fieldLabel: `Kolom`,
         fieldName: 'fieldsCount',
         fieldType: 'number',
         align: 'right',
       },
       {
-        fieldLabel: msg`Instansi`,
+        fieldLabel: `Instansi`,
         fieldName: 'totalObjectCount',
         fieldType: 'number',
         align: 'right',

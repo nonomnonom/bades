@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { IconLock } from 'ui/display';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -18,6 +17,6 @@ const StyledPillContainer = styled.span`
 export const OrganizationAdornment = () => (
   <StyledPillContainer>
     <IconLock size={12} />
-    {t`Organisasi`}
+    {`Organisasi`}
   </StyledPillContainer>
 );

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { FormAdvancedTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormAdvancedTextFieldInput';
 import { SettingsCard } from '@/settings/components/SettingsCard';
@@ -75,7 +74,7 @@ export const SettingsAiMoreTab = () => {
         });
       } else {
         enqueueErrorSnackBar({
-          message: t`Gagal menyimpan instruksi ruang kerja`,
+          message: `Gagal menyimpan instruksi ruang kerja`,
         });
       }
     }
@@ -89,21 +88,21 @@ export const SettingsAiMoreTab = () => {
   const systemPromptTokenCount =
     previewData?.getAiSystemPromptPreview.estimatedTokenCount;
   const systemPromptDescription = isDefined(systemPromptTokenCount)
-    ? t`Baca prompt sistem untuk memahami cara kerja AI (~${formatNumber(
+    ? `Baca prompt sistem untuk memahami cara kerja AI (~${formatNumber(
         systemPromptTokenCount,
         {
           abbreviate: true,
           decimals: 1,
         },
       )} token)`
-    : t`Baca prompt sistem untuk memahami cara kerja AI`;
+    : `Baca prompt sistem untuk memahami cara kerja AI`;
 
   return (
     <>
       <Section>
         <H2Title
-          title={t`Instruksi Ruang Kerja`}
-          description={t`Tambahkan instruksi khusus untuk ruang kerja Anda (disisipkan ke prompt sistem). Kosong = default platform tetap berjalan.`}
+          title={`Instruksi Ruang Kerja`}
+          description={`Tambahkan instruksi khusus untuk ruang kerja Anda (disisipkan ke prompt sistem). Kosong = default platform tetap berjalan.`}
         />
         <StyledFormContainer>
           <FormAdvancedTextFieldInput
@@ -115,14 +114,14 @@ export const SettingsAiMoreTab = () => {
             enableFullScreen={true}
             fullScreenBreadcrumbs={[
               {
-                children: t`Prompt Sistem`,
+                children: `Prompt Sistem`,
                 href: '#',
               },
               {
-                children: t`Instruksi Ruang Kerja`,
+                children: `Instruksi Ruang Kerja`,
               },
             ]}
-            placeholder={t`Contoh: istilah lokal, SOP privasi, objek prioritas. Kosongkan bila default platform sudah cukup.`}
+            placeholder={`Contoh: istilah lokal, SOP privasi, objek prioritas. Kosongkan bila default platform sudah cukup.`}
             minHeight={150}
             maxWidth={700}
           />
@@ -132,14 +131,14 @@ export const SettingsAiMoreTab = () => {
 
       <Section>
         <H2Title
-          title={t`Prompt Sistem`}
+          title={`Prompt Sistem`}
           description={systemPromptDescription}
         />
 
         <UndecoratedLink to={getSettingsPath(SettingsPath.AiPrompts)}>
           <SettingsCard
             Icon={<IconPrompt size={theme.icon.size.md} />}
-            title={t`Baca prompt sistem`}
+            title={`Baca prompt sistem`}
           />
         </UndecoratedLink>
       </Section>

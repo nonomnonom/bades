@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useObjectLabel } from '@/object-metadata/hooks/useObjectLabel';
 import { useCheckIsSoftDeleteFilter } from '@/object-record/record-filter/hooks/useCheckIsSoftDeleteFilter';
 import { useRemoveRecordFilter } from '@/object-record/record-filter/hooks/useRemoveRecordFilter';
@@ -12,8 +11,6 @@ import { isDefined } from 'shared/utils';
 import { IconFilterOff } from 'ui/display';
 
 export const RecordTableEmptyStateSoftDelete = () => {
-  const { t } = useLingui();
-
   const { objectMetadataItem, objectNameSingular, recordTableId } =
     useRecordTableContextOrThrow();
 
@@ -48,9 +45,9 @@ export const RecordTableEmptyStateSoftDelete = () => {
 
   return (
     <RecordTableEmptyStateDisplay
-      buttonTitle={t`Hapus filter Dihapus`}
-      subTitle={t`Tidak ada data yang dihapus sesuai dengan kriteria filter.`}
-      title={t`Tidak ada ${objectLabelSingular} yang dihapus ditemukan`}
+      buttonTitle={`Hapus filter Dihapus`}
+      subTitle={`Tidak ada data yang dihapus sesuai dengan kriteria filter.`}
+      title={`Tidak ada ${objectLabelSingular} yang dihapus ditemukan`}
       ButtonIcon={IconFilterOff}
       animatedPlaceholderType="noDeletedRecord"
       onClick={handleButtonClick}

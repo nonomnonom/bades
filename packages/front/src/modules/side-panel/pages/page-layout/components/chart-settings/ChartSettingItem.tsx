@@ -20,7 +20,6 @@ import { useCloseAnyOpenDropdown } from '@/ui/layout/dropdown/hooks/useCloseAnyO
 import { useOpenDropdown } from '@/ui/layout/dropdown/hooks/useOpenDropdown';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useSelectableList } from '@/ui/layout/selectable-list/hooks/useSelectableList';
-import { t } from '~/utils/i18n/badesI18n';
 import { isString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 
@@ -94,7 +93,7 @@ export const ChartSettingItem = ({
       >
         <CommandMenuItem
           id={item.id}
-          label={t(item.label)}
+          label={item.label}
           Icon={item.Icon}
           hasSubMenu
           onClick={handleFilterClick}
@@ -113,7 +112,7 @@ export const ChartSettingItem = ({
       <SelectableListItem key={item.id} itemId={item.id}>
         <CommandMenuItemNumberInput
           id={item.id}
-          label={t(item.label)}
+          label={item.label}
           Icon={item.Icon}
           value={stringValue}
           onChange={handleInputChange}
@@ -128,7 +127,7 @@ export const ChartSettingItem = ({
             )
           }
           placeholder={
-            item.inputPlaceholder ? t(item.inputPlaceholder) : undefined
+            item.inputPlaceholder ? item.inputPlaceholder : undefined
           }
         />
       </SelectableListItem>
@@ -143,12 +142,12 @@ export const ChartSettingItem = ({
       <SelectableListItem key={item.id} itemId={item.id}>
         <CommandMenuItemTextInput
           id={item.id}
-          label={t(item.label)}
+          label={item.label}
           Icon={item.Icon}
           value={stringValue}
           onChange={handleTextInputChange}
           placeholder={
-            item.inputPlaceholder ? t(item.inputPlaceholder) : undefined
+            item.inputPlaceholder ? item.inputPlaceholder : undefined
           }
         />
       </SelectableListItem>
@@ -164,7 +163,7 @@ export const ChartSettingItem = ({
       >
         <CommandMenuItemToggle
           LeftIcon={item.Icon}
-          text={t(item.label)}
+          text={item.label}
           id={item.id}
           toggled={getChartSettingsValues(item.id) as boolean}
           onToggleChange={handleToggleChange}
@@ -181,7 +180,7 @@ export const ChartSettingItem = ({
     >
       <CommandMenuItemDropdown
         Icon={item.Icon}
-        label={t(item.label)}
+        label={item.label}
         id={item.id}
         dropdownId={item.id}
         dropdownComponents={

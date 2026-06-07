@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { isConfigVariablesInDbEnabledState } from '@/client-config/states/isConfigVariablesInDbEnabledState';
 import { TextInput } from '@/ui/input/components/TextInput';
 import { styled } from '@linaria/react';
@@ -25,7 +23,6 @@ export const ConfigVariableValueInput = ({
   onChange,
   disabled,
 }: ConfigVariableValueInputProps) => {
-  const { t } = useLingui();
   const isConfigVariablesInDbEnabled = useAtomStateValue(
     isConfigVariablesInDbEnabledState,
   );
@@ -34,7 +31,7 @@ export const ConfigVariableValueInput = ({
     <StyledValueContainer>
       {isConfigVariablesInDbEnabled && !variable.isEnvOnly ? (
         <ConfigVariableDatabaseInput
-          label={t`Nilai`}
+          label={`Nilai`}
           value={value}
           onChange={onChange}
           type={variable.type}
@@ -42,14 +39,14 @@ export const ConfigVariableValueInput = ({
           disabled={disabled}
           placeholder={
             disabled
-              ? t`Tidak terdefinisi`
+              ? `Tidak terdefinisi`
               : variable.isSensitive
-                ? t`Masukkan nilai rahasia baru`
-                : t`Masukkan nilai untuk disimpan di database`
+                ? `Masukkan nilai rahasia baru`
+                : `Masukkan nilai untuk disimpan di database`
           }
         />
       ) : (
-        <TextInput value={String(value)} disabled label={t`Nilai`} fullWidth />
+        <TextInput value={String(value)} disabled label={`Nilai`} fullWidth />
       )}
     </StyledValueContainer>
   );

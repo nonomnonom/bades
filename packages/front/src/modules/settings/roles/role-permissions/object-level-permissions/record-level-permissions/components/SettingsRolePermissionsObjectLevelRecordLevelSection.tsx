@@ -1,7 +1,6 @@
 /* @license Enterprise */
 
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconArrowUp, IconLock } from 'ui/display';
 import { Card, Section } from 'ui/layout';
 
@@ -44,19 +43,19 @@ export const SettingsRolePermissionsObjectLevelRecordLevelSection = ({
     return (
       <Section>
         <H2Title
-          title={t`Tingkat Data`}
-          description={t`Kemampuan memfilter data yang dapat diakses pengguna`}
+          title={`Tingkat Data`}
+          description={`Kemampuan memfilter data yang dapat diakses pengguna`}
           adornment={<OrganizationAdornment />}
         />
         <StyledCardContainer>
           <Card rounded>
             <SettingsOptionCardContentButton
               Icon={IconLock}
-              title={t`Tingkatkan untuk mengakses`}
-              description={t`Fitur ini tersedia di Paket Enterprise`}
+              title={`Tingkatkan untuk mengakses`}
+              description={`Fitur ini tersedia di Paket Enterprise`}
               Button={
                 <Button
-                  title={t`Tingkatkan`}
+                  title={`Tingkatkan`}
                   variant="primary"
                   accent="blue"
                   size="small"
@@ -80,8 +79,8 @@ export const SettingsRolePermissionsObjectLevelRecordLevelSection = ({
   return (
     <Section>
       <H2Title
-        title={t`Tingkat Data`}
-        description={t`Kemampuan memfilter data yang dapat diakses pengguna.`}
+        title={`Tingkat Data`}
+        description={`Kemampuan memfilter data yang dapat diakses pengguna.`}
       />
       <StyledContent>
         <SettingsRolePermissionsObjectLevelRecordLevelPermissionFilterBuilder

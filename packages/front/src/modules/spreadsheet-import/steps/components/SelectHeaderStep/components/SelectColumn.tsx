@@ -2,7 +2,6 @@
 // prettier-ignore
 import { useRowSelection, type Column, type FormatterProps } from 'react-data-grid';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { type ImportedRow } from '@/spreadsheet-import/types';
 import { Radio } from 'ui/input';
 
@@ -15,7 +14,7 @@ const SelectFormatter = (props: SelectFormatterProps) => {
 
   return (
     <Radio
-      aria-label={t`Pilih`}
+      aria-label={`Pilih`}
       checked={isRowSelected}
       onChange={(event) => {
         onRowSelectionChange({

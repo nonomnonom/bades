@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { useObjectMetadataSelectHelpers } from '@/object-metadata/hooks/useObjectMetadataSelectHelpers';
 import { type FieldMultiSelectValue } from '@/object-record/record-field/ui/types/FieldMetadata';
@@ -17,7 +18,6 @@ import { splitWorkflowTriggerEventName } from '@/workflow/utils/splitWorkflowTri
 import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowStepBody';
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useMemo, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
@@ -64,7 +64,6 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
   trigger,
   triggerOptions,
 }: WorkflowEditTriggerDatabaseEventFormProps) => {
-  const { t } = useLingui();
   const { getSelectIconPropsFromObjectMetadataItem } =
     useObjectMetadataSelectHelpers();
   const [searchInputValue, setSearchInputValue] = useState('');
@@ -83,8 +82,8 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
   const isFieldFilteringSupported = isUpdateEvent || isUpsertEvent;
 
   const defaultSelectedOption = useMemo(
-    () => ({ label: t`Pilih opsi`, value: '' }),
-    [t],
+    () => ({ label: `Pilih opsi`, value: '' }),
+    [],
   );
 
   const regularObjects = objectMetadataItems
@@ -176,7 +175,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
     <>
       <WorkflowStepBody>
         <StyledRecordTypeSelectContainer fullWidth>
-          <StyledLabel>{t`Tipe Data`}</StyledLabel>
+          <StyledLabel>{`Tipe Data`}</StyledLabel>
           <Dropdown
             dropdownId="workflow-edit-trigger-record-type"
             dropdownPlacement="bottom-start"
@@ -244,7 +243,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
                             searchInputValue.toLowerCase(),
                           )) && (
                           <MenuItem
-                            text={t`Lanjutan`}
+                            text={`Lanjutan`}
                             LeftIcon={IconSettings}
                             onClick={handleSystemObjectsClick}
                             hasSubMenu
@@ -260,8 +259,8 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
         </StyledRecordTypeSelectContainer>
         {isDefined(selectedObjectMetadataItem) && isFieldFilteringSupported && (
           <WorkflowFieldsMultiSelect
-            label={t`Field (Opsional)`}
-            placeholder={t`Pilih field tertentu untuk dipantau`}
+            label={`Field (Opsional)`}
+            placeholder={`Pilih field tertentu untuk dipantau`}
             objectMetadataItem={selectedObjectMetadataItem}
             handleFieldsChange={handleFieldsChange}
             readonly={triggerOptions.readonly ?? false}

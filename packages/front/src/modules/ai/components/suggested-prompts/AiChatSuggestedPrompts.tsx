@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { t, useLingui } from '~/utils/i18n/badesI18n';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type Editor } from '@tiptap/react';
 import { LightButton } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -65,7 +65,7 @@ export const AiChatSuggestedPrompts = ({
 
   return (
     <StyledContainer>
-      <StyledTitle>{t`Apa yang bisa saya bantu?`}</StyledTitle>
+      <StyledTitle>{`Apa yang bisa saya bantu?`}</StyledTitle>
       {suggestedPrompts.map((prompt) => (
         <StyledSuggestedPromptButtonContainer key={prompt.id}>
           <LightButton

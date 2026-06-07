@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { plural, t } from '~/utils/i18n/badesI18n';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { type ToolUIPart } from 'ai';
 import { isDefined } from 'shared/utils';
@@ -289,8 +289,8 @@ const ThinkingToolStepRow = ({
   const activeTab: ToolDetailsTab =
     activeTabId === 'input' ? 'input' : 'output';
   const toolTabs = [
-    { id: 'output', title: t`Keluaran` },
-    { id: 'input', title: t`Masukan` },
+    { id: 'output', title: `Keluaran` },
+    { id: 'input', title: `Masukan` },
   ];
 
   return (
@@ -348,11 +348,11 @@ const ThinkingToolStepRow = ({
                           : toolInput) as JsonValue
                       }
                       shouldExpandNodeInitially={() => false}
-                      emptyArrayLabel={t`Array kosong`}
-                      emptyObjectLabel={t`Objek kosong`}
-                      emptyStringLabel={t`[string kosong]`}
-                      arrowButtonCollapsedLabel={t`Perluas`}
-                      arrowButtonExpandedLabel={t`Ciutkan`}
+                      emptyArrayLabel={`Array kosong`}
+                      emptyObjectLabel={`Objek kosong`}
+                      emptyStringLabel={`[string kosong]`}
+                      arrowButtonCollapsedLabel={`Perluas`}
+                      arrowButtonExpandedLabel={`Ciutkan`}
                       onNodeValueClick={copyToClipboard}
                     />
                   </StyledJsonTreeContainer>
@@ -398,7 +398,7 @@ const ThinkingStepRow = ({
       </StyledIconContainer>
       <StyledRowLabelContainer>
         <StyledRowLabel>
-          {isActive ? t`Sedang berpikir` : t`Telah berpikir`}
+          {isActive ? `Sedang berpikir` : `Telah berpikir`}
         </StyledRowLabel>
       </StyledRowLabelContainer>
     </StyledRow>

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { H2Title, IconChevronRight } from 'ui/display';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
@@ -34,8 +33,6 @@ export const SettingsApplicationsTable = ({
   applications: ApplicationWithoutRelation[];
 }) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredApplications = applications
@@ -62,12 +59,12 @@ export const SettingsApplicationsTable = ({
   return (
     <Section>
       <H2Title
-        title={t`Aplikasi terpasang`}
-        description={t`Semua aplikasi yang saat ini terpasang di ruang kerja ini`}
+        title={`Aplikasi terpasang`}
+        description={`Semua aplikasi yang saat ini terpasang di ruang kerja ini`}
       />
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Cari aplikasi`}
+          placeholder={`Cari aplikasi`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -76,9 +73,9 @@ export const SettingsApplicationsTable = ({
         <TableRow
           gridTemplateColumns={APPLICATION_TABLE_ROW_GRID_TEMPLATE_COLUMNS}
         >
-          <TableHeader> {t`Nama`}</TableHeader>
-          <TableHeader> {t`Tipe`}</TableHeader>
-          <TableHeader> {t`Deskripsi`}</TableHeader>
+          <TableHeader> {`Nama`}</TableHeader>
+          <TableHeader> {`Tipe`}</TableHeader>
+          <TableHeader> {`Deskripsi`}</TableHeader>
           <TableHeader> {''}</TableHeader>
           <TableHeader />
         </TableRow>

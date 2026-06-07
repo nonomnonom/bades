@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useParams } from 'react-router-dom';
@@ -39,13 +38,13 @@ export const SettingsLayoutPageLayoutDetail = () => {
     ? [
         {
           key: 'universalIdentifier',
-          label: t`Identifier universal`,
+          label: `Identifier universal`,
           value: pageLayout.universalIdentifier,
         },
-        { key: 'type', label: t`Tipe`, value: pageLayout.type ?? t`Bawaan` },
+        { key: 'type', label: `Tipe`, value: pageLayout.type ?? `Bawaan` },
         {
           key: 'object',
-          label: t`Objek`,
+          label: `Objek`,
           value: objectLabel ?? pageLayout.objectUniversalIdentifier,
         },
       ]
@@ -59,9 +58,9 @@ export const SettingsLayoutPageLayoutDetail = () => {
     <SettingsLayoutDetailScaffold
       applicationId={applicationId}
       applicationName={application?.name}
-      entityName={pageLayout?.name ?? t`Tata letak halaman`}
-      entityTypeLabel={t`tata letak halaman`}
-      categoryLabel={t`Tata letak halaman`}
+      entityName={pageLayout?.name ?? `Tata letak halaman`}
+      entityTypeLabel={`tata letak halaman`}
+      categoryLabel={`Tata letak halaman`}
       detailRows={detailRows}
       isLoading={isLoading}
     >
@@ -71,27 +70,27 @@ export const SettingsLayoutPageLayoutDetail = () => {
 
         const descriptionParts: string[] = [];
         if (isDefined(tab.layoutMode)) {
-          descriptionParts.push(t`Mode tata letak: ${tab.layoutMode}`);
+          descriptionParts.push(`Mode tata letak: ${tab.layoutMode}`);
         }
         if (widgets.length > 0) {
           descriptionParts.push(
-            widgets.length === 1 ? t`1 widget` : t`${widgets.length} widgets`,
+            widgets.length === 1 ? `1 widget` : `${widgets.length} widgets`,
           );
         }
         const description =
           descriptionParts.length > 0
             ? descriptionParts.join(' · ')
-            : t`Tab kosong`;
+            : `Tab kosong`;
 
         return (
           <SettingsLayoutItemTable
             key={tab.universalIdentifier}
-            title={t`Tab ${tabNumber}: ${tab.title}`}
+            title={`Tab ${tabNumber}: ${tab.title}`}
             description={description}
             columns={[
-              { key: 'title', label: t`Widget` },
-              { key: 'type', label: t`Tipe`, width: '160px' },
-              { key: 'object', label: t`Objek`, width: '180px' },
+              { key: 'title', label: `Widget` },
+              { key: 'type', label: `Tipe`, width: '160px' },
+              { key: 'object', label: `Objek`, width: '180px' },
             ]}
             rows={widgets.map((widget) => ({
               key: widget.universalIdentifier,

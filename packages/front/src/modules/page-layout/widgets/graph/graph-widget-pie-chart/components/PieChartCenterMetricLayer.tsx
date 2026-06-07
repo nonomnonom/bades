@@ -1,6 +1,5 @@
 import { usePieChartCenterMetricData } from '@/page-layout/widgets/graph/graph-widget-pie-chart/hooks/usePieChartCenterMetricData';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useContext } from 'react';
 import { type PieChartConfiguration } from '~/generated-metadata/graphql';
@@ -51,8 +50,6 @@ export const PieChartCenterMetric = ({
   hasNoData = false,
 }: PieChartCenterMetricProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const { centerMetricValue, centerMetricLabel } = usePieChartCenterMetricData({
     objectMetadataItemId,
     configuration,
@@ -74,7 +71,7 @@ export const PieChartCenterMetric = ({
           }}
         >
           {hasNoData ? (
-            <StyledNoDataText>{t`Tidak ada data`}</StyledNoDataText>
+            <StyledNoDataText>{`Tidak ada data`}</StyledNoDataText>
           ) : (
             <>
               <StyledValue>{centerMetricValue}</StyledValue>

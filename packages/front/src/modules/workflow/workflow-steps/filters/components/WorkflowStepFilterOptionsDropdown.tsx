@@ -5,7 +5,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useRemoveStepFilter } from '@/workflow/workflow-steps/filters/hooks/useRemoveStepFilter';
 import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/states/context/WorkflowStepFilterContext';
 import { useContext } from 'react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconTrash } from 'ui/display';
 import { IconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -26,7 +25,7 @@ export const WorkflowStepFilterOptionsDropdown = ({
       dropdownId={`step-filter-options-${stepFilterId}`}
       clickableComponent={
         <IconButton
-          aria-label={t`Opsi filter langkah`}
+          aria-label={`Opsi filter langkah`}
           variant="tertiary"
           Icon={IconDotsVertical}
           disabled={readonly}
@@ -37,7 +36,7 @@ export const WorkflowStepFilterOptionsDropdown = ({
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconTrash}
-              text={t`Hapus`}
+              text={`Hapus`}
               onClick={() => removeStepFilter(stepFilterId)}
               accent="danger"
             />

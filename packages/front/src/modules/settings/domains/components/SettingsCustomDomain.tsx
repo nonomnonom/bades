@@ -1,4 +1,5 @@
 /* @license Enterprise */
+import { Trans } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -9,7 +10,6 @@ import { customDomainRecordsState } from '@/settings/domains/states/customDomain
 import { TextInput } from '@/ui/input/components/TextInput';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -45,7 +45,6 @@ const StyledRecordsWrapper = styled.div`
 
 export const SettingsCustomDomain = () => {
   const navigate = useNavigateSettings();
-  const { t } = useLingui();
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const { customDomainRecords, isLoading: isRecordsLoading } =
     useAtomStateValue(customDomainRecordsState);
@@ -63,7 +62,7 @@ export const SettingsCustomDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Domain Kustom`}
+      title={`Domain Kustom`}
       links={[
         {
           children: <Trans>Ruang Kerja</Trans>,
@@ -87,8 +86,8 @@ export const SettingsCustomDomain = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Domain Kustom`}
-            description={t`Atur nama domain kustom Anda dan konfigurasikan rekaman DNS.`}
+            title={`Domain Kustom`}
+            description={`Atur nama domain kustom Anda dan konfigurasikan rekaman DNS.`}
           />
           <CheckCustomDomainValidRecordsEffect />
           <StyledDomainFormWrapper>
@@ -107,7 +106,7 @@ export const SettingsCustomDomain = () => {
                     <Button
                       isLoading={isRecordsLoading}
                       Icon={IconReload}
-                      title={t`Muat ulang`}
+                      title={`Muat ulang`}
                       variant="primary"
                       onClick={checkCustomDomainRecords}
                       type="button"

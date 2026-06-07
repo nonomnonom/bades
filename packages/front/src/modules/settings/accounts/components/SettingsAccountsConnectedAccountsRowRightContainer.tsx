@@ -3,7 +3,6 @@ import { SettingsAccountsRowDropdownMenu } from '@/settings/accounts/components/
 import { SyncStatus } from '@/settings/accounts/constants/SyncStatus';
 import { computeSyncStatus } from '@/settings/accounts/utils/computeSyncStatus';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Status } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -26,18 +25,18 @@ export const SettingsAccountsConnectedAccountsRowRightContainer = ({
   return (
     <StyledRowRightContainer>
       {status === SyncStatus.FAILED && (
-        <Status color="red" text={t`Sinkronisasi gagal`} weight="medium" />
+        <Status color="red" text={`Sinkronisasi gagal`} weight="medium" />
       )}
       {status === SyncStatus.SYNCED && (
-        <Status color="green" text={t`Tersinkronkan`} weight="medium" />
+        <Status color="green" text={`Tersinkronkan`} weight="medium" />
       )}
       {status === SyncStatus.NOT_SYNCED && (
-        <Status color="orange" text={t`Belum tersinkronkan`} weight="medium" />
+        <Status color="orange" text={`Belum tersinkronkan`} weight="medium" />
       )}
       {status === SyncStatus.IMPORTING && (
         <Status
           color="turquoise"
-          text={t`Mengimpor`}
+          text={`Mengimpor`}
           weight="medium"
           isLoaderVisible
         />
@@ -45,7 +44,7 @@ export const SettingsAccountsConnectedAccountsRowRightContainer = ({
       {status === SyncStatus.PENDING_CONFIGURATION && (
         <Status
           color="orange"
-          text={t`Pengaturan belum selesai`}
+          text={`Pengaturan belum selesai`}
           weight="medium"
         />
       )}

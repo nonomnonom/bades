@@ -1,4 +1,3 @@
-import { msg } from '~/utils/i18n/badesI18n';
 import { type Editor, type Range } from '@tiptap/core';
 import {
   type IconComponent,
@@ -24,10 +23,10 @@ export type SlashCommandConfig = {
 export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   {
     id: 'paragraph',
-    title: msg`Teks`,
-    description: msg`Paragraf teks biasa`,
+    title: `Teks`,
+    description: `Paragraf teks biasa`,
     icon: IconPilcrow,
-    keywords: [msg`paragraf`, msg`teks`, msg`p`],
+    keywords: [`paragraf`, `teks`, `p`],
     getIsActive: (editor) => editor.isActive('paragraph'),
     getIsVisible: (editor) => editor.can().setParagraph?.() ?? false,
     getOnSelect: (editor, range) => () => {
@@ -36,10 +35,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'h1',
-    title: msg`Judul 1`,
-    description: msg`Judul bagian besar`,
+    title: `Judul 1`,
+    description: `Judul bagian besar`,
     icon: IconH1,
-    keywords: [msg`judul`, msg`h1`, msg`title`],
+    keywords: [`judul`, `h1`, `title`],
     getIsActive: (editor) => editor.isActive('heading', { level: 1 }),
     getIsVisible: (editor) => editor.can().setHeading?.({ level: 1 }) ?? false,
     getOnSelect: (editor, range) => () =>
@@ -47,10 +46,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'h2',
-    title: msg`Judul 2`,
-    description: msg`Judul bagian sedang`,
+    title: `Judul 2`,
+    description: `Judul bagian sedang`,
     icon: IconH2,
-    keywords: [msg`judul`, msg`h2`, msg`subjudul`],
+    keywords: [`judul`, `h2`, `subjudul`],
     getIsActive: (editor) => editor.isActive('heading', { level: 2 }),
     getIsVisible: (editor) => editor.can().setHeading?.({ level: 2 }) ?? false,
     getOnSelect: (editor, range) => () =>
@@ -58,10 +57,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'h3',
-    title: msg`Judul 3`,
-    description: msg`Judul bagian kecil`,
+    title: `Judul 3`,
+    description: `Judul bagian kecil`,
     icon: IconH3,
-    keywords: [msg`judul`, msg`h3`, msg`subjudul`],
+    keywords: [`judul`, `h3`, `subjudul`],
     getIsActive: (editor) => editor.isActive('heading', { level: 3 }),
     getIsVisible: (editor) => editor.can().setHeading?.({ level: 3 }) ?? false,
     getOnSelect: (editor, range) => () =>
@@ -69,10 +68,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'bulletList',
-    title: msg`Daftar Poin`,
-    description: msg`Daftar tak berurutan dengan poin`,
+    title: `Daftar Poin`,
+    description: `Daftar tak berurutan dengan poin`,
     icon: IconList,
-    keywords: [msg`poin`, msg`daftar`, msg`ul`, msg`tak berurutan`],
+    keywords: [`poin`, `daftar`, `ul`, `tak berurutan`],
     getIsActive: (editor) => editor.isActive('bulletList'),
     getIsVisible: (editor) => editor.can().toggleBulletList?.() ?? false,
     getOnSelect: (editor, range) => () =>
@@ -80,10 +79,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'orderedList',
-    title: msg`Daftar Bernomor`,
-    description: msg`Daftar berurutan dengan nomor`,
+    title: `Daftar Bernomor`,
+    description: `Daftar berurutan dengan nomor`,
     icon: IconListNumbers,
-    keywords: [msg`bernomor`, msg`daftar`, msg`ol`, msg`nomor`, msg`urutan`],
+    keywords: [`bernomor`, `daftar`, `ol`, `nomor`, `urutan`],
     getIsActive: (editor) => editor.isActive('orderedList'),
     getIsVisible: (editor) => editor.can().toggleOrderedList?.() ?? false,
     getOnSelect: (editor, range) => () =>

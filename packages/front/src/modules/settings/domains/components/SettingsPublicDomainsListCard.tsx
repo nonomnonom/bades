@@ -3,7 +3,6 @@ import { SettingsListCard } from '@/settings/components/SettingsListCard';
 import { SettingPublicDomainRowDropdownMenu } from '@/settings/domains/components/SettingPublicDomainRowDropdownMenu';
 import { selectedPublicDomainState } from '@/settings/domains/states/selectedPublicDomainState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { IconAt, IconMailCog, Status } from 'ui/display';
 import { useQuery } from '@apollo/client/react';
@@ -15,8 +14,6 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
 export const SettingsPublicDomainsListCard = () => {
   const navigate = useNavigateSettings();
-
-  const { t } = useLingui();
 
   const setSelectedPublicDomain = useSetAtomState(selectedPublicDomainState);
 
@@ -31,7 +28,7 @@ export const SettingsPublicDomainsListCard = () => {
   if (publicDomains.length === 0) {
     return (
       <SettingsCard
-        title={t`Tambah Domain Publik`}
+        title={`Tambah Domain Publik`}
         Icon={<IconMailCog />}
         onClick={() => {
           setSelectedPublicDomain(undefined);
@@ -54,13 +51,13 @@ export const SettingsPublicDomainsListCard = () => {
       RowRightComponent={({ item: publicDomain }) => (
         <>
           {!publicDomain.isValidated && (
-            <Status color="orange" text={t`Menunggu`} />
+            <Status color="orange" text={`Menunggu`} />
           )}
           <SettingPublicDomainRowDropdownMenu publicDomain={publicDomain} />
         </>
       )}
       hasFooter
-      footerButtonLabel={t`Tambah Domain Publik`}
+      footerButtonLabel={`Tambah Domain Publik`}
       onFooterButtonClick={() => {
         setSelectedPublicDomain(undefined);
         navigate(SettingsPath.PublicDomain);

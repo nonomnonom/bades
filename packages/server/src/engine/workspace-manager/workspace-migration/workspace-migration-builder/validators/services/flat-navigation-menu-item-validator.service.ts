@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { NavigationMenuItemType } from 'shared/types';
@@ -45,7 +45,7 @@ export class FlatNavigationMenuItemValidatorService {
     if (!isDefined(type)) {
       errors.push({
         code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-        message: t`Navigation menu item type is required`,
+        message: `Navigation menu item type is required`,
         userFriendlyMessage: msg`Navigation menu item type is required`,
       });
 
@@ -57,7 +57,7 @@ export class FlatNavigationMenuItemValidatorService {
         if (!isDefined(name) || name.trim() === '') {
           errors.push({
             code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-            message: t`Folder name is required`,
+            message: `Folder name is required`,
             userFriendlyMessage: msg`Folder name is required`,
           });
         }
@@ -66,7 +66,7 @@ export class FlatNavigationMenuItemValidatorService {
         if (!hasTargetObjectMetadataId) {
           errors.push({
             code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-            message: t`targetObjectMetadataId is required for OBJECT type`,
+            message: `targetObjectMetadataId is required for OBJECT type`,
             userFriendlyMessage: msg`targetObjectMetadataId is required for OBJECT type`,
           });
         }
@@ -75,7 +75,7 @@ export class FlatNavigationMenuItemValidatorService {
         if (!hasViewId) {
           errors.push({
             code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-            message: t`viewId is required for VIEW type`,
+            message: `viewId is required for VIEW type`,
             userFriendlyMessage: msg`viewId is required for VIEW type`,
           });
         }
@@ -84,7 +84,7 @@ export class FlatNavigationMenuItemValidatorService {
         if (!hasTargetRecordId || !hasTargetObjectMetadataId) {
           errors.push({
             code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-            message: t`targetRecordId and targetObjectMetadataId are required for RECORD type`,
+            message: `targetRecordId and targetObjectMetadataId are required for RECORD type`,
             userFriendlyMessage: msg`targetRecordId and targetObjectMetadataId are required for RECORD type`,
           });
         }
@@ -93,7 +93,7 @@ export class FlatNavigationMenuItemValidatorService {
         if (!hasLink) {
           errors.push({
             code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-            message: t`link is required for LINK type`,
+            message: `link is required for LINK type`,
             userFriendlyMessage: msg`link is required for LINK type`,
           });
         }
@@ -102,7 +102,7 @@ export class FlatNavigationMenuItemValidatorService {
         if (!hasPageLayoutId) {
           errors.push({
             code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-            message: t`pageLayoutId is required for PAGE_LAYOUT type`,
+            message: `pageLayoutId is required for PAGE_LAYOUT type`,
             userFriendlyMessage: msg`pageLayoutId is required for PAGE_LAYOUT type`,
           });
         }
@@ -138,7 +138,7 @@ export class FlatNavigationMenuItemValidatorService {
         return [
           {
             code: NavigationMenuItemExceptionCode.CIRCULAR_DEPENDENCY,
-            message: t`Navigation menu item cannot be its own parent`,
+            message: `Navigation menu item cannot be its own parent`,
             userFriendlyMessage: msg`Navigation menu item cannot be its own parent`,
           },
         ];
@@ -146,7 +146,7 @@ export class FlatNavigationMenuItemValidatorService {
         return [
           {
             code: NavigationMenuItemExceptionCode.CIRCULAR_DEPENDENCY,
-            message: t`Circular dependency detected in navigation menu item hierarchy`,
+            message: `Circular dependency detected in navigation menu item hierarchy`,
             userFriendlyMessage: msg`Circular dependency detected in navigation menu item hierarchy`,
           },
         ];
@@ -154,7 +154,7 @@ export class FlatNavigationMenuItemValidatorService {
         return [
           {
             code: NavigationMenuItemExceptionCode.MAX_DEPTH_EXCEEDED,
-            message: t`Navigation menu item hierarchy exceeds maximum depth of ${NAVIGATION_MENU_ITEM_MAX_DEPTH}`,
+            message: `Navigation menu item hierarchy exceeds maximum depth of ${NAVIGATION_MENU_ITEM_MAX_DEPTH}`,
             userFriendlyMessage: msg`Navigation menu item hierarchy exceeds maximum depth of ${NAVIGATION_MENU_ITEM_MAX_DEPTH}`,
           },
         ];
@@ -184,7 +184,7 @@ export class FlatNavigationMenuItemValidatorService {
     ) {
       validationResult.errors.push({
         code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-        message: t`Position must be a finite number`,
+        message: `Position must be a finite number`,
         userFriendlyMessage: msg`Position must be a finite number`,
       });
     }
@@ -237,7 +237,7 @@ export class FlatNavigationMenuItemValidatorService {
       ) {
         validationResult.errors.push({
           code: NavigationMenuItemExceptionCode.NAVIGATION_MENU_ITEM_NOT_FOUND,
-          message: t`Parent navigation menu item not found`,
+          message: `Parent navigation menu item not found`,
           userFriendlyMessage: msg`Parent navigation menu item not found`,
         });
       }
@@ -270,7 +270,7 @@ export class FlatNavigationMenuItemValidatorService {
     if (!isDefined(existingNavigationMenuItem)) {
       validationResult.errors.push({
         code: NavigationMenuItemExceptionCode.NAVIGATION_MENU_ITEM_NOT_FOUND,
-        message: t`Navigation menu item not found`,
+        message: `Navigation menu item not found`,
         userFriendlyMessage: msg`Navigation menu item not found`,
       });
     }
@@ -303,7 +303,7 @@ export class FlatNavigationMenuItemValidatorService {
     if (!isDefined(fromFlatNavigationMenuItem)) {
       validationResult.errors.push({
         code: NavigationMenuItemExceptionCode.NAVIGATION_MENU_ITEM_NOT_FOUND,
-        message: t`Navigation menu item not found`,
+        message: `Navigation menu item not found`,
         userFriendlyMessage: msg`Navigation menu item not found`,
       });
 
@@ -315,7 +315,7 @@ export class FlatNavigationMenuItemValidatorService {
     if (isDefined(positionUpdate) && !Number.isFinite(positionUpdate)) {
       validationResult.errors.push({
         code: NavigationMenuItemExceptionCode.INVALID_NAVIGATION_MENU_ITEM_INPUT,
-        message: t`Position must be a finite number`,
+        message: `Position must be a finite number`,
         userFriendlyMessage: msg`Position must be a finite number`,
       });
     }
@@ -374,7 +374,7 @@ export class FlatNavigationMenuItemValidatorService {
     if (!isDefined(referencedParentNavigationMenuItem)) {
       validationResult.errors.push({
         code: NavigationMenuItemExceptionCode.NAVIGATION_MENU_ITEM_NOT_FOUND,
-        message: t`Parent navigation menu item not found`,
+        message: `Parent navigation menu item not found`,
         userFriendlyMessage: msg`Parent navigation menu item not found`,
       });
     }

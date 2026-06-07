@@ -3,7 +3,6 @@ import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/c
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormActionField';
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import camelCase from 'lodash.camelcase';
 import { FieldMetadataType } from 'shared/types';
@@ -27,7 +26,7 @@ export const WorkflowFormFieldSettingsText = ({
   return (
     <StyledContainer>
       <FormFieldInputContainer>
-        <InputLabel>{t`Nama Field`}</InputLabel>
+        <InputLabel>{`Nama Field`}</InputLabel>
         <FormTextFieldInput
           onChange={(newLabel: string) => {
             onChange({
@@ -43,7 +42,7 @@ export const WorkflowFormFieldSettingsText = ({
         />
       </FormFieldInputContainer>
       <FormFieldInputContainer>
-        <InputLabel>{t`Teks Petunjuk`}</InputLabel>
+        <InputLabel>{`Teks Petunjuk`}</InputLabel>
         <FormTextFieldInput
           onChange={(newPlaceholder: string) => {
             onChange({

@@ -1,4 +1,4 @@
-import { plural, t } from '~/utils/i18n/badesI18n';
+import { plural } from '~/utils/i18n/badesI18n';
 import { SettingsAdminQueueJobsTable } from '@/settings/admin-panel/health-status/components/SettingsAdminQueueJobsTable';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -48,19 +48,19 @@ export const SettingsAdminQueueDetail = () => {
   const maxCount = retentionConfig ? retentionConfig.completedMaxCount : 0;
 
   const queueDescription = retentionConfig
-    ? t`Pekerjaan selesai disimpan selama ${completedDuration}, pekerjaan gagal disimpan selama ${failedDuration} (maks ${maxCount} masing-masing)`
-    : t`Memuat konfigurasi retensi...`;
+    ? `Pekerjaan selesai disimpan selama ${completedDuration}, pekerjaan gagal disimpan selama ${failedDuration} (maks ${maxCount} masing-masing)`
+    : `Memuat konfigurasi retensi...`;
 
   return (
     <SubMenuTopBarContainer
-      title={t`Antrian: ${queueName}`}
+      title={`Antrian: ${queueName}`}
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Kesehatan`,
+          children: `Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
@@ -76,7 +76,7 @@ export const SettingsAdminQueueDetail = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Pekerjaan`} description={queueDescription} />
+          <H2Title title={`Pekerjaan`} description={queueDescription} />
           <SettingsAdminQueueJobsTable
             queueName={queueName}
             onRetentionConfigLoaded={setRetentionConfig}

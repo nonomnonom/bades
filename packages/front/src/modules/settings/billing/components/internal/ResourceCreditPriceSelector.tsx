@@ -10,7 +10,6 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { H2Title } from 'ui/display';
@@ -67,7 +66,7 @@ export const ResourceCreditPriceSelector = ({
     });
 
     return {
-      label: t`${credits} kredit - Rp${priceDisplay}`,
+      label: `${credits} kredit - Rp${priceDisplay}`,
       value: price.priceId,
     };
   };
@@ -148,7 +147,7 @@ export const ResourceCreditPriceSelector = ({
         refetchResourceCreditUsage();
       }
       enqueueSuccessSnackBar({
-        message: t`Kredit sumber daya berhasil diperbarui.`,
+        message: `Kredit sumber daya berhasil diperbarui.`,
       });
       const newPrice = resourceCreditPrices.find(
         ({ priceId }) => priceId === selectedPrice.priceId,
@@ -159,7 +158,7 @@ export const ResourceCreditPriceSelector = ({
       setSelectedPriceId(undefined);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal memperbarui kredit sumber daya.`,
+        message: `Gagal memperbarui kredit sumber daya.`,
       });
     }
   };
@@ -167,8 +166,8 @@ export const ResourceCreditPriceSelector = ({
   return (
     <>
       <H2Title
-        title={t`Kredit sumber daya`}
-        description={t`Jumlah kredit baru yang dialokasikan setiap ${recurringInterval}`}
+        title={`Kredit sumber daya`}
+        description={`Jumlah kredit baru yang dialokasikan setiap ${recurringInterval}`}
       />
       <StyledRow>
         <StyledSelectContainer>
@@ -179,7 +178,7 @@ export const ResourceCreditPriceSelector = ({
             onChange={handleChange}
             disabled={isUpdating || isTrialing}
             description={
-              isTrialing ? t`Mulai langganan Anda terlebih dahulu` : undefined
+              isTrialing ? `Mulai langganan Anda terlebih dahulu` : undefined
             }
             fullWidth
           />
@@ -187,7 +186,7 @@ export const ResourceCreditPriceSelector = ({
         {isChanged && (
           <StyledButtonContainer>
             <Button
-              title={isUpgrade() ? t`Tingkatkan` : t`Turunkan`}
+              title={isUpgrade() ? `Tingkatkan` : `Turunkan`}
               onClick={handleOpenConfirm}
               variant="primary"
               isLoading={isUpdating}
@@ -199,11 +198,9 @@ export const ResourceCreditPriceSelector = ({
       </StyledRow>
       <ConfirmationModal
         modalInstanceId={confirmModalId}
-        title={
-          isUpgrade() ? t`Konfirmasi peningkatan` : t`Konfirmasi penurunan`
-        }
-        subtitle={t`Konfirmasi perubahan alokasi kredit sumber daya Anda saat ini.`}
-        confirmButtonText={isUpgrade() ? t`Tingkatkan` : t`Turunkan`}
+        title={isUpgrade() ? `Konfirmasi peningkatan` : `Konfirmasi penurunan`}
+        subtitle={`Konfirmasi perubahan alokasi kredit sumber daya Anda saat ini.`}
+        confirmButtonText={isUpgrade() ? `Tingkatkan` : `Turunkan`}
         confirmButtonAccent={isUpgrade() ? 'blue' : 'danger'}
         loading={isUpdating}
         onConfirmClick={handleConfirmClick}

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   H2Title,
   IconBrandDocker,
@@ -18,8 +17,6 @@ export const SettingsApplicationRegistrationGeneralStats = ({
 }: {
   registration: ApplicationRegistration;
 }) => {
-  const { t } = useLingui();
-
   const applicationRegistrationId = registration.id;
 
   const { data: statsData } = useQuery(
@@ -49,17 +46,17 @@ export const SettingsApplicationRegistrationGeneralStats = ({
   const statsItems = [
     {
       Icon: IconBrandDocker,
-      label: t`Instalasi aktif`,
+      label: `Instalasi aktif`,
       value: stats?.activeInstalls ?? '—',
     },
     {
       Icon: IconStatusChange,
-      label: t`Versi paling banyak dipasang`,
+      label: `Versi paling banyak dipasang`,
       value: stats?.mostInstalledVersion ?? '—',
     },
     {
       Icon: IconChartBar,
-      label: t`Distribusi`,
+      label: `Distribusi`,
       value: versionDistributionLabel,
     },
   ];
@@ -67,8 +64,8 @@ export const SettingsApplicationRegistrationGeneralStats = ({
   return (
     <Section>
       <H2Title
-        title={t`Statistik Instalasi`}
-        description={t`Penggunaan di semua ruang kerja pada server ini`}
+        title={`Statistik Instalasi`}
+        description={`Penggunaan di semua ruang kerja pada server ini`}
       />
       <SettingsTableCard
         rounded

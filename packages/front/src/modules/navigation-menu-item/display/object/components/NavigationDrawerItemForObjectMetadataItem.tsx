@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { Fragment, type ReactNode, useContext } from 'react';
 
@@ -126,7 +125,7 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
     !canReadObjectRecords &&
     !isNonEmptyString(primaryLabel.trim());
 
-  const label = needsInaccessibleRecordPlaceholder ? t`Rekod` : primaryLabel;
+  const label = needsInaccessibleRecordPlaceholder ? `Rekod` : primaryLabel;
 
   const recordIdentifier =
     isRecord && isDefined(navigationMenuItem?.targetRecordIdentifier)

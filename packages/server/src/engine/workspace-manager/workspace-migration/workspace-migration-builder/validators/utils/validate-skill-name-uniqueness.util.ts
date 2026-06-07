@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 
 import { SkillExceptionCode } from 'src/engine/metadata-modules/skill/skill.exception';
 import { type UniversalFlatSkill } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-skill.type';
@@ -16,7 +16,7 @@ export const validateSkillNameUniqueness = ({
   if (existingFlatSkills.some((skill) => skill.name === name)) {
     errors.push({
       code: SkillExceptionCode.SKILL_ALREADY_EXISTS,
-      message: t`Skill with name "${name}" already exists`,
+      message: `Skill with name "${name}" already exists`,
       userFriendlyMessage: msg`A skill with this name already exists`,
     });
   }

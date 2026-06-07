@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type ThemeColor } from 'ui/theme';
 import { UpgradeHealth } from '~/generated-admin/graphql';
 
@@ -12,12 +11,12 @@ export const getUpgradeHealthStatusBadge = (
 ): UpgradeHealthStatusBadge => {
   switch (health) {
     case UpgradeHealth.UP_TO_DATE:
-      return { color: 'green', label: t`Mutakhir` };
+      return { color: 'green', label: `Mutakhir` };
     case UpgradeHealth.BEHIND:
-      return { color: 'orange', label: t`Tertinggal` };
+      return { color: 'orange', label: `Tertinggal` };
     case UpgradeHealth.FAILED:
-      return { color: 'red', label: t`Gagal` };
+      return { color: 'red', label: `Gagal` };
     default:
-      return { color: 'gray', label: t`Tidak diketahui` };
+      return { color: 'gray', label: `Tidak diketahui` };
   }
 };

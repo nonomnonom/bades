@@ -1,6 +1,5 @@
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client/react';
 import {
@@ -41,7 +40,7 @@ export const useHandleCheckoutSession = ({
     setIsSubmitting(false);
     if (!data?.checkoutSession.url) {
       enqueueErrorSnackBar({
-        message: t`Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
+        message: `Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
       });
       return;
     }

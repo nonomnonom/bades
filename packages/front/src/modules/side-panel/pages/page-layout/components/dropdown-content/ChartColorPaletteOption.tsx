@@ -3,7 +3,6 @@ import { createGraphColorRegistry } from '@/page-layout/widgets/graph/utils/crea
 import { getColorSchemeByIndex } from '@/page-layout/widgets/graph/utils/getColorSchemeByIndex';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { ColorSample } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
@@ -65,7 +64,7 @@ export const ChartColorPaletteOption = ({
       }}
     >
       <MenuItemSelect
-        text={t`Palet bawaan`}
+        text={`Palet bawaan`}
         selected={false}
         focused={selectedItemId === 'auto' || currentColor === 'auto'}
         contextualText={colorSamples}

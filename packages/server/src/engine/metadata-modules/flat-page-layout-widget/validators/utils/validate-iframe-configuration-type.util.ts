@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -26,7 +26,7 @@ export const validateIframeConfigurationType = ({
       errors: [
         {
           code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-          message: t`Configuration type is required for widget "${widgetTitle}"`,
+          message: `Configuration type is required for widget "${widgetTitle}"`,
           userFriendlyMessage: msg`Configuration type is required`,
         },
       ],
@@ -44,7 +44,7 @@ export const validateIframeConfigurationType = ({
       errors: [
         {
           code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-          message: t`Invalid configuration type for iframe widget "${widgetTitle}". Expected IFRAME, got ${configurationTypeString}`,
+          message: `Invalid configuration type for iframe widget "${widgetTitle}". Expected IFRAME, got ${configurationTypeString}`,
           userFriendlyMessage: msg`Invalid configuration type for iframe widget`,
           value: universalConfiguration.configurationType,
         },

@@ -5,7 +5,6 @@ import { MemberEmailField } from '@/settings/members/components/MemberEmailField
 import { MemberNameFields } from '@/settings/members/components/MemberNameFields';
 import { WorkspaceMemberPictureUploader } from '@/settings/workspace-member/components/WorkspaceMemberPictureUploader';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';
@@ -44,7 +43,7 @@ export const MemberInfosTab = ({
   return (
     <>
       <Section>
-        <H2Title title={t`Foto`} />
+        <H2Title title={`Foto`} />
         <WorkspaceMemberPictureUploader
           workspaceMemberId={member.id}
           avatarUrl={avatarUrl}
@@ -54,8 +53,8 @@ export const MemberInfosTab = ({
 
       <Section>
         <H2Title
-          title={t`Nama`}
-          description={t`Nama yang akan ditampilkan di ruang kerja`}
+          title={`Nama`}
+          description={`Nama yang akan ditampilkan di ruang kerja`}
         />
         <StyledNameRow>
           <MemberNameFields
@@ -77,21 +76,21 @@ export const MemberInfosTab = ({
 
       <Section>
         <H2Title
-          title={t`Email`}
-          description={t`Email yang terhubung dengan akun ini`}
+          title={`Email`}
+          description={`Email yang terhubung dengan akun ini`}
         />
         <MemberEmailField email={member.userEmail} />
       </Section>
 
       <Section>
         <H2Title
-          title={t`Admin`}
-          description={t`Lakukan tindakan administratif atau hapus pengguna ini secara permanen`}
+          title={`Admin`}
+          description={`Lakukan tindakan administratif atau hapus pengguna ini secara permanen`}
         />
         <StyledActionRow>
           {onImpersonate && (
             <Button
-              title={t`Masuk sebagai pengguna`}
+              title={`Masuk sebagai pengguna`}
               variant="secondary"
               size="small"
               onClick={onImpersonate}
@@ -99,7 +98,7 @@ export const MemberInfosTab = ({
           )}
           <Button
             accent="danger"
-            title={t`Hapus akun`}
+            title={`Hapus akun`}
             variant="secondary"
             size="small"
             onClick={onDelete}

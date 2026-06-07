@@ -1,7 +1,6 @@
 import { type Form } from '@/auth/sign-in-up/hooks/useSignInUpForm';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { motion } from 'framer-motion';
 import { Controller, useFormContext } from 'react-hook-form';
 import { isDefined } from 'shared/utils';
@@ -22,7 +21,6 @@ export const SignInUpEmailField = ({
   showErrors: boolean;
   onInputChange?: (value: string) => void;
 }) => {
-  const { t } = useLingui();
   const form = useFormContext<Form>();
 
   return (
@@ -48,7 +46,7 @@ export const SignInUpEmailField = ({
               autoComplete="email"
               autoFocus
               value={value}
-              placeholder={t`Email`}
+              placeholder={`Email`}
               onBlur={onBlur}
               onChange={(email: string) => {
                 if (isDefined(onInputChange)) onInputChange(email);

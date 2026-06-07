@@ -13,7 +13,6 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import {
@@ -98,17 +97,17 @@ export const WebhookEntitySelect = ({
   );
 
   const metadataOptions = [
-    { label: t`Semua Metadata`, value: 'metadata.*', icon: IconNorthStar },
-    { label: t`Objek`, value: 'metadata.objectMetadata', icon: IconTable },
-    { label: t`Kolom`, value: 'metadata.fieldMetadata', icon: IconBox },
-    { label: t`Tampilan`, value: 'metadata.view', icon: IconEye },
-    { label: t`Kolom Tampilan`, value: 'metadata.viewField', icon: IconEye },
-    { label: t`Indeks`, value: 'metadata.index', icon: IconSettings },
-    { label: t`Webhook`, value: 'metadata.webhook', icon: IconCode },
+    { label: `Semua Metadata`, value: 'metadata.*', icon: IconNorthStar },
+    { label: `Objek`, value: 'metadata.objectMetadata', icon: IconTable },
+    { label: `Kolom`, value: 'metadata.fieldMetadata', icon: IconBox },
+    { label: `Tampilan`, value: 'metadata.view', icon: IconEye },
+    { label: `Kolom Tampilan`, value: 'metadata.viewField', icon: IconEye },
+    { label: `Indeks`, value: 'metadata.index', icon: IconSettings },
+    { label: `Webhook`, value: 'metadata.webhook', icon: IconCode },
   ];
 
   const objectOptions: SelectOption<string>[] = [
-    { label: t`Semua Objek`, value: '*', Icon: IconNorthStar },
+    { label: `Semua Objek`, value: '*', Icon: IconNorthStar },
     ...objectMetadataItems.map((item) => ({
       label: item.labelPlural,
       value: item.nameSingular,
@@ -126,10 +125,10 @@ export const WebhookEntitySelect = ({
 
   const getSelectedLabel = () => {
     if (!isDefined(value)) {
-      return t`Pilih entitas`;
+      return `Pilih entitas`;
     }
     if (value === '*') {
-      return t`Semua Objek`;
+      return `Semua Objek`;
     }
 
     const metadataOption = metadataOptions.find((opt) => opt.value === value);
@@ -180,7 +179,7 @@ export const WebhookEntitySelect = ({
           <DropdownMenuSearchInput
             autoFocus
             value={searchInput}
-            placeholder={t`Cari...`}
+            placeholder={`Cari...`}
             onChange={(event) => setSearchInput(event.target.value)}
           />
           <DropdownMenuSeparator />
@@ -192,7 +191,7 @@ export const WebhookEntitySelect = ({
             <DropdownMenuItemsContainer hasMaxHeight>
               {shouldShowObjects && (
                 <>
-                  <DropdownMenuSectionLabel label={t`Objek Inti`} />
+                  <DropdownMenuSectionLabel label={`Objek Inti`} />
                   {filteredObjectOptions.map((option) => (
                     <SelectableListItem
                       key={option.value}
@@ -214,7 +213,7 @@ export const WebhookEntitySelect = ({
               {shouldShowSeparator && <DropdownMenuSeparator />}
               {shouldShowMetadata && (
                 <>
-                  <DropdownMenuSectionLabel label={t`Metadata Sistem`} />
+                  <DropdownMenuSectionLabel label={`Metadata Sistem`} />
                   {filteredMetadataOptions.map((option) => (
                     <SelectableListItem
                       key={option.value}

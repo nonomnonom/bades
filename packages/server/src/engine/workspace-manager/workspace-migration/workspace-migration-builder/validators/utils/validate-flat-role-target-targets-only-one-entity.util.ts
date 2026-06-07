@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { RoleTargetExceptionCode } from 'src/engine/metadata-modules/role/exceptions/role-target.exception';
@@ -21,7 +21,7 @@ export const validateFlatRoleTargetTargetsOnlyOneEntity = ({
   if (definedIdentifiersCount !== 1) {
     errors.push({
       code: RoleTargetExceptionCode.ROLE_TARGET_MISSING_IDENTIFIER,
-      message: t`Role target must have exactly one of: apiKeyId, userWorkspaceId, or agentId`,
+      message: `Role target must have exactly one of: apiKeyId, userWorkspaceId, or agentId`,
       userFriendlyMessage: msg`Role target must have exactly one of: apiKeyId, userWorkspaceId, or agentId`,
     });
   }

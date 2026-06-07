@@ -4,7 +4,6 @@ import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApo
 import { SettingsAdminWorkerMetricsTooltip } from '@/settings/admin-panel/health-status/components/SettingsAdminWorkerMetricsTooltip';
 import { useSnackBarOnQueryError } from '@/apollo/hooks/useSnackBarOnQueryError';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { ResponsiveLine } from '@nivo/line';
 import { useContext } from 'react';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -91,17 +90,17 @@ export const SettingsAdminWorkerMetricsGraph = ({
   const getAxisLabel = () => {
     switch (timeRange) {
       case QueueMetricsTimeRange.OneHour:
-        return t`1 Jam Terakhir (terlama → terbaru)`;
+        return `1 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.FourHours:
-        return t`4 Jam Terakhir (terlama → terbaru)`;
+        return `4 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.TwelveHours:
-        return t`12 Jam Terakhir (terlama → terbaru)`;
+        return `12 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.OneDay:
-        return t`24 Jam Terakhir (terlama → terbaru)`;
+        return `24 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.SevenDays:
-        return t`7 Hari Terakhir (terlama → terbaru)`;
+        return `7 Hari Terakhir (terlama → terbaru)`;
       default:
-        return t`Kejadian Terbaru (terlama → terbaru)`;
+        return `Kejadian Terbaru (terlama → terbaru)`;
     }
   };
 
@@ -109,7 +108,7 @@ export const SettingsAdminWorkerMetricsGraph = ({
     <>
       <StyledGraphContainer>
         {loading ? (
-          <StyledNoDataMessage>{t`Memuat data metrik...`}</StyledNoDataMessage>
+          <StyledNoDataMessage>{`Memuat data metrik...`}</StyledNoDataMessage>
         ) : hasData ? (
           <ResponsiveLine
             data={metricsData}
@@ -198,7 +197,7 @@ export const SettingsAdminWorkerMetricsGraph = ({
             ]}
           />
         ) : (
-          <StyledNoDataMessage>{t`Tidak ada data metrik tersedia`}</StyledNoDataMessage>
+          <StyledNoDataMessage>{`Tidak ada data metrik tersedia`}</StyledNoDataMessage>
         )}
       </StyledGraphContainer>
       {isDefined(metricsDetails) && (

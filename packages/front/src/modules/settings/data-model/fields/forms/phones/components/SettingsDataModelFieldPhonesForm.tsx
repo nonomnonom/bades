@@ -9,7 +9,6 @@ import { settingsDataModelFieldOnClickActionSchema } from '@/settings/data-model
 import { countryCodeToCallingCode } from '@/settings/data-model/fields/preview/utils/getPhonesFieldPreviewValue';
 import { Select } from '@/ui/input/components/Select';
 import { useCountries } from '@/ui/input/components/internal/hooks/useCountries';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import type { CountryCode } from 'libphonenumber-js';
 import { IconCircleOff, IconMap, type IconComponentProps } from 'ui/display';
 import { z } from 'zod';
@@ -43,7 +42,6 @@ export const SettingsDataModelFieldPhonesForm = ({
   disabled,
   existingFieldMetadataId,
 }: SettingsDataModelFieldPhonesFormProps) => {
-  const { t } = useLingui();
   const { control } = useFormContext<SettingsDataModelFieldPhonesFormValues>();
 
   const { fieldMetadataItem } = useFieldMetadataItemById(
@@ -51,7 +49,7 @@ export const SettingsDataModelFieldPhonesForm = ({
   );
 
   const countries = [
-    { label: t`Tidak ada negara`, value: '', Icon: IconCircleOff },
+    { label: `Tidak ada negara`, value: '', Icon: IconCircleOff },
     ...useCountries()
       .sort((a, b) => a.countryName.localeCompare(b.countryName))
       .map((country) => ({
@@ -81,8 +79,8 @@ export const SettingsDataModelFieldPhonesForm = ({
         return (
           <SettingsOptionCardContentSelect
             Icon={IconMap}
-            title={t`Kode Negara Bawaan`}
-            description={t`Kode negara bawaan untuk nomor telepon baru.`}
+            title={`Kode Negara Bawaan`}
+            description={`Kode negara bawaan untuk nomor telepon baru.`}
           >
             <Select<string>
               dropdownId="selectDefaultCountryCode"

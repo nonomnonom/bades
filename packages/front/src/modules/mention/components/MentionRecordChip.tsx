@@ -1,5 +1,4 @@
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AvatarOrIcon, Chip, ChipVariant, LinkChip } from 'ui/components';
 
@@ -21,7 +20,7 @@ export const MentionRecordChip = ({
   if (!isNonEmptyString(objectNameSingular)) {
     return (
       <Chip
-        label={t`Objek tidak dikenal`}
+        label={`Objek tidak dikenal`}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -31,7 +30,7 @@ export const MentionRecordChip = ({
   if (!isNonEmptyString(recordId)) {
     return (
       <Chip
-        label={t`Data telah dihapus`}
+        label={`Data telah dihapus`}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -45,7 +44,7 @@ export const MentionRecordChip = ({
   return (
     <LinkChip
       label={label}
-      emptyLabel={t`Tanpa judul`}
+      emptyLabel={`Tanpa judul`}
       to={linkToShowPage}
       variant={ChipVariant.Highlighted}
       className={className}

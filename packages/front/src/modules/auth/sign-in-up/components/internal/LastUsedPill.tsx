@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Pill } from 'ui/components';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -18,11 +17,9 @@ const StyledPillContainer = styled.span`
 `;
 
 export const LastUsedPill = () => {
-  const { t } = useLingui();
-
   return (
     <StyledPillContainer>
-      <Pill label={t`Terakhir`} />
+      <Pill label={`Terakhir`} />
     </StyledPillContainer>
   );
 };

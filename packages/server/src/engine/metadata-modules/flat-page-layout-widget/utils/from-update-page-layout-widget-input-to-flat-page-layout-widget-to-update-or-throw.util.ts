@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type AllFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/all-flat-entity-maps.type';
@@ -63,7 +62,7 @@ export const fromUpdatePageLayoutWidgetInputToFlatPageLayoutWidgetToUpdateOrThro
 
     if (!isDefined(existingFlatPageLayoutWidgetToUpdate)) {
       throw new PageLayoutWidgetException(
-        t`Page layout widget to update not found`,
+        `Page layout widget to update not found`,
         PageLayoutWidgetExceptionCode.PAGE_LAYOUT_WIDGET_NOT_FOUND,
       );
     }

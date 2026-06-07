@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { DEFAULT_ADVANCED_FILTER_DROPDOWN_OFFSET } from '@/object-record/advanced-filter/constants/DefaultAdvancedFilterDropdownOffset';
 import { AdvancedFilterContext } from '@/object-record/advanced-filter/states/context/AdvancedFilterContext';
 import { useApplyObjectFilterDropdownOperand } from '@/object-record/object-filter-dropdown/hooks/useApplyObjectFilterDropdownOperand';
@@ -73,7 +72,7 @@ export const AdvancedFilterRecordFilterOperandSelectContent = ({
           selectedOption={{
             label: filter?.operand
               ? getOperandLabel(filter.operand, timeZoneAbbreviation)
-              : t`Pilih operand`,
+              : `Pilih operand`,
             value: null,
           }}
         />

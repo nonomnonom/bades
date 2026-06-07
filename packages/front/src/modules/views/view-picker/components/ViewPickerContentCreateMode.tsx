@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { Key } from 'ts-key-enum';
 
@@ -37,7 +38,6 @@ import { viewPickerIsPersistingComponentState } from '@/views/view-picker/states
 import { viewPickerMainGroupByFieldMetadataIdComponentState } from '@/views/view-picker/states/viewPickerMainGroupByFieldMetadataIdComponentState';
 import { viewPickerSelectedIconComponentState } from '@/views/view-picker/states/viewPickerSelectedIconComponentState';
 import { viewPickerTypeComponentState } from '@/views/view-picker/states/viewPickerTypeComponentState';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { IconX } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -51,7 +51,6 @@ const StyledFieldAvailableContainer = styled.div`
 `;
 
 export const ViewPickerContentCreateMode = () => {
-  const { t } = useLingui();
   const { viewPickerMode, setViewPickerMode } = useViewPickerMode();
   const [hasManuallySelectedIcon, setHasManuallySelectedIcon] = useState(false);
 
@@ -168,7 +167,7 @@ export const ViewPickerContentCreateMode = () => {
           <DropdownMenuHeaderLeftComponent onClick={handleClose} Icon={IconX} />
         }
       >
-        {t`Buat tampilan`}
+        {`Buat tampilan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <ViewPickerIconAndNameContainer>
@@ -184,7 +183,7 @@ export const ViewPickerContentCreateMode = () => {
         </ViewPickerIconAndNameContainer>
         <ViewPickerSelectContainer>
           <Select
-            label={t`Jenis tampilan`}
+            label={`Jenis tampilan`}
             fullWidth
             value={viewPickerType}
             onChange={(value) => {
@@ -193,7 +192,7 @@ export const ViewPickerContentCreateMode = () => {
             }}
             options={VIEW_PICKER_TYPE_SELECT_OPTIONS.map((option) => ({
               ...option,
-              label: t(option.label),
+              label: option.label,
             }))}
             dropdownId={VIEW_PICKER_VIEW_TYPE_DROPDOWN_ID}
           />
@@ -202,7 +201,7 @@ export const ViewPickerContentCreateMode = () => {
           <>
             <ViewPickerSelectContainer>
               <Select
-                label={t`Tahapan`}
+                label={`Tahapan`}
                 fullWidth
                 value={viewPickerMainGroupByFieldMetadataId}
                 onChange={(value) => {
@@ -215,7 +214,7 @@ export const ViewPickerContentCreateMode = () => {
                         value: field.id,
                         label: field.label,
                       }))
-                    : [{ value: '', label: t`Tidak ada kolom pilihan` }]
+                    : [{ value: '', label: `Tidak ada kolom pilihan` }]
                 }
                 dropdownId={VIEW_PICKER_KANBAN_FIELD_DROPDOWN_ID}
               />
@@ -234,7 +233,7 @@ export const ViewPickerContentCreateMode = () => {
           <>
             <ViewPickerSelectContainer>
               <Select
-                label={t`Kolom tanggal`}
+                label={`Kolom tanggal`}
                 fullWidth
                 value={viewPickerCalendarFieldMetadataId}
                 onChange={(value) => {
@@ -247,7 +246,7 @@ export const ViewPickerContentCreateMode = () => {
                         value: field.id,
                         label: field.label,
                       }))
-                    : [{ value: '', label: t`Tidak ada kolom tanggal` }]
+                    : [{ value: '', label: `Tidak ada kolom tanggal` }]
                 }
                 dropdownId={VIEW_PICKER_CALENDAR_FIELD_DROPDOWN_ID}
               />

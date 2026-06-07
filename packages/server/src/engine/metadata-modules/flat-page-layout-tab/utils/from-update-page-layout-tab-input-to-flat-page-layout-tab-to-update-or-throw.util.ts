@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { FLAT_PAGE_LAYOUT_TAB_EDITABLE_PROPERTIES } from 'src/engine/metadata-modules/flat-page-layout-tab/constants/flat-page-layout-tab-editable-properties.constant';
@@ -42,7 +41,7 @@ export const fromUpdatePageLayoutTabInputToFlatPageLayoutTabToUpdateOrThrow = ({
 
   if (!isDefined(existingFlatPageLayoutTabToUpdate)) {
     throw new PageLayoutTabException(
-      t`Page layout tab to update not found`,
+      `Page layout tab to update not found`,
       PageLayoutTabExceptionCode.PAGE_LAYOUT_TAB_NOT_FOUND,
     );
   }

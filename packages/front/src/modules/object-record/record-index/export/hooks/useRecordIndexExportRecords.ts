@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { json2csv } from 'json-2-csv';
 import { useMemo } from 'react';
 
@@ -137,11 +136,11 @@ export const displayedExportProgress = (progress?: ExportProgress): string => {
       progress.exportedRecordCount,
       progress.totalRecordCount,
     );
-    return t`Ekspor (${percentageValue}%)`;
+    return `Ekspor (${percentageValue}%)`;
   }
 
   const exportedCount = progress.exportedRecordCount;
-  return t`Ekspor (${exportedCount})`;
+  return `Ekspor (${exportedCount})`;
 };
 
 const downloader = (mimeType: string, generator: GenerateExport) => {

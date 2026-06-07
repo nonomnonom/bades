@@ -8,14 +8,11 @@ import { useDeleteOneRecord } from '@/object-record/hooks/useDeleteOneRecord';
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
 import { SettingsAccountsBlocklistInput } from '@/settings/accounts/components/SettingsAccountsBlocklistInput';
 import { SettingsAccountsBlocklistTable } from '@/settings/accounts/components/SettingsAccountsBlocklistTable';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 
 export const SettingsAccountsBlocklistSection = () => {
-  const { t } = useLingui();
-
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
@@ -57,11 +54,11 @@ export const SettingsAccountsBlocklistSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`Daftar blokir`}
+        title={`Daftar blokir`}
         description={
           isInternalMessagesImportEnabled
-            ? t`Kecualikan orang dan domain berikut dari sinkronisasi email saya.`
-            : t`Kecualikan orang dan domain berikut dari sinkronisasi email saya. Percakapan internal tidak akan diimpor.`
+            ? `Kecualikan orang dan domain berikut dari sinkronisasi email saya.`
+            : `Kecualikan orang dan domain berikut dari sinkronisasi email saya. Percakapan internal tidak akan diimpor.`
         }
       />
       <SettingsAccountsBlocklistInput

@@ -1,4 +1,3 @@
-import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { settingsObjectIndexesFamilyState } from '@/settings/data-model/object-details/states/settingsObjectIndexesFamilyState';
 import { SortableTableHeader } from '@/ui/layout/table/components/SortableTableHeader';
@@ -33,27 +32,26 @@ export type SettingsObjectIndexTableProps = {
 export const SettingsObjectIndexTable = ({
   objectMetadataItem,
 }: SettingsObjectIndexTableProps) => {
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
 
   const tableMetadata: TableMetadata<SettingsObjectIndexesTableItem> = {
     tableId: 'settingsObjectIndexs',
     fields: [
       {
-        fieldLabel: msg`Kolom`,
+        fieldLabel: `Kolom`,
         fieldName: 'indexFields',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Unik`,
+        fieldLabel: `Unik`,
         FieldIcon: IconSquareKey,
         fieldName: 'isUnique',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Tipe`,
+        fieldLabel: `Tipe`,
         fieldName: 'indexType',
         fieldType: 'string',
         align: 'right',
@@ -119,7 +117,7 @@ export const SettingsObjectIndexTable = ({
     <>
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Cari indeks...`}
+          placeholder={`Cari indeks...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -132,7 +130,7 @@ export const SettingsObjectIndexTable = ({
             <SortableTableHeader
               key={item.fieldName}
               fieldName={item.fieldName}
-              label={t(item.fieldLabel)}
+              label={item.fieldLabel}
               Icon={item.FieldIcon}
               tableId={tableMetadata.tableId}
               initialSort={tableMetadata.initialSort}

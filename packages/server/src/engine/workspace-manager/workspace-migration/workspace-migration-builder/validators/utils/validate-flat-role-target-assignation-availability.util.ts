@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'class-validator';
 
 import { RoleTargetExceptionCode } from 'src/engine/metadata-modules/role/exceptions/role-target.exception';
@@ -22,7 +22,7 @@ export const validateFlatRoleTargetAssignationAvailability = ({
     if (!flatRole.canBeAssignedToAgents) {
       errors.push({
         code: RoleTargetExceptionCode.ROLE_CANNOT_BE_ASSIGNED_TO_ENTITY,
-        message: t`Role "${roleLabel}" cannot be assigned to agents`,
+        message: `Role "${roleLabel}" cannot be assigned to agents`,
         userFriendlyMessage: msg`Role "${roleLabel}" cannot be assigned to agents`,
       });
     }
@@ -30,7 +30,7 @@ export const validateFlatRoleTargetAssignationAvailability = ({
     if (!flatRole.canBeAssignedToUsers) {
       errors.push({
         code: RoleTargetExceptionCode.ROLE_CANNOT_BE_ASSIGNED_TO_ENTITY,
-        message: t`Role "${roleLabel}" cannot be assigned to users`,
+        message: `Role "${roleLabel}" cannot be assigned to users`,
         userFriendlyMessage: msg`Role "${roleLabel}" cannot be assigned to users`,
       });
     }
@@ -38,7 +38,7 @@ export const validateFlatRoleTargetAssignationAvailability = ({
     if (!flatRole.canBeAssignedToApiKeys) {
       errors.push({
         code: RoleTargetExceptionCode.ROLE_CANNOT_BE_ASSIGNED_TO_ENTITY,
-        message: t`Role "${roleLabel}" cannot be assigned to API keys`,
+        message: `Role "${roleLabel}" cannot be assigned to API keys`,
         userFriendlyMessage: msg`Role "${roleLabel}" cannot be assigned to API keys`,
       });
     }

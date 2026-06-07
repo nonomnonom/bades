@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -128,7 +127,7 @@ export class ViewWidgetUpsertService {
       )
     ) {
       throw new ViewException(
-        t`Record table widget not found`,
+        `Record table widget not found`,
         ViewExceptionCode.VIEW_WIDGET_NOT_FOUND,
       );
     }
@@ -137,7 +136,7 @@ export class ViewWidgetUpsertService {
 
     if (!isDefined(viewId)) {
       throw new ViewException(
-        t`Record table widget has no associated view`,
+        `Record table widget has no associated view`,
         ViewExceptionCode.VIEW_WIDGET_NOT_FOUND,
       );
     }
@@ -149,7 +148,7 @@ export class ViewWidgetUpsertService {
 
     if (!isDefined(flatView)) {
       throw new ViewException(
-        t`View not found for widget`,
+        `View not found for widget`,
         ViewExceptionCode.VIEW_NOT_FOUND,
       );
     }
@@ -179,7 +178,7 @@ export class ViewWidgetUpsertService {
 
       if (!isDefined(view)) {
         throw new ViewException(
-          t`View not found`,
+          `View not found`,
           ViewExceptionCode.VIEW_NOT_FOUND,
         );
       }
@@ -347,7 +346,7 @@ export class ViewWidgetUpsertService {
 
     if (!isDefined(view)) {
       throw new ViewException(
-        t`View not found after upsert`,
+        `View not found after upsert`,
         ViewExceptionCode.VIEW_NOT_FOUND,
       );
     }

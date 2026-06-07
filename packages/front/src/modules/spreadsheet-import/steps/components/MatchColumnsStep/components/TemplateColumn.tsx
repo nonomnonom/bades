@@ -9,7 +9,6 @@ import { SpreadsheetColumnType } from '@/spreadsheet-import/types/SpreadsheetCol
 import { type SpreadsheetColumns } from '@/spreadsheet-import/types/SpreadsheetColumns';
 import { spreadsheetImportBuildFieldOptions } from '@/spreadsheet-import/utils/spreadsheetImportBuildFieldOptions';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconForbid } from 'ui/display';
 
 const StyledContainer = styled.div`
@@ -45,8 +44,6 @@ export const TemplateColumn = ({
   const column = columns[columnIndex];
   const isIgnored = column.type === SpreadsheetColumnType.ignored;
 
-  const { t } = useLingui();
-
   const fieldOptions = spreadsheetImportBuildFieldOptions(fields, columns);
   const suggestedFieldOptions = spreadsheetImportBuildFieldOptions(
     suggestedFieldsByColumnHeader[column.header] ?? [],
@@ -57,7 +54,7 @@ export const TemplateColumn = ({
     {
       Icon: IconForbid,
       value: DO_NOT_IMPORT_OPTION_KEY,
-      label: t`Jangan diimpor`,
+      label: `Jangan diimpor`,
     },
     ...fieldOptions,
   ];
@@ -73,7 +70,7 @@ export const TemplateColumn = ({
   return (
     <StyledContainer>
       <MatchColumnToFieldSelect
-        placeholder={t`Pilih kolom...`}
+        placeholder={`Pilih kolom...`}
         value={isIgnored ? ignoreValue : selectValue}
         onChange={(value) => onChange(value?.value as string, column.index)}
         options={selectOptions}

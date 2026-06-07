@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useNumberFormat } from '@/localization/hooks/useNumberFormat';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { DEFAULT_MUTATION_BATCH_SIZE } from '@/object-record/constants/DefaultMutationBatchSize';
@@ -87,7 +86,7 @@ export const useBatchCreateManyRecords = <
       ) {
         const formattedCreatedRecordsCount = formatNumber(createdRecordsCount);
         enqueueWarningSnackBar({
-          message: t`Pembuatan data dihentikan. ${formattedCreatedRecordsCount} data berhasil dibuat.`,
+          message: `Pembuatan data dihentikan. ${formattedCreatedRecordsCount} data berhasil dibuat.`,
           options: {
             duration: 5000,
           },

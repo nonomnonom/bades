@@ -2,7 +2,6 @@ import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataIte
 import { getEnabledAddressSubFields } from '@/object-metadata/utils/getEnabledAddressSubFields';
 import { resolveAddressSortSubField } from '@/object-metadata/utils/resolveAddressSortSubField';
 import { resolvePrimaryFullNameSortSubField } from '@/object-metadata/utils/resolvePrimaryFullNameSortSubField';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { ALLOWED_FULL_NAME_SORT_SUBFIELDS } from 'shared/constants';
 import {
   type AllowedAddressSubField,
@@ -29,12 +28,10 @@ export const useSortSubFieldChoicesForField = ({
   fieldMetadataItem: Pick<FieldMetadataItem, 'type' | 'settings'>;
   primaryCompositeSubField: string | null | undefined;
 }): SortSubFieldChoices | undefined => {
-  const { t } = useLingui();
-
   if (fieldMetadataItem.type === FieldMetadataType.FULL_NAME) {
     const labels: Record<AllowedFullNameSortSubField, string> = {
-      firstName: t`Nama depan`,
-      lastName: t`Nama belakang`,
+      firstName: `Nama depan`,
+      lastName: `Nama belakang`,
     };
     const selectedValue = resolvePrimaryFullNameSortSubField({
       requestedPrimarySubField: primaryCompositeSubField,
@@ -51,14 +48,14 @@ export const useSortSubFieldChoicesForField = ({
 
   if (fieldMetadataItem.type === FieldMetadataType.ADDRESS) {
     const labels: Record<AllowedAddressSubField, string> = {
-      addressStreet1: t`Alamat 1`,
-      addressStreet2: t`Alamat 2`,
-      addressCity: t`Kota`,
-      addressState: t`Provinsi`,
-      addressPostcode: t`Kode pos`,
-      addressCountry: t`Negara`,
-      addressLat: t`Lintang`,
-      addressLng: t`Bujur`,
+      addressStreet1: `Alamat 1`,
+      addressStreet2: `Alamat 2`,
+      addressCity: `Kota`,
+      addressState: `Provinsi`,
+      addressPostcode: `Kode pos`,
+      addressCountry: `Negara`,
+      addressLat: `Lintang`,
+      addressLng: `Bujur`,
     };
     const addressSettings = fieldMetadataItem.settings as
       | FieldMetadataSettingsMapping[FieldMetadataType.ADDRESS]

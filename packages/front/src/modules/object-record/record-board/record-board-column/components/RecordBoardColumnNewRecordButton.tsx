@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { RecordBoardContext } from '@/object-record/record-board/contexts/RecordBoardContext';
 import { RecordBoardColumnContext } from '@/object-record/record-board/record-board-column/contexts/RecordBoardColumnContext';
@@ -70,7 +69,7 @@ export const RecordBoardColumnNewRecordButton = () => {
       }}
     >
       <IconPlus size={theme.icon.size.md} />
-      {t`Baru`}
+      {`Baru`}
     </StyledNewButton>
   );
 };

@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconCopy, IconTerminal } from 'ui/display';
 import { LightIconButton } from 'ui/input';
@@ -119,7 +118,6 @@ export const TerminalOutput = ({
   stderr,
   isRunning = false,
 }: TerminalOutputProps) => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
 
   const hasStderr = stderr.length > 0;
@@ -136,7 +134,7 @@ export const TerminalOutput = ({
       <StyledHeader>
         <StyledHeaderLeft>
           <IconTerminal size={14} />
-          {t`Keluaran`}
+          {`Keluaran`}
         </StyledHeaderLeft>
         <StyledTabContainer>
           <StyledTab
@@ -157,7 +155,7 @@ export const TerminalOutput = ({
           <LightIconButton
             Icon={IconCopy}
             onClick={() => copyToClipboard(currentOutput)}
-            title={t`Salin keluaran`}
+            title={`Salin keluaran`}
             size="small"
             accent="tertiary"
           />
@@ -171,7 +169,7 @@ export const TerminalOutput = ({
           </>
         ) : (
           <StyledEmptyMessage>
-            {isRunning ? t`Menunggu keluaran...` : t`Tidak ada keluaran`}
+            {isRunning ? `Menunggu keluaran...` : `Tidak ada keluaran`}
           </StyledEmptyMessage>
         )}
       </StyledOutputArea>

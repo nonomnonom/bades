@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetMaps } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-maps.type';
@@ -30,7 +29,7 @@ export const fromDestroyPageLayoutWidgetInputToFlatPageLayoutWidgetOrThrow = ({
 
   if (!isDefined(existingFlatPageLayoutWidgetToDestroy)) {
     throw new PageLayoutWidgetException(
-      t`Page layout widget to destroy not found`,
+      `Page layout widget to destroy not found`,
       PageLayoutWidgetExceptionCode.PAGE_LAYOUT_WIDGET_NOT_FOUND,
     );
   }

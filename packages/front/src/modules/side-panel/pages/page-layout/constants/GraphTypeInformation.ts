@@ -5,7 +5,6 @@ import { PIE_CHART_SETTINGS } from '@/side-panel/pages/page-layout/constants/Pie
 import { type ChartSettingsGroup } from '@/side-panel/pages/page-layout/types/ChartSettingsGroup';
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
 import { getBarChartSettings } from '@/side-panel/pages/page-layout/utils/getBarChartSettings';
-import { msg } from '~/utils/i18n/badesI18n';
 import {
   IconChartBar,
   IconChartBarHorizontal,
@@ -26,32 +25,32 @@ export const GRAPH_TYPE_INFORMATION: Record<
   }
 > = {
   [GraphType.VERTICAL_BAR]: {
-    label: msg`Grafik Batang Vertikal`,
+    label: `Grafik Batang Vertikal`,
     icon: IconChartBar,
     settings: getBarChartSettings(BarChartLayout.VERTICAL),
   },
   [GraphType.HORIZONTAL_BAR]: {
-    label: msg`Grafik Batang Horizontal`,
+    label: `Grafik Batang Horizontal`,
     icon: IconChartBarHorizontal,
     settings: getBarChartSettings(BarChartLayout.HORIZONTAL),
   },
   [GraphType.PIE]: {
-    label: msg`Grafik Lingkaran`,
+    label: `Grafik Lingkaran`,
     icon: IconChartPie,
     settings: PIE_CHART_SETTINGS,
   },
   [GraphType.LINE]: {
-    label: msg`Grafik Garis`,
+    label: `Grafik Garis`,
     icon: IconChartLine,
     settings: LINE_CHART_SETTINGS,
   },
   [GraphType.AGGREGATE]: {
-    label: msg`Grafik Agregat`,
+    label: `Grafik Agregat`,
     icon: IconSum,
     settings: AGGREGATE_CHART_SETTINGS,
   },
   [GraphType.GAUGE]: {
-    label: msg`Grafik Pengukur`,
+    label: `Grafik Pengukur`,
     icon: IconGauge,
     settings: GAUGE_CHART_SETTINGS,
   },

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconDotsVertical,
   IconNewSection,
@@ -28,8 +27,6 @@ export const FieldsConfigurationGroupDropdown = ({
   onDelete,
   onAddGroup,
 }: FieldsConfigurationGroupDropdownProps) => {
-  const { t } = useLingui();
-
   const dropdownId = getFieldsConfigurationGroupEditDropdownId(groupId);
 
   const { closeDropdown } = useCloseDropdown();
@@ -63,19 +60,19 @@ export const FieldsConfigurationGroupDropdown = ({
               LeftIcon={IconPencil}
               onClick={handleRename}
               accent="default"
-              text={t`Ganti nama`}
+              text={`Ganti nama`}
             />
             <MenuItem
               LeftIcon={IconTrash}
               onClick={handleDelete}
               accent="danger"
-              text={t`Hapus`}
+              text={`Hapus`}
             />
             <MenuItem
               LeftIcon={IconNewSection}
               onClick={handleAddGroup}
               accent="default"
-              text={t`Tambah grup`}
+              text={`Tambah grup`}
             />
           </DropdownMenuItemsContainer>
         </DropdownContent>

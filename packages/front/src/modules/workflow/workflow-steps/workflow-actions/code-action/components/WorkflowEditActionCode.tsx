@@ -26,8 +26,6 @@ import { getWrongExportedFunctionMarkers } from '@/workflow/workflow-steps/workf
 import { mergeDefaultFunctionInputAndFunctionInput } from '@/workflow/workflow-steps/workflow-actions/code-action/utils/mergeDefaultFunctionInputAndFunctionInput';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { LogicFunctionTestInputInitEffect } from '@/logic-functions/components/LogicFunctionTestInputInitEffect';
 import { useExecuteLogicFunction } from '@/logic-functions/hooks/useExecuteLogicFunction';
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
@@ -86,7 +84,6 @@ export const WorkflowEditActionCode = ({
   action,
   actionOptions,
 }: WorkflowEditActionCodeProps) => {
-  const { t } = useLingui();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const isMobile = useIsMobile();
   const logicFunctionId = action.settings.input.logicFunctionId;
@@ -174,7 +171,7 @@ export const WorkflowEditActionCode = ({
               isLeaf: true,
               icon: 'IconVariable',
               tab: 'test',
-              label: t`Buat Keluaran Fungsi`,
+              label: `Buat Keluaran Fungsi`,
             },
             _outputSchemaType: 'LINK',
           },
@@ -271,12 +268,12 @@ export const WorkflowEditActionCode = ({
   const tabs = [
     {
       id: WorkflowLogicFunctionTabId.CODE,
-      title: t`Kode`,
+      title: `Kode`,
       Icon: IconCode,
     },
     {
       id: WorkflowLogicFunctionTabId.TEST,
-      title: t`Uji Coba`,
+      title: `Uji Coba`,
       Icon: IconPlayerPlay,
     },
   ];
@@ -294,7 +291,7 @@ export const WorkflowEditActionCode = ({
 
   const breadcrumbLinks: BreadcrumbProps['links'] = [
     {
-      children: workflow?.name?.trim() || t`Alur Kerja Tanpa Nama`,
+      children: workflow?.name?.trim() || `Alur Kerja Tanpa Nama`,
       href: '#',
     },
     {
@@ -302,7 +299,7 @@ export const WorkflowEditActionCode = ({
       href: '#',
     },
     {
-      children: t`Editor Kode`,
+      children: `Editor Kode`,
     },
   ];
 
@@ -417,7 +414,7 @@ export const WorkflowEditActionCode = ({
                 readonly={actionOptions.readonly}
               />
               <StyledCodeEditorContainer>
-                <InputLabel>{t`Hasil`}</InputLabel>
+                <InputLabel>{`Hasil`}</InputLabel>
                 <LogicFunctionExecutionResult
                   logicFunctionTestData={logicFunctionTestData}
                   isTesting={isExecuting}
@@ -442,7 +439,7 @@ export const WorkflowEditActionCode = ({
                 ? [
                     <WorkflowStepCmdEnterButton
                       key="test"
-                      title={t`Uji Coba`}
+                      title={`Uji Coba`}
                       onClick={handleTestFunction}
                       disabled={isExecuting}
                     />,

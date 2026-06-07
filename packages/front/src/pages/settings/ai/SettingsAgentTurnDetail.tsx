@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { AiChatAssistantMessageRenderer } from '@/ai/components/AiChatAssistantMessageRenderer';
 import { mapDBMessagesToUIMessages } from '@/ai/utils/mapDBMessagesToUIMessages';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -75,21 +74,21 @@ export const SettingsAgentTurnDetail = () => {
   if (loading) {
     return (
       <SubMenuTopBarContainer
-        title={t`Detail Giliran`}
+        title={`Detail Giliran`}
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           { children: 'AI', href: getSettingsPath(SettingsPath.AI) },
           {
-            children: t`Agen`,
+            children: `Agen`,
             href: getSettingsPath(SettingsPath.AiAgentDetail).replace(
               ':agentId',
               agentId || '',
             ),
           },
-          { children: t`Giliran` },
+          { children: `Giliran` },
         ]}
       >
         <SettingsPageContainer>
@@ -102,18 +101,18 @@ export const SettingsAgentTurnDetail = () => {
   if (!turn) {
     return (
       <SubMenuTopBarContainer
-        title={t`Giliran Tidak Ditemukan`}
+        title={`Giliran Tidak Ditemukan`}
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
-          { children: t`Giliran` },
+          { children: `AI`, href: getSettingsPath(SettingsPath.AI) },
+          { children: `Giliran` },
         ]}
       >
         <SettingsPageContainer>
-          <div>{t`Giliran tidak ditemukan`}</div>
+          <div>{`Giliran tidak ditemukan`}</div>
         </SettingsPageContainer>
       </SubMenuTopBarContainer>
     );
@@ -121,27 +120,27 @@ export const SettingsAgentTurnDetail = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Detail Giliran`}
+      title={`Detail Giliran`}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         { children: 'AI', href: getSettingsPath(SettingsPath.AI) },
         {
-          children: t`Agen`,
+          children: `Agen`,
           href: getSettingsPath(SettingsPath.AiAgentDetail).replace(
             ':agentId',
             agentId || '',
           ),
         },
-        { children: t`Giliran` },
+        { children: `Giliran` },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Pesan`}
+            title={`Pesan`}
             description={new Date(turn.createdAt).toLocaleString('id-ID', {
               dateStyle: 'medium',
               timeStyle: 'short',
@@ -163,10 +162,10 @@ export const SettingsAgentTurnDetail = () => {
               ).map((message) => {
                 const roleLabel =
                   message.role === 'user'
-                    ? t`Pengguna`
+                    ? `Pengguna`
                     : message.role === 'system'
-                      ? t`Sistem`
-                      : t`Asisten`;
+                      ? `Sistem`
+                      : `Asisten`;
                 return (
                   <StyledMessageBubble key={message.id}>
                     <StyledMessageRole>{roleLabel}</StyledMessageRole>
@@ -181,20 +180,20 @@ export const SettingsAgentTurnDetail = () => {
               })}
             </StyledMessagesContainer>
           ) : (
-            <div>{t`Tidak ada pesan untuk giliran ini`}</div>
+            <div>{`Tidak ada pesan untuk giliran ini`}</div>
           )}
         </Section>
 
         <Section>
-          <H2Title title={t`Evaluasi`} />
+          <H2Title title={`Evaluasi`} />
           {turn.evaluations.length > 0 ? (
             <StyledTableContainer>
               <Table>
                 <StyledTableHeaderRowContainer>
                   <TableRow gridTemplateColumns="140px 80px 1fr">
-                    <TableHeader>{t`Tanggal`}</TableHeader>
-                    <TableHeader>{t`Skor`}</TableHeader>
-                    <TableHeader>{t`Komentar`}</TableHeader>
+                    <TableHeader>{`Tanggal`}</TableHeader>
+                    <TableHeader>{`Skor`}</TableHeader>
+                    <TableHeader>{`Komentar`}</TableHeader>
                   </TableRow>
                 </StyledTableHeaderRowContainer>
                 {[...turn.evaluations]
@@ -230,14 +229,14 @@ export const SettingsAgentTurnDetail = () => {
                         textOverflow="ellipsis"
                         whiteSpace="nowrap"
                       >
-                        {evaluation.comment || t`Tidak ada komentar`}
+                        {evaluation.comment || `Tidak ada komentar`}
                       </TableCell>
                     </TableRow>
                   ))}
               </Table>
             </StyledTableContainer>
           ) : (
-            <div>{t`Belum ada evaluasi untuk giliran ini`}</div>
+            <div>{`Belum ada evaluasi untuk giliran ini`}</div>
           )}
         </Section>
       </SettingsPageContainer>

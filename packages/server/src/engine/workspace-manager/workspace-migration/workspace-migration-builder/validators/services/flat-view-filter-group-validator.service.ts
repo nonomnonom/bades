@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -50,7 +50,7 @@ export class FlatViewFilterGroupValidatorService {
         return [
           {
             code: ViewFilterGroupExceptionCode.CIRCULAR_DEPENDENCY,
-            message: t`View filter group cannot be its own parent`,
+            message: `View filter group cannot be its own parent`,
             userFriendlyMessage: msg`View filter group cannot be its own parent`,
           },
         ];
@@ -58,7 +58,7 @@ export class FlatViewFilterGroupValidatorService {
         return [
           {
             code: ViewFilterGroupExceptionCode.CIRCULAR_DEPENDENCY,
-            message: t`Circular dependency detected in view filter group hierarchy`,
+            message: `Circular dependency detected in view filter group hierarchy`,
             userFriendlyMessage: msg`Circular dependency detected in view filter group hierarchy`,
           },
         ];
@@ -66,7 +66,7 @@ export class FlatViewFilterGroupValidatorService {
         return [
           {
             code: ViewFilterGroupExceptionCode.MAX_DEPTH_EXCEEDED,
-            message: t`View filter group hierarchy exceeds maximum depth of ${VIEW_FILTER_GROUP_MAX_DEPTH}`,
+            message: `View filter group hierarchy exceeds maximum depth of ${VIEW_FILTER_GROUP_MAX_DEPTH}`,
             userFriendlyMessage: msg`View filter group hierarchy exceeds maximum depth of ${VIEW_FILTER_GROUP_MAX_DEPTH}`,
           },
         ];
@@ -99,7 +99,7 @@ export class FlatViewFilterGroupValidatorService {
     if (isDefined(existingViewFilterGroup)) {
       validationResult.errors.push({
         code: ViewFilterGroupExceptionCode.INVALID_VIEW_FILTER_GROUP_DATA,
-        message: t`View filter group with this universal identifier already exists`,
+        message: `View filter group with this universal identifier already exists`,
         userFriendlyMessage: msg`View filter group already exists`,
       });
     }
@@ -113,7 +113,7 @@ export class FlatViewFilterGroupValidatorService {
     if (!isDefined(referencedView)) {
       validationResult.errors.push({
         code: ViewFilterGroupExceptionCode.VIEW_NOT_FOUND,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
     }
@@ -154,7 +154,7 @@ export class FlatViewFilterGroupValidatorService {
       ) {
         validationResult.errors.push({
           code: ViewFilterGroupExceptionCode.VIEW_FILTER_GROUP_NOT_FOUND,
-          message: t`Parent view filter group not found`,
+          message: `Parent view filter group not found`,
           userFriendlyMessage: msg`Parent view filter group not found`,
         });
       }
@@ -187,7 +187,7 @@ export class FlatViewFilterGroupValidatorService {
     if (!isDefined(existingViewFilterGroup)) {
       validationResult.errors.push({
         code: ViewFilterGroupExceptionCode.VIEW_FILTER_GROUP_NOT_FOUND,
-        message: t`View filter group not found`,
+        message: `View filter group not found`,
         userFriendlyMessage: msg`View filter group not found`,
       });
     }
@@ -220,7 +220,7 @@ export class FlatViewFilterGroupValidatorService {
     if (!isDefined(existingViewFilterGroup)) {
       validationResult.errors.push({
         code: ViewFilterGroupExceptionCode.VIEW_FILTER_GROUP_NOT_FOUND,
-        message: t`View filter group not found`,
+        message: `View filter group not found`,
         userFriendlyMessage: msg`View filter group not found`,
       });
 
@@ -261,7 +261,7 @@ export class FlatViewFilterGroupValidatorService {
     if (!isDefined(referencedParentViewFilterGroup)) {
       validationResult.errors.push({
         code: ViewFilterGroupExceptionCode.VIEW_FILTER_GROUP_NOT_FOUND,
-        message: t`Parent view filter group not found`,
+        message: `Parent view filter group not found`,
         userFriendlyMessage: msg`Parent view filter group not found`,
       });
     }

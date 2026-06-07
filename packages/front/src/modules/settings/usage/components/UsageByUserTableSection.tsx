@@ -7,7 +7,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { Avatar, H2Title, IconChevronRight } from 'ui/display';
 import { SearchInput } from 'ui/input';
@@ -92,15 +91,15 @@ export const UsageByUserTableSection = ({
       />
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Cari pengguna...`}
+          placeholder={`Cari pengguna...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
       </StyledSearchInputContainer>
       <Table>
         <TableRow gridTemplateColumns={GRID_TEMPLATE_COLUMNS}>
-          <TableHeader>{t`Nama`}</TableHeader>
-          <TableHeader align="right">{t`Pemakaian`}</TableHeader>
+          <TableHeader>{`Nama`}</TableHeader>
+          <TableHeader align="right">{`Pemakaian`}</TableHeader>
           <TableHeader />
         </TableRow>
         {filteredUsers.map((item) => (

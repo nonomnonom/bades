@@ -6,7 +6,6 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { UpdateWorkspaceDocument } from '~/generated-metadata/graphql';
@@ -15,7 +14,6 @@ export const SUBDOMAIN_CHANGE_CONFIRMATION_MODAL_ID =
   'subdomain-change-confirmation-modal';
 
 export const useSettingsSubdomain = () => {
-  const { t } = useLingui();
   const subdomainSchema = getSubdomainValidationSchema();
 
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
@@ -64,7 +62,7 @@ export const useSettingsSubdomain = () => {
           mutationError.errors[0]?.extensions?.code === 'CONFLICT'
         ) {
           closeModal(SUBDOMAIN_CHANGE_CONFIRMATION_MODAL_ID);
-          setError(t`Subdomain sudah digunakan`);
+          setError(`Subdomain sudah digunakan`);
           setIsSubmitting(false);
 
           return;
@@ -84,7 +82,7 @@ export const useSettingsSubdomain = () => {
         ).hostname.replace(currentWorkspace.subdomain, subdomain);
 
         setCurrentWorkspace({ ...currentWorkspace, subdomain });
-        enqueueSuccessSnackBar({ message: t`Subdomain diperbarui` });
+        enqueueSuccessSnackBar({ message: `Subdomain diperbarui` });
         setIsSubmitting(false);
 
         await redirectToWorkspaceDomain(currentUrl.toString());

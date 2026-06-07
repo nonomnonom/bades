@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SpreadsheetImportTable } from '@/spreadsheet-import/components/SpreadsheetImportTable';
 import { StepNavigationButton } from '@/spreadsheet-import/components/StepNavigationButton';
 import { useHideStepBar } from '@/spreadsheet-import/hooks/useHideStepBar';
@@ -13,7 +14,6 @@ import { SpreadsheetColumnType } from '@/spreadsheet-import/types/SpreadsheetCol
 import { addErrorsAndRunHooks } from '@/spreadsheet-import/utils/dataMutations';
 import { useDialogManager } from '@/ui/feedback/dialog-manager/hooks/useDialogManager';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import {
   type Dispatch,
   type SetStateAction,
@@ -152,8 +152,6 @@ export const ValidationStep = ({
     }
   };
 
-  const { t } = useLingui();
-
   const updateRow = useCallback(
     (
       rows: typeof data,
@@ -272,12 +270,12 @@ export const ValidationStep = ({
       submitData();
     } else {
       enqueueDialog({
-        title: t`Selesaikan dengan kesalahan`,
-        message: t`Masih ada baris yang mengandung kesalahan. Baris dengan kesalahan akan diabaikan saat dikirim.`,
+        title: `Selesaikan dengan kesalahan`,
+        message: `Masih ada baris yang mengandung kesalahan. Baris dengan kesalahan akan diabaikan saat dikirim.`,
         buttons: [
-          { title: t`Batal` },
+          { title: `Batal` },
           {
-            title: t`Kirim`,
+            title: `Kirim`,
             variant: 'primary',
             onClick: submitData,
             role: 'confirm',
@@ -309,8 +307,8 @@ export const ValidationStep = ({
                   noRowsFallback: (
                     <StyledNoRowsContainer>
                       {filterByErrors
-                        ? t`Tidak ada data dengan kesalahan`
-                        : t`Tidak ada data ditemukan`}
+                        ? `Tidak ada data dengan kesalahan`
+                        : `Tidak ada data ditemukan`}
                     </StyledNoRowsContainer>
                   ),
                 }}
@@ -331,7 +329,7 @@ export const ValidationStep = ({
             <StyledButtonContainer>
               <Button
                 Icon={IconTrash}
-                title={t`Hapus`}
+                title={`Hapus`}
                 accent="default"
                 onClick={deleteSelectedRows}
                 disabled={selectedRows.size === 0}
@@ -343,7 +341,7 @@ export const ValidationStep = ({
       <StepNavigationButton
         onContinue={onContinue}
         onBack={onBack}
-        continueTitle={t`Konfirmasi`}
+        continueTitle={`Konfirmasi`}
       />
     </>
   );

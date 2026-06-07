@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -22,7 +22,7 @@ export const validatePieChartConfiguration = ({
   ) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Group by field is required for pie chart widget "${widgetTitle}"`,
+      message: `Group by field is required for pie chart widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Group by field is required for pie chart`,
     });
   }

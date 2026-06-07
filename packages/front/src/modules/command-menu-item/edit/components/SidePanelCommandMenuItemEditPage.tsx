@@ -18,7 +18,6 @@ import { SidePanelFooter } from '@/ui/layout/side-panel/components/SidePanelFoot
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { type DropResult } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { ContextStorePageType } from 'shared/types';
 import { interpolateCommandMenuItemTemplate, isDefined } from 'shared/utils';
 import {
@@ -56,7 +55,6 @@ const StyledContent = styled.div`
 `;
 
 export const SidePanelCommandMenuItemEditPage = () => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const commandMenuContextApi = useCurrentCommandMenuContextApi();
 
@@ -215,7 +213,7 @@ export const SidePanelCommandMenuItemEditPage = () => {
       )}
       <StyledContent>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Disematkan`}>
+          <SidePanelGroup heading={`Disematkan`}>
             <DraggableList
               onDragEnd={handlePinnedDragEnd}
               draggableItems={displayedPinnedItems.map((item, index) => {
@@ -262,7 +260,7 @@ export const SidePanelCommandMenuItemEditPage = () => {
             />
           </SidePanelGroup>
 
-          <SidePanelGroup heading={t`Lainnya`}>
+          <SidePanelGroup heading={`Lainnya`}>
             {displayedOtherItems.map((item) => {
               const ItemIcon = isDefined(item.icon)
                 ? getIcon(item.icon)
@@ -300,7 +298,7 @@ export const SidePanelCommandMenuItemEditPage = () => {
           <Button
             key="reset"
             Icon={IconRefresh}
-            title={t`Kembalikan ke default`}
+            title={`Kembalikan ke default`}
             variant="secondary"
             accent="default"
             size="small"

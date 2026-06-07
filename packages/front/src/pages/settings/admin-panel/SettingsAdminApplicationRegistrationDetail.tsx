@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client/react';
 import { FindOneAdminApplicationRegistrationDocument } from '~/generated-admin/graphql';
@@ -21,7 +20,6 @@ const REGISTRATION_DETAIL_TAB_LIST_ID =
   'admin-application-registration-detail-tab-list';
 
 export const SettingsAdminApplicationRegistrationDetail = () => {
-  const { t } = useLingui();
   const apolloAdminClient = useApolloAdminClient();
 
   const activeTabId = useAtomComponentStateValue(
@@ -49,10 +47,10 @@ export const SettingsAdminApplicationRegistrationDetail = () => {
   }
 
   const tabs = [
-    { id: 'general', title: t`Umum`, Icon: IconInfoCircle },
-    { id: 'oauth', title: t`OAuth`, Icon: IconKey },
-    { id: 'distribution', title: t`Distribusi`, Icon: IconWorld },
-    { id: 'config', title: t`Konfigurasi`, Icon: IconSettings },
+    { id: 'general', title: `Umum`, Icon: IconInfoCircle },
+    { id: 'oauth', title: `OAuth`, Icon: IconKey },
+    { id: 'distribution', title: `Distribusi`, Icon: IconWorld },
+    { id: 'config', title: `Konfigurasi`, Icon: IconSettings },
   ];
 
   const renderActiveTabContent = () => {
@@ -91,11 +89,11 @@ export const SettingsAdminApplicationRegistrationDetail = () => {
       title={registration.name}
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Aplikasi`,
+          children: `Panel Admin - Aplikasi`,
           href: APPLICATION_REGISTRATION_ADMIN_PATH,
         },
         { children: registration.name },

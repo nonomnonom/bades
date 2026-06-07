@@ -4,7 +4,6 @@ import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetada
 import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsOptions/SettingsOptionCardContentSelect';
 import { TEXT_DATA_MODEL_SELECT_OPTIONS } from '@/settings/data-model/fields/forms/components/text/constants/TextDataModelSelectOptions';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconTextWrap } from 'ui/display';
 import { z } from 'zod';
 
@@ -29,8 +28,6 @@ export const SettingsDataModelFieldTextForm = ({
   disabled,
   existingFieldMetadataId,
 }: SettingsDataModelFieldTextFormProps) => {
-  const { t } = useLingui();
-
   const { fieldMetadataItem: existingFieldMetadataItem } =
     useFieldMetadataItemById(existingFieldMetadataId);
 
@@ -49,8 +46,8 @@ export const SettingsDataModelFieldTextForm = ({
         return (
           <SettingsOptionCardContentSelect
             Icon={IconTextWrap}
-            title={t`Bungkus pada halaman data`}
-            description={t`Tampilkan teks dalam beberapa baris`}
+            title={`Bungkus pada halaman data`}
+            description={`Tampilkan teks dalam beberapa baris`}
           >
             <Select<number>
               dropdownId="text-wrap"
@@ -59,7 +56,7 @@ export const SettingsDataModelFieldTextForm = ({
               disabled={disabled}
               options={TEXT_DATA_MODEL_SELECT_OPTIONS.map((option) => ({
                 ...option,
-                label: t(option.label),
+                label: option.label,
               }))}
               selectSizeVariant="small"
             />

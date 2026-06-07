@@ -4,7 +4,6 @@ import { useFileUpload } from '@/file-upload/hooks/useFileUpload';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { type WorkflowAttachment } from 'shared/workflow';
@@ -65,8 +64,6 @@ export const WorkflowSendEmailAttachments = ({
   const { theme } = useContext(ThemeContext);
   const { uploadWorkflowFile } = useUploadWorkflowFile();
   const { openFileUpload } = useFileUpload();
-  const { t } = useLingui();
-
   const handleUploadFiles = async (filesToUpload: File[]) => {
     const uploadedFiles = await Promise.all(
       filesToUpload.map((file) => uploadWorkflowFile(file)),
@@ -111,7 +108,7 @@ export const WorkflowSendEmailAttachments = ({
         ) : (
           <StyledUploadAreaLabel>
             <IconUpload size={theme.icon.size.sm} />
-            <span>{t`Unggah berkas`}</span>
+            <span>{`Unggah berkas`}</span>
           </StyledUploadAreaLabel>
         )}
       </StyledUploadArea>

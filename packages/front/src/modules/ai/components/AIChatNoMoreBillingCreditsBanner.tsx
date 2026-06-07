@@ -10,7 +10,6 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   PermissionFlagType,
@@ -64,20 +63,20 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
 
   const nextTierInterval = isDefined(nextPrice)
     ? nextPrice.recurringInterval === SubscriptionInterval.Month
-      ? t`bulan`
-      : t`tahun`
+      ? `bulan`
+      : `tahun`
     : null;
 
   const message = isTrialing
-    ? t`Anda telah mencapai batas penggunaan. Berlangganan untuk penggunaan lebih banyak.`
+    ? `Anda telah mencapai batas penggunaan. Berlangganan untuk penggunaan lebih banyak.`
     : isDefined(nextPrice)
-      ? t`Anda telah mencapai batas penggunaan. \nTingkatkan ke ${nextResourceCreditsAmount} kredit seharga Rp${nextResourceCreditPrice}/${nextTierInterval}.`
-      : t`Anda telah mencapai batas penggunaan. \nHubungi tim dukungan kami untuk meningkatkan paket.`;
+      ? `Anda telah mencapai batas penggunaan. \nTingkatkan ke ${nextResourceCreditsAmount} kredit seharga Rp${nextResourceCreditPrice}/${nextTierInterval}.`
+      : `Anda telah mencapai batas penggunaan. \nHubungi tim dukungan kami untuk meningkatkan paket.`;
 
   const buttonTitle = isTrialing
-    ? t`Berlangganan Sekarang`
+    ? `Berlangganan Sekarang`
     : isDefined(nextPrice)
-      ? t`Tingkatkan`
+      ? `Tingkatkan`
       : undefined;
 
   const handleButtonClick = isTrialing
@@ -107,10 +106,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
         });
       }
       enqueueSuccessSnackBar({
-        message: t`Paket kredit berhasil ditingkatkan.`,
+        message: `Paket kredit berhasil ditingkatkan.`,
       });
     } catch {
-      enqueueErrorSnackBar({ message: t`Gagal meningkatkan paket kredit.` });
+      enqueueErrorSnackBar({ message: `Gagal meningkatkan paket kredit.` });
     }
   };
 
@@ -128,10 +127,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
       {isTrialing && (
         <ConfirmationModal
           modalInstanceId={AI_CHAT_END_TRIAL_PERIOD_MODAL_ID}
-          title={t`Mulai Berlangganan`}
-          subtitle={t`Kami akan mengaktifkan paket berbayar Anda. Apakah Anda ingin melanjutkan?`}
+          title={`Mulai Berlangganan`}
+          subtitle={`Kami akan mengaktifkan paket berbayar Anda. Apakah Anda ingin melanjutkan?`}
           onConfirmClick={endTrialPeriod}
-          confirmButtonText={t`Konfirmasi`}
+          confirmButtonText={`Konfirmasi`}
           confirmButtonAccent="blue"
           loading={isEndTrialLoading}
         />
@@ -139,10 +138,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
       {!isTrialing && (
         <ConfirmationModal
           modalInstanceId={AI_CHAT_UPGRADE_CREDIT_PLAN_MODAL_ID}
-          title={t`Tambah kredit`}
-          subtitle={t`Tingkatkan ke ${nextResourceCreditsAmount} kredit seharga Rp${nextResourceCreditPrice}/${nextTierInterval}.`}
+          title={`Tambah kredit`}
+          subtitle={`Tingkatkan ke ${nextResourceCreditsAmount} kredit seharga Rp${nextResourceCreditPrice}/${nextTierInterval}.`}
           onConfirmClick={handleUpgradeConfirm}
-          confirmButtonText={t`Tingkatkan`}
+          confirmButtonText={`Tingkatkan`}
           confirmButtonAccent="blue"
           loading={isUpgrading}
         />

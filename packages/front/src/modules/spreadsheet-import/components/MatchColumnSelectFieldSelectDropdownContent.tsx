@@ -15,7 +15,6 @@ import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownM
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { IconForbid, IconX, useIcons } from 'ui/display';
 import { type SelectOption } from 'ui/input';
@@ -80,8 +79,6 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
     onCancelSelect();
   };
 
-  const { t } = useLingui();
-
   return (
     <DropdownContent widthInPixels={GenericDropdownContentWidth.ExtraLarge}>
       <DropdownMenuHeader
@@ -92,13 +89,13 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
           />
         }
       >
-        {t`Pilih kolom yang sesuai`}
+        {`Pilih kolom yang sesuai`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         value={searchFilter}
         onChange={handleFilterChange}
         autoFocus
-        placeholder={t`Cari kolom`}
+        placeholder={`Cari kolom`}
       />
       <DropdownMenuSeparator />
       <StyledContainer>
@@ -110,13 +107,13 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
                   selected={selectedValue?.value === DO_NOT_IMPORT_OPTION_KEY}
                   onClick={onDoNotImportSelect}
                   LeftIcon={IconForbid}
-                  text={t`Jangan diimpor`}
+                  text={`Jangan diimpor`}
                 />
               </DropdownMenuItemsContainer>
               {suggestedOptions.length > 0 && (
                 <>
                   <DropdownMenuSeparator />
-                  <DropdownMenuSectionLabel label={t`Disarankan`} />
+                  <DropdownMenuSectionLabel label={`Disarankan`} />
                   <DropdownMenuItemsContainer scrollable={false}>
                     {suggestedOptions.map((option) => (
                       <MenuItemSelect
@@ -132,7 +129,7 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
                 </>
               )}
               <DropdownMenuSeparator />
-              <DropdownMenuSectionLabel label={t`Semua kolom`} />
+              <DropdownMenuSectionLabel label={`Semua kolom`} />
             </>
           )}
           <DropdownMenuItemsContainer scrollable={false}>

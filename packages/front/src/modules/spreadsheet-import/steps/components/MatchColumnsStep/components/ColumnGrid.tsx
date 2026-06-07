@@ -1,5 +1,4 @@
 import { type SpreadsheetColumns } from '@/spreadsheet-import/types/SpreadsheetColumns';
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import React from 'react';
@@ -101,8 +100,8 @@ export const ColumnGrid = ({
       <StyledGridContainer>
         <StyledGrid>
           <StyledGridRow height="32px">
-            <StyledGridHeader position="left">{t`Data dari berkas`}</StyledGridHeader>
-            <StyledGridHeader position="right">{t`Kolom Bades`}</StyledGridHeader>
+            <StyledGridHeader position="left">{`Data dari berkas`}</StyledGridHeader>
+            <StyledGridHeader position="right">{`Kolom Bades`}</StyledGridHeader>
           </StyledGridRow>
           {columns.map((column, index) => {
             const userColumn = renderUserColumn(columns, index);

@@ -5,7 +5,6 @@ import { isObjectMetadataReadOnly } from '@/object-record/read-only/utils/isObje
 import { SettingsObjectRelationsTable } from '@/settings/data-model/object-details/components/SettingsObjectRelationsTable';
 import { styled } from '@linaria/react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType, SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconPlus } from 'ui/display';
@@ -26,7 +25,6 @@ type ObjectFieldsProps = {
 };
 
 export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
-  const { t } = useLingui();
   const isDDLLocked = useAtomStateValue(isDDLLockedState);
 
   const readonly =
@@ -48,8 +46,8 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
       {hasRelations && (
         <Section>
           <H2Title
-            title={t`Relasi`}
-            description={t`Relasi antara objek ini dengan objek lain`}
+            title={`Relasi`}
+            description={`Relasi antara objek ini dengan objek lain`}
           />
           <SettingsObjectRelationsTable
             objectMetadataItem={objectMetadataItem}
@@ -65,7 +63,7 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
               >
                 <Button
                   Icon={IconPlus}
-                  title={t`Tambah relasi`}
+                  title={`Tambah relasi`}
                   size="small"
                   variant="secondary"
                 />
@@ -76,8 +74,8 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
       )}
       <Section>
         <H2Title
-          title={t`Kolom`}
-          description={t`Atur kolom yang tersedia pada tampilan ${objectLabelSingular} dan urutan tampilannya di halaman detail serta menu.`}
+          title={`Kolom`}
+          description={`Atur kolom yang tersedia pada tampilan ${objectLabelSingular} dan urutan tampilannya di halaman detail serta menu.`}
         />
         <SettingsObjectFieldTable
           objectMetadataItem={objectMetadataItem}
@@ -93,7 +91,7 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
             >
               <Button
                 Icon={IconPlus}
-                title={t`Tambah Kolom`}
+                title={`Tambah Kolom`}
                 size="small"
                 variant="secondary"
               />

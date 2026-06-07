@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
@@ -34,7 +33,6 @@ const StyledSearchInput = styled(SearchInput)`
 `;
 
 export const SettingsAgentSkills = () => {
-  const { t } = useLingui();
   const { colorScheme } = useContext(ThemeContext);
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
@@ -73,20 +71,20 @@ export const SettingsAgentSkills = () => {
   const handleActivate = async (skillId: string) => {
     try {
       await activateSkill({ variables: { id: skillId } });
-      enqueueSuccessSnackBar({ message: t`Keahlian diaktifkan` });
+      enqueueSuccessSnackBar({ message: `Keahlian diaktifkan` });
       refetch();
     } catch {
-      enqueueErrorSnackBar({ message: t`Gagal mengaktifkan keahlian` });
+      enqueueErrorSnackBar({ message: `Gagal mengaktifkan keahlian` });
     }
   };
 
   const handleDelete = async (skillId: string) => {
     try {
       await deleteSkill({ variables: { id: skillId } });
-      enqueueSuccessSnackBar({ message: t`Keahlian dihapus` });
+      enqueueSuccessSnackBar({ message: `Keahlian dihapus` });
       refetch();
     } catch {
-      enqueueErrorSnackBar({ message: t`Gagal menghapus keahlian` });
+      enqueueErrorSnackBar({ message: `Gagal menghapus keahlian` });
     }
   };
 
@@ -100,12 +98,12 @@ export const SettingsAgentSkills = () => {
       <StyledCoverImage style={{ backgroundImage: `url('${coverImage}')` }} />
       <Section>
         <H2Title
-          title={t`Keahlian`}
-          description={t`Gunakan filter untuk melihat keahlian yang ada atau buat keahlian Anda sendiri`}
+          title={`Keahlian`}
+          description={`Gunakan filter untuk melihat keahlian yang ada atau buat keahlian Anda sendiri`}
         />
 
         <StyledSearchInput
-          placeholder={t`Cari keahlian...`}
+          placeholder={`Cari keahlian...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -123,7 +121,7 @@ export const SettingsAgentSkills = () => {
                         setShowDeactivated(!showDeactivated)
                       }
                       toggled={showDeactivated}
-                      text={t`Dinonaktifkan`}
+                      text={`Dinonaktifkan`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>

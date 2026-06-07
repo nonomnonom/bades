@@ -1,7 +1,6 @@
 import { type CurrentWorkspaceMember } from '@/auth/states/currentWorkspaceMemberState';
 import { SettingsRoleAssignmentEntityPickerDropdown } from '@/settings/roles/role-assignment/components/SettingsRoleAssignmentEntityPickerDropdown';
 import { SettingsRoleAssignmentWorkspaceMemberPickerDropdown } from '@/settings/roles/role-assignment/components/SettingsRoleAssignmentWorkspaceMemberPickerDropdown';
-import { t } from '~/utils/i18n/badesI18n';
 import { type Agent, type ApiKeyForRole } from '~/generated-metadata/graphql';
 import {
   type PartialWorkspaceMember,
@@ -23,12 +22,12 @@ export const ROLE_TARGET_CONFIG = {
       currentMemberId ? [...assignedIds, currentMemberId] : assignedIds,
     canBeAssigned: (settingsDraftRole: RoleWithPartialMembers) =>
       settingsDraftRole.canBeAssignedToUsers,
-    buttonTitle: () => t`Tetapkan ke anggota`,
+    buttonTitle: () => `Tetapkan ke anggota`,
     dropdownComponent: SettingsRoleAssignmentWorkspaceMemberPickerDropdown,
     // Tooltip configuration for member type
     tooltip: {
       anchorId: 'assign-member',
-      content: () => t`Semua anggota ruang kerja sudah memiliki peran ini`,
+      content: () => `Semua anggota ruang kerja sudah memiliki peran ini`,
       shouldShow: (allWorkspaceMembersHaveThisRole?: boolean) =>
         allWorkspaceMembersHaveThisRole ?? false,
     },
@@ -42,7 +41,7 @@ export const ROLE_TARGET_CONFIG = {
     getExcludedIds: (assignedIds: string[]) => assignedIds,
     canBeAssigned: (settingsDraftRole: RoleWithPartialMembers) =>
       settingsDraftRole.canBeAssignedToAgents,
-    buttonTitle: () => t`Tetapkan ke agen`,
+    buttonTitle: () => `Tetapkan ke agen`,
     dropdownComponent: SettingsRoleAssignmentEntityPickerDropdown,
     // No tooltip for agent type
     tooltip: null,
@@ -58,7 +57,7 @@ export const ROLE_TARGET_CONFIG = {
     getExcludedIds: (assignedIds: string[]) => assignedIds,
     canBeAssigned: (settingsDraftRole: RoleWithPartialMembers) =>
       settingsDraftRole.canBeAssignedToApiKeys,
-    buttonTitle: () => t`Tetapkan ke kunci API`,
+    buttonTitle: () => `Tetapkan ke kunci API`,
     dropdownComponent: SettingsRoleAssignmentEntityPickerDropdown,
     // No tooltip for apiKey type
     tooltip: null,

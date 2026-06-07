@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useApplyObjectFilterDropdownFilterValue } from '@/object-record/object-filter-dropdown/hooks/useApplyObjectFilterDropdownFilterValue';
 import { fieldMetadataItemUsedInDropdownComponentSelector } from '@/object-record/object-filter-dropdown/states/fieldMetadataItemUsedInDropdownComponentSelector';
 import { objectFilterDropdownCurrentRecordFilterComponentState } from '@/object-record/object-filter-dropdown/states/objectFilterDropdownCurrentRecordFilterComponentState';
@@ -99,15 +98,13 @@ export const ObjectFilterDropdownCountrySelect = () => {
     filteredSelectedItems.length === 0 &&
     searchText !== '';
 
-  const { t } = useLingui();
-
   return (
     <DropdownContent widthInPixels={GenericDropdownContentWidth.ExtraLarge}>
       <DropdownMenuSearchInput
         autoFocus
         type="text"
         value={searchText}
-        placeholder={t`Cari negara`}
+        placeholder={`Cari negara`}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setSearchText(event.target.value);
         }}
@@ -140,7 +137,7 @@ export const ObjectFilterDropdownCountrySelect = () => {
             />
           );
         })}
-        {showNoResult && <MenuItem text={t`Tidak ada hasil`} />}
+        {showNoResult && <MenuItem text={`Tidak ada hasil`} />}
       </DropdownMenuItemsContainer>
     </DropdownContent>
   );

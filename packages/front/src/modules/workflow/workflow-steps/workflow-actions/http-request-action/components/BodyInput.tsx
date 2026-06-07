@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormRawJsonFieldInput } from '@/object-record/record-field/ui/form-types/components/FormRawJsonFieldInput';
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
@@ -162,7 +161,7 @@ export const BodyInput = ({
 
   return (
     <FormFieldInputContainer>
-      <InputLabel>{t`Isi Permintaan`}</InputLabel>
+      <InputLabel>{`Isi Permintaan`}</InputLabel>
       <StyledSelectDropdownContainer>
         <Select
           options={[
@@ -173,12 +172,12 @@ export const BodyInput = ({
               Icon: IconFileText,
             },
             {
-              label: t`Data Formulir`,
+              label: `Data Formulir`,
               value: BODY_TYPES.FORM_DATA,
               Icon: IconKey,
             },
-            { label: t`Teks`, value: BODY_TYPES.TEXT, Icon: IconFileText },
-            { label: t`Kosong`, value: BODY_TYPES.NONE, Icon: IconFileText },
+            { label: `Teks`, value: BODY_TYPES.TEXT, Icon: IconFileText },
+            { label: `Kosong`, value: BODY_TYPES.NONE, Icon: IconFileText },
           ]}
           dropdownId="body-input-mode"
           value={getBodyTypeFromHeaders(headers) || BODY_TYPES.NONE}
@@ -204,8 +203,8 @@ export const BodyInput = ({
             defaultValue={defaultValueParsed as Record<string, string>}
             onChange={handleKeyValueChange}
             readonly={readonly}
-            keyPlaceholder={t`Nama properti`}
-            valuePlaceholder={t`Nilai properti`}
+            keyPlaceholder={`Nama properti`}
+            valuePlaceholder={`Nilai properti`}
           />
         ) : getBodyTypeFromHeaders(headers) === BODY_TYPES.FORM_DATA ? (
           <KeyValuePairInput
@@ -213,19 +212,19 @@ export const BodyInput = ({
             defaultValue={defaultValueParsed as Record<string, string>}
             onChange={handleKeyValueChange}
             readonly={readonly}
-            keyPlaceholder={t`Nama properti`}
-            valuePlaceholder={t`Nilai properti`}
+            keyPlaceholder={`Nama properti`}
+            valuePlaceholder={`Nilai properti`}
           />
         ) : getBodyTypeFromHeaders(headers) === BODY_TYPES.TEXT ? (
           <FormTextFieldInput
-            placeholder={t`Masukkan teks`}
+            placeholder={`Masukkan teks`}
             readonly={readonly}
             defaultValue={textValue}
             onChange={(value: string) => handleChangeTextValue(value)}
             VariablePicker={WorkflowVariablePicker}
           />
         ) : (
-          <StyledNoBodyMessage>{t`Tanpa isi`}</StyledNoBodyMessage>
+          <StyledNoBodyMessage>{`Tanpa isi`}</StyledNoBodyMessage>
         )}
       </StyledContainer>
     </FormFieldInputContainer>

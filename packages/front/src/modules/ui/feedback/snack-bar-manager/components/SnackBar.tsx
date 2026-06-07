@@ -1,6 +1,6 @@
 import { sanitizeMessageToRenderInSnackbar } from '@/ui/feedback/snack-bar-manager/utils/sanitizeMessageToRenderInSnackbar';
 import { styled } from '@linaria/react';
-import { msg, useLingui } from '~/utils/i18n/badesI18n';
+import { i18n, type msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isUndefined } from '@sniptt/guards';
 import {
   type ComponentPropsWithoutRef,
@@ -130,11 +130,11 @@ const defaultAriaLabelByVariant: Record<
   SnackBarVariant,
   ReturnType<typeof msg>
 > = {
-  [SnackBarVariant.Default]: msg`Peringatan`,
-  [SnackBarVariant.Error]: msg`Kesalahan`,
-  [SnackBarVariant.Info]: msg`Info`,
-  [SnackBarVariant.Success]: msg`Berhasil`,
-  [SnackBarVariant.Warning]: msg`Perhatian`,
+  [SnackBarVariant.Default]: `Peringatan`,
+  [SnackBarVariant.Error]: `Kesalahan`,
+  [SnackBarVariant.Info]: `Info`,
+  [SnackBarVariant.Success]: `Berhasil`,
+  [SnackBarVariant.Warning]: `Perhatian`,
 };
 
 export const SnackBar = ({
@@ -153,7 +153,7 @@ export const SnackBar = ({
   role = 'status',
   variant = SnackBarVariant.Default,
 }: SnackBarProps) => {
-  const { i18n, t } = useLingui();
+  const { i18n } = useLingui();
   const { theme } = useContext(ThemeContext);
   const { animation: progressAnimation, value: progressValue } =
     useProgressAnimation({
@@ -231,10 +231,10 @@ export const SnackBar = ({
         <StyledIcon>{icon}</StyledIcon>
         <StyledMessage>{sanitizedMessage ?? ''}</StyledMessage>
         <StyledActions>
-          {!!onCancel && <LightButton title={t`Batal`} onClick={onCancel} />}
+          {!!onCancel && <LightButton title={`Batal`} onClick={onCancel} />}
 
           {!!onClose && (
-            <LightIconButton title={t`Tutup`} Icon={IconX} onClick={onClose} />
+            <LightIconButton title={`Tutup`} Icon={IconX} onClick={onClose} />
           )}
         </StyledActions>
       </StyledHeader>

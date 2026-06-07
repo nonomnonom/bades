@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsAccountsMessageChannelsContainer } from '@/settings/accounts/components/SettingsAccountsMessageChannelsContainer';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -7,21 +6,19 @@ import { getSettingsPath } from 'shared/utils';
 import { Section } from 'ui/layout';
 
 export const SettingsAccountsEmails = () => {
-  const { t } = useLingui();
-
   return (
     <SubMenuTopBarContainer
-      title={t`Surel`}
+      title={`Surel`}
       links={[
         {
-          children: t`Pengguna`,
+          children: `Pengguna`,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: t`Akun`,
+          children: `Akun`,
           href: getSettingsPath(SettingsPath.Accounts),
         },
-        { children: t`Surel` },
+        { children: `Surel` },
       ]}
     >
       <SettingsPageContainer>

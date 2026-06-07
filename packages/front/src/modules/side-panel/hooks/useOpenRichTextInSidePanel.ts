@@ -1,6 +1,5 @@
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { viewableRichTextComponentState } from '@/side-panel/pages/rich-text-page/states/viewableRichTextComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
@@ -22,7 +21,7 @@ export const useOpenRichTextInSidePanel = () => {
       openSidePanelMenu();
       navigateSidePanelMenu({
         page: SidePanelPages.EditRichText,
-        pageTitle: t`Teks Kaya`,
+        pageTitle: `Teks Kaya`,
         pageIcon: IconPencil,
       });
     },

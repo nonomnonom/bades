@@ -14,7 +14,6 @@ import {
   resolveToolInput,
 } from '@/ai/utils/getToolDisplayMessage';
 import { getToolIcon } from '@/ai/utils/getToolIcon';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ToolUIPart } from 'ai';
 import { isDefined } from 'shared/utils';
 import { type JsonValue } from 'type-fest';
@@ -136,7 +135,6 @@ export const ToolStepRenderer = ({
   isStreaming: boolean;
 }) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('output');
@@ -228,7 +226,7 @@ export const ToolStepRenderer = ({
   }
 
   const displayMessage = hasError
-    ? t`Eksekusi alat gagal`
+    ? `Eksekusi alat gagal`
     : rawToolName === 'learn_tools' ||
         rawToolName === 'execute_tool' ||
         rawToolName === 'load_skills'
@@ -276,13 +274,13 @@ export const ToolStepRenderer = ({
                     isActive={activeTab === 'output'}
                     onClick={() => setActiveTab('output')}
                   >
-                    {t`Keluaran`}
+                    {`Keluaran`}
                   </StyledTab>
                   <StyledTab
                     isActive={activeTab === 'input'}
                     onClick={() => setActiveTab('input')}
                   >
-                    {t`Masukan`}
+                    {`Masukan`}
                   </StyledTab>
                 </StyledTabContainer>
 
@@ -292,11 +290,11 @@ export const ToolStepRenderer = ({
                       (activeTab === 'output' ? result : toolInput) as JsonValue
                     }
                     shouldExpandNodeInitially={() => false}
-                    emptyArrayLabel={t`Array kosong`}
-                    emptyObjectLabel={t`Objek kosong`}
-                    emptyStringLabel={t`[string kosong]`}
-                    arrowButtonCollapsedLabel={t`Perluas`}
-                    arrowButtonExpandedLabel={t`Ciutkan`}
+                    emptyArrayLabel={`Array kosong`}
+                    emptyObjectLabel={`Objek kosong`}
+                    emptyStringLabel={`[string kosong]`}
+                    arrowButtonCollapsedLabel={`Perluas`}
+                    arrowButtonExpandedLabel={`Ciutkan`}
                     onNodeValueClick={copyToClipboard}
                   />
                 </StyledJsonTreeContainer>

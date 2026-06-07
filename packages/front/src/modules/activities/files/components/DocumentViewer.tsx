@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { PREVIEWABLE_EXTENSIONS } from '@/activities/files/const/previewable-extensions.const';
 import { downloadFile } from '@/activities/files/utils/downloadFile';
 import {
@@ -8,7 +9,6 @@ import { getFileType } from '@/activities/files/utils/getFileType';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
 import '@cyntler/react-doc-viewer/dist/index.css';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconDownload } from 'ui/display';
@@ -198,7 +198,6 @@ export const DocumentViewer = ({
   documentExtension,
 }: DocumentViewerProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const [csvPreview, setCsvPreview] = useState<CsvPreviewData | undefined>(
     undefined,
   );
@@ -241,7 +240,7 @@ export const DocumentViewer = ({
           </StyledMessage>
           <Button
             Icon={IconDownload}
-            title={t`Unduh Berkas`}
+            title={`Unduh Berkas`}
             onClick={() => downloadFile(documentUrl, documentName)}
             variant="secondary"
           />
@@ -293,7 +292,7 @@ export const DocumentViewer = ({
           </StyledLightMessage>
           <Button
             Icon={IconDownload}
-            title={t`Unduh`}
+            title={`Unduh`}
             onClick={() => downloadFile(documentUrl, documentName)}
             variant="secondary"
             size="small"

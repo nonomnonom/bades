@@ -2,7 +2,6 @@ import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { CREATE_TOP_UP_CREDIT_SESSION } from '@/settings/billing/graphql/mutations/createTopUpCreditSession';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 
 type CreateTopUpCreditSessionData = {
@@ -56,7 +55,7 @@ export const useTopUpCredit = () => {
 
       if (url === null || url === undefined) {
         enqueueErrorSnackBar({
-          message: t`Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
+          message: `Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
         });
         return;
       }
@@ -64,7 +63,7 @@ export const useTopUpCredit = () => {
       redirect(url);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
+        message: `Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
       });
     } finally {
       setIsSubmitting(false);

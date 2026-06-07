@@ -1,5 +1,4 @@
 import { SettingsLogicFunctionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerSection';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ToolTriggerSettings } from 'shared/application';
 import { DEFAULT_TOOL_INPUT_SCHEMA } from 'shared/logic-function';
 import { isDefined } from 'shared/utils';
@@ -25,8 +24,6 @@ export const SettingsLogicFunctionToolTriggerSection = ({
   onChange,
   readonly,
 }: SettingsLogicFunctionToolTriggerSectionProps) => {
-  const { t } = useLingui();
-
   const schema = (value?.inputSchema as ToolInputSchema | undefined) ?? {};
   const schemaProperties = isDefined(schema.properties)
     ? (schema.properties as Record<
@@ -37,8 +34,8 @@ export const SettingsLogicFunctionToolTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`Alat AI`}
-      description={t`Mengekspos fungsi sebagai alat yang dapat dipanggil agen AI`}
+      title={`Alat AI`}
+      description={`Mengekspos fungsi sebagai alat yang dapat dipanggil agen AI`}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_TOOL_TRIGGER_SETTINGS : null)

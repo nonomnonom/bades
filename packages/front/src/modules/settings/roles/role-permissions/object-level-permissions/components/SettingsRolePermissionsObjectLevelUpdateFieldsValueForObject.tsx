@@ -3,8 +3,6 @@ import { filterUserFacingFieldMetadataItems } from '@/object-metadata/utils/filt
 import { useObjectPermissionDerivedStates } from '@/settings/roles/role-permissions/object-level-permissions/field-permissions/hooks/useObjectPermissionDerivedStates';
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 type SettingsRolePermissionsObjectLevelUpdateFieldsValueForObjectProps = {
   roleId: string;
   objectMetadataItem: EnrichedObjectMetadataItem;
@@ -14,8 +12,6 @@ export const SettingsRolePermissionsObjectLevelUpdateFieldsValueForObject = ({
   roleId,
   objectMetadataItem,
 }: SettingsRolePermissionsObjectLevelUpdateFieldsValueForObjectProps) => {
-  const { t } = useLingui();
-
   const settingsDraftRole = useAtomFamilyStateValue(
     settingsDraftRoleFamilyState,
     roleId,
@@ -60,10 +56,10 @@ export const SettingsRolePermissionsObjectLevelUpdateFieldsValueForObject = ({
       {objectUpdateIsRestricted
         ? '-'
         : canUpdateAll
-          ? t`Semua`
+          ? `Semua`
           : canUpdateSome
-            ? t`Sebagian`
-            : t`Tidak ada`}
+            ? `Sebagian`
+            : `Tidak ada`}
     </>
   );
 };

@@ -16,7 +16,6 @@ import { WorkflowStepFilterValueCompositeInput } from '@/workflow/workflow-steps
 import { useUpsertStepFilterSettings } from '@/workflow/workflow-steps/filters/hooks/useUpsertStepFilterSettings';
 import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/states/context/WorkflowStepFilterContext';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isObject, isString } from '@sniptt/guards';
 import { useContext } from 'react';
 import {
@@ -73,7 +72,6 @@ const isFilterableFieldType = (
 export const WorkflowStepFilterValueInput = ({
   stepFilter,
 }: WorkflowStepFilterValueInputProps) => {
-  const { t } = useLingui();
   const { readonly } = useContext(WorkflowStepFilterContext);
 
   const { upsertStepFilterSettings } = useUpsertStepFilterSettings();
@@ -179,7 +177,7 @@ export const WorkflowStepFilterValueInput = ({
         onChange={handleValueChange}
         readonly={readonly}
         VariablePicker={WorkflowVariablePicker}
-        placeholder={t`Masukkan nilai`}
+        placeholder={`Masukkan nilai`}
       />
     );
   }
@@ -283,7 +281,7 @@ export const WorkflowStepFilterValueInput = ({
       onClear={handleClearValue}
       readonly={readonly}
       VariablePicker={WorkflowVariablePicker}
-      placeholder={t`Masukkan nilai`}
+      placeholder={`Masukkan nilai`}
       timeZone={WORKFLOW_TIMEZONE}
     />
   );

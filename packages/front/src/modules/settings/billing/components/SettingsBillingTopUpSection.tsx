@@ -2,7 +2,7 @@ import { useNumberFormat } from '@/localization/hooks/useNumberFormat';
 import { useTopUpCredit } from '@/settings/billing/hooks/useTopUpCredit';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { Trans, t } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { H2Title, IconCoins } from 'ui/display';
 import { Button } from 'ui/input';
@@ -57,15 +57,15 @@ export const SettingsBillingTopUpSection = () => {
 
     handleTopUpCredit({
       grossAmount,
-      itemName: t`Isi Ulang Saldo Kredit Bades`,
+      itemName: `Isi Ulang Saldo Kredit Bades`,
     });
   };
 
   return (
     <Section>
       <H2Title
-        title={t`Isi ulang saldo kredit`}
-        description={t`Tambah saldo kredit untuk pemakaian alur kerja. Pembayaran diproses melalui Midtrans.`}
+        title={`Isi ulang saldo kredit`}
+        description={`Tambah saldo kredit untuk pemakaian alur kerja. Pembayaran diproses melalui Midtrans.`}
       />
       <StyledPresetGrid>
         {TOP_UP_PRESET_AMOUNTS.map((amount) => (
@@ -80,15 +80,15 @@ export const SettingsBillingTopUpSection = () => {
       <StyledCustomAmountRow>
         <SettingsTextInput
           instanceId="billing-top-up-custom-amount"
-          label={t`Nominal lain (Rupiah)`}
+          label={`Nominal lain (Rupiah)`}
           value={customAmount}
           onChange={handleChangeCustomAmount}
-          placeholder={t`Contoh: 150000`}
+          placeholder={`Contoh: 150000`}
           fullWidth
         />
         <Button
           Icon={IconCoins}
-          title={t`Bayar sekarang`}
+          title={`Bayar sekarang`}
           variant="primary"
           accent="blue"
           onClick={handlePay}

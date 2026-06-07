@@ -2,7 +2,6 @@ import { styled } from '@linaria/react';
 import { useContext } from 'react';
 
 import { SettingsCard } from '@/settings/components/SettingsCard';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconCalendarEvent, IconMailCog } from 'ui/display';
@@ -26,12 +25,11 @@ const StyledCardsContainer = styled.div`
 
 export const SettingsAccountsSettingsSection = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   return (
     <Section>
       <H2Title
-        title={t`Pengaturan`}
-        description={t`Atur email dan pengaturan kalender Anda.`}
+        title={`Pengaturan`}
+        description={`Atur email dan pengaturan kalender Anda.`}
       />
       <StyledCardsContainer>
         <UndecoratedLink to={getSettingsPath(SettingsPath.AccountsEmails)}>
@@ -42,8 +40,8 @@ export const SettingsAccountsSettingsSection = () => {
                 stroke={theme.icon.stroke.sm}
               />
             }
-            title={t`Email`}
-            description={t`Atur visibilitas email, kelola daftar blokir, dan lainnya.`}
+            title={`Email`}
+            description={`Atur visibilitas email, kelola daftar blokir, dan lainnya.`}
           />
         </UndecoratedLink>
         <UndecoratedLink to={getSettingsPath(SettingsPath.AccountsCalendars)}>
@@ -54,8 +52,8 @@ export const SettingsAccountsSettingsSection = () => {
                 stroke={theme.icon.stroke.sm}
               />
             }
-            title={t`Kalender`}
-            description={t`Atur dan sesuaikan preferensi kalender Anda.`}
+            title={`Kalender`}
+            description={`Atur dan sesuaikan preferensi kalender Anda.`}
           />
         </UndecoratedLink>
       </StyledCardsContainer>

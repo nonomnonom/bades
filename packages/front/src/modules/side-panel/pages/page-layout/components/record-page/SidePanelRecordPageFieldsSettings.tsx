@@ -15,7 +15,6 @@ import { useWidgetSettingsPlacementSelectableItemIds } from '@/side-panel/pages/
 import { SidePanelSubPages } from '@/side-panel/types/SidePanelSubPages';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconChevronDown, IconLayoutSidebarRight } from 'ui/display';
 import { type FieldsConfiguration } from '~/generated-metadata/graphql';
@@ -34,7 +33,6 @@ const StyledSidePanelContainer = styled.div`
 `;
 
 export const SidePanelRecordPageFieldsSettings = () => {
-  const { t } = useLingui();
   const { navigateToSidePanelSubPage } = useSidePanelSubPageHistory();
   const { pageLayoutId, objectNameSingular } =
     usePageLayoutIdFromContextStore();
@@ -97,18 +95,18 @@ export const SidePanelRecordPageFieldsSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Data dan tampilan`}>
+          <SidePanelGroup heading={`Data dan tampilan`}>
             <SelectableListItem
               itemId="layout"
               onEnter={handleNavigateToLayout}
             >
               <CommandMenuItem
                 id="layout"
-                label={t`Tata Letak`}
+                label={`Tata Letak`}
                 Icon={IconLayoutSidebarRight}
                 hasSubMenu
                 onClick={handleNavigateToLayout}
-                description={t`${totalFieldsCount} kolom terlihat`}
+                description={`${totalFieldsCount} kolom terlihat`}
                 contextualTextPosition="right"
               />
             </SelectableListItem>
@@ -118,7 +116,7 @@ export const SidePanelRecordPageFieldsSettings = () => {
             >
               <CommandMenuItemToggle
                 LeftIcon={IconChevronDown}
-                text={t`Tampilkan tombol "Kolom lainnya"`}
+                text={`Tampilkan tombol "Kolom lainnya"`}
                 id="display-more-fields-button"
                 toggled={isShouldAllowUserToSeeHiddenFieldsToggled}
                 onToggleChange={handleToggleShouldAllowUserToSeeHiddenFields}

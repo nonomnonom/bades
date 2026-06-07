@@ -11,7 +11,6 @@ import { SSOIdentitiesProvidersState } from '@/settings/security/states/SSOIdent
 import { useSnackBarOnQueryError } from '@/apollo/hooks/useSnackBarOnQueryError';
 import { styled } from '@linaria/react';
 import { useEffect } from 'react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { getSettingsPath } from 'shared/utils';
@@ -29,8 +28,6 @@ const StyledLinkContainer = styled.div<{ isDisabled: boolean }>`
 
 export const SettingsSSOIdentitiesProvidersListCard = () => {
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
-
-  const { t } = useLingui();
 
   const [SSOIdentitiesProviders, setSSOIdentitiesProviders] = useAtomState(
     SSOIdentitiesProvidersState,
@@ -59,7 +56,7 @@ export const SettingsSSOIdentitiesProvidersListCard = () => {
     >
       <Link to={getSettingsPath(SettingsPath.NewSSOIdentityProvider)}>
         <SettingsCard
-          title={t`Tambah Penyedia Identitas SSO`}
+          title={`Tambah Penyedia Identitas SSO`}
           disabled={currentWorkspace?.hasValidEnterpriseKey !== true}
           Icon={<IconKey />}
         />

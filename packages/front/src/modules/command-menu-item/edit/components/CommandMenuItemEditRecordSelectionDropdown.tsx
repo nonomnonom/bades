@@ -10,7 +10,6 @@ import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/Gene
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconChevronDown, IconSquareCheck, IconSquareX } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
@@ -51,7 +50,6 @@ type CommandMenuItemEditRecordSelectionDropdownProps = {
 export const CommandMenuItemEditRecordSelectionDropdown = ({
   isRecordPage = false,
 }: CommandMenuItemEditRecordSelectionDropdownProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const { closeDropdown } = useCloseDropdown();
 
@@ -78,8 +76,8 @@ export const CommandMenuItemEditRecordSelectionDropdown = ({
 
   const TriggerIcon = isNoneSelected ? IconSquareX : IconSquareCheck;
   const triggerLabel = isNoneSelected
-    ? t`Belum ada data dipilih`
-    : t`Data dipilih`;
+    ? `Belum ada data dipilih`
+    : `Data dipilih`;
 
   return (
     <Dropdown
@@ -113,13 +111,13 @@ export const CommandMenuItemEditRecordSelectionDropdown = ({
             <DropdownMenuItemsContainer>
               <MenuItemSelect
                 LeftIcon={IconSquareX}
-                text={t`Belum ada data dipilih`}
+                text={`Belum ada data dipilih`}
                 selected={isNoneSelected}
                 onClick={() => handleSelectMode('none')}
               />
               <MenuItemSelect
                 LeftIcon={IconSquareCheck}
-                text={t`Data dipilih`}
+                text={`Data dipilih`}
                 selected={!isNoneSelected}
                 onClick={() => handleSelectMode('selection')}
               />

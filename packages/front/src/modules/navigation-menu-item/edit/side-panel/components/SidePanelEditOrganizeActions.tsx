@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconChevronDown,
   IconChevronUp,
@@ -39,17 +38,15 @@ export const SidePanelEditOrganizeActions = ({
   showMoveToFolder = false,
   onMoveToFolder,
 }: SidePanelEditOrganizeActionsProps) => {
-  const { t } = useLingui();
-
   return (
-    <SidePanelGroup heading={t`Atur`}>
+    <SidePanelGroup heading={`Atur`}>
       <SelectableListItem
         itemId={SidePanelNavigationItemActions.MOVE_UP}
         onEnter={canMoveUp ? onMoveUp : undefined}
       >
         <CommandMenuItem
           Icon={IconChevronUp}
-          label={t`Naik`}
+          label={`Naik`}
           id={SidePanelNavigationItemActions.MOVE_UP}
           onClick={onMoveUp}
           disabled={!canMoveUp}
@@ -61,7 +58,7 @@ export const SidePanelEditOrganizeActions = ({
       >
         <CommandMenuItem
           Icon={IconChevronDown}
-          label={t`Turun`}
+          label={`Turun`}
           id={SidePanelNavigationItemActions.MOVE_DOWN}
           onClick={onMoveDown}
           disabled={!canMoveDown}
@@ -74,7 +71,7 @@ export const SidePanelEditOrganizeActions = ({
         >
           <CommandMenuItem
             Icon={IconFolderSymlink}
-            label={t`Pindahkan ke folder`}
+            label={`Pindahkan ke folder`}
             id={SidePanelNavigationItemActions.MOVE_TO_FOLDER}
             hasSubMenu
             onClick={onMoveToFolder}
@@ -88,7 +85,7 @@ export const SidePanelEditOrganizeActions = ({
         >
           <CommandMenuItem
             Icon={IconRowInsertTop}
-            label={t`Tambah item menu sebelum`}
+            label={`Tambah item menu sebelum`}
             id={SidePanelNavigationItemActions.ADD_BEFORE}
             onClick={onAddBefore}
           />
@@ -101,7 +98,7 @@ export const SidePanelEditOrganizeActions = ({
         >
           <CommandMenuItem
             Icon={IconRowInsertBottom}
-            label={t`Tambah item menu sesudah`}
+            label={`Tambah item menu sesudah`}
             id={SidePanelNavigationItemActions.ADD_AFTER}
             onClick={onAddAfter}
           />
@@ -113,7 +110,7 @@ export const SidePanelEditOrganizeActions = ({
       >
         <CommandMenuItem
           Icon={IconTrash}
-          label={t`Hapus dari bilah sisi`}
+          label={`Hapus dari bilah sisi`}
           id={SidePanelNavigationItemActions.REMOVE}
           onClick={onRemove}
         />

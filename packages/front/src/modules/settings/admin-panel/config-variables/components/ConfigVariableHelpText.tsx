@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { isConfigVariablesInDbEnabledState } from '@/client-config/states/isConfigVariablesInDbEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -25,7 +23,6 @@ export const ConfigVariableHelpText = ({
   const isConfigVariablesInDbEnabled = useAtomStateValue(
     isConfigVariablesInDbEnabledState,
   );
-  const { t } = useLingui();
   const isFromDatabase = variable.source === ConfigSource.DATABASE;
   const isFromEnvironment = variable.source === ConfigSource.ENVIRONMENT;
   const isReadOnly = !isConfigVariablesInDbEnabled;
@@ -33,10 +30,10 @@ export const ConfigVariableHelpText = ({
   if (isReadOnly) {
     return (
       <StyledHelpText>
-        {t`Konfigurasi database saat ini dinonaktifkan.`}{' '}
+        {`Konfigurasi database saat ini dinonaktifkan.`}{' '}
         {isFromEnvironment
-          ? t`Nilai diatur di environment server, mungkin berbeda di worker.`
-          : t`Menggunakan nilai default aplikasi. Konfigurasikan melalui variabel environment.`}
+          ? `Nilai diatur di environment server, mungkin berbeda di worker.`
+          : `Menggunakan nilai default aplikasi. Konfigurasikan melalui variabel environment.`}
       </StyledHelpText>
     );
   }
@@ -44,7 +41,7 @@ export const ConfigVariableHelpText = ({
   if (isConfigVariablesInDbEnabled && variable.isEnvOnly) {
     return (
       <StyledHelpText>
-        {t`Pengaturan ini hanya dapat dikonfigurasi melalui variabel environment.`}
+        {`Pengaturan ini hanya dapat dikonfigurasi melalui variabel environment.`}
       </StyledHelpText>
     );
   }
@@ -53,8 +50,8 @@ export const ConfigVariableHelpText = ({
     return (
       <StyledHelpText>
         {isFromDatabase
-          ? t`Klik tanda centang untuk menerapkan perubahan Anda.`
-          : t`Nilai ini akan disimpan ke database.`}
+          ? `Klik tanda centang untuk menerapkan perubahan Anda.`
+          : `Nilai ini akan disimpan ke database.`}
       </StyledHelpText>
     );
   }
@@ -64,10 +61,10 @@ export const ConfigVariableHelpText = ({
       return (
         <>
           <StyledHelpText>
-            {t`Nilai database ini menggantikan pengaturan environment. `}
+            {`Nilai database ini menggantikan pengaturan environment. `}
           </StyledHelpText>
           <StyledHelpText>
-            {t`Kosongkan kolom atau tekan "X" untuk kembali ke nilai environment/default.`}
+            {`Kosongkan kolom atau tekan "X" untuk kembali ke nilai environment/default.`}
           </StyledHelpText>
         </>
       );
@@ -75,12 +72,12 @@ export const ConfigVariableHelpText = ({
       return (
         <StyledHelpText>
           {isFromEnvironment
-            ? t`Nilai saat ini berasal dari environment server. Atur nilai kustom untuk menggantikannya.`
-            : t`Menggunakan nilai default. Atur nilai kustom untuk menggantikannya.`}
+            ? `Nilai saat ini berasal dari environment server. Atur nilai kustom untuk menggantikannya.`
+            : `Menggunakan nilai default. Atur nilai kustom untuk menggantikannya.`}
         </StyledHelpText>
       );
     }
   }
 
-  return <StyledHelpText>{t`Ini seharusnya tidak terjadi`}</StyledHelpText>;
+  return <StyledHelpText>{`Ini seharusnya tidak terjadi`}</StyledHelpText>;
 };

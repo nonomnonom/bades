@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -48,7 +47,6 @@ const StyledContentContainer = styled.div`
 export const SettingsObjectDetailPage = () => {
   const { theme } = useContext(ThemeContext);
   const navigateApp = useNavigateApp();
-  const { t } = useLingui();
   const { objectNamePlural = '' } = useParams();
 
   const { findObjectMetadataItemByNamePlural } =
@@ -101,19 +99,19 @@ export const SettingsObjectDetailPage = () => {
   const tabs = [
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.FIELDS,
-      title: t`Kolom`,
+      title: `Kolom`,
       Icon: IconListDetails,
       hide: false,
     },
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Pengaturan`,
+      title: `Pengaturan`,
       Icon: IconSettings,
       hide: false,
     },
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.LAYOUT,
-      title: t`Tata Letak`,
+      title: `Tata Letak`,
       Icon: IconLayout,
       hide:
         objectMetadataItem.isRemote ||
@@ -121,7 +119,7 @@ export const SettingsObjectDetailPage = () => {
     },
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.INDEXES,
-      title: t`Indeks`,
+      title: `Indeks`,
       Icon: IconCodeCircle,
       hide: !isAdvancedModeEnabled || !isUniqueIndexesEnabled,
       pill: (
@@ -161,11 +159,11 @@ export const SettingsObjectDetailPage = () => {
         title={objectMetadataItem.labelPlural}
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Objek`,
+            children: `Objek`,
             href: getSettingsPath(SettingsPath.Objects),
           },
           {
@@ -177,7 +175,7 @@ export const SettingsObjectDetailPage = () => {
           activeTabId === SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.FIELDS && (
             <UndecoratedLink to="./new-field/select">
               <Button
-                title={t`Kolom Baru`}
+                title={`Kolom Baru`}
                 variant="primary"
                 size="small"
                 accent="blue"
@@ -196,7 +194,7 @@ export const SettingsObjectDetailPage = () => {
             rightComponent={
               <Button
                 Icon={IconArrowUpRight}
-                title={t`Lihat catatan`}
+                title={`Lihat catatan`}
                 variant="tertiary"
                 size="small"
                 to={getAppPath(AppPath.RecordIndexPage, {

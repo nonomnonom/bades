@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { StyledDropdownButtonContainer } from '@/ui/layout/dropdown/components/StyledDropdownButtonContainer';
 import { isDropdownOpenComponentState } from '@/ui/layout/dropdown/states/isDropdownOpenComponentState';
@@ -95,7 +94,7 @@ export const ViewPickerDropdown = () => {
             )}
           </StyledIconContainer>
           <StyledViewName>
-            <OverflowingTextWithTooltip text={currentView?.name ?? t`Semua`} />
+            <OverflowingTextWithTooltip text={currentView?.name ?? `Semua`} />
           </StyledViewName>
           <StyledDropdownLabelAdornments>
             {isDefined(totalCount) && <>· {totalCount} </>}

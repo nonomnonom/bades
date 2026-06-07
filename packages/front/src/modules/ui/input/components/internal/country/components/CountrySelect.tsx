@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { SELECT_COUNTRY_DROPDOWN_ID } from '@/ui/input/components/internal/country/constants/SelectCountryDropdownId';
@@ -28,7 +27,7 @@ export const CountrySelect = ({
       }),
     );
     countryList.unshift({
-      label: t`Tidak ada negara`,
+      label: `Tidak ada negara`,
       value: '',
       Icon: IconCircleOff,
     });

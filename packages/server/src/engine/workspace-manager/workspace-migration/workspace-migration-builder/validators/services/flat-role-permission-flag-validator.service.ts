@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -46,7 +46,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (isDefined(existingByUniversalId)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.INVALID_SETTING,
-        message: t`Role permission flag with universal identifier ${flatRolePermissionFlagToValidate.universalIdentifier} already exists`,
+        message: `Role permission flag with universal identifier ${flatRolePermissionFlagToValidate.universalIdentifier} already exists`,
         userFriendlyMessage: msg`Role permission flag already exists`,
       });
     }
@@ -60,7 +60,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (!isDefined(referencedRole)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.ROLE_NOT_FOUND,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
     } else {
@@ -74,7 +74,7 @@ export class FlatRolePermissionFlagValidatorService {
       if (!referencedRole.isEditable) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.ROLE_NOT_EDITABLE,
-          message: t`Role is not editable`,
+          message: `Role is not editable`,
           userFriendlyMessage: msg`This role cannot be modified because it is a system role. Only custom roles can be edited.`,
         });
       }
@@ -94,7 +94,7 @@ export class FlatRolePermissionFlagValidatorService {
       if (!isDefined(referencedPermissionFlag)) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.INVALID_SETTING,
-          message: t`Permission flag not found`,
+          message: `Permission flag not found`,
           userFriendlyMessage: msg`Invalid permission setting`,
         });
       }
@@ -116,7 +116,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (duplicateForSameRole.length > 0) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.INVALID_SETTING,
-        message: t`Permission flag for this role and setting already exists`,
+        message: `Permission flag for this role and setting already exists`,
         userFriendlyMessage: msg`This permission is already set for the role`,
       });
     }
@@ -152,7 +152,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (!isDefined(existingFlatRolePermissionFlag)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.PERMISSION_NOT_FOUND,
-        message: t`Permission flag to update not found`,
+        message: `Permission flag to update not found`,
         userFriendlyMessage: msg`Permission flag not found`,
       });
 
@@ -173,7 +173,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (!isDefined(referencedRole)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.ROLE_NOT_FOUND,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
     } else {
@@ -187,7 +187,7 @@ export class FlatRolePermissionFlagValidatorService {
       if (!referencedRole.isEditable) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.ROLE_NOT_EDITABLE,
-          message: t`Role is not editable`,
+          message: `Role is not editable`,
           userFriendlyMessage: msg`This role cannot be modified because it is a system role. Only custom roles can be edited.`,
         });
       }
@@ -203,7 +203,7 @@ export class FlatRolePermissionFlagValidatorService {
       if (!isDefined(referencedPermissionFlag)) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.INVALID_SETTING,
-          message: t`Permission flag not found`,
+          message: `Permission flag not found`,
           userFriendlyMessage: msg`Invalid permission setting`,
         });
       }
@@ -224,7 +224,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (duplicateForSameRole.length > 0) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.INVALID_SETTING,
-        message: t`Permission flag for this role and setting already exists`,
+        message: `Permission flag for this role and setting already exists`,
         userFriendlyMessage: msg`This permission is already set for the role`,
       });
     }
@@ -257,7 +257,7 @@ export class FlatRolePermissionFlagValidatorService {
     if (!isDefined(existingFlatRolePermissionFlag)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.PERMISSION_NOT_FOUND,
-        message: t`Permission flag to delete not found`,
+        message: `Permission flag to delete not found`,
         userFriendlyMessage: msg`Permission flag not found`,
       });
     } else {
@@ -270,7 +270,7 @@ export class FlatRolePermissionFlagValidatorService {
       if (isDefined(referencedRole) && !referencedRole.isEditable) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.ROLE_NOT_EDITABLE,
-          message: t`Role is not editable`,
+          message: `Role is not editable`,
           userFriendlyMessage: msg`This role cannot be modified because it is a system role. Only custom roles can be edited.`,
         });
       }

@@ -2,7 +2,6 @@ import { useSnackBarOnQueryError } from '@/apollo/hooks/useSnackBarOnQueryError'
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { useQuery } from '@apollo/client/react';
@@ -39,12 +38,10 @@ export const InformationBannerBillingSubscriptionPaused = () => {
       variant="secondary"
       message={
         hasPermissionToUpdateBillingDetails
-          ? t`Masa uji coba berakhir. Perbarui informasi pembayaran Anda.`
-          : t`Masa uji coba berakhir. Silakan hubungi admin Anda.`
+          ? `Masa uji coba berakhir. Perbarui informasi pembayaran Anda.`
+          : `Masa uji coba berakhir. Silakan hubungi admin Anda.`
       }
-      buttonTitle={
-        hasPermissionToUpdateBillingDetails ? t`Perbarui` : undefined
-      }
+      buttonTitle={hasPermissionToUpdateBillingDetails ? `Perbarui` : undefined}
       buttonOnClick={() => openBillingPortal()}
       isButtonDisabled={loading || !isDefined(data)}
     />

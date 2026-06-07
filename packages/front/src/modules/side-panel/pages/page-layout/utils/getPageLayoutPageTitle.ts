@@ -1,26 +1,25 @@
 import { type PageLayoutSidePanelPage } from '@/side-panel/pages/page-layout/types/PageLayoutSidePanelPage';
-import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { assertUnreachable } from 'shared/utils';
 
 export const getPageLayoutPageTitle = (page: PageLayoutSidePanelPage) => {
   switch (page) {
     case SidePanelPages.PageLayoutDashboardWidgetTypeSelect:
-      return t`Tambah Widget`;
+      return `Tambah Widget`;
     case SidePanelPages.DashboardChartSettings:
-      return t`Pilih Jenis Grafik`;
+      return `Pilih Jenis Grafik`;
     case SidePanelPages.DashboardIframeSettings:
-      return t`Pengaturan iFrame`;
+      return `Pengaturan iFrame`;
     case SidePanelPages.PageLayoutTabSettings:
-      return t`Pengaturan Tab`;
+      return `Pengaturan Tab`;
     case SidePanelPages.RecordPageFieldsSettings:
-      return t`Pengaturan Kolom`;
+      return `Pengaturan Kolom`;
     case SidePanelPages.RecordPageFieldSettings:
-      return t`Widget kolom tunggal`;
+      return `Widget kolom tunggal`;
     case SidePanelPages.DashboardRecordTableSettings:
-      return t`Pengaturan Tabel Data`;
+      return `Pengaturan Tabel Data`;
     case SidePanelPages.PageLayoutRecordPageWidgetTypeSelect:
-      return t`Widget baru`;
+      return `Widget baru`;
     default:
       assertUnreachable(page);
   }

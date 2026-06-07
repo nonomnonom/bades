@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { Status } from 'ui/display';
 import { AdminPanelHealthServiceStatus } from '~/generated-admin/graphql';
 
@@ -10,10 +9,10 @@ export const SettingsAdminHealthStatusRightContainer = ({
   return (
     <>
       {status === AdminPanelHealthServiceStatus.OPERATIONAL && (
-        <Status color="green" text={t`Beroperasi`} weight="medium" />
+        <Status color="green" text={`Beroperasi`} weight="medium" />
       )}
       {status === AdminPanelHealthServiceStatus.OUTAGE && (
-        <Status color="red" text={t`Gangguan`} weight="medium" />
+        <Status color="red" text={`Gangguan`} weight="medium" />
       )}
     </>
   );

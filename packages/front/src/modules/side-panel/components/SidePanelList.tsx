@@ -8,7 +8,6 @@ import { SelectableList } from '@/ui/layout/selectable-list/components/Selectabl
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { MOBILE_VIEWPORT, themeCssVariables } from 'ui/theme-constants';
 
 export type SidePanelListProps = {
@@ -71,7 +70,7 @@ export const SidePanelList = ({
           >
             {children}
             {noResults && !loading && (
-              <StyledEmpty>{noResultsText ?? t`Tidak ada hasil`}</StyledEmpty>
+              <StyledEmpty>{noResultsText ?? `Tidak ada hasil`}</StyledEmpty>
             )}
           </SelectableList>
         </StyledInnerList>

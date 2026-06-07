@@ -4,7 +4,6 @@ import { InputLabel } from '@/ui/input/components/InputLabel';
 import { AUTO_SET_HEADER_KEYS } from '@/workflow/workflow-steps/workflow-actions/http-request-action/constants/AutoSetHeaderKeys';
 import { isAutoSetHeaderKey } from '@/workflow/workflow-steps/workflow-actions/http-request-action/utils/isReadOnlyHeaderKey';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useState } from 'react';
 import { IconTrash } from 'ui/display';
@@ -47,8 +46,8 @@ export const KeyValuePairInput = ({
   label,
   onChange,
   readonly,
-  keyPlaceholder = t`Kunci`,
-  valuePlaceholder = t`Nilai`,
+  keyPlaceholder = `Kunci`,
+  valuePlaceholder = `Nilai`,
   defaultValue,
 }: KeyValuePairInputProps) => {
   const [pairs, setPairs] = useState<KeyValuePair[]>(() => {
@@ -69,7 +68,7 @@ export const KeyValuePairInput = ({
     const trimmedKey = pair.key.trim();
 
     if (!pair.isAutoSet && isAutoSetHeaderKey(trimmedKey)) {
-      return t`Kunci ini harus diatur melalui isi permintaan`;
+      return `Kunci ini harus diatur melalui isi permintaan`;
     }
 
     return undefined;

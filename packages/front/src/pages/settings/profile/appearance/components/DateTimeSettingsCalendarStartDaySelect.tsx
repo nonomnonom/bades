@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { detectCalendarStartDay } from '@/localization/utils/detection/detectCalendarStartDay';
@@ -19,16 +18,16 @@ export const DateTimeSettingsCalendarStartDaySelect = ({
 
   const systemDayContextualText =
     systemCalendarStartDay === CalendarStartDay.SUNDAY
-      ? t`Minggu`
+      ? `Minggu`
       : systemCalendarStartDay === CalendarStartDay.MONDAY
-        ? t`Senin`
-        : t`Sabtu`;
+        ? `Senin`
+        : `Sabtu`;
 
   const options: SelectOption<CalendarStartDay>[] = useMemo(
     () => [
-      { label: t`Minggu`, value: CalendarStartDay.SUNDAY },
-      { label: t`Senin`, value: CalendarStartDay.MONDAY },
-      { label: t`Sabtu`, value: CalendarStartDay.SATURDAY },
+      { label: `Minggu`, value: CalendarStartDay.SUNDAY },
+      { label: `Senin`, value: CalendarStartDay.MONDAY },
+      { label: `Sabtu`, value: CalendarStartDay.SATURDAY },
     ],
     [],
   );
@@ -37,12 +36,12 @@ export const DateTimeSettingsCalendarStartDaySelect = ({
     <Select
       dropdownId="datetime-settings-calendar-start-day"
       dropdownWidth={218}
-      label={t`Hari awal kalender`}
+      label={`Hari awal kalender`}
       fullWidth
       dropdownWidthAuto
       value={value}
       pinnedOption={{
-        label: t`Ikuti sistem`,
+        label: `Ikuti sistem`,
         value: CalendarStartDay.SYSTEM,
         contextualText: systemDayContextualText,
       }}

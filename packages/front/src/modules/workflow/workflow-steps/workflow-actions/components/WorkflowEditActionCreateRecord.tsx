@@ -12,7 +12,6 @@ import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowS
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { shouldDisplayFormField } from '@/workflow/workflow-steps/workflow-actions/utils/shouldDisplayFormField';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { canObjectBeManagedByWorkflow } from 'shared/workflow';
@@ -200,11 +199,11 @@ export const WorkflowEditActionCreateRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-create-record-object-name"
-          label={t`Objek`}
+          label={`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectName}
-          emptyOption={{ label: t`Pilih opsi`, value: '' }}
+          emptyOption={{ label: `Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             const newFormData: CreateRecordFormData = {

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { flattenedFieldMetadataItemsSelector } from '@/object-metadata/states/flattenedFieldMetadataItemsSelector';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -51,25 +50,25 @@ export const SettingsLayoutViewDetail = () => {
     ? [
         {
           key: 'universalIdentifier',
-          label: t`Identifier universal`,
+          label: `Identifier universal`,
           value: view.universalIdentifier,
         },
-        { key: 'type', label: t`Tipe`, value: view.type ?? t`Tabel` },
+        { key: 'type', label: `Tipe`, value: view.type ?? `Tabel` },
         {
           key: 'object',
-          label: t`Objek`,
+          label: `Objek`,
           value: objectLabel ?? view.objectUniversalIdentifier,
         },
-        { key: 'icon', label: t`Ikon`, value: view.icon ?? t`Belum diatur` },
+        { key: 'icon', label: `Ikon`, value: view.icon ?? `Belum diatur` },
         {
           key: 'visibility',
-          label: t`Visibilitas`,
-          value: view.visibility ?? t`Bawaan`,
+          label: `Visibilitas`,
+          value: view.visibility ?? `Bawaan`,
         },
         {
           key: 'openRecordIn',
-          label: t`Buka catatan di`,
-          value: view.openRecordIn ?? t`Bawaan`,
+          label: `Buka catatan di`,
+          value: view.openRecordIn ?? `Bawaan`,
         },
       ]
     : [];
@@ -82,38 +81,38 @@ export const SettingsLayoutViewDetail = () => {
     <SettingsLayoutDetailScaffold
       applicationId={applicationId}
       applicationName={application?.name}
-      entityName={view?.name ?? t`Tampilan`}
-      entityTypeLabel={t`tampilan`}
-      categoryLabel={t`Tampilan`}
+      entityName={view?.name ?? `Tampilan`}
+      entityTypeLabel={`tampilan`}
+      categoryLabel={`Tampilan`}
       detailRows={detailRows}
       isLoading={isLoading}
     >
       <SettingsLayoutItemTable
-        title={t`Kolom`}
-        description={t`Kolom yang ditampilkan dalam tampilan ini, sesuai urutan tampil`}
+        title={`Kolom`}
+        description={`Kolom yang ditampilkan dalam tampilan ini, sesuai urutan tampil`}
         columns={[
-          { key: 'position', label: t`#`, width: '40px', align: 'right' },
-          { key: 'field', label: t`Kolom` },
-          { key: 'visible', label: t`Terlihat`, width: '80px' },
-          { key: 'size', label: t`Ukuran`, width: '80px', align: 'right' },
+          { key: 'position', label: `#`, width: '40px', align: 'right' },
+          { key: 'field', label: `Kolom` },
+          { key: 'visible', label: `Terlihat`, width: '80px' },
+          { key: 'size', label: `Ukuran`, width: '80px', align: 'right' },
         ]}
         rows={sortedFields.map((field) => ({
           key: field.universalIdentifier,
           cells: [
             field.position,
             resolveFieldLabel(field.fieldMetadataUniversalIdentifier),
-            field.isVisible === false ? t`Tersembunyi` : t`Ya`,
+            field.isVisible === false ? `Tersembunyi` : `Ya`,
             field.size ?? '—',
           ],
         }))}
       />
       <SettingsLayoutItemTable
-        title={t`Filter`}
-        description={t`Kondisi yang diterapkan pada catatan sebelum muncul di tampilan ini`}
+        title={`Filter`}
+        description={`Kondisi yang diterapkan pada catatan sebelum muncul di tampilan ini`}
         columns={[
-          { key: 'field', label: t`Kolom` },
-          { key: 'operand', label: t`Operan`, width: '160px' },
-          { key: 'value', label: t`Nilai` },
+          { key: 'field', label: `Kolom` },
+          { key: 'operand', label: `Operan`, width: '160px' },
+          { key: 'value', label: `Nilai` },
         ]}
         rows={(view?.filters ?? []).map((filter) => ({
           key: filter.universalIdentifier,
@@ -125,11 +124,11 @@ export const SettingsLayoutViewDetail = () => {
         }))}
       />
       <SettingsLayoutItemTable
-        title={t`Urutan`}
-        description={t`Urutan tampil catatan`}
+        title={`Urutan`}
+        description={`Urutan tampil catatan`}
         columns={[
-          { key: 'field', label: t`Kolom` },
-          { key: 'direction', label: t`Arah`, width: '120px' },
+          { key: 'field', label: `Kolom` },
+          { key: 'direction', label: `Arah`, width: '120px' },
         ]}
         rows={(view?.sorts ?? []).map((sort) => ({
           key: sort.universalIdentifier,

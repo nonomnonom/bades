@@ -14,7 +14,6 @@ import { currentRecordFiltersComponentState } from '@/object-record/record-filte
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -77,7 +76,7 @@ export const ChartFiltersSettings = ({
   return (
     <StyledChartFiltersPageContainer>
       <div>
-        <InputLabel>{t`Kondisi`}</InputLabel>
+        <InputLabel>{`Kondisi`}</InputLabel>
         <RecordFilterGroupsComponentInstanceContext.Provider
           value={{ instanceId }}
         >

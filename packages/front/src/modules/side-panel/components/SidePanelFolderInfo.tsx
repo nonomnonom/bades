@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { NavigationMenuItemType } from 'shared/types';
 import { TintedIconTile, useIcons } from 'ui/display';
 
@@ -20,7 +19,6 @@ const StyledClickableIconWrapper = styled.div`
 `;
 
 export const SidePanelFolderInfo = () => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const sidePanelPageInfo = useAtomStateValue(sidePanelPageInfoState);
   const [sidePanelShouldFocusTitleInput, setSidePanelShouldFocusTitleInput] =
@@ -34,8 +32,8 @@ export const SidePanelFolderInfo = () => {
   const items = useNavigationMenuItemSectionItems();
   const { updateFolderInDraft } = useUpdateFolderInDraft();
 
-  const defaultLabel = t`Folder baru`;
-  const placeholder = t`Nama folder`;
+  const defaultLabel = `Folder baru`;
+  const placeholder = `Nama folder`;
 
   const selectedItem = selectedNavigationMenuItemIdInEditMode
     ? items.find(
@@ -101,7 +99,7 @@ export const SidePanelFolderInfo = () => {
           onFocus={() => setSidePanelShouldFocusTitleInput(false)}
         />
       }
-      label={t`Folder`}
+      label={`Folder`}
     />
   );
 };

@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { verifyEmailRedirectPathState } from '@/app/states/verifyEmailRedirectPathState';
 import { SubTitle } from '@/auth/components/SubTitle';
 import { Title } from '@/auth/components/Title';
@@ -93,8 +93,6 @@ const StyledLinkGroup = styled.div`
 `;
 
 export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
-  const { t } = useLingui();
-
   const { getBaseProductByPlanKey } = useBaseProductByPlanKey();
   const { getBaseLicensedPriceByPlanKeyAndInterval } =
     useBaseLicensedPriceByPlanKeyAndInterval();
@@ -118,16 +116,16 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     if (planKey === BillingPlanKey.ENTERPRISE) {
       return {
         organizationBenefits: [
-          t`Masuk Tunggal (SSO / SAML / OIDC)`,
-          t`20.000 eksekusi node workflow`,
-          t`Dukungan prioritas`,
+          `Masuk Tunggal (SSO / SAML / OIDC)`,
+          `20.000 eksekusi node workflow`,
+          `Dukungan prioritas`,
         ],
         standardBenefits: [
-          t`Akses penuh`,
-          t`Data warga tidak terbatas`,
-          t`Integrasi email`,
-          t`Objek data kustom`,
-          t`Akses API & Integrasi`,
+          `Akses penuh`,
+          `Data warga tidak terbatas`,
+          `Integrasi email`,
+          `Objek data kustom`,
+          `Akses API & Integrasi`,
         ],
       };
     }
@@ -135,12 +133,12 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     return {
       organizationBenefits: [],
       standardBenefits: [
-        t`Akses penuh`,
-        t`Data warga tidak terbatas`,
-        t`Integrasi email`,
-        t`Objek data kustom`,
-        t`API & Webhook`,
-        t`50.000 eksekusi node workflow`,
+        `Akses penuh`,
+        `Data warga tidak terbatas`,
+        `Integrasi email`,
+        `Objek data kustom`,
+        `API & Webhook`,
+        `50.000 eksekusi node workflow`,
       ],
     };
   };
@@ -200,15 +198,15 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     <>
       <Title noMarginTop>
         {hasWithoutCreditCardTrialPeriod
-          ? t`Pilih paket percobaan`
-          : t`Aktifkan langganan Anda`}
+          ? `Pilih paket percobaan`
+          : `Aktifkan langganan Anda`}
       </Title>
       {hasWithoutCreditCardTrialPeriod ? (
         <SubTitle>{baseProduct.name}</SubTitle>
       ) : (
         withCreditCardTrialPeriod && (
           <SubTitle>
-            {t`Nikmati uji coba gratis ${withCreditCardTrialPeriodDuration} hari`}
+            {`Nikmati uji coba gratis ${withCreditCardTrialPeriodDuration} hari`}
           </SubTitle>
         )
       )}
@@ -256,7 +254,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
         </StyledChooseTrialContainer>
       )}
       <MainButton
-        title={t`Lanjutkan`}
+        title={`Lanjutkan`}
         onClick={handleCheckoutSession}
         width={200}
         Icon={() => isSubmitting && <Loader />}

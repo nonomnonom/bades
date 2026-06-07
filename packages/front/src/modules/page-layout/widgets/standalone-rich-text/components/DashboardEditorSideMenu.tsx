@@ -10,7 +10,6 @@ import {
   useComponentsContext,
 } from '@blocknote/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconColorSwatch, IconPlus, IconTrash } from 'ui/display';
 import { isDefined } from 'shared/utils';
 
@@ -67,8 +66,6 @@ const DashboardAddBlockItem = ({
 export const DashboardEditorSideMenu = ({
   editor,
 }: DashboardEditorSideMenuProps) => {
-  const { t } = useLingui();
-
   return (
     <SideMenuController
       sideMenu={() => (
@@ -79,21 +76,21 @@ export const DashboardEditorSideMenu = ({
                 <DashboardAddBlockItem editor={editor}>
                   <CustomSideMenuOptions
                     LeftIcon={IconPlus}
-                    text={t`Tambah Blok`}
+                    text={`Tambah Blok`}
                     Variant="normal"
                   />
                 </DashboardAddBlockItem>
                 <BlockColorsItem>
                   <CustomSideMenuOptions
                     LeftIcon={IconColorSwatch}
-                    text={t`Ubah Warna`}
+                    text={`Ubah Warna`}
                     Variant="normal"
                   />
                 </BlockColorsItem>
                 <RemoveBlockItem>
                   <CustomSideMenuOptions
                     LeftIcon={IconTrash}
-                    text={t`Hapus`}
+                    text={`Hapus`}
                     Variant="danger"
                   />
                 </RemoveBlockItem>

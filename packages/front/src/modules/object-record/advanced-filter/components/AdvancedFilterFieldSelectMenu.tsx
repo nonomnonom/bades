@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 
 import { objectFilterDropdownSearchInputComponentState } from '@/object-record/object-filter-dropdown/states/objectFilterDropdownSearchInputComponentState';
@@ -176,8 +175,6 @@ export const AdvancedFilterFieldSelectMenu = ({
     ),
   ];
 
-  const { t } = useLingui();
-
   return (
     <DropdownContent widthInPixels={GenericDropdownContentWidth.ExtraLarge}>
       <AdvancedFilterFieldSelectSearchInput />
@@ -188,7 +185,7 @@ export const AdvancedFilterFieldSelectMenu = ({
       >
         {shouldShowVisibleFields && (
           <>
-            <DropdownMenuSectionLabel label={t`Kolom terlihat`} />
+            <DropdownMenuSectionLabel label={`Kolom terlihat`} />
             <DropdownMenuItemsContainer>
               {visibleFieldMetadataItems.map(
                 (visibleFieldMetadataItem, index) => (
@@ -213,7 +210,7 @@ export const AdvancedFilterFieldSelectMenu = ({
         {shouldShowHiddenFields && (
           <>
             {visibleFieldMetadataItems.length > 0 && (
-              <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
+              <DropdownMenuSectionLabel label={`Kolom tersembunyi`} />
             )}
             <DropdownMenuItemsContainer>
               {hiddenColumnsFieldMetadataItems.map(

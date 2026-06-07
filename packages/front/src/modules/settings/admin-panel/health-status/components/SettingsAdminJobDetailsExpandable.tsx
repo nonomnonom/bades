@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { JsonTree } from 'ui/json-visualizer';
 import { AnimatedExpandableContainer } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -81,14 +80,14 @@ export const SettingsAdminJobDetailsExpandable = ({
       <StyledDetailsContainer>
         {hasFailedReason && (
           <StyledSection>
-            <StyledSectionTitle>{t`Pesan Error`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Pesan Error`}</StyledSectionTitle>
             <StyledPreformattedText>{job.failedReason}</StyledPreformattedText>
           </StyledSection>
         )}
 
         {hasStacktrace && job.stackTrace && (
           <StyledSection>
-            <StyledSectionTitle>{t`Jejak Stack`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Jejak Stack`}</StyledSectionTitle>
             <StyledPreformattedText>
               {job.stackTrace.join('\n')}
             </StyledPreformattedText>
@@ -97,15 +96,15 @@ export const SettingsAdminJobDetailsExpandable = ({
 
         {hasReturnValue && (
           <StyledSection>
-            <StyledSectionTitle>{t`Nilai Kembalian`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Nilai Kembalian`}</StyledSectionTitle>
             <JsonTree
               value={job.returnValue}
               shouldExpandNodeInitially={isAnyNode}
-              emptyArrayLabel={t`Array Kosong`}
-              emptyObjectLabel={t`Objek Kosong`}
-              emptyStringLabel={t`[string kosong]`}
-              arrowButtonCollapsedLabel={t`Perluas`}
-              arrowButtonExpandedLabel={t`Ciutkan`}
+              emptyArrayLabel={`Array Kosong`}
+              emptyObjectLabel={`Objek Kosong`}
+              emptyStringLabel={`[string kosong]`}
+              arrowButtonCollapsedLabel={`Perluas`}
+              arrowButtonExpandedLabel={`Ciutkan`}
               onNodeValueClick={copyToClipboard}
             />
           </StyledSection>
@@ -113,15 +112,15 @@ export const SettingsAdminJobDetailsExpandable = ({
 
         {hasData && (
           <StyledSection>
-            <StyledSectionTitle>{t`Data Pekerjaan`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Data Pekerjaan`}</StyledSectionTitle>
             <JsonTree
               value={job.data}
               shouldExpandNodeInitially={isAnyNode}
-              emptyArrayLabel={t`Array Kosong`}
-              emptyObjectLabel={t`Objek Kosong`}
-              emptyStringLabel={t`[string kosong]`}
-              arrowButtonCollapsedLabel={t`Perluas`}
-              arrowButtonExpandedLabel={t`Ciutkan`}
+              emptyArrayLabel={`Array Kosong`}
+              emptyObjectLabel={`Objek Kosong`}
+              emptyStringLabel={`[string kosong]`}
+              arrowButtonCollapsedLabel={`Perluas`}
+              arrowButtonExpandedLabel={`Ciutkan`}
               onNodeValueClick={copyToClipboard}
             />
           </StyledSection>
@@ -129,7 +128,7 @@ export const SettingsAdminJobDetailsExpandable = ({
 
         {hasLogs && (
           <StyledSection>
-            <StyledSectionTitle>{t`Log`}</StyledSectionTitle>
+            <StyledSectionTitle>{`Log`}</StyledSectionTitle>
             {job.logs?.map((log, index) => (
               <StyledLogEntry key={index}>{log}</StyledLogEntry>
             ))}

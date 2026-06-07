@@ -10,7 +10,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 import { type ObjectPermission, type Role } from '~/generated-metadata/graphql';
@@ -154,7 +153,7 @@ export const SettingsRolePermissionsObjectLevelObjectFormObjectLevelTableRow =
             ) : isGrantedAndInherited ? (
               <>
                 {' · '}
-                {t`This role can ${humanReadableAction} all records`}
+                {`This role can ${humanReadableAction} all records`}
               </>
             ) : null}
           </StyledOverrideInfo>

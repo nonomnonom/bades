@@ -3,7 +3,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { UserContext } from '@/users/contexts/UserContext';
 import { useContext } from 'react';
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import {
@@ -109,7 +108,7 @@ export const SettingsRoleAssignmentTableRow = ({
               dateFormat,
               localeCatalog: dateLocale.localeCatalog,
             })
-          : t`Tidak kedaluwarsa`;
+          : `Tidak kedaluwarsa`;
     }
   };
 

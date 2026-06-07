@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -42,7 +42,7 @@ export class FlatObjectMetadataValidatorService {
     if (!isDefined(existingFlatObjectMetadata)) {
       validationResult.errors.push({
         code: ObjectMetadataExceptionCode.OBJECT_METADATA_NOT_FOUND,
-        message: t`Object to update not found`,
+        message: `Object to update not found`,
         userFriendlyMessage: msg`Object to update not found`,
       });
 
@@ -69,7 +69,7 @@ export class FlatObjectMetadataValidatorService {
       if (disallowedProperties.length > 0) {
         validationResult.errors.push({
           code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-          message: t`System objects cannot be updated directly. Use standardOverrides for cosmetic changes.`,
+          message: `System objects cannot be updated directly. Use standardOverrides for cosmetic changes.`,
           userFriendlyMessage: msg`System objects cannot be updated`,
         });
       }
@@ -128,7 +128,7 @@ export class FlatObjectMetadataValidatorService {
     if (!isDefined(flatObjectMetadataToDelete)) {
       validationResult.errors.push({
         code: ObjectMetadataExceptionCode.OBJECT_METADATA_NOT_FOUND,
-        message: t`Object to delete not found`,
+        message: `Object to delete not found`,
         userFriendlyMessage: msg`Object to delete not found`,
       });
     } else {
@@ -141,7 +141,7 @@ export class FlatObjectMetadataValidatorService {
       if (flatObjectMetadataToDelete.isRemote) {
         validationResult.errors.push({
           code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-          message: t`Remote objects are not supported yet`,
+          message: `Remote objects are not supported yet`,
           userFriendlyMessage: msg`Remote objects are not supported yet`,
         });
       }
@@ -149,7 +149,7 @@ export class FlatObjectMetadataValidatorService {
       if (!buildOptions.isSystemBuild && flatObjectMetadataToDelete.isSystem) {
         validationResult.errors.push({
           code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-          message: t`System objects cannot be deleted`,
+          message: `System objects cannot be deleted`,
           userFriendlyMessage: msg`System objects cannot be deleted`,
         });
       }
@@ -160,7 +160,7 @@ export class FlatObjectMetadataValidatorService {
       ) {
         validationResult.errors.push({
           code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-          message: t`Standard objects cannot be deleted`,
+          message: `Standard objects cannot be deleted`,
           userFriendlyMessage: msg`Standard objects cannot be deleted`,
         });
       }
@@ -198,7 +198,7 @@ export class FlatObjectMetadataValidatorService {
     ) {
       objectValidationResult.errors.push({
         code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-        message: t`Object with same universal identifier already exists`,
+        message: `Object with same universal identifier already exists`,
         userFriendlyMessage: msg`Object with same universal identifier already exists`,
       });
     }
@@ -206,7 +206,7 @@ export class FlatObjectMetadataValidatorService {
     if (flatObjectMetadataToValidate.isRemote) {
       objectValidationResult.errors.push({
         code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-        message: t`Remote objects are not supported yet`,
+        message: `Remote objects are not supported yet`,
         userFriendlyMessage: msg`Remote objects are not supported yet`,
       });
     }

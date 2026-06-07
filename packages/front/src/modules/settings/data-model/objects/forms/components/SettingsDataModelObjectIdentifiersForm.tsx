@@ -8,7 +8,6 @@ import { Select } from '@/ui/input/components/Select';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -94,7 +93,7 @@ export const SettingsDataModelObjectIdentifiersForm = ({
 
   const emptyOption: SelectOption<string | null> = {
     Icon: IconCircleOff,
-    label: t`Tidak ada`,
+    label: `Tidak ada`,
     value: null,
   };
 
@@ -104,13 +103,13 @@ export const SettingsDataModelObjectIdentifiersForm = ({
     <StyledContainer>
       {[
         {
-          label: t`Label data`,
+          label: `Label data`,
           fieldName: LABEL_IDENTIFIER_FIELD_METADATA_ID,
           options: labelIdentifierFieldOptions,
           defaultValue: objectMetadataItem.labelIdentifierFieldMetadataId,
         },
         {
-          label: t`Gambar data`,
+          label: `Gambar data`,
           fieldName: IMAGE_IDENTIFIER_FIELD_METADATA_ID,
           options: imageIdentifierFieldOptions,
           defaultValue: null,
@@ -129,10 +128,10 @@ export const SettingsDataModelObjectIdentifiersForm = ({
               emptyOption={emptyOption}
               options={options}
               value={value}
-              withSearchInput={label === t`Label data`}
+              withSearchInput={label === `Label data`}
               disabled={!objectMetadataItem.isCustom || readonly}
               callToActionButton={
-                label === t`Label data`
+                label === `Label data`
                   ? {
                       text: 'Buat Kolom Teks',
                       Icon: IconPlus,

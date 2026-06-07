@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectLabel } from '@/object-metadata/hooks/useObjectLabel';
 import { useRecordTableContextOrThrow } from '@/object-record/record-table/contexts/RecordTableContext';
 import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty-state/components/RecordTableEmptyStateDisplay';
@@ -20,7 +19,7 @@ export const RecordTableEmptyStateNoGroupNoRecordAtAll = () => {
 
   const objectLabelSingular = useObjectLabel(objectMetadataItem);
 
-  const buttonTitle = t`Tambah ${objectLabelSingular}`;
+  const buttonTitle = `Tambah ${objectLabelSingular}`;
 
   const title = getEmptyStateTitle(
     objectMetadataItem.nameSingular,

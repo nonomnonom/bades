@@ -3,7 +3,6 @@ import { useObjectMetadataSelectHelpers } from '@/object-metadata/hooks/useObjec
 import { FormSingleRecordPicker } from '@/object-record/record-field/ui/form-types/components/FormSingleRecordPicker';
 import { Select } from '@/ui/input/components/Select';
 import { type WorkflowDeleteRecordAction } from '@/workflow/types/Workflow';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
@@ -117,11 +116,11 @@ export const WorkflowEditActionDeleteRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-action-record-delete-object-name"
-          label={t`Objek`}
+          label={`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectNameSingular}
-          emptyOption={{ label: t`Pilih opsi`, value: '' }}
+          emptyOption={{ label: `Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(objectNameSingular) => {
             const newFormData: DeleteRecordFormData = {
@@ -142,7 +141,7 @@ export const WorkflowEditActionDeleteRecord = ({
 
         {isDefined(objectNameSingular) && (
           <FormSingleRecordPicker
-            label={t`Data`}
+            label={`Data`}
             onChange={(objectRecordId) =>
               handleFieldChange('objectRecordId', objectRecordId)
             }

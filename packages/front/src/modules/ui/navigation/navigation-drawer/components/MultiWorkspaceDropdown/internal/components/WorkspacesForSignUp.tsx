@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { StyledDropdownMenuSubheader } from '@/ui/layout/dropdown/components/StyledDropdownMenuSubheader';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useFilteredAvailableWorkspaces } from '@/ui/navigation/navigation-drawer/hooks/useFilteredAvailableWorkspaces';
@@ -12,8 +11,6 @@ export const WorkspacesForSignUp = ({
 }: {
   searchValue: string;
 }) => {
-  const { t } = useLingui();
-
   const availableWorkspaces = useAtomStateValue(availableWorkspacesState);
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
@@ -21,7 +18,7 @@ export const WorkspacesForSignUp = ({
 
   return (
     <>
-      <StyledDropdownMenuSubheader>{t`Undangan`}</StyledDropdownMenuSubheader>
+      <StyledDropdownMenuSubheader>{`Undangan`}</StyledDropdownMenuSubheader>
       <DropdownMenuItemsContainer scrollable={false}>
         {searchAvailableWorkspaces(
           searchValue,

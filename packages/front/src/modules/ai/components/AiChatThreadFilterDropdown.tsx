@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconAdjustments } from 'ui/display';
 import { LightIconButton } from 'ui/input';
@@ -17,7 +16,6 @@ type AiChatThreadFilterDropdownProps = {
 export const AiChatThreadFilterDropdown = ({
   surface,
 }: AiChatThreadFilterDropdownProps) => {
-  const { t } = useLingui();
   const dropdownId = getAiChatThreadFilterDropdownId(surface);
   const [page, setPage] = useState<AiChatThreadFilterDropdownPage>(
     AI_CHAT_THREAD_FILTER_DROPDOWN_PAGE.ROOT,
@@ -32,7 +30,7 @@ export const AiChatThreadFilterDropdown = ({
       onClose={goToRoot}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Filter obrolan`}
+          aria-label={`Filter obrolan`}
           Icon={IconAdjustments}
           accent="tertiary"
           size="small"

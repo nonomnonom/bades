@@ -10,7 +10,6 @@ import { approvedAccessDomainsState } from '@/settings/security/states/ApprovedA
 import { useSnackBarOnQueryError } from '@/apollo/hooks/useSnackBarOnQueryError';
 import { styled } from '@linaria/react';
 import { useEffect } from 'react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { getSettingsPath } from 'shared/utils';
@@ -28,7 +27,6 @@ const StyledLinkContainer = styled.div`
 
 export const SettingsApprovedAccessDomainsListCard = () => {
   const navigate = useNavigate();
-  const { t } = useLingui();
   const { localeCatalog } = useAtomStateValue(dateLocaleState);
 
   const [approvedAccessDomains, setApprovedAccessDomains] = useAtomState(
@@ -56,14 +54,14 @@ export const SettingsApprovedAccessDomainsListCard = () => {
       createdAt,
       localeCatalog,
     );
-    return t`Ditambahkan ${beautifyPastDateRelative}`;
+    return `Ditambahkan ${beautifyPastDateRelative}`;
   };
 
   return loading || !approvedAccessDomains.length ? (
     <StyledLinkContainer>
       <Link to={getSettingsPath(SettingsPath.NewApprovedAccessDomain)}>
         <SettingsCard
-          title={t`Tambah Domain Akses Disetujui`}
+          title={`Tambah Domain Akses Disetujui`}
           Icon={<IconMailCog />}
         />
       </Link>
@@ -79,7 +77,7 @@ export const SettingsApprovedAccessDomainsListCard = () => {
         RowRightComponent={({ item: approvedAccessDomain }) => (
           <>
             {!approvedAccessDomain.isValidated && (
-              <Status color="orange" text={t`Menunggu`} />
+              <Status color="orange" text={`Menunggu`} />
             )}
             <SettingsSecurityApprovedAccessDomainRowDropdownMenu
               approvedAccessDomain={approvedAccessDomain}
@@ -87,7 +85,7 @@ export const SettingsApprovedAccessDomainsListCard = () => {
           </>
         )}
         hasFooter
-        footerButtonLabel={t`Tambah Domain Akses Disetujui`}
+        footerButtonLabel={`Tambah Domain Akses Disetujui`}
         onFooterButtonClick={() =>
           navigate(getSettingsPath(SettingsPath.NewApprovedAccessDomain))
         }

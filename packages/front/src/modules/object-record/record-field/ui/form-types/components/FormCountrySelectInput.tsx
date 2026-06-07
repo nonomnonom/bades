@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { FormSelectFieldInput } from '@/object-record/record-field/ui/form-types/components/FormSelectFieldInput';
@@ -33,7 +32,7 @@ export const FormCountrySelectInput = ({
     );
     return [
       {
-        label: t`Tanpa negara`,
+        label: `Tanpa negara`,
         value: '',
         Icon: IconCircleOff,
       },

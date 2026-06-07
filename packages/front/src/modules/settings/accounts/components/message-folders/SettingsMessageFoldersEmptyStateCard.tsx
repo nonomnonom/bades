@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconFolder } from 'ui/display';
 import { Section } from 'ui/layout';
 import { useContext } from 'react';
@@ -22,7 +21,7 @@ export const SettingsMessageFoldersEmptyStateCard = () => {
     <Section>
       <StyledEmptyState>
         <IconFolder size={theme.icon.size.md} />
-        <div>{t`Tidak ada folder yang ditemukan untuk akun ini`}</div>
+        <div>{`Tidak ada folder yang ditemukan untuk akun ini`}</div>
       </StyledEmptyState>
     </Section>
   );

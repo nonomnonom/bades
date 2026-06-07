@@ -1,5 +1,4 @@
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
-import { t } from '~/utils/i18n/badesI18n';
 import { themeColorSchema } from 'ui/utilities';
 import { type ZodType, z } from 'zod';
 import { type ReadonlyKeysArray } from '~/types/ReadonlyKeysArray';
@@ -44,7 +43,7 @@ export const settingsDataModelObjectAboutFormSchema =
         nameFields.forEach((field) =>
           ctx.addIssue({
             code: 'custom',
-            message: t`Nama tunggal dan jamak harus berbeda`,
+            message: `Nama tunggal dan jamak harus berbeda`,
             path: [field],
           }),
         );

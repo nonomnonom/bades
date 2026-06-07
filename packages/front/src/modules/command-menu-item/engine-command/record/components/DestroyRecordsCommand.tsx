@@ -4,7 +4,6 @@ import { DEFAULT_QUERY_PAGE_SIZE } from '@/object-record/constants/DefaultQueryP
 import { useIncrementalDestroyManyRecords } from '@/object-record/hooks/useIncrementalDestroyManyRecords';
 import { useRemoveSelectedRecordsFromRecordBoard } from '@/object-record/record-board/hooks/useRemoveSelectedRecordsFromRecordBoard';
 import { useResetTableRowSelection } from '@/object-record/record-table/hooks/internal/useResetTableRowSelection';
-import { t } from '~/utils/i18n/badesI18n';
 import { AppPath, type RecordGqlOperationFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
@@ -68,11 +67,11 @@ export const DestroyRecordsCommand = () => {
     ? objectMetadataItem.labelSingular
     : objectMetadataItem.labelPlural;
 
-  const title = t`Hapus Permanen ${objectLabel}`;
+  const title = `Hapus Permanen ${objectLabel}`;
   const subtitle = isSingleRecord
-    ? t`Apakah Anda yakin ingin menghapus permanen ${objectMetadataItem.labelSingular} ini? Data tidak dapat dipulihkan lagi.`
-    : t`Apakah Anda yakin ingin menghapus permanen ${objectMetadataItem.labelPlural} ini? Data tidak akan dapat dipulihkan lagi.`;
-  const confirmButtonText = `${t`Hapus Permanen`} ${objectLabel}`;
+    ? `Apakah Anda yakin ingin menghapus permanen ${objectMetadataItem.labelSingular} ini? Data tidak dapat dipulihkan lagi.`
+    : `Apakah Anda yakin ingin menghapus permanen ${objectMetadataItem.labelPlural} ini? Data tidak akan dapat dipulihkan lagi.`;
+  const confirmButtonText = `${`Hapus Permanen`} ${objectLabel}`;
 
   return (
     <HeadlessConfirmationModalEngineCommandEffect

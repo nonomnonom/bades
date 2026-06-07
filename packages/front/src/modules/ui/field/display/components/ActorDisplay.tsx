@@ -1,6 +1,5 @@
 import { type FieldActorValue } from '@/object-record/record-field/ui/types/FieldMetadata';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { ConnectedAccountProvider } from 'shared/types';
 import { AvatarOrIcon, Chip } from 'ui/components';
@@ -83,7 +82,7 @@ export const ActorDisplay = ({
   return (
     <Chip
       label={name ?? ''}
-      emptyLabel={t`Tanpa judul`}
+      emptyLabel={`Tanpa judul`}
       leftComponent={
         <AvatarOrIcon
           placeholderColorSeed={workspaceMemberId ?? undefined}

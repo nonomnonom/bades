@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { availableFieldMetadataItemsForSortFamilySelector } from '@/object-metadata/states/availableFieldMetadataItemsForSortFamilySelector';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { OBJECT_SORT_DROPDOWN_ID } from '@/object-record/object-sort-dropdown/constants/ObjectSortDropdownId';
@@ -145,8 +145,6 @@ export const ObjectSortDropdownButton = () => {
     OBJECT_SORT_DROPDOWN_ID,
   );
 
-  const { t } = useLingui();
-
   const selectableItemIdArray = [
     ...visibleFieldMetadataItems.map((item) => item.id),
     ...hiddenFieldMetadataItemsSorted.map((item) => item.id),
@@ -214,7 +212,7 @@ export const ObjectSortDropdownButton = () => {
           <DropdownMenuSearchInput
             autoFocus
             value={objectSortDropdownSearchInput}
-            placeholder={t`Cari kolom`}
+            placeholder={`Cari kolom`}
             onChange={(event) =>
               setObjectSortDropdownSearchInput(event.target.value)
             }
@@ -226,7 +224,7 @@ export const ObjectSortDropdownButton = () => {
           >
             {shouldShowVisibleFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Kolom tampil`} />
+                <DropdownMenuSectionLabel label={`Kolom tampil`} />
                 <DropdownMenuItemsContainer>
                   {visibleFieldMetadataItems.map(
                     (visibleFieldMetadataItem, index) => (
@@ -255,7 +253,7 @@ export const ObjectSortDropdownButton = () => {
             {shouldShowSeparator && <DropdownMenuSeparator />}
             {shouldShowHiddenFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
+                <DropdownMenuSectionLabel label={`Kolom tersembunyi`} />
                 <DropdownMenuItemsContainer>
                   {hiddenFieldMetadataItemsSorted.map(
                     (hiddenFieldMetadataItem, index) => (

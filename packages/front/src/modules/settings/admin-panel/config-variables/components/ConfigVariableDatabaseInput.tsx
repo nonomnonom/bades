@@ -6,7 +6,6 @@ import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { type ConfigVariableValue } from 'shared/types';
 import { CustomError } from 'shared/utils';
 import { CodeEditor } from 'ui/input';
@@ -57,8 +56,8 @@ export const ConfigVariableDatabaseInput = ({
       : [];
 
   const booleanOptions = [
-    { value: 'true', label: t`Benar` },
-    { value: 'false', label: t`Salah` },
+    { value: 'true', label: `Benar` },
+    { value: 'false', label: `Salah` },
   ];
 
   const isValueSelected = (optionValue: string) => {
@@ -127,7 +126,7 @@ export const ConfigVariableDatabaseInput = ({
                     label:
                       Array.isArray(value) && value.length > 0
                         ? value.join(', ')
-                        : t`Pilih opsi`,
+                        : `Pilih opsi`,
                   }}
                   isDisabled={disabled}
                   hasRightElement={false}
@@ -170,7 +169,7 @@ export const ConfigVariableDatabaseInput = ({
                 }
               }}
               disabled={disabled}
-              placeholder={placeholder || t`Masukkan array JSON`}
+              placeholder={placeholder || `Masukkan array JSON`}
             />
           )}
         </>
@@ -202,7 +201,7 @@ export const ConfigVariableDatabaseInput = ({
           }
           onChange={(text) => onChange(text)}
           disabled={disabled}
-          placeholder={placeholder || t`Masukkan nilai`}
+          placeholder={placeholder || `Masukkan nilai`}
           fullWidth
         />
       );

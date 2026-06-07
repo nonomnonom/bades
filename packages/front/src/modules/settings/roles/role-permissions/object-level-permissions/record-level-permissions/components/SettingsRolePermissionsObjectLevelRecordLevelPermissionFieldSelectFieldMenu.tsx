@@ -1,6 +1,5 @@
 /* @license Enterprise */
 
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { getFilterTypeFromFieldType } from 'shared/utils';
 
 import { CoreObjectNameSingular, FieldMetadataType } from 'shared/types';
@@ -38,8 +37,6 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFieldSelectF
   ({
     recordFilterId,
   }: SettingsRolePermissionsObjectLevelRecordLevelPermissionFieldSelectFieldMenuProps) => {
-    const { t } = useLingui();
-
     const {
       closeAdvancedFilterFieldSelectDropdown,
       advancedFilterFieldSelectDropdownId,
@@ -131,7 +128,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFieldSelectF
           selectableItemIdArray={selectableItemIdArray}
           selectableListInstanceId={advancedFilterFieldSelectDropdownId}
         >
-          <DropdownMenuSectionLabel label={t`Kolom`} />
+          <DropdownMenuSectionLabel label={`Kolom`} />
           <DropdownMenuItemsContainer>
             {filteredFieldMetadataItems.map((fieldMetadataItem) => (
               <SelectableListItem

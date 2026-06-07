@@ -6,7 +6,6 @@ import { countNestedFolders } from '@/settings/accounts/components/message-folde
 import { formatFolderName } from '@/settings/accounts/components/message-folders/utils/formatFolderName';
 import { isFolderTreePartiallySelected } from '@/settings/accounts/components/message-folders/utils/isFolderTreePartiallySelected';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconChevronDown, IconChevronUp } from 'ui/display';
 import { Checkbox, CheckboxSize } from 'ui/input';
@@ -129,7 +128,6 @@ export const SettingsMessageFoldersTreeItem = ({
   onToggleFolder,
   parentsIsLastList = [],
 }: SettingsMessageFoldersTreeItemProps) => {
-  const { t } = useLingui();
   const [isExpanded, setIsExpanded] = useState(true);
 
   const { children, folder, hasChildren } = folderTreeNode;
@@ -180,9 +178,7 @@ export const SettingsMessageFoldersTreeItem = ({
               <>
                 <StyledChildCount>{childCount}</StyledChildCount>
                 <StyledExpandButton
-                  aria-label={
-                    isExpanded ? t`Ciutkan folder` : t`Perluas folder`
-                  }
+                  aria-label={isExpanded ? `Ciutkan folder` : `Perluas folder`}
                   onClick={handleExpandToggle}
                 >
                   {isExpanded ? (

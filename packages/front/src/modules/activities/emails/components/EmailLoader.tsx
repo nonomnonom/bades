@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,
@@ -12,7 +11,7 @@ export const EmailLoader = ({ loadingText }: { loadingText?: string }) => (
     <AnimatedPlaceholder type="loadingMessages" />
     <AnimatedPlaceholderEmptyTextContainer>
       <AnimatedPlaceholderEmptyTitle>
-        {loadingText || t`Memuat email`}
+        {loadingText || `Memuat email`}
       </AnimatedPlaceholderEmptyTitle>
       <Loader />
     </AnimatedPlaceholderEmptyTextContainer>

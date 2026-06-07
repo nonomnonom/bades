@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useQuery } from '@apollo/client/react';
 import { useContext, useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -159,10 +158,10 @@ export const SettingsToolDetail = () => {
     });
 
     if (result.status === 'successful') {
-      enqueueSuccessSnackBar({ message: t`Alat berhasil dihapus` });
+      enqueueSuccessSnackBar({ message: `Alat berhasil dihapus` });
       navigate(getSettingsPath(SettingsPath.AI, undefined, undefined, 'tools'));
     } else {
-      enqueueErrorSnackBar({ message: t`Gagal menghapus alat` });
+      enqueueErrorSnackBar({ message: `Gagal menghapus alat` });
     }
 
     setIsDeleting(false);
@@ -182,7 +181,7 @@ export const SettingsToolDetail = () => {
       }
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
@@ -210,8 +209,8 @@ export const SettingsToolDetail = () => {
           <>
             <Section>
               <H2Title
-                title={t`Parameter`}
-                description={t`Parameter input yang diterima oleh alat ini`}
+                title={`Parameter`}
+                description={`Parameter input yang diterima oleh alat ini`}
               />
               <SettingsToolParameterTable
                 schemaProperties={inputSchema?.properties ?? {}}
@@ -222,12 +221,12 @@ export const SettingsToolDetail = () => {
 
             <Section>
               <H2Title
-                title={t`Deskripsi`}
-                description={t`Tentukan apa yang dilakukan alat ini`}
+                title={`Deskripsi`}
+                description={`Tentukan apa yang dilakukan alat ini`}
               />
               <TextArea
                 textAreaId="tool-description-textarea"
-                placeholder={t`Tulis deskripsi`}
+                placeholder={`Tulis deskripsi`}
                 minRows={3}
                 value={editedDescription ?? description ?? ''}
                 onChange={handleDescriptionChange}
@@ -238,12 +237,12 @@ export const SettingsToolDetail = () => {
             {isCustomTool && !isManaged && (
               <Section>
                 <H2Title
-                  title={t`Zona berbahaya`}
-                  description={t`Hapus alat ini`}
+                  title={`Zona berbahaya`}
+                  description={`Hapus alat ini`}
                 />
                 <Button
                   Icon={IconTrash}
-                  title={t`Hapus`}
+                  title={`Hapus`}
                   accent="danger"
                   size="small"
                   variant="secondary"
@@ -256,10 +255,10 @@ export const SettingsToolDetail = () => {
       </SettingsPageContainer>
       <ConfirmationModal
         modalInstanceId={DELETE_TOOL_MODAL_ID}
-        title={t`Hapus Alat`}
-        subtitle={t`Yakin ingin menghapus alat ini? Tindakan ini tidak dapat dibatalkan.`}
+        title={`Hapus Alat`}
+        subtitle={`Yakin ingin menghapus alat ini? Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Hapus`}
+        confirmButtonText={`Hapus`}
         loading={isDeleting}
       />
     </SubMenuTopBarContainer>

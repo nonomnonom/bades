@@ -5,7 +5,6 @@ import { type OutputSchemaField } from '@/ai/constants/OutputFieldTypeOptions';
 import { createDefaultOutputSchemaField } from '@/ai/utils/createDefaultOutputSchemaField';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { IconChevronDown, IconPlus, IconVariable, IconX } from 'ui/display';
 import { AnimatedLightIconButton, LightIconButton } from 'ui/input';
@@ -150,13 +149,13 @@ export const WorkflowOutputSchemaBuilder = ({
 
   return (
     <StyledOutputSchemaContainer>
-      <InputLabel>{t`Keluaran`}</InputLabel>
+      <InputLabel>{`Keluaran`}</InputLabel>
 
       {fields.length === 0 && (
         <StyledOutputSchemaFieldContainer>
           <StyledMessageContentContainer>
             <StyledMessageDescription data-testid="empty-output-schema-message-description">
-              {t`Klik "Tambah Field Keluaran" di bawah untuk mendefinisikan struktur respons agen otomatis. Field-field ini akan digunakan untuk memformat dan memvalidasi keluaran saat alur kerja dijalankan, dan dapat dirujuk oleh langkah-langkah selanjutnya.`}
+              {`Klik "Tambah Field Keluaran" di bawah untuk mendefinisikan struktur respons agen otomatis. Field-field ini akan digunakan untuk memformat dan memvalidasi keluaran saat alur kerja dijalankan, dan dapat dirujuk oleh langkah-langkah selanjutnya.`}
             </StyledMessageDescription>
           </StyledMessageContentContainer>
         </StyledOutputSchemaFieldContainer>
@@ -176,7 +175,7 @@ export const WorkflowOutputSchemaBuilder = ({
                 >
                   <StyledTitleContainer>
                     <IconVariable size={theme.icon.size.sm} />
-                    <span>{field.name || t`Field tanpa nama`}</span>
+                    <span>{field.name || `Field tanpa nama`}</span>
                   </StyledTitleContainer>
                   <AnimatedLightIconButton
                     Icon={IconChevronDown}
@@ -202,8 +201,8 @@ export const WorkflowOutputSchemaBuilder = ({
                   <StyledSettingsContent>
                     <FormFieldInputContainer>
                       <FormTextFieldInput
-                        label={t`Nama Variabel`}
-                        placeholder={t`mis., ringkasan, status, jumlah`}
+                        label={`Nama Variabel`}
+                        placeholder={`mis., ringkasan, status, jumlah`}
                         defaultValue={field.name}
                         onChange={(value) =>
                           updateField(field.id, { name: value.trim() })
@@ -225,8 +224,8 @@ export const WorkflowOutputSchemaBuilder = ({
 
                     <FormFieldInputContainer>
                       <FormTextFieldInput
-                        label={t`Instruksi untuk Agen`}
-                        placeholder={t`Penjelasan singkat field keluaran ini`}
+                        label={`Instruksi untuk Agen`}
+                        placeholder={`Penjelasan singkat field keluaran ini`}
                         defaultValue={field.description}
                         onChange={(value) =>
                           updateField(field.id, { description: value })
@@ -246,7 +245,7 @@ export const WorkflowOutputSchemaBuilder = ({
         <StyledAddFieldButtonContainer>
           <MenuItem
             LeftIcon={IconPlus}
-            text={t`Tambah Field Keluaran`}
+            text={`Tambah Field Keluaran`}
             onClick={addField}
           />
         </StyledAddFieldButtonContainer>

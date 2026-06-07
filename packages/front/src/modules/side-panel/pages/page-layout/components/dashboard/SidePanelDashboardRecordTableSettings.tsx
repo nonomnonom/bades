@@ -17,7 +17,6 @@ import { SidePanelSubPages } from '@/side-panel/types/SidePanelSubPages';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   IconArrowsSort,
@@ -82,8 +81,7 @@ const SidePanelDashboardRecordTableSettingsContent = ({
       viewId,
     });
 
-  const layoutDescription =
-    displayViewType === ViewType.MAP ? t`Peta` : t`Tabel`;
+  const layoutDescription = displayViewType === ViewType.MAP ? `Peta` : `Tabel`;
 
   const selectableItemIds = [
     'object-view-layout',
@@ -108,11 +106,11 @@ const SidePanelDashboardRecordTableSettingsContent = ({
       >
         <StyledSettingsContainer>
           <SidePanelList selectableItemIds={selectableItemIds}>
-            <SidePanelGroup heading={t`Pengaturan`}>
+            <SidePanelGroup heading={`Pengaturan`}>
               <SelectableListItem itemId="object-view-layout">
                 <CommandMenuItemDropdown
                   Icon={displayViewType === ViewType.MAP ? IconMap : IconTable}
-                  label={t`Tata Letak`}
+                  label={`Tata Letak`}
                   id="object-view-layout"
                   dropdownId="object-view-layout"
                   dropdownComponents={
@@ -137,7 +135,7 @@ const SidePanelDashboardRecordTableSettingsContent = ({
               <SelectableListItem itemId="record-table-source">
                 <CommandMenuItemDropdown
                   Icon={IconBox}
-                  label={t`Sumber`}
+                  label={`Sumber`}
                   id="record-table-source"
                   dropdownId="record-table-source"
                   dropdownComponents={
@@ -154,7 +152,7 @@ const SidePanelDashboardRecordTableSettingsContent = ({
               <SelectableListItem itemId="record-table-fields">
                 <CommandMenuItemDropdown
                   Icon={IconListDetails}
-                  label={t`Kolom`}
+                  label={`Kolom`}
                   id="record-table-fields"
                   dropdownId="record-table-fields"
                   dropdownComponents={
@@ -177,7 +175,7 @@ const SidePanelDashboardRecordTableSettingsContent = ({
               >
                 <CommandMenuItem
                   id="record-table-filter"
-                  label={t`Filter`}
+                  label={`Filter`}
                   Icon={IconFilter}
                   hasSubMenu
                   onClick={handleFilterClick}
@@ -191,7 +189,7 @@ const SidePanelDashboardRecordTableSettingsContent = ({
               >
                 <CommandMenuItem
                   id="record-table-sort"
-                  label={t`Urutkan`}
+                  label={`Urutkan`}
                   Icon={IconArrowsSort}
                   hasSubMenu
                   onClick={handleSortClick}

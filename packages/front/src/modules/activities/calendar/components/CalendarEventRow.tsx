@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { format } from 'date-fns';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
@@ -82,7 +81,7 @@ export const CalendarEventRow = ({
   const hasEnded = hasCalendarEventEnded(calendarEvent);
 
   const startTimeLabel = calendarEvent.isFullDay
-    ? t`Sepanjang hari`
+    ? `Sepanjang hari`
     : format(startsAt, 'HH:mm');
   const endTimeLabel = calendarEvent.isFullDay ? '' : format(endsAt, 'HH:mm');
 

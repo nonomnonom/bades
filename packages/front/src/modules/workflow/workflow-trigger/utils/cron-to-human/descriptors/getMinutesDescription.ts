@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 
 import { isListValue } from '~/utils/validation/isListValue';
@@ -15,7 +14,7 @@ export const getMinutesDescription = (
   }
 
   if (minutes === '*') {
-    return t`setiap menit`;
+    return `setiap menit`;
   }
 
   if (isStepValue(minutes)) {
@@ -25,22 +24,22 @@ export const getMinutesDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`setiap menit`;
+        return `setiap menit`;
       }
-      return t`setiap ${stepNumStr} menit`;
+      return `setiap ${stepNumStr} menit`;
     }
 
     if (range.includes('-')) {
       const [start, end] = range.split('-');
-      return t`setiap ${stepNumStr} menit, antara menit ke-${start} dan ${end}`;
+      return `setiap ${stepNumStr} menit, antara menit ke-${start} dan ${end}`;
     }
 
-    return t`setiap ${stepNumStr} menit`;
+    return `setiap ${stepNumStr} menit`;
   }
 
   if (isNumericRange(minutes) && minutes.includes('-')) {
     const [start, end] = minutes.split('-');
-    return t`antara menit ke-${start} dan ${end}`;
+    return `antara menit ke-${start} dan ${end}`;
   }
 
   if (isListValue(minutes)) {
@@ -48,23 +47,23 @@ export const getMinutesDescription = (
     if (values.length === 2) {
       const firstValue = values[0];
       const secondValue = values[1];
-      return t`pada menit ${firstValue} dan ${secondValue}`;
+      return `pada menit ${firstValue} dan ${secondValue}`;
     }
     const lastValue = values.pop();
     const remainingValues = values.join(', ');
-    return t`pada menit ${remainingValues} dan ${lastValue}`;
+    return `pada menit ${remainingValues} dan ${lastValue}`;
   }
 
   const minuteNum = parseInt(minutes, 10);
   if (!isNaN(minuteNum)) {
     if (minuteNum === 0) {
-      return t`tepat di awal jam`;
+      return `tepat di awal jam`;
     }
     if (minuteNum === 1) {
-      return t`pada menit ke-1 setiap jam`;
+      return `pada menit ke-1 setiap jam`;
     }
     const minuteNumStr = minuteNum.toString();
-    return t`pada menit ke-${minuteNumStr} setiap jam`;
+    return `pada menit ke-${minuteNumStr} setiap jam`;
   }
 
   return minutes;

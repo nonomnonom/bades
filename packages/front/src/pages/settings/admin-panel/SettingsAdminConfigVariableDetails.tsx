@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -35,8 +34,6 @@ const hasMeaningfulValue = (value: ConfigVariableValue): boolean => {
 export const SettingsAdminConfigVariableDetails = () => {
   const { variableName } = useParams();
   const apolloAdminClient = useApolloAdminClient();
-
-  const { t } = useLingui();
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -100,11 +97,11 @@ export const SettingsAdminConfigVariableDetails = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Konfigurasi`,
+          children: `Panel Admin - Konfigurasi`,
           href: getSettingsPath(
             SettingsPath.AdminPanel,
             undefined,

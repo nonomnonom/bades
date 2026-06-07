@@ -9,7 +9,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 
 import { H2Title, IconSearch } from 'ui/display';
@@ -61,21 +60,21 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
 
   const tableConfig = {
     member: {
-      columns: [t`Nama`, t`Email`],
-      displayName: t`Anggota`,
-      emptyStateText: t`Belum ada anggota yang ditugaskan`,
+      columns: [`Nama`, `Email`],
+      displayName: `Anggota`,
+      emptyStateText: `Belum ada anggota yang ditugaskan`,
       roleTargets: settingsDraftRole.workspaceMembers,
     },
     agent: {
-      columns: [t`Nama`, t`Deskripsi`],
-      displayName: t`Agen`,
-      emptyStateText: t`Belum ada agen yang ditugaskan`,
+      columns: [`Nama`, `Deskripsi`],
+      displayName: `Agen`,
+      emptyStateText: `Belum ada agen yang ditugaskan`,
       roleTargets: settingsDraftRole.agents,
     },
     apiKey: {
-      columns: [t`Nama`, t`Kedaluwarsa`],
-      displayName: t`Kunci API`,
-      emptyStateText: t`Belum ada kunci API yang ditugaskan`,
+      columns: [`Nama`, `Kedaluwarsa`],
+      displayName: `Kunci API`,
+      emptyStateText: `Belum ada kunci API yang ditugaskan`,
       roleTargets: settingsDraftRole.apiKeys,
     },
   };
@@ -140,8 +139,8 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
   return (
     <>
       <H2Title
-        title={t`${roleTargetDisplayName} yang ditugaskan`}
-        description={t`Peran ini ditetapkan ke ${roleTargetDisplayName} berikut.`}
+        title={`${roleTargetDisplayName} yang ditugaskan`}
+        description={`Peran ini ditetapkan ke ${roleTargetDisplayName} berikut.`}
       />
       <StyledSearchContainer>
         <StyledSearchInputContainer>
@@ -149,7 +148,7 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
             instanceId={`role-assignment-${roleTargetType}-search`}
             value={searchFilter}
             onChange={handleSearchChange}
-            placeholder={t`Cari ${roleTargetDisplayName} yang ditugaskan...`}
+            placeholder={`Cari ${roleTargetDisplayName} yang ditugaskan...`}
             fullWidth
             LeftIcon={IconSearch}
             sizeVariant="lg"

@@ -32,7 +32,6 @@ import { useApplyCurrentViewFilterGroupsToCurrentRecordFilterGroups } from '@/vi
 import { useAreViewFilterGroupsDifferentFromRecordFilterGroups } from '@/views/hooks/useAreViewFilterGroupsDifferentFromRecordFilterGroups';
 import { useIsViewAnyFieldFilterDifferentFromCurrentAnyFieldFilter } from '@/views/hooks/useIsViewAnyFieldFilterDifferentFromCurrentAnyFieldFilter';
 import { isViewBarExpandedComponentState } from '@/views/states/isViewBarExpandedComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyArray, isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { LightButton } from 'ui/input';
@@ -280,7 +279,7 @@ export const ViewBarDetails = ({
           <LightButton
             data-testid="cancel-button"
             accent="tertiary"
-            title={t`Batalkan perubahan`}
+            title={`Batalkan perubahan`}
             onClick={handleCancelClick}
           />
         )}

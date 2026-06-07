@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { type ConnectedAccount } from '@/accounts/types/ConnectedAccount';
 import { useApolloClient, useMutation } from '@apollo/client/react';
 import {
@@ -14,7 +15,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconAt,
   IconCalendarEvent,
@@ -40,7 +40,6 @@ export const SettingsAccountsRowDropdownMenu = ({
   const deleteAccountModalId = `delete-account-modal-${account.id}`;
   const accountHandle = account.handle;
 
-  const { t } = useLingui();
   const { openModal } = useModal();
 
   const navigate = useNavigateSettings();
@@ -83,7 +82,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               {hasPendingConfiguration && (
                 <MenuItem
                   LeftIcon={IconPlayerPlay}
-                  text={t`Selesaikan pengaturan`}
+                  text={`Selesaikan pengaturan`}
                   onClick={() => {
                     navigate(SettingsPath.AccountsConfiguration, {
                       connectedAccountId: account.id,
@@ -95,7 +94,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               {account.provider ===
                 ConnectedAccountProvider.IMAP_SMTP_CALDAV && (
                 <MenuItem
-                  text={t`Pengaturan koneksi`}
+                  text={`Pengaturan koneksi`}
                   LeftIcon={IconAt}
                   onClick={() => {
                     navigate(SettingsPath.EditImapSmtpCaldavConnection, {
@@ -107,7 +106,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               )}
               <MenuItem
                 LeftIcon={IconMail}
-                text={t`Pengaturan email`}
+                text={`Pengaturan email`}
                 onClick={() => {
                   navigate(SettingsPath.AccountsEmails);
                   closeDropdown(dropdownId);
@@ -115,7 +114,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               />
               <MenuItem
                 LeftIcon={IconCalendarEvent}
-                text={t`Pengaturan kalender`}
+                text={`Pengaturan kalender`}
                 onClick={() => {
                   navigate(SettingsPath.AccountsCalendars);
                   closeDropdown(dropdownId);
@@ -124,7 +123,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               {account.authFailedAt && (
                 <MenuItem
                   LeftIcon={IconRefresh}
-                  text={t`Hubungkan ulang`}
+                  text={`Hubungkan ulang`}
                   onClick={() => {
                     triggerProviderReconnect(account.provider, account.id);
                     closeDropdown(dropdownId);
@@ -134,7 +133,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               <MenuItem
                 accent="danger"
                 LeftIcon={IconTrash}
-                text={t`Hapus akun`}
+                text={`Hapus akun`}
                 onClick={() => {
                   closeDropdown(dropdownId);
                   openModal(deleteAccountModalId);
@@ -146,7 +145,7 @@ export const SettingsAccountsRowDropdownMenu = ({
       />
       <ConfirmationModal
         modalInstanceId={deleteAccountModalId}
-        title={t`Hapus data`}
+        title={`Hapus data`}
         subtitle={
           <Trans>
             Semua email dan acara yang terhubung ke akun ini ({accountHandle})
@@ -154,7 +153,7 @@ export const SettingsAccountsRowDropdownMenu = ({
           </Trans>
         }
         onConfirmClick={deleteAccount}
-        confirmButtonText={t`Hapus akun`}
+        confirmButtonText={`Hapus akun`}
       />
     </>
   );

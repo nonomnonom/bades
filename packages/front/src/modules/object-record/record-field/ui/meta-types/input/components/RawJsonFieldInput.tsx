@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
@@ -42,7 +41,6 @@ const StyledJsonTreeContainer = styled.div`
 `;
 
 export const RawJsonFieldInput = () => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
 
   const { draftValue, precomputedDraftValue, setDraftValue, fieldDefinition } =
@@ -186,11 +184,11 @@ export const RawJsonFieldInput = () => {
           <StyledJsonTreeContainer>
             <JsonTree
               value={precomputedDraftValue}
-              emptyArrayLabel={t`Array Kosong`}
-              emptyObjectLabel={t`Objek Kosong`}
-              emptyStringLabel={t`[string kosong]`}
-              arrowButtonCollapsedLabel={t`Perluas`}
-              arrowButtonExpandedLabel={t`Ciutkan`}
+              emptyArrayLabel={`Array Kosong`}
+              emptyObjectLabel={`Objek Kosong`}
+              emptyStringLabel={`[string kosong]`}
+              arrowButtonCollapsedLabel={`Perluas`}
+              arrowButtonExpandedLabel={`Ciutkan`}
               shouldExpandNodeInitially={isTwoFirstDepths}
               onNodeValueClick={copyToClipboard}
             />

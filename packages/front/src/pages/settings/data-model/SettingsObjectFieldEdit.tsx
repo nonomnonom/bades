@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { zodResolver } from '@hookform/resolvers/zod';
 import omit from 'lodash.omit';
 import { useEffect, useState } from 'react';
@@ -58,8 +57,6 @@ const StyledDangerButtons = styled.div`
 export const SettingsObjectFieldEdit = () => {
   const navigateSettings = useNavigateSettings();
   const navigateApp = useNavigateApp();
-  const { t } = useLingui();
-
   const { openModal, closeModal } = useModal();
   const { enqueueSuccessSnackBar } = useSnackBar();
 
@@ -291,7 +288,7 @@ export const SettingsObjectFieldEdit = () => {
 
     if (deleteResult.status === 'successful') {
       enqueueSuccessSnackBar({
-        message: t`Kolom dihapus`,
+        message: `Kolom dihapus`,
       });
       closeModal(DELETE_FIELD_MODAL_ID);
       navigateSettings(SettingsPath.ObjectDetail, {
@@ -312,11 +309,11 @@ export const SettingsObjectFieldEdit = () => {
           title={fieldMetadataItem?.label}
           links={[
             {
-              children: t`Ruang Kerja`,
+              children: `Ruang Kerja`,
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: t`Objek`,
+              children: `Objek`,
               href: getSettingsPath(SettingsPath.Objects),
             },
             {
@@ -342,8 +339,8 @@ export const SettingsObjectFieldEdit = () => {
           <SettingsPageContainer>
             <Section>
               <H2Title
-                title={t`Ikon dan Nama`}
-                description={t`Nama dan ikon kolom ini`}
+                title={`Ikon dan Nama`}
+                description={`Nama dan ikon kolom ini`}
               />
               <SettingsDataModelFieldIconLabelForm
                 fieldMetadataItem={fieldMetadataItem}
@@ -358,13 +355,13 @@ export const SettingsObjectFieldEdit = () => {
                   <Section>
                     {fieldMetadataItem.isUnique ? (
                       <H2Title
-                        title={t`Nilai`}
-                        description={t`Nilai kolom ini harus unik`}
+                        title={`Nilai`}
+                        description={`Nilai kolom ini harus unik`}
                       />
                     ) : (
                       <H2Title
-                        title={t`Nilai`}
-                        description={t`Nilai kolom ini`}
+                        title={`Nilai`}
+                        description={`Nilai kolom ini`}
                       />
                     )}
                     <SettingsDataModelFieldSettingsFormCard
@@ -378,8 +375,8 @@ export const SettingsObjectFieldEdit = () => {
               )}
             <Section>
               <H2Title
-                title={t`Deskripsi`}
-                description={t`Deskripsi kolom ini`}
+                title={`Deskripsi`}
+                description={`Deskripsi kolom ini`}
               />
               <SettingsDataModelFieldDescriptionForm
                 fieldMetadataItem={fieldMetadataItem}
@@ -390,8 +387,8 @@ export const SettingsObjectFieldEdit = () => {
             {!isLabelIdentifier && !readonly && fieldCanBeDeactivated && (
               <Section>
                 <H2Title
-                  title={t`Zona berbahaya`}
-                  description={t`Nonaktifkan kolom ini`}
+                  title={`Zona berbahaya`}
+                  description={`Nonaktifkan kolom ini`}
                 />
                 <StyledDangerButtons>
                   <Button
@@ -400,7 +397,7 @@ export const SettingsObjectFieldEdit = () => {
                     }
                     variant="secondary"
                     title={
-                      fieldMetadataItem.isActive ? t`Nonaktifkan` : t`Aktifkan`
+                      fieldMetadataItem.isActive ? `Nonaktifkan` : `Aktifkan`
                     }
                     size="small"
                     onClick={
@@ -414,7 +411,7 @@ export const SettingsObjectFieldEdit = () => {
                       Icon={IconTrash}
                       variant="secondary"
                       accent="danger"
-                      title={t`Hapus`}
+                      title={`Hapus`}
                       size="small"
                       onClick={handleDelete}
                     />
@@ -428,9 +425,9 @@ export const SettingsObjectFieldEdit = () => {
       {fieldMetadataItem?.isCustom && (
         <ConfirmationModal
           modalInstanceId={DELETE_FIELD_MODAL_ID}
-          title={t`Hapus kolom ${fieldLabel}?`}
-          subtitle={t`Tindakan ini akan menghapus kolom dan semua datanya dari ${objectLabel} secara permanen. Ketik "ya" untuk mengonfirmasi.`}
-          confirmButtonText={t`Hapus`}
+          title={`Hapus kolom ${fieldLabel}?`}
+          subtitle={`Tindakan ini akan menghapus kolom dan semua datanya dari ${objectLabel} secara permanen. Ketik "ya" untuk mengonfirmasi.`}
+          confirmButtonText={`Hapus`}
           confirmationValue="ya"
           confirmationPlaceholder="ya"
           onConfirmClick={confirmDelete}

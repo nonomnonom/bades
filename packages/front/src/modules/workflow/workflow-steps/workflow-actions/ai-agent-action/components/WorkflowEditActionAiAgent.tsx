@@ -15,7 +15,6 @@ import { workflowAiAgentActionAgentState } from '@/workflow/workflow-steps/workf
 import { workflowAiAgentPermissionsIsAddingPermissionState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentPermissionsIsAddingPermissionState';
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -52,7 +51,6 @@ export const WorkflowEditActionAiAgent = ({
   action,
   actionOptions,
 }: WorkflowEditActionAiAgentProps) => {
-  const { t } = useLingui();
   const componentInstanceId = `${WORKFLOW_AI_AGENT_TAB_LIST_COMPONENT_ID}-${action.id}`;
   const agentId = action.settings.input.agentId;
   const [workflowAiAgentActionAgent, setWorkflowAiAgentActionAgent] =
@@ -101,12 +99,12 @@ export const WorkflowEditActionAiAgent = ({
   const tabs: SingleTabProps[] = [
     {
       id: WORKFLOW_AI_AGENT_TABS.PROMPT,
-      title: t`Instruksi`,
+      title: `Instruksi`,
       Icon: IconSparkles,
     },
     {
       id: WORKFLOW_AI_AGENT_TABS.PERMISSIONS,
-      title: t`Izin`,
+      title: `Izin`,
       Icon: IconLock,
     },
   ];
@@ -149,7 +147,7 @@ export const WorkflowEditActionAiAgent = ({
       return [
         <WorkflowStepCmdEnterButton
           key="view-role"
-          title={t`Lihat peran`}
+          title={`Lihat peran`}
           onClick={handleViewRole}
           disabled={!isDefined(role?.id)}
         />,
@@ -163,7 +161,7 @@ export const WorkflowEditActionAiAgent = ({
     return [
       <WorkflowStepCmdEnterButton
         key="add-permission"
-        title={t`Tambah izin`}
+        title={`Tambah izin`}
         onClick={() => setWorkflowAiAgentPermissionsIsAddingPermission(true)}
       />,
     ];

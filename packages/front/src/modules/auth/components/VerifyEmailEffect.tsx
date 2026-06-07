@@ -9,7 +9,6 @@ import { clientConfigApiStatusState } from '@/client-config/states/clientConfigA
 import { useIsCurrentLocationOnAWorkspace } from '@/domain-manager/hooks/useIsCurrentLocationOnAWorkspace';
 import { useRedirectToWorkspaceDomain } from '@/domain-manager/hooks/useRedirectToWorkspaceDomain';
 import { ModalContent } from 'ui/layout';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -45,12 +44,11 @@ export const VerifyEmailEffect = () => {
   const { isOnAWorkspace } = useIsCurrentLocationOnAWorkspace();
   const clientConfigApiStatus = useAtomStateValue(clientConfigApiStatusState);
 
-  const { t } = useLingui();
   useEffect(() => {
     const verifyEmailToken = async () => {
       if (!email || !emailVerificationToken) {
         enqueueErrorSnackBar({
-          message: t`Tautan verifikasi email tidak valid.`,
+          message: `Tautan verifikasi email tidak valid.`,
           options: {
             dedupeKey: 'email-verification-link-dedupe-key',
           },
@@ -59,7 +57,7 @@ export const VerifyEmailEffect = () => {
       }
 
       const successSnackbarParams = {
-        message: t`Email berhasil diverifikasi.`,
+        message: `Email berhasil diverifikasi.`,
         options: {
           dedupeKey: 'email-verification-dedupe-key',
         },
@@ -98,7 +96,7 @@ export const VerifyEmailEffect = () => {
         enqueueErrorSnackBar({
           ...(CombinedGraphQLErrors.is(error)
             ? { apolloError: error }
-            : { message: t`Verifikasi email gagal` }),
+            : { message: `Verifikasi email gagal` }),
           options: {
             dedupeKey: 'email-verification-error-dedupe-key',
           },

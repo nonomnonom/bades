@@ -10,7 +10,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useMemo, useState } from 'react';
 
 import { IconEye, IconSearch, useIcons } from 'ui/display';
@@ -99,7 +98,6 @@ export const SettingsObjectSearchSection = ({
   objectMetadataItem,
   isReadOnly,
 }: SettingsObjectSearchSectionProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const { theme } = useContext(ThemeContext);
   const { updateOneObjectMetadataItem } = useUpdateOneObjectMetadataItem();
@@ -134,8 +132,8 @@ export const SettingsObjectSearchSection = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconEye}
-            title={t`Sertakan dalam pencarian bawaan`}
-            description={t`Jika dinonaktifkan, gunakan filter pencarian lanjutan untuk menemukan data ini`}
+            title={`Sertakan dalam pencarian bawaan`}
+            description={`Jika dinonaktifkan, gunakan filter pencarian lanjutan untuk menemukan data ini`}
             checked={isSearchable}
             advancedMode
             onChange={handleToggleSearchable}
@@ -147,7 +145,7 @@ export const SettingsObjectSearchSection = ({
           <SettingsTextInput
             instanceId="indexed-fields-search"
             LeftIcon={IconSearch}
-            placeholder={t`Cari pada kolom terindeks...`}
+            placeholder={`Cari pada kolom terindeks...`}
             value={searchTerm}
             onChange={setSearchTerm}
           />
@@ -155,9 +153,9 @@ export const SettingsObjectSearchSection = ({
             <TableRow
               gridTemplateColumns={INDEXED_FIELDS_GRID_TEMPLATE_COLUMNS}
             >
-              <TableHeader>{t`Nama`}</TableHeader>
-              <TableHeader>{t`Bobot`}</TableHeader>
-              <TableHeader>{t`Tipe data`}</TableHeader>
+              <TableHeader>{`Nama`}</TableHeader>
+              <TableHeader>{`Bobot`}</TableHeader>
+              <TableHeader>{`Tipe data`}</TableHeader>
             </TableRow>
             {filteredIndexedFields.map((entry) => {
               const FieldIcon = getIcon(entry.icon);

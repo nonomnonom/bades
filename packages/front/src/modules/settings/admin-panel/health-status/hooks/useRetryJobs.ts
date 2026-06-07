@@ -1,7 +1,7 @@
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { plural, t } from '~/utils/i18n/badesI18n';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useMutation } from '@apollo/client/react';
@@ -35,7 +35,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
 
         if (retriedCount === -1) {
           enqueueSuccessSnackBar({
-            message: t`Semua tugas gagal telah dicoba ulang`,
+            message: `Semua tugas gagal telah dicoba ulang`,
           });
         } else if (retriedCount > 0) {
           if (failedResults.length > 0) {
@@ -67,7 +67,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
             errorMessages.length > 0 ? `: ${errorMessages[0]}` : '';
 
           enqueueErrorSnackBar({
-            message: t`Tidak ada tugas yang dicoba ulang${errorDetails}`,
+            message: `Tidak ada tugas yang dicoba ulang${errorDetails}`,
           });
         }
 
@@ -77,7 +77,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Gagal mencoba ulang tugas. Silakan coba lagi nanti.`,
+          : `Gagal mencoba ulang tugas. Silakan coba lagi nanti.`,
       });
     } finally {
       setIsRetrying(false);

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { ThemeContext } from 'ui/theme-constants';
 
@@ -14,8 +13,6 @@ export const NoDataLayer = ({
   hasNoData,
 }: NoDataLayerProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   if (!hasNoData) {
     return null;
   }
@@ -29,7 +26,7 @@ export const NoDataLayer = ({
       fill={theme.font.color.tertiary}
       fontSize={theme.font.size.md}
     >
-      {t`Tidak ada data`}
+      {`Tidak ada data`}
     </text>
   );
 };

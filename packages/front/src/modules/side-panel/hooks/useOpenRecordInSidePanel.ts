@@ -21,7 +21,6 @@ import {
 } from 'shared/types';
 
 import { useRunWorkflowRunOpeningInSidePanelEffects } from '@/workflow/hooks/useRunWorkflowRunOpeningInSidePanelEffects';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import { isDefined } from 'shared/utils';
@@ -166,7 +165,7 @@ export const useOpenRecordInSidePanel = () => {
       navigateSidePanelMenu({
         page: SidePanelPages.ViewRecord,
         pageTitle: isNewRecord
-          ? t`${objectLabelSingular} baru`
+          ? `${objectLabelSingular} baru`
           : objectLabelSingular,
         pageIcon: Icon,
         pageIconColor: IconColor,

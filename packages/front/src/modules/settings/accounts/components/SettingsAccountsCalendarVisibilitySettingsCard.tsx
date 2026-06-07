@@ -2,7 +2,6 @@ import { styled } from '@linaria/react';
 
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
 import { SettingsAccountsVisibilityIcon } from '@/settings/accounts/components/SettingsAccountsVisibilityIcon';
-import { msg } from '~/utils/i18n/badesI18n';
 import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -19,8 +18,8 @@ const StyledCardMediaContainer = styled.div`
 
 const eventSettingsVisibilityOptions = [
   {
-    title: msg`Semua detail`,
-    description: msg`Seluruh detail acara akan dibagikan ke tim Anda.`,
+    title: `Semua detail`,
+    description: `Seluruh detail acara akan dibagikan ke tim Anda.`,
     value: CalendarChannelVisibility.SHARE_EVERYTHING,
     cardMedia: (
       <StyledCardMediaContainer>
@@ -29,8 +28,8 @@ const eventSettingsVisibilityOptions = [
     ),
   },
   {
-    title: msg`Metadata`,
-    description: msg`Hanya tanggal & peserta yang akan dibagikan ke tim Anda.`,
+    title: `Metadata`,
+    description: `Hanya tanggal & peserta yang akan dibagikan ke tim Anda.`,
     value: CalendarChannelVisibility.METADATA,
     cardMedia: (
       <StyledCardMediaContainer>

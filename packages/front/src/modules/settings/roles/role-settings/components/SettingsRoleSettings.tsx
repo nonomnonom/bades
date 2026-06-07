@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { SettingsRoleApplicability } from '@/settings/roles/role-settings/components/SettingsRoleApplicability';
 import { SettingsRoleSettingsDeleteRoleConfirmationModal } from '@/settings/roles/role-settings/components/SettingsRoleSettingsDeleteRoleConfirmationModal';
 import { ROLE_SETTINGS_DELETE_ROLE_CONFIRMATION_MODAL_ID } from '@/settings/roles/role-settings/components/constants/RoleSettingsDeleteRoleConfirmationModalId';
@@ -80,14 +78,14 @@ export const SettingsRoleSettings = ({
                 label: value,
               });
             }}
-            placeholder={t`Nama peran`}
+            placeholder={`Nama peran`}
             disabled={!isEditable}
           />
         </StyledInputsContainer>
         <TextArea
           textAreaId={descriptionTextAreaId}
           minRows={4}
-          placeholder={t`Tulis deskripsi`}
+          placeholder={`Tulis deskripsi`}
           value={settingsDraftRole.description || ''}
           onChange={(value: string) => {
             setSettingsDraftRole({
@@ -118,11 +116,11 @@ export const SettingsRoleSettings = ({
         <>
           <Section>
             <H2Title
-              title={t`Zona berbahaya`}
-              description={t`Hapus peran ini dan tetapkan peran baru untuk anggotanya`}
+              title={`Zona berbahaya`}
+              description={`Hapus peran ini dan tetapkan peran baru untuk anggotanya`}
             />
             <Button
-              title={t`Hapus peran`}
+              title={`Hapus peran`}
               size="small"
               variant="secondary"
               accent="danger"

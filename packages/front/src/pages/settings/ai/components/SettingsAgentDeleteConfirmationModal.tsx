@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -21,7 +21,6 @@ export const SettingsAgentDeleteConfirmationModal = ({
   agentId,
   agentName,
 }: SettingsAgentDeleteConfirmationModalProps) => {
-  const { t } = useLingui();
   const { closeModal } = useModal();
   const navigate = useNavigateSettings();
   const { enqueueErrorSnackBar } = useSnackBar();
@@ -48,7 +47,7 @@ export const SettingsAgentDeleteConfirmationModal = ({
       confirmationValue={agentName}
       confirmationPlaceholder={agentName}
       modalInstanceId={DELETE_AGENT_MODAL_ID}
-      title={t`Hapus Agen`}
+      title={`Hapus Agen`}
       subtitle={
         <Trans>
           Tindakan ini tidak dapat dibatalkan. Agen Anda akan dihapus secara
@@ -58,7 +57,7 @@ export const SettingsAgentDeleteConfirmationModal = ({
         </Trans>
       }
       onConfirmClick={handleDelete}
-      confirmButtonText={t`Hapus Agen`}
+      confirmButtonText={`Hapus Agen`}
     />
   );
 };

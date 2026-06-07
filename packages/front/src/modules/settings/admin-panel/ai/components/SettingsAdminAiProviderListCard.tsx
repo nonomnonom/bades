@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { IconPlug, Status } from 'ui/display';
@@ -36,9 +35,9 @@ const getProviderDescription = (provider: AiProviderItem): string => {
   if (provider.authType === 'role') {
     parts.push('IAM role');
   } else if (provider.apiKey) {
-    parts.push(t`API key dikonfigurasi`);
+    parts.push(`API key dikonfigurasi`);
   } else if (provider.hasAccessKey) {
-    parts.push(t`Kredensial IAM`);
+    parts.push(`Kredensial IAM`);
   }
 
   return parts.join(' · ');
@@ -57,7 +56,7 @@ export const SettingsAdminAiProviderListCard = ({
     return (
       <StyledLinkContainer>
         <Link to={getSettingsPath(SettingsPath.AdminPanelNewAiProvider)}>
-          <SettingsCard title={t`Tambah Penyedia Kustom`} Icon={<IconPlug />} />
+          <SettingsCard title={`Tambah Penyedia Kustom`} Icon={<IconPlug />} />
         </Link>
       </StyledLinkContainer>
     );
@@ -76,9 +75,9 @@ export const SettingsAdminAiProviderListCard = ({
       getItemDescription={getProviderDescription}
       RowRightComponent={({ item: provider }) =>
         isProviderConfigured(provider) ? (
-          <Status color="green" text={t`Dikonfigurasi`} weight="medium" />
+          <Status color="green" text={`Dikonfigurasi`} weight="medium" />
         ) : (
-          <Status color="orange" text={t`Tanpa kredensial`} weight="medium" />
+          <Status color="orange" text={`Tanpa kredensial`} weight="medium" />
         )
       }
       to={(provider) =>
@@ -87,7 +86,7 @@ export const SettingsAdminAiProviderListCard = ({
         })
       }
       hasFooter={showAddButton}
-      footerButtonLabel={t`Tambah Penyedia Kustom`}
+      footerButtonLabel={`Tambah Penyedia Kustom`}
       onFooterButtonClick={() =>
         navigate(getSettingsPath(SettingsPath.AdminPanelNewAiProvider))
       }

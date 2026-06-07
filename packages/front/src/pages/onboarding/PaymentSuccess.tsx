@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SubTitle } from '@/auth/components/SubTitle';
 import { Title } from '@/auth/components/Title';
 import { currentUserState } from '@/auth/states/currentUserState';
@@ -56,7 +55,7 @@ export const PaymentSuccess = () => {
       }
 
       throw new Error(
-        t`Menunggu konfirmasi dari penyedia pembayaran.\nSilakan coba lagi dalam beberapa detik.`,
+        `Menunggu konfirmasi dari penyedia pembayaran.\nSilakan coba lagi dalam beberapa detik.`,
       );
     } catch (error) {
       setIsLoading(false);
@@ -70,11 +69,11 @@ export const PaymentSuccess = () => {
         <OnboardingModalCircularIcon Icon={IconCheck} />
       </AnimatedEaseIn>
       <StyledTitleContainer>
-        <Title noMarginTop>{t`Siap digunakan!`}</Title>
-        <SubTitle>{t`Akun Anda telah berhasil diaktifkan.`}</SubTitle>
+        <Title noMarginTop>{`Siap digunakan!`}</Title>
+        <SubTitle>{`Akun Anda telah berhasil diaktifkan.`}</SubTitle>
       </StyledTitleContainer>
       <MainButton
-        title={t`Mulai`}
+        title={`Mulai`}
         width={200}
         onClick={navigateWithSubscriptionCheck}
         Icon={() => (isLoading ? <Loader /> : null)}

@@ -1,5 +1,4 @@
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 
@@ -19,7 +18,7 @@ export const useInstallApp = <TVariables extends Record<string, unknown>>(
 
       if (isDefined(result.data)) {
         enqueueSuccessSnackBar({
-          message: t`Aplikasi berhasil dipasang.`,
+          message: `Aplikasi berhasil dipasang.`,
         });
 
         return true;
@@ -30,7 +29,7 @@ export const useInstallApp = <TVariables extends Record<string, unknown>>(
       const graphqlMessage = error instanceof Error ? error.message : undefined;
 
       enqueueErrorSnackBar({
-        message: graphqlMessage ?? t`Gagal memasang aplikasi.`,
+        message: graphqlMessage ?? `Gagal memasang aplikasi.`,
       });
 
       return false;

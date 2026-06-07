@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isEmailGroupEnabledState } from '@/client-config/states/isEmailGroupEnabledState';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsWorkspaceDomainCard } from '@/settings/domains/components/SettingsWorkspaceDomainCard';
@@ -16,8 +15,6 @@ import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 
 export const SettingsWorkspace = () => {
-  const { t } = useLingui();
-
   const isMultiWorkspaceEnabled = useAtomStateValue(
     isMultiWorkspaceEnabledState,
   );
@@ -31,29 +28,29 @@ export const SettingsWorkspace = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Pengaturan Umum`}
+      title={`Pengaturan Umum`}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`Pengaturan Umum` },
+        { children: `Pengaturan Umum` },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Logo`} />
+          <H2Title title={`Logo`} />
           <WorkspaceLogoUploader />
         </Section>
         <Section>
-          <H2Title title={t`Nama`} description={t`Nama ruang kerja Anda`} />
+          <H2Title title={`Nama`} description={`Nama ruang kerja Anda`} />
           <NameField />
         </Section>
         {isMultiWorkspaceEnabled && (
           <Section>
             <H2Title
-              title={t`Domain Ruang Kerja`}
-              description={t`Ubah nama subdomain atau tetapkan domain kustom.`}
+              title={`Domain Ruang Kerja`}
+              description={`Ubah nama subdomain atau tetapkan domain kustom.`}
             />
             <SettingsWorkspaceDomainCard />
           </Section>

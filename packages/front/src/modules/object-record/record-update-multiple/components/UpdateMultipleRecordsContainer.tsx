@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { contextStoreNumberOfSelectedRecordsComponentState } from '@/context-store/states/contextStoreNumberOfSelectedRecordsComponentState';
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { UpdateMultipleRecordsFooter } from '@/object-record/record-update-multiple/components/UpdateMultipleRecordsFooter';
@@ -55,7 +54,6 @@ export const UpdateMultipleRecordsContainer = ({
 
   const hasSelectedRecords = contextStoreNumberOfSelectedRecords > 0;
 
-  const { t } = useLingui();
   const { enqueueErrorSnackBar } = useSnackBar();
   const { openModal } = useModal();
   const { closeSidePanelMenu } = useSidePanelMenu();
@@ -77,7 +75,7 @@ export const UpdateMultipleRecordsContainer = ({
         message:
           error instanceof Error
             ? error.message
-            : t`Gagal memperbarui data. Silakan coba lagi.`,
+            : `Gagal memperbarui data. Silakan coba lagi.`,
       });
     }
   };
@@ -121,10 +119,10 @@ export const UpdateMultipleRecordsContainer = ({
       </ShowPageContainer>
       <ConfirmationModal
         modalInstanceId={UPDATE_MULTIPLE_RECORDS_CONFIRMATION_MODAL_ID}
-        title={t`Perbarui ${contextStoreNumberOfSelectedRecords} data`}
-        subtitle={t`${contextStoreNumberOfSelectedRecords} data akan diubah. Tindakan ini tidak dapat dibatalkan.`}
+        title={`Perbarui ${contextStoreNumberOfSelectedRecords} data`}
+        subtitle={`${contextStoreNumberOfSelectedRecords} data akan diubah. Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleConfirmedUpdate}
-        confirmButtonText={t`Perbarui data`}
+        confirmButtonText={`Perbarui data`}
         confirmButtonAccent="blue"
       />
     </SidePanelProvider>

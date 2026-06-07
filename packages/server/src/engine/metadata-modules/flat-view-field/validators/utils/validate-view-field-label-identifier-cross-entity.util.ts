@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ViewType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
@@ -111,7 +111,7 @@ export const validateViewFieldLabelIdentifierCrossEntity = ({
 
       failedValidation.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`Label identifier view field cannot be deleted`,
+        message: `Label identifier view field cannot be deleted`,
         userFriendlyMessage: msg`Label identifier view field cannot be deleted`,
       });
 

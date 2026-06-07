@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormNestedFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormNestedFieldInputContainer';
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
@@ -40,18 +39,18 @@ export const FormLinksFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`Label Tautan Utama`}
+          label={`Label Tautan Utama`}
           defaultValue={defaultValue?.primaryLinkLabel}
           onChange={handleChange('primaryLinkLabel')}
-          placeholder={placeholder ?? t`Label Tautan Utama`}
+          placeholder={placeholder ?? `Label Tautan Utama`}
           readonly={readonly}
           VariablePicker={VariablePicker}
         />
         <FormTextFieldInput
-          label={t`URL Tautan Utama`}
+          label={`URL Tautan Utama`}
           defaultValue={defaultValue?.primaryLinkUrl}
           onChange={handleChange('primaryLinkUrl')}
-          placeholder={placeholder ?? t`URL Tautan Utama`}
+          placeholder={placeholder ?? `URL Tautan Utama`}
           readonly={readonly}
           VariablePicker={VariablePicker}
         />

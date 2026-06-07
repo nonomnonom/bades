@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useState } from 'react';
 import { type WorkBook } from 'xlsx-ugnis';
 
@@ -47,7 +46,7 @@ export const UploadStep = ({
         ) {
           const maxRecordsString = maxRecords.toString();
           onError(
-            t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
+            `Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
           );
           return;
         }

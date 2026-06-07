@@ -5,7 +5,6 @@ import { type EmailAttachment } from 'shared/types';
 import { SEND_EMAIL } from '@/activities/emails/graphql/mutations/sendEmail';
 import { useApolloCoreClient } from '@/object-metadata/hooks/useApolloCoreClient';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   type SendEmailMutation,
   type SendEmailMutationVariables,
@@ -52,7 +51,7 @@ export const useSendEmail = () => {
 
         if (result.data?.sendEmail.success) {
           enqueueSuccessSnackBar({
-            message: t`Email berhasil dikirim`,
+            message: `Email berhasil dikirim`,
           });
 
           await apolloCoreClient.refetchQueries({
@@ -67,13 +66,13 @@ export const useSendEmail = () => {
         }
 
         enqueueErrorSnackBar({
-          message: result.data?.sendEmail.error ?? t`Gagal mengirim email`,
+          message: result.data?.sendEmail.error ?? `Gagal mengirim email`,
         });
 
         return false;
       } catch {
         enqueueErrorSnackBar({
-          message: t`Gagal mengirim email`,
+          message: `Gagal mengirim email`,
         });
 
         return false;

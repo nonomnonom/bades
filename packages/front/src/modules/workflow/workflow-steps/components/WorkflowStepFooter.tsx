@@ -10,7 +10,6 @@ import { useDeleteStep } from '@/workflow/workflow-steps/hooks/useDeleteStep';
 import { useDuplicateStep } from '@/workflow/workflow-steps/hooks/useDuplicateStep';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { workflowAiAgentActionAgentState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentActionAgentState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useId } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -34,7 +33,6 @@ export const WorkflowStepFooter = ({
   additionalActions?: React.ReactNode[];
 }) => {
   const dropdownId = useId();
-  const { t } = useLingui();
   const { duplicateStep } = useDuplicateStep();
   const { closeDropdown } = useCloseDropdown();
   const workflowId = useSidePanelWorkflowIdOrThrow();
@@ -116,7 +114,7 @@ export const WorkflowStepFooter = ({
         <MenuItem
           focused={selectedItemId === 'change-node-type'}
           onClick={handleChangeNodeType}
-          text={t`Ubah jenis langkah`}
+          text={`Ubah jenis langkah`}
           LeftIcon={IconPencil}
         />
       </SelectableListItem>
@@ -125,7 +123,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'duplicate'}
             onClick={handleDuplicateNode}
-            text={t`Duplikat langkah`}
+            text={`Duplikat langkah`}
             LeftIcon={IconCopyPlus}
           />
         </SelectableListItem>
@@ -135,7 +133,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'view-agent'}
             onClick={handleViewAgent}
-            text={t`Lihat Agen`}
+            text={`Lihat Agen`}
             LeftIcon={IconRobot}
           />
         </SelectableListItem>
@@ -145,7 +143,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'view-role'}
             onClick={handleViewRole}
-            text={t`Lihat Peran`}
+            text={`Lihat Peran`}
             LeftIcon={IconUsers}
           />
         </SelectableListItem>
@@ -155,7 +153,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'delete'}
             onClick={handleDeleteNode}
-            text={t`Hapus langkah`}
+            text={`Hapus langkah`}
             LeftIcon={IconTrash}
           />
         </SelectableListItem>
@@ -166,7 +164,7 @@ export const WorkflowStepFooter = ({
   const deleteButton = (
     <Button
       size="small"
-      title={t`Hapus`}
+      title={`Hapus`}
       onClick={() => {
         deleteStep(stepId);
       }}

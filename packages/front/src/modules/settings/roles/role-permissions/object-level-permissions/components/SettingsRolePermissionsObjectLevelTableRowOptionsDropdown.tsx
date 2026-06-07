@@ -3,7 +3,6 @@ import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconPencil, IconTrash } from 'ui/display';
 import { IconButton } from 'ui/input';
 import { MenuItem, UndecoratedLink } from 'ui/navigation';
@@ -37,7 +36,7 @@ export const SettingsRolePermissionsObjectLevelTableRowOptionsDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <IconButton
-          aria-label={t`Opsi izin objek`}
+          aria-label={`Opsi izin objek`}
           variant="tertiary"
           size="small"
           Icon={IconDotsVertical}
@@ -52,13 +51,13 @@ export const SettingsRolePermissionsObjectLevelTableRowOptionsDropdown = ({
                 to={objectPermissionDetailUrl}
                 onClick={() => closeDropdown(dropdownId)}
               >
-                <MenuItem text={t`Ubah`} LeftIcon={IconPencil} />
+                <MenuItem text={`Ubah`} LeftIcon={IconPencil} />
               </UndecoratedLink>
             </DropdownMenuItemsContainer>
           )}
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Hapus aturan`}
+              text={`Hapus aturan`}
               onClick={handleRemove}
               LeftIcon={IconTrash}
               accent="danger"

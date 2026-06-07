@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { ReactFlowProvider } from '@xyflow/react';
 
 import { SettingsDataModelOverview } from '@/settings/data-model/graph-overview/components/SettingsDataModelOverview';
@@ -11,12 +10,12 @@ export const SettingsObjectOverview = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`Objek`, href: getSettingsPath(SettingsPath.Objects) },
+        { children: `Objek`, href: getSettingsPath(SettingsPath.Objects) },
         {
-          children: t`Ikhtisar`,
+          children: `Ikhtisar`,
         },
       ]}
     >

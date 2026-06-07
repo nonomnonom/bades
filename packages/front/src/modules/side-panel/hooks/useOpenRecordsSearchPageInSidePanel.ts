@@ -1,7 +1,6 @@
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { isSidePanelOpenedState } from '@/side-panel/states/isSidePanelOpenedState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { IconSearch } from 'ui/display';
 import { v4 } from 'uuid';
@@ -13,7 +12,7 @@ export const useOpenRecordsSearchPageInSidePanel = () => {
   const openRecordsSearchPage = () => {
     navigateSidePanelMenu({
       page: SidePanelPages.SearchRecords,
-      pageTitle: t`Cari`,
+      pageTitle: `Cari`,
       pageIcon: IconSearch,
       pageId: v4(),
       resetNavigationStack: isSidePanelOpened,

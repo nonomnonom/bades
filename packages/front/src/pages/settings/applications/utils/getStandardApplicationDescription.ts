@@ -1,7 +1,5 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 export const getStandardApplicationDescription =
-  (): string => t`Model data dasar yang menjadi fondasi setiap workspace Bades.id.
+  (): string => `Model data dasar yang menjadi fondasi setiap workspace Bades.id.
 
 #### Arti "fondasi"
 

@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { type EmailAttachment } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -65,8 +64,6 @@ export const EmailAttachmentsField = ({
   const { theme } = useContext(ThemeContext);
   const { uploadEmailAttachment } = useUploadEmailAttachment();
   const { openFileUpload } = useFileUpload();
-  const { t } = useLingui();
-
   const handleUploadFiles = async (filesToUpload: File[]) => {
     const uploadedFiles = await Promise.all(
       filesToUpload.map((file) => uploadEmailAttachment(file)),
@@ -111,7 +108,7 @@ export const EmailAttachmentsField = ({
         ) : (
           <StyledUploadAreaLabel>
             <IconUpload size={theme.icon.size.sm} />
-            <span>{t`Unggah berkas`}</span>
+            <span>{`Unggah berkas`}</span>
           </StyledUploadAreaLabel>
         )}
       </StyledUploadArea>

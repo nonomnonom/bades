@@ -4,7 +4,6 @@ import { useMetadataErrorHandler } from '@/metadata-error-handler/hooks/useMetad
 import { type MetadataRequestResult } from '@/object-metadata/types/MetadataRequestResult.type';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { CrudOperationType } from 'shared/types';
 import { useMutation } from '@apollo/client/react';
 import {
@@ -108,7 +107,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.UPDATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`Terjadi kesalahan` });
+          enqueueErrorSnackBar({ message: `Terjadi kesalahan` });
         }
 
         return {
@@ -155,7 +154,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`Terjadi kesalahan` });
+          enqueueErrorSnackBar({ message: `Terjadi kesalahan` });
         }
 
         return {
@@ -202,7 +201,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.DESTROY,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`Terjadi kesalahan` });
+          enqueueErrorSnackBar({ message: `Terjadi kesalahan` });
         }
 
         return {

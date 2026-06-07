@@ -7,7 +7,6 @@ import { useMutation } from '@apollo/client/react';
 import { SettingsAccountsEventVisibilitySettingsCard } from '@/settings/accounts/components/SettingsAccountsCalendarVisibilitySettingsCard';
 import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsOptions/SettingsOptionCardContentToggle';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Section } from '@react-email/components';
 import { H2Title, IconUserPlus } from 'ui/display';
 import { Card } from 'ui/layout';
@@ -49,8 +48,8 @@ export const SettingsAccountsCalendarChannelDetails = ({
     <StyledDetailsContainer>
       <Section>
         <H2Title
-          title={t`Visibilitas acara`}
-          description={t`Tentukan apa yang akan terlihat oleh pengguna lain di Ruang Kerja Anda`}
+          title={`Visibilitas acara`}
+          description={`Tentukan apa yang akan terlihat oleh pengguna lain di Ruang Kerja Anda`}
         />
         <SettingsAccountsEventVisibilitySettingsCard
           value={calendarChannel.visibility}
@@ -59,14 +58,14 @@ export const SettingsAccountsCalendarChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Pembuatan kontak otomatis`}
-          description={t`Otomatis membuat kontak untuk orang yang berpartisipasi dalam acara kalender Anda.`}
+          title={`Pembuatan kontak otomatis`}
+          description={`Otomatis membuat kontak untuk orang yang berpartisipasi dalam acara kalender Anda.`}
         />
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconUserPlus}
-            title={t`Pembuatan otomatis`}
-            description={t`Otomatis membuat kontak untuk orang-orang.`}
+            title={`Pembuatan otomatis`}
+            description={`Otomatis membuat kontak untuk orang-orang.`}
             checked={calendarChannel.isContactAutoCreationEnabled}
             onChange={() => {
               handleContactAutoCreationToggle(

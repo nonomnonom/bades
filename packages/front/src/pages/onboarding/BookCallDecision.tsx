@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SubTitle } from '@/auth/components/SubTitle';
 import { Title } from '@/auth/components/Title';
 import { useSetNextOnboardingStatus } from '@/onboarding/hooks/useSetNextOnboardingStatus';
@@ -40,7 +40,6 @@ const StyledLinkContainer = styled.div`
 `;
 
 export const BookCallDecision = () => {
-  const { t } = useLingui();
   const setNextOnboardingStatus = useSetNextOnboardingStatus();
   const [skipBookOnboardingStepMutation] = useMutation(
     SkipBookOnboardingStepDocument,
@@ -68,10 +67,10 @@ export const BookCallDecision = () => {
       <StyledButtonContainer>
         <StyledLinkContainer>
           <Link to={AppPath.BookCall}>
-            <MainButton title={t`Jadwalkan sekarang`} width={198} />
+            <MainButton title={`Jadwalkan sekarang`} width={198} />
           </Link>
         </StyledLinkContainer>
-        <LightButton title={t`Selesai`} onClick={handleFinish} />
+        <LightButton title={`Selesai`} onClick={handleFinish} />
       </StyledButtonContainer>
     </ModalContent>
   );

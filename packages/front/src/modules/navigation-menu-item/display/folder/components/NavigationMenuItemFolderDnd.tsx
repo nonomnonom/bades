@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import React, { Fragment, useCallback, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import { isDefined } from 'shared/utils';
@@ -103,7 +102,6 @@ export const NavigationMenuItemFolderDnd = ({
   onNavigationMenuItemClick,
   orphanIndex,
 }: NavigationMenuItemFolderDndProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const { getIcon } = useIcons();
   const isMobile = useIsMobile();
@@ -297,16 +295,16 @@ export const NavigationMenuItemFolderDnd = ({
             modalInstanceId={favoritesEdit.modalId}
             title={
               favoritesEdit.navigationMenuItemCount > 1
-                ? t`Hapus ${favoritesEdit.navigationMenuItemCount} item menu navigasi?`
-                : t`Hapus ${favoritesEdit.navigationMenuItemCount} item menu navigasi?`
+                ? `Hapus ${favoritesEdit.navigationMenuItemCount} item menu navigasi?`
+                : `Hapus ${favoritesEdit.navigationMenuItemCount} item menu navigasi?`
             }
             subtitle={
               favoritesEdit.navigationMenuItemCount > 1
-                ? t`Tindakan ini akan menghapus folder dan semua ${favoritesEdit.navigationMenuItemCount} item menu navigasi di dalamnya. Lanjutkan?`
-                : t`Tindakan ini akan menghapus folder beserta item menu navigasi di dalamnya. Lanjutkan?`
+                ? `Tindakan ini akan menghapus folder dan semua ${favoritesEdit.navigationMenuItemCount} item menu navigasi di dalamnya. Lanjutkan?`
+                : `Tindakan ini akan menghapus folder beserta item menu navigasi di dalamnya. Lanjutkan?`
             }
             onConfirmClick={favoritesEdit.handleConfirmDelete}
-            confirmButtonText={t`Hapus Folder`}
+            confirmButtonText={`Hapus Folder`}
           />,
           document.body,
         )
@@ -390,7 +388,7 @@ export const NavigationMenuItemFolderDnd = ({
               />
               {isWorkspace && isLayoutCustomizationModeEnabled && (
                 <NavigationDrawerSubItem
-                  label={t`Tambah item menu`}
+                  label={`Tambah item menu`}
                   Icon={IconPlus}
                   onClick={handleAddMenuItemToFolder}
                   triggerEvent="CLICK"

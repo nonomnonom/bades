@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
@@ -17,7 +16,6 @@ export const useRecordShowPagePagination = (
   propsObjectNameSingular: string,
   propsObjectRecordId: string,
 ) => {
-  const { t } = useLingui();
   const {
     objectNameSingular: paramObjectNameSingular,
     objectRecordId: paramObjectRecordId,
@@ -224,8 +222,8 @@ export const useRecordShowPagePagination = (
 
   const currentRank = rankInView + 1;
   const viewNameWithCount = rankFoundInView
-    ? t`${currentRank} dari ${totalCount} di ${objectLabelPlural}`
-    : t`${objectLabelPlural} (${totalCount})`;
+    ? `${currentRank} dari ${totalCount} di ${objectLabelPlural}`
+    : `${objectLabelPlural} (${totalCount})`;
 
   return {
     viewName: viewNameWithCount,

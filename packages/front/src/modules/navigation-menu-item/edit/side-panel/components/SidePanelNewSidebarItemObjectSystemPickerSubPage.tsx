@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { getObjectColorWithFallback } from '@/object-metadata/utils/getObjectColorWithFallback';
 import { useDraftNavigationMenuItems } from '@/navigation-menu-item/edit/hooks/useDraftNavigationMenuItems';
 import { useNavigationMenuObjectMetadataFromDraft } from '@/navigation-menu-item/edit/hooks/useNavigationMenuObjectMetadataFromDraft';
@@ -17,7 +15,6 @@ import { useState } from 'react';
 import { useIcons } from 'ui/display';
 
 export const SidePanelNewSidebarItemObjectSystemPickerSubPage = () => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const [searchValue, setSearchValue] = useState('');
 
@@ -81,7 +78,7 @@ export const SidePanelNewSidebarItemObjectSystemPickerSubPage = () => {
       isViewItem={false}
       onChangeObject={handleSelectObject}
       objectMenuItemVariant="add"
-      emptyNoResultsText={t`Semua objek sistem sudah ada di bilah samping`}
+      emptyNoResultsText={`Semua objek sistem sudah ada di bilah samping`}
     />
   );
 };

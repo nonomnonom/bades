@@ -18,7 +18,6 @@ import { useContext, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { getOutputSchemaFromValue } from 'shared/logic-function';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconCopy } from 'ui/display';
 
 import { useDebouncedCallback } from 'use-debounce';
@@ -79,7 +78,7 @@ export const WorkflowEditTriggerWebhookForm = ({
     <>
       <WorkflowStepBody>
         <TextInput
-          label={t`URL Aktif`}
+          label={`URL Aktif`}
           value={displayWebhookUrl}
           RightIcon={() => (
             <IconCopy
@@ -92,7 +91,7 @@ export const WorkflowEditTriggerWebhookForm = ({
         />
         <Select
           dropdownId="workflow-edit-webhook-trigger-http-method"
-          label={t`Metode HTTP`}
+          label={`Metode HTTP`}
           fullWidth
           disabled={triggerOptions.readonly}
           value={trigger.settings.httpMethod}
@@ -115,8 +114,8 @@ export const WorkflowEditTriggerWebhookForm = ({
         />
         {trigger.settings.httpMethod === 'POST' && (
           <FormRawJsonFieldInput
-            label={t`Isi yang Diharapkan`}
-            placeholder={t`Masukkan objek JSON`}
+            label={`Isi yang Diharapkan`}
+            placeholder={`Masukkan objek JSON`}
             error={
               errorMessagesVisible ? errorMessages.expectedBody : undefined
             }
@@ -170,7 +169,7 @@ export const WorkflowEditTriggerWebhookForm = ({
         )}
         <Select
           dropdownId="workflow-edit-webhook-trigger-auth"
-          label={t`Autentikasi`}
+          label={`Autentikasi`}
           fullWidth
           disabled
           value={trigger.settings.authentication}

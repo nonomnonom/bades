@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -48,7 +48,7 @@ export class FlatFieldPermissionValidatorService {
     if (isDefined(existingByUniversalId)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.INVALID_SETTING,
-        message: t`Field permission with universal identifier ${flatFieldPermissionToValidate.universalIdentifier} already exists`,
+        message: `Field permission with universal identifier ${flatFieldPermissionToValidate.universalIdentifier} already exists`,
         userFriendlyMessage: msg`Field permission already exists`,
       });
     }
@@ -62,7 +62,7 @@ export class FlatFieldPermissionValidatorService {
     if (!isDefined(referencedRole)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.ROLE_NOT_FOUND,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
     } else {
@@ -76,7 +76,7 @@ export class FlatFieldPermissionValidatorService {
       if (!referencedRole.isEditable) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.ROLE_NOT_EDITABLE,
-          message: t`Role is not editable`,
+          message: `Role is not editable`,
           userFriendlyMessage: msg`This role cannot be modified because it is a system role. Only custom roles can be edited.`,
         });
       }
@@ -91,7 +91,7 @@ export class FlatFieldPermissionValidatorService {
     if (!isDefined(referencedObjectMetadata)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.OBJECT_METADATA_NOT_FOUND,
-        message: t`Object metadata not found`,
+        message: `Object metadata not found`,
         userFriendlyMessage: msg`Object metadata not found`,
       });
     }
@@ -105,7 +105,7 @@ export class FlatFieldPermissionValidatorService {
     if (!isDefined(referencedFieldMetadata)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.FIELD_METADATA_NOT_FOUND,
-        message: t`Field metadata not found`,
+        message: `Field metadata not found`,
         userFriendlyMessage: msg`Field metadata not found`,
       });
     }
@@ -128,7 +128,7 @@ export class FlatFieldPermissionValidatorService {
     if (duplicateForSameRoleObjectField.length > 0) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.INVALID_SETTING,
-        message: t`Field permission for this role, object and field already exists`,
+        message: `Field permission for this role, object and field already exists`,
         userFriendlyMessage: msg`This field permission is already set for the role`,
       });
     }
@@ -165,7 +165,7 @@ export class FlatFieldPermissionValidatorService {
     if (!isDefined(existingFlatFieldPermission)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.FIELD_PERMISSION_NOT_FOUND,
-        message: t`Field permission to update not found`,
+        message: `Field permission to update not found`,
         userFriendlyMessage: msg`Field permission not found`,
       });
 
@@ -185,7 +185,7 @@ export class FlatFieldPermissionValidatorService {
     if (!isDefined(referencedRole)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.ROLE_NOT_FOUND,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
     } else {
@@ -199,7 +199,7 @@ export class FlatFieldPermissionValidatorService {
       if (!referencedRole.isEditable) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.ROLE_NOT_EDITABLE,
-          message: t`Role is not editable`,
+          message: `Role is not editable`,
           userFriendlyMessage: msg`This role cannot be modified because it is a system role. Only custom roles can be edited.`,
         });
       }
@@ -215,7 +215,7 @@ export class FlatFieldPermissionValidatorService {
       if (!isDefined(referencedObjectMetadata)) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.OBJECT_METADATA_NOT_FOUND,
-          message: t`Object metadata not found`,
+          message: `Object metadata not found`,
           userFriendlyMessage: msg`Object metadata not found`,
         });
       }
@@ -231,7 +231,7 @@ export class FlatFieldPermissionValidatorService {
       if (!isDefined(referencedFieldMetadata)) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.FIELD_METADATA_NOT_FOUND,
-          message: t`Field metadata not found`,
+          message: `Field metadata not found`,
           userFriendlyMessage: msg`Field metadata not found`,
         });
       }
@@ -254,7 +254,7 @@ export class FlatFieldPermissionValidatorService {
     if (duplicateForSameRoleObjectField.length > 0) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.INVALID_SETTING,
-        message: t`Field permission for this role, object and field already exists`,
+        message: `Field permission for this role, object and field already exists`,
         userFriendlyMessage: msg`This field permission is already set for the role`,
       });
     }
@@ -287,7 +287,7 @@ export class FlatFieldPermissionValidatorService {
     if (!isDefined(existingFlatFieldPermission)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.FIELD_PERMISSION_NOT_FOUND,
-        message: t`Field permission to delete not found`,
+        message: `Field permission to delete not found`,
         userFriendlyMessage: msg`Field permission not found`,
       });
     } else {
@@ -300,7 +300,7 @@ export class FlatFieldPermissionValidatorService {
       if (isDefined(referencedRole) && !referencedRole.isEditable) {
         validationResult.errors.push({
           code: PermissionsExceptionCode.ROLE_NOT_EDITABLE,
-          message: t`Role is not editable`,
+          message: `Role is not editable`,
           userFriendlyMessage: msg`This role cannot be modified because it is a system role. Only custom roles can be edited.`,
         });
       }

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormNestedFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormNestedFieldInputContainer';
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
@@ -42,7 +41,7 @@ export const FormFullNameFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`Nama Depan`}
+          label={`Nama Depan`}
           defaultValue={defaultValue?.firstName}
           onChange={handleFirstNameChange}
           placeholder={
@@ -52,7 +51,7 @@ export const FormFullNameFieldInput = ({
           VariablePicker={VariablePicker}
         />
         <FormTextFieldInput
-          label={t`Nama Belakang`}
+          label={`Nama Belakang`}
           defaultValue={defaultValue?.lastName}
           onChange={handleLastNameChange}
           placeholder={

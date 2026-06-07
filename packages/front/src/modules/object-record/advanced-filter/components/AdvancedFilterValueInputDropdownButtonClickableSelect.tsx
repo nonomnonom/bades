@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { getAdvancedFilterInputPlaceholderText } from '@/object-record/advanced-filter/utils/getAdvancedFilterInputPlacedholderText';
 import { currentRecordFiltersComponentState } from '@/object-record/record-filter/states/currentRecordFiltersComponentState';
 import { SelectControl } from '@/ui/input/components/SelectControl';
@@ -59,7 +58,7 @@ export const AdvancedFilterValueInputDropdownButtonClickableSelect = ({
 
   const placeholderText = isDefined(fieldMetadataItem)
     ? getAdvancedFilterInputPlaceholderText(fieldMetadataItem)
-    : t`Masukkan filter`;
+    : `Masukkan filter`;
 
   const recordFilterDisplayValue = getRecordFilterDisplayValue(recordFilter);
 

@@ -1,5 +1,4 @@
 import { SettingsLogicFunctionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerSection';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type WorkflowActionTriggerSettings } from 'shared/application';
 import { isDefined } from 'shared/utils';
 
@@ -19,12 +18,10 @@ export const SettingsLogicFunctionWorkflowActionTriggerSection = ({
   onChange,
   readonly,
 }: SettingsLogicFunctionWorkflowActionTriggerSectionProps) => {
-  const { t } = useLingui();
-
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`Tindakan alur kerja`}
-      description={t`Mengekspos fungsi sebagai langkah dalam pembuat alur kerja`}
+      title={`Tindakan alur kerja`}
+      description={`Mengekspos fungsi sebagai langkah dalam pembuat alur kerja`}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_WORKFLOW_ACTION_TRIGGER_SETTINGS : null)

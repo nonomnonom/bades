@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -97,7 +96,7 @@ export const FormUuidFieldInput = ({
           {draftValue.type === 'static' ? (
             <TextInput
               instanceId={instanceId}
-              placeholder={placeholder ?? t`Masukkan UUID`}
+              placeholder={placeholder ?? `Masukkan UUID`}
               value={draftValue.value}
               copyButton={false}
               disabled={readonly}

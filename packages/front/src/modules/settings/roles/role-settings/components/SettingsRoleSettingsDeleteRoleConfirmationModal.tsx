@@ -1,7 +1,6 @@
 import { ROLE_SETTINGS_DELETE_ROLE_CONFIRMATION_MODAL_ID } from '@/settings/roles/role-settings/components/constants/RoleSettingsDeleteRoleConfirmationModalId';
 import { SettingsRoleSettingsDeleteRoleConfirmationModalSubtitle } from '@/settings/roles/role-settings/components/SettingsRoleSettingsDeleteRoleConfirmationModalSubtitle';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { useMutation } from '@apollo/client/react';
 import { DeleteOneRoleDocument } from '~/generated-metadata/graphql';
@@ -28,14 +27,14 @@ export const SettingsRoleSettingsDeleteRoleConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={ROLE_SETTINGS_DELETE_ROLE_CONFIRMATION_MODAL_ID}
-      title={t`Hapus Peran Secara Permanen`}
+      title={`Hapus Peran Secara Permanen`}
       subtitle={
         <SettingsRoleSettingsDeleteRoleConfirmationModalSubtitle
           roleId={roleId}
         />
       }
       onConfirmClick={handleConfirmClick}
-      confirmButtonText={t`Konfirmasi`}
+      confirmButtonText={`Konfirmasi`}
       confirmButtonAccent="danger"
     />
   );

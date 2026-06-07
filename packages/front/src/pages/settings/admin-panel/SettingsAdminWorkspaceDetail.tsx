@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client/react';
@@ -150,14 +149,14 @@ export const SettingsAdminWorkspaceDetail = () => {
   const tabs = [
     {
       id: WORKSPACE_DETAIL_TAB_IDS.INFO,
-      title: t`Informasi`,
+      title: `Informasi`,
       Icon: IconSettings2,
     },
     ...(isBillingEnabled
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.BILLING,
-            title: t`Tagihan`,
+            title: `Tagihan`,
             Icon: IconCreditCard,
           },
         ]
@@ -166,7 +165,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.MEMBERS,
-            title: t`Anggota`,
+            title: `Anggota`,
             Icon: IconUsers,
           },
         ]
@@ -175,7 +174,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.FEATURE_FLAGS,
-            title: t`Fitur Eksperimen`,
+            title: `Fitur Eksperimen`,
             Icon: IconFlag,
           },
         ]
@@ -184,7 +183,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.CHATS,
-            title: t`Obrolan`,
+            title: `Obrolan`,
             Icon: IconMessage,
           },
         ]
@@ -201,11 +200,11 @@ export const SettingsAdminWorkspaceDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - AI`,
+          children: `Panel Admin - AI`,
           href: AI_ADMIN_PATH,
         },
         {
@@ -237,13 +236,13 @@ export const SettingsAdminWorkspaceDetail = () => {
 
         {effectiveTabId === WORKSPACE_DETAIL_TAB_IDS.MEMBERS && workspace && (
           <Section>
-            <H2Title title={t`Anggota`} description={t`Anggota ruang kerja`} />
+            <H2Title title={`Anggota`} description={`Anggota ruang kerja`} />
             <Table>
               <TableBody>
                 <TableRow gridTemplateColumns="1fr 2fr 100px">
-                  <TableHeader>{t`Nama`}</TableHeader>
-                  <TableHeader>{t`Surel`}</TableHeader>
-                  <TableHeader align="right">{t`Tindakan`}</TableHeader>
+                  <TableHeader>{`Nama`}</TableHeader>
+                  <TableHeader>{`Surel`}</TableHeader>
+                  <TableHeader align="right">{`Tindakan`}</TableHeader>
                 </TableRow>
                 {workspace.users?.map((user) => {
                   const userId = user.id;
@@ -287,7 +286,7 @@ export const SettingsAdminWorkspaceDetail = () => {
                             Icon={IconEyeShare}
                             variant="secondary"
                             size="small"
-                            title={t`Tiru identitas`}
+                            title={`Tiru identitas`}
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
@@ -309,8 +308,8 @@ export const SettingsAdminWorkspaceDetail = () => {
           workspace && (
             <Section>
               <H2Title
-                title={t`Fitur Eksperimen`}
-                description={t`Kelola fitur eksperimen untuk ruang kerja ini`}
+                title={`Fitur Eksperimen`}
+                description={`Kelola fitur eksperimen untuk ruang kerja ini`}
               />
               <Table>
                 <TableBody>
@@ -318,8 +317,8 @@ export const SettingsAdminWorkspaceDetail = () => {
                     gridAutoColumns="1fr 100px"
                     mobileGridAutoColumns="1fr 80px"
                   >
-                    <TableHeader>{t`Fitur Eksperimen`}</TableHeader>
-                    <TableHeader align="right">{t`Status`}</TableHeader>
+                    <TableHeader>{`Fitur Eksperimen`}</TableHeader>
+                    <TableHeader align="right">{`Status`}</TableHeader>
                   </TableRow>
                   {workspace.featureFlags?.map((flag) => {
                     const currentWorkspaceValue =
@@ -357,8 +356,8 @@ export const SettingsAdminWorkspaceDetail = () => {
         {effectiveTabId === WORKSPACE_DETAIL_TAB_IDS.CHATS && (
           <Section>
             <H2Title
-              title={t`Sesi Obrolan`}
-              description={t`Utas obrolan AI untuk ruang kerja ini`}
+              title={`Sesi Obrolan`}
+              description={`Utas obrolan AI untuk ruang kerja ini`}
             />
             {isLoadingThreads ? (
               <SettingsSectionSkeletonLoader />
@@ -369,16 +368,16 @@ export const SettingsAdminWorkspaceDetail = () => {
                     color={themeCssVariables.font.color.tertiary}
                     align="center"
                   >
-                    {t`Belum ada utas obrolan.`}
+                    {`Belum ada utas obrolan.`}
                   </TableCell>
                 </TableRow>
               </Card>
             ) : (
               <Table>
                 <TableRow gridTemplateColumns="1fr 120px 120px">
-                  <TableHeader>{t`Judul`}</TableHeader>
-                  <TableHeader align="right">{t`Pesan`}</TableHeader>
-                  <TableHeader align="right">{t`Diperbarui`}</TableHeader>
+                  <TableHeader>{`Judul`}</TableHeader>
+                  <TableHeader align="right">{`Pesan`}</TableHeader>
+                  <TableHeader align="right">{`Diperbarui`}</TableHeader>
                 </TableRow>
                 {threads.map((thread) => (
                   <TableRow
@@ -393,7 +392,7 @@ export const SettingsAdminWorkspaceDetail = () => {
                     )}
                   >
                     <TableCell color={themeCssVariables.font.color.primary}>
-                      {thread.title || t`Tanpa judul`}
+                      {thread.title || `Tanpa judul`}
                     </TableCell>
                     <TableCell align="right">
                       {thread.conversationSize}

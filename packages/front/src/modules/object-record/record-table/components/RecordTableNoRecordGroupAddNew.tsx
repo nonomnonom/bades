@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { hasAnySoftDeleteFilterOnViewComponentSelector } from '@/object-record/record-filter/states/hasAnySoftDeleteFilterOnView';
 import { useUpsertRecordsInStore } from '@/object-record/record-store/hooks/useUpsertRecordsInStore';
@@ -83,7 +82,7 @@ export const RecordTableNoRecordGroupAddNew = () => {
     <RecordTableActionRow
       onClick={handleButtonClick}
       LeftIcon={IconPlus}
-      text={t`Tambah Baru`}
+      text={`Tambah Baru`}
     />
   );
 };

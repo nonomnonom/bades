@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import type { ApplicationRegistrationData } from '~/pages/settings/applications/tabs/types/ApplicationRegistrationData';
 import { useQuery } from '@apollo/client/react';
 import { FindApplicationRegistrationVariablesDocument } from '~/generated-metadata/graphql';
@@ -13,8 +12,6 @@ export const SettingsApplicationRegistrationConfigTab = ({
 }: {
   registration: ApplicationRegistrationData;
 }) => {
-  const { t } = useLingui();
-
   const applicationRegistrationId = registration.id;
 
   const { data: variablesData } = useQuery(
@@ -30,7 +27,7 @@ export const SettingsApplicationRegistrationConfigTab = ({
   const configVariables = variables.map((variable) => ({
     name: variable.key,
     description: variable.description,
-    value: variable.value ?? <Status color="gray" text={t`Belum diisi`} />,
+    value: variable.value ?? <Status color="gray" text={`Belum diisi`} />,
     to: getSettingsPath(
       SettingsPath.ApplicationRegistrationConfigVariableDetails,
       {
@@ -44,8 +41,8 @@ export const SettingsApplicationRegistrationConfigTab = ({
     variables.length > 0 && (
       <Section>
         <H2Title
-          title={t`Variabel Server`}
-          description={t`Variabel server diterapkan ke semua instalasi ruang kerja.`}
+          title={`Variabel Server`}
+          description={`Variabel server diterapkan ke semua instalasi ruang kerja.`}
         />
         <ConfigVariableTable configVariables={configVariables} />
       </Section>

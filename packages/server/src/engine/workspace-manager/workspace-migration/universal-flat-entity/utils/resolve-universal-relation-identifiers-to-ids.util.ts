@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { type AllMetadataName } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -140,7 +139,7 @@ export const resolveUniversalRelationIdentifiersToIds = <
 
     if (!isDefined(targetEntity)) {
       throw new FlatEntityMapsException(
-        t`Could not find ${targetMetadataName} for given ${universalForeignKey}`,
+        `Could not find ${targetMetadataName} for given ${universalForeignKey}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }

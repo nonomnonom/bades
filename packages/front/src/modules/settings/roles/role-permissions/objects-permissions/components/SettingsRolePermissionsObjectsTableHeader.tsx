@@ -4,7 +4,6 @@ import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { t } from '~/utils/i18n/badesI18n';
 import { Checkbox } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -38,17 +37,17 @@ export const SettingsRolePermissionsObjectsTableHeader = ({
 
   return (
     <TableRow>
-      <TableHeader>{t`Semua Objek`}</TableHeader>
+      <TableHeader>{`Semua Objek`}</TableHeader>
       <TableHeader
         align="right"
         padding={`0 ${themeCssVariables.spacing[1]} 0 ${themeCssVariables.spacing[2]}`}
-        aria-label={t`Tindakan`}
+        aria-label={`Tindakan`}
       >
         <Checkbox
           checked={allPermissionsEnabled}
           indeterminate={somePermissionsEnabled && !allPermissionsEnabled}
           disabled={!isEditable}
-          aria-label={t`Aktifkan/nonaktifkan semua izin objek`}
+          aria-label={`Aktifkan/nonaktifkan semua izin objek`}
           onChange={() => {
             const newValue = !allPermissionsEnabled;
 

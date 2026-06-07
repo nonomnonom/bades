@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import {
   PageLayoutTabLayoutMode,
@@ -58,7 +58,7 @@ export class FlatPageLayoutWidgetValidatorService {
     if (!isDefined(existingFlatPageLayoutWidget)) {
       validationResult.errors.push({
         code: PageLayoutWidgetExceptionCode.PAGE_LAYOUT_WIDGET_NOT_FOUND,
-        message: t`Page layout widget to update not found`,
+        message: `Page layout widget to update not found`,
         userFriendlyMessage: msg`Page layout widget to update not found`,
       });
 
@@ -141,7 +141,7 @@ export class FlatPageLayoutWidgetValidatorService {
     if (!isDefined(existingFlatPageLayoutWidget)) {
       validationResult.errors.push({
         code: PageLayoutWidgetExceptionCode.PAGE_LAYOUT_WIDGET_NOT_FOUND,
-        message: t`Page layout widget to delete not found`,
+        message: `Page layout widget to delete not found`,
         userFriendlyMessage: msg`Page layout widget to delete not found`,
       });
 
@@ -183,7 +183,7 @@ export class FlatPageLayoutWidgetValidatorService {
 
       validationResult.errors.push({
         code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-        message: t`Page layout widget with universal identifier ${flatPageLayoutWidgetUniversalIdentifier} already exists`,
+        message: `Page layout widget with universal identifier ${flatPageLayoutWidgetUniversalIdentifier} already exists`,
         userFriendlyMessage: msg`Page layout widget already exists`,
       });
     }
@@ -198,7 +198,7 @@ export class FlatPageLayoutWidgetValidatorService {
     if (!isDefined(referencedPageLayoutTab)) {
       validationResult.errors.push({
         code: PageLayoutTabExceptionCode.PAGE_LAYOUT_TAB_NOT_FOUND,
-        message: t`Page layout tab not found`,
+        message: `Page layout tab not found`,
         userFriendlyMessage: msg`Page layout tab not found`,
       });
     }
@@ -246,7 +246,7 @@ export class FlatPageLayoutWidgetValidatorService {
       return [
         {
           code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-          message: t`Grid position is required`,
+          message: `Grid position is required`,
           userFriendlyMessage: msg`Grid position is required`,
         },
       ];
@@ -279,7 +279,7 @@ export class FlatPageLayoutWidgetValidatorService {
 
       errors.push({
         code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-        message: t`Position layoutMode "${layoutMode}" does not match tab layoutMode "${tabLayoutMode}"`,
+        message: `Position layoutMode "${layoutMode}" does not match tab layoutMode "${tabLayoutMode}"`,
         userFriendlyMessage: msg`Widget position type must match the tab layout mode`,
       });
     }

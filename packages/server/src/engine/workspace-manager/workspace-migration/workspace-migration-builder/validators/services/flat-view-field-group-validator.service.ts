@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -40,7 +40,7 @@ export class FlatViewFieldGroupValidatorService {
     if (isDefined(existingFlatViewFieldGroup)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field group with this universal identifier already exists`,
+        message: `View field group with this universal identifier already exists`,
         userFriendlyMessage: msg`View field group already exists`,
       });
     }
@@ -53,7 +53,7 @@ export class FlatViewFieldGroupValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
     }
@@ -85,7 +85,7 @@ export class FlatViewFieldGroupValidatorService {
     if (!isDefined(existingFlatViewFieldGroup)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field group to delete not found`,
+        message: `View field group to delete not found`,
         userFriendlyMessage: msg`View field group to delete not found`,
       });
     }
@@ -118,7 +118,7 @@ export class FlatViewFieldGroupValidatorService {
     if (!isDefined(existingFlatViewFieldGroup)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field group to update not found`,
+        message: `View field group to update not found`,
         userFriendlyMessage: msg`View field group to update not found`,
       });
 
@@ -133,7 +133,7 @@ export class FlatViewFieldGroupValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View field group parent view not found`,
+        message: `View field group parent view not found`,
         userFriendlyMessage: msg`View field group parent view not found`,
       });
     }

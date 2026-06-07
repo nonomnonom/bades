@@ -1,7 +1,6 @@
 import { CHART_CONFIGURATION_SETTING_LABELS } from '@/side-panel/pages/page-layout/constants/settings/ChartConfigurationSettingLabels';
 import { CHART_CONFIGURATION_SETTING_IDS } from '@/side-panel/pages/page-layout/types/ChartConfigurationSettingIds';
 import { type ChartSettingsItem } from '@/side-panel/pages/page-layout/types/ChartSettingsGroup';
-import { msg } from '~/utils/i18n/badesI18n';
 import { IconMathMin } from 'ui/display';
 
 export const RANGE_MIN_SETTING: ChartSettingsItem = {
@@ -10,5 +9,5 @@ export const RANGE_MIN_SETTING: ChartSettingsItem = {
   label: CHART_CONFIGURATION_SETTING_LABELS.MIN_RANGE,
   id: CHART_CONFIGURATION_SETTING_IDS.MIN_RANGE,
   isNumberInput: true,
-  inputPlaceholder: msg`Min`,
+  inputPlaceholder: `Min`,
 };

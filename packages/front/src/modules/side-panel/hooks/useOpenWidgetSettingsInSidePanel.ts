@@ -12,7 +12,6 @@ import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/com
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import {
   PageLayoutTabLayoutMode,
@@ -63,7 +62,7 @@ export const useOpenWidgetSettingsInSidePanel = (
 
         navigatePageLayoutSidePanel({
           sidePanelPage: SidePanelPages.DashboardIframeSettings,
-          pageTitle: t`Ubah iFrame`,
+          pageTitle: `Ubah iFrame`,
           resetNavigationStack: true,
         });
         setPageLayoutEditingWidgetId(widgetId);
@@ -77,7 +76,7 @@ export const useOpenWidgetSettingsInSidePanel = (
 
         navigatePageLayoutSidePanel({
           sidePanelPage: SidePanelPages.DashboardChartSettings,
-          pageTitle: t`Ubah Grafik`,
+          pageTitle: `Ubah Grafik`,
           resetNavigationStack: true,
         });
         setPageLayoutEditingWidgetId(widgetId);
@@ -88,7 +87,7 @@ export const useOpenWidgetSettingsInSidePanel = (
         if (!isDashboardPageLayout) {
           navigatePageLayoutSidePanel({
             sidePanelPage: SidePanelPages.RecordPageFieldsSettings,
-            pageTitle: t`Ubah Kolom`,
+            pageTitle: `Ubah Kolom`,
             resetNavigationStack: true,
           });
           setPageLayoutEditingWidgetId(widgetId);
@@ -100,7 +99,7 @@ export const useOpenWidgetSettingsInSidePanel = (
         if (!isDashboardPageLayout) {
           navigatePageLayoutSidePanel({
             sidePanelPage: SidePanelPages.RecordPageFieldSettings,
-            pageTitle: t`Widget kolom tunggal`,
+            pageTitle: `Widget kolom tunggal`,
             resetNavigationStack: true,
           });
           setPageLayoutEditingWidgetId(widgetId);
@@ -115,7 +114,7 @@ export const useOpenWidgetSettingsInSidePanel = (
 
         navigatePageLayoutSidePanel({
           sidePanelPage: SidePanelPages.DashboardRecordTableSettings,
-          pageTitle: t`Ubah Tabel Data`,
+          pageTitle: `Ubah Tabel Data`,
           resetNavigationStack: true,
         });
         setPageLayoutEditingWidgetId(widgetId);

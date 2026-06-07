@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
@@ -74,7 +73,7 @@ export const WorkspaceMemberPictureUploader = ({
 
       const uploadedFile = data?.uploadWorkspaceMemberProfilePicture;
       if (!isDefined(uploadedFile)) {
-        throw new Error(t`Gagal mengunggah avatar`);
+        throw new Error(`Gagal mengunggah avatar`);
       }
 
       newAvatarUrl = `${REACT_APP_SERVER_BASE_URL}/file/${FileFolder.CorePicture}/${uploadedFile.id}`;
@@ -99,8 +98,8 @@ export const WorkspaceMemberPictureUploader = ({
       setErrorMessage(null);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : t`Gagal mengunggah foto`;
-      setErrorMessage(t`Terjadi kesalahan saat mengunggah foto.`);
+        error instanceof Error ? error.message : `Gagal mengunggah foto`;
+      setErrorMessage(`Terjadi kesalahan saat mengunggah foto.`);
       enqueueErrorSnackBar({ message });
     } finally {
       setIsUploading(false);
@@ -128,8 +127,8 @@ export const WorkspaceMemberPictureUploader = ({
       setErrorMessage(null);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : t`Gagal menghapus foto`;
-      setErrorMessage(t`Terjadi kesalahan saat menghapus foto.`);
+        error instanceof Error ? error.message : `Gagal menghapus foto`;
+      setErrorMessage(`Terjadi kesalahan saat menghapus foto.`);
       enqueueErrorSnackBar({ message });
     } finally {
       setIsUploading(false);

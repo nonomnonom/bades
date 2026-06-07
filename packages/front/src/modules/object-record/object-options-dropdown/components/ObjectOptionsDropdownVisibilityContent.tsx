@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
 import { useObjectOptionsDropdown } from '@/object-record/object-options-dropdown/hooks/useObjectOptionsDropdown';
 import { useHasPermissionFlag } from '@/settings/roles/hooks/useHasPermissionFlag';
@@ -31,7 +30,6 @@ import {
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 
 export const ObjectOptionsDropdownVisibilityContent = () => {
-  const { t } = useLingui();
   const { resetContent } = useObjectOptionsDropdown();
   const { currentView } = useGetCurrentViewOnly();
   const { updateCurrentView } = useUpdateCurrentView();
@@ -59,7 +57,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
 
   const handleCopyLink = async () => {
     const currentUrl = window.location.href;
-    await copyToClipboard(currentUrl, t`Tautan disalin`);
+    await copyToClipboard(currentUrl, `Tautan disalin`);
   };
 
   const currentVisibility = currentView?.visibility ?? ViewVisibility.WORKSPACE;
@@ -74,7 +72,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
           />
         }
       >
-        {t`Visibilitas`}
+        {`Visibilitas`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -94,8 +92,8 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
               <div id="workspace-visibility-option">
                 <MenuItemSelect
                   LeftIcon={IconCircle}
-                  text={t`Ruang Kerja`}
-                  contextualText={t`Semua orang`}
+                  text={`Ruang Kerja`}
+                  contextualText={`Semua orang`}
                   selected={currentVisibility === ViewVisibility.WORKSPACE}
                   focused={selectedItemId === ViewVisibility.WORKSPACE}
                   onClick={() =>
@@ -108,7 +106,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
                 createPortal(
                   <AppTooltip
                     anchorSelect="#workspace-visibility-option"
-                    content={t`Tampilan Ruang Kerja memerlukan izin kelola tampilan`}
+                    content={`Tampilan Ruang Kerja memerlukan izin kelola tampilan`}
                     positionStrategy="fixed"
                   />,
                   document.body,
@@ -124,8 +122,8 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconCircleDashed}
-              text={t`Tidak terdaftar`}
-              contextualText={t`Hanya terlihat oleh Anda`}
+              text={`Tidak terdaftar`}
+              contextualText={`Hanya terlihat oleh Anda`}
               selected={currentVisibility === ViewVisibility.UNLISTED}
               focused={selectedItemId === ViewVisibility.UNLISTED}
               onClick={() => handleVisibilityChange(ViewVisibility.UNLISTED)}
@@ -143,7 +141,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
                   focused={selectedItemId === 'Salin tautan tampilan'}
                   onClick={handleCopyLink}
                   LeftIcon={IconCopy}
-                  text={t`Salin tautan tampilan`}
+                  text={`Salin tautan tampilan`}
                 />
               </SelectableListItem>
             </>

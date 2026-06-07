@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { availableFieldMetadataItemsForFilterFamilySelector } from '@/object-metadata/states/availableFieldMetadataItemsForFilterFamilySelector';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { AdvancedFilterContext } from '@/object-record/advanced-filter/states/context/AdvancedFilterContext';
@@ -87,8 +86,8 @@ export const AdvancedFilterSidePanelCreateRootFilterButton = ({
       variant="secondary"
       accent="default"
       onClick={addRootRecordFilterGroup}
-      ariaLabel={t`Tambah filter`}
-      title={t`Tambah filter`}
+      ariaLabel={`Tambah filter`}
+      title={`Tambah filter`}
       disabled={readonly}
     />
   );

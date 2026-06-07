@@ -1,6 +1,5 @@
 /* @license Enterprise */
 
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsListCard } from '@/settings/components/SettingsListCard';
 import { SettingsSSOIdentityProviderRowRightContainer } from '@/settings/security/components/SSO/SettingsSSOIdentityProviderRowRightContainer';
 import { SSOIdentitiesProvidersState } from '@/settings/security/states/SSOIdentitiesProvidersState';
@@ -27,7 +26,7 @@ export const SettingsSSOIdentitiesProvidersListCardWrapper = () => {
         <SettingsSSOIdentityProviderRowRightContainer SSOIdp={SSOIdp} />
       )}
       hasFooter
-      footerButtonLabel={t`Tambah Penyedia Identitas SSO`}
+      footerButtonLabel={`Tambah Penyedia Identitas SSO`}
       onFooterButtonClick={() => navigate(SettingsPath.NewSSOIdentityProvider)}
     />
   );

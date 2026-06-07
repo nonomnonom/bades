@@ -2,7 +2,6 @@ import { styled } from '@linaria/react';
 
 import { EmailComposerFields } from '@/activities/emails/components/EmailComposerFields';
 import { useEmailComposerState } from '@/activities/emails/hooks/useEmailComposerState';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconArrowBackUp } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -64,7 +63,7 @@ export const EmailComposer = ({
       <StyledFooter>
         {composerState.exceedsRecipientLimit && (
           <StyledFooterWarning>
-            {t`Terlalu banyak penerima (${composerState.recipientCount}/${composerState.maxRecipients}).`}
+            {`Terlalu banyak penerima (${composerState.recipientCount}/${composerState.maxRecipients}).`}
           </StyledFooterWarning>
         )}
         <StyledFooterActions>
@@ -72,7 +71,7 @@ export const EmailComposer = ({
             <Button
               size="small"
               variant="secondary"
-              title={t`Batal`}
+              title={`Batal`}
               onClick={onClose}
             />
           )}
@@ -80,7 +79,7 @@ export const EmailComposer = ({
             size="small"
             variant="primary"
             accent="blue"
-            title={t`Kirim`}
+            title={`Kirim`}
             Icon={IconArrowBackUp}
             onClick={composerState.handleSend}
             disabled={!composerState.canSend}

@@ -8,7 +8,6 @@ import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/Gene
 import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormActionField';
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import camelCase from 'lodash.camelcase';
 import { type SelectOption } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -45,10 +44,10 @@ export const WorkflowFormFieldSettingsRecordPicker = ({
       <FormFieldInputContainer>
         <Select
           dropdownId="workflow-form-field-settings-record-picker-object-name"
-          label={t`Objek`}
+          label={`Objek`}
           fullWidth
           value={field.settings?.objectName}
-          emptyOption={{ label: t`Pilih opsi`, value: '' }}
+          emptyOption={{ label: `Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             onChange({
@@ -56,7 +55,7 @@ export const WorkflowFormFieldSettingsRecordPicker = ({
               placeholder: `Pilih ${
                 activeNonSystemObjectMetadataItems.find(
                   (item) => item.nameSingular === updatedObjectName,
-                )?.labelSingular || t`data`
+                )?.labelSingular || `data`
               }`,
               settings: {
                 ...field.settings,
@@ -70,7 +69,7 @@ export const WorkflowFormFieldSettingsRecordPicker = ({
         />
       </FormFieldInputContainer>
       <FormFieldInputContainer>
-        <InputLabel>{t`Nama Field`}</InputLabel>
+        <InputLabel>{`Nama Field`}</InputLabel>
         <FormTextFieldInput
           onChange={(newLabel: string) => {
             onChange({

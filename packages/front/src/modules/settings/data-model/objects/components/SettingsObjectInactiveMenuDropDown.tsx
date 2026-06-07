@@ -3,7 +3,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconArchiveOff, IconDotsVertical, IconTrash } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -40,7 +39,7 @@ export const SettingsObjectInactiveMenuDropDown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Opsi Objek Nonaktif`}
+          aria-label={`Opsi Objek Nonaktif`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -49,13 +48,13 @@ export const SettingsObjectInactiveMenuDropDown = ({
         <DropdownContent widthInPixels={GenericDropdownContentWidth.Narrow}>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Aktifkan`}
+              text={`Aktifkan`}
               LeftIcon={IconArchiveOff}
               onClick={handleActivate}
             />
             {isCustomObject && (
               <MenuItem
-                text={t`Hapus`}
+                text={`Hapus`}
                 LeftIcon={IconTrash}
                 accent="danger"
                 onClick={handleDelete}

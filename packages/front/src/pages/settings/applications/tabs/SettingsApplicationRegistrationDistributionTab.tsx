@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { CommandBlock, H2Title, IconCopy } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';
@@ -14,8 +13,6 @@ export const SettingsApplicationRegistrationDistributionTab = ({
 }: {
   registration: ApplicationRegistrationData;
 }) => {
-  const { t } = useLingui();
-
   const { copyToClipboard } = useCopyToClipboard();
 
   const isNpmSource =
@@ -34,8 +31,8 @@ export const SettingsApplicationRegistrationDistributionTab = ({
     <>
       <Section>
         <H2Title
-          title={t`Publik`}
-          description={t`Rilis aplikasi ke katalog internal Bades agar dapat dipasang di ruang kerja lain`}
+          title={`Publik`}
+          description={`Rilis aplikasi ke katalog internal Bades agar dapat dipasang di ruang kerja lain`}
         />
         {isNpmSource && (
           <SettingsApplicationRegistrationShareLinkButtons
@@ -52,10 +49,10 @@ export const SettingsApplicationRegistrationDistributionTab = ({
                 onClick={() => {
                   copyToClipboard(
                     publishCommands.join('\n'),
-                    t`Perintah disalin ke clipboard`,
+                    `Perintah disalin ke clipboard`,
                   );
                 }}
-                ariaLabel={t`Salin perintah`}
+                ariaLabel={`Salin perintah`}
                 Icon={IconCopy}
               />
             }
@@ -65,8 +62,8 @@ export const SettingsApplicationRegistrationDistributionTab = ({
       {isTarballSource && (
         <Section>
           <H2Title
-            title={t`Privat`}
-            description={t`Bagikan aplikasi ke ruang kerja lain tanpa merilis ke katalog`}
+            title={`Privat`}
+            description={`Bagikan aplikasi ke ruang kerja lain tanpa merilis ke katalog`}
           />
           <SettingsApplicationRegistrationShareLinkButtons
             shareLink={shareLink}

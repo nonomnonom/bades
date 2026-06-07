@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -39,7 +39,7 @@ export class FlatViewGroupValidatorService {
     if (!isDefined(existingFlatViewGroup)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View group to update not found`,
+        message: `View group to update not found`,
         userFriendlyMessage: msg`View group to update not found`,
       });
 
@@ -54,7 +54,7 @@ export class FlatViewGroupValidatorService {
     if (!isDefined(updatedFlatViewGroup.fieldValue)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`Field value is required`,
+        message: `Field value is required`,
         userFriendlyMessage: msg`Field value is required`,
       });
     }
@@ -72,7 +72,7 @@ export class FlatViewGroupValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View group to update parent view not found`,
+        message: `View group to update parent view not found`,
         userFriendlyMessage: msg`View group to update parent view not found`,
       });
     }
@@ -104,7 +104,7 @@ export class FlatViewGroupValidatorService {
     if (!isDefined(existingFlatViewGroup)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View group to delete not found`,
+        message: `View group to delete not found`,
         userFriendlyMessage: msg`View group to delete not found`,
       });
     }
@@ -142,7 +142,7 @@ export class FlatViewGroupValidatorService {
 
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View group metadata with universal identifier ${flatViewGroupUniversalIdentifier} already exists`,
+        message: `View group metadata with universal identifier ${flatViewGroupUniversalIdentifier} already exists`,
         userFriendlyMessage: msg`View group metadata already exists`,
       });
     }
@@ -155,7 +155,7 @@ export class FlatViewGroupValidatorService {
     if (!isDefined(flatView)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
 
@@ -165,7 +165,7 @@ export class FlatViewGroupValidatorService {
     if (!isDefined(flatViewGroupToValidate.fieldValue)) {
       validationResult.errors.push({
         code: ViewExceptionCode.INVALID_VIEW_DATA,
-        message: t`Field value is required`,
+        message: `Field value is required`,
         userFriendlyMessage: msg`Field value is required`,
       });
     }

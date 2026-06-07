@@ -3,7 +3,6 @@ import { useHeadlessCommandContextApi } from '@/command-menu-item/engine-command
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useDuplicateWorkflow } from '@/workflow/hooks/useDuplicateWorkflow';
 import { useWorkflowWithCurrentVersion } from '@/workflow/hooks/useWorkflowWithCurrentVersion';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AppPath, CoreObjectNameSingular } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -17,8 +16,6 @@ export const DuplicateWorkflowSingleRecordCommand = () => {
   const { duplicateWorkflow } = useDuplicateWorkflow();
   const navigate = useNavigateApp();
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
-  const { t } = useLingui();
-
   if (!isDefined(recordId)) {
     throw new Error('ID Rekaman diperlukan untuk menggandakan alur kerja');
   }
@@ -35,7 +32,7 @@ export const DuplicateWorkflowSingleRecordCommand = () => {
 
     if (isDefined(result) && isNonEmptyString(result.workflowId)) {
       enqueueSuccessSnackBar({
-        message: t`Alur kerja berhasil diduplikasi`,
+        message: `Alur kerja berhasil diduplikasi`,
       });
 
       navigate(AppPath.RecordShowPage, {
@@ -44,7 +41,7 @@ export const DuplicateWorkflowSingleRecordCommand = () => {
       });
     } else {
       enqueueErrorSnackBar({
-        message: t`Gagal menduplikasi alur kerja`,
+        message: `Gagal menduplikasi alur kerja`,
       });
     }
   };

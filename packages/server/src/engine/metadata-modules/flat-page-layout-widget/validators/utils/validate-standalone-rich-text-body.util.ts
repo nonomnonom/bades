@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -18,7 +18,7 @@ export const validateStandaloneRichTextBody = ({
   if (!isDefined(standaloneRichTextUniversalConfiguration.body)) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Body is required for standalone rich text widget "${widgetTitle}"`,
+      message: `Body is required for standalone rich text widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Body is required for standalone rich text widget`,
     });
 
@@ -31,7 +31,7 @@ export const validateStandaloneRichTextBody = ({
   ) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Body must be an object for widget "${widgetTitle}"`,
+      message: `Body must be an object for widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Body must be an object`,
       value: standaloneRichTextUniversalConfiguration.body,
     });

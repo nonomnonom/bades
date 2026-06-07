@@ -4,7 +4,6 @@ import { getStepDefinitionOrThrow } from '@/workflow/utils/getStepDefinitionOrTh
 import { WorkflowRunStepJsonContainer } from '@/workflow/workflow-steps/components/WorkflowRunStepJsonContainer';
 import { useWorkflowRunStepInfo } from '@/workflow/workflow-steps/hooks/useWorkflowRunStepInfo';
 import { getWorkflowRunStepInfoToDisplayAsOutput } from '@/workflow/workflow-steps/utils/getWorkflowRunStepInfoToDisplayAsOutput';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   type GetJsonNodeHighlighting,
@@ -14,7 +13,6 @@ import {
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 
 export const WorkflowRunStepOutputDetail = ({ stepId }: { stepId: string }) => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
 
   const workflowRunId = useWorkflowRunIdOrThrow();
@@ -51,13 +49,13 @@ export const WorkflowRunStepOutputDetail = ({ stepId }: { stepId: string }) => {
     <>
       <WorkflowRunStepJsonContainer>
         <JsonTree
-          value={stepInfoToDisplay ?? t`Tidak ada keluaran`}
+          value={stepInfoToDisplay ?? `Tidak ada keluaran`}
           shouldExpandNodeInitially={isTwoFirstDepths}
-          emptyArrayLabel={t`Array Kosong`}
-          emptyObjectLabel={t`Objek Kosong`}
-          emptyStringLabel={t`[teks kosong]`}
-          arrowButtonCollapsedLabel={t`Tampilkan`}
-          arrowButtonExpandedLabel={t`Ciutkan`}
+          emptyArrayLabel={`Array Kosong`}
+          emptyObjectLabel={`Objek Kosong`}
+          emptyStringLabel={`[teks kosong]`}
+          arrowButtonCollapsedLabel={`Tampilkan`}
+          arrowButtonExpandedLabel={`Ciutkan`}
           getNodeHighlighting={
             isDefined(stepInfo?.error)
               ? setRedHighlightingForEveryNode

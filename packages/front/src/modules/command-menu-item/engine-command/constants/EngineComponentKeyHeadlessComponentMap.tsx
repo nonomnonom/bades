@@ -42,7 +42,6 @@ import { SeeRunsWorkflowSingleRecordCommand } from '@/command-menu-item/engine-c
 import { SeeVersionsWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/SeeVersionsWorkflowSingleRecordCommand';
 import { TestWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/TestWorkflowSingleRecordCommand';
 import { TidyUpWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/TidyUpWorkflowSingleRecordCommand';
-import { msg } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { IconHistory, IconSearch, IconSparkles } from 'ui/display';
 import { EngineComponentKey } from '~/generated-metadata/graphql';
@@ -126,7 +125,7 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
   [EngineComponentKey.SEARCH_RECORDS]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.SearchRecords}
-      pageTitle={msg`Cari`}
+      pageTitle={`Cari`}
       pageIcon={IconSearch}
       shouldResetSearchState={true}
     />
@@ -134,21 +133,21 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
   [EngineComponentKey.SEARCH_RECORDS_FALLBACK]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.SearchRecords}
-      pageTitle={msg`Cari`}
+      pageTitle={`Cari`}
       pageIcon={IconSearch}
     />
   ),
   [EngineComponentKey.ASK_AI]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.AskAI}
-      pageTitle={msg`Tanya AI`}
+      pageTitle={`Tanya AI`}
       pageIcon={IconSparkles}
     />
   ),
   [EngineComponentKey.VIEW_PREVIOUS_AI_CHATS]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.ViewPreviousAiChats}
-      pageTitle={msg`Percakapan AI Sebelumnya`}
+      pageTitle={`Percakapan AI Sebelumnya`}
       pageIcon={IconHistory}
     />
   ),

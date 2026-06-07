@@ -1,4 +1,4 @@
-import { t, Trans } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { LazyMarkdownRenderer } from '@/ai/components/LazyMarkdownRenderer';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
@@ -120,9 +120,7 @@ export const SettingsApplicationDetailAboutTab = ({
   const hasScreenshots = isDefined(screenshots) && screenshots.length > 0;
 
   const markdownText =
-    aboutDescription ??
-    description ??
-    t`Tidak ada deskripsi untuk aplikasi ini`;
+    aboutDescription ?? description ?? `Tidak ada deskripsi untuk aplikasi ini`;
 
   const getActionButton = () => {
     if (!canInstallMarketplaceApps) {
@@ -133,7 +131,7 @@ export const SettingsApplicationDetailAboutTab = ({
       return (
         <Button
           Icon={IconDownload}
-          title={isInstalling ? t`Memasang...` : t`Pasang`}
+          title={isInstalling ? `Memasang...` : `Pasang`}
           variant={'primary'}
           accent={'blue'}
           onClick={onInstall}
@@ -148,8 +146,8 @@ export const SettingsApplicationDetailAboutTab = ({
           Icon={IconUpload}
           title={
             isUpgrading
-              ? t`Memperbarui...`
-              : t`Perbarui ke ${latestAvailableVersion}`
+              ? `Memperbarui...`
+              : `Perbarui ke ${latestAvailableVersion}`
           }
           variant={'secondary'}
           accent={'blue'}
@@ -163,7 +161,7 @@ export const SettingsApplicationDetailAboutTab = ({
       return (
         <Button
           Icon={IconTrash}
-          title={isUninstalling ? t`Menghapus...` : t`Hapus`}
+          title={isUninstalling ? `Menghapus...` : `Hapus`}
           variant={'secondary'}
           accent={'danger'}
           onClick={() => openModal(UNINSTALL_APPLICATION_MODAL_ID)}
@@ -175,7 +173,7 @@ export const SettingsApplicationDetailAboutTab = ({
     return (
       <Button
         Icon={IconCheck}
-        title={t`Terpasang`}
+        title={`Terpasang`}
         variant={'secondary'}
         accent={'default'}
         disabled={true}
@@ -219,7 +217,7 @@ export const SettingsApplicationDetailAboutTab = ({
           confirmationPlaceholder={confirmationValue}
           confirmationValue={confirmationValue}
           modalInstanceId={UNINSTALL_APPLICATION_MODAL_ID}
-          title={t`Hapus Aplikasi?`}
+          title={`Hapus Aplikasi?`}
           subtitle={
             <Trans>
               Ketik {`"${confirmationValue}"`} untuk mengonfirmasi bahwa Anda
@@ -227,7 +225,7 @@ export const SettingsApplicationDetailAboutTab = ({
             </Trans>
           }
           onConfirmClick={onUninstall}
-          confirmButtonText={t`Hapus`}
+          confirmButtonText={`Hapus`}
           loading={isUninstalling}
         />
       )}

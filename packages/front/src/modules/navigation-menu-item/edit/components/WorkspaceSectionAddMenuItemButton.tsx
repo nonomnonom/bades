@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import React from 'react';
 import { SidePanelPages } from 'shared/types';
 import { IconColumnInsertRight, IconPlus } from 'ui/display';
@@ -13,7 +12,6 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 
 export const WorkspaceSectionAddMenuItemButton = () => {
-  const { t } = useLingui();
   const { navigateSidePanel } = useNavigateSidePanel();
   const sidePanelPage = useAtomStateValue(sidePanelPageState);
   const [
@@ -31,7 +29,7 @@ export const WorkspaceSectionAddMenuItemButton = () => {
     setSelectedNavigationMenuItemIdInEditMode(null);
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`Item menu baru`,
+      pageTitle: `Item menu baru`,
       pageIcon: IconColumnInsertRight,
       resetNavigationStack: true,
     });
@@ -44,7 +42,7 @@ export const WorkspaceSectionAddMenuItemButton = () => {
   return (
     <NavigationDrawerItem
       Icon={IconPlus}
-      label={t`Tambah item menu`}
+      label={`Tambah item menu`}
       onClick={handleClick}
       triggerEvent="CLICK"
       variant="tertiary"

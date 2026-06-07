@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -21,7 +21,7 @@ export const validateIframeUrl = ({
   ) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`URL must be a string for widget "${widgetTitle}"`,
+      message: `URL must be a string for widget "${widgetTitle}"`,
       userFriendlyMessage: msg`URL must be a string`,
       value: iframeUniversalConfiguration.url,
     });

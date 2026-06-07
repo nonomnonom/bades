@@ -3,7 +3,6 @@ import { getSortLabelSuffixForFieldType } from '@/side-panel/pages/page-layout/u
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { getAggregateOperationLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationLabel';
 import { type ExtendedAggregateOperations } from '@/object-record/record-table/types/ExtendedAggregateOperations';
-import { t } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { type CompositeFieldSubFieldName } from 'shared/types';
 import { assertUnreachable, isDefined } from 'shared/utils';
@@ -52,7 +51,7 @@ export const useGraphXSortOptionLabels = ({
     const valueLabel =
       aggregateField?.label && isDefined(aggregateOperation)
         ? getAggregateOperationLabel(aggregateOperation)
-        : t`Nilai`;
+        : `Nilai`;
 
     const groupBySortLabelSuffix = getSortLabelSuffixForFieldType({
       fieldType: groupByField?.type,
@@ -74,7 +73,7 @@ export const useGraphXSortOptionLabels = ({
       case GraphOrderBy.VALUE_DESC:
         return `${valueLabel} ${aggregateSortLabelSuffix}`;
       case GraphOrderBy.MANUAL:
-        return t`Manual (susun sendiri)`;
+        return `Manual (susun sendiri)`;
       default:
         assertUnreachable(graphOrderBy);
     }

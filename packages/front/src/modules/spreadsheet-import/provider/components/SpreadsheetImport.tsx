@@ -8,8 +8,6 @@ import { SpreadsheetImportStepperContainer } from '@/spreadsheet-import/steps/co
 import { type SpreadsheetImportDialogOptions as SpreadsheetImportProps } from '@/spreadsheet-import/types';
 import { useDialogManager } from '@/ui/feedback/dialog-manager/hooks/useDialogManager';
 import { useStepBar } from '@/ui/navigation/step-bar/hooks/useStepBar';
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 export const defaultSpreadsheetImportProps: Partial<SpreadsheetImportProps> = {
   autoMapHeaders: true,
   allowInvalidSubmit: true,
@@ -44,8 +42,6 @@ export const SpreadsheetImport = (props: SpreadsheetImportProps) => {
     initialStep,
   });
 
-  const { t } = useLingui();
-
   const confirmOnClose = () => {
     if (activeStep < 1) {
       mergedProps.onClose();
@@ -53,12 +49,12 @@ export const SpreadsheetImport = (props: SpreadsheetImportProps) => {
     }
 
     enqueueDialog({
-      title: t`Keluar dari proses impor`,
-      message: t`Yakin ingin keluar? Data yang sudah dimasukkan tidak akan disimpan.`,
+      title: `Keluar dari proses impor`,
+      message: `Yakin ingin keluar? Data yang sudah dimasukkan tidak akan disimpan.`,
       buttons: [
-        { title: t`Batal` },
+        { title: `Batal` },
         {
-          title: t`Keluar`,
+          title: `Keluar`,
           onClick: mergedProps.onClose,
           accent: 'danger',
           role: 'confirm',

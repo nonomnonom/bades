@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'react-router-dom';
@@ -21,14 +20,14 @@ const makeValidationSchema = (signInUpStep: SignInUpStep) =>
       email: z
         .string()
         .trim()
-        .pipe(z.email({ error: t`Email harus berformat valid` })),
+        .pipe(z.email({ error: `Email harus berformat valid` })),
       password:
         signInUpStep === SignInUpStep.Password
           ? z
               .string()
               .regex(
                 PASSWORD_REGEX,
-                t`Kata sandi harus antara 8 dan 50 karakter`,
+                `Kata sandi harus antara 8 dan 50 karakter`,
               )
           : z.string().optional(),
       captchaToken: z.string().default(''),

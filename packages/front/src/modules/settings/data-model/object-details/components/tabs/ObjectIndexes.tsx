@@ -1,5 +1,4 @@
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { SettingsObjectIndexTable } from '~/pages/settings/data-model/SettingsObjectIndexTable';
@@ -12,8 +11,8 @@ export const ObjectIndexes = ({ objectMetadataItem }: ObjectIndexesProps) => {
   return (
     <Section>
       <H2Title
-        title={t`Indeks`}
-        description={t`Fitur lanjutan untuk meningkatkan performa kueri dan menerapkan batasan keunikan data.`}
+        title={`Indeks`}
+        description={`Fitur lanjutan untuk meningkatkan performa kueri dan menerapkan batasan keunikan data.`}
       />
       <SettingsObjectIndexTable objectMetadataItem={objectMetadataItem} />
     </Section>

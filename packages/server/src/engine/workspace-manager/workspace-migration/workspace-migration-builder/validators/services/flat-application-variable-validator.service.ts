@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
@@ -34,7 +34,7 @@ export class FlatApplicationVariableValidatorService {
     if (!isNonEmptyString(flatApplicationVariable.key)) {
       validationResult.errors.push({
         code: ApplicationVariableEntityExceptionCode.INVALID_APPLICATION_VARIABLE_INPUT,
-        message: t`Application variable key is required`,
+        message: `Application variable key is required`,
         userFriendlyMessage: msg`Application variable key is required`,
       });
     }
@@ -52,7 +52,7 @@ export class FlatApplicationVariableValidatorService {
     if (isDefined(existingVariableWithSameKey)) {
       validationResult.errors.push({
         code: ApplicationVariableEntityExceptionCode.INVALID_APPLICATION_VARIABLE_INPUT,
-        message: t`Application variable key must be unique`,
+        message: `Application variable key must be unique`,
         userFriendlyMessage: msg`Application variable key must be unique`,
       });
     }
@@ -85,7 +85,7 @@ export class FlatApplicationVariableValidatorService {
     if (!isDefined(existingVariable)) {
       validationResult.errors.push({
         code: ApplicationVariableEntityExceptionCode.APPLICATION_VARIABLE_NOT_FOUND,
-        message: t`Application variable not found`,
+        message: `Application variable not found`,
         userFriendlyMessage: msg`Application variable not found`,
       });
     }
@@ -117,7 +117,7 @@ export class FlatApplicationVariableValidatorService {
     if (!isDefined(fromFlatApplicationVariable)) {
       validationResult.errors.push({
         code: ApplicationVariableEntityExceptionCode.APPLICATION_VARIABLE_NOT_FOUND,
-        message: t`Application variable not found`,
+        message: `Application variable not found`,
         userFriendlyMessage: msg`Application variable not found`,
       });
     }

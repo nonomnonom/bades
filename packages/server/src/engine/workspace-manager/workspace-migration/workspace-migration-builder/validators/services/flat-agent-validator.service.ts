@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -90,7 +90,7 @@ export class FlatAgentValidatorService {
     if (!isDefined(existingAgent)) {
       validationResult.errors.push({
         code: AiExceptionCode.AGENT_NOT_FOUND,
-        message: t`Agent not found`,
+        message: `Agent not found`,
         userFriendlyMessage: msg`Agent not found`,
       });
 
@@ -107,7 +107,7 @@ export class FlatAgentValidatorService {
     ) {
       validationResult.errors.push({
         code: AiExceptionCode.AGENT_IS_STANDARD,
-        message: t`Cannot delete standard agent`,
+        message: `Cannot delete standard agent`,
         userFriendlyMessage: msg`Cannot delete standard agent`,
       });
     }
@@ -141,7 +141,7 @@ export class FlatAgentValidatorService {
     if (!isDefined(fromFlatAgent)) {
       validationResult.errors.push({
         code: AiExceptionCode.AGENT_NOT_FOUND,
-        message: t`Agent not found`,
+        message: `Agent not found`,
         userFriendlyMessage: msg`Agent not found`,
       });
 
@@ -158,7 +158,7 @@ export class FlatAgentValidatorService {
     ) {
       validationResult.errors.push({
         code: AiExceptionCode.AGENT_IS_STANDARD,
-        message: t`Cannot update standard agent`,
+        message: `Cannot update standard agent`,
         userFriendlyMessage: msg`Cannot update standard agent`,
       });
     }

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -42,7 +41,7 @@ export const FormFilesFieldInput = ({
         : undefined;
 
   const editor = useTextVariableEditor({
-    placeholder: placeholder ?? t`Masukkan berkas sebagai array JSON`,
+    placeholder: placeholder ?? `Masukkan berkas sebagai array JSON`,
     multiline: true,
     readonly,
     defaultValue: stringDefaultValue,

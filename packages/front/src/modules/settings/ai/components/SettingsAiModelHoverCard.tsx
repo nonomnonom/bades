@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { Chip, ChipAccent, ChipSize, ChipVariant } from 'ui/components';
 import {
@@ -81,7 +80,7 @@ export const SettingsAiModelHoverCard = ({
   const items: HoverCardItem[] = [
     {
       Icon: IconTag,
-      label: t`Nama`,
+      label: `Nama`,
       value: (
         <StyledChipContainer>
           <Chip
@@ -103,7 +102,7 @@ export const SettingsAiModelHoverCard = ({
     },
     {
       Icon: IconBuildingSkyscraper,
-      label: t`Penyedia`,
+      label: `Penyedia`,
       value: <StyledValueText>{providerLabel}</StyledValueText>,
     },
     ...(isDefined(model.inputCostPerMillionTokens) ||
@@ -111,7 +110,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconUsers,
-            label: t`Biaya per 1 juta token`,
+            label: `Biaya per 1 juta token`,
             value: (
               <StyledValueText>
                 {formatCost(
@@ -127,7 +126,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconWindow,
-            label: t`Konteks`,
+            label: `Konteks`,
             value: (
               <StyledValueText>
                 {`${formatNumber(model.contextWindowTokens, {
@@ -143,7 +142,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconBolt,
-            label: t`Maks. output`,
+            label: `Maks. output`,
             value: (
               <StyledValueText>
                 {`${formatNumber(model.maxOutputTokens, {
@@ -159,7 +158,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconFlag,
-            label: t`Lokasi data`,
+            label: `Lokasi data`,
             value: (
               <StyledValueText>
                 {getDataResidencyDisplay(model.dataResidency)}

@@ -17,7 +17,6 @@ import { TableHeaderText } from '@/ui/layout/table/components/TableHeaderText';
 import { sortedFieldByTableFamilyState } from '@/ui/layout/table/states/sortedFieldByTableFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isNonEmptyArray } from 'shared/utils';
 import { H2Title, IconSearch } from 'ui/display';
@@ -44,7 +43,6 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
   objectMetadataItem,
   roleId,
 }: SettingsRolePermissionsObjectLevelObjectFieldPermissionTableProps) => {
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
 
   const sortedFieldByTable = useAtomFamilyStateValue(
@@ -97,14 +95,14 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
   return (
     <Section>
       <H2Title
-        title={t`Izin Kolom`}
-        description={t`Kemampuan berinteraksi dengan kolom-kolom objek ini.`}
+        title={`Izin Kolom`}
+        description={`Kemampuan berinteraksi dengan kolom-kolom objek ini.`}
       />
       <StyledSearchInputContainer>
         <SettingsTextInput
           instanceId="object-field-table-search"
           LeftIcon={IconSearch}
-          placeholder={t`Cari kolom...`}
+          placeholder={`Cari kolom...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -115,25 +113,25 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
         >
           <SortableTableHeader
             fieldName="label"
-            label={t`Nama`}
+            label={`Nama`}
             tableId={
               SETTINGS_ROLE_PERMISSION_OBJECT_LEVEL_FIELD_PERMISSION_TABLE_ID
             }
             initialSort={{ fieldName: 'label', orderBy: 'AscNullsFirst' }}
           />
           <TableHeader>
-            <TableHeaderText>{t`Tipe data`}</TableHeaderText>
+            <TableHeaderText>{`Tipe data`}</TableHeaderText>
           </TableHeader>
           <>
             {shouldShowEmptyTableHeader && <TableHeader />}
             {shouldShowSeeTableHeader && (
               <TableHeader>
-                <TableHeaderText>{t`Lihat`}</TableHeaderText>
+                <TableHeaderText>{`Lihat`}</TableHeaderText>
               </TableHeader>
             )}
             {shouldShowUpdateTableHeader && (
               <TableHeader>
-                <TableHeaderText>{t`Ubah`}</TableHeaderText>
+                <TableHeaderText>{`Ubah`}</TableHeaderText>
               </TableHeader>
             )}
           </>

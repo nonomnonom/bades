@@ -5,7 +5,6 @@ import { SSOIdentitiesProvidersState } from '@/settings/security/states/SSOIdent
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { ConnectedAccountProvider } from 'shared/types';
 import { capitalize } from 'shared/utils';
@@ -28,8 +27,6 @@ const StyledSettingsSecurityOptionsList = styled.div`
 `;
 
 export const SettingsSecurityAuthProvidersOptionsList = () => {
-  const { t } = useLingui();
-
   const { enqueueErrorSnackBar } = useSnackBar();
   const SSOIdentitiesProviders = useAtomStateValue(SSOIdentitiesProvidersState);
   const authProviders = useAtomStateValue(authProvidersState);
@@ -51,13 +48,13 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
     authProvider: keyof Omit<AuthProviders, '__typename' | 'magicLink' | 'sso'>,
   ) => {
     if (!currentWorkspace?.id) {
-      throw new Error(t`Pengguna belum masuk`);
+      throw new Error(`Pengguna belum masuk`);
     }
 
     const key = `is${capitalize(authProvider)}AuthEnabled`;
 
     if (!isValidAuthProvider(key)) {
-      throw new Error(t`Penyedia autentikasi tidak valid`);
+      throw new Error(`Penyedia autentikasi tidak valid`);
     }
 
     const allAuthProvidersEnabled = [
@@ -73,7 +70,7 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
         1
     ) {
       return enqueueErrorSnackBar({
-        message: t`Setidaknya satu metode autentikasi harus diaktifkan`,
+        message: `Setidaknya satu metode autentikasi harus diaktifkan`,
       });
     }
 
@@ -103,7 +100,7 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
   const handleChange = async (value: boolean) => {
     try {
       if (!currentWorkspace?.id) {
-        throw new Error(t`Pengguna belum masuk`);
+        throw new Error(`Pengguna belum masuk`);
       }
       await updateWorkspace({
         variables: {
@@ -131,8 +128,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
             {authProviders.google === true && (
               <SettingsOptionCardContentToggle
                 Icon={IconGoogle}
-                title={t`Google`}
-                description={t`Izinkan masuk melalui fitur single sign-on Google.`}
+                title={`Google`}
+                description={`Izinkan masuk melalui fitur single sign-on Google.`}
                 checked={currentWorkspace.isGoogleAuthEnabled}
                 advancedMode
                 divider
@@ -144,8 +141,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
             {authProviders.microsoft === true && (
               <SettingsOptionCardContentToggle
                 Icon={IconMicrosoft}
-                title={t`Microsoft`}
-                description={t`Izinkan masuk melalui fitur single sign-on Microsoft.`}
+                title={`Microsoft`}
+                description={`Izinkan masuk melalui fitur single sign-on Microsoft.`}
                 checked={currentWorkspace.isMicrosoftAuthEnabled}
                 advancedMode
                 divider
@@ -157,8 +154,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
             {authProviders.password === true && (
               <SettingsOptionCardContentToggle
                 Icon={IconPassword}
-                title={t`Kata Sandi`}
-                description={t`Izinkan pengguna masuk dengan email dan kata sandi.`}
+                title={`Kata Sandi`}
+                description={`Izinkan pengguna masuk dengan email dan kata sandi.`}
                 checked={currentWorkspace.isPasswordAuthEnabled}
                 advancedMode
                 onChange={() => toggleAuthMethod('password')}
@@ -168,8 +165,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
           <Card rounded>
             <SettingsOptionCardContentToggle
               Icon={IconLink}
-              title={t`Undang via Tautan`}
-              description={t`Izinkan undangan pengguna baru dengan berbagi tautan undangan.`}
+              title={`Undang via Tautan`}
+              description={`Izinkan undangan pengguna baru dengan berbagi tautan undangan.`}
               checked={currentWorkspace.isPublicInviteLinkEnabled}
               advancedMode
               divider

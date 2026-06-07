@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useMemo, useState } from 'react';
 import { Key } from 'ts-key-enum';
 
@@ -160,7 +159,7 @@ export const ObjectFilterDropdownOptionSelect = ({
     >
       <DropdownMenuItemsContainer hasMaxHeight>
         {showNoResult ? (
-          <MenuItem text={t`Tidak ada hasil`} />
+          <MenuItem text={`Tidak ada hasil`} />
         ) : (
           optionsInDropdown?.map((option) => (
             <MenuItemMultiSelect

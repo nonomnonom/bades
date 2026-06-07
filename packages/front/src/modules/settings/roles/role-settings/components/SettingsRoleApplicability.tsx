@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { H2Title, IconKey, IconRobot, IconUsers } from 'ui/display';
 import { Checkbox } from 'ui/input';
 import { Section } from 'ui/layout';
@@ -53,25 +51,25 @@ export const SettingsRoleApplicability = ({
   const options = [
     {
       key: 'canBeAssignedToUsers' as const,
-      label: t`Dapat ditetapkan ke Anggota Ruang Kerja`,
+      label: `Dapat ditetapkan ke Anggota Ruang Kerja`,
       Icon: IconUsers,
     },
     {
       key: 'canBeAssignedToAgents' as const,
-      label: t`Dapat ditetapkan ke Agen`,
+      label: `Dapat ditetapkan ke Agen`,
       Icon: IconRobot,
     },
     {
       key: 'canBeAssignedToApiKeys' as const,
-      label: t`Dapat ditetapkan ke Kunci API`,
+      label: `Dapat ditetapkan ke Kunci API`,
       Icon: IconKey,
     },
   ];
   return (
     <Section>
       <H2Title
-        title={t`Penerapan`}
-        description={t`Kontrol jenis entitas yang dapat menerima peran ini`}
+        title={`Penerapan`}
+        description={`Kontrol jenis entitas yang dapat menerima peran ini`}
       />
       <div>
         {options.map((option) => (

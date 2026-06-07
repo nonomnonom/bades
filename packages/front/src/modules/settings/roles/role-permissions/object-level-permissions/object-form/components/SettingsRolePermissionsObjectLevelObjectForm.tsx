@@ -8,7 +8,6 @@ import { SettingsRolePermissionsObjectLevelRecordLevelSection } from '@/settings
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { useSearchParams } from 'react-router-dom';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { SettingsPath } from 'shared/types';
@@ -73,7 +72,7 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
     fromAgentId && isDefined(agent)
       ? [
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
@@ -87,20 +86,20 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
             }),
           },
           {
-            children: t`Izin · ${objectLabelSingular}`,
+            children: `Izin · ${objectLabelSingular}`,
           },
         ]
       : [
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Anggota`,
+            children: `Anggota`,
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
           {
-            children: t`Peran`,
+            children: `Peran`,
             href: getSettingsPath(SettingsPath.Roles),
           },
           {
@@ -110,7 +109,7 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
             }),
           },
           {
-            children: t`Izin · ${objectLabelSingular}`,
+            children: `Izin · ${objectLabelSingular}`,
           },
         ];
 
@@ -139,11 +138,11 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
 
   return (
     <SubMenuTopBarContainer
-      title={t`2. Atur izin ${objectLabelPlural}`}
+      title={`2. Atur izin ${objectLabelPlural}`}
       links={breadcrumbLinks}
       actionButton={
         <Button
-          title={t`Selesai`}
+          title={`Selesai`}
           variant="secondary"
           size="small"
           accent="blue"

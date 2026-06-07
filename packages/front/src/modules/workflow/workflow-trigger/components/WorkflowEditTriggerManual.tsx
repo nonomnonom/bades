@@ -11,7 +11,6 @@ import { MANUAL_TRIGGER_AVAILABILITY_TYPE_OPTIONS } from '@/workflow/workflow-tr
 import { MANUAL_TRIGGER_IS_PINNED_OPTIONS } from '@/workflow/workflow-trigger/constants/ManualTriggerIsPinnedOptions';
 import { getManualTriggerDefaultSettings } from '@/workflow/workflow-trigger/utils/getManualTriggerDefaultSettings';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { QUERY_MAX_RECORDS } from 'shared/constants';
 import { isDefined } from 'shared/utils';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
@@ -54,8 +53,6 @@ export const WorkflowEditTriggerManual = ({
   trigger,
   triggerOptions,
 }: WorkflowEditTriggerManualProps) => {
-  const { t } = useLingui();
-
   const { getIcon } = useIcons();
   const { getSelectIconPropsFromObjectMetadataItem } =
     useObjectMetadataSelectHelpers();
@@ -74,9 +71,9 @@ export const WorkflowEditTriggerManual = ({
   const availability = trigger.settings.availability;
 
   const availabilityDescriptions = {
-    SINGLE_RECORD: t`Data yang dipilih akan diteruskan ke alur kerja`,
-    BULK_RECORDS: t`Data yang dipilih (hingga ${maxRecordsFormatted}) akan diteruskan ke alur kerja`,
-    GLOBAL: t`Tidak perlu memilih data untuk menjalankan alur kerja ini`,
+    SINGLE_RECORD: `Data yang dipilih akan diteruskan ke alur kerja`,
+    BULK_RECORDS: `Data yang dipilih (hingga ${maxRecordsFormatted}) akan diteruskan ke alur kerja`,
+    GLOBAL: `Tidak perlu memilih data untuk menjalankan alur kerja ini`,
   };
 
   return (
@@ -84,7 +81,7 @@ export const WorkflowEditTriggerManual = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-manual-trigger-availability"
-          label={t`Ketersediaan`}
+          label={`Ketersediaan`}
           description={
             availability?.type
               ? availabilityDescriptions[availability.type]
@@ -117,8 +114,8 @@ export const WorkflowEditTriggerManual = ({
         availability?.type === 'BULK_RECORDS' ? (
           <Select
             dropdownId="workflow-edit-manual-trigger-object"
-            label={t`Objek`}
-            description={t`Pada objek mana pemicu ini tersedia`}
+            label={`Objek`}
+            description={`Pada objek mana pemicu ini tersedia`}
             fullWidth
             value={availability?.objectNameSingular}
             options={availableMetadata}
@@ -165,7 +162,7 @@ export const WorkflowEditTriggerManual = ({
                 }
               }}
             >
-              <StyledLabel>{t`Ikon Perintah`}</StyledLabel>
+              <StyledLabel>{`Ikon Perintah`}</StyledLabel>
               <SelectControl
                 isDisabled={triggerOptions.readonly}
                 selectedOption={{
@@ -174,7 +171,7 @@ export const WorkflowEditTriggerManual = ({
                   label: '',
                 }}
               />
-              <StyledDescription>{t`Ikon yang ditampilkan pemicu alur kerja di menu perintah`}</StyledDescription>
+              <StyledDescription>{`Ikon yang ditampilkan pemicu alur kerja di menu perintah`}</StyledDescription>
             </StyledIconPickerContainer>
           }
           onChange={({ iconKey }) => {
@@ -194,8 +191,8 @@ export const WorkflowEditTriggerManual = ({
 
         <Select
           dropdownId="workflow-edit-manual-trigger-navbar"
-          label={t`Bilah Atas`}
-          description={t`Tampilkan tombol di bilah atas untuk menjalankan alur kerja ini`}
+          label={`Bilah Atas`}
+          description={`Tampilkan tombol di bilah atas untuk menjalankan alur kerja ini`}
           fullWidth
           value={trigger.settings.isPinned}
           options={MANUAL_TRIGGER_IS_PINNED_OPTIONS}

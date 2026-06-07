@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { RUN_EVALUATION_INPUT } from '@/ai/graphql/mutations/runEvaluationInput';
 import { GET_AGENT_TURNS } from '@/ai/graphql/queries/getAgentTurns';
 import { SettingsListCard } from '@/settings/components/SettingsListCard';
@@ -84,7 +83,7 @@ export const SettingsAgentEvalsTab = ({
     },
     onError: () => {
       enqueueErrorSnackBar({
-        message: t`Gagal menjalankan input evaluasi`,
+        message: `Gagal menjalankan input evaluasi`,
       });
     },
     refetchQueries: [getOperationName(GET_AGENT_TURNS) ?? ''],
@@ -132,7 +131,7 @@ export const SettingsAgentEvalsTab = ({
       <Section>
         <StyledInputContainer>
           <TextInput
-            placeholder={t`Tambah input uji evaluasi (mis., "Tampilkan semua warga di Dusun Barat")`}
+            placeholder={`Tambah input uji evaluasi (mis., "Tampilkan semua warga di Dusun Barat")`}
             value={newInput}
             onChange={setNewInput}
             onKeyDown={(e) => {
@@ -149,7 +148,7 @@ export const SettingsAgentEvalsTab = ({
             variant="primary"
             accent="blue"
             size="small"
-            title={t`Tambah`}
+            title={`Tambah`}
             onClick={handleAddInput}
             disabled={disabled || !newInput.trim()}
           />
@@ -176,13 +175,13 @@ export const SettingsAgentEvalsTab = ({
                     <DropdownMenuItemsContainer>
                       <MenuItem
                         LeftIcon={IconPlayerPlay}
-                        text={t`Jalankan`}
+                        text={`Jalankan`}
                         onClick={() => handleRunInput(item.text, item.id)}
                       />
                       <MenuItem
                         accent="danger"
                         LeftIcon={IconTrash}
-                        text={t`Hapus`}
+                        text={`Hapus`}
                         onClick={() => openDeleteModal(item.id)}
                       />
                     </DropdownMenuItemsContainer>
@@ -193,16 +192,16 @@ export const SettingsAgentEvalsTab = ({
             hasFooter={false}
           />
         ) : (
-          <StyledEmptyMessage>{t`Belum ada input evaluasi. Tambahkan input uji pertama di atas.`}</StyledEmptyMessage>
+          <StyledEmptyMessage>{`Belum ada input evaluasi. Tambahkan input uji pertama di atas.`}</StyledEmptyMessage>
         )}
       </Section>
 
       <ConfirmationModal
         modalInstanceId={DELETE_EVAL_INPUT_MODAL_ID}
-        title={t`Hapus Input Evaluasi`}
-        subtitle={t`Yakin ingin menghapus input evaluasi ini?`}
+        title={`Hapus Input Evaluasi`}
+        subtitle={`Yakin ingin menghapus input evaluasi ini?`}
         onConfirmClick={handleDeleteInput}
-        confirmButtonText={t`Hapus`}
+        confirmButtonText={`Hapus`}
       />
     </>
   );

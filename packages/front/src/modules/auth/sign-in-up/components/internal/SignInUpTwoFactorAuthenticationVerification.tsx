@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { useAuth } from '@/auth/hooks/useAuth';
@@ -13,7 +14,6 @@ import {
 import { useReadCaptchaToken } from '@/captcha/hooks/useReadCaptchaToken';
 import { useCaptcha } from '@/client-config/hooks/useCaptcha';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { OTPInput, type SlotProps } from 'input-otp';
 import { useState } from 'react';
 import { Controller } from 'react-hook-form';
@@ -185,8 +185,6 @@ export const SignInUpTOTPVerification = () => {
   const { isCaptchaReady } = useCaptcha();
   const loginToken = useAtomStateValue(loginTokenState);
   const setSignInUpStep = useSetAtomState(signInUpStepState);
-  const { t } = useLingui();
-
   const { form } = useTwoFactorAuthenticationForm();
 
   const submitOTP = async (values: OTPFormValues) => {
@@ -194,7 +192,7 @@ export const SignInUpTOTPVerification = () => {
     try {
       if (!isCaptchaReady) {
         enqueueErrorSnackBar({
-          message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
+          message: `Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
         });
         setIsLoading(false);
         return;
@@ -211,7 +209,7 @@ export const SignInUpTOTPVerification = () => {
       form.setValue('otp', '');
 
       enqueueErrorSnackBar({
-        message: t`Kode verifikasi tidak valid. Silakan coba lagi.`,
+        message: `Kode verifikasi tidak valid. Silakan coba lagi.`,
         options: {
           dedupeKey: 'invalid-otp-dedupe-key',
         },
@@ -271,7 +269,7 @@ export const SignInUpTOTPVerification = () => {
         />
       </StyledMainContentContainer>
       <MainButton
-        title={t`Kirim`}
+        title={`Kirim`}
         type="submit"
         variant="primary"
         fullWidth

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client/react';
@@ -90,22 +89,22 @@ export const SettingsAdminUserDetail = () => {
   const userInfoItems = [
     {
       Icon: IconUser,
-      label: t`Nama`,
+      label: `Nama`,
       value: userFullName,
     },
     {
       Icon: IconMail,
-      label: t`Surel`,
+      label: `Surel`,
       value: user?.email,
     },
     {
       Icon: IconId,
-      label: t`ID`,
+      label: `ID`,
       value: user?.id,
     },
     {
       Icon: IconCalendar,
-      label: t`Dibuat`,
+      label: `Dibuat`,
       value: user?.createdAt
         ? new Date(user.createdAt).toLocaleDateString()
         : '',
@@ -122,11 +121,11 @@ export const SettingsAdminUserDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Umum`,
+          children: `Panel Admin - Umum`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
@@ -139,8 +138,8 @@ export const SettingsAdminUserDetail = () => {
           <>
             <Section>
               <H2Title
-                title={t`Info Pengguna`}
-                description={t`Tentang pengguna ini`}
+                title={`Info Pengguna`}
+                description={`Tentang pengguna ini`}
               />
               <SettingsTableCard
                 items={userInfoItems}
@@ -150,8 +149,8 @@ export const SettingsAdminUserDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Ruang Kerja`}
-                description={t`Semua ruang kerja tempat pengguna ini menjadi anggota`}
+                title={`Ruang Kerja`}
+                description={`Semua ruang kerja tempat pengguna ini menjadi anggota`}
               />
               <TabList
                 tabs={tabs}
@@ -173,8 +172,8 @@ export const SettingsAdminUserDetail = () => {
                       accent="default"
                       title={
                         activeWorkspace.allowImpersonation === false
-                          ? t`Peniruan identitas dinonaktifkan untuk ruang kerja ini`
-                          : t`Tiru identitas`
+                          ? `Peniruan identitas dinonaktifkan untuk ruang kerja ini`
+                          : `Tiru identitas`
                       }
                       onClick={() =>
                         handleImpersonate(user.id, activeWorkspace.id)

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -70,8 +69,8 @@ export const FormNumberFieldInput = ({
 
   const persistNumber = (newValue: string) => {
     if (!canBeCastAsNumberOrNull(newValue)) {
-      setErrorMessage(t`Angka tidak valid`);
-      onError?.(t`Angka tidak valid`);
+      setErrorMessage(`Angka tidak valid`);
+      onError?.(`Angka tidak valid`);
       return;
     }
 
@@ -113,7 +112,7 @@ export const FormNumberFieldInput = ({
               placeholder={
                 isDefined(placeholder) && !isEmpty(placeholder)
                   ? placeholder
-                  : t`Masukkan angka`
+                  : `Masukkan angka`
               }
               value={draftValue.value}
               copyButton={false}

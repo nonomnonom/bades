@@ -6,7 +6,6 @@ import { type HttpRequestFormData } from '@/workflow/workflow-steps/workflow-act
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { httpRequestTestDataFamilyState } from '@/workflow/workflow-steps/workflow-actions/http-request-action/states/httpRequestTestDataFamilyState';
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -74,7 +73,7 @@ export const HttpRequestTestVariableInput = ({
           <FormTextFieldInput
             key={variablePath}
             label={`${variablePath}`}
-            placeholder={t`Masukkan nilai uji coba`}
+            placeholder={`Masukkan nilai uji coba`}
             readonly={readonly}
             defaultValue={
               httpRequestTestData.variableValues[variablePath] || ''

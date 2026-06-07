@@ -1,5 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
-
+import { Trans } from '~/utils/i18n/badesI18n';
 import { type AiChatThreadActionsSurface } from '@/ai/types/AiChatThreadActionsSurface';
 import { useDeleteChatThread } from '@/ai/hooks/useDeleteChatThread';
 import { aiChatThreadPendingDeleteFamilyState } from '@/ai/states/aiChatThreadPendingDeleteFamilyState';
@@ -15,7 +14,6 @@ type AiChatThreadDeleteConfirmationModalProps = {
 export const AiChatThreadDeleteConfirmationModal = ({
   surface,
 }: AiChatThreadDeleteConfirmationModalProps) => {
-  const { t } = useLingui();
   const { deleteChatThread } = useDeleteChatThread();
   const aiChatThreadPendingDelete = useAtomFamilyStateValue(
     aiChatThreadPendingDeleteFamilyState,
@@ -38,7 +36,7 @@ export const AiChatThreadDeleteConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={modalInstanceId}
-      title={t`Hapus obrolan`}
+      title={`Hapus obrolan`}
       subtitle={
         <Trans>
           <strong>{aiChatThreadPendingDelete?.threadTitle ?? ''}</strong> dan
@@ -47,7 +45,7 @@ export const AiChatThreadDeleteConfirmationModal = ({
       }
       onConfirmClick={handleDelete}
       onClose={() => setAiChatThreadPendingDelete(null)}
-      confirmButtonText={t`Hapus`}
+      confirmButtonText={`Hapus`}
       confirmButtonAccent="danger"
     />
   );

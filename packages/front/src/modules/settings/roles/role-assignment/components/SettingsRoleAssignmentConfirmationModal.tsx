@@ -2,8 +2,6 @@ import { SettingsRoleAssignmentConfirmationModalSubtitle } from '@/settings/role
 import { ROLE_ASSIGNMENT_CONFIRMATION_MODAL_ID } from '@/settings/roles/role-assignment/constants/RoleAssignmentConfirmationModalId';
 import { type SettingsRoleAssignmentConfirmationModalSelectedRoleTarget } from '@/settings/roles/role-assignment/types/SettingsRoleAssignmentConfirmationModalSelectedRoleTarget';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { t } from '~/utils/i18n/badesI18n';
-
 type SettingsRoleAssignmentConfirmationModalProps = {
   selectedRoleTarget: SettingsRoleAssignmentConfirmationModalSelectedRoleTarget;
   onClose: () => void;
@@ -21,7 +19,7 @@ export const SettingsRoleAssignmentConfirmationModal = ({
 }: SettingsRoleAssignmentConfirmationModalProps) => {
   const roleTargetName = selectedRoleTarget.name;
 
-  const title = t`Tetapkan ${roleTargetName}?`;
+  const title = `Tetapkan ${roleTargetName}?`;
 
   return (
     <ConfirmationModal
@@ -34,12 +32,12 @@ export const SettingsRoleAssignmentConfirmationModal = ({
             onRoleClick={onRoleClick}
           />
         ) : (
-          t`${roleTargetName} akan ditetapkan ke peran "${newRoleName}".`
+          `${roleTargetName} akan ditetapkan ke peran "${newRoleName}".`
         )
       }
       onClose={onClose}
       onConfirmClick={onConfirm}
-      confirmButtonText={t`Konfirmasi`}
+      confirmButtonText={`Konfirmasi`}
       confirmButtonAccent="danger"
     />
   );

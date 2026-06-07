@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SubTitle } from '@/auth/components/SubTitle';
 import { Title } from '@/auth/components/Title';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
@@ -61,7 +61,6 @@ const validationSchema = z.object({
 type FormInput = z.infer<typeof validationSchema>;
 
 export const InviteTeam = () => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const { enqueueSuccessSnackBar } = useSnackBar();
   const { sendInvitation } = useCreateWorkspaceInvitation();
@@ -117,7 +116,7 @@ export const InviteTeam = () => {
   const copyInviteLink = () => {
     if (isDefined(currentWorkspace?.inviteHash)) {
       const inviteLink = `${window.location.origin}/invite/${currentWorkspace?.inviteHash}`;
-      copyToClipboard(inviteLink, t`Tautan berhasil disalin`);
+      copyToClipboard(inviteLink, `Tautan berhasil disalin`);
     }
   };
 
@@ -139,7 +138,7 @@ export const InviteTeam = () => {
 
       if (emails.length > 0) {
         enqueueSuccessSnackBar({
-          message: t`Tautan undangan telah dikirim ke alamat email`,
+          message: `Tautan undangan telah dikirim ke alamat email`,
           options: {
             duration: 2000,
           },
@@ -148,7 +147,7 @@ export const InviteTeam = () => {
 
       setNextOnboardingStatus();
     },
-    [enqueueSuccessSnackBar, sendInvitation, setNextOnboardingStatus, t],
+    [enqueueSuccessSnackBar, sendInvitation, setNextOnboardingStatus],
   );
 
   const handleSkip = async () => {
@@ -205,7 +204,7 @@ export const InviteTeam = () => {
             </SeparatorLineText>
             <StyledActionLinkContainer>
               <LightButton
-                title={t`Salin tautan undangan`}
+                title={`Salin tautan undangan`}
                 accent="tertiary"
                 onClick={copyInviteLink}
                 Icon={IconCopy}
@@ -216,7 +215,7 @@ export const InviteTeam = () => {
       </StyledAnimatedContainer>
       <StyledButtonContainer>
         <MainButton
-          title={hasCalendarBooking ? t`Lanjutkan` : t`Selesai`}
+          title={hasCalendarBooking ? `Lanjutkan` : `Selesai`}
           disabled={!isValid || isSubmitting}
           onClick={handleSubmit(onSubmit)}
           fullWidth

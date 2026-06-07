@@ -3,7 +3,6 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { TableBody } from '@/ui/layout/table/components/TableBody';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
@@ -25,17 +24,17 @@ export const SettingsAvailableStandardObjectsSection = ({
 }: SettingsAvailableStandardObjectsSectionProps) => (
   <Section>
     <H2Title
-      title={t`Tersedia`}
-      description={t`Pilih satu atau beberapa objek standar untuk diaktifkan`}
+      title={`Tersedia`}
+      description={`Pilih satu atau beberapa objek standar untuk diaktifkan`}
     />
     <Table>
       <TableRow
         gridTemplateColumns={AVAILABLE_STANDARD_OBJECTS_GRID_TEMPLATE_COLUMNS}
       >
         <TableHeader></TableHeader>
-        <TableHeader>{t`Nama`}</TableHeader>
-        <TableHeader>{t`Deskripsi`}</TableHeader>
-        <TableHeader align="right">{t`Kolom`}</TableHeader>
+        <TableHeader>{`Nama`}</TableHeader>
+        <TableHeader>{`Deskripsi`}</TableHeader>
+        <TableHeader align="right">{`Kolom`}</TableHeader>
       </TableRow>
       <TableBody>
         {objectItems.map((objectItem) => (

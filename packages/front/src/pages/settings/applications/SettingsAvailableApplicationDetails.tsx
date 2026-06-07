@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { CurrentApplicationContext } from '@/applications/contexts/CurrentApplicationContext';
 import { useInstallMarketplaceApp } from '@/marketplace/hooks/useInstallMarketplaceApp';
 import { useUpgradeApplication } from '@/marketplace/hooks/useUpgradeApplication';
@@ -119,20 +118,20 @@ export const SettingsAvailableApplicationDetails = () => {
     {
       icon: IconBox,
       count: (manifest?.objects ?? []).length,
-      one: t`objek`,
-      many: t`objek`,
+      one: `objek`,
+      many: `objek`,
     },
     {
       icon: IconListDetails,
       count: (manifest?.fields ?? []).length,
-      one: t`field`,
-      many: t`field`,
+      one: `field`,
+      many: `field`,
     },
     {
       icon: IconCommand,
       count: (manifest?.logicFunctions ?? []).length,
-      one: t`fungsi logika`,
-      many: t`fungsi logika`,
+      one: `fungsi logika`,
+      many: `fungsi logika`,
     },
     {
       icon: IconGraph,
@@ -142,8 +141,8 @@ export const SettingsAvailableApplicationDetails = () => {
             .map((cm) => cm.frontComponentUniversalIdentifier)
             .includes(fc.universalIdentifier),
       ).length,
-      one: t`widget`,
-      many: t`widget`,
+      one: `widget`,
+      many: `widget`,
     },
     {
       icon: IconCommand,
@@ -154,8 +153,8 @@ export const SettingsAvailableApplicationDetails = () => {
             .map((cm) => cm.frontComponentUniversalIdentifier)
             .includes(fc.universalIdentifier),
       ).length,
-      one: t`perintah`,
-      many: t`perintah`,
+      one: `perintah`,
+      many: `perintah`,
     },
     {
       icon: IconShield,
@@ -164,20 +163,20 @@ export const SettingsAvailableApplicationDetails = () => {
           role.universalIdentifier !==
           manifest?.application.defaultRoleUniversalIdentifier,
       ).length,
-      one: t`peran`,
-      many: t`peran`,
+      one: `peran`,
+      many: `peran`,
     },
     {
       icon: IconBook,
       count: (manifest?.skills ?? []).length,
-      one: t`keahlian`,
-      many: t`keahlian`,
+      one: `keahlian`,
+      many: `keahlian`,
     },
     {
       icon: IconLego,
       count: (manifest?.agents ?? []).length,
-      one: t`agen`,
-      many: t`agen`,
+      one: `agen`,
+      many: `agen`,
     },
   ];
 
@@ -187,9 +186,9 @@ export const SettingsAvailableApplicationDetails = () => {
   );
 
   const tabs = [
-    { id: 'about', title: t`Tentang`, Icon: IconInfoCircle },
-    { id: 'content', title: t`Konten`, Icon: IconBox },
-    { id: 'permissions', title: t`Izin`, Icon: IconLock },
+    { id: 'about', title: `Tentang`, Icon: IconInfoCircle },
+    { id: 'content', title: `Konten`, Icon: IconBox },
+    { id: 'permissions', title: `Izin`, Icon: IconLock },
   ];
 
   const renderActiveTabContent = () => {
@@ -262,11 +261,11 @@ export const SettingsAvailableApplicationDetails = () => {
       <SubMenuTopBarContainer
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Aplikasi`,
+            children: `Aplikasi`,
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: displayName },

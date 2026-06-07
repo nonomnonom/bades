@@ -12,7 +12,6 @@ import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { useCloseAnyOpenDropdown } from '@/ui/layout/dropdown/hooks/useCloseAnyOpenDropdown';
 import { emitSidePanelOpenEvent } from '@/ui/layout/side-panel/utils/emitSidePanelOpenEvent';
 import { useRemoveFocusItemFromFocusStackById } from '@/ui/utilities/focus/hooks/useRemoveFocusItemFromFocusStackById';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
@@ -73,21 +72,21 @@ export const useSidePanelMenu = () => {
     ) {
       navigateSidePanel({
         page: SidePanelPages.NavigationMenuItemEdit,
-        pageTitle: t`Ubah`,
+        pageTitle: `Ubah`,
         pageIcon: IconDotsVertical,
         resetNavigationStack: true,
       });
     } else if (isLayoutCustomizationModeEnabled) {
       navigateSidePanel({
         page: SidePanelPages.NavigationMenuAddItem,
-        pageTitle: t`Item menu baru`,
+        pageTitle: `Item menu baru`,
         pageIcon: IconColumnInsertRight,
         resetNavigationStack: true,
       });
     } else {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuDisplay,
-        pageTitle: t`Menu Perintah`,
+        pageTitle: `Menu Perintah`,
         pageIcon: IconDotsVertical,
         resetNavigationStack: true,
       });

@@ -8,7 +8,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { H2Title } from 'ui/display';
 import { Button } from 'ui/input';
@@ -27,7 +26,6 @@ const StyledDiv = styled.div`
 `;
 
 export const DeleteAccount = () => {
-  const { t } = useLingui();
   const { openModal } = useModal();
   const { enqueueErrorSnackBar } = useSnackBar();
 
@@ -52,7 +50,7 @@ export const DeleteAccount = () => {
   const leaveWorkspace = async () => {
     if (!isDefined(currentWorkspaceMemberId)) {
       enqueueErrorSnackBar({
-        message: t`Anggota ruang kerja saat ini tidak ditemukan.`,
+        message: `Anggota ruang kerja saat ini tidak ditemukan.`,
       });
       return;
     }
@@ -68,11 +66,11 @@ export const DeleteAccount = () => {
   return (
     <>
       <H2Title
-        title={t`Zona berbahaya`}
+        title={`Zona berbahaya`}
         description={
           userHasMultipleWorkspaces
-            ? t`Hapus akun beserta semua data terkait atau keluar dari ruang kerja`
-            : t`Hapus akun beserta semua data terkait`
+            ? `Hapus akun beserta semua data terkait atau keluar dari ruang kerja`
+            : `Hapus akun beserta semua data terkait`
         }
       />
       {userHasMultipleWorkspaces && (
@@ -81,23 +79,23 @@ export const DeleteAccount = () => {
             accent="danger"
             onClick={() => openModal(LEAVE_WORKSPACE_MODAL_ID)}
             variant="secondary"
-            title={t`Keluar dari ruang kerja`}
+            title={`Keluar dari ruang kerja`}
           />
 
           <ConfirmationModal
             confirmationValue={userEmail}
             confirmationPlaceholder={userEmail ?? ''}
             modalInstanceId={LEAVE_WORKSPACE_MODAL_ID}
-            title={t`Keluar dari ruang kerja`}
+            title={`Keluar dari ruang kerja`}
             subtitle={
               <>
-                {t`Tindakan ini tidak dapat dibatalkan. Keanggotaan Anda dari ruang kerja ini akan dihapus secara permanen.`}
+                {`Tindakan ini tidak dapat dibatalkan. Keanggotaan Anda dari ruang kerja ini akan dihapus secara permanen.`}
                 <br />
-                {t`Ketik email Anda untuk mengonfirmasi.`}
+                {`Ketik email Anda untuk mengonfirmasi.`}
               </>
             }
             onConfirmClick={leaveWorkspace}
-            confirmButtonText={t`Keluar dari ruang kerja`}
+            confirmButtonText={`Keluar dari ruang kerja`}
           />
         </StyledDiv>
       )}
@@ -105,22 +103,22 @@ export const DeleteAccount = () => {
         accent="danger"
         onClick={() => openModal(DELETE_ACCOUNT_MODAL_ID)}
         variant="secondary"
-        title={t`Hapus akun`}
+        title={`Hapus akun`}
       />
       <ConfirmationModal
         confirmationValue={userEmail}
         confirmationPlaceholder={userEmail ?? ''}
         modalInstanceId={DELETE_ACCOUNT_MODAL_ID}
-        title={t`Penghapusan Akun`}
+        title={`Penghapusan Akun`}
         subtitle={
           <>
-            {t`Tindakan ini tidak dapat dibatalkan. Seluruh akun Anda akan dihapus secara permanen.`}
+            {`Tindakan ini tidak dapat dibatalkan. Seluruh akun Anda akan dihapus secara permanen.`}
             <br />
-            {t`Ketik email Anda untuk mengonfirmasi.`}
+            {`Ketik email Anda untuk mengonfirmasi.`}
           </>
         }
         onConfirmClick={deleteAccount}
-        confirmButtonText={t`Hapus akun`}
+        confirmButtonText={`Hapus akun`}
       />
     </>
   );

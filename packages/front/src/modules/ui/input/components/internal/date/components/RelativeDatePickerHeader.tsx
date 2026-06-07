@@ -4,7 +4,6 @@ import { RELATIVE_DATE_DIRECTION_SELECT_OPTIONS } from '@/ui/input/components/in
 import { RELATIVE_DATETIME_UNITS_SELECT_OPTIONS } from '@/ui/input/components/internal/date/constants/RelativeDateTimeUnitSelectOptions';
 import { RELATIVE_DATE_UNITS_SELECT_OPTIONS } from '@/ui/input/components/internal/date/constants/RelativeDateUnitSelectOptions';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useState } from 'react';
 import { type Nullable } from 'shared/types';
@@ -52,7 +51,7 @@ export const RelativeDatePickerHeader = ({
   const amountString = amount?.toString() ?? '';
 
   const amountTextValue = direction === 'THIS' ? '' : amountString;
-  const amountInputPlaceholder = direction === 'THIS' ? '-' : t`Angka`;
+  const amountInputPlaceholder = direction === 'THIS' ? '-' : `Angka`;
 
   const [draftAmountValue, setDraftAmountValue] = useState(amountTextValue);
 

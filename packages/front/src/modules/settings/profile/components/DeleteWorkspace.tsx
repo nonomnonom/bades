@@ -1,5 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
-
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useAuth } from '@/auth/hooks/useAuth';
 import { currentUserState } from '@/auth/states/currentUserState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -17,7 +16,6 @@ export const DeleteWorkspace = () => {
   const [deleteCurrentWorkspace] = useMutation(DeleteCurrentWorkspaceDocument);
   const currentUser = useAtomStateValue(currentUserState);
   const userEmail = currentUser?.email;
-  const { t } = useLingui();
   const { openModal } = useModal();
 
   const { signOut } = useAuth();
@@ -32,13 +30,13 @@ export const DeleteWorkspace = () => {
   return (
     <>
       <H2Title
-        title={t`Zona berbahaya`}
-        description={t`Hapus seluruh ruang kerja Anda`}
+        title={`Zona berbahaya`}
+        description={`Hapus seluruh ruang kerja Anda`}
       />
       <Button
         accent="danger"
         variant="secondary"
-        title={t`Hapus ruang kerja`}
+        title={`Hapus ruang kerja`}
         Icon={IconTrash}
         onClick={() => openModal(DELETE_WORKSPACE_MODAL_ID)}
       />
@@ -47,7 +45,7 @@ export const DeleteWorkspace = () => {
         modalInstanceId={DELETE_WORKSPACE_MODAL_ID}
         confirmationPlaceholder={userEmail}
         confirmationValue={userEmail}
-        title={t`Hapus Ruang Kerja`}
+        title={`Hapus Ruang Kerja`}
         subtitle={
           <Trans>
             Tindakan ini tidak dapat dibatalkan. Seluruh ruang kerja dan datanya
@@ -56,7 +54,7 @@ export const DeleteWorkspace = () => {
           </Trans>
         }
         onConfirmClick={deleteWorkspace}
-        confirmButtonText={t`Hapus ruang kerja`}
+        confirmButtonText={`Hapus ruang kerja`}
       />
     </>
   );

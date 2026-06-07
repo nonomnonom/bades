@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { useApolloClient, useMutation } from '@apollo/client/react';
@@ -27,7 +26,7 @@ export const usePendudukAvatarUpload = (pendudukRecordId: string) => {
   const onUploadPicture = async (file: File) => {
     assertIsDefinedOrThrow(
       avatarFileFieldMetadataId,
-      new Error(t`Kolom berkas avatar tidak ditemukan untuk objek penduduk`),
+      new Error(`Kolom berkas avatar tidak ditemukan untuk objek penduduk`),
     );
 
     const result = await uploadFilesFieldFile({

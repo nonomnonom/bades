@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatViewFilterMaps } from 'src/engine/metadata-modules/flat-view-filter/types/flat-view-filter-maps.type';
@@ -29,7 +28,7 @@ export const fromDeleteViewFilterInputToFlatViewFilterOrThrow = ({
 
   if (!isDefined(existingFlatViewFilterToDelete)) {
     throw new ViewFilterException(
-      t`View filter to delete not found`,
+      `View filter to delete not found`,
       ViewFilterExceptionCode.VIEW_FILTER_NOT_FOUND,
     );
   }

@@ -1,7 +1,6 @@
 /* @license Enterprise */
 
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import {
   compositeTypeDefinitions,
@@ -181,7 +180,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
     if (isDefined(idField) && isRelationToWorkspaceMember) {
       menuItems.push({
         id: 'me-id',
-        label: t`Saya (ID Pengguna)`,
+        label: `Saya (ID Pengguna)`,
         icon: null,
         fieldMetadataId: idField.id,
         subFieldName: null,
@@ -260,11 +259,11 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
     const fieldTypeLabelLowercase = fieldTypeLabel?.toLowerCase() ?? '';
 
     const headerText = fieldTypeLabel
-      ? t`Pilih 1 field ${fieldTypeLabelLowercase}`
+      ? `Pilih 1 field ${fieldTypeLabelLowercase}`
       : 'Pilih 1 field';
 
     const placeholderText = fieldTypeLabel
-      ? t`Cari 1 field ${fieldTypeLabelLowercase}`
+      ? `Cari 1 field ${fieldTypeLabelLowercase}`
       : 'Cari 1 field';
 
     return (
@@ -300,7 +299,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
           ))}
           {filteredMenuItems.length === 0 && (
             <MenuItem
-              text={t`Tidak ada kolom yang kompatibel`}
+              text={`Tidak ada kolom yang kompatibel`}
               onClick={() => {}}
               disabled
             />

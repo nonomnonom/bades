@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -21,7 +20,6 @@ import { IconSettings, useIcons } from 'ui/display';
 import { MenuItem, UndecoratedLink } from 'ui/navigation';
 
 export const RecordTableHeaderPlusButtonContent = () => {
-  const { t } = useLingui();
   const [searchInput, setSearchInput] = useState('');
 
   const { objectMetadataItem, recordTableId, visibleRecordFields } =
@@ -85,7 +83,7 @@ export const RecordTableHeaderPlusButtonContent = () => {
           <DropdownMenuSearchInput
             autoFocus
             value={searchInput}
-            placeholder={t`Cari kolom`}
+            placeholder={`Cari kolom`}
             onChange={(event) => setSearchInput(event.target.value)}
           />
           <DropdownMenuSeparator />
@@ -109,8 +107,8 @@ export const RecordTableHeaderPlusButtonContent = () => {
             accent="placeholder"
             text={
               hasAvailableFields
-                ? t`Tidak ada hasil`
-                : t`Semua kolom sudah ditampilkan`
+                ? `Tidak ada hasil`
+                : `Semua kolom sudah ditampilkan`
             }
           />
         )}
@@ -126,7 +124,7 @@ export const RecordTableHeaderPlusButtonContent = () => {
             setNavigationMemorizedUrl(location.pathname + location.search);
           }}
         >
-          <MenuItem LeftIcon={IconSettings} text={t`Atur kolom`} />
+          <MenuItem LeftIcon={IconSettings} text={`Atur kolom`} />
         </UndecoratedLink>
       </DropdownMenuItemsContainer>
     </DropdownContent>

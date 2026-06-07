@@ -1,5 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
-
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { SidePanelAddToNavigationDroppable } from '@/side-panel/components/SidePanelAddToNavigationDroppable';
 import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
@@ -33,7 +31,6 @@ export const SidePanelSystemObjectPickerSubView = ({
   emptyNoResultsText,
   disableDrag = false,
 }: SidePanelSystemObjectPickerSubViewProps) => {
-  const { t } = useLingui();
   const { filteredItems, selectableItemIds, isEmpty, hasSearchQuery } =
     useSidePanelFilteredPickerItems({
       items: systemObjects,
@@ -42,13 +39,13 @@ export const SidePanelSystemObjectPickerSubView = ({
     });
 
   const noResultsText = hasSearchQuery
-    ? t`Tidak ada hasil`
-    : (emptyNoResultsText ?? t`Belum ada objek sistem tersedia`);
+    ? `Tidak ada hasil`
+    : (emptyNoResultsText ?? `Belum ada objek sistem tersedia`);
 
   const isAddVariant = objectMenuItemVariant === 'add';
 
   const listContent = (
-    <SidePanelGroup heading={t`Objek sistem`}>
+    <SidePanelGroup heading={`Objek sistem`}>
       {filteredItems.map((objectMetadataItem, index) => (
         <SidePanelObjectPickerItem
           key={objectMetadataItem.id}
@@ -66,7 +63,7 @@ export const SidePanelSystemObjectPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Cari objek sistem...`}
+      searchPlaceholder={`Cari objek sistem...`}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >

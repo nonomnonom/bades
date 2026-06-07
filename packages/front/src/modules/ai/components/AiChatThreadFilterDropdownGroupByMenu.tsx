@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconChevronLeft } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
 
@@ -24,7 +23,6 @@ type AiChatThreadFilterDropdownGroupByMenuProps = {
 export const AiChatThreadFilterDropdownGroupByMenu = ({
   onBack,
 }: AiChatThreadFilterDropdownGroupByMenuProps) => {
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
   const [agentChatThreadGroupBy, setAgentChatThreadGroupBy] = useAtomState(
     agentChatThreadGroupByState,
@@ -40,13 +38,13 @@ export const AiChatThreadFilterDropdownGroupByMenu = ({
           />
         }
       >
-        {t`Kelompokkan berdasarkan`}
+        {`Kelompokkan berdasarkan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {AGENT_CHAT_THREAD_GROUP_BY_OPTIONS.map((option) => (
           <MenuItemSelect
             key={option}
-            text={t(AGENT_CHAT_THREAD_GROUP_BY_LABELS[option])}
+            text={AGENT_CHAT_THREAD_GROUP_BY_LABELS[option]}
             selected={agentChatThreadGroupBy === option}
             onClick={() => {
               setAgentChatThreadGroupBy(option);

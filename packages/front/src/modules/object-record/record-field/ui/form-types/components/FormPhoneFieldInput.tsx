@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import {
   FormCallingCodeSelectInput,
   type FormCallingCodeSelectInputUpdatedValue,
@@ -49,7 +48,7 @@ export const FormPhoneFieldInput = ({
       {label && <InputLabel>{label}</InputLabel>}
       <FormNestedFieldInputContainer>
         <FormCallingCodeSelectInput
-          label={t`Kode Panggil`}
+          label={`Kode Panggil`}
           selectedCountryCode={defaultValue?.primaryPhoneCountryCode ?? ''}
           selectedCallingCode={defaultValue?.primaryPhoneCallingCode}
           onChange={handleCallingCodeChange}
@@ -57,12 +56,12 @@ export const FormPhoneFieldInput = ({
           VariablePicker={VariablePicker}
         />
         <FormNumberFieldInput
-          label={t`Nomor Telepon`}
+          label={`Nomor Telepon`}
           defaultValue={defaultValue?.primaryPhoneNumber ?? ''}
           onChange={handleNumberChange}
           VariablePicker={VariablePicker}
-          placeholder={t`Masukkan nomor telepon`}
-          hint={t`Tanpa kode panggil`}
+          placeholder={`Masukkan nomor telepon`}
+          hint={`Tanpa kode panggil`}
           readonly={readonly}
         />
       </FormNestedFieldInputContainer>

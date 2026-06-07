@@ -6,7 +6,6 @@ import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModa
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -91,11 +90,11 @@ export const MemberPermissionsTab = ({
         },
         refetchQueries: ['GetRoles'],
       });
-      enqueueSuccessSnackBar({ message: t`Peran berhasil diperbarui` });
+      enqueueSuccessSnackBar({ message: `Peran berhasil diperbarui` });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
-          error instanceof Error ? error.message : t`Gagal memperbarui peran`,
+          error instanceof Error ? error.message : `Gagal memperbarui peran`,
       });
     } finally {
       setPendingRole(null);
@@ -110,7 +109,7 @@ export const MemberPermissionsTab = ({
 
   if (!isDefined(primaryRole)) {
     return (
-      <StyledNoRoleContainer>{t`Tidak ada peran yang ditetapkan untuk anggota ini`}</StyledNoRoleContainer>
+      <StyledNoRoleContainer>{`Tidak ada peran yang ditetapkan untuk anggota ini`}</StyledNoRoleContainer>
     );
   }
 
@@ -121,8 +120,8 @@ export const MemberPermissionsTab = ({
     <>
       <Section>
         <H2Title
-          title={t`Peran`}
-          description={t`Atur apa yang dapat dilihat dan dilakukan pengguna ini`}
+          title={`Peran`}
+          description={`Atur apa yang dapat dilihat dan dilakukan pengguna ini`}
         />
         <StyledRoleContainer>
           <StyledRoleSelector>
@@ -137,7 +136,7 @@ export const MemberPermissionsTab = ({
           </StyledRoleSelector>
           <Button
             Icon={IconArrowUpRight}
-            title={t`Buka di Peran`}
+            title={`Buka di Peran`}
             variant="secondary"
             onClick={handleOpenRole}
           />
@@ -148,10 +147,10 @@ export const MemberPermissionsTab = ({
       {pendingRole && (
         <ConfirmationModal
           modalInstanceId={CONFIRM_ROLE_CHANGE_MODAL_ID}
-          title={t`Konfirmasi perubahan peran`}
-          subtitle={t`Apakah Anda yakin ingin mengubah peran pengguna ini dari "${oldRoleLabel}" menjadi "${newRoleLabel}"?`}
+          title={`Konfirmasi perubahan peran`}
+          subtitle={`Apakah Anda yakin ingin mengubah peran pengguna ini dari "${oldRoleLabel}" menjadi "${newRoleLabel}"?`}
           onConfirmClick={handleConfirmRoleChange}
-          confirmButtonText={t`Perbarui peran`}
+          confirmButtonText={`Perbarui peran`}
           confirmButtonAccent="blue"
         />
       )}

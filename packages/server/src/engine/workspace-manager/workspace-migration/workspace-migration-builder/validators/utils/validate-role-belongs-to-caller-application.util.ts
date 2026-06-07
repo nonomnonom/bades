@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 
 import { PermissionsExceptionCode } from 'src/engine/metadata-modules/permissions/permissions.exception';
 import { type UniversalFlatRole } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-role.type';
@@ -19,7 +19,7 @@ export const validateRoleBelongsToCallerApplication = ({
     return [
       {
         code: PermissionsExceptionCode.ROLE_BELONGS_TO_ANOTHER_APPLICATION,
-        message: t`Cannot target a role owned by another application`,
+        message: `Cannot target a role owned by another application`,
         userFriendlyMessage: msg`Cannot target a role owned by another application.`,
       },
     ];

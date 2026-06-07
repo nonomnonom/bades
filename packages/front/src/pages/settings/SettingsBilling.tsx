@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -8,15 +8,13 @@ import { SettingsPath } from 'shared/types';
 import { usePlans } from '@/settings/billing/hooks/usePlans';
 
 export const SettingsBilling = () => {
-  const { t } = useLingui();
-
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
   const { isPlansLoaded } = usePlans();
 
   return (
     <SubMenuTopBarContainer
-      title={t`Tagihan`}
+      title={`Tagihan`}
       links={[
         {
           children: <Trans>Ruang Kerja</Trans>,

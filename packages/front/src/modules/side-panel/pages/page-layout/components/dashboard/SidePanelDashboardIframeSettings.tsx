@@ -7,7 +7,6 @@ import { WidgetSettingsFooter } from '@/side-panel/pages/page-layout/components/
 import { usePageLayoutIdFromContextStore } from '@/side-panel/pages/page-layout/hooks/usePageLayoutIdFromContextStore';
 import { useWidgetInEditMode } from '@/side-panel/pages/page-layout/hooks/useWidgetInEditMode';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString, isString } from '@sniptt/guards';
 import { useState } from 'react';
 import { isDefined, isValidUrl } from 'shared/utils';
@@ -58,7 +57,7 @@ export const SidePanelDashboardIframeSettings = () => {
     }
 
     if (!isValidUrl(trimmedUrl)) {
-      setUrlError(t`Masukkan URL yang valid`);
+      setUrlError(`Masukkan URL yang valid`);
       return false;
     }
 
@@ -88,7 +87,7 @@ export const SidePanelDashboardIframeSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={[]}>
-          <SidePanelGroup heading={t`URL untuk Ditanamkan`}>
+          <SidePanelGroup heading={`URL untuk Ditanamkan`}>
             <SidePanelGroupFormContainer>
               <FormTextFieldInput
                 placeholder={'https://example.com/embed'}

@@ -1,4 +1,3 @@
-import { msg } from '~/utils/i18n/badesI18n';
 import { AggregateOperations } from '@/object-record/record-table/constants/AggregateOperations';
 import { DateAggregateOperations } from '@/object-record/record-table/constants/DateAggregateOperations';
 import { type ExtendedAggregateOperations } from '@/object-record/record-table/types/ExtendedAggregateOperations';
@@ -9,31 +8,31 @@ export const getAggregateOperationShortLabel = (
 ) => {
   switch (operation) {
     case AggregateOperations.MIN:
-      return msg`Min`;
+      return `Min`;
     case AggregateOperations.MAX:
-      return msg`Maks`;
+      return `Maks`;
     case AggregateOperations.AVG:
-      return msg`Rata-rata`;
+      return `Rata-rata`;
     case AggregateOperations.SUM:
-      return msg`Jumlah`;
+      return `Jumlah`;
     case AggregateOperations.COUNT:
-      return msg`Semua`;
+      return `Semua`;
     case AggregateOperations.COUNT_EMPTY:
     case AggregateOperations.PERCENTAGE_EMPTY:
-      return msg`Kosong`;
+      return `Kosong`;
     case AggregateOperations.COUNT_NOT_EMPTY:
     case AggregateOperations.PERCENTAGE_NOT_EMPTY:
-      return msg`Terisi`;
+      return `Terisi`;
     case AggregateOperations.COUNT_UNIQUE_VALUES:
-      return msg`Unik`;
+      return `Unik`;
     case DateAggregateOperations.EARLIEST:
-      return msg`Terlama`;
+      return `Terlama`;
     case DateAggregateOperations.LATEST:
-      return msg`Terbaru`;
+      return `Terbaru`;
     case AggregateOperations.COUNT_TRUE:
-      return msg`Benar`;
+      return `Benar`;
     case AggregateOperations.COUNT_FALSE:
-      return msg`Salah`;
+      return `Salah`;
     default:
       throw new CustomError(
         `Unknown aggregate operation: ${operation}`,

@@ -1,7 +1,6 @@
 import { type IconComponent } from 'ui/display';
 import React, { useContext } from 'react';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
 type SubscriptionInfoRowContainerProps = {
@@ -42,8 +41,8 @@ export const SubscriptionInfoHeaderRow = ({ show }: { show: boolean }) => {
   return (
     <StyledContainer>
       <div />
-      <StyledHeaderText>{t`Saat ini`}</StyledHeaderText>
-      <StyledHeaderText>{t`Berikutnya`}</StyledHeaderText>
+      <StyledHeaderText>{`Saat ini`}</StyledHeaderText>
+      <StyledHeaderText>{`Berikutnya`}</StyledHeaderText>
     </StyledContainer>
   );
 };

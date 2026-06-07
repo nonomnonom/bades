@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { lazy, type ReactElement, Suspense, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -241,7 +240,7 @@ export const AttachmentList = ({
                   fallback={
                     <StyledLoadingContainer>
                       <StyledLoadingText>
-                        {t`Memuat penampil dokumen...`}
+                        {`Memuat penampil dokumen...`}
                       </StyledLoadingText>
                     </StyledLoadingContainer>
                   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -41,7 +41,7 @@ export class FlatIndexValidatorService {
     if (!isDefined(existingFlatIndexToDelete)) {
       validationResult.errors.push({
         code: FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
-        message: t`Index to delete not found`,
+        message: `Index to delete not found`,
       });
     }
 
@@ -75,7 +75,7 @@ export class FlatIndexValidatorService {
     if (isDefined(existingFlatIndex)) {
       validationResult.errors.push({
         code: IndexExceptionCode.INDEX_ALREADY_EXISTS,
-        message: t`Index with same universal identifier already exists`,
+        message: `Index with same universal identifier already exists`,
         userFriendlyMessage: msg`Index already exists`,
       });
     }
@@ -89,7 +89,7 @@ export class FlatIndexValidatorService {
     if (!isDefined(relatedObjectMetadata)) {
       validationResult.errors.push({
         code: IndexExceptionCode.INDEX_OBJECT_NOT_FOUND,
-        message: t`Could not find index related object metadata`,
+        message: `Could not find index related object metadata`,
         userFriendlyMessage: msg`Index related object not found`,
       });
     }
@@ -107,7 +107,7 @@ export class FlatIndexValidatorService {
     if (isDefined(existingFlatIndexOnName)) {
       validationResult.errors.push({
         code: IndexExceptionCode.INDEX_ALREADY_EXISTS,
-        message: t`Index with same name already exists`,
+        message: `Index with same name already exists`,
         userFriendlyMessage: msg`Index with same name already exists`,
       });
     }
@@ -115,7 +115,7 @@ export class FlatIndexValidatorService {
     if (flatIndexToValidate.universalFlatIndexFieldMetadatas.length === 0) {
       validationResult.errors.push({
         code: IndexExceptionCode.INDEX_EMPTY_FIELDS,
-        message: t`Index must have at least one field`,
+        message: `Index must have at least one field`,
         userFriendlyMessage: msg`An index must contain at least one field`,
       });
     } else {
@@ -130,7 +130,7 @@ export class FlatIndexValidatorService {
           if (!isDefined(relatedFlatField)) {
             validationResult.errors.push({
               code: IndexExceptionCode.INDEX_FIELD_NOT_FOUND,
-              message: t`Could not find index field related field metadata`,
+              message: `Could not find index field related field metadata`,
               userFriendlyMessage: msg`Field referenced in index does not exist`,
             });
           } else {
@@ -140,7 +140,7 @@ export class FlatIndexValidatorService {
             ) {
               validationResult.errors.push({
                 code: IndexExceptionCode.INDEX_FIELD_WRONG_OBJECT,
-                message: t`Field does not belong to the indexed object`,
+                message: `Field does not belong to the indexed object`,
                 userFriendlyMessage: msg`Field cannot be indexed as it belongs to a different object`,
               });
             }
@@ -170,7 +170,7 @@ export class FlatIndexValidatorService {
 
                 validationResult.errors.push({
                   code: IndexExceptionCode.INDEX_FIELD_INVALID_DEFAULT_VALUE,
-                  message: t`Unique index cannot be created for field ${fieldName} of type ${fieldType}`,
+                  message: `Unique index cannot be created for field ${fieldName} of type ${fieldType}`,
                   userFriendlyMessage: msg`${fieldType} fields cannot have a default value.`,
                 });
               }
@@ -193,7 +193,7 @@ export class FlatIndexValidatorService {
 
                 validationResult.errors.push({
                   code: IndexExceptionCode.INDEX_FIELD_INVALID_TYPE_FOR_UNIQUE,
-                  message: t`Unique index cannot be created for field ${fieldName} of type ${fieldType}`,
+                  message: `Unique index cannot be created for field ${fieldName} of type ${fieldType}`,
                   userFriendlyMessage: msg`${fieldType} fields cannot be unique.`,
                 });
               }
@@ -206,7 +206,7 @@ export class FlatIndexValidatorService {
           ) {
             validationResult.errors.push({
               code: IndexExceptionCode.INDEX_FIELD_INVALID_REFERENCE,
-              message: t`Index field references incorrect index metadata`,
+              message: `Index field references incorrect index metadata`,
               userFriendlyMessage: msg`Index field has an invalid reference`,
             });
           }

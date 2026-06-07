@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -19,8 +19,6 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 export const SettingsSecurityApprovedAccessDomain = () => {
   const navigate = useNavigateSettings();
 
-  const { t } = useLingui();
-
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
   const [createApprovedAccessDomain] = useMutation(
@@ -36,12 +34,12 @@ export const SettingsSecurityApprovedAccessDomain = () => {
           .regex(
             /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])\.[a-zA-Z]{2,}$/,
             {
-              message: t`Domain harus kurang dari 256 karakter, tidak boleh mengandung spasi dan karakter khusus.`,
+              message: `Domain harus kurang dari 256 karakter, tidak boleh mengandung spasi dan karakter khusus.`,
             },
           )
           .max(256),
         email: z.string().min(1, {
-          message: t`Surel tidak boleh kosong`,
+          message: `Surel tidak boleh kosong`,
         }),
       }),
     ),
@@ -64,7 +62,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
         },
         onCompleted: () => {
           enqueueSuccessSnackBar({
-            message: t`Silakan periksa surel Anda untuk tautan verifikasi.`,
+            message: `Silakan periksa surel Anda untuk tautan verifikasi.`,
           });
           navigate(SettingsPath.WorkspaceMembersPage);
         },
@@ -84,7 +82,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
   return (
     <form onSubmit={form.handleSubmit(handleSave)}>
       <SubMenuTopBarContainer
-        title={t`Domain Akses yang Disetujui Baru`}
+        title={`Domain Akses yang Disetujui Baru`}
         actionButton={
           <SaveAndCancelButtons
             onCancel={() => navigate(SettingsPath.WorkspaceMembersPage)}
@@ -105,7 +103,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
       >
         <SettingsPageContainer>
           <Section>
-            <H2Title title={t`Domain`} description={t`Nama domain Anda`} />
+            <H2Title title={`Domain`} description={`Nama domain Anda`} />
             <Controller
               name="domain"
               control={form.control}
@@ -128,8 +126,8 @@ export const SettingsSecurityApprovedAccessDomain = () => {
           </Section>
           <Section>
             <H2Title
-              title={t`Verifikasi surel`}
-              description={t`Kami akan mengirimkan tautan untuk memverifikasi kepemilikan domain`}
+              title={`Verifikasi surel`}
+              description={`Kami akan mengirimkan tautan untuk memverifikasi kepemilikan domain`}
             />
             <Controller
               name="email"

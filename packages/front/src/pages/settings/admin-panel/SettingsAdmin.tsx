@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsAdminContent } from '@/settings/admin-panel/components/SettingsAdminContent';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -6,17 +5,15 @@ import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 
 export const SettingsAdmin = () => {
-  const { t } = useLingui();
-
   return (
     <SubMenuTopBarContainer
-      title={t`Panel Admin`}
+      title={`Panel Admin`}
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
-        { children: t`Panel Admin` },
+        { children: `Panel Admin` },
       ]}
     >
       <SettingsPageContainer>

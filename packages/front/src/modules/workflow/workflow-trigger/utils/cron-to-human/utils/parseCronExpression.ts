@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 import { type CronExpressionParts } from '@/workflow/workflow-trigger/utils/cron-to-human/types/cronExpressionParts';
 import { CronExpressionParser } from 'cron-parser';
 import { isDefined } from 'shared/utils';
@@ -60,7 +58,7 @@ export const parseCronExpression = (
       };
     }
 
-    throw new Error(t`Kesalahan tak terduga dalam parsing ekspresi cron`);
+    throw new Error(`Kesalahan tak terduga dalam parsing ekspresi cron`);
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : 'Unknown error';

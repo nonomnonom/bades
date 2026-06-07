@@ -9,7 +9,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { SortOrFilterChip } from '@/views/components/SortOrFilterChip';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconArrowDown, IconArrowUp } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
@@ -20,7 +19,6 @@ type EditableSortChipProps = {
 };
 
 export const EditableSortChip = ({ recordSort }: EditableSortChipProps) => {
-  const { t } = useLingui();
   const { removeRecordSort } = useRemoveRecordSort();
   const { upsertRecordSort } = useUpsertRecordSort();
   const { closeDropdown } = useCloseDropdown();
@@ -100,13 +98,13 @@ export const EditableSortChip = ({ recordSort }: EditableSortChipProps) => {
           <DropdownMenuItemsContainer>
             <MenuItemSelect
               LeftIcon={IconArrowUp}
-              text={t`A ke Z`}
+              text={`A ke Z`}
               selected={recordSort.direction === ViewSortDirection.ASC}
               onClick={() => handleDirectionSelect(ViewSortDirection.ASC)}
             />
             <MenuItemSelect
               LeftIcon={IconArrowDown}
-              text={t`Z ke A`}
+              text={`Z ke A`}
               selected={recordSort.direction === ViewSortDirection.DESC}
               onClick={() => handleDirectionSelect(ViewSortDirection.DESC)}
             />

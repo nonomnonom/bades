@@ -2,7 +2,6 @@ import { type Form } from '@/auth/sign-in-up/hooks/useSignInUpForm';
 import { SignInUpMode } from '@/auth/types/signInUpMode';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -25,7 +24,6 @@ export const SignInUpPasswordField = ({
   signInUpMode: SignInUpMode;
 }) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const form = useFormContext<Form>();
 
   return (
@@ -51,7 +49,7 @@ export const SignInUpPasswordField = ({
               autoFocus
               value={value}
               type="password"
-              placeholder={t`Kata sandi`}
+              placeholder={`Kata sandi`}
               onBlur={onBlur}
               onChange={onChange}
               error={showErrors ? error?.message : undefined}
@@ -59,7 +57,7 @@ export const SignInUpPasswordField = ({
             />
             {signInUpMode === SignInUpMode.SignUp && (
               <StyledText
-                text={t`Minimal 8 karakter.`}
+                text={`Minimal 8 karakter.`}
                 color={theme.font.color.secondary}
               />
             )}

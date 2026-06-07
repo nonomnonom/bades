@@ -17,7 +17,6 @@ import { isRequestingCaptchaTokenState } from '@/captcha/states/isRequestingCapt
 import { captchaState } from '@/client-config/states/captchaState';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { isDefined } from 'shared/utils';
@@ -40,7 +39,6 @@ export const SignInUpWithCredentials = ({
 }: {
   isGlobalScope?: boolean;
 }) => {
-  const { t } = useLingui();
   const form = useFormContext<Form>();
 
   const [signInUpStep, setSignInUpStep] = useAtomState(signInUpStepState);
@@ -96,25 +94,25 @@ export const SignInUpWithCredentials = ({
 
   const buttonTitle = useMemo(() => {
     if (signInUpStep === SignInUpStep.Init) {
-      return t`Lanjutkan dengan Email`;
+      return `Lanjutkan dengan Email`;
     }
 
     if (
       signInUpMode === SignInUpMode.SignIn &&
       signInUpStep === SignInUpStep.Password
     ) {
-      return t`Masuk`;
+      return `Masuk`;
     }
 
     if (
       signInUpMode === SignInUpMode.SignUp &&
       signInUpStep === SignInUpStep.Password
     ) {
-      return t`Daftar`;
+      return `Daftar`;
     }
 
-    return t`Lanjutkan`;
-  }, [signInUpMode, signInUpStep, t]);
+    return `Lanjutkan`;
+  }, [signInUpMode, signInUpStep]);
 
   const shouldWaitForCaptchaToken =
     signInUpStep !== SignInUpStep.Init &&
@@ -174,7 +172,7 @@ export const SignInUpWithCredentials = ({
             />
             {isLastUsed && <LastUsedPill />}
             {isSignUpBlockedByDDLLock && (
-              <InputHint>{t`Pendaftaran sementara tidak tersedia selama perawatan.`}</InputHint>
+              <InputHint>{`Pendaftaran sementara tidak tersedia selama perawatan.`}</InputHint>
             )}
           </StyledSSOButtonContainer>
         </StyledForm>

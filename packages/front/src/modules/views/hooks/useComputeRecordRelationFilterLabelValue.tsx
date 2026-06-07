@@ -6,7 +6,6 @@ import { type RecordFilter } from '@/object-record/record-filter/types/RecordFil
 import { useRecordsForSelect } from '@/object-record/select/hooks/useRecordsForSelect';
 import { useGetRecordFilterChipLabelValue } from '@/views/hooks/useGetRecordFilterChipLabelValue';
 
-import { t } from '~/utils/i18n/badesI18n';
 import {
   arrayOfUuidOrVariableSchema,
   isDefined,
@@ -79,11 +78,11 @@ export const useComputeRecordRelationFilterLabelValue = ({
   });
 
   if (loading) {
-    return { labelValue: t`: Memuat...` };
+    return { labelValue: `: Memuat...` };
   }
 
   const labelValueItems = [
-    ...(isCurrentWorkspaceMemberSelected ? [t`Saya`] : []),
+    ...(isCurrentWorkspaceMemberSelected ? [`Saya`] : []),
     ...selectedRecords.map((record) => record.name),
   ];
 

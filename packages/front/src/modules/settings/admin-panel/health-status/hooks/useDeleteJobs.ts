@@ -1,7 +1,7 @@
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { plural, t } from '~/utils/i18n/badesI18n';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useMutation } from '@apollo/client/react';
@@ -65,7 +65,7 @@ export const useDeleteJobs = (queueName: string, onSuccess?: () => void) => {
             errorMessages.length > 0 ? `: ${errorMessages[0]}` : '';
 
           enqueueErrorSnackBar({
-            message: t`Tidak ada tugas yang dihapus${errorDetails}`,
+            message: `Tidak ada tugas yang dihapus${errorDetails}`,
           });
         }
       }
@@ -73,7 +73,7 @@ export const useDeleteJobs = (queueName: string, onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Gagal menghapus tugas. Silakan coba lagi nanti.`,
+          : `Gagal menghapus tugas. Silakan coba lagi nanti.`,
       });
     } finally {
       setIsDeleting(false);

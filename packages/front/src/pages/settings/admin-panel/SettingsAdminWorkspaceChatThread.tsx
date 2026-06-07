@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client/react';
@@ -33,7 +32,7 @@ export const SettingsAdminWorkspaceChatThread = () => {
   const thread = data?.getAdminChatThreadMessages?.thread;
   const messages = data?.getAdminChatThreadMessages?.messages ?? [];
 
-  const threadTitle = thread?.title || t`Tanpa judul`;
+  const threadTitle = thread?.title || `Tanpa judul`;
 
   if (isLoading) {
     return <SettingsSkeletonLoader />;
@@ -43,15 +42,15 @@ export const SettingsAdminWorkspaceChatThread = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - AI`,
+          children: `Panel Admin - AI`,
           href: AI_ADMIN_PATH,
         },
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.AdminPanelWorkspaceDetail, {
             workspaceId: workspaceId ?? '',
           }),
@@ -63,7 +62,7 @@ export const SettingsAdminWorkspaceChatThread = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={threadTitle} description={t`Percakapan obrolan`} />
+          <H2Title title={threadTitle} description={`Percakapan obrolan`} />
           <SettingsAdminChatThreadMessageList messages={messages} />
         </Section>
       </SettingsPageContainer>

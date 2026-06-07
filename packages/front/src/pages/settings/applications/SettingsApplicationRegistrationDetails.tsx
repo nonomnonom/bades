@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useQuery } from '@apollo/client/react';
 import { useParams } from 'react-router-dom';
@@ -20,8 +19,6 @@ const REGISTRATION_DETAIL_TAB_LIST_ID =
   'application-registration-detail-tab-list';
 
 export const SettingsApplicationRegistrationDetails = () => {
-  const { t } = useLingui();
-
   const activeTabId = useAtomComponentStateValue(
     activeTabIdComponentState,
     REGISTRATION_DETAIL_TAB_LIST_ID,
@@ -43,10 +40,10 @@ export const SettingsApplicationRegistrationDetails = () => {
   }
 
   const tabs = [
-    { id: 'general', title: t`Umum`, Icon: IconInfoCircle },
-    { id: 'oauth', title: t`OAuth`, Icon: IconKey },
-    { id: 'distribution', title: t`Distribusi`, Icon: IconWorld },
-    { id: 'config', title: t`Konfigurasi`, Icon: IconSettings },
+    { id: 'general', title: `Umum`, Icon: IconInfoCircle },
+    { id: 'oauth', title: `OAuth`, Icon: IconKey },
+    { id: 'distribution', title: `Distribusi`, Icon: IconWorld },
+    { id: 'config', title: `Konfigurasi`, Icon: IconSettings },
   ];
 
   const renderActiveTabContent = () => {
@@ -82,14 +79,14 @@ export const SettingsApplicationRegistrationDetails = () => {
   return (
     <SubMenuTopBarContainer
       title={registration.name}
-      tag={<Tag text={t`Pemilik`} color={'gray'} />}
+      tag={<Tag text={`Pemilik`} color={'gray'} />}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Aplikasi - Pengembangan Internal`,
+          children: `Aplikasi - Pengembangan Internal`,
           href: getSettingsPath(
             SettingsPath.Applications,
             undefined,

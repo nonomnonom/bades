@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
@@ -15,8 +14,6 @@ import { SettingsApplicationsInstalledTab } from '~/pages/settings/applications/
 const APPLICATIONS_TAB_LIST_ID = 'applications-tab-list';
 
 export const SettingsApplications = () => {
-  const { t } = useLingui();
-
   const isMarketplaceSettingTabVisible = useIsFeatureEnabled(
     FeatureFlagKey.IS_MARKETPLACE_SETTING_TAB_VISIBLE,
   );
@@ -28,9 +25,9 @@ export const SettingsApplications = () => {
 
   const tabs = [
     ...(isMarketplaceSettingTabVisible
-      ? [{ id: 'marketplace', title: t`Katalog Aplikasi`, Icon: IconDownload }]
+      ? [{ id: 'marketplace', title: `Katalog Aplikasi`, Icon: IconDownload }]
       : []),
-    { id: 'installed', title: t`Terpasang`, Icon: IconApps },
+    { id: 'installed', title: `Terpasang`, Icon: IconApps },
   ];
 
   const renderActiveTabContent = () => {
@@ -50,13 +47,13 @@ export const SettingsApplications = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Aplikasi`}
+      title={`Aplikasi`}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`Aplikasi` },
+        { children: `Aplikasi` },
       ]}
     >
       <SettingsPageContainer>

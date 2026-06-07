@@ -3,7 +3,6 @@ import { SettingsCard } from '@/settings/components/SettingsCard';
 import { type SettingsRoleAssignmentConfirmationModalSelectedRoleTarget } from '@/settings/roles/role-assignment/types/SettingsRoleAssignmentConfirmationModalSelectedRoleTarget';
 
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Avatar } from 'ui/display';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -35,7 +34,7 @@ export const SettingsRoleAssignmentConfirmationModalSubtitle = ({
 
   return (
     <>
-      {t`${workspaceMemberName} akan dicopot dari peran berikut:`}
+      {`${workspaceMemberName} akan dicopot dari peran berikut:`}
       <StyledSettingsCardContainer>
         <SettingsCard
           title={selectedRoleTarget.role?.label || ''}

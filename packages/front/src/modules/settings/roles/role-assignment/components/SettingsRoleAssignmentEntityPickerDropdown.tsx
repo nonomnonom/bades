@@ -5,7 +5,6 @@ import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/Dropdow
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { useQuery } from '@apollo/client/react';
 import {
@@ -50,8 +49,6 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
   onSelect,
 }: SettingsRoleAssignmentEntityPickerDropdownProps) => {
   const [searchFilter, setSearchFilter] = useState('');
-  const { t } = useLingui();
-
   const isAgent = entityType === 'agent';
 
   const { data: agentsData, loading: agentsLoading } = useQuery(
@@ -75,17 +72,17 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
       : apiKeysData?.apiKeys) || []) as EntityData[];
   }, [isAgent, agentsData?.findManyAgents, apiKeysData?.apiKeys]);
 
-  const placeholder = isAgent ? t`Cari agen` : t`Cari kunci API`;
+  const placeholder = isAgent ? `Cari agen` : `Cari kunci API`;
 
   const getEmptyStateMessage = () => {
     if (searchFilter !== '') {
       return isAgent
-        ? t`Tidak ada agen yang sesuai pencarian`
-        : t`Tidak ada kunci API yang sesuai pencarian`;
+        ? `Tidak ada agen yang sesuai pencarian`
+        : `Tidak ada kunci API yang sesuai pencarian`;
     } else {
       return isAgent
-        ? t`Tidak ada agen tersedia`
-        : t`Tidak ada kunci API tersedia`;
+        ? `Tidak ada agen tersedia`
+        : `Tidak ada kunci API tersedia`;
     }
   };
 
@@ -122,7 +119,7 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>
         {loading ? (
-          <StyledLoadingContainer>{t`Memuat...`}</StyledLoadingContainer>
+          <StyledLoadingContainer>{`Memuat...`}</StyledLoadingContainer>
         ) : filteredEntities.length > 0 ? (
           filteredEntities.map((entity) => (
             <StyledDropdownItem

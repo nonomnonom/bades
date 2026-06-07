@@ -18,7 +18,6 @@ import { isDefined } from 'shared/utils';
 import { MOBILE_VIEWPORT } from 'ui/theme-constants';
 import { v4 } from 'uuid';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { type AllowedAddressSubField } from 'shared/types';
 import { useAddressAutocomplete } from '@/ui/field/input/hooks/useAddressAutocomplete';
 import { useCountryUtils } from '@/ui/field/input/hooks/useCountryUtils';
@@ -339,7 +338,7 @@ export const AddressInput = ({
             autoFocus
             value={internalValue.addressStreet1 ?? ''}
             ref={inputRefs.addressStreet1}
-            label={t`Alamat 1`}
+            label={`Alamat 1`}
             fullWidth
             onChange={getChangeHandler('addressStreet1')}
             onFocus={getFocusHandler('addressStreet1')}
@@ -356,7 +355,7 @@ export const AddressInput = ({
         <TextInput
           value={internalValue.addressStreet2 ?? ''}
           ref={inputRefs.addressStreet2}
-          label={t`Alamat 2`}
+          label={`Alamat 2`}
           fullWidth
           onChange={getChangeHandler('addressStreet2')}
           onFocus={getFocusHandler('addressStreet2')}
@@ -368,7 +367,7 @@ export const AddressInput = ({
             <TextInput
               value={internalValue.addressCity ?? ''}
               ref={inputRefs.addressCity}
-              label={t`Kota`}
+              label={`Kota`}
               fullWidth
               onChange={getChangeHandler('addressCity')}
               onFocus={getFocusHandler('addressCity')}
@@ -385,7 +384,7 @@ export const AddressInput = ({
           <TextInput
             value={internalValue.addressState ?? ''}
             ref={inputRefs.addressState}
-            label={t`Provinsi`}
+            label={`Provinsi`}
             fullWidth
             onChange={getChangeHandler('addressState')}
             onFocus={getFocusHandler('addressState')}
@@ -397,7 +396,7 @@ export const AddressInput = ({
           <TextInput
             value={internalValue.addressPostcode ?? ''}
             ref={inputRefs.addressPostcode}
-            label={t`Kode Pos`}
+            label={`Kode Pos`}
             fullWidth
             onChange={getChangeHandler('addressPostcode')}
             onFocus={getFocusHandler('addressPostcode')}
@@ -405,7 +404,7 @@ export const AddressInput = ({
         )}
         {isFieldInputInSubFieldsAddress('addressCountry') && (
           <CountrySelect
-            label={t`Negara`}
+            label={`Negara`}
             onChange={getChangeHandler('addressCountry')}
             selectedCountryName={internalValue.addressCountry ?? ''}
           />
@@ -421,7 +420,7 @@ export const AddressInput = ({
                 : String(internalValue.addressLat)
             }
             ref={inputRefs.addressLat}
-            label={t`Lintang (Lat)`}
+            label={`Lintang (Lat)`}
             fullWidth
             onChange={getCoordinateChangeHandler('addressLat')}
             onFocus={getFocusHandler('addressLat')}
@@ -436,7 +435,7 @@ export const AddressInput = ({
                 : String(internalValue.addressLng)
             }
             ref={inputRefs.addressLng}
-            label={t`Bujur (Lng)`}
+            label={`Bujur (Lng)`}
             fullWidth
             onChange={getCoordinateChangeHandler('addressLng')}
             onFocus={getFocusHandler('addressLng')}

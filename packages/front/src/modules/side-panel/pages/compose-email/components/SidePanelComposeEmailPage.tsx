@@ -12,7 +12,6 @@ import { SidePanelFooter } from '@/ui/layout/side-panel/components/SidePanelFoot
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconSend } from 'ui/display';
 import { Button } from 'ui/input';
 import { getOsControlSymbol } from 'ui/utilities';
@@ -82,7 +81,7 @@ export const SidePanelComposeEmailPage = () => {
             key="cancel"
             size="small"
             variant="secondary"
-            title={t`Batal`}
+            title={`Batal`}
             onClick={goBackFromSidePanel}
           />,
           <Button
@@ -90,7 +89,7 @@ export const SidePanelComposeEmailPage = () => {
             size="small"
             variant="primary"
             accent="blue"
-            title={t`Kirim`}
+            title={`Kirim`}
             Icon={IconSend}
             hotkeys={[getOsControlSymbol(), '⏎']}
             onClick={composerState.handleSend}

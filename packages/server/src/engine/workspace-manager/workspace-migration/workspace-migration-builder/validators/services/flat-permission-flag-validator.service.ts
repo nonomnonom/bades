@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
@@ -42,7 +42,7 @@ export class FlatPermissionFlagValidatorService {
     if (isDefined(existingByUniversalId)) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_ALREADY_EXISTS,
-        message: t`Permission flag definition with universal identifier ${flatPermissionFlagToValidate.universalIdentifier} already exists`,
+        message: `Permission flag definition with universal identifier ${flatPermissionFlagToValidate.universalIdentifier} already exists`,
         userFriendlyMessage: msg`Permission flag definition already exists`,
       });
     }
@@ -50,7 +50,7 @@ export class FlatPermissionFlagValidatorService {
     if (!isNonEmptyString(flatPermissionFlagToValidate.key)) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.INVALID_PERMISSION_FLAG_KEY,
-        message: t`Permission flag definition key is required`,
+        message: `Permission flag definition key is required`,
         userFriendlyMessage: msg`Key is required`,
       });
     }
@@ -68,7 +68,7 @@ export class FlatPermissionFlagValidatorService {
     if (duplicateKey.length > 0) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_ALREADY_EXISTS,
-        message: t`Permission flag definition with key ${flatPermissionFlagToValidate.key} already exists in this workspace`,
+        message: `Permission flag definition with key ${flatPermissionFlagToValidate.key} already exists in this workspace`,
         userFriendlyMessage: msg`A permission flag with this key already exists`,
       });
     }
@@ -80,7 +80,7 @@ export class FlatPermissionFlagValidatorService {
     ) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.INVALID_PERMISSION_FLAG_PERMISSION_TYPE,
-        message: t`Permission flag definition permission type must be 'settings' or 'tool'`,
+        message: `Permission flag definition permission type must be 'settings' or 'tool'`,
         userFriendlyMessage: msg`Invalid permission type`,
       });
     }
@@ -114,7 +114,7 @@ export class FlatPermissionFlagValidatorService {
     if (!isDefined(existing)) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_NOT_FOUND,
-        message: t`Permission flag definition to update not found`,
+        message: `Permission flag definition to update not found`,
         userFriendlyMessage: msg`Permission flag definition not found`,
       });
 
@@ -130,7 +130,7 @@ export class FlatPermissionFlagValidatorService {
     ) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_IS_STANDARD,
-        message: t`Cannot update standard permission flag definition`,
+        message: `Cannot update standard permission flag definition`,
         userFriendlyMessage: msg`Cannot update standard permission flag definition`,
       });
     }
@@ -141,7 +141,7 @@ export class FlatPermissionFlagValidatorService {
     ) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_KEY_IMMUTABLE,
-        message: t`Permission flag definition key cannot be changed after creation`,
+        message: `Permission flag definition key cannot be changed after creation`,
         userFriendlyMessage: msg`Key cannot be changed`,
       });
     }
@@ -154,7 +154,7 @@ export class FlatPermissionFlagValidatorService {
     ) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.INVALID_PERMISSION_FLAG_PERMISSION_TYPE,
-        message: t`Permission flag definition permission type must be 'settings' or 'tool'`,
+        message: `Permission flag definition permission type must be 'settings' or 'tool'`,
         userFriendlyMessage: msg`Invalid permission type`,
       });
     }
@@ -188,7 +188,7 @@ export class FlatPermissionFlagValidatorService {
     if (!isDefined(existing)) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_NOT_FOUND,
-        message: t`Permission flag definition to delete not found`,
+        message: `Permission flag definition to delete not found`,
         userFriendlyMessage: msg`Permission flag definition not found`,
       });
 
@@ -204,7 +204,7 @@ export class FlatPermissionFlagValidatorService {
     ) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_IS_STANDARD,
-        message: t`Cannot delete standard permission flag definition`,
+        message: `Cannot delete standard permission flag definition`,
         userFriendlyMessage: msg`Cannot delete standard permission flag definition`,
       });
     }
@@ -221,7 +221,7 @@ export class FlatPermissionFlagValidatorService {
     if (isPermissionFlagInUse) {
       validationResult.errors.push({
         code: PermissionFlagExceptionCode.PERMISSION_FLAG_IN_USE,
-        message: t`Permission flag definition with key ${existing.key} is still assigned to a role`,
+        message: `Permission flag definition with key ${existing.key} is still assigned to a role`,
         userFriendlyMessage: msg`Remove this permission from all roles before deleting it`,
       });
     }

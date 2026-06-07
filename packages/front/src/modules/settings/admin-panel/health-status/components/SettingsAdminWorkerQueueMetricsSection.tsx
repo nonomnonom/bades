@@ -2,7 +2,6 @@ import { WidgetSkeletonLoader } from '@/page-layout/widgets/components/WidgetSke
 import { WORKER_QUEUE_METRICS_SELECT_OPTIONS } from '@/settings/admin-panel/health-status/constants/WorkerQueueMetricsSelectOptions';
 import { Select } from '@/ui/input/components/Select';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { lazy, Suspense, useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -52,11 +51,11 @@ export const SettingsAdminWorkerQueueMetricsSection = ({
     <StyledContainer>
       <Section>
         <StyledControlsContainer>
-          <H2Title title={queue.queueName} description={t`Performa antrian`} />
+          <H2Title title={queue.queueName} description={`Performa antrian`} />
           <StyledRightControls>
             <Button
               Icon={IconList}
-              title={t`Lihat Pekerjaan`}
+              title={`Lihat Pekerjaan`}
               size="small"
               variant="secondary"
               to={getSettingsPath(SettingsPath.AdminPanelQueueDetail, {
@@ -68,7 +67,7 @@ export const SettingsAdminWorkerQueueMetricsSection = ({
               value={timeRange}
               options={WORKER_QUEUE_METRICS_SELECT_OPTIONS.map((option) => ({
                 ...option,
-                label: t(option.label),
+                label: option.label,
               }))}
               onChange={setTimeRange}
               needIconCheck

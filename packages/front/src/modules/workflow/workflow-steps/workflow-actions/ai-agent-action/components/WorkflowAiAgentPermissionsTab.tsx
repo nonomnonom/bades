@@ -11,7 +11,6 @@ import { workflowAiAgentPermissionsIsAddingPermissionState } from '@/workflow/wo
 import { workflowAiAgentPermissionsSelectedObjectIdState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentPermissionsSelectedObjectIdState';
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { type Agent, GetRolesDocument } from '~/generated-metadata/graphql';
@@ -189,7 +188,7 @@ export const WorkflowAiAgentPermissionsTab = ({
       {shouldShowBackButton && (
         <StyledBackButtonContainer>
           <SidePanelSubPageNavigationHeader
-            title={t`Tambah izin`}
+            title={`Tambah izin`}
             onBackClick={handleBack}
           />
         </StyledBackButtonContainer>
@@ -200,7 +199,7 @@ export const WorkflowAiAgentPermissionsTab = ({
           fullWidth
           value={searchQuery}
           onChange={(value: string) => setSearchQuery(value)}
-          placeholder={t`Ketik untuk mencari...`}
+          placeholder={`Ketik untuk mencari...`}
           onKeyDown={(event) => {
             if (isNonTextWritingKey(event.key)) {
               event.stopPropagation();
@@ -235,7 +234,7 @@ export const WorkflowAiAgentPermissionsTab = ({
               readonly={readonly}
             />
             <WorkflowAiAgentPermissionsFlagList
-              title={t`Tindakan`}
+              title={`Tindakan`}
               permissions={filteredActionPermissions}
               enabledPermissionFlagKeys={permissionFlagKeys}
               readonly={readonly}
@@ -253,7 +252,7 @@ export const WorkflowAiAgentPermissionsTab = ({
               searchQuery={searchQuery}
             />
             <WorkflowAiAgentPermissionsFlagList
-              title={t`Tindakan`}
+              title={`Tindakan`}
               permissions={filteredEnabledActionPermissions}
               enabledPermissionFlagKeys={permissionFlagKeys}
               readonly={readonly}

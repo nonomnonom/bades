@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { useFieldMetadataItem } from '@/object-metadata/hooks/useFieldMetadataItem';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
@@ -38,8 +37,6 @@ type SettingsDataModelNewFieldFormValues = z.infer<
 const DEFAULT_ICON_FOR_NEW_FIELD = 'IconUsers';
 
 export const SettingsObjectNewFieldConfigure = () => {
-  const { t } = useLingui();
-
   const navigateApp = useNavigateApp();
   const navigate = useNavigateSettings();
 
@@ -167,7 +164,7 @@ export const SettingsObjectNewFieldConfigure = () => {
       }
       default: {
         enqueueErrorSnackBar({
-          message: t`Pilih setidaknya satu objek tujuan untuk relasi ini.`,
+          message: `Pilih setidaknya satu objek tujuan untuk relasi ini.`,
         });
         return setIsSaving(false);
       }
@@ -181,14 +178,14 @@ export const SettingsObjectNewFieldConfigure = () => {
       {...formConfig}
     >
       <SubMenuTopBarContainer
-        title={t`2. Konfigurasi kolom`}
+        title={`2. Konfigurasi kolom`}
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Objek`,
+            children: `Objek`,
             href: getSettingsPath(SettingsPath.Objects),
           },
           {
@@ -223,8 +220,8 @@ export const SettingsObjectNewFieldConfigure = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Ikon dan Nama`}
-              description={t`Nama dan ikon kolom ini`}
+              title={`Ikon dan Nama`}
+              description={`Nama dan ikon kolom ini`}
             />
             <SettingsDataModelFieldIconLabelForm
               maxLength={FIELD_NAME_MAXIMUM_LENGTH}
@@ -233,8 +230,8 @@ export const SettingsObjectNewFieldConfigure = () => {
           </Section>
           <Section>
             <H2Title
-              title={t`Kustomisasi`}
-              description={t`Sesuaikan pengaturan kolom`}
+              title={`Kustomisasi`}
+              description={`Sesuaikan pengaturan kolom`}
             />
             <SettingsDataModelFieldSettingsFormCard
               fieldType={fieldType}

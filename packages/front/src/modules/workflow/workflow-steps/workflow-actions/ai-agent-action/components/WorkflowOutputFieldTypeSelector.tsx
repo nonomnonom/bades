@@ -1,6 +1,5 @@
 import { OUTPUT_FIELD_TYPE_OPTIONS } from '@/ai/constants/OutputFieldTypeOptions';
 import { Select } from '@/ui/input/components/Select';
-import { t } from '~/utils/i18n/badesI18n';
 import { type AgentResponseFieldType } from 'shared/ai';
 
 type WorkflowOutputFieldTypeSelectorProps = {
@@ -19,10 +18,10 @@ export const WorkflowOutputFieldTypeSelector = ({
   return (
     <Select
       dropdownId={dropdownId}
-      label={t`Tipe`}
+      label={`Tipe`}
       options={OUTPUT_FIELD_TYPE_OPTIONS.map((option) => ({
         ...option,
-        label: t(option.label),
+        label: option.label,
       }))}
       value={value}
       onChange={onChange}

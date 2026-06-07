@@ -1,4 +1,4 @@
-import { msg, i18n, useLingui } from '~/utils/i18n/badesI18n';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
 import { Logo } from '@/auth/components/Logo';
 import { Title } from '@/auth/components/Title';
@@ -38,7 +38,7 @@ import {
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 import { logError } from '~/utils/logError';
 
-const passwordLengthMessage = msg`Kata sandi harus terdiri dari 8 hingga 50 karakter`;
+const passwordLengthMessage = `Kata sandi harus terdiri dari 8 hingga 50 karakter`;
 
 const validationSchema = z
   .object({
@@ -86,7 +86,6 @@ const StyledMainButtonContainer = styled.div`
 
 export const PasswordReset = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { enqueueErrorSnackBar, enqueueSuccessSnackBar } = useSnackBar();
 
   const workspacePublicData = useAtomStateValue(workspacePublicDataState);
@@ -163,15 +162,15 @@ export const PasswordReset = () => {
 
       if (!data?.updatePasswordViaResetToken.success) {
         enqueueErrorSnackBar({
-          message: t`Terjadi kesalahan saat memperbarui kata sandi.`,
+          message: `Terjadi kesalahan saat memperbarui kata sandi.`,
         });
         return;
       }
 
       const successMessage =
         isTargetUserPasswordSet === false
-          ? t`Kata sandi berhasil disetel`
-          : t`Kata sandi berhasil diperbarui`;
+          ? `Kata sandi berhasil disetel`
+          : `Kata sandi berhasil diperbarui`;
 
       setCurrentUser((currentUser) =>
         currentUser ? { ...currentUser, hasPassword: true } : currentUser,
@@ -187,7 +186,7 @@ export const PasswordReset = () => {
 
       if (!isCaptchaReady) {
         enqueueErrorSnackBar({
-          message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
+          message: `Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
         });
         return;
       }
@@ -214,7 +213,7 @@ export const PasswordReset = () => {
   };
 
   const passwordActionLabel =
-    isTargetUserPasswordSet === true ? t`Ubah Kata Sandi` : t`Setel Kata Sandi`;
+    isTargetUserPasswordSet === true ? `Ubah Kata Sandi` : `Setel Kata Sandi`;
 
   return (
     isTokenValid && (
@@ -257,7 +256,7 @@ export const PasswordReset = () => {
                       <TextInput
                         autoFocus
                         value={email}
-                        placeholder={t`Surel`}
+                        placeholder={`Surel`}
                         fullWidth
                         disabled
                       />
@@ -286,7 +285,7 @@ export const PasswordReset = () => {
                             autoFocus
                             value={value}
                             type="password"
-                            placeholder={t`Kata Sandi Baru`}
+                            placeholder={`Kata Sandi Baru`}
                             onBlur={onBlur}
                             onChange={onChange}
                             error={error?.message}

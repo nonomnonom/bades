@@ -17,7 +17,6 @@ import { useSidePanelFilteredPickerItems } from '@/side-panel/hooks/useSidePanel
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { type View } from '@/views/types/View';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useIcons } from 'ui/display';
@@ -29,7 +28,6 @@ type SidePanelNewSidebarItemViewPickerSubViewProps = {
 export const SidePanelNewSidebarItemViewPickerSubView = ({
   selectedObjectMetadataIdForView,
 }: SidePanelNewSidebarItemViewPickerSubViewProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const [searchValue, setSearchValue] = useState('');
   const { addViewToDraft } = useAddViewToNavigationMenuDraft();
@@ -66,8 +64,8 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
     getSearchableValues: (view) => [view.name],
   });
   const noResultsText = hasSearchQuery
-    ? t`Tidak ada hasil`
-    : t`Belum ada tampilan kustom`;
+    ? `Tidak ada hasil`
+    : `Belum ada tampilan kustom`;
 
   const selectedObjectIconColor = isDefined(selectedObjectMetadataItem)
     ? getObjectColorWithFallback(selectedObjectMetadataItem)
@@ -91,7 +89,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Cari tampilan...`}
+      searchPlaceholder={`Cari tampilan...`}
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     >
@@ -104,7 +102,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
           >
             {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
             <div ref={innerRef} {...droppableProps}>
-              <SidePanelGroup heading={t`Tampilan`}>
+              <SidePanelGroup heading={`Tampilan`}>
                 {filteredViews.map((view, index) => (
                   <SelectableListItem
                     key={view.id}

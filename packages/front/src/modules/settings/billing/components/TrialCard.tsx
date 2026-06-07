@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 type TrialCardProps = {
@@ -26,12 +25,11 @@ const StyledCreditCardRequirementContainer = styled.div`
 `;
 
 export const TrialCard = ({ duration, withCreditCard }: TrialCardProps) => {
-  const { t } = useLingui();
   return (
     <StyledTrialCardContainer>
-      <StyledTrialDurationContainer>{t`Uji coba ${duration} hari`}</StyledTrialDurationContainer>
+      <StyledTrialDurationContainer>{`Uji coba ${duration} hari`}</StyledTrialDurationContainer>
       <StyledCreditCardRequirementContainer>
-        {withCreditCard ? t`Dengan kartu kredit` : t`Tanpa kartu kredit`}
+        {withCreditCard ? `Dengan kartu kredit` : `Tanpa kartu kredit`}
       </StyledCreditCardRequirementContainer>
     </StyledTrialCardContainer>
   );

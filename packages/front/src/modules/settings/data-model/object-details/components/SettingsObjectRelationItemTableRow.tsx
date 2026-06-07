@@ -12,7 +12,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { FieldMetadataType, SettingsPath } from 'shared/types';
@@ -98,7 +97,6 @@ export const SettingsObjectRelationItemTableRow = ({
   objectMetadataItem,
 }: SettingsObjectRelationItemTableRowProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const { getIcon } = useIcons();
 
@@ -141,7 +139,7 @@ export const SettingsObjectRelationItemTableRow = ({
 
   const relationTypeLabel = (() => {
     if (fieldMetadataItem.type === FieldMetadataType.MORPH_RELATION) {
-      return t`${morphRelationCount} Objects`;
+      return `${morphRelationCount} Objects`;
     }
     if (isDefined(relationType) === true) {
       return RELATION_TYPES[relationType].label;
@@ -195,7 +193,7 @@ export const SettingsObjectRelationItemTableRow = ({
             </StyledNameLabel>
           )}
           {!fieldMetadataItem.isActive && (
-            <StyledInactiveLabel>{t`Nonaktif`}</StyledInactiveLabel>
+            <StyledInactiveLabel>{`Nonaktif`}</StyledInactiveLabel>
           )}
         </StyledNameContainer>
       </TableCell>

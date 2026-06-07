@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useState } from 'react';
 import { z } from 'zod';
 
@@ -16,7 +15,6 @@ import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBa
 import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
 export const SettingsAccountsNewEmailGroupChannel = () => {
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const { enqueueErrorSnackBar } = useSnackBar();
   const { createEmailGroupChannel, loading } = useCreateEmailGroupChannel();
@@ -39,24 +37,24 @@ export const SettingsAccountsNewEmailGroupChannel = () => {
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Gagal membuat saluran grup email. Grup email mungkin belum dikonfigurasi di server ini.`,
+        message: `Gagal membuat saluran grup email. Grup email mungkin belum dikonfigurasi di server ini.`,
       });
     }
-  }, [createEmailGroupChannel, handle, navigate, enqueueErrorSnackBar, t]);
+  }, [createEmailGroupChannel, handle, navigate, enqueueErrorSnackBar]);
 
   return (
     <SubMenuTopBarContainer
-      title={t`Grup Email Baru`}
+      title={`Grup Email Baru`}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Umum`,
+          children: `Umum`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`Grup Email Baru` },
+        { children: `Grup Email Baru` },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -71,12 +69,12 @@ export const SettingsAccountsNewEmailGroupChannel = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Alamat Email`}
-            description={t`Masukkan alamat email yang ingin Anda teruskan emailnya (mis. pelayanan@sukamaju.desa.id).`}
+            title={`Alamat Email`}
+            description={`Masukkan alamat email yang ingin Anda teruskan emailnya (mis. pelayanan@sukamaju.desa.id).`}
           />
           <SettingsTextInput
             instanceId="email-group-handle"
-            label={t`Alamat Email Sumber`}
+            label={`Alamat Email Sumber`}
             placeholder="pelayanan@sukamaju.desa.id"
             value={handle}
             onChange={setHandle}

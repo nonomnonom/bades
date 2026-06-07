@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
@@ -38,7 +37,6 @@ const StyledHintLink = styled.button`
 `;
 
 export const SettingsApplicationsAvailableTab = () => {
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(true);
 
@@ -68,7 +66,7 @@ export const SettingsApplicationsAvailableTab = () => {
   if (isLoading) {
     return (
       <Section>
-        <SettingsEmptyPlaceholder padding="4">{t`Memuat aplikasi...`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder padding="4">{`Memuat aplikasi...`}</SettingsEmptyPlaceholder>
       </Section>
     );
   }
@@ -80,7 +78,7 @@ export const SettingsApplicationsAvailableTab = () => {
     <Section>
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Cari aplikasi`}
+          placeholder={`Cari aplikasi`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton: ReactNode) => (
@@ -98,7 +96,7 @@ export const SettingsApplicationsAvailableTab = () => {
                         setShowFeaturedOnly(!showFeaturedOnly)
                       }
                       toggled={showFeaturedOnly}
-                      text={t`Unggulan saja`}
+                      text={`Unggulan saja`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>
@@ -112,11 +110,11 @@ export const SettingsApplicationsAvailableTab = () => {
       {filteredApplications.length === 0 ? (
         <SettingsEmptyPlaceholder padding="4">
           {showNonFeaturedHint
-            ? t`Tidak ada aplikasi unggulan yang ditemukan. ${nonFeaturedCount} hasil non-unggulan tersedia — `
-            : t`Belum ada aplikasi tersedia`}
+            ? `Tidak ada aplikasi unggulan yang ditemukan. ${nonFeaturedCount} hasil non-unggulan tersedia — `
+            : `Belum ada aplikasi tersedia`}
           {showNonFeaturedHint && (
             <StyledHintLink onClick={() => setShowFeaturedOnly(false)}>
-              {t`tampilkan semua`}
+              {`tampilkan semua`}
             </StyledHintLink>
           )}
         </SettingsEmptyPlaceholder>

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
@@ -57,62 +56,62 @@ export const SettingsApplicationCommandMenuItemSettingsTab = ({
   const detailRows: { key: string; label: string; value: ReactNode }[] = [
     {
       key: 'label',
-      label: t`Label`,
+      label: `Label`,
       value: label,
     },
     {
       key: 'shortLabel',
-      label: t`Label singkat`,
-      value: shortLabel ?? t`Belum diisi`,
+      label: `Label singkat`,
+      value: shortLabel ?? `Belum diisi`,
     },
     {
       key: 'icon',
-      label: t`Ikon`,
-      value: icon ? <StyledMonoText>{icon}</StyledMonoText> : t`Belum diisi`,
+      label: `Ikon`,
+      value: icon ? <StyledMonoText>{icon}</StyledMonoText> : `Belum diisi`,
     },
     {
       key: 'isPinned',
-      label: t`Disematkan`,
-      value: isPinned ? t`Ya` : t`Tidak`,
+      label: `Disematkan`,
+      value: isPinned ? `Ya` : `Tidak`,
     },
     {
       key: 'availabilityType',
-      label: t`Ketersediaan`,
+      label: `Ketersediaan`,
       value: <StyledMonoText>{availabilityType}</StyledMonoText>,
     },
     {
       key: 'conditionalAvailabilityExpression',
-      label: t`Ekspresi ketersediaan kondisional`,
+      label: `Ekspresi ketersediaan kondisional`,
       value: conditionalAvailabilityExpression ? (
         <StyledMonoText>{conditionalAvailabilityExpression}</StyledMonoText>
       ) : (
-        t`Belum diisi`
+        `Belum diisi`
       ),
     },
     {
       key: 'frontComponent',
-      label: t`Komponen tampilan`,
+      label: `Komponen tampilan`,
       value: frontComponentName ? (
         <StyledMonoText>{frontComponentName}</StyledMonoText>
       ) : (
-        t`Belum diisi`
+        `Belum diisi`
       ),
     },
     {
       key: 'universalIdentifier',
-      label: t`Identifier universal`,
+      label: `Identifier universal`,
       value: (
-        <StyledMonoText>{universalIdentifier ?? t`Belum diisi`}</StyledMonoText>
+        <StyledMonoText>{universalIdentifier ?? `Belum diisi`}</StyledMonoText>
       ),
     },
     {
       key: 'createdAt',
-      label: t`Dibuat`,
+      label: `Dibuat`,
       value: formatDateTime(createdAt),
     },
     {
       key: 'updatedAt',
-      label: t`Diperbarui`,
+      label: `Diperbarui`,
       value: formatDateTime(updatedAt),
     },
   ];
@@ -120,15 +119,15 @@ export const SettingsApplicationCommandMenuItemSettingsTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Detail`}
-        description={t`Konfigurasi item menu perintah ini`}
+        title={`Detail`}
+        description={`Konfigurasi item menu perintah ini`}
       />
       <Table>
         <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-          <TableHeader>{t`Properti`}</TableHeader>
-          <TableHeader>{t`Nilai`}</TableHeader>
+          <TableHeader>{`Properti`}</TableHeader>
+          <TableHeader>{`Nilai`}</TableHeader>
         </TableRow>
-        <TableSection title={t`Item menu perintah`}>
+        <TableSection title={`Item menu perintah`}>
           {detailRows.map((row) => (
             <TableRow key={row.key} gridTemplateColumns={GRID_TEMPLATE}>
               <TableCell color={themeCssVariables.font.color.secondary}>

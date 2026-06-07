@@ -7,7 +7,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { isDefined } from 'shared/utils';
 import {
@@ -36,7 +35,6 @@ type ProfileFieldOption = {
 };
 
 export const SettingsSecurityEditableProfileFields = () => {
-  const { t } = useLingui();
   const { enqueueErrorSnackBar } = useSnackBar();
 
   const [currentWorkspace, setCurrentWorkspace] = useAtomState(
@@ -45,10 +43,10 @@ export const SettingsSecurityEditableProfileFields = () => {
   const [updateWorkspace] = useMutation(UpdateWorkspaceDocument);
 
   const profileFieldOptions: ProfileFieldOption[] = [
-    { value: 'email', label: t`Email`, Icon: IconMail },
-    { value: 'firstName', label: t`Nama Depan`, Icon: IconUserCircle },
-    { value: 'lastName', label: t`Nama Belakang`, Icon: IconUser },
-    { value: 'profilePicture', label: t`Foto Profil`, Icon: IconPhoto },
+    { value: 'email', label: `Email`, Icon: IconMail },
+    { value: 'firstName', label: `Nama Depan`, Icon: IconUserCircle },
+    { value: 'lastName', label: `Nama Belakang`, Icon: IconUser },
+    { value: 'profilePicture', label: `Foto Profil`, Icon: IconPhoto },
   ];
 
   const selectedFields =
@@ -65,7 +63,7 @@ export const SettingsSecurityEditableProfileFields = () => {
   const selectedDisplayLabel =
     selectedLabelList.length > 0
       ? selectedLabelList.join(', ')
-      : t`Tidak ada field yang dipilih`;
+      : `Tidak ada field yang dipilih`;
 
   const firstSelectedIcon =
     selectedFields.length === 1
@@ -80,7 +78,7 @@ export const SettingsSecurityEditableProfileFields = () => {
 
   const toggleField = (field: string) => {
     if (!currentWorkspace?.id) {
-      enqueueErrorSnackBar({ message: t`Pengguna belum masuk` });
+      enqueueErrorSnackBar({ message: `Pengguna belum masuk` });
       return;
     }
 

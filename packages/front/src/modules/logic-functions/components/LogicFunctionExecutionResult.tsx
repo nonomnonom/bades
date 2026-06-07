@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import {
   type ExecutionStatus,
   WorkflowStepExecutionResult,
@@ -29,8 +28,8 @@ export const LogicFunctionExecutionResult = ({
   const status: ExecutionStatus = {
     isSuccess,
     isError,
-    successMessage: isSuccess ? t`200 OK - ${duration}ms` : undefined,
-    errorMessage: isError ? t`500 Error - ${duration}ms` : undefined,
+    successMessage: isSuccess ? `200 OK - ${duration}ms` : undefined,
+    errorMessage: isError ? `500 Error - ${duration}ms` : undefined,
   };
 
   return (
@@ -40,8 +39,8 @@ export const LogicFunctionExecutionResult = ({
       height={150}
       status={status}
       isTesting={isTesting}
-      loadingMessage={t`Menjalankan fungsi`}
-      idleMessage={t`Output`}
+      loadingMessage={`Menjalankan fungsi`}
+      idleMessage={`Output`}
     />
   );
 };

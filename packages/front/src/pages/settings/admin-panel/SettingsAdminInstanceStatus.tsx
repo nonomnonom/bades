@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { getUpgradeHealthStatusBadge } from '@/settings/admin-panel/utils/getUpgradeHealthStatusBadge';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -81,14 +80,14 @@ export const SettingsAdminInstanceStatus = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Status pembaruan disegarkan`,
+        message: `Status pembaruan disegarkan`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Gagal menyegarkan status pembaruan`,
+            : `Gagal menyegarkan status pembaruan`,
       });
     }
   };
@@ -97,29 +96,29 @@ export const SettingsAdminInstanceStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Kesehatan`,
+          children: `Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Status instans`,
+          children: `Status instans`,
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Status instans`}
-            description={t`Kondisi perintah instans terbaru`}
+            title={`Status instans`}
+            description={`Kondisi perintah instans terbaru`}
           />
           <SettingsTableCard
             items={[
               {
                 Icon: IconProgressCheck,
-                label: t`Status`,
+                label: `Status`,
                 value: (
                   <Status
                     color={instanceHealthBadge.color}
@@ -130,27 +129,27 @@ export const SettingsAdminInstanceStatus = () => {
               },
               {
                 Icon: IconCalendar,
-                label: t`Perintah terakhir`,
+                label: `Perintah terakhir`,
                 value: (
                   <StyledCommandValue>
                     {instanceLatestCommand?.name
                       ? formatUpgradeCommandName(instanceLatestCommand.name)
-                      : t`Tidak ada`}
+                      : `Tidak ada`}
                   </StyledCommandValue>
                 ),
               },
               {
                 Icon: IconStatusChange,
-                label: t`Hasil perintah terakhir`,
+                label: `Hasil perintah terakhir`,
                 value: instanceLatestCommand?.status
                   ? instanceLatestCommand.status === 'completed'
-                    ? t`Selesai`
-                    : t`Gagal`
+                    ? `Selesai`
+                    : `Gagal`
                   : 'Tidak Tersedia',
               },
               {
                 Icon: IconCalendar,
-                label: t`Terakhir diperbarui`,
+                label: `Terakhir diperbarui`,
                 value: isNonEmptyString(formattedInstanceLastUpdated)
                   ? formattedInstanceLastUpdated
                   : 'Tidak Tersedia',
@@ -159,7 +158,7 @@ export const SettingsAdminInstanceStatus = () => {
                 ? [
                     {
                       Icon: IconAlertTriangle,
-                      label: t`Kesalahan terakhir`,
+                      label: `Kesalahan terakhir`,
                       value: instanceLatestCommand.errorMessage,
                     },
                   ]
@@ -170,7 +169,7 @@ export const SettingsAdminInstanceStatus = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Segarkan status`}
+              title={`Segarkan status`}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />

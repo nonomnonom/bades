@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 
 import { useObjectNamePluralFromSingular } from '@/object-metadata/hooks/useObjectNamePluralFromSingular';
@@ -27,7 +26,6 @@ import { IconChevronLeft, IconSettings } from 'ui/display';
 import { MenuItem, UndecoratedLink } from 'ui/navigation';
 
 export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
-  const { t } = useLingui();
   const {
     currentContentId,
     objectMetadataItem,
@@ -88,10 +86,10 @@ export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
           />
         }
       >
-        {t`Tersembunyi`} {recordIndexGroupFieldMetadataItem?.label}
+        {`Tersembunyi`} {recordIndexGroupFieldMetadataItem?.label}
       </DropdownMenuHeader>
       <RecordGroupsVisibilityDropdownSection
-        title={`${t`Tersembunyi`} ${recordIndexGroupFieldMetadataItem?.label}`}
+        title={`${`Tersembunyi`} ${recordIndexGroupFieldMetadataItem?.label}`}
         recordGroupIds={hiddenRecordGroupIds}
         onVisibilityChange={handleRecordGroupVisibilityChange}
         isDraggable={false}
@@ -108,7 +106,7 @@ export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
         }}
       >
         <DropdownMenuItemsContainer>
-          <MenuItem LeftIcon={IconSettings} text={t`Ubah nilai kolom`} />
+          <MenuItem LeftIcon={IconSettings} text={`Ubah nilai kolom`} />
         </DropdownMenuItemsContainer>
       </UndecoratedLink>
     </DropdownContent>

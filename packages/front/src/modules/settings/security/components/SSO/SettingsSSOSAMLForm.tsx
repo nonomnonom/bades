@@ -5,7 +5,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { type ChangeEvent, useContext, useRef } from 'react';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useFormContext } from 'react-hook-form';
 import { isDefined } from 'shared/utils';
 import {
@@ -59,7 +58,6 @@ export const SettingsSSOSAMLForm = () => {
   const { theme } = useContext(ThemeContext);
   const { enqueueErrorSnackBar } = useSnackBar();
   const { setValue, getValues, watch, trigger } = useFormContext();
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
 
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +67,7 @@ export const SettingsSSOSAMLForm = () => {
       e.target.value = '';
       if (!samlMetadataParsed.success) {
         return enqueueErrorSnackBar({
-          message: t`Berkas tidak valid`,
+          message: `Berkas tidak valid`,
           options: {
             duration: 2000,
           },
@@ -107,7 +105,7 @@ export const SettingsSSOSAMLForm = () => {
     );
     if (!response.ok) {
       return enqueueErrorSnackBar({
-        message: t`Gagal membuat berkas metadata`,
+        message: `Gagal membuat berkas metadata`,
         options: {
           duration: 2000,
         },
@@ -128,8 +126,8 @@ export const SettingsSSOSAMLForm = () => {
     <>
       <Section>
         <H2Title
-          title={t`Metadata XML Penyedia Identitas`}
-          description={t`Unggah berkas XML dengan informasi koneksi Anda`}
+          title={`Metadata XML Penyedia Identitas`}
+          description={`Unggah berkas XML dengan informasi koneksi Anda`}
         />
         <StyledUploadFileContainer>
           <StyledFileInput
@@ -141,7 +139,7 @@ export const SettingsSSOSAMLForm = () => {
           <Button
             Icon={IconUpload}
             onClick={handleUploadFileClick}
-            title={t`Unggah berkas`}
+            title={`Unggah berkas`}
             type="button"
           ></Button>
           {isXMLMetadataValid() && (
@@ -155,25 +153,25 @@ export const SettingsSSOSAMLForm = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Detail Penyedia Layanan`}
-          description={t`Masukkan informasi untuk menyiapkan koneksi`}
+          title={`Detail Penyedia Layanan`}
+          description={`Masukkan informasi untuk menyiapkan koneksi`}
         />
         <StyledInputsContainer>
           <StyledContainer>
             <Button
               Icon={IconDownload}
               onClick={downloadMetadata}
-              title={t`Unduh berkas`}
+              title={`Unduh berkas`}
               type="button"
             />
           </StyledContainer>
-          <HorizontalSeparator text={t`Atau`} />
+          <HorizontalSeparator text={`Atau`} />
           <StyledContainer>
             <StyledLinkContainer>
               <SettingsTextInput
                 instanceId="sso-saml-acs-url"
                 disabled={true}
-                label={t`URL ACS`}
+                label={`URL ACS`}
                 value={acsUrl}
                 fullWidth
               />
@@ -181,9 +179,9 @@ export const SettingsSSOSAMLForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title={t`Salin`}
+                title={`Salin`}
                 onClick={() => {
-                  copyToClipboard(acsUrl, t`URL ACS disalin ke papan klip`);
+                  copyToClipboard(acsUrl, `URL ACS disalin ke papan klip`);
                 }}
                 type="button"
               />
@@ -194,7 +192,7 @@ export const SettingsSSOSAMLForm = () => {
               <SettingsTextInput
                 instanceId="sso-saml-entity-id"
                 disabled={true}
-                label={t`ID Entitas`}
+                label={`ID Entitas`}
                 value={entityID}
                 fullWidth
               />
@@ -202,12 +200,9 @@ export const SettingsSSOSAMLForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title={t`Salin`}
+                title={`Salin`}
                 onClick={() => {
-                  copyToClipboard(
-                    entityID,
-                    t`ID Entitas disalin ke papan klip`,
-                  );
+                  copyToClipboard(entityID, `ID Entitas disalin ke papan klip`);
                 }}
                 type="button"
               />

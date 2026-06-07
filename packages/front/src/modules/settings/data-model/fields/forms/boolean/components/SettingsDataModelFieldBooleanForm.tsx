@@ -5,7 +5,6 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { BOOLEAN_DATA_MODEL_SELECT_OPTIONS } from '@/settings/data-model/fields/forms/boolean/constants/BooleanDataModelSelectOptions';
 import { useBooleanSettingsFormInitialValues } from '@/settings/data-model/fields/forms/boolean/hooks/useBooleanSettingsFormInitialValues';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconCheck } from 'ui/display';
 
 export const settingsDataModelFieldBooleanFormSchema = z.object({
@@ -25,7 +24,6 @@ export const SettingsDataModelFieldBooleanForm = ({
   disabled,
   existingFieldMetadataId,
 }: SettingsDataModelFieldBooleanFormProps) => {
-  const { t } = useLingui();
   const { control } = useFormContext<SettingsDataModelFieldBooleanFormValues>();
 
   const { initialDefaultValue } = useBooleanSettingsFormInitialValues({
@@ -40,8 +38,8 @@ export const SettingsDataModelFieldBooleanForm = ({
       render={({ field: { onChange, value } }) => (
         <SettingsOptionCardContentSelect
           Icon={IconCheck}
-          title={t`Nilai Bawaan`}
-          description={t`Pilih nilai bawaan untuk kolom Ya/Tidak ini`}
+          title={`Nilai Bawaan`}
+          description={`Pilih nilai bawaan untuk kolom Ya/Tidak ini`}
         >
           <Select<boolean>
             value={value}
@@ -52,7 +50,7 @@ export const SettingsDataModelFieldBooleanForm = ({
             needIconCheck={false}
             options={BOOLEAN_DATA_MODEL_SELECT_OPTIONS.map((option) => ({
               ...option,
-              label: t(option.label),
+              label: option.label,
             }))}
             selectSizeVariant="small"
           />

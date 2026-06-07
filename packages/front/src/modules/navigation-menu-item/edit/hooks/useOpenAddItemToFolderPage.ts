@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { IconColumnInsertRight } from 'ui/display';
 
@@ -14,7 +13,6 @@ type OpenAddItemToFolderPageParams = {
 };
 
 export const useOpenAddItemToFolderPage = () => {
-  const { t } = useLingui();
   const { navigateSidePanel } = useNavigateSidePanel();
   const setPendingInsertionNavigationMenuItem = useSetAtomState(
     pendingInsertionNavigationMenuItemState,
@@ -32,7 +30,7 @@ export const useOpenAddItemToFolderPage = () => {
     setSelectedNavigationMenuItemIdInEditMode(null);
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`Item menu baru`,
+      pageTitle: `Item menu baru`,
       pageIcon: IconColumnInsertRight,
       resetNavigationStack,
     });

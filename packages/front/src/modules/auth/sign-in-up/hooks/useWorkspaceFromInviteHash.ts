@@ -6,7 +6,6 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { useQuery } from '@apollo/client/react';
@@ -53,8 +52,8 @@ export const useWorkspaceFromInviteHash = () => {
       initiallyLoggedIn &&
         enqueueInfoSnackBar({
           message: workspaceDisplayName
-            ? t`Anda sudah tergabung di ruang kerja ${workspaceDisplayName}`
-            : t`Anda sudah tergabung di ruang kerja ini`,
+            ? `Anda sudah tergabung di ruang kerja ${workspaceDisplayName}`
+            : `Anda sudah tergabung di ruang kerja ini`,
         });
       navigate(AppPath.Index);
     }

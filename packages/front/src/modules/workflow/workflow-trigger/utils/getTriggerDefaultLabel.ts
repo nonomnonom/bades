@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 import { type WorkflowTrigger } from '@/workflow/types/Workflow';
 import { splitWorkflowTriggerEventName } from '@/workflow/utils/splitWorkflowTriggerEventName';
 import { DATABASE_TRIGGER_TYPES } from '@/workflow/workflow-trigger/constants/DatabaseTriggerTypes';
@@ -17,7 +15,7 @@ export const getTriggerDefaultLabel = (trigger: WorkflowTrigger): string => {
     )?.defaultLabel;
 
     if (!isDefined(label)) {
-      throw new Error(t`Peristiwa pemicu tidak dikenal`);
+      throw new Error(`Peristiwa pemicu tidak dikenal`);
     }
 
     return label;
@@ -28,7 +26,7 @@ export const getTriggerDefaultLabel = (trigger: WorkflowTrigger): string => {
   )?.defaultLabel;
 
   if (!isDefined(label)) {
-    throw new Error(t`Tipe pemicu tidak dikenal`);
+    throw new Error(`Tipe pemicu tidak dikenal`);
   }
 
   return label;

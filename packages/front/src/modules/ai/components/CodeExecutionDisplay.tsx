@@ -1,7 +1,6 @@
 import { TerminalOutput } from '@/ai/components/TerminalOutput';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconChevronDown,
   IconChevronUp,
@@ -202,7 +201,6 @@ export const CodeExecutionDisplay = ({
   isRunning = false,
 }: CodeExecutionDisplayProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const [isCodeExpanded, setIsCodeExpanded] = useState(false);
   const [isOutputExpanded, setIsOutputExpanded] = useState(true);
@@ -222,10 +220,10 @@ export const CodeExecutionDisplay = ({
         : IconPlayerPlay;
 
   const statusText = isRunning
-    ? t`Berjalan...`
+    ? `Berjalan...`
     : exitCode === 0
-      ? t`Selesai`
-      : t`Gagal`;
+      ? `Selesai`
+      : `Gagal`;
 
   const hasOutput = stdout || stderr;
   const hasFiles = files.length > 0;
@@ -235,7 +233,7 @@ export const CodeExecutionDisplay = ({
       <StyledHeader status={status}>
         <StyledHeaderLeft>
           <IconCode size={theme.icon.size.md} />
-          <StyledTitle>{t`Eksekusi Kode Python`}</StyledTitle>
+          <StyledTitle>{`Eksekusi Kode Python`}</StyledTitle>
         </StyledHeaderLeft>
         <StyledHeaderRight>
           <StyledStatusBadge status={status}>
@@ -249,7 +247,7 @@ export const CodeExecutionDisplay = ({
         <StyledSectionHeader onClick={() => setIsCodeExpanded(!isCodeExpanded)}>
           <StyledSectionHeaderLeft>
             <IconCode size={theme.icon.size.sm} />
-            {t`Kode`}
+            {`Kode`}
           </StyledSectionHeaderLeft>
           <StyledHeaderRight>
             <LightIconButton
@@ -258,7 +256,7 @@ export const CodeExecutionDisplay = ({
                 e.stopPropagation();
                 copyToClipboard(code);
               }}
-              title={t`Salin kode`}
+              title={`Salin kode`}
               size="small"
               accent="tertiary"
             />
@@ -293,7 +291,7 @@ export const CodeExecutionDisplay = ({
           <StyledSectionHeader
             onClick={() => setIsOutputExpanded(!isOutputExpanded)}
           >
-            <StyledSectionHeaderLeft>{t`Keluaran`}</StyledSectionHeaderLeft>
+            <StyledSectionHeaderLeft>{`Keluaran`}</StyledSectionHeaderLeft>
             {isOutputExpanded ? (
               <IconChevronUp size={theme.icon.size.sm} />
             ) : (
@@ -320,7 +318,7 @@ export const CodeExecutionDisplay = ({
           >
             <StyledSectionHeaderLeft>
               <IconFile size={theme.icon.size.sm} />
-              {t`File yang Dihasilkan`} ({files.length})
+              {`File yang Dihasilkan`} ({files.length})
             </StyledSectionHeaderLeft>
             {isFilesExpanded ? (
               <IconChevronUp size={theme.icon.size.sm} />
@@ -356,7 +354,7 @@ export const CodeExecutionDisplay = ({
                       <StyledDownloadLink
                         href={file.url}
                         download={filename}
-                        title={t`Unduh ${filename}`}
+                        title={`Unduh ${filename}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconLink, IconWorld } from 'ui/display';
 
 import { LinkIconWithLinkOverlay } from '@/navigation-menu-item/display/link/components/LinkIconWithLinkOverlay';
@@ -14,7 +13,6 @@ import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomC
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 export const SidePanelLinkInfo = () => {
-  const { t } = useLingui();
   const sidePanelPageInfo = useAtomStateValue(sidePanelPageInfoState);
   const [sidePanelShouldFocusTitleInput, setSidePanelShouldFocusTitleInput] =
     useAtomComponentState(
@@ -27,8 +25,8 @@ export const SidePanelLinkInfo = () => {
   const items = useNavigationMenuItemSectionItems();
   const { updateLinkInDraft } = useUpdateLinkInDraft();
 
-  const defaultLabel = t`Label tautan`;
-  const placeholder = t`Label tautan`;
+  const defaultLabel = `Label tautan`;
+  const placeholder = `Label tautan`;
 
   const selectedItem = selectedNavigationMenuItemIdInEditMode
     ? items.find(
@@ -82,7 +80,7 @@ export const SidePanelLinkInfo = () => {
           onFocus={() => setSidePanelShouldFocusTitleInput(false)}
         />
       }
-      label={t`Tautan`}
+      label={`Tautan`}
     />
   );
 };

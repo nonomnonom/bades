@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useOpenRecordInSidePanel } from '@/side-panel/hooks/useOpenRecordInSidePanel';
 import { CoreObjectNameSingular } from 'shared/types';
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
@@ -86,7 +85,7 @@ export const RecordChip = ({
     return (
       <Chip
         label={recordChipData.name}
-        emptyLabel={t`Tanpa judul`}
+        emptyLabel={`Tanpa judul`}
         isBold={isBold}
         size={size}
         maxWidth={maxWidth}

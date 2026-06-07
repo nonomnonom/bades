@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -39,21 +38,21 @@ export const SettingsApplicationCommandMenuItemDetail = () => {
   );
   const breadcrumbLinks = [
     {
-      children: t`Ruang Kerja`,
+      children: `Ruang Kerja`,
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: t`Aplikasi`,
+      children: `Aplikasi`,
       href: getSettingsPath(SettingsPath.Applications),
     },
     { children: application?.name ?? '', href: applicationContentHref },
-    { children: t`Item menu perintah`, href: applicationContentHref },
+    { children: `Item menu perintah`, href: applicationContentHref },
     { children: commandMenuItem?.label ?? '' },
   ];
 
   return (
     <SubMenuTopBarContainer
-      title={commandMenuItem?.label ?? t`Item menu perintah`}
+      title={commandMenuItem?.label ?? `Item menu perintah`}
       links={breadcrumbLinks}
     >
       <SettingsPageContainer>

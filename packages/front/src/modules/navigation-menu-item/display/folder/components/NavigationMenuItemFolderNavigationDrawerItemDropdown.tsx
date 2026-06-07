@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconPencil, IconTrash } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -21,7 +20,6 @@ export const NavigationMenuItemFolderNavigationDrawerItemDropdown = ({
   onDelete,
   closeDropdown,
 }: NavigationMenuItemFolderNavigationDrawerItemDropdownProps) => {
-  const { t } = useLingui();
   const handleRename = () => {
     closeDropdown();
     onRename();
@@ -47,13 +45,13 @@ export const NavigationMenuItemFolderNavigationDrawerItemDropdown = ({
               LeftIcon={IconPencil}
               onClick={handleRename}
               accent="default"
-              text={t`Ubah nama`}
+              text={`Ubah nama`}
             />
             <MenuItem
               LeftIcon={IconTrash}
               onClick={handleDelete}
               accent="danger"
-              text={t`Hapus`}
+              text={`Hapus`}
             />
           </DropdownMenuItemsContainer>
         </DropdownContent>

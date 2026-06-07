@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -116,9 +115,9 @@ export const SyncEmails = () => {
 
   return (
     <ModalContent isVerticallyCentered isHorizontallyCentered>
-      <Title noMarginTop>{t`Email dan Kalender`}</Title>
+      <Title noMarginTop>{`Email dan Kalender`}</Title>
       <SubTitle>
-        {t`Sinkronkan Email dan Kalender Anda dengan Bades. Pilih pengaturan privasi Anda.`}
+        {`Sinkronkan Email dan Kalender Anda dengan Bades. Pilih pengaturan privasi Anda.`}
       </SubTitle>
       <StyledSyncEmailsContainer>
         <OnboardingSyncEmailsSettingsCard
@@ -129,7 +128,7 @@ export const SyncEmails = () => {
       <StyledProviderContainer>
         {!userAuthenticatedWithSSO && isGoogleProviderEnabled && (
           <MainButton
-            title={t`Sambungkan dengan Google`}
+            title={`Sambungkan dengan Google`}
             onClick={() => handleButtonClick(ConnectedAccountProvider.GOOGLE)}
             width={200}
             Icon={() => <IconGoogle size={theme.icon.size.sm} />}
@@ -137,7 +136,7 @@ export const SyncEmails = () => {
         )}
         {!userAuthenticatedWithSSO && isMicrosoftProviderEnabled && (
           <MainButton
-            title={t`Sambungkan dengan Outlook`}
+            title={`Sambungkan dengan Outlook`}
             onClick={() =>
               handleButtonClick(ConnectedAccountProvider.MICROSOFT)
             }
@@ -147,14 +146,14 @@ export const SyncEmails = () => {
         )}
         {!isMicrosoftProviderEnabled && !isGoogleProviderEnabled && (
           <MainButton
-            title={t`Lanjutkan`}
+            title={`Lanjutkan`}
             onClick={continueWithoutSync}
             width={144}
           />
         )}
         {userAuthenticatedWithSSO && isMicrosoftProviderEnabled && (
           <MainButton
-            title={t`Lanjutkan`}
+            title={`Lanjutkan`}
             onClick={() =>
               handleButtonClick(ConnectedAccountProvider.MICROSOFT)
             }
@@ -163,7 +162,7 @@ export const SyncEmails = () => {
         )}
         {userAuthenticatedWithSSO && isGoogleProviderEnabled && (
           <MainButton
-            title={t`Lanjutkan`}
+            title={`Lanjutkan`}
             onClick={() => handleButtonClick(ConnectedAccountProvider.GOOGLE)}
             width={144}
           />
@@ -171,7 +170,7 @@ export const SyncEmails = () => {
       </StyledProviderContainer>
       <StyledActionLinkContainer>
         <ClickToActionLink onClick={continueWithoutSync}>
-          {t`Lanjutkan tanpa sinkronisasi`}
+          {`Lanjutkan tanpa sinkronisasi`}
         </ClickToActionLink>
       </StyledActionLinkContainer>
     </ModalContent>

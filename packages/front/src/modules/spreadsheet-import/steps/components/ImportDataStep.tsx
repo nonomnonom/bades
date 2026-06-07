@@ -6,7 +6,6 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { ModalContent } from 'ui/layout';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
-import { t } from '~/utils/i18n/badesI18n';
 import { Loader } from 'ui/feedback';
 
 const StyledHeader = styled.span`
@@ -44,11 +43,11 @@ export const ImportDataStep = ({
   return (
     <>
       <ModalContent noPadding isVerticallyCentered isHorizontallyCentered>
-        <StyledHeader>{t`Mengimpor Data...`}</StyledHeader>
-        <StyledDescription>{t`${formattedCreatedRecordsProgress} dari ${formattedRecordsToImportCount} baris telah diimpor.`}</StyledDescription>
+        <StyledHeader>{`Mengimpor Data...`}</StyledHeader>
+        <StyledDescription>{`${formattedCreatedRecordsProgress} dari ${formattedRecordsToImportCount} baris telah diimpor.`}</StyledDescription>
         <Loader />
       </ModalContent>
-      <StepNavigationButton onBack={onClose} backTitle={t`Batal`} />
+      <StepNavigationButton onBack={onClose} backTitle={`Batal`} />
     </>
   );
 };

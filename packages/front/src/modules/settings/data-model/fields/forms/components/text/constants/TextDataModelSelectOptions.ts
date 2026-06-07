@@ -1,24 +1,22 @@
-import { msg } from '~/utils/i18n/badesI18n';
-
 export const TEXT_DATA_MODEL_SELECT_OPTIONS = [
   {
-    label: msg`Nonaktif`,
+    label: `Nonaktif`,
     value: 0,
   },
   {
-    label: msg`2 baris pertama`,
+    label: `2 baris pertama`,
     value: 2,
   },
   {
-    label: msg`5 baris pertama`,
+    label: `5 baris pertama`,
     value: 5,
   },
   {
-    label: msg`10 baris pertama`,
+    label: `10 baris pertama`,
     value: 10,
   },
   {
-    label: msg`Semua baris`,
+    label: `Semua baris`,
     value: 99,
   },
 ];

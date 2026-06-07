@@ -9,7 +9,6 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { type View } from '@/views/types/View';
 import { useDestroyViewFromCurrentState } from '@/views/view-picker/hooks/useDestroyViewFromCurrentState';
 import { viewPickerReferenceViewIdComponentState } from '@/views/view-picker/states/viewPickerReferenceViewIdComponentState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { NavigationMenuItemType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { v4 as uuidv4 } from 'uuid';
@@ -46,7 +45,6 @@ export const ViewPickerOptionDropdown = ({
 }: ViewPickerOptionDropdownProps) => {
   const dropdownId = `view-picker-options-${view.id}`;
 
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
   const { getIcon } = useIcons();
   const { destroyViewFromCurrentState } = useDestroyViewFromCurrentState();
@@ -126,14 +124,14 @@ export const ViewPickerOptionDropdown = ({
               {isIndexView ? (
                 <MenuItem
                   LeftIcon={IconHeart}
-                  text={isFavorite ? t`Kelola favorit` : t`Tambah ke favorit`}
+                  text={isFavorite ? `Kelola favorit` : `Tambah ke favorit`}
                   onClick={handleAddToFavorites}
                 />
               ) : (
                 <>
                   <MenuItem
                     LeftIcon={IconHeart}
-                    text={isFavorite ? t`Kelola favorit` : t`Tambah ke favorit`}
+                    text={isFavorite ? `Kelola favorit` : `Tambah ke favorit`}
                     onClick={handleAddToFavorites}
                   />
 
@@ -141,7 +139,7 @@ export const ViewPickerOptionDropdown = ({
                     <>
                       <MenuItem
                         LeftIcon={IconPencil}
-                        text={t`Ubah`}
+                        text={`Ubah`}
                         onClick={(event) => {
                           onEdit(event, view.id);
                           closeDropdown(dropdownId);
@@ -150,7 +148,7 @@ export const ViewPickerOptionDropdown = ({
                       {!isLastView && (
                         <MenuItem
                           LeftIcon={IconTrash}
-                          text={t`Hapus`}
+                          text={`Hapus`}
                           onClick={handleDelete}
                           accent="danger"
                         />

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useMemo, useState } from 'react';
 
@@ -58,7 +57,7 @@ export const PhoneCountryPickerDropdownSelect = ({
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>
         {filteredCountries?.length === 0 ? (
-          <MenuItem text={t`Tidak ada hasil`} />
+          <MenuItem text={`Tidak ada hasil`} />
         ) : (
           <>
             {selectedCountry && (

@@ -1,5 +1,4 @@
 import { currentWorkspaceMembersState } from '@/auth/states/currentWorkspaceMembersState';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { MenuItem, MenuItemAvatar } from 'ui/navigation';
 import { type SearchRecord } from '~/generated/graphql';
@@ -28,7 +27,7 @@ export const SettingsRoleAssignmentWorkspaceMemberPickerDropdownContent = ({
   }
 
   if (!filteredWorkspaceMembers.length && searchFilter.length > 0) {
-    return <MenuItem disabled text={t`Tidak ada hasil`} />;
+    return <MenuItem disabled text={`Tidak ada hasil`} />;
   }
 
   const enrichedWorkspaceMembers = filteredWorkspaceMembers

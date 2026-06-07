@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { CoreObjectNameSingular } from 'shared/types';
 import { ObjectFilterDropdownRecordPinnedItems } from '@/object-record/object-filter-dropdown/components/ObjectFilterDropdownRecordPinnedItems';
 import { CURRENT_WORKSPACE_MEMBER_SELECTABLE_ITEM_ID } from '@/object-record/object-filter-dropdown/constants/CurrentWorkspaceMemberSelectableItemId';
@@ -132,7 +131,7 @@ export const ObjectFilterDropdownActorSelect = ({
 
     const filterDisplayValue =
       numberOfSelectedItems > MAX_WORKSPACE_MEMBERS_TO_DISPLAY
-        ? t`${numberOfSelectedItems} anggota ruang kerja`
+        ? `${numberOfSelectedItems} anggota ruang kerja`
         : selectedItemNames.join(', ');
 
     const newFilterValue =

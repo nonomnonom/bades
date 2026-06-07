@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { useObjectOptionsDropdown } from '@/object-record/object-options-dropdown/hooks/useObjectOptionsDropdown';
 import { recordIndexCalendarFieldMetadataIdState } from '@/object-record/record-index/states/recordIndexCalendarFieldMetadataIdState';
@@ -18,7 +17,6 @@ import { IconChevronLeft, IconSettings, useIcons } from 'ui/display';
 import { MenuItem, MenuItemSelect } from 'ui/navigation';
 
 export const ObjectOptionsDropdownCalendarFieldsContent = () => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const [searchInput, setSearchInput] = useState('');
 
@@ -66,12 +64,12 @@ export const ObjectOptionsDropdownCalendarFieldsContent = () => {
           />
         }
       >
-        {t`Kolom tanggal`}
+        {`Kolom tanggal`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
         value={searchInput}
-        placeholder={t`Cari kolom`}
+        placeholder={`Cari kolom`}
         onChange={(event) => setSearchInput(event.target.value)}
       />
       <DropdownMenuSeparator />
@@ -90,7 +88,7 @@ export const ObjectOptionsDropdownCalendarFieldsContent = () => {
       <DropdownMenuItemsContainer scrollable={false}>
         <MenuItem
           LeftIcon={IconSettings}
-          text={t`Buat kolom tanggal`}
+          text={`Buat kolom tanggal`}
           onClick={() => {
             navigateToDateFieldSettings();
             closeDropdown();

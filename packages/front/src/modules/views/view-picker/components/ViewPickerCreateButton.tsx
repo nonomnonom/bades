@@ -10,11 +10,9 @@ import { viewPickerCalendarFieldMetadataIdComponentState } from '@/views/view-pi
 import { viewPickerIsPersistingComponentState } from '@/views/view-picker/states/viewPickerIsPersistingComponentState';
 import { viewPickerMainGroupByFieldMetadataIdComponentState } from '@/views/view-picker/states/viewPickerMainGroupByFieldMetadataIdComponentState';
 import { viewPickerTypeComponentState } from '@/views/view-picker/states/viewPickerTypeComponentState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Button } from 'ui/input';
 
 export const ViewPickerCreateButton = () => {
-  const { t } = useLingui();
   const { availableFieldsForGrouping, navigateToSelectSettings } =
     useGetAvailableFieldsToGroupRecordsBy();
   const { availableFieldsForCalendar, navigateToDateFieldSettings } =
@@ -46,7 +44,7 @@ export const ViewPickerCreateButton = () => {
   if (viewPickerMode === 'edit') {
     return (
       <Button
-        title={t`Hapus`}
+        title={`Hapus`}
         onClick={destroyViewFromCurrentState}
         accent="danger"
         fullWidth
@@ -65,7 +63,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Buka Pengaturan`}
+        title={`Buka Pengaturan`}
         onClick={navigateToSelectSettings}
         size="small"
         accent="blue"
@@ -81,7 +79,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Buka Pengaturan`}
+        title={`Buka Pengaturan`}
         onClick={navigateToDateFieldSettings}
         size="small"
         accent="blue"
@@ -94,7 +92,7 @@ export const ViewPickerCreateButton = () => {
   if (viewPickerType === ViewType.MAP && availableFieldsForMap.length === 0) {
     return (
       <Button
-        title={t`Buka Pengaturan`}
+        title={`Buka Pengaturan`}
         onClick={navigateToAddressFieldSettings}
         size="small"
         accent="blue"
@@ -110,9 +108,9 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Buat`}
+        title={`Buat`}
         onClick={handleCreateButtonClick}
-        ariaLabel={t`Buat tampilan baru`}
+        ariaLabel={`Buat tampilan baru`}
         accent="blue"
         fullWidth
         size="small"

@@ -7,7 +7,6 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { SidePanelFooter } from '@/ui/layout/side-panel/components/SidePanelFooter';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useId } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconCopyPlus, IconTrash } from 'ui/display';
@@ -19,7 +18,6 @@ export const WidgetSettingsFooter = ({
   pageLayoutId: string;
 }) => {
   const dropdownId = useId();
-  const { t } = useLingui();
   const { closeDropdown } = useCloseDropdown();
   const { duplicateWidget } = useDuplicatePageLayoutWidget(pageLayoutId);
   const { deletePageLayoutWidget } = useDeletePageLayoutWidget(pageLayoutId);
@@ -63,7 +61,7 @@ export const WidgetSettingsFooter = ({
             <MenuItem
               focused={selectedItemId === 'duplicate-widget'}
               onClick={handleDuplicateWidget}
-              text={t`Duplikat widget`}
+              text={`Duplikat widget`}
               LeftIcon={IconCopyPlus}
             />
           </SelectableListItem>
@@ -75,7 +73,7 @@ export const WidgetSettingsFooter = ({
             <MenuItem
               focused={selectedItemId === 'delete-widget'}
               onClick={handleDeleteWidget}
-              text={t`Hapus widget`}
+              text={`Hapus widget`}
               LeftIcon={IconTrash}
               accent="danger"
             />

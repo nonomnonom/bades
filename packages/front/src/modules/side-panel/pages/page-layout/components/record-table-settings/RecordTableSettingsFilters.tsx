@@ -8,7 +8,6 @@ import { useRecordTableWidgetViewForDisplay } from '@/page-layout/widgets/record
 import { RecordTableSettingsFiltersInitializeStateEffect } from '@/side-panel/pages/page-layout/components/record-table-settings/RecordTableSettingsFiltersInitializeStateEffect';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -59,7 +58,7 @@ export const RecordTableSettingsFilters = ({
 
   return (
     <StyledFilterSettingsContainer>
-      <InputLabel>{t`Kondisi`}</InputLabel>
+      <InputLabel>{`Kondisi`}</InputLabel>
       <RecordFilterGroupsComponentInstanceContext.Provider
         value={{ instanceId: recordIndexId }}
       >

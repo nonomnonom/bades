@@ -4,7 +4,6 @@ import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useToggleDropdown } from '@/ui/layout/dropdown/hooks/useToggleDropdown';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { type Editor } from '@tiptap/core';
 import { useId, useState, type FocusEvent, type FormEvent } from 'react';
@@ -23,8 +22,6 @@ export const EditLinkPopover = ({
   const instanceId = useId();
   const dropdownId = `edit-link-popover-${instanceId}`;
   const isActive = isNonEmptyString(defaultValue);
-  const { t } = useLingui();
-
   const [value, setValue] = useState(defaultValue);
   const { toggleDropdown } = useToggleDropdown();
 
@@ -58,7 +55,7 @@ export const EditLinkPopover = ({
           <DropdownMenuItemsContainer>
             <form onSubmit={handleSubmit}>
               <TextInput
-                placeholder={t`Masukkan tautan`}
+                placeholder={`Masukkan tautan`}
                 value={value}
                 onChange={setValue}
                 onBlur={handleSubmit}

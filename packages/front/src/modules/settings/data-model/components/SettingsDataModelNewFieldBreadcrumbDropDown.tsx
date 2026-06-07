@@ -4,7 +4,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
@@ -85,7 +84,7 @@ export const SettingsDataModelNewFieldBreadcrumbDropDown = () => {
 
   return (
     <StyledContainer>
-      {t`Kolom Baru`} <StyledSpan>-</StyledSpan>
+      {`Kolom Baru`} <StyledSpan>-</StyledSpan>
       <Dropdown
         dropdownPlacement="bottom-start"
         dropdownId={dropdownId}
@@ -96,11 +95,11 @@ export const SettingsDataModelNewFieldBreadcrumbDropDown = () => {
             </StyledDownChevronContainer>
             {isConfigureStep ? (
               <StyledButtonWrapper>
-                <Button variant="tertiary" title={t`2. Konfigurasi`} />
+                <Button variant="tertiary" title={`2. Konfigurasi`} />
               </StyledButtonWrapper>
             ) : (
               <StyledButtonWrapper>
-                <Button variant="tertiary" title={t`1. Tipe`} />
+                <Button variant="tertiary" title={`1. Tipe`} />
               </StyledButtonWrapper>
             )}
           </StyledButtonContainer>
@@ -110,14 +109,14 @@ export const SettingsDataModelNewFieldBreadcrumbDropDown = () => {
             <DropdownMenuItemsContainer>
               <StyledMenuItemWrapper>
                 <MenuItem
-                  text={t`1. Tipe`}
+                  text={`1. Tipe`}
                   onClick={() => handleClick('select')}
                   selected={!isConfigureStep}
                 />
               </StyledMenuItemWrapper>
               <StyledMenuItemWrapper disabled={!isDefined(fieldType)}>
                 <MenuItem
-                  text={t`2. Konfigurasi`}
+                  text={`2. Konfigurasi`}
                   onClick={() => handleClick('configure')}
                   selected={isConfigureStep}
                   disabled={!isDefined(fieldType)}

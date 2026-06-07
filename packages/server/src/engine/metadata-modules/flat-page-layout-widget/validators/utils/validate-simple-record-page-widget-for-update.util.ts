@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type ValidateFlatPageLayoutWidgetTypeSpecificitiesForUpdateArgs } from 'src/engine/metadata-modules/flat-page-layout-widget/services/flat-page-layout-widget-type-validator.service';
@@ -29,7 +29,7 @@ export const validateSimpleRecordPageWidgetForUpdate =
 
       errors.push({
         code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-        message: t`Invalid configuration type for widget "${widgetTitle}". Expected ${expectedString}, got ${actualString}`,
+        message: `Invalid configuration type for widget "${widgetTitle}". Expected ${expectedString}, got ${actualString}`,
         userFriendlyMessage: msg`Invalid configuration type for widget`,
         value: universalConfiguration.configurationType,
       });

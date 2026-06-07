@@ -6,7 +6,6 @@ import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import isEmpty from 'lodash.isempty';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -32,7 +31,6 @@ export const NameField = ({
   autoSave = true,
   onNameUpdate,
 }: NameFieldProps) => {
-  const { t } = useLingui();
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const setCurrentWorkspace = useSetAtomState(currentWorkspaceState);
 
@@ -95,10 +93,10 @@ export const NameField = ({
     <StyledComboInputContainer>
       <SettingsTextInput
         instanceId="workspace-name"
-        label={t`Nama`}
+        label={`Nama`}
         value={displayName}
         onChange={setDisplayName}
-        placeholder={t`Desa Sukamaju`}
+        placeholder={`Desa Sukamaju`}
         fullWidth
       />
     </StyledComboInputContainer>

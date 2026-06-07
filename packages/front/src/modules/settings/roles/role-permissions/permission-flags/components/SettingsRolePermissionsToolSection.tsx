@@ -6,8 +6,6 @@ import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDr
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { H2Title, IconTool } from 'ui/display';
 import { AnimatedExpandableContainer, Card, Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -57,14 +55,14 @@ export const SettingsRolePermissionsToolSection = ({
 
   return (
     <Section>
-      <H2Title title={t`Tindakan`} description={t`Izin tindakan`} />
+      <H2Title title={`Tindakan`} description={`Izin tindakan`} />
       {shouldShowAllAccessToggle && (
         <StyledCardContainer>
           <Card rounded>
             <SettingsOptionCardContentToggle
               Icon={IconTool}
-              title={t`Akses Penuh Tindakan`}
-              description={t`Memberikan izin untuk melakukan semua tindakan yang tersedia tanpa pembatasan`}
+              title={`Akses Penuh Tindakan`}
+              description={`Memberikan izin untuk melakukan semua tindakan yang tersedia tanpa pembatasan`}
               checked={settingsDraftRole.canAccessAllTools}
               disabled={!isEditable}
               onChange={() => {

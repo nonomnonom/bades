@@ -7,7 +7,6 @@ import { visibleRecordFieldsComponentSelector } from '@/object-record/record-fie
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { ViewType } from '@/views/types/ViewType';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconEye, IconEyeOff, useIcons } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
@@ -19,7 +18,6 @@ type ViewFieldsSearchDropdownSectionProps = {
 export const ViewFieldsSearchDropdownSection = ({
   searchInput,
 }: ViewFieldsSearchDropdownSectionProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
 
   const { viewType, objectMetadataItem, recordIndexId } = useContext(
@@ -94,7 +92,7 @@ export const ViewFieldsSearchDropdownSection = ({
           );
         })
       ) : (
-        <MenuItem disabled text={t`Tidak ada hasil`} accent="placeholder" />
+        <MenuItem disabled text={`Tidak ada hasil`} accent="placeholder" />
       )}
     </DropdownMenuItemsContainer>
   );

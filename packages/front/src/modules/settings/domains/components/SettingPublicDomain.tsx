@@ -1,6 +1,6 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { Section } from 'ui/layout';
 import { H2Title, IconReload, IconTrash } from 'ui/display';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { SettingsPath } from 'shared/types';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -56,7 +56,6 @@ export const SettingPublicDomain = () => {
   const [selectedPublicDomain, setSelectedPublicDomain] = useAtomState(
     selectedPublicDomainState,
   );
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
@@ -92,7 +91,7 @@ export const SettingPublicDomain = () => {
 
   const applicationPinnedOption: SelectOption<string | null> = {
     value: null,
-    label: t`Ruang Kerja (semua aplikasi)`,
+    label: `Ruang Kerja (semua aplikasi)`,
   };
 
   const applicationOptions: SelectOption<string | null>[] = (
@@ -116,7 +115,7 @@ export const SettingPublicDomain = () => {
       variables: { domain: selectedPublicDomain.domain },
       onCompleted: () => {
         enqueueSuccessSnackBar({
-          message: t`Domain publik berhasil dihapus`,
+          message: `Domain publik berhasil dihapus`,
         });
         navigate(SettingsPath.Applications);
         refetchPublicDomains();
@@ -152,7 +151,7 @@ export const SettingPublicDomain = () => {
       onCompleted: (data) => {
         setSelectedPublicDomain(data.createPublicDomain);
         enqueueSuccessSnackBar({
-          message: t`Domain publik berhasil dibuat`,
+          message: `Domain publik berhasil dibuat`,
         });
       },
       onError: (error) => {
@@ -182,7 +181,7 @@ export const SettingPublicDomain = () => {
       onCompleted: (data) => {
         setSelectedPublicDomain(data.updatePublicDomain);
         enqueueSuccessSnackBar({
-          message: t`Domain publik berhasil diperbarui`,
+          message: `Domain publik berhasil diperbarui`,
         });
         refetchPublicDomains();
       },
@@ -195,7 +194,7 @@ export const SettingPublicDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Domain Publik`}
+      title={`Domain Publik`}
       links={[
         {
           children: <Trans>Ruang Kerja</Trans>,
@@ -218,8 +217,8 @@ export const SettingPublicDomain = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Domain Publik`}
-            description={t`Atur nama domain publik Anda dan konfigurasikan rekaman DNS.`}
+            title={`Domain Publik`}
+            description={`Atur nama domain publik Anda dan konfigurasikan rekaman DNS.`}
           />
           {isDefined(selectedPublicDomain) && (
             <CheckPublicDomainValidRecordsEffect
@@ -243,7 +242,7 @@ export const SettingPublicDomain = () => {
                     <Button
                       isLoading={isLoading}
                       Icon={IconReload}
-                      title={t`Muat ulang`}
+                      title={`Muat ulang`}
                       variant="primary"
                       onClick={() =>
                         checkPublicDomainRecords(selectedPublicDomain.domain)
@@ -272,12 +271,12 @@ export const SettingPublicDomain = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Aplikasi Terhubung`}
-            description={t`Batasi domain ini ke rute HTTP aplikasi tertentu. Kosongkan untuk mengekspos semua rute HTTP ruang kerja.`}
+            title={`Aplikasi Terhubung`}
+            description={`Batasi domain ini ke rute HTTP aplikasi tertentu. Kosongkan untuk mengekspos semua rute HTTP ruang kerja.`}
           />
           <Select
             dropdownId="public-domain-application"
-            label={t`Aplikasi`}
+            label={`Aplikasi`}
             fullWidth
             value={selectedApplicationId}
             pinnedOption={applicationPinnedOption}

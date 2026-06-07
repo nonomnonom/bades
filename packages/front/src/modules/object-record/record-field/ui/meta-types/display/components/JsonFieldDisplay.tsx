@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useJsonFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useJsonFieldDisplay';
 import { JsonDisplay } from '@/ui/field/display/components/JsonDisplay';
 import { ExpandedFieldDisplay } from '@/ui/layout/expandable-list/components/ExpandedFieldDisplay';
@@ -44,11 +43,11 @@ export const JsonFieldDisplay = () => {
           <JsonTree
             value={fieldValue}
             shouldExpandNodeInitially={isTwoFirstDepths}
-            emptyArrayLabel={t`Array Kosong`}
-            emptyObjectLabel={t`Objek Kosong`}
-            emptyStringLabel={t`[string kosong]`}
-            arrowButtonCollapsedLabel={t`Perluas`}
-            arrowButtonExpandedLabel={t`Ciutkan`}
+            emptyArrayLabel={`Array Kosong`}
+            emptyObjectLabel={`Objek Kosong`}
+            emptyStringLabel={`[string kosong]`}
+            arrowButtonCollapsedLabel={`Perluas`}
+            arrowButtonExpandedLabel={`Ciutkan`}
             onNodeValueClick={copyToClipboard}
           />
         </ExpandedFieldDisplay>

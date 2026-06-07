@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 
 import { SettingsRadioCardContainer } from '@/settings/components/SettingsRadioCardContainer';
@@ -23,20 +22,19 @@ export const SettingsApplicationConnectScopePickerModal = ({
   providerDisplayName,
   onConfirm,
 }: SettingsApplicationConnectScopePickerModalProps) => {
-  const { t } = useLingui();
   const { closeModal } = useModal();
   const [scope, setScope] = useState<'user' | 'workspace'>('user');
 
   const options = [
     {
       value: 'user',
-      title: t`Hanya untuk saya`,
-      description: t`Hanya Anda yang dapat menggunakan kredensial ini.`,
+      title: `Hanya untuk saya`,
+      description: `Hanya Anda yang dapat menggunakan kredensial ini.`,
     },
     {
       value: 'workspace',
-      title: t`Dibagikan ke ruang kerja`,
-      description: t`Semua anggota ruang kerja dapat menggunakan kredensial ini.`,
+      title: `Dibagikan ke ruang kerja`,
+      description: `Semua anggota ruang kerja dapat menggunakan kredensial ini.`,
     },
   ];
 
@@ -44,7 +42,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
     <StyledAppModal modalId={modalInstanceId} isClosable padding="large">
       <StyledAppModalTitle>
         <H1Title
-          title={t`Sambungkan ${providerDisplayName}`}
+          title={`Sambungkan ${providerDisplayName}`}
           fontColor={H1TitleFontColor.Primary}
         />
       </StyledAppModalTitle>
@@ -61,7 +59,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
       <StyledAppModalButton
         onClick={() => closeModal(modalInstanceId)}
         variant="secondary"
-        title={t`Batal`}
+        title={`Batal`}
         fullWidth
         justify="center"
       />
@@ -72,7 +70,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
         }}
         variant="secondary"
         accent="blue"
-        title={t`Lanjutkan`}
+        title={`Lanjutkan`}
         fullWidth
         justify="center"
       />

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
@@ -65,12 +64,12 @@ export const SettingsApplicationVersionContainer = ({
   const versionItems = [
     {
       Icon: IconCircleDot,
-      label: t`Versi saat ini`,
+      label: `Versi saat ini`,
       value: (
         <SettingsAdminVersionDisplay
           version={currentVersion}
           loading={loading}
-          noVersionMessage={t`Tidak diketahui`}
+          noVersionMessage={`Tidak diketahui`}
         />
       ),
     },
@@ -78,12 +77,12 @@ export const SettingsApplicationVersionContainer = ({
       ? [
           {
             Icon: IconStatusChange,
-            label: t`Versi terbaru`,
+            label: `Versi terbaru`,
             value: (
               <SettingsAdminVersionDisplay
                 version={latestVersion}
                 loading={loading}
-                noVersionMessage={t`Tidak ada versi terbaru`}
+                noVersionMessage={`Tidak ada versi terbaru`}
               />
             ),
           },
@@ -103,8 +102,8 @@ export const SettingsApplicationVersionContainer = ({
           Icon={IconUpload}
           title={
             isUpgrading
-              ? t`Memperbarui...`
-              : t`Perbarui ke ${latestAvailableVersion}`
+              ? `Memperbarui...`
+              : `Perbarui ke ${latestAvailableVersion}`
           }
           variant="secondary"
           accent="blue"

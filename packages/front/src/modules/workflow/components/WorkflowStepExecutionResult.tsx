@@ -1,6 +1,5 @@
 import { LightCopyIconButton } from '@/object-record/record-field/ui/components/LightCopyIconButton';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import {
   IconLoader,
   IconSquareRoundedCheck,
@@ -72,8 +71,8 @@ export const WorkflowStepExecutionResult = ({
   height = '100%',
   status,
   isTesting = false,
-  loadingMessage = t`Memproses...`,
-  idleMessage = t`Keluaran`,
+  loadingMessage = `Memproses...`,
+  idleMessage = `Keluaran`,
 }: WorkflowStepExecutionResultProps) => {
   const { theme } = useContext(ThemeContext);
 

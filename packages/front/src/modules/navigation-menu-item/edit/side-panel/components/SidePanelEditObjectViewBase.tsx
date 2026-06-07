@@ -12,7 +12,6 @@ import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
 import { SidePanelList } from '@/side-panel/components/SidePanelList';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { viewsSelector } from '@/views/states/selectors/viewsSelector';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { parseThemeColor } from 'ui/utilities';
@@ -38,7 +37,6 @@ export const SidePanelEditObjectViewBase = ({
   showColorOption = false,
   selectedItem,
 }: SidePanelEditObjectViewBaseProps) => {
-  const { t } = useLingui();
   const selectableItemIds =
     getOrganizeActionsSelectableItemIds(showMoveToFolder);
   const objectMetadataItems = useAtomStateValue(objectMetadataItemsSelector);
@@ -76,7 +74,7 @@ export const SidePanelEditObjectViewBase = ({
       {showColorOption &&
         isDefined(selectedItem) &&
         objectMetadataItem?.isSystem !== true && (
-          <SidePanelGroup heading={t`Sesuaikan`}>
+          <SidePanelGroup heading={`Sesuaikan`}>
             <SidePanelEditColorOption
               navigationMenuItemId={selectedItem.id}
               color={parseThemeColor(displayColor)}

@@ -1,6 +1,5 @@
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -21,27 +20,25 @@ export const SettingsAdminHealthAccountSyncCountersTable = ({
   title: string;
   description: string;
 }) => {
-  const { t } = useLingui();
-
   if (!details) {
     return null;
   }
 
   const items = [
     {
-      label: t`Sinkronisasi Aktif`,
+      label: `Sinkronisasi Aktif`,
       value: details.counters.ACTIVE,
     },
     {
-      label: t`Total Pekerjaan`,
+      label: `Total Pekerjaan`,
       value: details.totalJobs,
     },
     {
-      label: t`Pekerjaan Gagal`,
+      label: `Pekerjaan Gagal`,
       value: details.failedJobs,
     },
     {
-      label: t`Tingkat Kegagalan`,
+      label: `Tingkat Kegagalan`,
       value: `${details.failureRate}%`,
     },
   ];

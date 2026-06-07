@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatObjectMetadataValidationError } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata-validation-error.type';
@@ -72,7 +72,7 @@ export const validateFlatObjectMetadataNameAndLabels = ({
   ) {
     errors.push({
       code: ObjectMetadataExceptionCode.INVALID_OBJECT_INPUT,
-      message: t`Names are not synced with labels`,
+      message: `Names are not synced with labels`,
       userFriendlyMessage: msg`Names are not synced with labels`,
     });
   }

@@ -8,7 +8,6 @@ import { DropdownMenuHeader } from '@/ui/layout/dropdown/components/DropdownMenu
 import { DropdownMenuHeaderLeftComponent } from '@/ui/layout/dropdown/components/DropdownMenuHeader/internal/DropdownMenuHeaderLeftComponent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
-import { t } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { IconChevronLeft, IconEye, IconEyeOff } from 'ui/display';
 import { MenuItem, MenuItemSelectTag } from 'ui/navigation';
@@ -51,12 +50,12 @@ export const ConfigVariableOptionsDropdownContent = ({
       <DropdownContent>
         <DropdownMenuItemsContainer>
           <MenuItemSelectTag
-            text={t`Sumber`}
+            text={`Sumber`}
             color="transparent"
             onClick={() => onSelectCategory('source')}
           />
           <MenuItemSelectTag
-            text={t`Grup`}
+            text={`Grup`}
             color="transparent"
             onClick={() => onSelectCategory('group')}
           />
@@ -66,8 +65,8 @@ export const ConfigVariableOptionsDropdownContent = ({
           <MenuItem
             text={
               showHiddenGroupVariables
-                ? t`Sembunyikan grup tersembunyi`
-                : t`Tampilkan grup tersembunyi`
+                ? `Sembunyikan grup tersembunyi`
+                : `Tampilkan grup tersembunyi`
             }
             LeftIcon={() =>
               showHiddenGroupVariables ? (
@@ -99,8 +98,8 @@ export const ConfigVariableOptionsDropdownContent = ({
           />
         }
       >
-        {selectedCategory === 'source' && t`Pilih Sumber`}
-        {selectedCategory === 'group' && t`Pilih Grup`}
+        {selectedCategory === 'source' && `Pilih Sumber`}
+        {selectedCategory === 'group' && `Pilih Grup`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {selectedCategory === 'source' && (

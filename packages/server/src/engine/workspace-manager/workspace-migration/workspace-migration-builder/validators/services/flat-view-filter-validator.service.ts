@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -42,7 +42,7 @@ export class FlatViewFilterValidatorService {
     if (isDefined(existingViewFilter)) {
       validationResult.errors.push({
         code: ViewFilterExceptionCode.INVALID_VIEW_FILTER_DATA,
-        message: t`View filter with this universal identifier already exists`,
+        message: `View filter with this universal identifier already exists`,
         userFriendlyMessage: msg`View filter already exists`,
       });
     }
@@ -55,7 +55,7 @@ export class FlatViewFilterValidatorService {
     if (!isDefined(referencedView)) {
       validationResult.errors.push({
         code: ViewFilterExceptionCode.INVALID_VIEW_FILTER_DATA,
-        message: t`View not found`,
+        message: `View not found`,
         userFriendlyMessage: msg`View not found`,
       });
     }
@@ -69,7 +69,7 @@ export class FlatViewFilterValidatorService {
     if (!isDefined(referencedFieldMetadata)) {
       validationResult.errors.push({
         code: ViewFilterExceptionCode.INVALID_VIEW_FILTER_DATA,
-        message: t`Field metadata not found`,
+        message: `Field metadata not found`,
         userFriendlyMessage: msg`Field metadata not found`,
       });
     }
@@ -86,7 +86,7 @@ export class FlatViewFilterValidatorService {
       if (!isDefined(referencedViewFilterGroup)) {
         validationResult.errors.push({
           code: ViewFilterExceptionCode.INVALID_VIEW_FILTER_DATA,
-          message: t`View filter group not found`,
+          message: `View filter group not found`,
           userFriendlyMessage: msg`View filter group not found`,
         });
       }
@@ -119,7 +119,7 @@ export class FlatViewFilterValidatorService {
     if (!isDefined(existingViewFilter)) {
       validationResult.errors.push({
         code: ViewFilterExceptionCode.VIEW_FILTER_NOT_FOUND,
-        message: t`View filter not found`,
+        message: `View filter not found`,
         userFriendlyMessage: msg`View filter not found`,
       });
 
@@ -156,7 +156,7 @@ export class FlatViewFilterValidatorService {
     if (!isDefined(existingViewFilter)) {
       validationResult.errors.push({
         code: ViewFilterExceptionCode.VIEW_FILTER_NOT_FOUND,
-        message: t`View filter not found`,
+        message: `View filter not found`,
         userFriendlyMessage: msg`View filter not found`,
       });
 
@@ -177,7 +177,7 @@ export class FlatViewFilterValidatorService {
     if (!isDefined(referencedFieldMetadata)) {
       validationResult.errors.push({
         code: ViewFilterExceptionCode.INVALID_VIEW_FILTER_DATA,
-        message: t`Field metadata not found`,
+        message: `Field metadata not found`,
         userFriendlyMessage: msg`Field metadata not found`,
       });
     }
@@ -192,7 +192,7 @@ export class FlatViewFilterValidatorService {
       if (!isDefined(referencedViewFilterGroup)) {
         validationResult.errors.push({
           code: ViewFilterExceptionCode.INVALID_VIEW_FILTER_DATA,
-          message: t`View filter group not found`,
+          message: `View filter group not found`,
           userFriendlyMessage: msg`View filter group not found`,
         });
       }

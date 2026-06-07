@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconApps } from 'ui/display';
 
@@ -17,8 +16,6 @@ type SidePanelEditOwnerSectionProps = {
 export const SidePanelEditOwnerSection = ({
   applicationId: applicationIdProp,
 }: SidePanelEditOwnerSectionProps) => {
-  const { t } = useLingui();
-
   const { selectedItem } = useSelectedNavigationMenuItemEditItem();
   const { currentDraft } = useDraftNavigationMenuItems();
 
@@ -41,7 +38,7 @@ export const SidePanelEditOwnerSection = ({
   }
 
   return (
-    <SidePanelGroup heading={t`Pemilik`}>
+    <SidePanelGroup heading={`Pemilik`}>
       <SelectableListItem itemId="owner-app" onEnter={() => {}}>
         <CommandMenuItem
           Icon={IconApps}

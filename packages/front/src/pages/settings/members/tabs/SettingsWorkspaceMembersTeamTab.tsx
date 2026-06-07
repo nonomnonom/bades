@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
 import { useContext, useMemo, useState } from 'react';
@@ -80,7 +80,6 @@ const StyledChevronWrapper = styled.div`
 
 export const SettingsWorkspaceMembersTeamTab = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const navigateApp = useNavigateApp();
   const navigateSettings = useNavigateSettings();
   const { closeDropdown } = useCloseDropdown();
@@ -162,21 +161,21 @@ export const SettingsWorkspaceMembersTeamTab = () => {
   return (
     <Section>
       <H2Title
-        title={t`Kelola Anggota`}
-        description={t`Kelola anggota ruang kerja di sini`}
+        title={`Kelola Anggota`}
+        description={`Kelola anggota ruang kerja di sini`}
       />
       <StyledSearchContainer>
         <SearchInput
           value={searchFilter}
           onChange={handleSearchChange}
-          placeholder={t`Cari anggota tim...`}
+          placeholder={`Cari anggota tim...`}
         />
         <Dropdown
           dropdownId="workspace-members-open-dropdown"
           clickableComponent={
             <Button
               Icon={IconArrowUpRight}
-              title={t`Buka`}
+              title={`Buka`}
               variant="secondary"
               size="medium"
             />
@@ -188,7 +187,7 @@ export const SettingsWorkspaceMembersTeamTab = () => {
               <DropdownMenuItemsContainer>
                 <MenuItem
                   LeftIcon={IconListDetails}
-                  text={t`Lihat catatan`}
+                  text={`Lihat catatan`}
                   onClick={() => {
                     navigateApp(AppPath.RecordIndexPage, {
                       objectNamePlural: 'workspaceMembers',
@@ -198,7 +197,7 @@ export const SettingsWorkspaceMembersTeamTab = () => {
                 />
                 <MenuItem
                   LeftIcon={IconHierarchy2}
-                  text={t`Lihat pengaturan model data`}
+                  text={`Lihat pengaturan model data`}
                   onClick={() => {
                     navigateSettings(SettingsPath.ObjectDetail, {
                       objectNamePlural: 'workspaceMembers',
@@ -285,8 +284,8 @@ export const SettingsWorkspaceMembersTeamTab = () => {
             ) : (
               <TableCell color={themeCssVariables.font.color.tertiary}>
                 {!searchFilter
-                  ? t`Belum ada anggota`
-                  : t`Tidak ada anggota yang sesuai pencarian`}
+                  ? `Belum ada anggota`
+                  : `Tidak ada anggota yang sesuai pencarian`}
               </TableCell>
             )}
           </StyledTableRows>

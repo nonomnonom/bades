@@ -5,7 +5,6 @@ import { useFilterObjectMetadataItemsWithPermissionOverride } from '@/settings/r
 import { useObjectMetadataItemsThatCanHavePermission } from '@/settings/roles/role-permissions/object-level-permissions/hooks/useObjectMetadataItemsThatCanHavePermission';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
@@ -108,7 +107,7 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
               instanceId="role-permissions-object-search"
               value={searchFilter}
               onChange={handleSearchChange}
-              placeholder={t`Cari objek`}
+              placeholder={`Cari objek`}
               fullWidth
               LeftIcon={IconSearch}
               sizeVariant="lg"
@@ -119,7 +118,7 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
 
       {standardObjects.length > 0 && (
         <Section>
-          <H2Title title={t`Standar`} description={t`Semua objek standar`} />
+          <H2Title title={`Standar`} description={`Semua objek standar`} />
           <StyledContainer>
             {standardObjects.map((objectMetadataItem) => (
               <StyledCardContainer
@@ -145,7 +144,7 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
       )}
       {customObjects.length > 0 && (
         <Section>
-          <H2Title title={t`Kustom`} description={t`Semua objek kustom Anda`} />
+          <H2Title title={`Kustom`} description={`Semua objek kustom Anda`} />
           <StyledContainer>
             {customObjects.map((objectMetadataItem) => (
               <StyledCardContainer

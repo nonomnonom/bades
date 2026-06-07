@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { isFieldRatingValue } from '@/object-record/record-field/ui/types/guards/isFieldRatingValue';
 import { emailSchema } from '@/object-record/record-field/ui/validation-schemas/emailSchema';
 import { type SpreadsheetImportFieldValidationDefinition } from '@/spreadsheet-import/types';
@@ -19,7 +18,7 @@ const getNumberValidationDefinition = (
 ): SpreadsheetImportFieldValidationDefinition => ({
   rule: 'function',
   isValid: (value: string) => !isNaN(+value),
-  errorMessage: `${fieldName} ${t`harus berupa angka`}`,
+  errorMessage: `${fieldName} ${`harus berupa angka`}`,
   level: 'error',
 });
 
@@ -51,7 +50,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
         {
           rule: 'function',
           isValid: (value: string) => isValidUuid(value),
-          errorMessage: `${fieldName} ${t`bukan UUID yang valid`}`,
+          errorMessage: `${fieldName} ${`bukan UUID yang valid`}`,
           level: 'error',
         },
       ];
@@ -69,7 +68,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: (email: string) => emailSchema.safeParse(email).success,
-              errorMessage: `${fieldName} ${t`bukan alamat email yang valid`}`,
+              errorMessage: `${fieldName} ${`bukan alamat email yang valid`}`,
               level: 'error',
             },
           ];
@@ -90,7 +89,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                   return false;
                 }
               },
-              errorMessage: `${fieldName} ${t`harus berupa larik email yang valid`}`,
+              errorMessage: `${fieldName} ${`harus berupa larik email yang valid`}`,
               level: 'error',
             },
           ];
@@ -107,7 +106,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                 if (!isDefined(primaryLinkUrl)) return true;
                 return absoluteUrlSchema.safeParse(primaryLinkUrl).success;
               },
-              errorMessage: `${fieldName} ${t`bukan URL yang valid`}`,
+              errorMessage: `${fieldName} ${`bukan URL yang valid`}`,
               level: 'error',
             },
           ];
@@ -127,7 +126,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                   return false;
                 }
               },
-              errorMessage: `${fieldName} ${t`harus berupa larik objek dengan url dan label yang valid (format: '[{"url":"valid.url", "label":"nilai label")}]'`}`,
+              errorMessage: `${fieldName} ${`harus berupa larik objek dengan url dan label yang valid (format: '[{"url":"valid.url", "label":"nilai label")}]'`}`,
               level: 'error',
             },
           ];
@@ -143,7 +142,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             const date = new Date(value);
             return isDate(date) && !isNaN(date.getTime());
           },
-          errorMessage: `${fieldName} ${t`bukan tanggal waktu yang valid (format: '2021-12-01T00:00:00Z')`}`,
+          errorMessage: `${fieldName} ${`bukan tanggal waktu yang valid (format: '2021-12-01T00:00:00Z')`}`,
           level: 'error',
         },
       ];
@@ -155,7 +154,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             const date = new Date(value);
             return isDate(date) && !isNaN(date.getTime());
           },
-          errorMessage: `${fieldName} ${t`bukan tanggal yang valid (format: '2021-12-01')`}`,
+          errorMessage: `${fieldName} ${`bukan tanggal yang valid (format: '2021-12-01')`}`,
           level: 'error',
         },
       ];
@@ -166,7 +165,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: isValidPhoneNumber,
-              errorMessage: `${fieldName} ${t`bukan nomor telepon yang valid`}`,
+              errorMessage: `${fieldName} ${`bukan nomor telepon yang valid`}`,
               level: 'error',
             },
           ];
@@ -175,7 +174,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: isValidCallingCode,
-              errorMessage: `${fieldName} ${t`bukan kode panggilan yang valid`}`,
+              errorMessage: `${fieldName} ${`bukan kode panggilan yang valid`}`,
               level: 'error',
             },
           ];
@@ -184,7 +183,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: isValidCountryCode,
-              errorMessage: `${fieldName} ${t`bukan kode negara yang valid`}`,
+              errorMessage: `${fieldName} ${`bukan kode negara yang valid`}`,
               level: 'error',
             },
           ];
@@ -212,7 +211,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                   return false;
                 }
               },
-              errorMessage: `${fieldName} ${t`harus berupa larik objek dengan nomor telepon, kode panggilan, dan kode negara yang valid (format: '[{"number":"123456789", "callingCode":"+62", "countryCode":"ID"}]')`}`,
+              errorMessage: `${fieldName} ${`harus berupa larik objek dengan nomor telepon, kode panggilan, dan kode negara yang valid (format: '[{"number":"123456789", "callingCode":"+62", "countryCode":"ID"}]')`}`,
               level: 'error',
             },
           ];
@@ -231,7 +230,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
               return false;
             }
           },
-          errorMessage: `${fieldName} ${t`bukan JSON yang valid`}`,
+          errorMessage: `${fieldName} ${`bukan JSON yang valid`}`,
           level: 'error',
         },
       ];
@@ -250,7 +249,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
               return false;
             }
           },
-          errorMessage: `${fieldName} ${t`bukan larik yang valid`}`,
+          errorMessage: `${fieldName} ${`bukan larik yang valid`}`,
           level: 'error',
         },
       ];
@@ -261,7 +260,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
         {
           rule: 'function',
           isValid: isFieldRatingValue,
-          errorMessage: `${fieldName} ${t` harus salah satu dari nilai ${ratingValues}`}`,
+          errorMessage: `${fieldName} ${` harus salah satu dari nilai ${ratingValues}`}`,
           level: 'error',
         },
       ];

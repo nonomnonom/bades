@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { recordGroupDefinitionFamilyState } from '@/object-record/record-group/states/recordGroupDefinitionFamilyState';
 import {
   type RecordGroupDefinition,
@@ -48,8 +47,8 @@ export const RecordGroupMenuItemDraggable = ({
       {
         Icon: recordGroupDefinition.isVisible ? IconEyeOff : IconEye,
         ariaLabel: recordGroupDefinition.isVisible
-          ? t`Sembunyikan kelompok ${groupValue}`
-          : t`Tampilkan kelompok ${groupValue}`,
+          ? `Sembunyikan kelompok ${groupValue}`
+          : `Tampilkan kelompok ${groupValue}`,
         dataTestId: recordGroupDefinition.isVisible
           ? `hide-group-${recordGroupDefinition.value?.toLowerCase().replace(' ', '-') ?? ''}`
           : `show-group-${recordGroupDefinition.value?.toLowerCase().replace(' ', '-') ?? ''}`,

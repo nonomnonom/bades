@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ReactNode, useContext } from 'react';
 
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';
@@ -58,7 +57,6 @@ export const SettingsObjectMetadataItemTableRow = ({
   link,
   totalObjectCount,
 }: SettingsObjectMetadataItemTableRowProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -79,7 +77,7 @@ export const SettingsObjectMetadataItemTableRow = ({
               {objectMetadataItem.labelPlural}
             </StyledNameLabel>
             {!objectMetadataItem.isActive && (
-              <StyledInactiveLabel>{t`Nonaktif`}</StyledInactiveLabel>
+              <StyledInactiveLabel>{`Nonaktif`}</StyledInactiveLabel>
             )}
           </StyledNameContainer>
         </StyledNameTableCell>

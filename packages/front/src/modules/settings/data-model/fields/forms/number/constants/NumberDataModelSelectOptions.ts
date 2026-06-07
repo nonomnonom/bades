@@ -1,5 +1,4 @@
 import { type FieldNumberVariant } from '@/object-record/record-field/ui/types/FieldMetadata';
-import { msg } from '~/utils/i18n/badesI18n';
 import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
 import {
   IconLetterK,
@@ -19,17 +18,17 @@ type NumberDataModelSelectOptions = {
 export const NUMBER_DATA_MODEL_SELECT_OPTIONS = [
   {
     Icon: IconNumber9,
-    label: msg`Angka`,
+    label: `Angka`,
     value: 'number',
   },
   {
     Icon: IconLetterK,
-    label: msg`Ringkas`,
+    label: `Ringkas`,
     value: 'shortNumber',
   },
   {
     Icon: IconPercentage,
-    label: msg`Persentase`,
+    label: `Persentase`,
     value: 'percentage',
   },
 ] as const satisfies Array<NumberDataModelSelectOptions>;

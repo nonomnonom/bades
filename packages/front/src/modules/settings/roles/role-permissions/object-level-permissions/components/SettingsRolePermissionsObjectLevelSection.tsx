@@ -8,7 +8,6 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -129,7 +128,7 @@ export const SettingsRolePermissionsObjectLevelSection = ({
             )
           ) : (
             <TableCell color={themeCssVariables.font.color.tertiary}>
-              {t`Belum ada izin yang ditetapkan untuk objek individual.`}
+              {`Belum ada izin yang ditetapkan untuk objek individual.`}
             </TableCell>
           )}
         </StyledTableRows>
@@ -139,7 +138,7 @@ export const SettingsRolePermissionsObjectLevelSection = ({
           <Section>
             <Button
               Icon={IconPlus}
-              title={t`Tambah aturan`}
+              title={`Tambah aturan`}
               variant="secondary"
               size="small"
               disabled={

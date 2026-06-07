@@ -5,7 +5,6 @@ import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDr
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -42,7 +41,7 @@ export const SettingsRolePermissionsObjectsSection = ({
   const objectPermissionsConfig: SettingsRolePermissionsObjectPermission[] = [
     {
       key: 'canReadObjectRecords',
-      label: t`Lihat Data di Semua Objek`,
+      label: `Lihat Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -72,7 +71,7 @@ export const SettingsRolePermissionsObjectsSection = ({
     },
     {
       key: 'canUpdateObjectRecords',
-      label: t`Ubah Data di Semua Objek`,
+      label: `Ubah Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -100,7 +99,7 @@ export const SettingsRolePermissionsObjectsSection = ({
     },
     {
       key: 'canSoftDeleteObjectRecords',
-      label: t`Hapus Data di Semua Objek`,
+      label: `Hapus Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -128,7 +127,7 @@ export const SettingsRolePermissionsObjectsSection = ({
     },
     {
       key: 'canDestroyObjectRecords',
-      label: t`Hapus Permanen Data di Semua Objek`,
+      label: `Hapus Permanen Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -159,8 +158,8 @@ export const SettingsRolePermissionsObjectsSection = ({
   return (
     <Section>
       <H2Title
-        title={t`Objek`}
-        description={t`Pengaturan izin objek dan kolom`}
+        title={`Objek`}
+        description={`Pengaturan izin objek dan kolom`}
       />
       <StyledTable>
         <SettingsRolePermissionsObjectsTableHeader

@@ -12,7 +12,6 @@ import { type FieldType } from '@/settings/data-model/types/FieldType';
 import { type SettingsFieldType } from '@/settings/data-model/types/SettingsFieldType';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { Section } from '@react-email/components';
 import { useContext, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -113,7 +112,7 @@ export const SettingsObjectNewFieldSelector = ({
           <SettingsTextInput
             instanceId="new-field-type-search"
             LeftIcon={IconSearch}
-            placeholder={t`Cari tipe kolom`}
+            placeholder={`Cari tipe kolom`}
             value={searchQuery}
             onChange={setSearchQuery}
           />
@@ -141,7 +140,7 @@ export const SettingsObjectNewFieldSelector = ({
                         [
                           key,
                           key === FieldMetadataType.MORPH_RELATION
-                            ? { ...config, label: t`Relasi` }
+                            ? { ...config, label: `Relasi` }
                             : config,
                         ] as [string, SettingsFieldTypeConfig<any>],
                     )

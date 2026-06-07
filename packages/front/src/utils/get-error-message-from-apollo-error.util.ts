@@ -1,6 +1,6 @@
 import { type ErrorLike } from '@apollo/client';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { type MessageDescriptor, t } from '~/utils/i18n/badesI18n';
+import { type MessageDescriptor } from '~/utils/i18n/badesI18n';
 import { type Nullable } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
@@ -16,5 +16,12 @@ export const getErrorMessageFromApolloError = (error: ErrorLike): string => {
     return 'Terjadi kesalahan.';
   }
 
-  return t(userFriendlyMessage);
+  if (
+    typeof userFriendlyMessage === 'object' &&
+    'message' in userFriendlyMessage
+  ) {
+    return userFriendlyMessage.message ?? 'Terjadi kesalahan.';
+  }
+
+  return userFriendlyMessage as string;
 };

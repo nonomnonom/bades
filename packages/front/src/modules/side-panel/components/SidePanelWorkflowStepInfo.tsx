@@ -17,7 +17,6 @@ import { getActionIcon } from '@/workflow/workflow-steps/workflow-actions/utils/
 import { getActionIconColorOrThrow } from '@/workflow/workflow-steps/workflow-actions/utils/getActionIconColorOrThrow';
 import { getTriggerIcon } from '@/workflow/workflow-trigger/utils/getTriggerIcon';
 import { getTriggerIconColor } from '@/workflow/workflow-trigger/utils/getTriggerIconColor';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { CoreObjectNameSingular, SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -92,9 +91,9 @@ export const SidePanelWorkflowStepInfo = ({
       ? isTrigger
         ? (stepDefinition.definition.name ??
           (stepDefinition.definition.type === 'MANUAL'
-            ? t`Jalankan manual`
-            : t`Pemicu`))
-        : (stepDefinition.definition.name ?? t`Aksi`)
+            ? `Jalankan manual`
+            : `Pemicu`))
+        : (stepDefinition.definition.name ?? `Aksi`)
       : '';
 
   const [editedTitle, setEditedTitle] = useState<string | null>(null);
@@ -124,7 +123,7 @@ export const SidePanelWorkflowStepInfo = ({
     ? getTriggerIconColor(stepDefinition.definition.type)
     : getActionIconColorOrThrow(stepDefinition.definition.type);
 
-  const headerType = isTrigger ? t`Pemicu` : t`Aksi`;
+  const headerType = isTrigger ? `Pemicu` : `Aksi`;
 
   const Icon = getIcon(headerIcon ?? 'IconDefault');
 
@@ -189,7 +188,7 @@ export const SidePanelWorkflowStepInfo = ({
           onShiftTab={saveTitle}
         />
       }
-      label={isTrigger ? t`Pemicu` : t`Aksi`}
+      label={isTrigger ? `Pemicu` : `Aksi`}
     />
   );
 };

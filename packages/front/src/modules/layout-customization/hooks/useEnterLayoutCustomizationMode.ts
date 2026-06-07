@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
@@ -46,7 +45,7 @@ export const useEnterLayoutCustomizationMode = () => {
 
       if (isDashboardInEditMode) {
         enqueueWarningSnackBar({
-          message: t`Simpan atau batalkan perubahan dasbor sebelum mengubah tata letak.`,
+          message: `Simpan atau batalkan perubahan dasbor sebelum mengubah tata letak.`,
         });
 
         return;
@@ -77,7 +76,7 @@ export const useEnterLayoutCustomizationMode = () => {
     ) {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuEdit,
-        pageTitle: t`Ubah aksi`,
+        pageTitle: `Ubah aksi`,
         pageIcon: IconPencil,
         resetNavigationStack: true,
       });

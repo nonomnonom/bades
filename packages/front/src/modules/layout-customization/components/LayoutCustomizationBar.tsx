@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAtomValue } from 'jotai';
 import { useContext } from 'react';
@@ -70,8 +69,6 @@ const StyledRightSection = styled.div`
 
 const LayoutCustomizationBarContent = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const { save, isSaving } = useSaveLayoutCustomization();
   const { cancel } = useCancelLayoutCustomization();
   const { isDirty } = useIsLayoutCustomizationDirty();
@@ -93,8 +90,8 @@ const LayoutCustomizationBarContent = () => {
       : undefined;
 
   const title = isDefined(recordPageLayoutObject)
-    ? t`Ubah tata letak ${recordPageLayoutObject.labelPlural}`
-    : t`Sesuaikan tata letak`;
+    ? `Ubah tata letak ${recordPageLayoutObject.labelPlural}`
+    : `Sesuaikan tata letak`;
 
   return (
     <motion.div

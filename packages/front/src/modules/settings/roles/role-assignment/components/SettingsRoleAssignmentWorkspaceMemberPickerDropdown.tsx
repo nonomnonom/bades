@@ -8,7 +8,6 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ChangeEvent, useState } from 'react';
 
 type SettingsRoleAssignmentWorkspaceMemberPickerDropdownProps = {
@@ -42,14 +41,12 @@ export const SettingsRoleAssignmentWorkspaceMemberPickerDropdown = ({
   const handleSearchFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchFilter(event.target.value);
   };
-  const { t } = useLingui();
-
   return (
     <DropdownContent widthInPixels={GenericDropdownContentWidth.ExtraLarge}>
       <DropdownMenuSearchInput
         value={searchFilter}
         onChange={handleSearchFilterChange}
-        placeholder={t`Cari`}
+        placeholder={`Cari`}
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>

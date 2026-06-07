@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { CodeEditor } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -28,11 +27,9 @@ export const SettingsLogicFunctionTriggerPayloadFormat = ({
   payload: object;
   hint?: string;
 }) => {
-  const { t } = useLingui();
-
   return (
     <StyledContainer>
-      <StyledLabel>{t`Contoh masukan`}</StyledLabel>
+      <StyledLabel>{`Contoh masukan`}</StyledLabel>
       <CodeEditor
         value={JSON.stringify(payload, null, 2)}
         language="json"

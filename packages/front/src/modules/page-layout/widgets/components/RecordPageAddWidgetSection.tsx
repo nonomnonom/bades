@@ -2,7 +2,6 @@ import { useCreateRecordPageFieldWidget } from '@/page-layout/hooks/useCreateRec
 import { useCreateRecordPageFieldsWidget } from '@/page-layout/hooks/useCreateRecordPageFieldsWidget';
 import { useNavigateToMoreWidgets } from '@/page-layout/hooks/useNavigateToMoreWidgets';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import {
   IconListDetails,
@@ -61,27 +60,27 @@ export const RecordPageAddWidgetSection = () => {
           stroke={theme.icon.stroke.md}
           color={theme.font.color.extraLight}
         />
-        {t`Tambah widget`}
+        {`Tambah widget`}
       </StyledHeader>
       <StyledMenuItemList>
         <MenuItem
           LeftIcon={IconListDetails}
           withIconContainer
-          text={t`Grup kolom`}
-          contextualText={t`Kelompokkan beberapa kolom dari data ini`}
+          text={`Grup kolom`}
+          contextualText={`Kelompokkan beberapa kolom dari data ini`}
           onClick={createRecordPageFieldsWidget}
         />
         <MenuItem
           LeftIcon={IconListSearch}
           withIconContainer
-          text={t`Kolom`}
-          contextualText={t`Satu kolom dengan format cerdas`}
+          text={`Kolom`}
+          contextualText={`Satu kolom dengan format cerdas`}
           onClick={createRecordPageFieldWidget}
         />
         <MenuItem
           LeftIcon={IconPlus}
           withIconContainer
-          text={t`Widget lainnya`}
+          text={`Widget lainnya`}
           hasSubMenu
           onClick={navigateToMoreWidgets}
         />

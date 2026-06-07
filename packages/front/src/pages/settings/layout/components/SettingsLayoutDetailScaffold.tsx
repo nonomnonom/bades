@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { Table } from '@/ui/layout/table/components/Table';
@@ -57,9 +56,9 @@ export const SettingsLayoutDetailScaffold = ({
   );
 
   const breadcrumbLinks = [
-    { children: t`Ruang Kerja`, href: getSettingsPath(SettingsPath.Workspace) },
+    { children: `Ruang Kerja`, href: getSettingsPath(SettingsPath.Workspace) },
     {
-      children: t`Aplikasi`,
+      children: `Aplikasi`,
       href: getSettingsPath(SettingsPath.Applications),
     },
     { children: applicationName ?? '', href: applicationContentHref },
@@ -77,21 +76,21 @@ export const SettingsLayoutDetailScaffold = ({
             {isDefined(trimmedDescription) && trimmedDescription.length > 0 && (
               <Section>
                 <H2Title
-                  title={t`Tentang`}
-                  description={t`Deskripsi yang disediakan oleh aplikasi`}
+                  title={`Tentang`}
+                  description={`Deskripsi yang disediakan oleh aplikasi`}
                 />
                 <StyledDescription>{trimmedDescription}</StyledDescription>
               </Section>
             )}
             <Section>
               <H2Title
-                title={t`Detail`}
-                description={t`Definisi ${entityTypeLabel} hanya-baca yang disertakan oleh aplikasi ini`}
+                title={`Detail`}
+                description={`Definisi ${entityTypeLabel} hanya-baca yang disertakan oleh aplikasi ini`}
               />
               <Table>
                 <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-                  <TableHeader>{t`Properti`}</TableHeader>
-                  <TableHeader>{t`Nilai`}</TableHeader>
+                  <TableHeader>{`Properti`}</TableHeader>
+                  <TableHeader>{`Nilai`}</TableHeader>
                 </TableRow>
                 <TableBody>
                   {detailRows.map((row) => (

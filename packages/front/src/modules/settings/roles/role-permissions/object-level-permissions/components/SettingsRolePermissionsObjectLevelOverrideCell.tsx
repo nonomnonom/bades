@@ -6,7 +6,6 @@ import { type SettingsRoleObjectPermissionKey } from '@/settings/roles/role-perm
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { AppTooltip, TooltipDelay } from 'ui/display';
 
@@ -76,8 +75,8 @@ export const SettingsRolePermissionsObjectLevelOverrideCell = ({
         anchorSelect={`#${containerId}`}
         content={
           permissionValue === false
-            ? t`${roleLabel} can't ${humanReadableAction} ${objectLabel} records`
-            : t`${roleLabel} can ${humanReadableAction} ${objectLabel} records`
+            ? `${roleLabel} can't ${humanReadableAction} ${objectLabel} records`
+            : `${roleLabel} can ${humanReadableAction} ${objectLabel} records`
         }
         delay={TooltipDelay.shortDelay}
         noArrow

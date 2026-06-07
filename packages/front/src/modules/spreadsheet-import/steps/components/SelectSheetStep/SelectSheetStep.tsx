@@ -10,7 +10,6 @@ import { exceedsMaxRecords } from '@/spreadsheet-import/utils/exceedsMaxRecords'
 import { mapWorkbook } from '@/spreadsheet-import/utils/mapWorkbook';
 
 import { ModalContent } from 'ui/layout';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Radio } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 import { type WorkBook } from 'xlsx-ugnis';
@@ -44,7 +43,6 @@ export const SelectSheetStep = ({
   onBack,
   currentStepState,
 }: SelectSheetStepProps) => {
-  const { t } = useLingui();
   const [isLoading, setIsLoading] = useState(false);
 
   const [value, setValue] = useState(sheetNames[0]);
@@ -62,7 +60,7 @@ export const SelectSheetStep = ({
       ) {
         const maxRecordsString = maxRecords.toString();
         onError(
-          t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
+          `Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
         );
         return;
       }
@@ -86,7 +84,6 @@ export const SelectSheetStep = ({
       setPreviousStepState,
       setCurrentStepState,
       uploadStepHook,
-      t,
     ],
   );
 
@@ -102,7 +99,7 @@ export const SelectSheetStep = ({
   return (
     <>
       <ModalContent isVerticallyCentered isHorizontallyCentered gap={8}>
-        <Heading title={t`Pilih lembar yang akan digunakan`} />
+        <Heading title={`Pilih lembar yang akan digunakan`} />
         <StyledRadioContainer>
           {sheetNames.map((sheetName) => (
             <StyledRadioItemContainer key={sheetName}>
@@ -122,7 +119,7 @@ export const SelectSheetStep = ({
         onContinue={() => handleOnContinue(value)}
         onBack={onBack}
         isLoading={isLoading}
-        continueTitle={t`Langkah Berikutnya`}
+        continueTitle={`Langkah Berikutnya`}
       />
     </>
   );

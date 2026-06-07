@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import {
@@ -16,8 +15,6 @@ import { TextInput } from '@/ui/input/components/TextInput';
 import { SettingsSkeletonLoader } from '@/settings/components/SettingsSkeletonLoader';
 
 export const SettingsApplicationRegistrationConfigVariableDetail = () => {
-  const { t } = useLingui();
-
   const { variableKey } = useParams();
 
   const [value, setValue] = useState<string>('');
@@ -111,11 +108,11 @@ export const SettingsApplicationRegistrationConfigVariableDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Aplikasi - Pengembang`,
+          children: `Aplikasi - Pengembang`,
           href: getSettingsPath(
             SettingsPath.Applications,
             undefined,
@@ -124,7 +121,7 @@ export const SettingsApplicationRegistrationConfigVariableDetail = () => {
           ),
         },
         {
-          children: t`${registration.name} - Config`,
+          children: `${registration.name} - Config`,
           href: getSettingsPath(
             SettingsPath.ApplicationRegistrationDetail,
             { applicationRegistrationId },

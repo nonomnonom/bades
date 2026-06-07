@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
 import { useObjectOptionsDropdown } from '@/object-record/object-options-dropdown/hooks/useObjectOptionsDropdown';
 import { useUpdateObjectViewOptions } from '@/object-record/object-options-dropdown/hooks/useUpdateObjectViewOptions';
@@ -55,7 +54,7 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
           />
         }
       >
-        {t`Buka di`}
+        {`Buka di`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -77,7 +76,7 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconLayoutSidebarRight}
-              text={t`Panel samping`}
+              text={`Panel samping`}
               selected={recordIndexOpenRecordIn === ViewOpenRecordIn.SIDE_PANEL}
               focused={selectedItemId === ViewOpenRecordIn.SIDE_PANEL}
               onClick={() => {
@@ -104,7 +103,7 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconLayoutNavbar}
-              text={t`Halaman data`}
+              text={`Halaman data`}
               selected={
                 recordIndexOpenRecordIn === ViewOpenRecordIn.RECORD_PAGE
               }

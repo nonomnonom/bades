@@ -17,7 +17,6 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useState } from 'react';
 import { SettingsPath } from 'shared/types';
@@ -78,17 +77,17 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
   const tabs = [
     {
       id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.PERMISSIONS,
-      title: t`Izin`,
+      title: `Izin`,
       Icon: IconLockOpen,
     },
     {
       id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.ASSIGNMENT,
-      title: t`Penugasan`,
+      title: `Penugasan`,
       Icon: IconUserPlus,
     },
     {
       id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Pengaturan`,
+      title: `Pengaturan`,
       Icon: IconSettings,
     },
   ];
@@ -116,7 +115,7 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
 
     if (isDefined(dirtyFields.label) && dirtyFields.label === '') {
       enqueueErrorSnackBar({
-        message: t`Nama peran tidak boleh kosong`,
+        message: `Nama peran tidak boleh kosong`,
       });
       return;
     }
@@ -138,15 +137,15 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
       title={<SettingsRoleLabelContainer roleId={roleId} />}
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Anggota`,
+          children: `Anggota`,
           href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
         },
         {
-          children: t`Peran`,
+          children: `Peran`,
           href: getSettingsPath(SettingsPath.Roles),
         },
         {

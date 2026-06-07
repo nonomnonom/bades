@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ReactNode, lazy, Suspense, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { type IconComponent } from 'ui/display';
@@ -58,7 +57,6 @@ export const SidePanelItemWithAddToNavigationDrag = ({
   disabled = false,
   disableDrag = false,
 }: SidePanelItemWithAddToNavigationDragProps) => {
-  const { t } = useLingui();
   const setAddToNavPayloadRegistry = useSetAtomState(
     addToNavPayloadRegistryState,
   );
@@ -66,7 +64,7 @@ export const SidePanelItemWithAddToNavigationDrag = ({
 
   const showDragAffordance = !disabled && !disableDrag && isHovered;
   const contextualDescription = showDragAffordance
-    ? t`Seret untuk ditambah ke navbar`
+    ? `Seret untuk ditambah ke navbar`
     : description;
 
   const DragHandleIcon = () => (

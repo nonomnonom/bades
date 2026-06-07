@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -21,7 +20,6 @@ enum SettingsAccountsConfigurationStep {
 }
 
 export const SettingsAccountsConfiguration = () => {
-  const { t } = useLingui();
   const { connectedAccountId } = useParams<{
     connectedAccountId: string;
   }>();
@@ -71,7 +69,7 @@ export const SettingsAccountsConfiguration = () => {
       },
       onCompleted: () => {
         enqueueSuccessSnackBar({
-          message: t`Akun berhasil ditambahkan. Sinkronisasi dimulai.`,
+          message: `Akun berhasil ditambahkan. Sinkronisasi dimulai.`,
         });
         navigate(getSettingsPath(SettingsPath.Accounts));
       },

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
@@ -50,14 +49,14 @@ export const SettingsAdminInferredVersion = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Status pembaruan disegarkan`,
+        message: `Status pembaruan disegarkan`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Gagal menyegarkan status pembaruan`,
+            : `Gagal menyegarkan status pembaruan`,
       });
     }
   };
@@ -66,30 +65,30 @@ export const SettingsAdminInferredVersion = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Lainnya`,
+          children: `Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Panel Admin - Kesehatan`,
+          children: `Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Versi terdeteksi`,
+          children: `Versi terdeteksi`,
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Versi terdeteksi`}
-            description={t`Versi aplikasi yang terdeteksi berjalan pada instans ini`}
+            title={`Versi terdeteksi`}
+            description={`Versi aplikasi yang terdeteksi berjalan pada instans ini`}
           />
           <SettingsTableCard
             items={[
               {
                 Icon: IconId,
-                label: t`Versi terdeteksi`,
-                value: inferredVersion ?? t`Tidak diketahui`,
+                label: `Versi terdeteksi`,
+                value: inferredVersion ?? `Tidak diketahui`,
               },
             ]}
             gridAutoColumns="3fr 4fr"
@@ -97,7 +96,7 @@ export const SettingsAdminInferredVersion = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Segarkan status`}
+              title={`Segarkan status`}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />

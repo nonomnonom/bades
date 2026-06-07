@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
 import Skeleton from 'react-loading-skeleton';
@@ -37,8 +36,6 @@ export const SettingsAgentSkillsTable = ({
   onDelete,
 }: SettingsAgentSkillsTableProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const showSkeleton = loading && skills.length === 0;
 
   return (
@@ -50,7 +47,7 @@ export const SettingsAgentSkillsTable = ({
               <SortableTableHeader
                 key={settingsSkillTableMetadataField.fieldName}
                 fieldName={settingsSkillTableMetadataField.fieldName}
-                label={t(settingsSkillTableMetadataField.fieldLabel)}
+                label={settingsSkillTableMetadataField.fieldLabel}
                 tableId={SETTINGS_SKILL_TABLE_METADATA.tableId}
                 align={settingsSkillTableMetadataField.align}
                 initialSort={SETTINGS_SKILL_TABLE_METADATA.initialSort}

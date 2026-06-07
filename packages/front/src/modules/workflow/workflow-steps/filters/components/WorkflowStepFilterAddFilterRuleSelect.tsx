@@ -13,7 +13,6 @@ import {
   type StepFilterGroup,
 } from 'shared/types';
 import { isDefined } from 'shared/utils';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconLibraryPlus, IconPlus } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 import { v4 } from 'uuid';
@@ -98,8 +97,8 @@ export const WorkflowStepFilterAddFilterRuleSelect = ({
       <CommandMenuButton
         command={{
           Icon: IconPlus,
-          label: t`Tambah aturan`,
-          shortLabel: t`Tambah aturan`,
+          label: `Tambah aturan`,
+          shortLabel: `Tambah aturan`,
           key: 'add-rule',
         }}
         onClick={handleAddFilter}
@@ -114,8 +113,8 @@ export const WorkflowStepFilterAddFilterRuleSelect = ({
         <CommandMenuButton
           command={{
             Icon: IconPlus,
-            label: t`Tambah aturan filter`,
-            shortLabel: t`Tambah aturan filter`,
+            label: `Tambah aturan filter`,
+            shortLabel: `Tambah aturan filter`,
             key: 'add-filter-rule',
           }}
         />
@@ -125,13 +124,13 @@ export const WorkflowStepFilterAddFilterRuleSelect = ({
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconPlus}
-              text={t`Tambah aturan`}
+              text={`Tambah aturan`}
               onClick={handleAddFilter}
             />
             {isFilterRuleGroupOptionVisible && (
               <MenuItem
                 LeftIcon={IconLibraryPlus}
-                text={t`Tambah grup aturan`}
+                text={`Tambah grup aturan`}
                 onClick={handleAddFilterGroup}
               />
             )}

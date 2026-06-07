@@ -2,7 +2,6 @@ import { SettingsDnsRecordsTable } from '@/settings/components/SettingsDnsRecord
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconRefresh } from 'ui/display';
 import { Button } from 'ui/input';
 
@@ -38,7 +37,7 @@ export const SettingsEmailingDomainVerificationRecords = ({
         },
       });
       enqueueSuccessSnackBar({
-        message: t`Proses verifikasi dimulai`,
+        message: `Proses verifikasi dimulai`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
@@ -50,8 +49,8 @@ export const SettingsEmailingDomainVerificationRecords = ({
   return (
     <Section>
       <H2Title
-        title={t`Rekaman DNS`}
-        description={t`Tambahkan rekaman berikut untuk memverifikasi domain Anda.`}
+        title={`Rekaman DNS`}
+        description={`Tambahkan rekaman berikut untuk memverifikasi domain Anda.`}
         adornment={
           <Button
             onClick={handleVerifyEmailingDomain}
@@ -59,7 +58,7 @@ export const SettingsEmailingDomainVerificationRecords = ({
             variant="secondary"
             Icon={IconRefresh}
             size="small"
-            title={t`Periksa verifikasi`}
+            title={`Periksa verifikasi`}
             disabled={isVerifying}
           />
         }

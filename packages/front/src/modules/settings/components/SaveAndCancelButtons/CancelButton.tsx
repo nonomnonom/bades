@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Button, LightButton } from 'ui/input';
 
 type CancelButtonProps = {
@@ -12,12 +11,10 @@ export const CancelButton = ({
   disabled = false,
   inverted = false,
 }: CancelButtonProps) => {
-  const { t } = useLingui();
-
   if (inverted) {
     return (
       <Button
-        title={t`Batal`}
+        title={`Batal`}
         variant="tertiary"
         accent="default"
         inverted
@@ -30,7 +27,7 @@ export const CancelButton = ({
 
   return (
     <LightButton
-      title={t`Batal`}
+      title={`Batal`}
       accent="tertiary"
       onClick={onCancel}
       disabled={disabled}

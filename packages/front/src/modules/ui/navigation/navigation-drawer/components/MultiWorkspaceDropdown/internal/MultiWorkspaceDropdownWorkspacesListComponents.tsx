@@ -4,7 +4,6 @@ import { DropdownMenuHeaderLeftComponent } from '@/ui/layout/dropdown/components
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { multiWorkspaceDropdownState } from '@/ui/navigation/navigation-drawer/states/multiWorkspaceDropdownState';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { useState } from 'react';
@@ -15,8 +14,6 @@ import { WorkspacesForSignUp } from './components/WorkspacesForSignUp';
 import { availableWorkspacesState } from '@/auth/states/availableWorkspacesState';
 
 export const MultiWorkspaceDropdownWorkspacesListComponents = () => {
-  const { t } = useLingui();
-
   const availableWorkspaces = useAtomStateValue(availableWorkspacesState);
 
   const setMultiWorkspaceDropdown = useSetAtomState(
@@ -34,10 +31,10 @@ export const MultiWorkspaceDropdownWorkspacesListComponents = () => {
           />
         }
       >
-        {t`Ruang kerja lain`}
+        {`Ruang kerja lain`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
-        placeholder={t`Cari`}
+        placeholder={`Cari`}
         autoFocus
         onChange={(event) => {
           setSearchValue(event.target.value);

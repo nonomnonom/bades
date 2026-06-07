@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { styled } from '@linaria/react';
 import { useCallback, useContext, useEffect, useState } from 'react';
@@ -104,8 +104,6 @@ export const EventLogResultsTable = ({
   selectedTable,
 }: EventLogResultsTableProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const showObjectEventColumns = selectedTable === EventLogTable.OBJECT_EVENT;
   const showApplicationLogColumns =
     selectedTable === EventLogTable.APPLICATION_LOG;
@@ -192,7 +190,7 @@ export const EventLogResultsTable = ({
             <Table>
               <TableRow gridTemplateColumns={gridTemplateColumns}>
                 {baseColumns.map((column) => (
-                  <TableHeader key={column.id}>{t(column.label)}</TableHeader>
+                  <TableHeader key={column.id}>{column.label}</TableHeader>
                 ))}
               </TableRow>
             </Table>
@@ -232,7 +230,7 @@ export const EventLogResultsTable = ({
                   key={column.id}
                   isResizing={resizingColumn === column.id}
                 >
-                  <TableHeader>{t(column.label)}</TableHeader>
+                  <TableHeader>{column.label}</TableHeader>
                   <StyledResizeHandle
                     isResizing={resizingColumn === column.id}
                     onPointerDown={(event) =>

@@ -8,7 +8,6 @@ import { configVariableGroupFilterState } from '@/settings/admin-panel/config-va
 import { configVariableSourceFilterState } from '@/settings/admin-panel/config-variables/states/configVariableSourceFilterState';
 import { showHiddenGroupVariablesState } from '@/settings/admin-panel/config-variables/states/showHiddenGroupVariablesState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
@@ -57,7 +56,7 @@ export const SettingsAdminConfigVariables = () => {
 
   const groupOptions = useMemo(
     () => [
-      { value: 'all', label: t`Semua Grup` },
+      { value: 'all', label: `Semua Grup` },
       ...allGroups.map((group) => ({
         value: group.name,
         label: group.name,
@@ -166,7 +165,7 @@ export const SettingsAdminConfigVariables = () => {
   return (
     <>
       <Section>
-        <H2Title title={t`Variabel Konfigurasi`} />
+        <H2Title title={`Variabel Konfigurasi`} />
 
         <ConfigVariableFilterContainer activeChips={activeChips}>
           <StyledControlsContainer>
@@ -187,8 +186,8 @@ export const SettingsAdminConfigVariables = () => {
         <StyledTableContainer>
           <Section>
             <H2Title
-              title={t`Tidak ada variabel ditemukan`}
-              description={t`Tidak ada variabel konfigurasi yang cocok dengan filter Anda. Coba sesuaikan filter atau kriteria pencarian.`}
+              title={`Tidak ada variabel ditemukan`}
+              description={`Tidak ada variabel konfigurasi yang cocok dengan filter Anda. Coba sesuaikan filter atau kriteria pencarian.`}
             />
           </Section>
         </StyledTableContainer>

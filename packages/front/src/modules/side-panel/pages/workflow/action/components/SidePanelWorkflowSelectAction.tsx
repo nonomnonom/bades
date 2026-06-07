@@ -10,7 +10,6 @@ import { FLOW_ACTIONS } from '@/workflow/workflow-steps/workflow-actions/constan
 import { HUMAN_INPUT_ACTIONS } from '@/workflow/workflow-steps/workflow-actions/constants/HumanInputActions';
 import { RECORD_ACTIONS } from '@/workflow/workflow-steps/workflow-actions/constants/RecordActions';
 import { getActionIconColorOrThrow } from '@/workflow/workflow-steps/workflow-actions/utils/getActionIconColorOrThrow';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconFunction } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
@@ -25,8 +24,6 @@ export const SidePanelWorkflowSelectAction = ({
 }: {
   onActionSelected: (selection: WorkflowActionSelection) => void;
 }) => {
-  const { t } = useLingui();
-
   const logicFunctions = useAtomStateValue(logicFunctionsSelector);
 
   const toolFunctions = logicFunctions.filter((fn) =>
@@ -49,21 +46,21 @@ export const SidePanelWorkflowSelectAction = ({
   return (
     <SidePanelStepListContainer>
       <SidePanelWorkflowSelectStepTitle>
-        {t`Data`}
+        {`Data`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={RECORD_ACTIONS}
         onClick={handleActionClick}
       />
 
-      <SidePanelWorkflowSelectStepTitle>t`AI`</SidePanelWorkflowSelectStepTitle>
+      <SidePanelWorkflowSelectStepTitle>`AI`</SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={AI_ACTIONS}
         onClick={handleActionClick}
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Alur`}
+        {`Alur`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={FLOW_ACTIONS}
@@ -71,7 +68,7 @@ export const SidePanelWorkflowSelectAction = ({
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Inti`}
+        {`Inti`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={CORE_ACTIONS}
@@ -79,7 +76,7 @@ export const SidePanelWorkflowSelectAction = ({
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Input Manual`}
+        {`Input Manual`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={HUMAN_INPUT_ACTIONS}
@@ -89,7 +86,7 @@ export const SidePanelWorkflowSelectAction = ({
       {toolFunctions.length > 0 && (
         <>
           <SidePanelWorkflowSelectStepTitle>
-            {t`Aplikasi`}
+            {`Aplikasi`}
           </SidePanelWorkflowSelectStepTitle>
           {toolFunctions.map((fn) => (
             <MenuItem

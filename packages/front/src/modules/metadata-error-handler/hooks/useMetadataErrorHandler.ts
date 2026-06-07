@@ -1,6 +1,4 @@
 import { type CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { classifyMetadataError } from '@/metadata-error-handler/utils/classifyMetadataError';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import {
@@ -13,44 +11,44 @@ export const useMetadataErrorHandler = () => {
   const { enqueueErrorSnackBar } = useSnackBar();
 
   const TRANSLATED_OPERATION_TYPE = {
-    [CrudOperationType.CREATE]: t`membuat`,
-    [CrudOperationType.UPDATE]: t`memperbarui`,
-    [CrudOperationType.DELETE]: t`menghapus`,
-    [CrudOperationType.RESTORE]: t`memulihkan`,
-    [CrudOperationType.DESTROY]: t`menghancurkan`,
+    [CrudOperationType.CREATE]: `membuat`,
+    [CrudOperationType.UPDATE]: `memperbarui`,
+    [CrudOperationType.DELETE]: `menghapus`,
+    [CrudOperationType.RESTORE]: `memulihkan`,
+    [CrudOperationType.DESTROY]: `menghancurkan`,
   } as const satisfies Record<CrudOperationType, string>;
 
   const TRANSLATED_METADATA_NAME = {
-    objectMetadata: t`objek`,
-    fieldMetadata: t`kolom`,
-    view: t`tampilan`,
-    viewField: t`kolom tampilan`,
-    viewFieldGroup: t`grup kolom tampilan`,
-    viewGroup: t`grup tampilan`,
-    viewFilter: t`filter tampilan`,
-    index: t`indeks`,
-    logicFunction: t`fungsi logika`,
-    rolePermissionFlag: t`izin peran`,
-    permissionFlag: t`izin`,
-    objectPermission: t`izin objek`,
-    fieldPermission: t`izin kolom`,
-    role: t`peran`,
-    roleTarget: t`target peran`,
-    agent: t`agen`,
-    skill: t`kemampuan`,
-    pageLayout: t`tata letak halaman`,
-    pageLayoutTab: t`tab tata letak`,
-    pageLayoutWidget: t`widget tata letak`,
-    rowLevelPermissionPredicate: t`predikat izin baris`,
-    rowLevelPermissionPredicateGroup: t`grup predikat izin baris`,
-    viewFilterGroup: t`grup filter tampilan`,
-    commandMenuItem: t`item menu perintah`,
-    frontComponent: t`komponen tampilan`,
-    navigationMenuItem: t`item menu navigasi`,
-    webhook: t`webhook`,
-    viewSort: t`urutan tampilan`,
-    applicationVariable: t`variabel aplikasi`,
-    connectionProvider: t`penyedia koneksi`,
+    objectMetadata: `objek`,
+    fieldMetadata: `kolom`,
+    view: `tampilan`,
+    viewField: `kolom tampilan`,
+    viewFieldGroup: `grup kolom tampilan`,
+    viewGroup: `grup tampilan`,
+    viewFilter: `filter tampilan`,
+    index: `indeks`,
+    logicFunction: `fungsi logika`,
+    rolePermissionFlag: `izin peran`,
+    permissionFlag: `izin`,
+    objectPermission: `izin objek`,
+    fieldPermission: `izin kolom`,
+    role: `peran`,
+    roleTarget: `target peran`,
+    agent: `agen`,
+    skill: `kemampuan`,
+    pageLayout: `tata letak halaman`,
+    pageLayoutTab: `tab tata letak`,
+    pageLayoutWidget: `widget tata letak`,
+    rowLevelPermissionPredicate: `predikat izin baris`,
+    rowLevelPermissionPredicateGroup: `grup predikat izin baris`,
+    viewFilterGroup: `grup filter tampilan`,
+    commandMenuItem: `item menu perintah`,
+    frontComponent: `komponen tampilan`,
+    navigationMenuItem: `item menu navigasi`,
+    webhook: `webhook`,
+    viewSort: `urutan tampilan`,
+    applicationVariable: `variabel aplikasi`,
+    connectionProvider: `penyedia koneksi`,
   } as const satisfies Record<AllMetadataName, string>;
 
   const handleMetadataError = (
@@ -102,7 +100,7 @@ export const useMetadataErrorHandler = () => {
             .join(', ');
 
           enqueueErrorSnackBar({
-            message: t`Gagal ${translatedOperationType} ${translatedMetadataName}. Validasi ${relatedEntityNames} terkait gagal. Periksa konfigurasi Anda dan coba lagi.`,
+            message: `Gagal ${translatedOperationType} ${translatedMetadataName}. Validasi ${relatedEntityNames} terkait gagal. Periksa konfigurasi Anda dan coba lagi.`,
           });
         }
 
@@ -111,7 +109,7 @@ export const useMetadataErrorHandler = () => {
           relatedFailingMetadataNames.length === 0
         ) {
           enqueueErrorSnackBar({
-            message: t`Gagal ${translatedOperationType} ${translatedMetadataName}. Silakan coba lagi.`,
+            message: `Gagal ${translatedOperationType} ${translatedMetadataName}. Silakan coba lagi.`,
           });
         }
         break;
@@ -122,8 +120,8 @@ export const useMetadataErrorHandler = () => {
         const errorMessage =
           code ===
           WorkspaceMigrationV2ExceptionCode.BUILDER_INTERNAL_SERVER_ERROR
-            ? t`Terjadi kesalahan internal saat memvalidasi perubahan Anda. Hubungi dukungan.`
-            : t`Terjadi kesalahan internal saat menerapkan perubahan Anda. Hubungi dukungan dan coba lagi nanti.`;
+            ? `Terjadi kesalahan internal saat memvalidasi perubahan Anda. Hubungi dukungan.`
+            : `Terjadi kesalahan internal saat menerapkan perubahan Anda. Hubungi dukungan dan coba lagi nanti.`;
 
         enqueueErrorSnackBar({ message: errorMessage });
         break;

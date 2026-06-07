@@ -17,7 +17,6 @@ import { setNestedValue } from '@/workflow/workflow-steps/workflow-actions/code-
 import { WORKFLOW_LOGIC_FUNCTION_ACTION_TAB_LIST_COMPONENT_ID } from '@/workflow/workflow-steps/workflow-actions/logic-function-action/constants/WorkflowLogicFunctionActionTabListComponentId';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isObject } from '@sniptt/guards';
 import { useMemo } from 'react';
 import { getOutputSchemaFromValue } from 'shared/logic-function';
@@ -63,8 +62,6 @@ export const WorkflowEditActionLogicFunction = ({
   action,
   actionOptions,
 }: WorkflowEditActionLogicFunctionProps) => {
-  const { t } = useLingui();
-
   const logicFunctionId = action.settings.input.logicFunctionId;
 
   const { logicFunction, loading } = useGetOneLogicFunction({
@@ -182,12 +179,12 @@ export const WorkflowEditActionLogicFunction = ({
   const tabs = [
     {
       id: INPUT_TAB_ID,
-      title: t`Masukan`,
+      title: `Masukan`,
       Icon: IconSettingsAutomation,
     },
     {
       id: TEST_TAB_ID,
-      title: t`Uji Coba`,
+      title: `Uji Coba`,
       Icon: IconPlayerPlay,
     },
   ];
@@ -216,7 +213,7 @@ export const WorkflowEditActionLogicFunction = ({
               readonly={actionOptions.readonly}
             />
             <StyledResultContainer>
-              <InputLabel>{t`Hasil`}</InputLabel>
+              <InputLabel>{`Hasil`}</InputLabel>
               <LogicFunctionExecutionResult
                 logicFunctionTestData={logicFunctionTestData}
                 isTesting={isExecuting}
@@ -247,8 +244,8 @@ export const WorkflowEditActionLogicFunction = ({
             ) : (
               <Callout
                 variant={'neutral'}
-                title={t`Tidak ada field input untuk aksi ini`}
-                description={t`Anda dapat melihat logika fungsi di pengaturan aplikasi.`}
+                title={`Tidak ada field input untuk aksi ini`}
+                description={`Anda dapat melihat logika fungsi di pengaturan aplikasi.`}
               />
             )}
           </StyledContainer>
@@ -262,7 +259,7 @@ export const WorkflowEditActionLogicFunction = ({
               ? [
                   <WorkflowStepCmdEnterButton
                     key="test"
-                    title={t`Uji Coba`}
+                    title={`Uji Coba`}
                     onClick={handleTestFunction}
                     disabled={isExecuting}
                   />,

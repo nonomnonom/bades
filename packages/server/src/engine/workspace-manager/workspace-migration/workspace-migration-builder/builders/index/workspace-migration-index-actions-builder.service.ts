@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 
-import { t } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -111,7 +110,7 @@ export class WorkspaceMigrationIndexActionsBuilderService extends WorkspaceEntit
         errors: [
           {
             code: FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
-            message: t`Index to delete not found`,
+            message: `Index to delete not found`,
           },
         ],
       };

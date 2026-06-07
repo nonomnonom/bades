@@ -1,6 +1,5 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
-
 import { isNonEmptyString } from '@sniptt/guards';
 import React, { useContext, useState } from 'react';
 import { getImageAbsoluteURI, isDefined } from 'shared/utils';
@@ -103,7 +102,6 @@ export const ImageInput = ({
   disabled = false,
   className,
 }: ImageInputProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const hiddenFileInput = React.useRef<HTMLInputElement>(null);
   const onUploadButtonClick = () => {
@@ -154,7 +152,7 @@ export const ImageInput = ({
               Icon={IconX}
               onClick={onAbort}
               variant="secondary"
-              title={t`Batalkan`}
+              title={`Batalkan`}
               disabled={!pictureURI || disabled}
             />
           ) : (
@@ -162,7 +160,7 @@ export const ImageInput = ({
               Icon={IconUpload}
               onClick={onUploadButtonClick}
               variant="secondary"
-              title={t`Unggah`}
+              title={`Unggah`}
               disabled={disabled}
             />
           )}
@@ -170,7 +168,7 @@ export const ImageInput = ({
             Icon={IconTrash}
             onClick={onRemove}
             variant="secondary"
-            title={t`Hapus`}
+            title={`Hapus`}
             disabled={!pictureURI || disabled}
           />
         </StyledButtonContainer>

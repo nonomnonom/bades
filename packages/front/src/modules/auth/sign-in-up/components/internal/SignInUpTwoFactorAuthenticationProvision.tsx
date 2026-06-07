@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { TwoFactorAuthenticationSetupEffect } from '@/auth/components/TwoFactorAuthenticationProvisionEffect';
 import { qrCodeState } from '@/auth/states/qrCode';
 import {
@@ -6,7 +7,6 @@ import {
 } from '@/auth/states/signInUpStepState';
 import { extractSecretFromOtpUri } from '@/settings/two-factor-authentication/utils/extractSecretFromOtpUri';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import QRCode from 'react-qr-code';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { IconCopy } from 'ui/display';
@@ -69,7 +69,6 @@ const StyledCopySetupKeyLink = styled.button`
 
 export const SignInUpTwoFactorAuthenticationProvision = () => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const qrCode = useAtomStateValue(qrCodeState);
   const setSignInUpStep = useSetAtomState(signInUpStepState);
@@ -83,7 +82,7 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
 
     const secret = extractSecretFromOtpUri(qrCode);
     if (secret !== null) {
-      await copyToClipboard(secret, t`Kunci pengaturan disalin ke clipboard`);
+      await copyToClipboard(secret, `Kunci pengaturan disalin ke clipboard`);
     }
   };
 
@@ -107,7 +106,7 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
           )}
         </StyledMainContentContainer>
         <MainButton
-          title={t`Lanjutkan`}
+          title={`Lanjutkan`}
           onClick={handleClick}
           variant="primary"
           fullWidth

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { RECORD_GROUP_REORDER_CONFIRMATION_MODAL_ID } from '@/object-record/record-group/constants/RecordGroupReorderConfirmationModalId';
 import { recordIndexRecordGroupSortComponentState } from '@/object-record/record-index/states/recordIndexRecordGroupSortComponentState';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
@@ -22,10 +21,10 @@ export const RecordGroupReorderConfirmationModal = ({
       {createPortal(
         <ConfirmationModal
           modalInstanceId={RECORD_GROUP_REORDER_CONFIRMATION_MODAL_ID}
-          title={t`Urutan kelompok`}
-          subtitle={t`Apakah Anda ingin menghapus urutan kelompok ${recordIndexRecordGroupSort}?`}
+          title={`Urutan kelompok`}
+          subtitle={`Apakah Anda ingin menghapus urutan kelompok ${recordIndexRecordGroupSort}?`}
           onConfirmClick={onConfirmClick}
-          confirmButtonText={t`Hapus`}
+          confirmButtonText={`Hapus`}
         />,
         document.body,
       )}

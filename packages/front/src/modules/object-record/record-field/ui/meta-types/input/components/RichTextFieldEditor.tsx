@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useAtom, useStore } from 'jotai';
 
@@ -211,7 +210,7 @@ export const RichTextFieldEditor = ({
     schema: BLOCK_SCHEMA,
     uploadFile: handleEditorBuiltInUploadFile,
     placeholders: {
-      default: t`Ketik '/' untuk perintah, '@' untuk sebutan`,
+      default: `Ketik '/' untuk perintah, '@' untuk sebutan`,
     },
   });
 

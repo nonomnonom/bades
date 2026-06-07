@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Key } from 'ts-key-enum';
 
 import { TextInput } from '@/ui/input/components/TextInput';
@@ -31,8 +30,6 @@ export const FieldsConfigurationGroupRenameInput = ({
   onSave,
   onCancel,
 }: FieldsConfigurationGroupRenameInputProps) => {
-  const { t } = useLingui();
-
   const handleSave = () => {
     if (renameValue.trim().length > 0) {
       onSave(renameValue.trim());
@@ -62,7 +59,7 @@ export const FieldsConfigurationGroupRenameInput = ({
         autoFocus
         fullWidth
         sizeVariant="sm"
-        placeholder={t`Nama grup`}
+        placeholder={`Nama grup`}
       />
       <Button
         variant="primary"

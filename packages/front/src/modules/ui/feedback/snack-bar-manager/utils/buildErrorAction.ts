@@ -1,5 +1,4 @@
 import { type ErrorLike } from '@apollo/client';
-import { t } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { getAppPath, isDefined } from 'shared/utils';
 import { getConflictingRecordFromApolloError } from '~/utils/get-conflicting-record-from-apollo-error.util';
@@ -16,7 +15,7 @@ export const buildErrorAction = (
 
   if (isDefined(conflictingRecord)) {
     return {
-      buttonLabel: t`Lihat data yang sudah ada`,
+      buttonLabel: `Lihat data yang sudah ada`,
       buttonTo: getAppPath(AppPath.RecordShowPage, {
         objectNameSingular: conflictingRecord.conflictingObjectNameSingular,
         objectRecordId: conflictingRecord.conflictingRecordId,

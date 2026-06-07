@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { getLogicFunctionTriggerLabel } from '@/logic-functions/utils/getLogicFunctionTriggerLabel';
 import { useComputeApplicationContentForLayoutAndLogic } from '@/settings/applications/hooks/useComputeApplicationContentForLayoutAndLogic';
 import { useComputeObjectAndFieldsContentForApplication } from '@/settings/applications/hooks/useComputeObjectAndFieldsContentForApplication';
@@ -58,8 +57,6 @@ export const SettingsApplicationDetailContentTab = ({
   manifestContent,
   applicationInfo,
 }: SettingsApplicationDetailContentTabProps) => {
-  const { t } = useLingui();
-
   const { objectRows, fieldRows } =
     useComputeObjectAndFieldsContentForApplication({
       installedApplication,
@@ -187,7 +184,7 @@ export const SettingsApplicationDetailContentTab = ({
     <>
       <Section>
         <SearchInput
-          placeholder={t`Cari...`}
+          placeholder={`Cari...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -196,18 +193,18 @@ export const SettingsApplicationDetailContentTab = ({
       {hasData && (
         <Section>
           <H2Title
-            title={t`Data`}
-            description={t`Skema yang dikontribusikan aplikasi ini ke ruang kerja Anda`}
+            title={`Data`}
+            description={`Skema yang dikontribusikan aplikasi ini ke ruang kerja Anda`}
           />
           <Table>
             <SettingsApplicationContentSubtable
-              title={t`Objek`}
+              title={`Objek`}
               rows={filtered.objects}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Field yang ditambahkan ke objek lain`}
+              title={`Field yang ditambahkan ke objek lain`}
               rows={filtered.fields}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
@@ -219,36 +216,36 @@ export const SettingsApplicationDetailContentTab = ({
       {hasLayout && (
         <Section>
           <H2Title
-            title={t`Tampilan`}
-            description={t`Cara catatan, halaman, dan navigasi ditampilkan`}
+            title={`Tampilan`}
+            description={`Cara catatan, halaman, dan navigasi ditampilkan`}
           />
           <Table>
             <SettingsApplicationContentSubtable
-              title={t`Tata letak halaman`}
+              title={`Tata letak halaman`}
               rows={filtered.pageLayouts}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Tampilan`}
+              title={`Tampilan`}
               rows={filtered.views}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Item menu navigasi`}
+              title={`Item menu navigasi`}
               rows={filtered.navigation}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Komponen tampilan`}
+              title={`Komponen tampilan`}
               rows={filtered.frontComponents}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Item menu perintah`}
+              title={`Item menu perintah`}
               rows={filtered.commandMenuItems}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
@@ -260,36 +257,36 @@ export const SettingsApplicationDetailContentTab = ({
       {hasLogic && (
         <Section>
           <H2Title
-            title={t`Logika`}
-            description={t`Otomasi, AI, dan akses yang disediakan aplikasi ini`}
+            title={`Logika`}
+            description={`Otomasi, AI, dan akses yang disediakan aplikasi ini`}
           />
           <Table>
             <SettingsApplicationContentSubtable
-              title={t`Fungsi logika`}
+              title={`Fungsi logika`}
               rows={filtered.logicFunctions}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Agen`}
+              title={`Agen`}
               rows={filtered.agents}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Keahlian`}
+              title={`Keahlian`}
               rows={filtered.skills}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Peran`}
+              title={`Peran`}
               rows={filtered.roles}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Penyedia koneksi`}
+              title={`Penyedia koneksi`}
               rows={filtered.connectionProviders}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}

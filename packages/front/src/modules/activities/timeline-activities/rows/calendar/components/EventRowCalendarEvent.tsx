@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 
 import { EventCardCalendarEvent } from '@/activities/timeline-activities/rows/calendar/components/EventCardCalendarEvent';
@@ -29,13 +28,12 @@ export const EventRowCalendarEvent = ({
   authorFullName,
   labelIdentifierValue,
 }: EventRowCalendarEventProps) => {
-  const { t } = useLingui();
   const [, eventAction] = event.name.split('.');
   const [isOpen, setIsOpen] = useState(false);
 
   if (['linked'].includes(eventAction) === false) {
     throw new Error(
-      t`Tindakan peristiwa tidak valid untuk tipe peristiwa kalender.`,
+      `Tindakan peristiwa tidak valid untuk tipe peristiwa kalender.`,
     );
   }
 
@@ -44,7 +42,7 @@ export const EventRowCalendarEvent = ({
       <StyledRowContainer>
         <EventRowItem>{authorFullName}</EventRowItem>
         <EventRowItem variant="action">
-          {t`menautkan jadwal dengan ${labelIdentifierValue}`}
+          {`menautkan jadwal dengan ${labelIdentifierValue}`}
         </EventRowItem>
         <EventCardToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
       </StyledRowContainer>

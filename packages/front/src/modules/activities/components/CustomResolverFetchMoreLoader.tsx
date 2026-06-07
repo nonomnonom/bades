@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useInView } from 'react-intersection-observer';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -36,7 +35,7 @@ export const CustomResolverFetchMoreLoader = ({
 
   return (
     <StyledContainer ref={tbodyRef}>
-      {loading && <StyledText>{t`Memuat lebih banyak...`}</StyledText>}
+      {loading && <StyledText>{`Memuat lebih banyak...`}</StyledText>}
     </StyledContainer>
   );
 };

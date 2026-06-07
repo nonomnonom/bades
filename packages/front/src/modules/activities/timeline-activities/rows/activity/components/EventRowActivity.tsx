@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { type EventRowDynamicComponentProps } from '@/activities/timeline-activities/rows/components/EventRowDynamicComponent.types';
 import { EventRowItem } from '@/activities/timeline-activities/rows/components/EventRowItem';
 import { isTimelineActivityWithLinkedRecord } from '@/activities/timeline-activities/types/TimelineActivity';
@@ -89,7 +87,7 @@ export const EventRowActivity = ({
       return event.linkedRecordCachedName;
     }
 
-    return t`Tanpa judul`;
+    return `Tanpa judul`;
   };
   const activityTitle = computeActivityTitle();
 
@@ -116,7 +114,7 @@ export const EventRowActivity = ({
         <StyledRow>
           <EventRowItem>{authorFullName}</EventRowItem>
           <EventRowItem variant="action">
-            {t`${getEventActionLabel(eventAction, eventObject)}`}
+            {`${getEventActionLabel(eventAction, eventObject)}`}
           </EventRowItem>
           <StyledLinkedActivity
             onClick={() =>

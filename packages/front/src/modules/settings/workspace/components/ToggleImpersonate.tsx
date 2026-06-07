@@ -3,7 +3,6 @@ import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsOptions/SettingsOptionCardContentToggle';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconLifebuoy } from 'ui/display';
 import { Card } from 'ui/layout';
 import { useMutation } from '@apollo/client/react';
@@ -45,8 +44,8 @@ export const ToggleImpersonate = () => {
     <Card rounded>
       <SettingsOptionCardContentToggle
         Icon={IconLifebuoy}
-        title={t`Izinkan Akses Tim Dukungan`}
-        description={t`Berikan akses ke ruang kerja Anda agar kami dapat membantu menyelesaikan masalah.`}
+        title={`Izinkan Akses Tim Dukungan`}
+        description={`Berikan akses ke ruang kerja Anda agar kami dapat membantu menyelesaikan masalah.`}
         checked={currentWorkspace?.allowImpersonation ?? false}
         onChange={handleChange}
         advancedMode

@@ -16,7 +16,6 @@ import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
 import { type OnDragEndResponder } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useContext, useEffect, useState } from 'react';
 import { FieldMetadataType } from 'shared/types';
@@ -152,7 +151,6 @@ export const WorkflowEditActionFormBuilder = ({
   action,
   actionOptions,
 }: WorkflowEditActionFormBuilderProps) => {
-  const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
 
   const [formData, setFormData] = useState<FormData>(action.settings.input);
@@ -243,12 +241,12 @@ export const WorkflowEditActionFormBuilder = ({
             <Callout
               variant={'warning'}
               Icon={IconAlertTriangle}
-              title={t`Formulir ini akan muncul pada eksekusi alur kerja.`}
-              description={t`Karena alur kerja ini tidak menggunakan pemicu manual, formulir tidak akan terbuka di atas antarmuka. Untuk mengisinya, buka eksekusi alur kerja yang sesuai dan isi formulir di sana.`}
+              title={`Formulir ini akan muncul pada eksekusi alur kerja.`}
+              description={`Karena alur kerja ini tidak menggunakan pemicu manual, formulir tidak akan terbuka di atas antarmuka. Untuk mengisinya, buka eksekusi alur kerja yang sesuai dan isi formulir di sana.`}
               isClosable
               onClose={() => setIsCalloutVisible(false)}
               action={{
-                label: t`Pelajari lebih lanjut`,
+                label: `Pelajari lebih lanjut`,
                 onClick: () =>
                   window.open(
                     'https://docs.bades.id/user-guide/workflows/capabilities/workflow-actions#form',
@@ -264,8 +262,8 @@ export const WorkflowEditActionFormBuilder = ({
             <Callout
               variant={'neutral'}
               isClosable={false}
-              title={t`Tambahkan input ke formulir Anda`}
-              description={t`Klik "Tambah Field" di bawah untuk menambahkan input pertama pada formulir Anda. Formulir akan muncul di layar pengguna saat alur kerja dijalankan dari pemicu manual. Untuk jenis pemicu lain, formulir ditampilkan di halaman eksekusi alur kerja.`}
+              title={`Tambahkan input ke formulir Anda`}
+              description={`Klik "Tambah Field" di bawah untuk menambahkan input pertama pada formulir Anda. Formulir akan muncul di layar pengguna saat alur kerja dijalankan dari pemicu manual. Untuk jenis pemicu lain, formulir ditampilkan di halaman eksekusi alur kerja.`}
             />
           </StyledNotClosableCalloutContainer>
         )}
@@ -303,7 +301,7 @@ export const WorkflowEditActionFormBuilder = ({
                           <StyledGripButtonContainer>
                             <LightIconButton
                               Icon={IconGripVertical}
-                              aria-label={t`Susun ulang field`}
+                              aria-label={`Susun ulang field`}
                             />
                           </StyledGripButtonContainer>
                         )}
@@ -350,7 +348,7 @@ export const WorkflowEditActionFormBuilder = ({
                           <StyledTrashButtonContainer>
                             <LightIconButton
                               Icon={IconTrash}
-                              aria-label={t`Hapus field`}
+                              aria-label={`Hapus field`}
                               onClick={() => {
                                 const updatedFormData = formData.filter(
                                   (currentField) =>
@@ -426,7 +424,7 @@ export const WorkflowEditActionFormBuilder = ({
                   <StyledFieldContainer>
                     <StyledAddFieldButtonContentContainer>
                       <IconPlus size={theme.icon.size.sm} />
-                      {t`Tambah Field`}
+                      {`Tambah Field`}
                     </StyledAddFieldButtonContentContainer>
                   </StyledFieldContainer>
                 </FormFieldInputInnerContainer>

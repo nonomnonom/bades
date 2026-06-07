@@ -3,7 +3,6 @@ import { GET_SIGNING_KEYS } from '@/settings/admin-panel/signing-keys/graphql/qu
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { RevokeSigningKeyDocument } from '~/generated-admin/graphql';
 import { getErrorMessageFromApolloError } from '~/utils/get-error-message-from-apollo-error.util';
@@ -26,13 +25,13 @@ export const useRevokeSigningKey = (onSuccess?: () => void) => {
         awaitRefetchQueries: true,
       });
 
-      enqueueSuccessSnackBar({ message: t`Kunci penandatanganan dicabut` });
+      enqueueSuccessSnackBar({ message: `Kunci penandatanganan dicabut` });
       onSuccess?.();
     } catch (error) {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Gagal mencabut kunci tanda tangan. Silakan coba lagi nanti.`,
+          : `Gagal mencabut kunci tanda tangan. Silakan coba lagi nanti.`,
       });
     } finally {
       setIsRevoking(false);

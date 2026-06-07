@@ -1,6 +1,5 @@
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconAlertCircle } from 'ui/display';
 import { useContext } from 'react';
 
@@ -59,9 +58,9 @@ export const AiChatErrorMessage = ({ error }: AiChatErrorMessageProps) => {
         <IconAlertCircle size={theme.icon.size.md} />
       </StyledErrorIcon>
       <StyledErrorContent>
-        <StyledErrorTitle>{t`Gagal mendapatkan respons`}</StyledErrorTitle>
+        <StyledErrorTitle>{`Gagal mendapatkan respons`}</StyledErrorTitle>
         <StyledErrorMessage>
-          {errorMessage || t`Terjadi kesalahan saat memproses pesan Anda`}
+          {errorMessage || `Terjadi kesalahan saat memproses pesan Anda`}
         </StyledErrorMessage>
       </StyledErrorContent>
     </StyledErrorContainer>

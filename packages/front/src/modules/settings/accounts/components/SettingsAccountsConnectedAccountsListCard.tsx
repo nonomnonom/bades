@@ -6,7 +6,6 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
 import { SettingsPath } from 'shared/types';
 
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 
 import { Button } from 'ui/input';
@@ -33,7 +32,6 @@ export const SettingsAccountsConnectedAccountsListCard = ({
 }: {
   accounts: ConnectedAccount[];
 }) => {
-  const { t } = useLingui();
   const navigateSettings = useNavigateSettings();
 
   if (!accounts.length) {
@@ -57,7 +55,7 @@ export const SettingsAccountsConnectedAccountsListCard = ({
         <Section>
           <Button
             Icon={IconPlus}
-            title={t`Tambah akun`}
+            title={`Tambah akun`}
             variant="secondary"
             size="small"
             onClick={() => navigateSettings(SettingsPath.NewAccount)}

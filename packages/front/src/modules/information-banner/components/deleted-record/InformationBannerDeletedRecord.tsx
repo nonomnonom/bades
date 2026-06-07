@@ -1,7 +1,6 @@
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { useRestoreManyRecords } from '@/object-record/hooks/useRestoreManyRecords';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconRefresh } from 'ui/display';
 
 const StyledInformationBannerDeletedRecord = styled.div`
@@ -29,8 +28,8 @@ export const InformationBannerDeletedRecord = ({
       <InformationBanner
         componentInstanceId="information-banner-deleted-record"
         color="danger"
-        message={t`Data ini telah dihapus`}
-        buttonTitle={t`Pulihkan`}
+        message={`Data ini telah dihapus`}
+        buttonTitle={`Pulihkan`}
         buttonIcon={IconRefresh}
         buttonOnClick={() => restoreManyRecords({ idsToRestore: [recordId] })}
       />

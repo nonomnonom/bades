@@ -1,17 +1,16 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { assertUnreachable } from 'shared/utils';
 import { AxisNameDisplay } from '~/generated-metadata/graphql';
 
 export const getChartAxisNameDisplayOptions = (option: AxisNameDisplay) => {
   switch (option) {
     case AxisNameDisplay.NONE:
-      return t`Tidak ada`;
+      return `Tidak ada`;
     case AxisNameDisplay.X:
-      return t`Sumbu X`;
+      return `Sumbu X`;
     case AxisNameDisplay.Y:
-      return t`Sumbu Y`;
+      return `Sumbu Y`;
     case AxisNameDisplay.BOTH:
-      return t`Keduanya`;
+      return `Keduanya`;
     default:
       assertUnreachable(option);
   }

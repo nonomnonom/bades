@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
 import { useClearField } from '@/object-record/record-field/ui/hooks/useClearField';
 import { useAddSelectOption } from '@/object-record/record-field/ui/meta-types/hooks/useAddSelectOption';
@@ -80,7 +79,7 @@ export const SelectFieldInput = () => {
 
   const fieldLabel = fieldDefinition.label;
   const optionIds = [
-    t`Tidak ada ${fieldLabel}`,
+    `Tidak ada ${fieldLabel}`,
     ...filteredOptions.map((option) => option.value),
   ];
 

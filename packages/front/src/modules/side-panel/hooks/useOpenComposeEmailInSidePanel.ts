@@ -10,8 +10,6 @@ import { composeEmailConnectedAccountIdComponentState } from '@/side-panel/pages
 import { composeEmailDefaultInReplyToComponentState } from '@/side-panel/pages/compose-email/states/composeEmailDefaultInReplyToComponentState';
 import { composeEmailDefaultSubjectComponentState } from '@/side-panel/pages/compose-email/states/composeEmailDefaultSubjectComponentState';
 import { composeEmailDefaultToComponentState } from '@/side-panel/pages/compose-email/states/composeEmailDefaultToComponentState';
-import { t } from '~/utils/i18n/badesI18n';
-
 type OpenComposeEmailParams = {
   threadId?: string;
   connectedAccountId: string;
@@ -62,7 +60,7 @@ export const useOpenComposeEmailInSidePanel = () => {
 
       navigateSidePanelMenu({
         page: SidePanelPages.ComposeEmail,
-        pageTitle: params.pageTitle ?? (isReply ? t`Balas` : t`Email Baru`),
+        pageTitle: params.pageTitle ?? (isReply ? `Balas` : `Email Baru`),
         pageIcon: params.pageIcon ?? (isReply ? IconArrowBackUp : IconMail),
         pageId,
       });

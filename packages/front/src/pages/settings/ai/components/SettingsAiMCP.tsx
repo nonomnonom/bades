@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 
 import { Select } from '@/ui/input/components/Select';
@@ -52,7 +51,6 @@ const StyledEditorContainer = styled.div`
 type McpAuthMethod = 'oauth' | 'api-key';
 
 export const SettingsAiMCP = () => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const [authMethod, setAuthMethod] = useState<McpAuthMethod>('oauth');
   const { colorScheme } = useContext(ThemeContext);
@@ -120,8 +118,8 @@ export const SettingsAiMCP = () => {
   return (
     <Section>
       <H2Title
-        title={t`Server MCP`}
-        description={t`Akses data ruang kerja Anda dari klien MCP seperti Claude Desktop, Windsurf, atau Cursor.`}
+        title={`Server MCP`}
+        description={`Akses data ruang kerja Anda dari klien MCP seperti Claude Desktop, Windsurf, atau Cursor.`}
       />
       <Card rounded>
         <StyledCoverCardContent divider>
@@ -149,7 +147,7 @@ export const SettingsAiMCP = () => {
                 onClick={() => {
                   copyToClipboard(
                     activeConfig,
-                    t`Konfigurasi MCP disalin ke papan klip`,
+                    `Konfigurasi MCP disalin ke papan klip`,
                   );
                 }}
                 size="small"

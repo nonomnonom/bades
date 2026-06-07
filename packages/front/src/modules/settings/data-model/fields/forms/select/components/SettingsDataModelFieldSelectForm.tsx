@@ -29,7 +29,6 @@ import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/Gene
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
@@ -343,7 +342,7 @@ export const SettingsDataModelFieldSelectForm = ({
                               />
                             </StyledIconPointContainer>
                           </StyledIconContainer>
-                          <StyledApiKey>{t`Nilai API`}</StyledApiKey>
+                          <StyledApiKey>{`Nilai API`}</StyledApiKey>
                         </StyledApiKeyContainer>
                       </AdvancedSettingsWrapper>
                     )}
@@ -351,7 +350,7 @@ export const SettingsDataModelFieldSelectForm = ({
                       isAdvancedModeEnabled={isAdvancedModeEnabled}
                       isBulkInputMode={isBulkInputMode}
                     >
-                      {t`Pilihan`}
+                      {`Pilihan`}
                     </StyledOptionsLabel>
                   </StyledLabelContainer>
                   {!disabled && (
@@ -371,8 +370,8 @@ export const SettingsDataModelFieldSelectForm = ({
                             <MenuItem
                               text={
                                 isBulkInputMode
-                                  ? t`Ubah satu per satu`
-                                  : t`Ubah sekaligus`
+                                  ? `Ubah satu per satu`
+                                  : `Ubah sekaligus`
                               }
                               LeftIcon={IconPencil}
                               onClick={() => {
@@ -388,7 +387,7 @@ export const SettingsDataModelFieldSelectForm = ({
                               }}
                             />
                             <MenuItem
-                              text={t`Hapus semua`}
+                              text={`Hapus semua`}
                               accent="danger"
                               LeftIcon={IconTrash}
                               onClick={() => {
@@ -407,7 +406,7 @@ export const SettingsDataModelFieldSelectForm = ({
                   <StyledTextAreaContainer>
                     <TextArea
                       textAreaId="bulk-options-input"
-                      placeholder={t`Masukkan satu pilihan per baris`}
+                      placeholder={`Masukkan satu pilihan per baris`}
                       value={bulkInputText}
                       onChange={(nextOptionAsText) => {
                         if (disabled) {
@@ -427,7 +426,7 @@ export const SettingsDataModelFieldSelectForm = ({
                       disabled={disabled}
                     />
                     <StyledHelpText>
-                      {t`Masukkan satu pilihan per baris. Setiap baris akan menjadi pilihan baru.`}
+                      {`Masukkan satu pilihan per baris. Setiap baris akan menjadi pilihan baru.`}
                     </StyledHelpText>
                   </StyledTextAreaContainer>
                 ) : (
@@ -525,7 +524,7 @@ export const SettingsDataModelFieldSelectForm = ({
                 <CardFooter>
                   <StyledButtonContainer>
                     <LightButton
-                      title={t`Tambah pilihan`}
+                      title={`Tambah pilihan`}
                       Icon={IconPlus}
                       onClick={handleAddOption}
                     />

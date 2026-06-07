@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import {
   StyledSettingsCardContent,
   StyledSettingsCardThirdLine,
@@ -72,7 +71,7 @@ export const SettingsAvailableApplicationCard = ({
               </StyledSettingsCardTitle>
               <StyledDescription>{descriptionSummary}</StyledDescription>
               <StyledSettingsCardThirdLine>
-                {t`oleh`} {application.author}
+                {`oleh`} {application.author}
               </StyledSettingsCardThirdLine>
             </div>
           </StyledSettingsCardContent>

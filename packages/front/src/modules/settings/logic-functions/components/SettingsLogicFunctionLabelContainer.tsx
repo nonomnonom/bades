@@ -1,6 +1,5 @@
 import { TitleInput } from '@/ui/input/components/TitleInput';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledHeaderTitle = styled.div`
@@ -32,7 +31,7 @@ export const SettingsLogicFunctionLabelContainer = ({
         sizeVariant="md"
         value={value}
         onChange={onChange}
-        placeholder={t`Nama fungsi`}
+        placeholder={`Nama fungsi`}
         disabled={readonly}
       />
     </StyledHeaderTitle>

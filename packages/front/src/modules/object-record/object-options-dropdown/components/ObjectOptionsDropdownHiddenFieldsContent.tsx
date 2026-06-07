@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useLocation } from 'react-router-dom';
 
 import { useObjectNamePluralFromSingular } from '@/object-metadata/hooks/useObjectNamePluralFromSingular';
@@ -18,7 +17,6 @@ import { IconChevronLeft, IconSettings } from 'ui/display';
 import { MenuItem, UndecoratedLink } from 'ui/navigation';
 
 export const ObjectOptionsDropdownHiddenFieldsContent = () => {
-  const { t } = useLingui();
   const { objectMetadataItem, onContentChange, closeDropdown } =
     useObjectOptionsDropdown();
 
@@ -45,7 +43,7 @@ export const ObjectOptionsDropdownHiddenFieldsContent = () => {
           />
         }
       >
-        {t`Kolom tersembunyi`}
+        {`Kolom tersembunyi`}
       </DropdownMenuHeader>
       <ViewFieldsHiddenDropdownSection />
       <DropdownMenuSeparator />
@@ -57,7 +55,7 @@ export const ObjectOptionsDropdownHiddenFieldsContent = () => {
         }}
       >
         <DropdownMenuItemsContainer scrollable={false}>
-          <MenuItem LeftIcon={IconSettings} text={t`Atur kolom`} />
+          <MenuItem LeftIcon={IconSettings} text={`Atur kolom`} />
         </DropdownMenuItemsContainer>
       </UndecoratedLink>
     </DropdownContent>

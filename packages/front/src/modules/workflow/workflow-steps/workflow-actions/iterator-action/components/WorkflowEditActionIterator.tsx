@@ -6,7 +6,6 @@ import { isStandaloneVariableString } from '@/workflow/utils/isStandaloneVariabl
 import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowStepBody';
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isArray, isString } from '@sniptt/guards';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
@@ -42,8 +41,6 @@ export const WorkflowEditActionIterator = ({
   action,
   actionOptions,
 }: WorkflowEditActionIteratorProps) => {
-  const { t } = useLingui();
-
   const defaultItems = isDefined(action.settings.input.items)
     ? action.settings.input.items
     : [];
@@ -100,8 +97,8 @@ export const WorkflowEditActionIterator = ({
     <>
       <WorkflowStepBody>
         <FormArrayFieldInput
-          label={t`Data yang diulang`}
-          placeholder={t`Masukkan array atau ekspresi variabel`}
+          label={`Data yang diulang`}
+          placeholder={`Masukkan array atau ekspresi variabel`}
           defaultValue={formData.items}
           onChange={(value: string | FieldArrayValue) =>
             handleFieldChange('items', value)
@@ -110,13 +107,13 @@ export const WorkflowEditActionIterator = ({
           VariablePicker={WorkflowVariablePicker}
         />
         <FormBooleanFieldToggleInput
-          description={t`Lanjutkan saat pengulangan gagal`}
+          description={`Lanjutkan saat pengulangan gagal`}
           value={formData.shouldContinueOnIterationFailure}
           onChange={(value) =>
             handleFieldChange('shouldContinueOnIterationFailure', value)
           }
           disabled={actionOptions.readonly}
-          hint={t`Akan melanjutkan ke pengulangan berikutnya meski yang sekarang gagal`}
+          hint={`Akan melanjutkan ke pengulangan berikutnya meski yang sekarang gagal`}
         />
       </WorkflowStepBody>
       {!actionOptions.readonly && <WorkflowStepFooter stepId={action.id} />}

@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { AiExceptionCode } from 'src/engine/metadata-modules/ai/ai.exception';
@@ -19,7 +19,7 @@ export const validateAgentResponseFormat = ({
   if (type !== 'text' && type !== 'json') {
     errors.push({
       code: AiExceptionCode.INVALID_AGENT_INPUT,
-      message: t`Response format type must be either "text" or "json"`,
+      message: `Response format type must be either "text" or "json"`,
       userFriendlyMessage: msg`Invalid response format type`,
     });
   }
@@ -27,7 +27,7 @@ export const validateAgentResponseFormat = ({
   if (type === 'json' && !isDefined(responseFormat.schema)) {
     errors.push({
       code: AiExceptionCode.INVALID_AGENT_INPUT,
-      message: t`Response format with type "json" must include a schema`,
+      message: `Response format with type "json" must include a schema`,
       userFriendlyMessage: msg`JSON response format requires a schema`,
     });
   }
@@ -38,7 +38,7 @@ export const validateAgentResponseFormat = ({
   ) {
     errors.push({
       code: AiExceptionCode.INVALID_AGENT_INPUT,
-      message: t`Response format with type "text" should not include a schema`,
+      message: `Response format with type "text" should not include a schema`,
       userFriendlyMessage: msg`Text response format should not have a schema`,
     });
   }

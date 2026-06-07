@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -108,7 +107,7 @@ export const SettingsWorkspaceMember = () => {
           message:
             error instanceof Error
               ? error.message
-              : t`Terjadi kesalahan saat menyimpan nama`,
+              : `Terjadi kesalahan saat menyimpan nama`,
         });
       }
     },
@@ -121,7 +120,7 @@ export const SettingsWorkspaceMember = () => {
       await deleteUserFromWorkspace({
         variables: { workspaceMemberIdToDelete: member.id },
       });
-      enqueueSuccessSnackBar({ message: t`Anggota dihapus dari ruang kerja` });
+      enqueueSuccessSnackBar({ message: `Anggota dihapus dari ruang kerja` });
       closeModal(DELETE_MEMBER_MODAL_ID);
       navigateSettings(SettingsPath.WorkspaceMembersPage);
     } catch (error) {
@@ -129,7 +128,7 @@ export const SettingsWorkspaceMember = () => {
         message:
           error instanceof Error
             ? error.message
-            : t`Tidak dapat menghapus anggota saat ini`,
+            : `Tidak dapat menghapus anggota saat ini`,
       });
     }
   };
@@ -137,7 +136,7 @@ export const SettingsWorkspaceMember = () => {
   const handleImpersonate = async () => {
     if (!member?.userId || !currentWorkspace?.id) {
       enqueueErrorSnackBar({
-        message: t`Tidak dapat meniru identitas pengguna yang dipilih`,
+        message: `Tidak dapat meniru identitas pengguna yang dipilih`,
         options: { duration: 2000 },
       });
       return;
@@ -154,7 +153,7 @@ export const SettingsWorkspaceMember = () => {
       },
       onError: () => {
         enqueueErrorSnackBar({
-          message: t`Tidak dapat meniru identitas pengguna yang dipilih`,
+          message: `Tidak dapat meniru identitas pengguna yang dipilih`,
           options: { duration: 2000 },
         });
       },
@@ -171,11 +170,11 @@ export const SettingsWorkspaceMember = () => {
           title={`${member.name.firstName} ${member.name.lastName}`}
           links={[
             {
-              children: t`Ruang Kerja`,
+              children: `Ruang Kerja`,
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: t`Anggota`,
+              children: `Anggota`,
               href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
             },
             {
@@ -188,12 +187,12 @@ export const SettingsWorkspaceMember = () => {
               tabs={[
                 {
                   id: SETTINGS_WORKSPACE_MEMBER_TABS.TABS_IDS.INFOS,
-                  title: t`Info`,
+                  title: `Info`,
                   Icon: IconInfoCircle,
                 },
                 {
                   id: SETTINGS_WORKSPACE_MEMBER_TABS.TABS_IDS.PERMISSIONS,
-                  title: t`Izin`,
+                  title: `Izin`,
                   Icon: IconLockOpen,
                 },
               ]}
@@ -221,10 +220,10 @@ export const SettingsWorkspaceMember = () => {
 
           <ConfirmationModal
             modalInstanceId={DELETE_MEMBER_MODAL_ID}
-            title={t`Hapus anggota dari ruang kerja`}
-            subtitle={t`Tindakan ini tidak dapat dibatalkan. Anggota ini akan dihapus secara permanen dari ruang kerja dan semua penugasannya.`}
+            title={`Hapus anggota dari ruang kerja`}
+            subtitle={`Tindakan ini tidak dapat dibatalkan. Anggota ini akan dihapus secara permanen dari ruang kerja dan semua penugasannya.`}
             onConfirmClick={handleDeleteMember}
-            confirmButtonText={t`Hapus anggota`}
+            confirmButtonText={`Hapus anggota`}
             loading={isDeleting}
           />
         </SubMenuTopBarContainer>

@@ -1,7 +1,5 @@
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 
-import { t } from '~/utils/i18n/badesI18n';
-
 import { currentUserState } from '@/auth/states/currentUserState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -28,7 +26,7 @@ export const useUpdateEmail = () => {
       });
 
       enqueueInfoSnackBar({
-        message: t`Periksa kotak masuk Anda untuk memverifikasi alamat email baru.`,
+        message: `Periksa kotak masuk Anda untuk memverifikasi alamat email baru.`,
       });
     } catch (error) {
       if (CombinedGraphQLErrors.is(error)) {

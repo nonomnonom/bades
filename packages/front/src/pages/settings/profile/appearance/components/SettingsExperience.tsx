@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { FormatPreferencesSettings } from '@/settings/experience/components/FormatPreferencesSettings';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -11,11 +11,9 @@ import { Section } from 'ui/layout';
 
 export const SettingsExperience = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
-  const { t } = useLingui();
-
   return (
     <SubMenuTopBarContainer
-      title={t`Tampilan`}
+      title={`Tampilan`}
       links={[
         {
           children: <Trans>Pengguna</Trans>,
@@ -26,20 +24,20 @@ export const SettingsExperience = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Tema Warna`} />
+          <H2Title title={`Tema Warna`} />
           <ColorSchemePicker
             value={colorScheme}
             onChange={setColorScheme}
-            lightLabel={t`Terang`}
-            darkLabel={t`Gelap`}
-            systemLabel={t`Ikuti sistem`}
+            lightLabel={`Terang`}
+            darkLabel={`Gelap`}
+            systemLabel={`Ikuti sistem`}
           />
         </Section>
 
         <Section>
           <H2Title
-            title={t`Format`}
-            description={t`Atur format tanggal, waktu, angka, zona waktu, dan hari pertama kalender`}
+            title={`Format`}
+            description={`Atur format tanggal, waktu, angka, zona waktu, dan hari pertama kalender`}
           />
           <FormatPreferencesSettings />
         </Section>

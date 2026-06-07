@@ -6,13 +6,11 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { UpdateWorkspaceDocument } from '~/generated-metadata/graphql';
 
 export const useSettingsCustomDomain = () => {
-  const { t } = useLingui();
   const domainSchema = getDomainValidationSchema();
 
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
@@ -63,7 +61,7 @@ export const useSettingsCustomDomain = () => {
           ...currentWorkspace,
           customDomain: domainValue,
         });
-        enqueueSuccessSnackBar({ message: t`Domain kustom diperbarui` });
+        enqueueSuccessSnackBar({ message: `Domain kustom diperbarui` });
         setIsSubmitting(false);
         checkCustomDomainRecords();
       },
@@ -72,7 +70,7 @@ export const useSettingsCustomDomain = () => {
           CombinedGraphQLErrors.is(mutationError) &&
           mutationError.errors[0]?.extensions?.code === 'CONFLICT'
         ) {
-          setError(t`Domain sudah digunakan`);
+          setError(`Domain sudah digunakan`);
           setIsSubmitting(false);
 
           return;

@@ -26,7 +26,6 @@ import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomC
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
@@ -334,11 +333,11 @@ export const SidePanelPageLayoutRecordPageWidgetTypeSelect = () => {
 
   return (
     <SidePanelList selectableItemIds={selectableItemIds}>
-      <SidePanelGroup heading={t`Jenis widget`}>
+      <SidePanelGroup heading={`Jenis widget`}>
         <SelectableListItem itemId="fields" onEnter={handleCreateFieldsWidget}>
           <CommandMenuItem
             Icon={IconList}
-            label={t`Kolom-kolom`}
+            label={`Kolom-kolom`}
             id="fields"
             onClick={handleCreateFieldsWidget}
           />
@@ -346,7 +345,7 @@ export const SidePanelPageLayoutRecordPageWidgetTypeSelect = () => {
         <SelectableListItem itemId="field" onEnter={handleCreateFieldWidget}>
           <CommandMenuItem
             Icon={IconList}
-            label={t`Kolom`}
+            label={`Kolom`}
             id="field"
             onClick={handleCreateFieldWidget}
           />
@@ -354,7 +353,7 @@ export const SidePanelPageLayoutRecordPageWidgetTypeSelect = () => {
       </SidePanelGroup>
 
       {frontComponentsWithSelectItemId.length > 0 && (
-        <SidePanelGroup heading={t`Komponen Bades`}>
+        <SidePanelGroup heading={`Komponen Bades`}>
           {frontComponentsWithSelectItemId.map(
             ({ frontComponent, selectItemId }) => (
               <SelectableListItem

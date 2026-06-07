@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type ReactNode } from 'react';
 
 import { ApplicationDisplay } from '@/applications/components/ApplicationDisplay';
@@ -54,12 +53,12 @@ export const SettingsApplicationTableRow = ({
         <ApplicationDisplay application={application} />
       </StyledNameTableCell>
       <TableCell color={themeCssVariables.font.color.tertiary}>
-        {sourceType ? SOURCE_TYPE_LABELS[sourceType] : t`Bawaan`}
+        {sourceType ? SOURCE_TYPE_LABELS[sourceType] : `Bawaan`}
       </TableCell>
       <TableCell gap={themeCssVariables.spacing[2]} minWidth="0">
         <OverflowingTextWithTooltip text={descriptionSummary} />
         {hasUpdate === true && (
-          <Tag color="blue" text={t`Perbarui`} weight="medium" />
+          <Tag color="blue" text={`Perbarui`} weight="medium" />
         )}
       </TableCell>
       <TableCell

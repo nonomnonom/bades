@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import {
   extractAndSanitizeObjectStringFields,
   isDefined,
@@ -43,7 +42,7 @@ export const fromUpdateViewFilterInputToFlatViewFilterToUpdateOrThrow = ({
 
   if (!isDefined(existingFlatViewFilterToUpdate)) {
     throw new ViewFilterException(
-      t`View filter to update not found`,
+      `View filter to update not found`,
       ViewFilterExceptionCode.VIEW_FILTER_NOT_FOUND,
     );
   }

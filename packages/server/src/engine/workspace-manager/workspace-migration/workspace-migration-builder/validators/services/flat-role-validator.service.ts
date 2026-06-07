@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
@@ -86,7 +86,7 @@ export class FlatRoleValidatorService {
     if (!isDefined(existingRole)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.ROLE_NOT_FOUND,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
 
@@ -129,7 +129,7 @@ export class FlatRoleValidatorService {
     if (!isDefined(fromFlatRole)) {
       validationResult.errors.push({
         code: PermissionsExceptionCode.ROLE_NOT_FOUND,
-        message: t`Role not found`,
+        message: `Role not found`,
         userFriendlyMessage: msg`Role not found`,
       });
 

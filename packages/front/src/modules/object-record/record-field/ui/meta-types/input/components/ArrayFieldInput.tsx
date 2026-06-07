@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
 import { useArrayField } from '@/object-record/record-field/ui/meta-types/hooks/useArrayField';
 import { ArrayFieldMenuItem } from '@/object-record/record-field/ui/meta-types/input/components/ArrayFieldMenuItem';
@@ -63,13 +62,13 @@ export const ArrayFieldInput = () => {
 
   return (
     <MultiItemFieldInput
-      newItemLabel={t`Tambah Item`}
+      newItemLabel={`Tambah Item`}
       items={arrayItems}
       onChange={handleChange}
       onEnter={handleEnter}
       onEscape={handleEscape}
       onClickOutside={handleClickOutside}
-      placeholder={t`Masukkan nilai`}
+      placeholder={`Masukkan nilai`}
       fieldMetadataType={FieldMetadataType.ARRAY}
       renderItem={({ value, index, handleEdit, handleDelete }) => (
         <ArrayFieldMenuItem

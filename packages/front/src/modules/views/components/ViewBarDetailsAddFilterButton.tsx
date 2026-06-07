@@ -2,7 +2,6 @@ import { ViewBarFilterDropdownIds } from '@/views/constants/ViewBarFilterDropdow
 
 import { useResetFilterDropdown } from '@/object-record/object-filter-dropdown/hooks/useResetFilterDropdown';
 import { useToggleDropdown } from '@/ui/layout/dropdown/hooks/useToggleDropdown';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 import { LightButton } from 'ui/input';
 
@@ -24,7 +23,7 @@ export const ViewBarDetailsAddFilterButton = () => {
     <LightButton
       onClick={handleClick}
       Icon={IconPlus}
-      title={t`Tambah filter`}
+      title={`Tambah filter`}
       accent="tertiary"
     />
   );

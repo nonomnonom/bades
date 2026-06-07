@@ -20,7 +20,6 @@ import { convertPageLayoutToTabLayouts } from '@/page-layout/utils/convertPageLa
 import { isDefaultPageLayoutId } from '@/page-layout/utils/isDefaultPageLayoutId';
 import { transformPageLayout } from '@/page-layout/utils/transformPageLayout';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback, useState } from 'react';
 import { isDefined } from 'shared/utils';
@@ -30,8 +29,6 @@ import { logError } from '~/utils/logError';
 export const useSaveLayoutCustomization = () => {
   const [isSaving, setIsSaving] = useState(false);
   const store = useStore();
-  const { t } = useLingui();
-
   const { saveDraft } = useSaveNavigationMenuItemsDraft();
   const { saveCommandMenuItemsDraft } = useSaveCommandMenuItemsDraft();
   const { isDirty: isCommandMenuItemsDirty } = useCommandMenuItemsDraftState();
@@ -151,7 +148,7 @@ export const useSaveLayoutCustomization = () => {
 
       if (hasAnyFailure) {
         enqueueErrorSnackBar({
-          message: t`Beberapa perubahan tata letak tidak dapat disimpan`,
+          message: `Beberapa perubahan tata letak tidak dapat disimpan`,
         });
         return;
       }
@@ -160,7 +157,7 @@ export const useSaveLayoutCustomization = () => {
     } catch (error) {
       logError(error);
       enqueueErrorSnackBar({
-        message: t`Gagal menyimpan penyesuaian tata letak`,
+        message: `Gagal menyimpan penyesuaian tata letak`,
       });
     } finally {
       setIsSaving(false);
@@ -176,7 +173,6 @@ export const useSaveLayoutCustomization = () => {
     exitLayoutCustomizationMode,
     enqueueErrorSnackBar,
     store,
-    t,
   ]);
 
   return { save, isSaving };

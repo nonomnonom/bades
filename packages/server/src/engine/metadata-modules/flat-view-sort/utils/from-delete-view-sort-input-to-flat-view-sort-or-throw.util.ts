@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatViewSortMaps } from 'src/engine/metadata-modules/flat-view-sort/types/flat-view-sort-maps.type';
@@ -29,7 +28,7 @@ export const fromDeleteViewSortInputToFlatViewSortOrThrow = ({
 
   if (!isDefined(existingFlatViewSortToDelete)) {
     throw new ViewSortException(
-      t`View sort not found`,
+      `View sort not found`,
       ViewSortExceptionCode.VIEW_SORT_NOT_FOUND,
     );
   }

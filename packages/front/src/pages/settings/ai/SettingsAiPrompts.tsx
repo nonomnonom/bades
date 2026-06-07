@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
@@ -44,12 +43,12 @@ export const SettingsAiPrompts = () => {
     }
 
     const parts = [
-      `**${t`Pengguna`}:** ${currentWorkspaceMember.name.firstName} ${currentWorkspaceMember.name.lastName}`.trim(),
-      `**${t`Lokal`}:** ${currentWorkspaceMember.locale ?? 'id'}`,
+      `**${`Pengguna`}:** ${currentWorkspaceMember.name.firstName} ${currentWorkspaceMember.name.lastName}`.trim(),
+      `**${`Lokal`}:** ${currentWorkspaceMember.locale ?? 'id'}`,
     ];
 
     if (isDefined(currentWorkspaceMember.timeZone)) {
-      parts.push(`**${t`Zona Waktu`}:** ${currentWorkspaceMember.timeZone}`);
+      parts.push(`**${`Zona Waktu`}:** ${currentWorkspaceMember.timeZone}`);
     }
 
     return parts.join('\n\n');
@@ -64,7 +63,7 @@ export const SettingsAiPrompts = () => {
   );
 
   const totalTokenCount = isDefined(preview)
-    ? t`~ ${formatNumber(preview.estimatedTokenCount, {
+    ? `~ ${formatNumber(preview.estimatedTokenCount, {
         abbreviate: true,
         decimals: 1,
       })} tokens`
@@ -74,26 +73,26 @@ export const SettingsAiPrompts = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Ruang Kerja`,
+          children: `Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
-        { children: t`Prompt Sistem` },
+        { children: `AI`, href: getSettingsPath(SettingsPath.AI) },
+        { children: `Prompt Sistem` },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <StyledTitleContainer>
             <H3Title
-              title={t`Prompt Sistem`}
-              description={[t`Hanya baca`, totalTokenCount]
+              title={`Prompt Sistem`}
+              description={[`Hanya baca`, totalTokenCount]
                 .filter(Boolean)
                 .join(' ')}
             />
           </StyledTitleContainer>
         </Section>
         {promptSections.map((section) => {
-          const sectionTokenCount = t`~ ${formatNumber(
+          const sectionTokenCount = `~ ${formatNumber(
             section.estimatedTokenCount,
             {
               abbreviate: true,
@@ -105,7 +104,7 @@ export const SettingsAiPrompts = () => {
             <Section key={section.title}>
               <H2Title
                 title={section.title}
-                description={[t`Hanya baca`, sectionTokenCount]
+                description={[`Hanya baca`, sectionTokenCount]
                   .filter(Boolean)
                   .join(' ')}
               />
@@ -122,7 +121,7 @@ export const SettingsAiPrompts = () => {
                   enableFullScreen={true}
                   fullScreenBreadcrumbs={[
                     {
-                      children: t`Prompt Sistem`,
+                      children: `Prompt Sistem`,
                       href: '#',
                     },
                     {
@@ -139,12 +138,12 @@ export const SettingsAiPrompts = () => {
 
         <Section>
           <H2Title
-            title={t`Konteks Pengguna`}
-            description={t`Informasi tentang pengguna saat ini (dibuat otomatis dan disertakan pada setiap permintaan)`}
+            title={`Konteks Pengguna`}
+            description={`Informasi tentang pengguna saat ini (dibuat otomatis dan disertakan pada setiap permintaan)`}
           />
           <StyledFormContainer>
             <FormAdvancedTextFieldInput
-              label={t`Informasi Pengguna`}
+              label={`Informasi Pengguna`}
               readonly={true}
               defaultValue={userContextPreview}
               contentType="markdown"

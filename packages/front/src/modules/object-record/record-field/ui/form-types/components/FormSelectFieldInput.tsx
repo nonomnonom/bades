@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -96,7 +95,7 @@ export const FormSelectFieldInput = ({
   );
 
   const defaultEmptyOption = {
-    label: label ? t`Tidak ada ${label}` : t`Tidak ada nilai`,
+    label: label ? `Tidak ada ${label}` : `Tidak ada nilai`,
     value: '',
     icon: IconCircleOff,
   };

@@ -4,7 +4,6 @@ import { getWorkspacesUpgradeHealthText } from '@/settings/admin-panel/utils/get
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { UserContext } from '@/users/contexts/UserContext';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import {
   IconAlertTriangle,
@@ -48,7 +47,7 @@ export const SettingsAdminWorkspacesStatusSummaryCard = ({
       items={[
         {
           Icon: IconStatusChange,
-          label: t`Kesehatan pembaruan`,
+          label: `Kesehatan pembaruan`,
           value: (
             <Status
               color={workspacesUpgradeHealthBadge.color}
@@ -59,17 +58,17 @@ export const SettingsAdminWorkspacesStatusSummaryCard = ({
         },
         {
           Icon: IconAlertTriangle,
-          label: t`Tertinggal`,
+          label: `Tertinggal`,
           value: behindCount,
         },
         {
           Icon: IconX,
-          label: t`Gagal`,
+          label: `Gagal`,
           value: failedCount,
         },
         {
           Icon: IconClock,
-          label: t`Dihitung pada`,
+          label: `Dihitung pada`,
           value:
             formatDateTimeString({
               value: computedAt,
@@ -77,7 +76,7 @@ export const SettingsAdminWorkspacesStatusSummaryCard = ({
               dateFormat,
               timeFormat,
               localeCatalog,
-            }) || t`T/A`,
+            }) || `T/A`,
         },
       ]}
       gridAutoColumns="3fr 4fr"

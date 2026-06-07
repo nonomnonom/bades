@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { RecordChip } from '@/object-record/components/RecordChip';
 import { FormFieldPlaceholder } from '@/object-record/record-field/ui/form-types/components/FormFieldPlaceholder';
 import {
@@ -73,7 +72,7 @@ export const FormSingleRecordFieldChip = ({
     return (
       <StyledNoRecordContainer>
         <IconForbid size={12} />
-        {t`Tidak ada data`}
+        {`Tidak ada data`}
       </StyledNoRecordContainer>
     );
   }
@@ -91,7 +90,7 @@ export const FormSingleRecordFieldChip = ({
 
   return (
     <StyledPlaceholderContainer>
-      <FormFieldPlaceholder>{t`Pilih`}</FormFieldPlaceholder>
+      <FormFieldPlaceholder>{`Pilih`}</FormFieldPlaceholder>
     </StyledPlaceholderContainer>
   );
 };

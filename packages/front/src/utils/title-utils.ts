@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { AppBasePath, AppPath, SettingsPath } from 'shared/types';
 
 enum SettingsPathPrefixes {
@@ -25,31 +24,31 @@ export const getPageTitleFromPath = (pathname: string): string => {
   const pathnameOrPrefix = getPathnameOrPrefix(pathname);
   switch (pathnameOrPrefix) {
     case AppPath.Verify:
-      return t`Verifikasi`;
+      return `Verifikasi`;
     case AppPath.SignInUp:
-      return t`Masuk atau Buat Akun`;
+      return `Masuk atau Buat Akun`;
     case AppPath.Invite:
-      return t`Undangan`;
+      return `Undangan`;
     case AppPath.CreateWorkspace:
-      return t`Buat Ruang Kerja`;
+      return `Buat Ruang Kerja`;
     case AppPath.CreateProfile:
-      return t`Buat Profil`;
+      return `Buat Profil`;
     case SettingsPathPrefixes.Experience:
-      return t`Tampilan - Pengaturan`;
+      return `Tampilan - Pengaturan`;
     case SettingsPathPrefixes.Accounts:
-      return t`Akun - Pengaturan`;
+      return `Akun - Pengaturan`;
     case SettingsPathPrefixes.Profile:
-      return t`Profil - Pengaturan`;
+      return `Profil - Pengaturan`;
     case SettingsPathPrefixes.Members:
-      return t`Anggota - Pengaturan`;
+      return `Anggota - Pengaturan`;
     case SettingsPathPrefixes.Objects:
-      return t`Model Data - Pengaturan`;
+      return `Model Data - Pengaturan`;
     case SettingsPathPrefixes.LogicFunctions:
-      return t`Fungsi - Pengaturan`;
+      return `Fungsi - Pengaturan`;
     case SettingsPathPrefixes.Integration:
-      return t`Integrasi - Pengaturan`;
+      return `Integrasi - Pengaturan`;
     case SettingsPathPrefixes.General:
-      return t`Umum - Pengaturan`;
+      return `Umum - Pengaturan`;
     default:
       return 'Bades.id';
   }

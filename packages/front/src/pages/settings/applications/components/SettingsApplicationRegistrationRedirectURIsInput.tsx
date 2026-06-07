@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
@@ -32,8 +31,6 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
   updateRedirectUris,
   redirectUris,
 }: SettingsApplicationRegistrationRedirectURIsInputProps) => {
-  const { t } = useLingui();
-
   const validationSchema = (redirectUris: string[]) =>
     z
       .object({
@@ -41,10 +38,10 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
           .string()
           .trim()
           .min(1, 'URI wajib diisi')
-          .url(t`Masukkan URL yang valid`)
+          .url(`Masukkan URL yang valid`)
           .refine(
             (value) => !redirectUris.includes(value),
-            t`URI sudah ada dalam daftar Redirect URI`,
+            `URI sudah ada dalam daftar Redirect URI`,
           ),
       })
       .required();
@@ -88,7 +85,7 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
             )}
           />
         </StyledLinkContainer>
-        <Button title={t`Tambah URI`} type="submit" />
+        <Button title={`Tambah URI`} type="submit" />
       </StyledContainer>
     </form>
   );

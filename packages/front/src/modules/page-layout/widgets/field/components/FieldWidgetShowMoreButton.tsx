@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-
 import { IconChevronDown } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -45,7 +43,7 @@ export const FieldWidgetShowMoreButton = ({
       <StyledIconContainer>
         <IconChevronDown />
       </StyledIconContainer>
-      {t`Lainnya (${remainingCount})`}
+      {`Lainnya (${remainingCount})`}
     </StyledButton>
   );
 };

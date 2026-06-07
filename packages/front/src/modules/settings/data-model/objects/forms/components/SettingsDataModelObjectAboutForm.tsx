@@ -7,7 +7,6 @@ import { IconPicker } from '@/ui/input/components/IconPicker';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { TextArea } from '@/ui/input/components/TextArea';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { plural } from 'pluralize';
 import { useContext } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -84,7 +83,6 @@ export const SettingsDataModelObjectAboutForm = ({
   const { theme } = useContext(ThemeContext);
   const { control, watch, setValue } =
     useFormContext<SettingsDataModelObjectAboutFormValues>();
-  const { t } = useLingui();
   const navigateSettings = useNavigateSettings();
 
   const isLabelSyncedWithName = watch('isLabelSyncedWithName');
@@ -102,9 +100,9 @@ export const SettingsDataModelObjectAboutForm = ({
   const apiNameTooltipText =
     !isDefined(objectMetadataItem) || objectMetadataItem.isCustom
       ? isLabelSyncedWithName
-        ? t`Nonaktifkan "Sinkronkan Label Objek dan Nama API" untuk mengatur nama API kustom`
-        : t`Masukan harus dalam format camelCase dan tidak boleh diawali angka`
-      : t`Nama API tidak dapat diubah untuk objek standar`;
+        ? `Nonaktifkan "Sinkronkan Label Objek dan Nama API" untuk mengatur nama API kustom`
+        : `Masukan harus dalam format camelCase dan tidak boleh diawali angka`
+      : `Nama API tidak dapat diubah untuk objek standar`;
 
   const fillLabelPlural = (labelSingular: string | undefined) => {
     if (!isDefined(labelSingular)) return;
@@ -146,7 +144,7 @@ export const SettingsDataModelObjectAboutForm = ({
     <>
       <StyledInputsContainer>
         <StyledInputContainer>
-          <StyledLabel>{t`Ikon`}</StyledLabel>
+          <StyledLabel>{`Ikon`}</StyledLabel>
           <Controller
             name="icon"
             control={control}
@@ -196,8 +194,8 @@ export const SettingsDataModelObjectAboutForm = ({
               // TODO we should discuss on how to notify user about form validation schema issue, from now just displaying red borders
               noErrorHelper={true}
               error={errors.labelSingular?.message}
-              label={t`Tunggal`}
-              placeholder={t`Surat`}
+              label={`Tunggal`}
+              placeholder={`Surat`}
               value={value}
               onChange={(value) => {
                 onChange(capitalize(value));
@@ -221,8 +219,8 @@ export const SettingsDataModelObjectAboutForm = ({
               // TODO we should discuss on how to notify user about form validation schema issue, from now just displaying red borders
               noErrorHelper={true}
               error={errors.labelPlural?.message}
-              label={t`Jamak`}
-              placeholder={t`Surat-surat`}
+              label={`Jamak`}
+              placeholder={`Surat-surat`}
               value={value}
               onChange={(value) => {
                 onChange(capitalize(value));
@@ -244,7 +242,7 @@ export const SettingsDataModelObjectAboutForm = ({
         render={({ field: { onChange, value } }) => (
           <TextArea
             textAreaId={descriptionTextAreaId}
-            placeholder={t`Tulis deskripsi`}
+            placeholder={`Tulis deskripsi`}
             minRows={4}
             value={value ?? undefined}
             onChange={(nextValue) => onChange(nextValue ?? null)}
@@ -259,7 +257,7 @@ export const SettingsDataModelObjectAboutForm = ({
             {isDefined(conflictingObjectMetadataItem) && (
               <InlineBanner
                 color={'blue'}
-                message={t`Objek dengan nama ini sudah ada`}
+                message={`Objek dengan nama ini sudah ada`}
                 button={{
                   title: 'Buka',
                   onClick: () =>
@@ -272,7 +270,7 @@ export const SettingsDataModelObjectAboutForm = ({
             )}
             {[
               {
-                label: t`Nama API (Tunggal)`,
+                label: `Nama API (Tunggal)`,
                 fieldName:
                   'nameSingular' as const satisfies StringKeyOf<EnrichedObjectMetadataItem>,
                 placeholder: `surat`,
@@ -282,7 +280,7 @@ export const SettingsDataModelObjectAboutForm = ({
                 tooltip: apiNameTooltipText,
               },
               {
-                label: t`Nama API (Jamak)`,
+                label: `Nama API (Jamak)`,
                 fieldName:
                   'namePlural' as const satisfies StringKeyOf<EnrichedObjectMetadataItem>,
                 placeholder: `suratSurats`,
@@ -366,8 +364,8 @@ export const SettingsDataModelObjectAboutForm = ({
                     <Card rounded>
                       <SettingsOptionCardContentToggle
                         Icon={IconRefresh}
-                        title={t`Sinkronkan Label Objek dan Nama API`}
-                        description={t`Apakah perubahan label objek juga mengubah nama API?`}
+                        title={`Sinkronkan Label Objek dan Nama API`}
+                        description={`Apakah perubahan label objek juga mengubah nama API?`}
                         checked={value ?? true}
                         advancedMode
                         disabled={disableEdition}
@@ -402,8 +400,8 @@ export const SettingsDataModelObjectAboutForm = ({
                     <Card rounded>
                       <SettingsOptionCardContentToggle
                         Icon={IconLink}
-                        title={t`Lewati pembuatan kolom Nama`}
-                        description={t`Berguna untuk tabel pivot atau junction`}
+                        title={`Lewati pembuatan kolom Nama`}
+                        description={`Berguna untuk tabel pivot atau junction`}
                         checked={value ?? false}
                         advancedMode
                         disabled={disableEdition}

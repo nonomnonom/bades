@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
@@ -90,25 +89,25 @@ export const MultiItemFieldMenuItem = <T,>({
             {showSetAsPrimaryButton && (
               <MenuItem
                 LeftIcon={IconBookmarkPlus}
-                text={t`Jadikan Utama`}
+                text={`Jadikan Utama`}
                 onClick={handleSetAsPrimaryClick}
               />
             )}
             <MenuItem
               LeftIcon={IconPencil}
-              text={t`Ubah`}
+              text={`Ubah`}
               onClick={handleEditClick}
             />
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Hapus`}
+              text={`Hapus`}
               onClick={handleDeleteClick}
             />
             {showCopyButton && (
               <MenuItem
                 LeftIcon={IconCopy}
-                text={t`Salin`}
+                text={`Salin`}
                 onClick={handleCopyClick}
               />
             )}

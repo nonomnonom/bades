@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
 import { useParams } from 'react-router-dom';
@@ -116,7 +115,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         setOriginalFormValues(initialValues);
       } else {
         enqueueErrorSnackBar({
-          message: t`Agen tidak ditemukan`,
+          message: `Agen tidak ditemukan`,
         });
         navigateApp(AppPath.NotFound);
       }
@@ -192,7 +191,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             const errorMessage =
               error instanceof Error ? error.message : String(error);
             enqueueErrorSnackBar({
-              message: t`Gagal menyimpan izin peran: ${errorMessage}`,
+              message: `Gagal menyimpan izin peran: ${errorMessage}`,
             });
           }
           setIsSubmitting(false);
@@ -256,22 +255,22 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const tabs = [
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Pengaturan`,
+      title: `Pengaturan`,
       Icon: IconSettings,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.ROLE,
-      title: t`Peran`,
+      title: `Peran`,
       Icon: IconLock,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.EVALS,
-      title: t`Evaluasi`,
+      title: `Evaluasi`,
       Icon: IconListCheck,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.LOGS,
-      title: t`Log`,
+      title: `Log`,
       Icon: IconList,
     },
   ];
@@ -300,7 +299,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             const errorMessage =
               error instanceof Error ? error.message : String(error);
             enqueueErrorSnackBar({
-              message: t`Gagal menyimpan izin peran: ${errorMessage}`,
+              message: `Gagal menyimpan izin peran: ${errorMessage}`,
             });
           }
           setIsSubmitting(false);
@@ -371,16 +370,12 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
     navigate(SettingsPath.AI);
   };
 
-  const title = !isCreateMode
-    ? loading
-      ? t`Agen`
-      : agent?.label
-    : t`Agen Baru`;
+  const title = !isCreateMode ? (loading ? `Agen` : agent?.label) : `Agen Baru`;
   const breadcrumbText = !isCreateMode
     ? loading
-      ? t`Agen`
+      ? `Agen`
       : agent?.label
-    : t`Agen Baru`;
+    : `Agen Baru`;
 
   const isRoleTab = activeTabId === SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.ROLE;
   const isSettingsTab =
@@ -411,7 +406,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         }
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           { children: 'AI', href: getSettingsPath(SettingsPath.AI) },

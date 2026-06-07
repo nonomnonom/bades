@@ -17,7 +17,6 @@ import { useBuildSearchParamsFromUrlSyncedStates } from '@/domain-manager/hooks/
 import { useIsCurrentLocationOnAWorkspace } from '@/domain-manager/hooks/useIsCurrentLocationOnAWorkspace';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { isErrorLike } from '@apollo/client/errors';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { buildAppPathWithQueryParams } from '~/utils/buildAppPathWithQueryParams';
@@ -28,8 +27,6 @@ import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomStat
 
 export const useSignInUp = (form: UseFormReturn<Form>) => {
   const { enqueueErrorSnackBar } = useSnackBar();
-  const { t } = useLingui();
-
   const [signInUpStep, setSignInUpStep] = useAtomState(signInUpStepState);
   const [signInUpMode, setSignInUpMode] = useAtomState(signInUpModeState);
   const { isOnAWorkspace } = useIsCurrentLocationOnAWorkspace();
@@ -66,16 +63,16 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
     setSignInUpStep(SignInUpStep.Email);
   }, [setSignInUpStep]);
 
-  const errorMsgUserAlreadyExist = t`Terjadi kesalahan saat memeriksa akun`;
+  const errorMsgUserAlreadyExist = `Terjadi kesalahan saat memeriksa akun`;
   const continueWithCredentials = useCallback(async () => {
     if (!form.getValues('email')) {
       return enqueueErrorSnackBar({
-        message: t`Email wajib diisi`,
+        message: `Email wajib diisi`,
       });
     }
     if (!isCaptchaReady) {
       return enqueueErrorSnackBar({
-        message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
+        message: `Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
       });
     }
     try {
@@ -106,7 +103,6 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
     form,
     isCaptchaReady,
     enqueueErrorSnackBar,
-    t,
     checkUserExistsQuery,
     setSignInUpMode,
     setSignInUpStep,
@@ -121,7 +117,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
 
       if (!isCaptchaReady) {
         return enqueueErrorSnackBar({
-          message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
+          message: `Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
         });
       }
 
@@ -199,7 +195,6 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
       buildSearchParamsFromUrlSyncedStates,
       isOnAWorkspace,
       setLastAuthenticatedMethod,
-      t,
     ],
   );
 

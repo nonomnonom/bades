@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -64,8 +63,6 @@ export const WorkspaceSection = () => {
     useOpenNavigationMenuItemInSidePanel();
   const { getIcon } = useIcons();
 
-  const { t } = useLingui();
-
   const handleEditClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     enterLayoutCustomizationMode();
@@ -79,7 +76,7 @@ export const WorkspaceSection = () => {
       current.includes(folderId) ? current : [...current, folderId],
     );
     openNavigationMenuItemInSidePanel({
-      pageTitle: t`Ubah folder`,
+      pageTitle: `Ubah folder`,
       pageIcon: getIcon(item.icon ?? FOLDER_ICON_DEFAULT),
     });
     const firstChild = workspaceNavigationMenuItemsSorted.find((navItem) => {
@@ -141,7 +138,7 @@ export const WorkspaceSection = () => {
         break;
       case NavigationMenuItemType.LINK:
         openNavigationMenuItemInSidePanel({
-          pageTitle: t`Ubah tautan`,
+          pageTitle: `Ubah tautan`,
           pageIcon: IconLink,
         });
         break;
@@ -166,7 +163,7 @@ export const WorkspaceSection = () => {
     event?.stopPropagation();
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`Item menu baru`,
+      pageTitle: `Item menu baru`,
       pageIcon: IconColumnInsertRight,
       resetNavigationStack: true,
     });
@@ -174,7 +171,7 @@ export const WorkspaceSection = () => {
 
   return (
     <WorkspaceSectionContainer
-      sectionTitle={t`Ruang kerja`}
+      sectionTitle={`Ruang kerja`}
       items={items}
       rightIcon={
         <StyledRightIconsContainer>

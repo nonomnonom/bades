@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { billingState } from '@/client-config/states/billingState';
 import { isClickHouseConfiguredState } from '@/client-config/states/isClickHouseConfiguredState';
@@ -39,11 +38,11 @@ export const SettingsAiUsageTab = () => {
     return (
       <Section>
         <H2Title
-          title={t`Pemakaian AI`}
-          description={t`Pantau konsumsi AI di seluruh ruang kerja Anda.`}
+          title={`Pemakaian AI`}
+          description={`Pantau konsumsi AI di seluruh ruang kerja Anda.`}
           adornment={
             <Tag
-              text={t`Fitur lanjutan`}
+              text={`Fitur lanjutan`}
               color="transparent"
               Icon={IconLock}
               variant="border"
@@ -51,9 +50,9 @@ export const SettingsAiUsageTab = () => {
           }
         />
         <SettingsEnterpriseFeatureGateCard
-          title={t`Fitur lanjutan`}
-          description={t`Analitik pemakaian AI tersedia dengan kunci lanjutan.`}
-          buttonTitle={t`Aktifkan`}
+          title={`Fitur lanjutan`}
+          description={`Analitik pemakaian AI tersedia dengan kunci lanjutan.`}
+          buttonTitle={`Aktifkan`}
         />
       </Section>
     );
@@ -63,13 +62,13 @@ export const SettingsAiUsageTab = () => {
     return (
       <Section>
         <H2Title
-          title={t`Pemakaian AI`}
-          description={t`Pantau konsumsi AI di seluruh ruang kerja Anda.`}
+          title={`Pemakaian AI`}
+          description={`Pantau konsumsi AI di seluruh ruang kerja Anda.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`ClickHouse belum dikonfigurasi`}
-            value={t`Analitik pemakaian AI memerlukan ClickHouse. Hubungi administrator Anda.`}
+            label={`ClickHouse belum dikonfigurasi`}
+            value={`Analitik pemakaian AI memerlukan ClickHouse. Hubungi administrator Anda.`}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -91,13 +90,13 @@ export const SettingsAiUsageTab = () => {
     return (
       <Section>
         <H2Title
-          title={t`Pemakaian AI`}
-          description={t`Pantau konsumsi AI di seluruh ruang kerja Anda.`}
+          title={`Pemakaian AI`}
+          description={`Pantau konsumsi AI di seluruh ruang kerja Anda.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`Belum ada data pemakaian`}
-            value={t`Analitik pemakaian AI akan muncul di sini setelah Anda mulai menggunakan fitur AI.`}
+            label={`Belum ada data pemakaian`}
+            value={`Analitik pemakaian AI akan muncul di sini setelah Anda mulai menggunakan fitur AI.`}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -107,28 +106,28 @@ export const SettingsAiUsageTab = () => {
   return (
     <>
       <UsageDailyChartSection
-        title={t`Pemakaian AI Harian`}
-        description={t`Konsumsi AI dari waktu ke waktu.`}
+        title={`Pemakaian AI Harian`}
+        description={`Konsumsi AI dari waktu ke waktu.`}
         operationTypes={AI_OPERATION_TYPES}
         chartId="ai-usage-daily"
-        chartLabel={t`Pemakaian AI`}
+        chartLabel={`Pemakaian AI`}
       />
       <UsageBreakdownPieSection
-        title={t`Pemakaian AI per Jenis`}
+        title={`Pemakaian AI per Jenis`}
         operationTypes={AI_OPERATION_TYPES}
         breakdownField="operationType"
         sectionId="ai-usage-type"
       />
       <UsageBreakdownPieSection
-        title={t`Pemakaian AI per Model`}
-        description={t`Rincian lintas model AI.`}
+        title={`Pemakaian AI per Model`}
+        description={`Rincian lintas model AI.`}
         operationTypes={AI_OPERATION_TYPES}
         breakdownField="model"
         sectionId="ai-usage-model"
       />
       <UsageByUserTableSection
-        title={t`Pemakaian AI per Pengguna`}
-        description={t`Klik pengguna untuk melihat rincian hariannya.`}
+        title={`Pemakaian AI per Pengguna`}
+        description={`Klik pengguna untuk melihat rincian hariannya.`}
         operationTypes={AI_OPERATION_TYPES}
         getDetailPath={(userWorkspaceId) =>
           getSettingsPath(SettingsPath.AiUsageUserDetail, {

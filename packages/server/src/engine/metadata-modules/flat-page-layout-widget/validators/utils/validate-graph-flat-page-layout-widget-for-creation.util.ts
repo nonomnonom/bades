@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type ValidateFlatPageLayoutWidgetTypeSpecificitiesForCreationArgs } from 'src/engine/metadata-modules/flat-page-layout-widget/services/flat-page-layout-widget-type-validator.service';
@@ -18,7 +18,7 @@ export const validateGraphFlatPageLayoutWidgetForCreation = (
   if (!isDefined(universalConfiguration)) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Configuration is required for graph widget "${widgetTitle}"`,
+      message: `Configuration is required for graph widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Configuration is required for graph widget`,
     });
 

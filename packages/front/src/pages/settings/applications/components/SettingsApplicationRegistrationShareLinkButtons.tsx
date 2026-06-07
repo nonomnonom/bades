@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Button } from 'ui/input';
 import {
   IconArrowUpRight,
@@ -30,8 +29,6 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
   isNpmSource?: boolean;
   withCopyButton?: boolean;
 }) => {
-  const { t } = useLingui();
-
   const { copyToClipboard } = useCopyToClipboard();
 
   const { install, isInstalling } = useInstallMarketplaceApp();
@@ -52,7 +49,7 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       {installable && (
         <Button
           Icon={IconDownload}
-          title={isInstalling ? t`Memasang...` : t`Pasang`}
+          title={isInstalling ? `Memasang...` : `Pasang`}
           variant={'secondary'}
           onClick={handleInstall}
           disabled={isInstalling}
@@ -61,14 +58,14 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       {withCopyButton && (
         <Button
           Icon={IconCopy}
-          title={t`Salin tautan berbagi`}
+          title={`Salin tautan berbagi`}
           variant="secondary"
           disabled={!shareLink}
           onClick={async () => {
             if (shareLink) {
               await copyToClipboard(
                 `${window.location.origin}${shareLink}`,
-                t`Tautan berbagi disalin ke clipboard`,
+                `Tautan berbagi disalin ke clipboard`,
               );
             }
           }}
@@ -76,7 +73,7 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       )}
       <Button
         Icon={isNpmSource ? IconArrowUpRight : IconInfoCircle}
-        title={isNpmSource ? t`Lihat di katalog` : t`Lihat halaman aplikasi`}
+        title={isNpmSource ? `Lihat di katalog` : `Lihat halaman aplikasi`}
         variant="secondary"
         disabled={!shareLink}
         to={shareLink}

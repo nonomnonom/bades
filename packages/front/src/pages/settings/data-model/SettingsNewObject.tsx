@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCreateOneObjectMetadataItem } from '@/object-metadata/hooks/useCreateOneObjectMetadataItem';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
@@ -23,7 +22,6 @@ import { Section } from 'ui/layout';
 import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
 export const SettingsNewObject = () => {
-  const { t } = useLingui();
   const navigate = useNavigateSettings();
   const [isLoading, setIsLoading] = useState(false);
   const { createOneObjectMetadataItem } = useCreateOneObjectMetadataItem();
@@ -78,17 +76,17 @@ export const SettingsNewObject = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...formConfig}>
       <SubMenuTopBarContainer
-        title={t`Objek Baru`}
+        title={`Objek Baru`}
         links={[
           {
-            children: t`Ruang Kerja`,
+            children: `Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Objek`,
+            children: `Objek`,
             href: getSettingsPath(SettingsPath.Objects),
           },
-          { children: t`Baru` },
+          { children: `Baru` },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -103,8 +101,8 @@ export const SettingsNewObject = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Tentang`}
-              description={t`Tentukan nama dan deskripsi objek Anda`}
+              title={`Tentang`}
+              description={`Tentukan nama dan deskripsi objek Anda`}
             />
             <SettingsDataModelObjectAboutForm
               onNewDirtyField={() => formConfig.trigger()}

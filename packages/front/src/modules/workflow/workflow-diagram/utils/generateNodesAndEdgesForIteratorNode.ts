@@ -14,7 +14,6 @@ import { WORKFLOW_VISUALIZER_EDGE_DEFAULT_CONFIGURATION } from '@/workflow/workf
 import { WORKFLOW_DIAGRAM_ITERATOR_NODE_LOOP_HANDLE_ID } from '@/workflow/workflow-diagram/workflow-nodes/constants/WorkflowDiagramIteratorNodeLoopHandleId';
 import { WORKFLOW_DIAGRAM_NODE_DEFAULT_SOURCE_HANDLE_ID } from '@/workflow/workflow-diagram/workflow-nodes/constants/WorkflowDiagramNodeDefaultSourceHandleId';
 import { WORKFLOW_DIAGRAM_NODE_DEFAULT_TARGET_HANDLE_ID } from '@/workflow/workflow-diagram/workflow-nodes/constants/WorkflowDiagramNodeDefaultTargetHandleId';
-import { msg } from '~/utils/i18n/badesI18n';
 import { isNonEmptyArray, isNonEmptyString } from '@sniptt/guards';
 import { Position } from '@xyflow/react';
 import { isDefined } from 'shared/utils';
@@ -61,7 +60,7 @@ export const generateNodesAndEdgesForIteratorNode = ({
         y: yPos,
       },
       defaultHandleOptions: {
-        label: msg`selesai`,
+        label: `selesai`,
       },
       rightHandleOptions: {
         id: WORKFLOW_DIAGRAM_ITERATOR_NODE_LOOP_HANDLE_ID,
@@ -102,7 +101,7 @@ export const generateNodesAndEdgesForIteratorNode = ({
         ...WORKFLOW_VISUALIZER_EDGE_DEFAULT_CONFIGURATION.data,
         labelOptions: {
           position: Position.Right,
-          label: msg`ulang`,
+          label: `ulang`,
         },
         edgePathStrategy: 'smooth-step-path-to-target',
       },
@@ -130,7 +129,7 @@ export const generateNodesAndEdgesForIteratorNode = ({
           ...WORKFLOW_VISUALIZER_EDGE_DEFAULT_CONFIGURATION.data,
           labelOptions: {
             position: Position.Bottom,
-            label: msg`selesai`,
+            label: `selesai`,
           },
           edgePathStrategy: getEdgePathStrategy({
             step,

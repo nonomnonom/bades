@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 import { isNonEmptyString } from '@sniptt/guards';
 import { z } from 'zod';
 
@@ -94,32 +92,32 @@ export const getToolDisplayMessage = (
 
     if (isNonEmptyString(query)) {
       return byStatus(
-        t`Mencari web untuk ${query}`,
-        t`Sedang mencari web untuk ${query}`,
+        `Mencari web untuk ${query}`,
+        `Sedang mencari web untuk ${query}`,
       );
     }
 
-    return byStatus(t`Mencari web`, t`Sedang mencari web`);
+    return byStatus(`Mencari web`, `Sedang mencari web`);
   }
 
   if (resolvedToolName === 'learn_tools') {
     const names = extractLearnToolNames(resolvedInput);
 
     if (isNonEmptyString(names)) {
-      return byStatus(t`Mempelajari ${names}`, t`Sedang mempelajari ${names}`);
+      return byStatus(`Mempelajari ${names}`, `Sedang mempelajari ${names}`);
     }
 
-    return byStatus(t`Mempelajari alat`, t`Sedang mempelajari alat...`);
+    return byStatus(`Mempelajari alat`, `Sedang mempelajari alat...`);
   }
 
   if (resolvedToolName === 'load_skills') {
     const names = extractSkillNames(resolvedInput);
 
     if (isNonEmptyString(names)) {
-      return byStatus(t`Memuat ${names}`, t`Sedang memuat ${names}`);
+      return byStatus(`Memuat ${names}`, `Sedang memuat ${names}`);
     }
 
-    return byStatus(t`Memuat keahlian`, t`Sedang memuat keahlian...`);
+    return byStatus(`Memuat keahlian`, `Sedang memuat keahlian...`);
   }
 
   const customMessage = extractCustomLoadingMessage(resolvedInput);
@@ -131,7 +129,7 @@ export const getToolDisplayMessage = (
   const formattedName = formatToolName(resolvedToolName);
 
   return byStatus(
-    t`Menjalankan ${formattedName}`,
-    t`Sedang menjalankan ${formattedName}`,
+    `Menjalankan ${formattedName}`,
+    `Sedang menjalankan ${formattedName}`,
   );
 };

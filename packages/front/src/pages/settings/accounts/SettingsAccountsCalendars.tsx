@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsAccountsCalendarChannelsContainer } from '@/settings/accounts/components/SettingsAccountsCalendarChannelsContainer';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
@@ -7,11 +7,9 @@ import { getSettingsPath } from 'shared/utils';
 import { Section } from 'ui/layout';
 
 export const SettingsAccountsCalendars = () => {
-  const { t } = useLingui();
-
   return (
     <SubMenuTopBarContainer
-      title={t`Kalender`}
+      title={`Kalender`}
       links={[
         {
           children: <Trans>Pengguna</Trans>,

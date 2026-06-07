@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -22,7 +22,7 @@ export const validateLineChartConfiguration = ({
   ) {
     errors.push({
       code: PageLayoutWidgetExceptionCode.INVALID_PAGE_LAYOUT_WIDGET_DATA,
-      message: t`Primary axis group by field is required for line chart widget "${widgetTitle}"`,
+      message: `Primary axis group by field is required for line chart widget "${widgetTitle}"`,
       userFriendlyMessage: msg`Primary axis group by field is required for line chart`,
     });
   }

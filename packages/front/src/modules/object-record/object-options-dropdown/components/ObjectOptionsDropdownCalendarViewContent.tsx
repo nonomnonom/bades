@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
 import { useObjectOptionsDropdown } from '@/object-record/object-options-dropdown/hooks/useObjectOptionsDropdown';
 import { recordIndexCalendarLayoutState } from '@/object-record/record-index/states/recordIndexCalendarLayoutState';
@@ -64,7 +63,7 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           />
         }
       >
-        {t`Tampilan Kalender`}
+        {`Tampilan Kalender`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -80,10 +79,10 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconCalendarWeek}
-              text={t`Minggu`}
+              text={`Minggu`}
               selected={recordIndexCalendarLayout === ViewCalendarLayout.WEEK}
               focused={selectedItemId === ViewCalendarLayout.WEEK}
-              contextualText={<Pill label={t`Segera`} />}
+              contextualText={<Pill label={`Segera`} />}
               contextualTextPosition="right"
               disabled
             />
@@ -94,7 +93,7 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconCalendarMonth}
-              text={t`Bulan`}
+              text={`Bulan`}
               selected={recordIndexCalendarLayout === ViewCalendarLayout.MONTH}
               onClick={() => handleCalendarViewChange(ViewCalendarLayout.MONTH)}
               focused={selectedItemId === ViewCalendarLayout.MONTH}
@@ -109,7 +108,7 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
               text="Linimasa"
               selected={recordIndexCalendarLayout === ViewCalendarLayout.DAY}
               focused={selectedItemId === ViewCalendarLayout.DAY}
-              contextualText={<Pill label={t`Segera`} />}
+              contextualText={<Pill label={`Segera`} />}
               contextualTextPosition="right"
               disabled
             />

@@ -1,3 +1,4 @@
+import { plural } from '~/utils/i18n/badesI18n';
 import { Controller, useFormContext } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -13,7 +14,6 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { CURRENCIES } from '@/settings/data-model/constants/Currencies';
 import { useCurrencySettingsFormInitialValues } from '@/settings/data-model/fields/forms/currency/hooks/useCurrencySettingsFormInitialValues';
 import { Select } from '@/ui/input/components/Select';
-import { plural, useLingui } from '~/utils/i18n/badesI18n';
 import { IconCheckbox, IconCurrencyDollar, IconDecimal } from 'ui/display';
 import { DEFAULT_DECIMAL_VALUE } from '~/utils/format/formatNumber';
 import { applySimpleQuotesToString } from '~/utils/string/applySimpleQuotesToString';
@@ -36,7 +36,6 @@ export const SettingsDataModelFieldCurrencyForm = ({
   disabled,
   existingFieldMetadataId,
 }: SettingsDataModelFieldCurrencyFormProps) => {
-  const { t } = useLingui();
   const {
     initialAmountMicrosValue,
     initialCurrencyCodeValue,
@@ -62,8 +61,8 @@ export const SettingsDataModelFieldCurrencyForm = ({
         render={({ field: { onChange, value } }) => (
           <SettingsOptionCardContentSelect
             Icon={IconCurrencyDollar}
-            title={t`Nilai Bawaan`}
-            description={t`Pilih mata uang bawaan yang akan digunakan`}
+            title={`Nilai Bawaan`}
+            description={`Pilih mata uang bawaan yang akan digunakan`}
           >
             <Select<string>
               dropdownWidth={220}
@@ -94,8 +93,8 @@ export const SettingsDataModelFieldCurrencyForm = ({
             <>
               <SettingsOptionCardContentSelect
                 Icon={IconCheckbox}
-                title={t`Format`}
-                description={t`Pilih antara Singkat dan Penuh`}
+                title={`Format`}
+                description={`Pilih antara Singkat dan Penuh`}
               >
                 <Select<FieldCurrencyFormat>
                   dropdownWidth={140}
@@ -113,10 +112,10 @@ export const SettingsDataModelFieldCurrencyForm = ({
                   dropdownId="object-field-format-select"
                   options={[
                     {
-                      label: t`Singkat`,
+                      label: `Singkat`,
                       value: fieldMetadataCurrencyFormat[0],
                     },
-                    { label: t`Penuh`, value: fieldMetadataCurrencyFormat[1] },
+                    { label: `Penuh`, value: fieldMetadataCurrencyFormat[1] },
                   ]}
                   selectSizeVariant="small"
                   withSearchInput={false}
@@ -126,7 +125,7 @@ export const SettingsDataModelFieldCurrencyForm = ({
               {format === 'full' && (
                 <SettingsOptionCardContentCounter
                   Icon={IconDecimal}
-                  title={t`Jumlah desimal`}
+                  title={`Jumlah desimal`}
                   description={plural(decimals, {
                     one: `Contoh: ${(1000).toFixed(decimals)} untuk ${decimals} desimal`,
                     other: `Contoh: ${(1000).toFixed(decimals)} untuk ${decimals} desimal`,

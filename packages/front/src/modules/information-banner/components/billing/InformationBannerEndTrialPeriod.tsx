@@ -1,13 +1,10 @@
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { useEndSubscriptionTrialPeriod } from '@/settings/billing/hooks/useEndSubscriptionTrialPeriod';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { PermissionFlagType } from '~/generated-metadata/graphql';
 
 export const InformationBannerEndTrialPeriod = () => {
   const { endTrialPeriod, isLoading } = useEndSubscriptionTrialPeriod();
-  const { t } = useLingui();
-
   const { [PermissionFlagType.WORKSPACE]: hasPermissionToEndTrialPeriod } =
     usePermissionFlagMap();
 
@@ -18,11 +15,11 @@ export const InformationBannerEndTrialPeriod = () => {
       variant="secondary"
       message={
         hasPermissionToEndTrialPeriod
-          ? t`Akhiri masa uji coba untuk terus memakai fitur alur kerja atau AI.`
-          : t`Hubungi admin Anda untuk terus memakai fitur alur kerja atau AI.`
+          ? `Akhiri masa uji coba untuk terus memakai fitur alur kerja atau AI.`
+          : `Hubungi admin Anda untuk terus memakai fitur alur kerja atau AI.`
       }
       buttonTitle={
-        hasPermissionToEndTrialPeriod ? t`Akhiri masa uji coba` : undefined
+        hasPermissionToEndTrialPeriod ? `Akhiri masa uji coba` : undefined
       }
       buttonOnClick={async () => await endTrialPeriod()}
       isButtonDisabled={isLoading}

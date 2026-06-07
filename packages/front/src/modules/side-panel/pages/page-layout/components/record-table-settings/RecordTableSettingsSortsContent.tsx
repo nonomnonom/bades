@@ -2,7 +2,6 @@ import { type RecordSort } from '@/object-record/record-sort/types/RecordSort';
 import { currentRecordSortsComponentState } from '@/object-record/record-sort/states/currentRecordSortsComponentState';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconArrowsSort, IconTrash } from 'ui/display';
 import { Button, type SelectOption } from 'ui/input';
@@ -112,8 +111,8 @@ export const RecordTableSettingsSortsContent = ({
           variant="secondary"
           accent="default"
           onClick={handleAddSort}
-          ariaLabel={t`Tambah urutan`}
-          title={t`Tambah urutan`}
+          ariaLabel={`Tambah urutan`}
+          title={`Tambah urutan`}
         />
       </StyledAddButtonContainer>
     </>

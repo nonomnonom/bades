@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { computeProgressText } from '@/command-menu-item/utils/computeProgressText';
 import { SIDE_PANEL_FOCUS_ID } from '@/side-panel/constants/SidePanelFocusId';
 import { type ObjectRecordQueryProgress } from '@/object-record/types/ObjectRecordQueryProgress';
@@ -41,7 +40,6 @@ export const UpdateMultipleRecordsFooter = ({
   onCancel,
   isUpdateDisabled,
 }: UpdateMultipleRecordsFooterProps) => {
-  const { t } = useLingui();
   const progressText = computeProgressText(progress);
 
   useHotkeysOnFocusedElement({
@@ -59,13 +57,13 @@ export const UpdateMultipleRecordsFooter = ({
     <StyledFooterContainer>
       <StyledFooterActions>
         <Button
-          title={t`Batalkan`}
+          title={`Batalkan`}
           variant="secondary"
           size="small"
           onClick={onCancel}
         />
         <Button
-          title={isUpdating ? t`Menerapkan${progressText}` : 'Terapkan'}
+          title={isUpdating ? `Menerapkan${progressText}` : 'Terapkan'}
           variant="primary"
           accent="blue"
           size="small"

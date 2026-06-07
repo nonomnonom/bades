@@ -8,7 +8,6 @@ import { CoreObjectNameSingular } from 'shared/types';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 import { Button } from 'ui/input';
 import {
@@ -68,16 +67,16 @@ export const NotesCard = () => {
         <AnimatedPlaceholder type="noNote" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`Belum ada catatan`}
+            {`Belum ada catatan`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`Tidak ada catatan yang terkait dengan data ini.`}
+            {`Tidak ada catatan yang terkait dengan data ini.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
         {hasObjectUpdatePermissions && (
           <Button
             Icon={IconPlus}
-            title={t`Catatan baru`}
+            title={`Catatan baru`}
             variant="secondary"
             onClick={() =>
               openCreateActivity({
@@ -93,7 +92,7 @@ export const NotesCard = () => {
   return (
     <StyledNotesContainer>
       <NoteList
-        title={t`Semua`}
+        title={`Semua`}
         notes={notes}
         totalCount={totalCountNotes}
         button={
@@ -102,7 +101,7 @@ export const NotesCard = () => {
               Icon={IconPlus}
               size="small"
               variant="secondary"
-              title={t`Tambah catatan`}
+              title={`Tambah catatan`}
               onClick={() =>
                 openCreateActivity({
                   targetableObjects: [targetRecord],

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
 import { useObjectOptionsDropdown } from '@/object-record/object-options-dropdown/hooks/useObjectOptionsDropdown';
 import { visibleRecordFieldsComponentSelector } from '@/object-record/record-field/states/visibleRecordFieldsComponentSelector';
@@ -24,7 +23,6 @@ import { MenuItem } from 'ui/navigation';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 
 export const ObjectOptionsDropdownDefaultView = () => {
-  const { t } = useLingui();
   const { recordIndexId, onContentChange } = useObjectOptionsDropdown();
 
   const { currentView } = useGetCurrentViewOnly();
@@ -65,7 +63,7 @@ export const ObjectOptionsDropdownDefaultView = () => {
     <DropdownContent>
       <DropdownMenuItemsContainer scrollable={false}>
         <MenuItem
-          text={t`Tampilan Bawaan`}
+          text={`Tampilan Bawaan`}
           LeftIcon={MainIcon}
           RightIcon={IconLock}
           disabled={true}
@@ -86,8 +84,8 @@ export const ObjectOptionsDropdownDefaultView = () => {
               focused={selectedItemId === 'Kolom'}
               onClick={() => onContentChange('fields')}
               LeftIcon={IconListDetails}
-              text={t`Kolom`}
-              contextualText={t`${visibleFieldsCount} ditampilkan`}
+              text={`Kolom`}
+              contextualText={`${visibleFieldsCount} ditampilkan`}
               contextualTextPosition="right"
               hasSubMenu
             />
@@ -99,17 +97,17 @@ export const ObjectOptionsDropdownDefaultView = () => {
             itemId="Salin tautan tampilan"
             onEnter={() => {
               const currentUrl = window.location.href;
-              copyToClipboard(currentUrl, t`Tautan disalin`);
+              copyToClipboard(currentUrl, `Tautan disalin`);
             }}
           >
             <MenuItem
               focused={selectedItemId === 'Salin tautan tampilan'}
               onClick={() => {
                 const currentUrl = window.location.href;
-                copyToClipboard(currentUrl, t`Tautan disalin`);
+                copyToClipboard(currentUrl, `Tautan disalin`);
               }}
               LeftIcon={IconCopy}
-              text={t`Salin tautan tampilan`}
+              text={`Salin tautan tampilan`}
             />
           </SelectableListItem>
           <SelectableListItem
@@ -120,7 +118,7 @@ export const ObjectOptionsDropdownDefaultView = () => {
               focused={selectedItemId === 'Buat tampilan kustom'}
               onClick={handleCreateCustomView}
               LeftIcon={IconLayout}
-              text={t`Buat tampilan kustom`}
+              text={`Buat tampilan kustom`}
               contextualTextPosition="right"
             />
           </SelectableListItem>

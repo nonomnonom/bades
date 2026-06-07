@@ -1,4 +1,4 @@
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { QUOTED_STRING_REGEX } from 'shared/constants';
 import {
@@ -28,7 +28,7 @@ const validateMetadataOptionId = (sanitizedId?: string) => {
   if (!isDefined(sanitizedId)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option id is required`,
+      message: `Option id is required`,
       userFriendlyMessage: msg`Option id is required`,
     });
   }
@@ -36,7 +36,7 @@ const validateMetadataOptionId = (sanitizedId?: string) => {
   if (!z.string().uuid().safeParse(sanitizedId).success) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option id is invalid`,
+      message: `Option id is invalid`,
       userFriendlyMessage: msg`Option id is invalid`,
       value: sanitizedId,
     });
@@ -53,7 +53,7 @@ const validateMetadataOptionLabel = (
   if (!isDefined(sanitizedLabel)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option label is required`,
+      message: `Option label is required`,
       userFriendlyMessage: msg`Option label is required`,
     });
 
@@ -63,7 +63,7 @@ const validateMetadataOptionLabel = (
   if (!isNonEmptyString(sanitizedLabel)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option label must be a string of at least one character`,
+      message: `Option label must be a string of at least one character`,
       userFriendlyMessage: msg`Option label format not supported`,
       value: sanitizedLabel,
     });
@@ -74,7 +74,7 @@ const validateMetadataOptionLabel = (
   if (sanitizedLabel.length > IDENTIFIER_MAX_CHAR_LENGTH) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option label exceeds 63 characters`,
+      message: `Option label exceeds 63 characters`,
       userFriendlyMessage: msg`Option label exceeds 63 characters`,
       value: sanitizedLabel,
     });
@@ -83,7 +83,7 @@ const validateMetadataOptionLabel = (
   if (sanitizedLabel.length < IDENTIFIER_MIN_CHAR_LENGTH) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option label "${sanitizedLabel}" is beneath 1 character`,
+      message: `Option label "${sanitizedLabel}" is beneath 1 character`,
       userFriendlyMessage: msg`Option label "${sanitizedLabel}" is beneath 1 character`,
       value: sanitizedLabel,
     });
@@ -92,7 +92,7 @@ const validateMetadataOptionLabel = (
   if (sanitizedLabel.includes(',')) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Label must not contain a comma`,
+      message: `Label must not contain a comma`,
       userFriendlyMessage: msg`Label must not contain a comma`,
       value: sanitizedLabel,
     });
@@ -101,7 +101,7 @@ const validateMetadataOptionLabel = (
   if (!isNonEmptyString(sanitizedLabel) || sanitizedLabel === ' ') {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Label must not be empty`,
+      message: `Label must not be empty`,
       userFriendlyMessage: msg`Label must not be empty`,
       value: sanitizedLabel,
     });
@@ -118,7 +118,7 @@ const validateMetadataOptionValue = (
   if (!isDefined(sanitizedValue)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option value is required`,
+      message: `Option value is required`,
       userFriendlyMessage: msg`Option value is required`,
     });
 
@@ -128,7 +128,7 @@ const validateMetadataOptionValue = (
   if (!isNonEmptyString(sanitizedValue)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option value must be a string of at least one character`,
+      message: `Option value must be a string of at least one character`,
       userFriendlyMessage: msg`Option value format not supported`,
       value: sanitizedValue,
     });
@@ -139,7 +139,7 @@ const validateMetadataOptionValue = (
   if (sanitizedValue.length > IDENTIFIER_MAX_CHAR_LENGTH) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option value exceeds 63 characters`,
+      message: `Option value exceeds 63 characters`,
       userFriendlyMessage: msg`Option value exceeds 63 characters`,
       value: sanitizedValue,
     });
@@ -148,7 +148,7 @@ const validateMetadataOptionValue = (
   if (sanitizedValue.length < IDENTIFIER_MIN_CHAR_LENGTH) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Option value "${sanitizedValue}" is beneath 1 character`,
+      message: `Option value "${sanitizedValue}" is beneath 1 character`,
       userFriendlyMessage: msg`Option value "${sanitizedValue}" is beneath 1 character`,
       value: sanitizedValue,
     });
@@ -157,7 +157,7 @@ const validateMetadataOptionValue = (
   if (!isSnakeCaseString(sanitizedValue)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Value must be in UPPER_CASE and follow snake_case "${sanitizedValue}"`,
+      message: `Value must be in UPPER_CASE and follow snake_case "${sanitizedValue}"`,
       userFriendlyMessage: msg`Value must be in UPPER_CASE and follow snake_case "${sanitizedValue}"`,
       value: sanitizedValue,
     });
@@ -187,7 +187,7 @@ const validateDuplicates = (
     if (hasDuplicates) {
       errors.push({
         code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-        message: t`Duplicated option ${field}`,
+        message: `Duplicated option ${field}`,
         userFriendlyMessage: msg`Duplicated option ${field}`,
         value: options,
       });
@@ -249,7 +249,7 @@ const validateSelectDefaultValue = ({
   if (!QUOTED_STRING_REGEX.test(defaultValue)) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Default value should be as quoted string`,
+      message: `Default value should be as quoted string`,
       userFriendlyMessage: msg`Default value should be as quoted string`,
       value: defaultValue,
     });
@@ -263,7 +263,7 @@ const validateSelectDefaultValue = ({
   if (!matchesOptionValue) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Default value "${defaultValue}" must be one of the option values`,
+      message: `Default value "${defaultValue}" must be one of the option values`,
       userFriendlyMessage: msg`Default value "${defaultValue}" must be one of the option values`,
       value: defaultValue,
     });
@@ -295,7 +295,7 @@ const validateMultiSelectDefaultValue = ({
   if (multiSelectDefaultValue.length === 0) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`If defined default value must contain at least one value`,
+      message: `If defined default value must contain at least one value`,
       userFriendlyMessage: msg`If defined default value must contain at least one value`,
       value: multiSelectDefaultValue,
     });
@@ -306,7 +306,7 @@ const validateMultiSelectDefaultValue = ({
   ) {
     errors.push({
       code: FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
-      message: t`Default values must be unique`,
+      message: `Default values must be unique`,
       userFriendlyMessage: msg`Default values must be unique`,
       value: multiSelectDefaultValue,
     });

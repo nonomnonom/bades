@@ -6,7 +6,6 @@ import { Key } from 'ts-key-enum';
 import { z } from 'zod';
 
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { isValidHostname } from 'shared/utils';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -34,15 +33,13 @@ export const SettingsAccountsBlocklistInput = ({
   updateBlockedEmailList,
   blockedEmailOrDomainList,
 }: SettingsAccountsBlocklistInputProps) => {
-  const { t } = useLingui();
-
   const validationSchema = (blockedEmailOrDomainList: string[]) =>
     z
       .object({
         emailOrDomain: z
           .string()
           .trim()
-          .pipe(z.email({ error: t`Email atau domain tidak valid` }))
+          .pipe(z.email({ error: `Email atau domain tidak valid` }))
           .or(
             z.string().refine(
               (value) =>
@@ -51,12 +48,12 @@ export const SettingsAccountsBlocklistInput = ({
                   allowIp: false,
                   allowLocalhost: false,
                 }),
-              t`Email atau domain tidak valid`,
+              `Email atau domain tidak valid`,
             ),
           )
           .refine(
             (value) => !blockedEmailOrDomainList.includes(value),
-            t`Email atau domain sudah ada dalam daftar blokir`,
+            `Email atau domain sudah ada dalam daftar blokir`,
           ),
       })
       .required();
@@ -107,7 +104,7 @@ export const SettingsAccountsBlocklistInput = ({
             )}
           />
         </StyledLinkContainer>
-        <Button title={t`Tambah ke daftar blokir`} type="submit" />
+        <Button title={`Tambah ke daftar blokir`} type="submit" />
       </StyledContainer>
     </form>
   );

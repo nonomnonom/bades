@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { differenceInCalendarDays } from 'date-fns';
 
 import { type AgentChatThread } from '~/generated-metadata/graphql';
@@ -30,21 +29,21 @@ const getThreadDateGroup = (
   if (localDayDifference === 0) {
     return {
       id: 'today',
-      title: t`Hari ini`,
+      title: `Hari ini`,
     };
   }
 
   if (localDayDifference === 1) {
     return {
       id: 'yesterday',
-      title: t`Kemarin`,
+      title: `Kemarin`,
     };
   }
 
   if (localDayDifference >= 2 && localDayDifference <= 7) {
     return {
       id: 'previous-7-days',
-      title: t`7 hari terakhir`,
+      title: `7 hari terakhir`,
     };
   }
 

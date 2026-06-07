@@ -5,7 +5,6 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { getSettingsDataModelFieldOnClickActionDescription } from '@/settings/data-model/fields/forms/utils/getSettingsDataModelFieldOnClickActionDescription';
 import { type SettingsDataModelFieldOnClickActionFormValues } from '@/settings/data-model/fields/forms/utils/settingsDataModelFieldOnClickActionSchema';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   type FieldMetadataMultiItemSettings,
   FieldMetadataSettingsOnClickAction,
@@ -27,7 +26,6 @@ export const SettingsDataModelFieldOnClickActionForm = ({
   existingFieldMetadataId,
   fieldType,
 }: SettingsDataModelFieldOnClickActionFormProps) => {
-  const { t } = useLingui();
   const { control } =
     useFormContext<SettingsDataModelFieldOnClickActionFormValues>();
 
@@ -45,17 +43,17 @@ export const SettingsDataModelFieldOnClickActionForm = ({
     ...(isEmailField
       ? [
           {
-            label: t`Buka di aplikasi`,
+            label: `Buka di aplikasi`,
             value: FieldMetadataSettingsOnClickAction.OPEN_IN_APP,
           },
         ]
       : []),
     {
-      label: t`Buka sebagai tautan`,
+      label: `Buka sebagai tautan`,
       value: FieldMetadataSettingsOnClickAction.OPEN_LINK,
     },
     {
-      label: t`Salin ke papan klip`,
+      label: `Salin ke papan klip`,
       value: FieldMetadataSettingsOnClickAction.COPY,
     },
   ];
@@ -83,7 +81,7 @@ export const SettingsDataModelFieldOnClickActionForm = ({
         return (
           <SettingsOptionCardContentSelect
             Icon={IconClick}
-            title={t`Tindakan saat diklik`}
+            title={`Tindakan saat diklik`}
             description={description}
             disabled={disabled}
           >

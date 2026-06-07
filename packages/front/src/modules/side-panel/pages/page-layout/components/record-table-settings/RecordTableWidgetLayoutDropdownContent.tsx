@@ -10,7 +10,6 @@ import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { ViewType, viewTypeIconMapping } from '@/views/types/ViewType';
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { FieldMetadataType } from 'shared/types';
 import { MenuItemSelect } from 'ui/navigation';
@@ -84,7 +83,7 @@ export const RecordTableWidgetLayoutDropdownContent = ({
           >
             <MenuItemSelect
               LeftIcon={viewTypeIconMapping(ViewType.TABLE)}
-              text={t`Tabel`}
+              text={`Tabel`}
               selected={displayViewType === ViewType.TABLE}
               focused={selectedItemId === ViewType.TABLE}
               onClick={() =>
@@ -101,7 +100,7 @@ export const RecordTableWidgetLayoutDropdownContent = ({
             >
               <MenuItemSelect
                 LeftIcon={viewTypeIconMapping(ViewType.MAP)}
-                text={t`Peta`}
+                text={`Peta`}
                 selected={displayViewType === ViewType.MAP}
                 focused={selectedItemId === ViewType.MAP}
                 onClick={() =>

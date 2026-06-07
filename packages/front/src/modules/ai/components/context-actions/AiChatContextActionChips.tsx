@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 import { type Editor } from '@tiptap/react';
-import { msg, useLingui } from '~/utils/i18n/badesI18n';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { LightButton } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -52,46 +52,46 @@ export const AiChatContextActionChips = ({
       ? [
           {
             id: 'summarize-record',
-            label: resolveMessage(msg`Ringkas record ini`),
+            label: resolveMessage(`Ringkas record ini`),
             prefill: resolveMessage(
-              msg`Ringkas record ${objectLabel} yang sedang saya buka dan soroti informasi penting.`,
+              `Ringkas record ${objectLabel} yang sedang saya buka dan soroti informasi penting.`,
             ),
           },
           {
             id: 'related-history',
-            label: resolveMessage(msg`Riwayat terkait`),
+            label: resolveMessage(`Riwayat terkait`),
             prefill: resolveMessage(
-              msg`Tampilkan riwayat atau aktivitas terkait record ${objectLabel} ini.`,
+              `Tampilkan riwayat atau aktivitas terkait record ${objectLabel} ini.`,
             ),
           },
           {
             id: 'create-note',
-            label: resolveMessage(msg`Buat catatan`),
+            label: resolveMessage(`Buat catatan`),
             prefill: resolveMessage(
-              msg`Buat catatan singkat untuk record ${objectLabel} ini: `,
+              `Buat catatan singkat untuk record ${objectLabel} ini: `,
             ),
           },
         ]
       : [
           {
             id: 'count-view',
-            label: resolveMessage(msg`Berapa total di view ini?`),
+            label: resolveMessage(`Berapa total di view ini?`),
             prefill: resolveMessage(
-              msg`Berapa total record ${objectMetadata?.labelPlural ?? objectLabel} di view "${browsingContext.viewName}"?`,
+              `Berapa total record ${objectMetadata?.labelPlural ?? objectLabel} di view "${browsingContext.viewName}"?`,
             ),
           },
           {
             id: 'export-summary',
-            label: resolveMessage(msg`Export ringkasan`),
+            label: resolveMessage(`Export ringkasan`),
             prefill: resolveMessage(
-              msg`Buat ringkasan data ${objectMetadata?.labelPlural ?? objectLabel} dari view "${browsingContext.viewName}" yang bisa diekspor.`,
+              `Buat ringkasan data ${objectMetadata?.labelPlural ?? objectLabel} dari view "${browsingContext.viewName}" yang bisa diekspor.`,
             ),
           },
           {
             id: 'dashboard-from-view',
-            label: resolveMessage(msg`Buat dasbor dari view ini`),
+            label: resolveMessage(`Buat dasbor dari view ini`),
             prefill: resolveMessage(
-              msg`Buat dasbor dari view "${browsingContext.viewName}" untuk ${objectMetadata?.labelPlural ?? objectLabel}.`,
+              `Buat dasbor dari view "${browsingContext.viewName}" untuk ${objectMetadata?.labelPlural ?? objectLabel}.`,
             ),
           },
         ];

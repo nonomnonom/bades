@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from 'src/utils/bades-i18n';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
@@ -41,7 +41,7 @@ export class FlatWebhookValidatorService {
     if (!isNonEmptyString(flatWebhook.targetUrl)) {
       validationResult.errors.push({
         code: WebhookExceptionCode.INVALID_WEBHOOK_INPUT,
-        message: t`Target URL is required`,
+        message: `Target URL is required`,
         userFriendlyMessage: msg`Target URL is required`,
       });
     }
@@ -49,7 +49,7 @@ export class FlatWebhookValidatorService {
     if (!this.validateTargetUrl(flatWebhook.targetUrl)) {
       validationResult.errors.push({
         code: WebhookExceptionCode.INVALID_TARGET_URL,
-        message: t`Invalid target URL provided`,
+        message: `Invalid target URL provided`,
         userFriendlyMessage: msg`Please provide a valid HTTP or HTTPS URL`,
       });
     }
@@ -82,7 +82,7 @@ export class FlatWebhookValidatorService {
     if (!isDefined(existingWebhook)) {
       validationResult.errors.push({
         code: WebhookExceptionCode.WEBHOOK_NOT_FOUND,
-        message: t`Webhook not found`,
+        message: `Webhook not found`,
         userFriendlyMessage: msg`Webhook not found`,
       });
     }
@@ -115,7 +115,7 @@ export class FlatWebhookValidatorService {
     if (!isDefined(fromFlatWebhook)) {
       validationResult.errors.push({
         code: WebhookExceptionCode.WEBHOOK_NOT_FOUND,
-        message: t`Webhook not found`,
+        message: `Webhook not found`,
         userFriendlyMessage: msg`Webhook not found`,
       });
 
@@ -130,7 +130,7 @@ export class FlatWebhookValidatorService {
     ) {
       validationResult.errors.push({
         code: WebhookExceptionCode.INVALID_TARGET_URL,
-        message: t`Invalid target URL provided`,
+        message: `Invalid target URL provided`,
         userFriendlyMessage: msg`Please provide a valid HTTP or HTTPS URL`,
       });
     }

@@ -1,4 +1,3 @@
-import { t } from 'src/utils/bades-i18n';
 import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatPageLayoutTabMaps } from 'src/engine/metadata-modules/flat-page-layout-tab/types/flat-page-layout-tab-maps.type';
@@ -34,7 +33,7 @@ export const fromDestroyPageLayoutTabInputToFlatPageLayoutTabOrThrow = ({
 
   if (!isDefined(existingFlatPageLayoutTabToDestroy)) {
     throw new PageLayoutTabException(
-      t`Page layout tab to destroy not found`,
+      `Page layout tab to destroy not found`,
       PageLayoutTabExceptionCode.PAGE_LAYOUT_TAB_NOT_FOUND,
     );
   }

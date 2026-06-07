@@ -7,7 +7,6 @@ import { UsageDailyChartSection } from '@/settings/usage/components/UsageDailyCh
 import { UsageSectionSkeleton } from '@/settings/usage/components/UsageSectionSkeleton';
 import { useUsageAnalyticsData } from '@/settings/usage/hooks/useUsageAnalyticsData';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { Link } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -27,13 +26,13 @@ export const SettingsUsageAnalyticsSection = () => {
     return (
       <Section>
         <H2Title
-          title={t`Analitik Penggunaan`}
-          description={t`Rincian penggunaan kredit untuk ruang kerja Anda.`}
+          title={`Analitik Penggunaan`}
+          description={`Rincian penggunaan kredit untuk ruang kerja Anda.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`ClickHouse Belum Dikonfigurasi`}
-            value={t`Analitik penggunaan memerlukan ClickHouse. Hubungi administrator Anda.`}
+            label={`ClickHouse Belum Dikonfigurasi`}
+            value={`Analitik penggunaan memerlukan ClickHouse. Hubungi administrator Anda.`}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -54,13 +53,13 @@ export const SettingsUsageAnalyticsSection = () => {
     return (
       <Section>
         <H2Title
-          title={t`Analitik Penggunaan`}
-          description={t`Rincian penggunaan kredit untuk ruang kerja Anda.`}
+          title={`Analitik Penggunaan`}
+          description={`Rincian penggunaan kredit untuk ruang kerja Anda.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`Belum ada data penggunaan`}
-            value={t`Analitik penggunaan akan muncul di sini setelah Anda mulai menggunakan kredit.`}
+            label={`Belum ada data penggunaan`}
+            value={`Analitik penggunaan akan muncul di sini setelah Anda mulai menggunakan kredit.`}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -70,19 +69,19 @@ export const SettingsUsageAnalyticsSection = () => {
   return (
     <>
       <UsageBreakdownPieSection
-        title={t`Penggunaan per Jenis`}
+        title={`Penggunaan per Jenis`}
         breakdownField="operationType"
         sectionId="usage-type"
       />
       <UsageDailyChartSection
-        title={t`Penggunaan Harian`}
-        description={t`Konsumsi kredit dari waktu ke waktu.`}
+        title={`Penggunaan Harian`}
+        description={`Konsumsi kredit dari waktu ke waktu.`}
         chartId="usage-daily"
-        chartLabel={t`Kredit`}
+        chartLabel={`Kredit`}
       />
       <UsageByUserTableSection
-        title={t`Penggunaan per Pengguna`}
-        description={t`Klik pengguna untuk melihat rincian harian mereka.`}
+        title={`Penggunaan per Pengguna`}
+        description={`Klik pengguna untuk melihat rincian harian mereka.`}
         getDetailPath={(userWorkspaceId) =>
           getSettingsPath(SettingsPath.UsageUserDetail, {
             userWorkspaceId,
@@ -97,7 +96,7 @@ export const SettingsUsageAnalyticsSection = () => {
         >
           <Button
             Icon={IconSparkles}
-            title={t`Lihat rincian penggunaan AI`}
+            title={`Lihat rincian penggunaan AI`}
             variant="secondary"
           />
         </Link>

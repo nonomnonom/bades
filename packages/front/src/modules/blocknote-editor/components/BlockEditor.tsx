@@ -4,7 +4,6 @@ import {
 } from '@blocknote/core/extensions';
 import { BlockNoteView } from '@blocknote/mantine';
 import { SuggestionMenuController } from '@blocknote/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { type ClipboardEvent, useContext } from 'react';
 import { type BLOCK_SCHEMA } from '@/blocknote-editor/blocks/Schema';
@@ -154,8 +153,6 @@ export const BlockEditor = ({
   readonly,
 }: BlockEditorProps) => {
   const { colorScheme } = useContext(ThemeContext);
-  const { t } = useLingui();
-
   const blockNoteTheme = colorScheme === 'light' ? 'light' : 'dark';
   const getMentionItems = useMentionMenu(editor);
 
@@ -171,7 +168,7 @@ export const BlockEditor = ({
 
     return [
       {
-        title: t`Tutup menu`,
+        title: `Tutup menu`,
         Icon: IconX,
         onItemClick: () => editor.getExtension(SuggestionMenu)?.closeMenu(),
       },

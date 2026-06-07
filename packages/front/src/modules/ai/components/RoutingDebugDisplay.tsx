@@ -6,7 +6,6 @@ import { JsonTree } from 'ui/json-visualizer';
 import { AnimatedExpandableContainer } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type DataMessagePart } from 'shared/ai';
 import { type JsonValue } from 'type-fest';
 import { useUsageValueFormatter } from '@/settings/usage/hooks/useUsageValueFormatter';
@@ -157,7 +156,6 @@ type TimingTabProps = {
 };
 
 const TimingTab = ({ debug }: TimingTabProps) => {
-  const { t } = useLingui();
   const { formatUsageValue } = useUsageValueFormatter();
   const totalTime =
     debug.agentExecutionStartTimeMs !== undefined
@@ -172,37 +170,37 @@ const TimingTab = ({ debug }: TimingTabProps) => {
   return (
     <StyledTimingSection>
       <TimingRow
-        label={t`Keputusan routing`}
+        label={`Keputusan routing`}
         value={debug.routingTimeMs && `${debug.routingTimeMs}ms`}
       />
       <TimingRow
-        label={t`Pembuatan konteks (routing)`}
+        label={`Pembuatan konteks (routing)`}
         value={debug.contextBuildTimeMs && `${debug.contextBuildTimeMs}ms`}
       />
       <TimingRow
-        label={t`Pembuatan konteks (agen)`}
+        label={`Pembuatan konteks (agen)`}
         value={
           debug.agentContextBuildTimeMs && `${debug.agentContextBuildTimeMs}ms`
         }
       />
       <TimingRow
-        label={t`Pembuatan alat`}
+        label={`Pembuatan alat`}
         value={debug.toolGenerationTimeMs && `${debug.toolGenerationTimeMs}ms`}
       />
       <TimingRow
-        label={t`Persiapan permintaan AI`}
+        label={`Persiapan permintaan AI`}
         value={debug.aiRequestPrepTimeMs && `${debug.aiRequestPrepTimeMs}ms`}
       />
       <TimingRow
-        label={t`Eksekusi agen`}
+        label={`Eksekusi agen`}
         value={debug.agentExecutionTimeMs && `${debug.agentExecutionTimeMs}ms`}
       />
-      <TimingRow label={t`Total waktu`} value={totalTime} />
-      <TimingRow label={t`Alat tersedia`} value={debug.toolCount} />
-      <TimingRow label={t`Panggilan alat`} value={debug.toolCallCount} />
-      <TimingRow label={t`Data konteks`} value={debug.contextRecordCount} />
+      <TimingRow label={`Total waktu`} value={totalTime} />
+      <TimingRow label={`Alat tersedia`} value={debug.toolCount} />
+      <TimingRow label={`Panggilan alat`} value={debug.toolCallCount} />
+      <TimingRow label={`Data konteks`} value={debug.contextRecordCount} />
       <TimingRow
-        label={t`Ukuran konteks`}
+        label={`Ukuran konteks`}
         value={
           debug.contextSizeBytes !== undefined
             ? formatBytes(debug.contextSizeBytes)
@@ -210,7 +208,7 @@ const TimingTab = ({ debug }: TimingTabProps) => {
         }
       />
       <TimingRow
-        label={t`Token routing`}
+        label={`Token routing`}
         value={
           debug.routingTotalTokens !== undefined
             ? formatTokenBreakdown(
@@ -222,7 +220,7 @@ const TimingTab = ({ debug }: TimingTabProps) => {
         }
       />
       <TimingRow
-        label={t`Token agen`}
+        label={`Token agen`}
         value={
           debug.agentTotalTokens !== undefined
             ? formatTokenBreakdown(
@@ -233,7 +231,7 @@ const TimingTab = ({ debug }: TimingTabProps) => {
             : undefined
         }
       />
-      <TimingRow label={t`Total biaya`} value={totalCost} />
+      <TimingRow label={`Total biaya`} value={totalCost} />
     </StyledTimingSection>
   );
 };
@@ -244,8 +242,6 @@ type DetailsTabProps = {
 };
 
 const DetailsTab = ({ debug, copyToClipboard }: DetailsTabProps) => {
-  const { t } = useLingui();
-
   const detailsData = {
     selectedAgent: {
       id: debug.selectedAgentId,
@@ -262,11 +258,11 @@ const DetailsTab = ({ debug, copyToClipboard }: DetailsTabProps) => {
       <JsonTree
         value={detailsData as JsonValue}
         shouldExpandNodeInitially={() => true}
-        emptyArrayLabel={t`Array kosong`}
-        emptyObjectLabel={t`Objek kosong`}
-        emptyStringLabel={t`[string kosong]`}
-        arrowButtonCollapsedLabel={t`Perluas`}
-        arrowButtonExpandedLabel={t`Ciutkan`}
+        emptyArrayLabel={`Array kosong`}
+        emptyObjectLabel={`Objek kosong`}
+        emptyStringLabel={`[string kosong]`}
+        arrowButtonCollapsedLabel={`Perluas`}
+        arrowButtonExpandedLabel={`Ciutkan`}
         onNodeValueClick={copyToClipboard}
       />
     </StyledJsonTreeContainer>
@@ -279,12 +275,10 @@ type ContextTabProps = {
 };
 
 const ContextTab = ({ debug, copyToClipboard }: ContextTabProps) => {
-  const { t } = useLingui();
-
   if (!debug.context) {
     return (
       <StyledTimingLabel>
-        {t`Tidak ada konteks yang diberikan untuk permintaan ini`}
+        {`Tidak ada konteks yang diberikan untuk permintaan ini`}
       </StyledTimingLabel>
     );
   }
@@ -297,11 +291,11 @@ const ContextTab = ({ debug, copyToClipboard }: ContextTabProps) => {
         <JsonTree
           value={contextData as JsonValue}
           shouldExpandNodeInitially={() => false}
-          emptyArrayLabel={t`Array kosong`}
-          emptyObjectLabel={t`Objek kosong`}
-          emptyStringLabel={t`[string kosong]`}
-          arrowButtonCollapsedLabel={t`Perluas`}
-          arrowButtonExpandedLabel={t`Ciutkan`}
+          emptyArrayLabel={`Array kosong`}
+          emptyObjectLabel={`Objek kosong`}
+          emptyStringLabel={`[string kosong]`}
+          arrowButtonCollapsedLabel={`Perluas`}
+          arrowButtonExpandedLabel={`Ciutkan`}
           onNodeValueClick={copyToClipboard}
         />
       </StyledJsonTreeContainer>
@@ -310,7 +304,7 @@ const ContextTab = ({ debug, copyToClipboard }: ContextTabProps) => {
     const contextValue = debug.context;
     return (
       <StyledTimingLabel>
-        {t`Gagal mengurai konteks: ${contextValue}`}
+        {`Gagal mengurai konteks: ${contextValue}`}
       </StyledTimingLabel>
     );
   }
@@ -322,7 +316,6 @@ type RoutingDebugDisplayProps = {
 
 export const RoutingDebugDisplay = ({ debug }: RoutingDebugDisplayProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('timing');
@@ -330,7 +323,7 @@ export const RoutingDebugDisplay = ({ debug }: RoutingDebugDisplayProps) => {
   return (
     <StyledContainer>
       <StyledToggleButton onClick={() => setIsExpanded(!isExpanded)}>
-        <StyledTimingLabel>{t`Info Debug`}</StyledTimingLabel>
+        <StyledTimingLabel>{`Info Debug`}</StyledTimingLabel>
         {isExpanded ? (
           <IconChevronUp size={theme.icon.size.sm} />
         ) : (
@@ -345,20 +338,20 @@ export const RoutingDebugDisplay = ({ debug }: RoutingDebugDisplayProps) => {
               isActive={activeTab === 'timing'}
               onClick={() => setActiveTab('timing')}
             >
-              {t`Waktu`}
+              {`Waktu`}
             </StyledTab>
             <StyledTab
               isActive={activeTab === 'details'}
               onClick={() => setActiveTab('details')}
             >
-              {t`Detail`}
+              {`Detail`}
             </StyledTab>
             {debug.context && (
               <StyledTab
                 isActive={activeTab === 'context'}
                 onClick={() => setActiveTab('context')}
               >
-                {t`Konteks`}
+                {`Konteks`}
               </StyledTab>
             )}
           </StyledTabContainer>

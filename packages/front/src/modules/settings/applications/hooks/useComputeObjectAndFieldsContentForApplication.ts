@@ -1,7 +1,6 @@
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { isHiddenSystemField } from '@/object-metadata/utils/isHiddenSystemField';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { type Manifest } from 'shared/application';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
@@ -41,7 +40,7 @@ export const useComputeObjectAndFieldsContentForApplication = ({
             key: item.nameSingular,
             name: item.labelPlural,
             icon: item.icon ?? undefined,
-            secondary: t`${fieldsCount} fields`,
+            secondary: `${fieldsCount} fields`,
             link: getSettingsPath(SettingsPath.ObjectDetail, {
               objectNamePlural: item.namePlural,
             }),
@@ -51,7 +50,7 @@ export const useComputeObjectAndFieldsContentForApplication = ({
         key: appObject.nameSingular,
         name: appObject.labelPlural,
         icon: appObject.icon ?? undefined,
-        secondary: t`${appObject.fields.length} fields`,
+        secondary: `${appObject.fields.length} fields`,
       }));
 
   const fieldRows: ApplicationContentRow[] = isDefined(installedApplication)
@@ -69,7 +68,7 @@ export const useComputeObjectAndFieldsContentForApplication = ({
               name: field.label,
               applicationId: item?.applicationId ?? undefined,
               icon: field.icon ?? undefined,
-              secondary: t`on ${item.labelSingular}`,
+              secondary: `on ${item.labelSingular}`,
               link: getSettingsPath(SettingsPath.ObjectFieldEdit, {
                 objectNamePlural: item.namePlural,
                 fieldName: field.name,
@@ -96,7 +95,7 @@ export const useComputeObjectAndFieldsContentForApplication = ({
                 key: `${appObject.nameSingular}-${field.universalIdentifier}`,
                 name: field.label ?? field.name,
                 icon: field.icon ?? undefined,
-                secondary: t`on ${appObject.labelSingular}`,
+                secondary: `on ${appObject.labelSingular}`,
               };
             }
 
@@ -113,7 +112,7 @@ export const useComputeObjectAndFieldsContentForApplication = ({
               key: `${objectMetadataItem.nameSingular}-${field.universalIdentifier}`,
               name: field.label ?? field.name,
               icon: field.icon ?? undefined,
-              secondary: t`on ${objectMetadataItem.labelSingular}`,
+              secondary: `on ${objectMetadataItem.labelSingular}`,
             };
           })
           .filter(isDefined);

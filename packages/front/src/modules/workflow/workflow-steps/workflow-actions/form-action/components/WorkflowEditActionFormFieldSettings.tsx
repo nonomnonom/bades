@@ -7,7 +7,6 @@ import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow
 import { type WorkflowFormFieldType } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormFieldType';
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconSettingsAutomation, IconX } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { themeCssVariables, ThemeContext } from 'ui/theme-constants';
@@ -72,7 +71,7 @@ export const WorkflowEditActionFormFieldSettings = ({
             size={theme.icon.size.md}
             color={theme.font.color.primary}
           />
-          {t`Pengaturan input`}
+          {`Pengaturan input`}
         </StyledTitleContainer>
         <StyledCloseButtonContainer>
           <LightIconButton
@@ -86,7 +85,7 @@ export const WorkflowEditActionFormFieldSettings = ({
       </StyledSettingsHeader>
       <StyledSettingsContent>
         <FormFieldInputContainer>
-          <InputLabel>{t`Tipe`}</InputLabel>
+          <InputLabel>{`Tipe`}</InputLabel>
           <FormSelectFieldInput
             options={FORM_SELECT_FIELD_TYPE_OPTIONS}
             onChange={(newType: string | null) => {

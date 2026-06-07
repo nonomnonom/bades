@@ -14,7 +14,6 @@ import { SelectableList } from '@/ui/layout/selectable-list/components/Selectabl
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { capitalize, isDefined } from 'shared/utils';
 import { type ThemeColor, MAIN_COLOR_NAMES } from 'ui/theme';
@@ -115,7 +114,7 @@ export const ChartColorSelectionDropdownContent = () => {
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Cari warna`}
+        placeholder={`Cari warna`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

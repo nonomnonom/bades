@@ -6,7 +6,6 @@ import { getRecordIndexIdFromObjectNamePluralAndViewId } from '@/object-record/u
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useViewById } from '@/views/hooks/useViewById';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 
 const PLACEHOLDER_INSTANCE_ID =
@@ -87,21 +86,21 @@ export const useRecordTableSettingsDescriptions = ({
     activeVisibleFieldLabels.length === 1
       ? activeVisibleFieldLabels[0]
       : activeVisibleFieldLabels.length > 1
-        ? t`${activeVisibleFieldLabels.length} shown`
+        ? `${activeVisibleFieldLabels.length} shown`
         : undefined;
 
   const filterDescription =
     activeFilterLabels.length === 1
       ? activeFilterLabels[0]
       : activeFilterLabels.length > 1
-        ? t`${activeFilterLabels.length} shown`
+        ? `${activeFilterLabels.length} shown`
         : undefined;
 
   const sortDescription =
     activeSortLabels.length === 1
       ? activeSortLabels[0]
       : activeSortLabels.length > 1
-        ? t`${activeSortLabels.length} shown`
+        ? `${activeSortLabels.length} shown`
         : undefined;
 
   return {

@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { Fragment } from 'react/jsx-runtime';
 import { type SidePanelPages } from 'shared/types';
@@ -87,7 +86,7 @@ export const SidePanelContextChip = ({
       {text?.trim?.() ? (
         <OverflowingTextWithTooltip text={text} />
       ) : !forceEmptyText ? (
-        <StyledEmptyText>{t`Tanpa judul`}</StyledEmptyText>
+        <StyledEmptyText>{`Tanpa judul`}</StyledEmptyText>
       ) : (
         ''
       )}

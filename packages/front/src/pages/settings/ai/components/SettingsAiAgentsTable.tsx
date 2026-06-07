@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
 
@@ -43,7 +42,6 @@ export const SettingsAiAgentsTable = () => {
   const { theme } = useContext(ThemeContext);
   const { data, loading } = useQuery(FindManyAgentsDocument);
 
-  const { t } = useLingui();
   const [searchTerm, setSearchTerm] = useState('');
   const [showWorkflowAgents, setShowWorkflowAgents] = useState(false);
 
@@ -68,7 +66,7 @@ export const SettingsAiAgentsTable = () => {
     <>
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Cari agen...`}
+          placeholder={`Cari agen...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -86,7 +84,7 @@ export const SettingsAiAgentsTable = () => {
                         setShowWorkflowAgents(!showWorkflowAgents)
                       }
                       toggled={showWorkflowAgents}
-                      text={t`Agen workflow`}
+                      text={`Agen workflow`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>
@@ -108,7 +106,7 @@ export const SettingsAiAgentsTable = () => {
                   <SortableTableHeader
                     key={settingsAiAgentTableMetadataField.fieldName}
                     fieldName={settingsAiAgentTableMetadataField.fieldName}
-                    label={t(settingsAiAgentTableMetadataField.fieldLabel)}
+                    label={settingsAiAgentTableMetadataField.fieldLabel}
                     tableId={SETTINGS_AI_AGENT_TABLE_METADATA.tableId}
                     align={settingsAiAgentTableMetadataField.align}
                     initialSort={SETTINGS_AI_AGENT_TABLE_METADATA.initialSort}

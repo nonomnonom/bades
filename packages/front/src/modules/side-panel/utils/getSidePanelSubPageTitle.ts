@@ -1,5 +1,4 @@
 import { SidePanelSubPages } from '@/side-panel/types/SidePanelSubPages';
-import { t } from '~/utils/i18n/badesI18n';
 import { assertUnreachable } from 'shared/utils';
 
 export const getSidePanelSubPageTitle = (
@@ -7,29 +6,29 @@ export const getSidePanelSubPageTitle = (
 ): string => {
   switch (subPage) {
     case SidePanelSubPages.PageLayoutGraphFilter:
-      return t`Filter`;
+      return `Filter`;
     case SidePanelSubPages.PageLayoutFieldsLayout:
-      return t`Tata Letak`;
+      return `Tata Letak`;
     case SidePanelSubPages.PageLayoutRecordTableFilter:
-      return t`Filter`;
+      return `Filter`;
     case SidePanelSubPages.PageLayoutRecordTableSort:
-      return t`Urutan`;
+      return `Urutan`;
     case SidePanelSubPages.NewSidebarItemMainMenu:
-      return t`Tambah item menu`;
+      return `Tambah item menu`;
     case SidePanelSubPages.NewSidebarItemViewObjectPicker:
-      return t`Pilih objek`;
+      return `Pilih objek`;
     case SidePanelSubPages.NewSidebarItemViewPicker:
-      return t`Pilih tampilan`;
+      return `Pilih tampilan`;
     case SidePanelSubPages.NewSidebarItemViewSystemPicker:
-      return t`Objek sistem`;
+      return `Objek sistem`;
     case SidePanelSubPages.NewSidebarItemObjectPicker:
-      return t`Pilih objek`;
+      return `Pilih objek`;
     case SidePanelSubPages.NewSidebarItemObjectSystemPicker:
-      return t`Objek sistem`;
+      return `Objek sistem`;
     case SidePanelSubPages.NewSidebarItemRecord:
-      return t`Tambah data`;
+      return `Tambah data`;
     case SidePanelSubPages.EditFolderPicker:
-      return t`Pindah ke folder`;
+      return `Pindah ke folder`;
     default:
       assertUnreachable(subPage);
   }

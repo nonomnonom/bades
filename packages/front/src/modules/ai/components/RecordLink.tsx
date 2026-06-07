@@ -1,7 +1,6 @@
 import { objectMetadataItemFamilySelector } from '@/object-metadata/states/objectMetadataItemFamilySelector';
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AvatarOrIcon, ChipVariant, LinkChip } from 'ui/components';
 
@@ -35,7 +34,7 @@ export const RecordLink = ({
   return (
     <LinkChip
       label={displayName}
-      emptyLabel={t`Tanpa judul`}
+      emptyLabel={`Tanpa judul`}
       to={linkToShowPage}
       variant={ChipVariant.Highlighted}
       leftComponent={

@@ -5,7 +5,6 @@ import { type Resolver, useForm } from 'react-hook-form';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import {
   type ConnectionParametersInput,
@@ -126,7 +125,7 @@ export const useImapSmtpCaldavConnectionForm = ({
       const configuredProtocols = getConfiguredProtocols(formValues);
 
       if (configuredProtocols.length === 0) {
-        throw new Error(t`Minimal satu protokol harus dikonfigurasi`);
+        throw new Error(`Minimal satu protokol harus dikonfigurasi`);
       }
 
       const connectionParameters: Partial<
@@ -157,8 +156,8 @@ export const useImapSmtpCaldavConnectionForm = ({
         if (!isDefined(data)) return;
 
         const successMessage = isEditing
-          ? t`Koneksi berhasil diperbarui`
-          : t`Koneksi berhasil dibuat`;
+          ? `Koneksi berhasil diperbarui`
+          : `Koneksi berhasil dibuat`;
 
         enqueueSuccessSnackBar({ message: successMessage });
 

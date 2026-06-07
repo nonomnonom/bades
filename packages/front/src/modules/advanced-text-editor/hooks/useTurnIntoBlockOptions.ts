@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { type Editor, useEditorState } from '@tiptap/react';
 import {
   type IconComponent,
@@ -18,14 +17,12 @@ export type TurnIntoBlockOptions = {
 };
 
 export const useTurnIntoBlockOptions = (editor: Editor) => {
-  const { t } = useLingui();
-
   return useEditorState({
     editor,
     selector: ({ editor }): TurnIntoBlockOptions[] => [
       {
         id: 'paragraph',
-        title: t`Paragraf`,
+        title: `Paragraf`,
         icon: IconPilcrow,
         onClick: () => {
           return editor.chain().focus().setParagraph().run();
@@ -39,7 +36,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading1',
-        title: t`Judul 1`,
+        title: `Judul 1`,
         icon: IconH1,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 1 }).run();
@@ -53,7 +50,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading2',
-        title: t`Judul 2`,
+        title: `Judul 2`,
         icon: IconH2,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 2 }).run();
@@ -67,7 +64,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading3',
-        title: t`Judul 3`,
+        title: `Judul 3`,
         icon: IconH3,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 3 }).run();

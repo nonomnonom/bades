@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 import { isDefined } from 'shared/utils';
 import {
   type BillingPriceLicensed,
@@ -37,7 +35,7 @@ export const usePriceAndBillingUsageByPriceId = () => {
     if (isDefined(metered))
       return { price: metered, billingUsage: BillingUsageType.METERED };
 
-    throw new Error(t`Harga tidak ditemukan`);
+    throw new Error(`Harga tidak ditemukan`);
   };
 
   return { getPriceAndBillingUsageByPriceId };

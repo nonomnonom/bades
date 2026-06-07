@@ -1,6 +1,6 @@
 /* @license Enterprise */
 
-import { t, Trans } from '~/utils/i18n/badesI18n';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
 import SettingsSSOIdentitiesProvidersForm from '@/settings/security/components/SSO/SettingsSSOIdentitiesProvidersForm';
 import { useCreateSSOIdentityProvider } from '@/settings/security/hooks/useCreateSSOIdentityProvider';
@@ -63,7 +63,7 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
         {...form}
       >
         <SubMenuTopBarContainer
-          title={t`Konfigurasi SSO Baru`}
+          title={`Konfigurasi SSO Baru`}
           actionButton={
             <SaveAndCancelButtons
               onCancel={() => navigate(SettingsPath.Security)}

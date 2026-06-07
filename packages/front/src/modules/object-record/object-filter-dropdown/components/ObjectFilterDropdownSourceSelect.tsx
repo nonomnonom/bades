@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useApplyObjectFilterDropdownFilterValue } from '@/object-record/object-filter-dropdown/hooks/useApplyObjectFilterDropdownFilterValue';
 import { fieldMetadataItemUsedInDropdownComponentSelector } from '@/object-record/object-filter-dropdown/states/fieldMetadataItemUsedInDropdownComponentSelector';
 import { objectFilterDropdownCurrentRecordFilterComponentState } from '@/object-record/object-filter-dropdown/states/objectFilterDropdownCurrentRecordFilterComponentState';
@@ -73,7 +72,7 @@ export const ObjectFilterDropdownSourceSelect = ({
     const selectedCount = selectedItemNames.length;
     const filterDisplayValue =
       selectedItemNames.length > MAX_ITEMS_TO_DISPLAY
-        ? t`${selectedCount} jenis sumber`
+        ? `${selectedCount} jenis sumber`
         : selectedItemNames.join(', ');
 
     const newFilterValue =

@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
@@ -69,8 +68,6 @@ export const RecordInlineCellDisplayMode = ({
   isHovered: boolean;
   onClick?: () => void;
 }>) => {
-  const { t } = useLingui();
-
   const { editModeContentOnly, label, buttonIcon, readonly } =
     useRecordInlineCellContext();
 
@@ -86,7 +83,7 @@ export const RecordInlineCellDisplayMode = ({
 
   const isFieldInputOnly = useIsFieldInputOnly();
 
-  const emptyPlaceHolder = label ?? t`Kosong`;
+  const emptyPlaceHolder = label ?? `Kosong`;
 
   const shouldShowValue = !isFieldEmpty || isFieldInputOnly || isForbidden;
 

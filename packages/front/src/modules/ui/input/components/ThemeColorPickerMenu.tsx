@@ -1,7 +1,6 @@
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
-import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
 import { DEFAULT_COLOR_LABELS, MenuItemSelectColor } from 'ui/navigation';
@@ -31,7 +30,7 @@ export const ThemeColorPickerMenu = ({
   return (
     <>
       <DropdownMenuSearchInput
-        placeholder={t`Cari warna...`}
+        placeholder={`Cari warna...`}
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
       />

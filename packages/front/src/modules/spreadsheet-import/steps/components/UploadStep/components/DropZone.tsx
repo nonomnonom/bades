@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useState } from 'react';
@@ -10,7 +11,6 @@ import { useSpreadsheetImportInternal } from '@/spreadsheet-import/hooks/useSpre
 import { useDownloadFakeRecords } from '@/spreadsheet-import/steps/components/UploadStep/hooks/useDownloadFakeRecords';
 import { readFileAsync } from '@/spreadsheet-import/utils/readFilesAsync';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { MainButton } from 'ui/input';
 
 const StyledContainer = styled.div`
@@ -137,7 +137,7 @@ export const DropZone = ({ onContinue, isLoading }: DropZoneProps) => {
       fileRejections.forEach((fileRejection) => {
         const fileName = fileRejection.file.name;
         enqueueErrorSnackBar({
-          message: t`${fileName} ditolak`,
+          message: `${fileName} ditolak`,
           options: {
             detailedMessage: fileRejection.errors[0].message,
           },
@@ -158,8 +158,6 @@ export const DropZone = ({ onContinue, isLoading }: DropZoneProps) => {
       onContinue(workbook, file);
     },
   });
-
-  const { t } = useLingui();
 
   const formatSpreadsheetMaxRecordImportCapacity = formatNumber(
     SPREADSHEET_MAX_RECORD_IMPORT_CAPACITY,
@@ -189,16 +187,16 @@ export const DropZone = ({ onContinue, isLoading }: DropZoneProps) => {
             <Trans>Unggah berkas .xlsx, .xls, atau .csv</Trans>
           </StyledText>
           <StyledButtonsContainer>
-            <MainButton onClick={open} title={t`Pilih berkas`} fullWidth />
+            <MainButton onClick={open} title={`Pilih berkas`} fullWidth />
             <MainButton
               onClick={downloadSample}
-              title={t`Unduh contoh`}
+              title={`Unduh contoh`}
               variant="secondary"
               fullWidth
             />
           </StyledButtonsContainer>
           <StyledFooterText>
-            {t`Kapasitas impor maks: ${formatSpreadsheetMaxRecordImportCapacity} baris. Jika lebih, pertimbangkan memecah berkas Anda.`}
+            {`Kapasitas impor maks: ${formatSpreadsheetMaxRecordImportCapacity} baris. Jika lebih, pertimbangkan memecah berkas Anda.`}
           </StyledFooterText>
         </>
       )}

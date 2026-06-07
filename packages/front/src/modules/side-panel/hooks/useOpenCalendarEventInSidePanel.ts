@@ -1,6 +1,5 @@
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { viewableRecordIdComponentState } from '@/side-panel/pages/record-page/states/viewableRecordIdComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
 import { IconCalendarEvent } from 'ui/display';
@@ -49,7 +48,7 @@ export const useOpenCalendarEventInSidePanel = () => {
 
       navigateSidePanel({
         page: SidePanelPages.ViewCalendarEvent,
-        pageTitle: t`Acara Kalender`,
+        pageTitle: `Acara Kalender`,
         pageIcon: IconCalendarEvent,
         pageId: pageComponentInstanceId,
       });

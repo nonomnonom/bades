@@ -9,7 +9,6 @@ import { OverridableCheckbox } from '@/settings/roles/role-permissions/object-le
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { Label } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -39,8 +38,6 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTableAllHead
     roleId: string;
     objectMetadataItem: EnrichedObjectMetadataItem;
   }) => {
-    const { t } = useLingui();
-
     const settingsDraftRole = useAtomFamilyStateValue(
       settingsDraftRoleFamilyState,
       roleId,
@@ -102,7 +99,7 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTableAllHead
     return (
       <>
         <StyledSectionHeader>
-          <Label>{t`Semua`}</Label>
+          <Label>{`Semua`}</Label>
           <div></div>
           <>
             {shouldShowEmptyTableHeader && <div />}

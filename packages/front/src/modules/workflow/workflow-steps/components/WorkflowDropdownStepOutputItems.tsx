@@ -22,7 +22,6 @@ import { getStepHeaderLabel } from '@/workflow/workflow-variables/utils/getStepH
 import { getStepItemIcon } from '@/workflow/workflow-variables/utils/getStepItemIcon';
 import { getVariableTemplateFromPath } from '@/workflow/workflow-variables/utils/getVariableTemplateFromPath';
 import { searchVariableThroughOutputSchemaV2 } from '@/workflow/workflow-variables/utils/searchVariableThroughOutputSchemaV2';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import {
@@ -51,7 +50,6 @@ export const WorkflowDropdownStepOutputItems = ({
   onSelect,
   onBack,
 }: WorkflowDropdownStepOutputItemsProps) => {
-  const { t } = useLingui();
   const { getIcon } = useIcons();
   const { getSelectIconPropsFromObjectMetadataItem } =
     useObjectMetadataSelectHelpers();
@@ -240,7 +238,7 @@ export const WorkflowDropdownStepOutputItems = ({
             hasSubMenu={false}
             LeftIcon={subStepObjectIconProps?.Icon}
             leftIconColor={subStepObjectIconProps?.iconThemeColor}
-            contextualText={t`Pilih data ${objectLabel}`}
+            contextualText={`Pilih data ${objectLabel}`}
           />
         )}
         {filteredOptions.length > 0 && shouldDisplaySubStepObject && (

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
@@ -366,7 +365,7 @@ export const SettingsApplicationPermissionsTab = ({
 
   return (
     <SettingsEmptyPlaceholder padding="0">
-      {t`Tidak ada izin yang dikonfigurasi untuk aplikasi ini.`}
+      {`Tidak ada izin yang dikonfigurasi untuk aplikasi ini.`}
     </SettingsEmptyPlaceholder>
   );
 };

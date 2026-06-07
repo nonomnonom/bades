@@ -1,5 +1,4 @@
 import { useComposeEmailForTargetRecord } from '@/activities/emails/hooks/useComposeEmailForTargetRecord';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconMail } from 'ui/display';
 import { Button } from 'ui/input';
 import {
@@ -12,7 +11,6 @@ import {
 } from 'ui/layout';
 
 export const EmptyInboxPlaceholder = () => {
-  const { t } = useLingui();
   const { openComposer, loading } = useComposeEmailForTargetRecord();
 
   return (
@@ -31,7 +29,7 @@ export const EmptyInboxPlaceholder = () => {
       </AnimatedPlaceholderEmptyTextContainer>
       <Button
         Icon={IconMail}
-        title={t`Kirim Email`}
+        title={`Kirim Email`}
         variant="secondary"
         onClick={openComposer}
         disabled={loading}

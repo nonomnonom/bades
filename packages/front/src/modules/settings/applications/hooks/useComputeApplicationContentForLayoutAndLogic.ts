@@ -1,6 +1,5 @@
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '~/utils/i18n/badesI18n';
 import { type Manifest } from 'shared/application';
 import { SettingsPath } from 'shared/types';
 import { capitalize, getSettingsPath, isDefined } from 'shared/utils';
@@ -39,9 +38,9 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
     const tabCount = layout.tabs?.length ?? 0;
 
     const parts: string[] = [];
-    if (isDefined(objectLabel)) parts.push(t`for ${objectLabel}`);
+    if (isDefined(objectLabel)) parts.push(`for ${objectLabel}`);
     if (tabCount > 0) {
-      parts.push(tabCount === 1 ? t`1 tab` : t`${tabCount} tabs`);
+      parts.push(tabCount === 1 ? `1 tab` : `${tabCount} tabs`);
     }
 
     return {
@@ -67,7 +66,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
         name: view.name,
         icon: view.icon ?? undefined,
         secondary: isDefined(objectLabel)
-          ? t`${formattedType} of ${objectLabel}`
+          ? `${formattedType} of ${objectLabel}`
           : formattedType,
         link: isDefined(installedAppId)
           ? getSettingsPath(SettingsPath.ApplicationViewDetail, {
@@ -85,7 +84,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
     const destination = (() => {
       switch (item.type) {
         case 'FOLDER':
-          return { label: t`Folder`, displayName: t`Folder` };
+          return { label: `Folder`, displayName: `Folder` };
         case 'LINK': {
           const link = item.link ?? 'Tautan';
           return { label: link, displayName: link };
@@ -93,7 +92,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
         case 'OBJECT': {
           const label = resolveLabel(item.targetObjectUniversalIdentifier);
           return {
-            label: isDefined(label) ? t`${label} list` : 'Objek',
+            label: isDefined(label) ? `${label} list` : 'Objek',
             displayName: label,
           };
         }
@@ -103,7 +102,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
               pl.universalIdentifier === item.pageLayoutUniversalIdentifier,
           );
           return {
-            label: isDefined(layout) ? t`${layout.name} layout` : 'Page layout',
+            label: isDefined(layout) ? `${layout.name} layout` : 'Page layout',
             displayName: layout?.name,
           };
         }
@@ -112,7 +111,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
             (v) => v.universalIdentifier === item.viewUniversalIdentifier,
           );
           return {
-            label: isDefined(view) ? t`${view.name} view` : 'Lihat',
+            label: isDefined(view) ? `${view.name} view` : 'Lihat',
             displayName: view?.name,
           };
         }
@@ -180,7 +179,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
       parts.push('OAuth 2.0');
       const scopeCount = provider.oauth.scopes.length;
       if (scopeCount > 0) {
-        parts.push(scopeCount === 1 ? '1 cakupan' : t`${scopeCount} scopes`);
+        parts.push(scopeCount === 1 ? '1 cakupan' : `${scopeCount} scopes`);
       }
     }
 

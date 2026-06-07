@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useDebounce } from 'use-debounce';
@@ -26,7 +25,6 @@ type SearchRecordBase = {
 };
 
 export const SidePanelNewSidebarItemRecordSubPage = () => {
-  const { t } = useLingui();
   const { currentDraft } = useDraftNavigationMenuItems();
   const [recordSearchInput, setRecordSearchInput] = useState('');
   const [deferredRecordSearchInput] = useDebounce(recordSearchInput, 300);
@@ -83,12 +81,12 @@ export const SidePanelNewSidebarItemRecordSubPage = () => {
     : availableSearchRecords.map((record) => record.recordId);
   const noResultsText =
     deferredRecordSearchInput.length > 0
-      ? t`Tidak ada hasil`
-      : t`Ketik untuk mencari rekod`;
+      ? `Tidak ada hasil`
+      : `Ketik untuk mencari rekod`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Cari rekod...`}
+      searchPlaceholder={`Cari rekod...`}
       searchValue={recordSearchInput}
       onSearchChange={setRecordSearchInput}
       rightElement={
@@ -108,7 +106,7 @@ export const SidePanelNewSidebarItemRecordSubPage = () => {
           >
             {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
             <div ref={innerRef} {...droppableProps}>
-              <SidePanelGroup heading={t`Hasil`}>
+              <SidePanelGroup heading={`Hasil`}>
                 {availableSearchRecords.map((record, index) => (
                   <SidePanelNewSidebarItemRecordItem
                     key={record.recordId}

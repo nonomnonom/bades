@@ -13,7 +13,6 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { useContext, useMemo } from 'react';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { FieldMetadataType, SettingsPath } from 'shared/types';
@@ -77,7 +76,6 @@ export const SettingsObjectFieldItemTableRow = ({
   status,
 }: SettingsObjectFieldItemTableRowProps) => {
   const { theme } = useContext(ThemeContext);
-  const { t } = useLingui();
   const { fieldMetadataItem, objectMetadataItem } =
     settingsObjectDetailTableItem;
 
@@ -158,7 +156,7 @@ export const SettingsObjectFieldItemTableRow = ({
   const morphRelationCount = fieldMetadataItem.morphRelations?.length;
   const morphRelationLabel =
     fieldMetadataItem.type === FieldMetadataType.MORPH_RELATION
-      ? t`${morphRelationCount} Objects`
+      ? `${morphRelationCount} Objects`
       : undefined;
 
   const label = morphRelationLabel
@@ -191,7 +189,7 @@ export const SettingsObjectFieldItemTableRow = ({
               {fieldMetadataItem.label}
             </StyledNameLabel>
             {!fieldMetadataItem.isActive && (
-              <StyledInactiveLabel>{t`Nonaktif`}</StyledInactiveLabel>
+              <StyledInactiveLabel>{`Nonaktif`}</StyledInactiveLabel>
             )}
           </StyledNameContainer>
         </TableCell>

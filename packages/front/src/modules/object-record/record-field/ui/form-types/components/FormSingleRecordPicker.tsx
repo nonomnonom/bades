@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useFindOneRecord } from '@/object-record/hooks/useFindOneRecord';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
@@ -220,7 +219,7 @@ export const FormSingleRecordPicker = ({
                 focusId={dropdownId}
                 componentInstanceId={dropdownId}
                 EmptyIcon={IconForbid}
-                emptyLabel={t`Tidak ada data`}
+                emptyLabel={`Tidak ada data`}
                 onCancel={() => closeDropdown(dropdownId)}
                 onMorphItemSelected={handleMorphItemSelected}
                 objectNameSingulars={objectNameSingulars}

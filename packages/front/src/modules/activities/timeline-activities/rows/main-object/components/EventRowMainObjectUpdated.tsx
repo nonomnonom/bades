@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 
 import { EventCard } from '@/activities/timeline-activities/rows/components/EventCard';
@@ -55,7 +54,6 @@ export const EventRowMainObjectUpdated = ({
   mainObjectMetadataItem,
   createdAt,
 }: EventRowMainObjectUpdatedProps) => {
-  const { t } = useLingui();
   const diff: Record<string, { before: any; after: any }> =
     event.properties?.diff;
 
@@ -80,7 +78,7 @@ export const EventRowMainObjectUpdated = ({
       <StyledRowContainer>
         <StyledRow>
           <EventRowItem>{authorFullName}</EventRowItem>
-          {t`memperbarui`}
+          {`memperbarui`}
           {diffEntries.length === 1 && (
             <EventFieldDiffContainer
               mainObjectMetadataItem={mainObjectMetadataItem}
@@ -92,7 +90,7 @@ export const EventRowMainObjectUpdated = ({
           )}
           {diffEntries.length > 1 && (
             <>
-              <span>{t`${fieldCount} kolom pada ${recordLabel}`}</span>
+              <span>{`${fieldCount} kolom pada ${recordLabel}`}</span>
               <EventCardToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
             </>
           )}

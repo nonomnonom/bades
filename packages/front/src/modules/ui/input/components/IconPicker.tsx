@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import React, {
   type ReactNode,
@@ -95,7 +94,7 @@ const IconPickerSearchRow = ({
 }: IconPickerSearchRowProps) => {
   const searchInput = (
     <DropdownMenuSearchInput
-      placeholder={t`Cari ikon`}
+      placeholder={`Cari ikon`}
       autoFocus
       onChange={(event) => {
         onSearchChange(event.target.value);
@@ -429,8 +428,8 @@ export const IconPicker = ({
     iconPickerVisibleCount < totalMatchingIconsCount;
 
   const iconAriaLabel = selectedIconKey
-    ? t`(dipilih: ${selectedIconKey})`
-    : t`(belum ada ikon dipilih)`;
+    ? `(dipilih: ${selectedIconKey})`
+    : `(belum ada ikon dipilih)`;
 
   return (
     <div className={className}>
@@ -443,7 +442,7 @@ export const IconPicker = ({
         clickableComponent={
           clickableComponent ?? (
             <IconButton
-              ariaLabel={t`Klik untuk memilih ikon ${iconAriaLabel}`}
+              ariaLabel={`Klik untuk memilih ikon ${iconAriaLabel}`}
               disabled={disabled}
               Icon={displayIcon}
               variant={variant}
@@ -497,7 +496,7 @@ export const IconPicker = ({
                       dropdownId={dropdownId}
                     />
                     <StyledLoadingMore id="icon-picker-scroll-sentinel">
-                      {isLoadingMore ? t`Memuat lebih banyak...` : null}
+                      {isLoadingMore ? `Memuat lebih banyak...` : null}
                     </StyledLoadingMore>
                   </DropdownMenuItemsContainer>
                 </div>

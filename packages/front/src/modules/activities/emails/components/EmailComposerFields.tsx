@@ -8,7 +8,6 @@ import { FormMultiTextFieldInput } from '@/object-record/record-field/ui/form-ty
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
 import { GET_MY_CONNECTED_ACCOUNTS } from '@/settings/accounts/graphql/queries/getMyConnectedAccounts';
 import { Select } from '@/ui/input/components/Select';
-import { t } from '~/utils/i18n/badesI18n';
 import { type SelectOption } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -63,7 +62,7 @@ export const EmailComposerFields = ({
       {hasMultipleAccounts && (
         <Select
           dropdownId="email-composer-from-account"
-          label={t`Dari`}
+          label={`Dari`}
           fullWidth
           value={composerState.connectedAccountId}
           options={accountOptions}
@@ -72,10 +71,10 @@ export const EmailComposerFields = ({
       )}
       <StyledToRow>
         <FormMultiTextFieldInput
-          label={t`Kepada`}
+          label={`Kepada`}
           defaultValue={composerState.defaultTo}
           onChange={composerState.setTo}
-          placeholder={t`Penerima`}
+          placeholder={`Penerima`}
         />
         {!composerState.showCcBcc && (
           <StyledCcBccToggle onClick={() => composerState.setShowCcBcc(true)}>
@@ -100,21 +99,21 @@ export const EmailComposerFields = ({
         </>
       )}
       <FormTextFieldInput
-        label={t`Subjek`}
+        label={`Subjek`}
         defaultValue={composerState.defaultSubject}
         onChange={composerState.setSubject}
-        placeholder={t`Subjek`}
+        placeholder={`Subjek`}
       />
       <FormAdvancedTextFieldInput
         defaultValue=""
         onChange={composerState.setBody}
-        placeholder={t`Ketik sesuatu atau tekan "/" untuk melihat perintah`}
+        placeholder={`Ketik sesuatu atau tekan "/" untuk melihat perintah`}
         minHeight={120}
         maxWidth={600}
         contentType="html"
       />
       <EmailAttachmentsField
-        label={t`Lampiran`}
+        label={`Lampiran`}
         files={composerState.files}
         onChange={composerState.setFiles}
       />

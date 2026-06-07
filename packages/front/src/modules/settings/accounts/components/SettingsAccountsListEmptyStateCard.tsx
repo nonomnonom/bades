@@ -7,7 +7,6 @@ import { useTriggerApisOAuth } from '@/settings/accounts/hooks/useTriggerApiOAut
 import { SettingsCard } from '@/settings/components/SettingsCard';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { ConnectedAccountProvider, SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -24,8 +23,6 @@ const StyledCardsContainer = styled.div`
 export const SettingsAccountsListEmptyStateCard = () => {
   const { theme } = useContext(ThemeContext);
   const { triggerApisOAuth } = useTriggerApisOAuth();
-
-  const { t } = useLingui();
 
   const isGoogleMessagingEnabled = useAtomStateValue(
     isGoogleMessagingEnabledState,
@@ -51,7 +48,7 @@ export const SettingsAccountsListEmptyStateCard = () => {
       {(isGoogleMessagingEnabled || isGoogleCalendarEnabled) && (
         <SettingsCard
           Icon={<IconGoogle size={theme.icon.size.md} />}
-          title={t`Hubungkan dengan Google`}
+          title={`Hubungkan dengan Google`}
           onClick={() => triggerApisOAuth(ConnectedAccountProvider.GOOGLE)}
         />
       )}
@@ -59,7 +56,7 @@ export const SettingsAccountsListEmptyStateCard = () => {
       {(isMicrosoftMessagingEnabled || isMicrosoftCalendarEnabled) && (
         <SettingsCard
           Icon={<IconMicrosoft size={theme.icon.size.md} />}
-          title={t`Hubungkan dengan Microsoft`}
+          title={`Hubungkan dengan Microsoft`}
           onClick={() => triggerApisOAuth(ConnectedAccountProvider.MICROSOFT)}
         />
       )}
@@ -70,7 +67,7 @@ export const SettingsAccountsListEmptyStateCard = () => {
         >
           <SettingsCard
             Icon={<IconAt size={theme.icon.size.md} />}
-            title={t`Hubungkan via IMAP/SMTP`}
+            title={`Hubungkan via IMAP/SMTP`}
           />
         </UndecoratedLink>
       )}

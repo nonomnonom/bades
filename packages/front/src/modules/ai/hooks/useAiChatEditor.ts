@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { Document } from '@tiptap/extension-document';
 import { HardBreak } from '@tiptap/extension-hard-break';
 import { Paragraph } from '@tiptap/extension-paragraph';
@@ -61,7 +60,7 @@ export const useAiChatEditor = () => {
       Paragraph,
       Text,
       Placeholder.configure({
-        placeholder: t`Tanya, cari, atau buat apa saja...`,
+        placeholder: `Tanya, cari, atau buat apa saja...`,
       }),
       HardBreak.configure({
         keepMarks: false,

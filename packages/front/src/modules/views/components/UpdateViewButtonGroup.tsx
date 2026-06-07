@@ -20,7 +20,6 @@ import { useSaveCurrentViewFiltersAndSorts } from '@/views/hooks/useSaveCurrentV
 import { VIEW_PICKER_DROPDOWN_ID } from '@/views/view-picker/constants/ViewPickerDropdownId';
 import { useViewPickerMode } from '@/views/view-picker/hooks/useViewPickerMode';
 import { viewPickerReferenceViewIdComponentState } from '@/views/view-picker/states/viewPickerReferenceViewIdComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { IconChevronDown, IconPlus } from 'ui/display';
 import { Button, ButtonGroup, IconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -108,7 +107,7 @@ export const UpdateViewButtonGroup = () => {
       {currentView?.key !== 'INDEX' ? (
         <ButtonGroup size="small" accent="blue">
           <Button
-            title={t`Perbarui tampilan`}
+            title={`Perbarui tampilan`}
             onClick={handleUpdateViewClick}
             disabled={!canPersistChanges}
           />
@@ -128,7 +127,7 @@ export const UpdateViewButtonGroup = () => {
                   <MenuItem
                     onClick={handleCreateViewClick}
                     LeftIcon={IconPlus}
-                    text={t`Buat tampilan`}
+                    text={`Buat tampilan`}
                   />
                 </DropdownMenuItemsContainer>
               </DropdownContent>
@@ -137,7 +136,7 @@ export const UpdateViewButtonGroup = () => {
         </ButtonGroup>
       ) : (
         <Button
-          title={t`Simpan sebagai tampilan baru`}
+          title={`Simpan sebagai tampilan baru`}
           onClick={handleSaveAsNewViewClick}
           accent="blue"
           size="small"

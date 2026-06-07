@@ -24,7 +24,6 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {
@@ -158,7 +157,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
       }
 
       const newWidget = createPageLayoutIframeWidget(
-        t`iFrame tanpa judul`,
+        `iFrame tanpa judul`,
         null,
       );
       setPageLayoutEditingWidgetId(newWidget.id);
@@ -255,14 +254,14 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
 
   return (
     <SidePanelList selectableItemIds={selectableItemIds}>
-      <SidePanelGroup heading={t`Jenis widget`}>
+      <SidePanelGroup heading={`Jenis widget`}>
         <SelectableListItem
           itemId="chart"
           onEnter={handleNavigateToGraphTypeSelect}
         >
           <CommandMenuItem
             Icon={IconChartPie}
-            label={t`Grafik`}
+            label={`Grafik`}
             id="chart"
             onClick={handleNavigateToGraphTypeSelect}
           />
@@ -273,7 +272,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         >
           <CommandMenuItem
             Icon={IconTable}
-            label={t`Tampilan`}
+            label={`Tampilan`}
             id="record-table"
             onClick={handleNavigateToRecordTableSettings}
           />
@@ -296,7 +295,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         >
           <CommandMenuItem
             Icon={IconAlignBoxLeftTop}
-            label={t`Teks Kaya`}
+            label={`Teks Kaya`}
             id="rich-text"
             onClick={handleNavigateToRichTextSettings}
           />
@@ -304,7 +303,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
       </SidePanelGroup>
 
       {frontComponentsWithSelectItemId.length > 0 && (
-        <SidePanelGroup heading={t`Komponen Bades`}>
+        <SidePanelGroup heading={`Komponen Bades`}>
           {frontComponentsWithSelectItemId.map(
             ({ frontComponent, selectItemId }) => (
               <SelectableListItem

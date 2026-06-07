@@ -4,7 +4,6 @@ import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWork
 import { SettingsCard } from '@/settings/components/SettingsCard';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { IconWorld, Status } from 'ui/display';
@@ -18,7 +17,6 @@ const StyledContainer = styled.div`
 `;
 
 export const SettingsWorkspaceDomainCard = () => {
-  const { t } = useLingui();
   const isMultiWorkspaceEnabled = useAtomStateValue(
     isMultiWorkspaceEnabledState,
   );
@@ -34,19 +32,19 @@ export const SettingsWorkspaceDomainCard = () => {
   return (
     <StyledContainer>
       <UndecoratedLink to={getSettingsPath(SettingsPath.Subdomain)}>
-        <SettingsCard title={t`Subdomain`} Icon={<IconWorld />} />
+        <SettingsCard title={`Subdomain`} Icon={<IconWorld />} />
       </UndecoratedLink>
       {isCloudflareIntegrationEnabled && (
         <UndecoratedLink to={getSettingsPath(SettingsPath.CustomDomain)}>
           <SettingsCard
-            title={t`Domain Kustom`}
+            title={`Domain Kustom`}
             Icon={<IconWorld />}
             Status={
               currentWorkspace?.customDomain &&
               currentWorkspace?.isCustomDomainEnabled ? (
-                <Status text={t`Aktif`} color="turquoise" />
+                <Status text={`Aktif`} color="turquoise" />
               ) : currentWorkspace?.customDomain ? (
-                <Status text={t`Nonaktif`} color="orange" />
+                <Status text={`Nonaktif`} color="orange" />
               ) : undefined
             }
           />

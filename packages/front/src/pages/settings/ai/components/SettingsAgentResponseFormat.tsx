@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type OutputSchemaField } from '@/ai/constants/OutputFieldTypeOptions';
 import { fieldsToSchema } from '@/ai/utils/fieldsToSchema';
 import { schemaToFields } from '@/ai/utils/schemaToFields';
@@ -67,13 +66,13 @@ export const SettingsAgentResponseFormat = ({
     <StyledContainer>
       <Select
         dropdownId="agent-response-format-type"
-        label={t`Format Respons`}
+        label={`Format Respons`}
         value={formatType}
         onChange={handleFormatTypeChange}
         options={[
           // TODO: Remove string option once text response format support is fully dropped.
-          { label: t`Teks`, value: 'text' as const },
-          { label: t`JSON`, value: 'json' as const },
+          { label: `Teks`, value: 'text' as const },
+          { label: `JSON`, value: 'json' as const },
         ]}
         disabled={disabled}
       />

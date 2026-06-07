@@ -1,13 +1,11 @@
 import { getAggregateOperationLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationLabel';
 import { DASHBOARD_AGGREGATE_OPERATION_RATIO } from '@/page-layout/widgets/graph/constants/DashboardAggregateOperationRatio';
 import { type AggregateChartOperation } from '@/page-layout/widgets/graph/graph-widget-aggregate-chart/types/AggregateChartOperation';
-import { t } from '~/utils/i18n/badesI18n';
-
 export const getAggregateChartOperationLabel = (
   operation: AggregateChartOperation,
 ) => {
   if (operation === DASHBOARD_AGGREGATE_OPERATION_RATIO) {
-    return t`Rasio`;
+    return `Rasio`;
   }
 
   return getAggregateOperationLabel(operation);
