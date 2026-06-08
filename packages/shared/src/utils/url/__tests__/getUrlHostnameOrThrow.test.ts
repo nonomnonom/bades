@@ -22,9 +22,9 @@ describe('getUrlHostnameOrThrow', () => {
   });
 
   it('returns an empty string for invalid URLs', () => {
-    expect(() => getUrlHostnameOrThrow('?o')).toThrow('Invalid URL');
-    expect(() => getUrlHostnameOrThrow('')).toThrow('Invalid URL');
-    expect(() => getUrlHostnameOrThrow('\\')).toThrow('Invalid URL');
-    expect(() => getUrlHostnameOrThrow('2')).toThrow('Invalid URL');
+    expect(() => getUrlHostnameOrThrow('?o')).toThrow('URL tidak valid');
+    expect(() => getUrlHostnameOrThrow('')).toThrow('URL tidak valid');
+    expect(() => getUrlHostnameOrThrow('\\')).toThrow('URL tidak valid');
+    expect(() => getUrlHostnameOrThrow('2')).toThrow('URL tidak valid');
   });
 });

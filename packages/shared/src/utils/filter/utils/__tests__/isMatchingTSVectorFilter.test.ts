@@ -55,7 +55,7 @@ describe('isMatchingTSVectorFilter', () => {
           tsVectorFilter: { unknownFilter: 'test' } as any,
           value: 'test document',
         }),
-      ).toThrow('Unexpected value for ts_vector filter');
+      ).toThrow('Nilai tidak valid untuk filter ts_vector');
     });
   });
 });

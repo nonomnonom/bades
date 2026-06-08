@@ -68,7 +68,7 @@ describe('isMatchingRatingFilter', () => {
           ratingFilter: {} as any,
           value: 'RATING_3',
         }),
-      ).toThrow('Unexpected value for rating filter');
+      ).toThrow('Nilai tidak valid untuk filter rating');
     });
   });
 });

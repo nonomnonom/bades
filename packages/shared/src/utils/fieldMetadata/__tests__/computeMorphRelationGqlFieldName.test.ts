@@ -9,7 +9,7 @@ describe('computeMorphRelationGqlFieldName', () => {
       targetObjectMetadataNamePlural: 'daftarPenduduk',
     });
 
-    expect(result).toBe('assignedPerson');
+    expect(result).toBe('assignedPenduduk');
   });
 
   it('should return plural-based name for ONE_TO_MANY', () => {
@@ -20,7 +20,7 @@ describe('computeMorphRelationGqlFieldName', () => {
       targetObjectMetadataNamePlural: 'daftarPenduduk',
     });
 
-    expect(result).toBe('assignedPeople');
+    expect(result).toBe('assignedDaftarPenduduk');
   });
 
   it('should throw for invalid relation type', () => {

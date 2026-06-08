@@ -79,7 +79,7 @@ describe('isMatchingSelectFilter', () => {
           selectFilter: {} as any,
           value: 'ACTIVE',
         }),
-      ).toThrow('Unexpected value for select filter');
+      ).toThrow('Nilai tidak valid untuk filter pilihan');
     });
   });
 });

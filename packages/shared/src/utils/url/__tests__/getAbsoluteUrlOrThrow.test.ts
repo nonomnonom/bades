@@ -8,9 +8,9 @@ describe('getAbsoluteUrlOrThrow', () => {
   });
 
   it('returns an empty string for invalid URLs', () => {
-    expect(() => getAbsoluteUrlOrThrow('?o')).toThrow('Invalid URL');
-    expect(() => getAbsoluteUrlOrThrow('')).toThrow('Invalid URL');
-    expect(() => getAbsoluteUrlOrThrow('\\')).toThrow('Invalid URL');
-    expect(() => getAbsoluteUrlOrThrow('2')).toThrow('Invalid URL');
+    expect(() => getAbsoluteUrlOrThrow('?o')).toThrow('URL tidak valid');
+    expect(() => getAbsoluteUrlOrThrow('')).toThrow('URL tidak valid');
+    expect(() => getAbsoluteUrlOrThrow('\\')).toThrow('URL tidak valid');
+    expect(() => getAbsoluteUrlOrThrow('2')).toThrow('URL tidak valid');
   });
 });

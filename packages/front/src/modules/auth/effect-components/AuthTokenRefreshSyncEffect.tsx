@@ -69,11 +69,7 @@ export const AuthTokenRefreshSyncEffect = () => {
         });
       },
     );
-  }, [
-    domainConfiguration.frontDomain,
-    isMultiWorkspaceEnabled,
-    setTokenPair,
-  ]);
+  }, [domainConfiguration.frontDomain, isMultiWorkspaceEnabled, setTokenPair]);
 
   return null;
 };

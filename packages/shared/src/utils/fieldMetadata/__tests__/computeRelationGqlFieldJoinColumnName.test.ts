@@ -6,7 +6,7 @@ import {
 describe('computeRelationGqlFieldJoinColumnName', () => {
   it('should append `Id` to a simple field name', () => {
     expect(computeRelationGqlFieldJoinColumnName({ name: 'keluarga' })).toBe(
-      'companyId',
+      'keluargaId',
     );
   });
 
@@ -19,7 +19,7 @@ describe('computeRelationGqlFieldJoinColumnName', () => {
   it('should append `Id` to a morph-aware field name', () => {
     expect(
       computeRelationGqlFieldJoinColumnName({ name: 'targetOpportunity' }),
-    ).toBe('targetPeluangId');
+    ).toBe('targetOpportunityId');
   });
 
   it('should not strip an existing trailing `Id` (it just appends)', () => {
@@ -38,7 +38,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         targetObjectMetadataNameSingular: 'programBantuan',
         targetObjectMetadataNamePlural: 'daftarProgramBantuan',
       }),
-    ).toBe('targetPeluangId');
+    ).toBe('targetProgramBantuanId');
   });
 
   it('should combine field name and capitalized plural target for ONE_TO_MANY', () => {
@@ -49,7 +49,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         targetObjectMetadataNameSingular: 'penduduk',
         targetObjectMetadataNamePlural: 'daftarPenduduk',
       }),
-    ).toBe('caretakerPeopleId');
+    ).toBe('caretakerDaftarPendudukId');
   });
 
   it('should handle simple plurals (e.g. `daftarKeluarga`)', () => {
@@ -60,7 +60,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         targetObjectMetadataNameSingular: 'keluarga',
         targetObjectMetadataNamePlural: 'daftarKeluarga',
       }),
-    ).toBe('parentCompaniesId');
+    ).toBe('parentDaftarKeluargaId');
   });
 
   it('should throw on an invalid relation type', () => {

@@ -44,7 +44,7 @@ describe('resolveRelativeDateTimeFilter', () => {
           { direction: 'NEXT', amount: undefined as any, unit: 'DAY' },
           referenceZdt,
         ),
-      ).toThrow('Amount is required');
+      ).toThrow('Jumlah diperlukan');
     });
   });
 
@@ -90,7 +90,7 @@ describe('resolveRelativeDateTimeFilter', () => {
           { direction: 'PAST', amount: undefined as any, unit: 'MONTH' },
           referenceZdt,
         ),
-      ).toThrow('Amount is required');
+      ).toThrow('Jumlah diperlukan');
     });
   });
 

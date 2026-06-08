@@ -77,7 +77,7 @@ describe('isMatchingMultiSelectFilter', () => {
           multiSelectFilter: {} as any,
           value: ['A'],
         }),
-      ).toThrow('Unexpected value for multi-select filter');
+      ).toThrow('Nilai tidak valid untuk filter multi-pilihan');
     });
   });
 });

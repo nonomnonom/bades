@@ -12,7 +12,11 @@ export const GithubVersionLink = ({ version }: GithubVersionLinkProps) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <ClickToActionLink href={BADES_GITHUB_LINK} target="_blank" rel="noreferrer">
+    <ClickToActionLink
+      href={BADES_GITHUB_LINK}
+      target="_blank"
+      rel="noreferrer"
+    >
       <IconBrandGithub size={theme.icon.size.md} />
       {version}
     </ClickToActionLink>

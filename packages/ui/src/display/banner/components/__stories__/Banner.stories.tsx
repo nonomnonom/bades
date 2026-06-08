@@ -83,7 +83,8 @@ export const Default: Story = {
       {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
       <Banner {...args}>
         <StyledBannerContent>
-          Sinkronisasi terputus dengan mailbox halo@bades.id. Silakan hubungkan ulang:
+          Sinkronisasi terputus dengan mailbox halo@bades.id. Silakan hubungkan
+          ulang:
           <Button
             variant="secondary"
             accent={getButtonAccent(args.color)}
@@ -109,7 +110,8 @@ export const Catalog: CatalogStory<Story, typeof Banner> = {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <Banner {...args}>
       <StyledBannerContent>
-        Sinkronisasi terputus dengan kotak surat halo@bades.id. Hubungkan ulang untuk pembaruan:
+        Sinkronisasi terputus dengan kotak surat halo@bades.id. Hubungkan ulang
+        untuk pembaruan:
         <Button
           variant="secondary"
           accent={getButtonAccent(args.color)}

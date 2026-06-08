@@ -115,7 +115,9 @@ export const OverflowingTextWithTooltip = ({
     event.preventDefault();
   };
 
-  const handleTooltipKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+  const handleTooltipKeyDown = (
+    event: React.KeyboardEvent<HTMLButtonElement>,
+  ) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.stopPropagation();
       event.preventDefault();

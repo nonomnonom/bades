@@ -32,7 +32,7 @@ describe('buildSignedPath', () => {
         token: 'tokenValue',
       }),
     ).toThrow(
-      "Filename empty: cannot build signed path from folderPath 'folder/'",
+      "Nama berkas kosong: tidak dapat membuat jalur tertandatangani dari 'folder/'",
     );
   });
 
@@ -42,7 +42,9 @@ describe('buildSignedPath', () => {
         path: '',
         token: 'tokenValue',
       }),
-    ).toThrow("Filename empty: cannot build signed path from folderPath ''");
+    ).toThrow(
+      "Nama berkas kosong: tidak dapat membuat jalur tertandatangani dari ''",
+    );
   });
 
   it('should ignore absolute https urls', () => {

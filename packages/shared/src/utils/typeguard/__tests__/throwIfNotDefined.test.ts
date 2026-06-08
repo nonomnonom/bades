@@ -10,13 +10,13 @@ describe('throwIfNotDefined', () => {
 
   it('should throw for null', () => {
     expect(() => throwIfNotDefined(null, 'myVar')).toThrow(
-      'Value must be defined for variable myVar',
+      'Nilai harus terdefinisi untuk variabel myVar',
     );
   });
 
   it('should throw for undefined', () => {
     expect(() => throwIfNotDefined(undefined, 'myVar')).toThrow(
-      'Value must be defined for variable myVar',
+      'Nilai harus terdefinisi untuk variabel myVar',
     );
   });
 });

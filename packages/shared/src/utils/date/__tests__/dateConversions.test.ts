@@ -24,7 +24,7 @@ describe('parseToPlainDateOrThrow', () => {
 
   it('should throw for an invalid date string', () => {
     expect(() => parseToPlainDateOrThrow('not-a-date')).toThrow(
-      'Cannot parse date string as PlainDate',
+      'Tidak dapat mengurai string tanggal sebagai PlainDate',
     );
   });
 });

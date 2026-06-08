@@ -306,7 +306,7 @@ describe('isMatchingCurrencyFilter', () => {
             currencyCode: 'USD',
           },
         }),
-      ).toThrow('Unexpected filter for currency : {}');
+      ).toThrow('Filter tidak valid untuk mata uang: {}');
     });
   });
 
@@ -321,7 +321,7 @@ describe('isMatchingCurrencyFilter', () => {
           value: { amountMicros: 10 },
         }),
       ).toThrow(
-        'Unexpected operand for currency amount micros filter : {"unexpected":10}',
+        'Operand tidak valid untuk filter jumlah mata uang: {"unexpected":10}',
       );
     });
   });

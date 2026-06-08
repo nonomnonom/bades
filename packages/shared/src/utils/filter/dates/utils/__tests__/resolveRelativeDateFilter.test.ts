@@ -22,7 +22,7 @@ describe('resolveRelativeDateFilter', () => {
           { direction: 'NEXT', amount: undefined as any, unit: 'DAY' },
           referenceZdt,
         ),
-      ).toThrow('Amount is required');
+      ).toThrow('Jumlah diperlukan');
     });
   });
 
@@ -43,7 +43,7 @@ describe('resolveRelativeDateFilter', () => {
           { direction: 'PAST', amount: undefined as any, unit: 'DAY' },
           referenceZdt,
         ),
-      ).toThrow('Amount is required');
+      ).toThrow('Jumlah diperlukan');
     });
   });
 

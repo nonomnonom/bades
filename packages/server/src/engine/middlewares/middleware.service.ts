@@ -39,20 +39,27 @@ export class MiddlewareService {
     return !!token;
   }
 
-  // oxlint-disable-next-line @typescripttypescript/no-explicit-any
   public writeRestResponseOnExceptionCaught(
     req: Request,
     res: Response,
-    error: any,
+    error: unknown,
   ) {
     const statusCode = this.getStatus(error);
+    const errorMessage =
+      error instanceof Error ? error.message : INTERNAL_SERVER_ERROR;
+    const errorCode =
+      error && typeof error === 'object' && 'code' in error
+        ? (error as Record<string, unknown>).code
+        : ErrorCode.INTERNAL_SERVER_ERROR;
 
     // capture and handle custom exceptions
-    handleException({
-      exception: error as CustomException,
-      exceptionHandlerService: this.exceptionHandlerService,
-      statusCode,
-    });
+    if (error instanceof Error) {
+      handleException({
+        exception: error as CustomException,
+        exceptionHandlerService: this.exceptionHandlerService,
+        statusCode,
+      });
+    }
 
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
@@ -69,19 +76,18 @@ export class MiddlewareService {
     res.write(
       JSON.stringify({
         statusCode,
-        messages: [error?.message || INTERNAL_SERVER_ERROR],
-        error: error?.code || ErrorCode.INTERNAL_SERVER_ERROR,
+        messages: [errorMessage],
+        error: errorCode,
       }),
     );
 
     res.end();
   }
 
-  // oxlint-disable-next-line @typescripttypescript/no-explicit-any
   public writeGraphqlResponseOnExceptionCaught(
     req: Request,
     res: Response,
-    error: any,
+    error: unknown,
   ) {
     let errors;
 
@@ -168,8 +174,7 @@ export class MiddlewareService {
     return isDefined((error as { status: number })?.status);
   }
 
-  // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-  private getStatus(error: any): number {
+  private getStatus(error: unknown): number {
     if (this.hasErrorStatus(error)) {
       return error.status;
     }

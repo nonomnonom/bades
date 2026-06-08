@@ -53,8 +53,8 @@ export const SendApprovedAccessDomainValidation = ({
           color={emailTheme.font.colors.blue}
         />
         ) meminta validasi domain ini. Setelah divalidasi, pengguna dengan
-        alamat email <b>@{domain}</b> dapat bergabung ke ruang kerja Anda
-        tanpa perlu undangan terpisah.
+        alamat email <b>@{domain}</b> dapat bergabung ke ruang kerja Anda tanpa
+        perlu undangan terpisah.
         <br />
       </MainText>
       <HighlightedContainer>

@@ -27,17 +27,17 @@ export const WarnSuspendedWorkspaceEmail = ({
         {userName?.length > 1 ? `Halo ${userName},` : 'Halo,'}
         <br />
         <br />
-        Ruang kerja <b>{workspaceDisplayName}</b> Anda telah ditangguhkan
-        selama {daysSinceInactive} hari.
+        Ruang kerja <b>{workspaceDisplayName}</b> Anda telah ditangguhkan selama{' '}
+        {daysSinceInactive} hari.
         <br />
         <br />
         Jika langganan tidak diperbarui dalam {remainingDays} hari ke depan,
-        ruang kerja akan dinonaktifkan dan seluruh datanya akan dihapus
-        secara permanen.
+        ruang kerja akan dinonaktifkan dan seluruh datanya akan dihapus secara
+        permanen.
         <br />
         <br />
-        Untuk tetap menggunakan Bades, silakan perbarui langganan melalui
-        tombol di bawah.
+        Untuk tetap menggunakan Bades, silakan perbarui langganan melalui tombol
+        di bawah.
         <br />
         <br />
         Salam,

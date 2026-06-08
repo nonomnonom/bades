@@ -113,7 +113,7 @@ describe('isMatchingArrayFilter', () => {
           arrayFilter: {},
           value: [],
         }),
-      ).toThrow('Unexpected value for array filter');
+      ).toThrow('Nilai tidak valid untuk filter array');
     });
 
     it('should throw error for unknown filter type', () => {
@@ -122,7 +122,7 @@ describe('isMatchingArrayFilter', () => {
           arrayFilter: { unknownFilter: 'test' } as any,
           value: [],
         }),
-      ).toThrow('Unexpected value for array filter');
+      ).toThrow('Nilai tidak valid untuk filter array');
     });
   });
 });

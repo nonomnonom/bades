@@ -8,10 +8,10 @@ describe('applyDiff', () => {
       const obj = { test: 'value' };
 
       expect(() => applyDiff(obj, null as any)).toThrow(
-        'Diffs must be an array',
+        'Diff harus berupa array',
       );
       expect(() => applyDiff(obj, 'invalid' as any)).toThrow(
-        'Diffs must be an array',
+        'Diff harus berupa array',
       );
     });
 
@@ -267,7 +267,7 @@ describe('applyDiff', () => {
       ];
 
       expect(() => applyDiff(obj, diffs)).toThrow(
-        'Expected numeric index for array removal, got string',
+        'Indeks numerik diharapkan untuk penghapusan array, diterima string',
       );
     });
   });
@@ -330,7 +330,7 @@ describe('applyDiff', () => {
       ];
 
       expect(() => applyDiff(obj, diffs)).toThrow(
-        'Unsupported diff type: INVALID',
+        'Jenis diff tidak didukung: INVALID',
       );
     });
 
@@ -346,7 +346,7 @@ describe('applyDiff', () => {
       ];
 
       expect(() => applyDiff(obj, diffs)).toThrow(
-        'Failed to apply diff at path nonExistent.deep.path',
+        'Gagal menerapkan diff di jalur nonExistent.deep.path',
       );
     });
   });
@@ -360,7 +360,7 @@ describe('applyDiff', () => {
       ];
 
       expect(() => applyDiff(obj, diffs)).toThrow(
-        "Refusing to set forbidden property key '__proto__' on object (prototype pollution protection)",
+        "Menolak mengatur properti terlarang '__proto__' pada objek (perlindungan prototype pollution)",
       );
     });
 
@@ -392,7 +392,7 @@ describe('applyDiff', () => {
 
         expect(() => applyDiff(obj, diffs)).toThrow(
           new RegExp(
-            `Refusing to set forbidden property key.*prototype pollution protection`,
+            `Menolak mengatur properti terlarang.*perlindungan prototype pollution`,
           ),
         );
       });
@@ -411,7 +411,7 @@ describe('applyDiff', () => {
       ];
 
       expect(() => applyDiff(obj, diffs)).toThrow(
-        "Refusing to set forbidden property key 'constructor' on object (prototype pollution protection)",
+        "Menolak mengatur properti terlarang 'constructor' pada objek (perlindungan prototype pollution)",
       );
     });
 

@@ -26,12 +26,12 @@ export const CleanSuspendedWorkspaceEmail = ({
         langganan berakhir {daysSinceInactive} hari yang lalu.
         <br />
         <br />
-        Seluruh data di dalam ruang kerja tersebut sudah dihapus secara
-        permanen dan tidak dapat dipulihkan.
+        Seluruh data di dalam ruang kerja tersebut sudah dihapus secara permanen
+        dan tidak dapat dipulihkan.
         <br />
         <br />
-        Jika Anda ingin kembali menggunakan Bades, silakan buat ruang kerja
-        baru melalui tombol di bawah.
+        Jika Anda ingin kembali menggunakan Bades, silakan buat ruang kerja baru
+        melalui tombol di bawah.
         <br />
         <br />
         Salam,
@@ -39,7 +39,10 @@ export const CleanSuspendedWorkspaceEmail = ({
         Tim Bades
       </MainText>
       <br />
-      <CallToAction href="https://app.bades.id/" value="Buat ruang kerja baru" />
+      <CallToAction
+        href="https://app.bades.id/"
+        value="Buat ruang kerja baru"
+      />
       <br />
       <br />
     </BaseEmail>

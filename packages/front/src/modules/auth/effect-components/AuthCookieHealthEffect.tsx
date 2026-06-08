@@ -38,11 +38,7 @@ export const AuthCookieHealthEffect = () => {
       );
       setTokenPair(null);
     }
-  }, [
-    domainConfiguration.frontDomain,
-    isMultiWorkspaceEnabled,
-    setTokenPair,
-  ]);
+  }, [domainConfiguration.frontDomain, isMultiWorkspaceEnabled, setTokenPair]);
 
   return null;
 };

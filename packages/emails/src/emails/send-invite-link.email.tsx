@@ -51,9 +51,9 @@ export const SendInviteLinkEmail = ({
           value={senderEmail}
           color={emailTheme.font.colors.blue}
         />
-        ) mengundang Anda untuk bergabung ke ruang kerja{' '}
-        <b>{workspaceName}</b>. Klik tombol di bawah untuk menerima undangan
-        dan mulai bekerja bersama tim.
+        ) mengundang Anda untuk bergabung ke ruang kerja <b>{workspaceName}</b>.
+        Klik tombol di bawah untuk menerima undangan dan mulai bekerja bersama
+        tim.
         <br />
       </MainText>
       <HighlightedContainer>

@@ -160,7 +160,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'New ${objectMetadataItem.nameSingular}',
           context,
         }),
-      ).toBe('New peluang');
+      ).toBe('New programBantuan');
     });
   });
 
@@ -271,7 +271,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: '${capitalize(objectMetadataItem.labelPlural)} selected',
           context,
         }),
-      ).toBe('KeluargaRecords selected');
+      ).toBe('CompanyRecords selected');
     });
 
     it('should return empty string when the nested property is undefined', () => {
@@ -312,7 +312,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Delete ${lowercase(objectMetadataItem.labelPlural)}',
           context,
         }),
-      ).toBe('Delete daftarPenduduk');
+      ).toBe('Delete penduduk');
     });
   });
 
@@ -366,7 +366,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Export ${capitalize(objectMetadataLabel)}',
           context,
         }),
-      ).toBe('Export Companies');
+      ).toBe('Export DaftarKeluarga');
     });
 
     it('should resolve objectMetadataLabel without transform', () => {

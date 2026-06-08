@@ -6,9 +6,7 @@ import {
   ComponentDecorator,
 } from '@ui/testing';
 
-import {
-  AppTooltip as Tooltip,
-} from '../AppTooltip';
+import { AppTooltip as Tooltip } from '../AppTooltip';
 import { TooltipDelay } from '../AppTooltip.types';
 import { TooltipPosition } from '../AppTooltip.types';
 

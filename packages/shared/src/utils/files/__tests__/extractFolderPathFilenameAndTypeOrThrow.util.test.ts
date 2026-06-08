@@ -69,19 +69,19 @@ describe('extractFolderPathFilenameAndType', () => {
 
   it('should throw error for empty string', () => {
     expect(() => extractFolderPathFilenameAndTypeOrThrow('')).toThrow(
-      'Invalid fullPath provided',
+      'fullPath yang diberikan tidak valid',
     );
   });
 
   it('should throw error for null value', () => {
     expect(() =>
       extractFolderPathFilenameAndTypeOrThrow(null as unknown as string),
-    ).toThrow('Invalid fullPath provided');
+    ).toThrow('fullPath yang diberikan tidak valid');
   });
 
   it('should throw error for undefined value', () => {
     expect(() =>
       extractFolderPathFilenameAndTypeOrThrow(undefined as unknown as string),
-    ).toThrow('Invalid fullPath provided');
+    ).toThrow('fullPath yang diberikan tidak valid');
   });
 });

@@ -41,7 +41,10 @@ class CookieStorage {
     // Hapus varian dengan secure terbalik (untuk jaga-jaga kalau cookie
     // ditulis dari HTTPS lalu di-clear dari HTTP atau sebaliknya)
     const invertedSecure = !DEFAULT_COOKIE_ATTRIBUTES.secure;
-    Cookies.remove(key, { ...DEFAULT_COOKIE_ATTRIBUTES, secure: invertedSecure });
+    Cookies.remove(key, {
+      ...DEFAULT_COOKIE_ATTRIBUTES,
+      secure: invertedSecure,
+    });
     Cookies.remove(key, { secure: invertedSecure });
 
     // Hapus dengan sameSite strict/none sebagai fallback

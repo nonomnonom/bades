@@ -1,5 +1,6 @@
 const jestConfig = {
   silent: true,
+  cache: false,
   displayName: 'bades-shared',
   preset: '../../jest.preset.js',
   testEnvironment: 'jsdom',

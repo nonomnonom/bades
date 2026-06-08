@@ -13,7 +13,13 @@ import {
 } from './Checkbox.types';
 
 // Re-export types for backwards compatibility
-export { CheckboxVariant, CheckboxShape, CheckboxSize, CheckboxAccent, type CheckboxProps };
+export {
+  CheckboxVariant,
+  CheckboxShape,
+  CheckboxSize,
+  CheckboxAccent,
+  type CheckboxProps,
+};
 
 const StyledCheckboxContainer = styled.div<InputProps>`
   --checkbox-outer-size: ${({ checkboxSize, hoverable }) => {
@@ -192,13 +198,7 @@ export const Checkbox = ({
         disabled={disabled}
       />
       <label htmlFor={checkboxId}>
-        {indeterminate ? (
-          <IconMinus />
-        ) : checked ? (
-          <IconCheck />
-        ) : (
-          <></>
-        )}
+        {indeterminate ? <IconMinus /> : checked ? <IconCheck /> : <></>}
       </label>
     </StyledCheckboxContainer>
   );

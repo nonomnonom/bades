@@ -91,7 +91,7 @@ describe('parseDataFromContentType', () => {
     it('should throw for invalid JSON string', () => {
       expect(() =>
         parseDataFromContentType('not-json', 'multipart/form-data'),
-      ).toThrow('String data for FormData must be valid JSON');
+      ).toThrow('Data string untuk FormData harus JSON yang valid');
     });
   });
 

@@ -196,6 +196,7 @@ export const Chip = ({
       <RightComponentRenderer
         rightComponent={rightComponent}
         rightComponentDivider={rightComponentDivider}
-      /></StyledContainer>
+      />
+    </StyledContainer>
   );
 };

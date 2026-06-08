@@ -48,7 +48,7 @@ describe('isMatchingRawJsonFilter', () => {
           rawJsonFilter: {} as any,
           value: 'test',
         }),
-      ).toThrow('Unexpected value for string filter');
+      ).toThrow('Nilai tidak valid untuk filter raw JSON');
     });
   });
 });

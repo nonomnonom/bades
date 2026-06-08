@@ -580,7 +580,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
         fieldMetadataItemById,
       });
 
-      expect(result).toHaveProperty('companyId.in');
+      expect(result).toHaveProperty('keluargaId.in');
     });
 
     it('should handle IS_NOT operand', () => {
@@ -936,7 +936,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
         fieldMetadataItemById,
       });
 
-      expect(result).toEqual({ keluarga: { name: { ilike: '%Acme%' } } });
+      expect(result).toEqual({ keluarga: { name: { ilike: '%Sukamaju%' } } });
     });
 
     // If the target field is no longer resolvable (e.g. it was
@@ -974,6 +974,9 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
       expect(result).toEqual({
         keluarga: { or: [{ name: { ilike: '' } }, { name: { is: 'NULL' } }] },
       });
+
+      // Verify it's NOT using the old 'companyId' field name
+      expect(result).not.toHaveProperty('companyId');
     });
 
     // The target field's per-type switch must run, so number/select/etc.
@@ -1006,7 +1009,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
         fieldMetadataItemById,
       });
 
-      expect(result).toHaveProperty('companyId.in');
+      expect(result).toHaveProperty('keluargaId.in');
     });
   });
 });

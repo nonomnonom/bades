@@ -64,7 +64,7 @@ describe('fromArrayToUniqueKeyRecord', () => {
           uniqueKey: 'id',
         },
         expected: new Error(
-          'Should never occur, flat array contains twice the same unique key 1',
+          'Tidak seharusnya terjadi, array datar mengandung kunci unik yang sama dua kali: 1',
         ),
       },
     },
