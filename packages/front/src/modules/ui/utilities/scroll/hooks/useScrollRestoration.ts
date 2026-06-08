@@ -1,14 +1,15 @@
 import { SCROLL_RESTORATION_TOP_THRESHOLD_PX } from '@/ui/utilities/scroll/constants/ScrollRestorationTopThreshold';
 import { scrollWrapperScrollTopComponentState } from '@/ui/utilities/scroll/states/scrollWrapperScrollTopComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import { isDefined } from 'shared/utils';
 
 export const useScrollRestoration = (componentInstanceId: string) => {
   const location = useLocation();
   const storageKey = `scroll-${location.pathname}`;
-  const [isRestoring, setIsRestoring] = useState(false);
+  const isRestoringRef = useRef(false);
 
   const scrollWrapperScrollTop = useAtomComponentStateValue(
     scrollWrapperScrollTopComponentState,
@@ -34,7 +35,7 @@ export const useScrollRestoration = (componentInstanceId: string) => {
         element.scrollTo({ top: position });
 
         requestAnimationFrame(() => {
-          setIsRestoring(false);
+          isRestoringRef.current = false;
         });
       };
 
@@ -44,7 +45,7 @@ export const useScrollRestoration = (componentInstanceId: string) => {
   );
 
   useEffect(() => {
-    if (isRestoring) return;
+    if (isRestoringRef.current) return;
 
     if (scrollWrapperScrollTop <= SCROLL_RESTORATION_TOP_THRESHOLD_PX) {
       sessionStorage.removeItem(storageKey);
@@ -52,7 +53,7 @@ export const useScrollRestoration = (componentInstanceId: string) => {
     }
 
     sessionStorage.setItem(storageKey, scrollWrapperScrollTop.toString());
-  }, [scrollWrapperScrollTop, storageKey, isRestoring]);
+  }, [scrollWrapperScrollTop, storageKey]);
 
   useEffect(() => {
     const savedPosition = sessionStorage.getItem(storageKey);
@@ -68,7 +69,7 @@ export const useScrollRestoration = (componentInstanceId: string) => {
       return;
     }
 
-    setIsRestoring(true);
+    isRestoringRef.current = true;
     restoreScrollPosition(position, expectedElementId);
   }, [
     location.pathname,

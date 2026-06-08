@@ -1,6 +1,8 @@
 import type mapboxgl from 'mapbox-gl';
 import { useCallback, useEffect, useRef } from 'react';
 
+import { isMapUsable } from '@/object-record/record-map/utils/isMapStyleLoaded';
+
 import { loadMapboxGl } from './loadMapboxGl';
 
 export type UseMapboxPopupOptions = {
@@ -74,7 +76,7 @@ export const useMapboxPopup = (
   // DOM tiap klik dan GC pressure, serta transisi popup tetap halus.
   const showPopup = useCallback(
     (coords: [number, number], html: string) => {
-      if (!map || !mapboxglRef.current) return;
+      if (!map || !mapboxglRef.current || !isMapUsable(map)) return;
 
       const MapboxPopup = mapboxglRef.current.Popup;
 
@@ -95,7 +97,7 @@ export const useMapboxPopup = (
       coords: [number, number],
       content: { title: string; subtitle?: string },
     ) => {
-      if (!map || !mapboxglRef.current) return;
+      if (!map || !mapboxglRef.current || !isMapUsable(map)) return;
 
       const MapboxPopup = mapboxglRef.current.Popup;
       const container = document.createElement('div');

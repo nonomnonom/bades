@@ -44,7 +44,8 @@ import { computeMetadataNameFromLabel } from '~/pages/settings/data-model/utils/
 
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+
 import Skeleton from 'react-loading-skeleton';
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 
@@ -108,6 +109,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const navigate = useNavigateSettings();
   const navigateApp = useNavigateApp();
   const { enqueueErrorSnackBar } = useSnackBar();
+  const isInitializedRef = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isReadonlyMode, setIsReadonlyMode] = useState(false);
   const [originalFormValues, setOriginalFormValues] =
@@ -136,7 +138,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   });
 
   useEffect(() => {
-    if (data) {
+    if (!isInitializedRef.current && data) {
+      isInitializedRef.current = true;
       const skill = data?.skill;
       if (isDefined(skill)) {
         if (!skill.isCustom) {

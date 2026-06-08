@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import {
   openCommandConfirmationModal,
@@ -22,16 +22,16 @@ export const CommandModal = ({
   confirmButtonText,
   confirmButtonAccent,
 }: CommandModalProps) => {
-  const [hasExecuted, setHasExecuted] = useState(false);
+  const hasExecutedRef = useRef(false);
 
   const frontComponentId = useFrontComponentId();
 
   useEffect(() => {
-    if (hasExecuted) {
+    if (hasExecutedRef.current) {
       return;
     }
 
-    setHasExecuted(true);
+    hasExecutedRef.current = true;
 
     const run = async () => {
       const commandConfirmationModalResult = await openCommandConfirmationModal(
@@ -57,7 +57,6 @@ export const CommandModal = ({
     execute,
     confirmButtonText,
     confirmButtonAccent,
-    hasExecuted,
     frontComponentId,
   ]);
 

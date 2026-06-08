@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 import { hasInitializedChartFiltersComponentState } from '@/side-panel/pages/page-layout/states/hasInitializedChartFiltersComponentState';
 import { type ChartFilters } from '@/side-panel/pages/page-layout/types/ChartFilters';
 import { useSetAdvancedFilterDropdownStates } from '@/object-record/advanced-filter/hooks/useSetAdvancedFilterDropdownAllRowsStates';
@@ -5,7 +7,7 @@ import { currentRecordFilterGroupsComponentState } from '@/object-record/record-
 import { currentRecordFiltersComponentState } from '@/object-record/record-filter/states/currentRecordFiltersComponentState';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useEffect, useState } from 'react';
+
 import { isDefined } from 'shared/utils';
 
 export type ChartFiltersSettingsInitializeStateEffectProps = {
@@ -15,8 +17,11 @@ export type ChartFiltersSettingsInitializeStateEffectProps = {
 export const ChartFiltersSettingsInitializeStateEffect = ({
   initialChartFilters,
 }: ChartFiltersSettingsInitializeStateEffectProps) => {
-  const [hasInitializedChartFilters, setHasInitializedChartFilters] =
-    useAtomComponentState(hasInitializedChartFiltersComponentState);
+  const hasInitializedChartFiltersRef = useRef(false);
+
+  const setHasInitializedChartFilters = useAtomComponentState(
+    hasInitializedChartFiltersComponentState,
+  )[1];
 
   const setCurrentRecordFilters = useSetAtomComponentState(
     currentRecordFiltersComponentState,
@@ -35,20 +40,19 @@ export const ChartFiltersSettingsInitializeStateEffect = ({
   ] = useState(false);
 
   useEffect(() => {
-    if (!hasInitializedChartFilters && isDefined(initialChartFilters)) {
+    if (!hasInitializedChartFiltersRef.current && isDefined(initialChartFilters)) {
       setCurrentRecordFilters(initialChartFilters.recordFilters ?? []);
       setCurrentRecordFilterGroups(
         initialChartFilters.recordFilterGroups ?? [],
       );
 
       setShouldSetAdvancedFilterDropdownStates(true);
+      hasInitializedChartFiltersRef.current = true;
       setHasInitializedChartFilters(true);
     }
   }, [
     setCurrentRecordFilters,
     setCurrentRecordFilterGroups,
-    setHasInitializedChartFilters,
-    hasInitializedChartFilters,
     initialChartFilters,
   ]);
 

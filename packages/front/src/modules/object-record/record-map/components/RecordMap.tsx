@@ -8,6 +8,7 @@ import {
   MAP_RECORD_LIMIT,
   useRecordMapRecords,
 } from '@/object-record/record-map/hooks/useRecordMapRecords';
+import { MAPBOX_CLUSTER_TEXT_FONT } from '@/object-record/record-map/constants/recordMapboxStyle.constant';
 import { useMapboxStandardStyle } from '@/object-record/record-map/hooks/useMapboxStandardStyle';
 import { useOpenRecordFromIndexView } from '@/object-record/record-index/hooks/useOpenRecordFromIndexView';
 import {
@@ -18,6 +19,10 @@ import {
 } from '@/object-record/record-map/tools/mapbox-tools.constant';
 import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapboxAccessToken';
 import { loadMapboxGl } from '@/object-record/record-map/tools/loadMapboxGl';
+import {
+  isMapUsable,
+  safeGetMapSource,
+} from '@/object-record/record-map/utils/isMapStyleLoaded';
 import { MAPBOX_MAP_COLORS } from '@/object-record/record-map/constants/recordMapboxMapColors.constant';
 import { MAPBOX_CATEGORY_COLORS } from '@/object-record/record-map/constants/recordMapboxCategoryColors.constant';
 import { isDefined } from 'shared/utils';
@@ -232,6 +237,10 @@ const fitMapToGeoJsonData = (
   }
 
   void loadMapboxGl().then((mapboxglModule) => {
+    if (!isMapUsable(mapInstance)) {
+      return;
+    }
+
     if (geoJsonData.features.length > 1) {
       const bounds = new mapboxglModule.LngLatBounds();
       geoJsonData.features.forEach((feature: GeoJSON.Feature) => {
@@ -254,65 +263,36 @@ const fitMapToGeoJsonData = (
   });
 };
 
-export const RecordMap = () => {
+type RecordMapCanvasProps = {
+  mapboxStyle: string;
+  accessToken: string;
+  geoJsonData: GeoJSON.FeatureCollection;
+  legendItems: { label: string; color: string }[];
+  categoryLegendLabel: string | undefined;
+  loading: boolean;
+  showLimitBanner: boolean;
+  totalCount: number | undefined;
+  objectNameSingular: string | undefined;
+  getStoredCenter: () => [number, number];
+};
+
+const RecordMapCanvas = ({
+  mapboxStyle,
+  accessToken,
+  geoJsonData,
+  legendItems,
+  categoryLegendLabel,
+  loading,
+  showLimitBanner,
+  totalCount,
+  objectNameSingular,
+  getStoredCenter,
+}: RecordMapCanvasProps) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapboxStyle = useMapboxStandardStyle();
   const { openRecordFromIndexView } = useOpenRecordFromIndexView();
-  const { accessToken, hasValidAccessToken, isClientConfigLoaded } =
-    useMapboxAccessToken();
 
   // oxlint-disable-next-line bades/no-state-useref
   const hoveredFeatureIdRef = useRef<string | number | null>(null);
-
-  const {
-    mapMarkers,
-    loading,
-    totalCount,
-    addressFieldMetadataItem,
-    categoryFieldMetadataItem,
-    objectNameSingular,
-  } = useRecordMapRecords();
-
-  const geoJsonData = useMemo(
-    (): GeoJSON.FeatureCollection => ({
-      type: 'FeatureCollection',
-      features: mapMarkers.map(({ id, name, lat, lng, category }) => ({
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [lng, lat] },
-        id,
-        properties: { id, name, category: category ?? '' },
-      })),
-    }),
-    [mapMarkers],
-  );
-
-  // Kumpulkan item legenda dari marker yang memiliki kategori
-  const legendItems = useMemo(
-    () => getLegendItems(mapMarkers, CATEGORY_COLORS, DEFAULT_MARKER_COLOR),
-    [mapMarkers],
-  );
-
-  // Persisted center/zoom per object — simpan preferensi view user.
-  const getStoredCenter = useCallback((): [number, number] => {
-    if (!objectNameSingular) return DEFAULT_CENTER;
-    try {
-      const stored = localStorage.getItem(getStorageKey(objectNameSingular));
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (
-          Array.isArray(parsed.center) &&
-          parsed.center.length === 2 &&
-          typeof parsed.center[0] === 'number' &&
-          typeof parsed.center[1] === 'number'
-        ) {
-          return parsed.center as [number, number];
-        }
-      }
-    } catch {
-      // localStorage corrupted — ignore, use default
-    }
-    return DEFAULT_CENTER;
-  }, [objectNameSingular]);
 
   const storeCurrentCenter = useCallback(
     (map: mapboxgl.Map) => {
@@ -332,7 +312,6 @@ export const RecordMap = () => {
     [objectNameSingular],
   );
 
-  // Hook tools — lifecycle map, source data, popup, geolocate.
   const { map, isReady } = useMapboxMap({
     containerRef: mapContainerRef,
     accessToken,
@@ -342,6 +321,7 @@ export const RecordMap = () => {
     moveEndThrottleMs: MOVE_END_THROTTLE_MS,
     onLoad: (mapInstance) => {
       void loadMapboxGl().then((mapboxglModule) => {
+        if (!isMapUsable(mapInstance)) return;
         mapInstance.addControl(
           new mapboxglModule.NavigationControl(),
           'bottom-right',
@@ -351,121 +331,11 @@ export const RecordMap = () => {
     onMoveEnd: storeCurrentCenter,
   });
 
-  useMapboxSource({
-    map,
-    isReady,
-    sourceId: SOURCE_ID,
-    data: geoJsonData,
-    cluster: true,
-    clusterMaxZoom: CLUSTER_MAX_ZOOM,
-    clusterRadius: CLUSTER_RADIUS,
-    onSourceReady: (mapInstance) => {
-      // Layer lingkaran cluster — ukuran proporsional berdasarkan jumlah titik.
-      // maxzoom: cluster tidak perlu di-render di zoom >= CLUSTER_MAX_ZOOM
-      // karena pada level itu semua titik sudah unclustered.
-      mapInstance.addLayer({
-        id: LAYER_CLUSTER_CIRCLE,
-        type: 'circle',
-        source: SOURCE_ID,
-        filter: ['has', 'point_count'],
-        maxzoom: CLUSTER_MAX_ZOOM,
-        paint: {
-          'circle-color': CLUSTER_COLOR,
-          'circle-opacity': 0.3,
-          'circle-radius': ['step', ['get', 'point_count'], 20, 10, 30, 50, 40],
-          'circle-stroke-color': CLUSTER_COLOR,
-          'circle-stroke-width': 2,
-          'circle-stroke-opacity': 0.6,
-        },
-      });
-
-      // Layer teks jumlah titik di tengah cluster.
-      // Sama seperti cluster circle — sembunyikan di zoom >= CLUSTER_MAX_ZOOM.
-      mapInstance.addLayer({
-        id: LAYER_CLUSTER_COUNT,
-        type: 'symbol',
-        source: SOURCE_ID,
-        filter: ['has', 'point_count'],
-        maxzoom: CLUSTER_MAX_ZOOM,
-        layout: {
-          'text-field': ['get', 'point_count_abbreviated'],
-          'text-font': ['Open Sans Bold', 'Noto Sans Bold'],
-          'text-size': 12,
-        },
-        paint: {
-          'text-color': CLUSTER_TEXT_COLOR,
-          'text-halo-color': CLUSTER_COLOR,
-          'text-halo-width': 1,
-        },
-      });
-
-      // Layer titik individu dengan data-driven styling via
-      // CATEGORY_COLOR_EXPRESSION (single source of truth dari
-      // CATEGORY_COLORS).
-      // minzoom: sembunyikan di bawah CLUSTER_MAX_ZOOM - 1 (zoom 13)
-      // agar tidak tumpang tindih dengan cluster circles.
-      mapInstance.addLayer({
-        id: LAYER_UNCLUSTERED_POINT,
-        type: 'circle',
-        source: SOURCE_ID,
-        filter: ['!', ['has', 'point_count']],
-        minzoom: CLUSTER_MAX_ZOOM - 1,
-        paint: {
-          'circle-color': [
-            'case',
-            ['has', 'category'],
-            CATEGORY_COLOR_EXPRESSION,
-            DEFAULT_MARKER_COLOR,
-          ],
-          'circle-radius': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            11,
-            7,
-          ],
-          'circle-stroke-color': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            'white',
-            'white',
-          ],
-          'circle-stroke-width': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            3,
-            2,
-          ],
-          'circle-opacity': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            1,
-            0.9,
-          ],
-        },
-      });
-
-      fitMapToGeoJsonData(mapInstance, geoJsonData);
-
-      attachClickHandlers(mapInstance);
-    },
-  });
-
-  useEffect(() => {
-    if (!map || !isReady || geoJsonData.features.length === 0) {
-      return;
-    }
-    fitMapToGeoJsonData(map, geoJsonData);
-  }, [map, isReady, geoJsonData]);
-
-  useMapboxGeolocate({ map, position: 'top-right' });
-
   const { showTextPopup, closePopup } = useMapboxPopup({
     map,
     offset: MAP_POPUP_OFFSET,
   });
 
-  // Pasang event handler cluster + point click ke peta.
-  // Dipisah dari `onSourceReady` agar tidak terjadi double-attach.
   const attachClickHandlers = useCallback(
     (mapInstance: mapboxgl.Map) => {
       const handleClusterClick = (e: mapboxgl.MapMouseEvent) => {
@@ -474,7 +344,7 @@ export const RecordMap = () => {
         });
         if (!features.length) return;
         const clusterId = features[0].properties?.cluster_id;
-        const source = mapInstance.getSource(SOURCE_ID) as
+        const source = safeGetMapSource(mapInstance, SOURCE_ID) as
           | mapboxgl.GeoJSONSource
           | undefined;
         if (!source) return;
@@ -503,10 +373,6 @@ export const RecordMap = () => {
         openRecordFromIndexView({ recordId });
       };
 
-      // Hover highlight via Mapbox feature-state — lebih efisien daripada
-      // ganti paint property secara imperatif. Nilai `hover` di-set via
-      // `setFeatureState` di mouseenter/mouseleave, dan paint expression
-      // `['feature-state', 'hover']` membaca nilai itu per-feature.
       const handleClusterMouseEnter = () => {
         mapInstance.getCanvas().style.cursor = 'pointer';
       };
@@ -583,6 +449,191 @@ export const RecordMap = () => {
     [closePopup, openRecordFromIndexView, showTextPopup],
   );
 
+  useMapboxSource({
+    map,
+    isReady,
+    sourceId: SOURCE_ID,
+    data: geoJsonData,
+    cluster: true,
+    clusterMaxZoom: CLUSTER_MAX_ZOOM,
+    clusterRadius: CLUSTER_RADIUS,
+    onSourceReady: (mapInstance) => {
+      mapInstance.addLayer({
+        id: LAYER_CLUSTER_CIRCLE,
+        type: 'circle',
+        source: SOURCE_ID,
+        filter: ['has', 'point_count'],
+        maxzoom: CLUSTER_MAX_ZOOM,
+        paint: {
+          'circle-color': CLUSTER_COLOR,
+          'circle-opacity': 0.3,
+          'circle-radius': ['step', ['get', 'point_count'], 20, 10, 30, 50, 40],
+          'circle-stroke-color': CLUSTER_COLOR,
+          'circle-stroke-width': 2,
+          'circle-stroke-opacity': 0.6,
+        },
+      });
+
+      mapInstance.addLayer({
+        id: LAYER_CLUSTER_COUNT,
+        type: 'symbol',
+        source: SOURCE_ID,
+        filter: ['has', 'point_count'],
+        maxzoom: CLUSTER_MAX_ZOOM,
+        layout: {
+          'text-field': ['get', 'point_count_abbreviated'],
+          'text-font': [...MAPBOX_CLUSTER_TEXT_FONT],
+          'text-size': 12,
+        },
+        paint: {
+          'text-color': CLUSTER_TEXT_COLOR,
+          'text-halo-color': CLUSTER_COLOR,
+          'text-halo-width': 1,
+        },
+      });
+
+      mapInstance.addLayer({
+        id: LAYER_UNCLUSTERED_POINT,
+        type: 'circle',
+        source: SOURCE_ID,
+        filter: ['!', ['has', 'point_count']],
+        minzoom: CLUSTER_MAX_ZOOM - 1,
+        paint: {
+          'circle-color': [
+            'case',
+            ['has', 'category'],
+            CATEGORY_COLOR_EXPRESSION,
+            DEFAULT_MARKER_COLOR,
+          ],
+          'circle-radius': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            11,
+            7,
+          ],
+          'circle-stroke-color': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            'white',
+            'white',
+          ],
+          'circle-stroke-width': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            3,
+            2,
+          ],
+          'circle-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            1,
+            0.9,
+          ],
+        },
+      });
+
+      fitMapToGeoJsonData(mapInstance, geoJsonData);
+      attachClickHandlers(mapInstance);
+    },
+  });
+
+  useEffect(() => {
+    if (!map || !isReady || !isMapUsable(map) || geoJsonData.features.length === 0) {
+      return;
+    }
+    fitMapToGeoJsonData(map, geoJsonData);
+  }, [map, isReady, geoJsonData]);
+
+  useMapboxGeolocate({ map, position: 'top-right' });
+
+  return (
+    <StyledMapContainer>
+      <div ref={mapContainerRef} style={{ height: '100%', width: '100%' }} />
+      {showLimitBanner && (
+        <StyledLimitBanner>
+          Menampilkan {MAP_RECORD_LIMIT.toLocaleString('id-ID')} dari{' '}
+          {totalCount?.toLocaleString('id-ID')} record. Persempit filter untuk
+          melihat semua.
+        </StyledLimitBanner>
+      )}
+      {loading && (
+        <StyledLoadingOverlay>
+          <StyledLoadingSpinner />
+          <StyledLoadingText>Memuat peta...</StyledLoadingText>
+        </StyledLoadingOverlay>
+      )}
+      {legendItems.length > 0 && (
+        <StyledLegend>
+          <StyledLegendTitle>
+            {categoryLegendLabel ?? 'Kategori'}
+          </StyledLegendTitle>
+          {legendItems.map((item) => (
+            <StyledLegendItem key={item.label}>
+              <StyledLegendColor $color={item.color} />
+              <StyledLegendLabel>{item.label}</StyledLegendLabel>
+            </StyledLegendItem>
+          ))}
+        </StyledLegend>
+      )}
+    </StyledMapContainer>
+  );
+};
+
+export const RecordMap = () => {
+  const mapboxStyle = useMapboxStandardStyle();
+  const { accessToken, hasValidAccessToken, isClientConfigLoaded } =
+    useMapboxAccessToken();
+
+  const {
+    mapMarkers,
+    loading,
+    totalCount,
+    addressFieldMetadataItem,
+    categoryFieldMetadataItem,
+    objectNameSingular,
+  } = useRecordMapRecords();
+
+  const geoJsonData = useMemo(
+    (): GeoJSON.FeatureCollection => ({
+      type: 'FeatureCollection',
+      features: mapMarkers.map(({ id, name, lat, lng, category }) => ({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [lng, lat] },
+        id,
+        properties: { id, name, category: category ?? '' },
+      })),
+    }),
+    [mapMarkers],
+  );
+
+  // Kumpulkan item legenda dari marker yang memiliki kategori
+  const legendItems = useMemo(
+    () => getLegendItems(mapMarkers, CATEGORY_COLORS, DEFAULT_MARKER_COLOR),
+    [mapMarkers],
+  );
+
+  // Persisted center/zoom per object — simpan preferensi view user.
+  const getStoredCenter = useCallback((): [number, number] => {
+    if (!objectNameSingular) return DEFAULT_CENTER;
+    try {
+      const stored = localStorage.getItem(getStorageKey(objectNameSingular));
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (
+          Array.isArray(parsed.center) &&
+          parsed.center.length === 2 &&
+          typeof parsed.center[0] === 'number' &&
+          typeof parsed.center[1] === 'number'
+        ) {
+          return parsed.center as [number, number];
+        }
+      }
+    } catch {
+      // localStorage corrupted — ignore, use default
+    }
+    return DEFAULT_CENTER;
+  }, [objectNameSingular]);
+
   const showLimitBanner =
     isDefined(totalCount) && totalCount > MAP_RECORD_LIMIT;
 
@@ -642,34 +693,18 @@ export const RecordMap = () => {
   }
 
   return (
-    <StyledMapContainer>
-      <div ref={mapContainerRef} style={{ height: '100%', width: '100%' }} />
-      {showLimitBanner && (
-        <StyledLimitBanner>
-          Menampilkan {MAP_RECORD_LIMIT.toLocaleString('id-ID')} dari{' '}
-          {totalCount.toLocaleString('id-ID')} record. Persempit filter untuk
-          melihat semua.
-        </StyledLimitBanner>
-      )}
-      {loading && (
-        <StyledLoadingOverlay>
-          <StyledLoadingSpinner />
-          <StyledLoadingText>Memuat peta...</StyledLoadingText>
-        </StyledLoadingOverlay>
-      )}
-      {mapMarkers.length > 0 && legendItems.length > 0 && (
-        <StyledLegend>
-          <StyledLegendTitle>
-            {categoryFieldMetadataItem?.label ?? 'Kategori'}
-          </StyledLegendTitle>
-          {legendItems.map((item) => (
-            <StyledLegendItem key={item.label}>
-              <StyledLegendColor $color={item.color} />
-              <StyledLegendLabel>{item.label}</StyledLegendLabel>
-            </StyledLegendItem>
-          ))}
-        </StyledLegend>
-      )}
-    </StyledMapContainer>
+    <RecordMapCanvas
+      key={mapboxStyle}
+      mapboxStyle={mapboxStyle}
+      accessToken={accessToken}
+      geoJsonData={geoJsonData}
+      legendItems={legendItems}
+      categoryLegendLabel={categoryFieldMetadataItem?.label}
+      loading={loading}
+      showLimitBanner={showLimitBanner}
+      totalCount={totalCount}
+      objectNameSingular={objectNameSingular}
+      getStoredCenter={getStoredCenter}
+    />
   );
 };

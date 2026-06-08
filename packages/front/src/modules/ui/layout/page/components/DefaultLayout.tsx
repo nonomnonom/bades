@@ -79,6 +79,7 @@ export const DefaultLayout = () => {
             <InformationBannerIsImpersonating />
             <LayoutCustomizationBar />
             <StyledPageContainer
+              layout
               animate={{
                 marginLeft:
                   isSettingsPage && !isMobile && !useShowFullScreen

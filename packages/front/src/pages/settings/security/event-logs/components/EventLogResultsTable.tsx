@@ -1,7 +1,8 @@
 import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { styled } from '@linaria/react';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+
 import { useInView } from 'react-intersection-observer';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
@@ -113,13 +114,18 @@ export const EventLogResultsTable = ({
     Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
   );
 
+  const columnWidthsInitializedRef = useRef(false);
+
   const [resizingColumn, setResizingColumn] = useState<string | null>(null);
 
   // Reset column widths when switching tables to avoid undefined widths for new columns
   useEffect(() => {
-    setColumnWidths(
-      Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
-    );
+    if (columnWidthsInitializedRef.current) {
+      setColumnWidths(
+        Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
+      );
+    }
+    columnWidthsInitializedRef.current = true;
   }, [selectedTable, baseColumns]);
 
   const handleResizeStart = useCallback(

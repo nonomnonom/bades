@@ -26,7 +26,7 @@ export const SettingsRadioCardContainer = ({
   onChange,
 }: SettingsRadioCardContainerProps) => {
   return (
-    <StyledRadioCardContainer role="radiogroup">
+    <StyledRadioCardContainer role="radiogroup" aria-label="Pilihan pengaturan">
       {options.map((option) => (
         <SettingsRadioCard
           key={option.value}

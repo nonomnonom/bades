@@ -1,7 +1,5 @@
-import {
-  setSessionId,
-  useEventTracker,
-} from '@/analytics/hooks/useEventTracker';
+import { useStore } from 'jotai';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useExecuteTasksOnAnyLocationChange } from '@/app/hooks/useExecuteTasksOnAnyLocationChange';
 import { isAppEffectRedirectEnabledState } from '@/app/states/isAppEffectRedirectEnabledState';
 import { ONBOARDING_PATHS } from '@/auth/constants/OnboardingPaths';
@@ -33,8 +31,10 @@ import { FocusComponentType } from '@/ui/utilities/focus/types/FocusComponentTyp
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { currentPageLayoutIdState } from '@/page-layout/states/currentPageLayoutIdState';
-import { useStore } from 'jotai';
-import { useCallback, useEffect, useState } from 'react';
+import {
+  setSessionId,
+  useEventTracker,
+} from '@/analytics/hooks/useEventTracker';
 import {
   matchPath,
   useLocation,
@@ -60,6 +60,10 @@ const AUTH_AND_ONBOARDING_PATHS = [
 //  - moved usePageChangeEffectNavigateLocation into dedicated hook
 export const PageChangeEffect = () => {
   const store = useStore();
+  const storeRef = useRef(store);
+
+  storeRef.current = store;
+
   const navigate = useNavigate();
 
   const [previousLocation, setPreviousLocation] = useState('');
@@ -117,7 +121,7 @@ export const PageChangeEffect = () => {
   );
 
   const closeSidePanelUnlessNotRelevant = useCallback(() => {
-    const currentPage = store.get(sidePanelPageState.atom);
+    const currentPage = storeRef.current.get(sidePanelPageState.atom);
 
     if (currentPage === SidePanelPages.NavigationMenuItemEdit) {
       return;
@@ -130,7 +134,7 @@ export const PageChangeEffect = () => {
     }
 
     closeSidePanelMenu();
-  }, [closeSidePanelMenu, store]);
+  }, [closeSidePanelMenu]);
 
   const { resetFocusStackToFocusItem } = useResetFocusStackToFocusItem();
 
@@ -149,12 +153,12 @@ export const PageChangeEffect = () => {
 
       const newPageLayoutId = getPageLayoutIdForLocation({
         location,
-        store,
+        store: storeRef.current,
       });
 
-      store.set(currentPageLayoutIdState.atom, newPageLayoutId);
+      storeRef.current.set(currentPageLayoutIdState.atom, newPageLayoutId);
     }
-  }, [location, previousLocation, executeTasksOnAnyLocationChange, store]);
+  }, [location, previousLocation, executeTasksOnAnyLocationChange]);
 
   useEffect(() => {
     initializeQueryParamState();
@@ -233,7 +237,7 @@ export const PageChangeEffect = () => {
           });
         }
 
-        const isSidePanelOpen = store.get(isSidePanelOpenedState.atom);
+        const isSidePanelOpen = storeRef.current.get(isSidePanelOpenedState.atom);
 
         if (isSidePanelOpen) {
           return;
@@ -396,7 +400,6 @@ export const PageChangeEffect = () => {
     resetFocusStackToRecordIndex,
     resetFocusStackToFocusItem,
     openNewRecordTitleCell,
-    store,
   ]);
 
   useEffect(() => {

@@ -25,8 +25,9 @@ export const SignInUpEmailField = ({
 
   return (
     <StyledFullWidthMotionDiv
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: 'auto' }}
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{
         type: 'spring',
         stiffness: 800,

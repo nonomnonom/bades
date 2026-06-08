@@ -4,7 +4,8 @@ import {
   type TypedDocumentNode,
 } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import { isDefined } from 'shared/utils';
 
 export type UseQueryWithCallbacksOptions<
@@ -39,17 +40,13 @@ export const useQueryWithCallbacks = <
 
   const variablesString = JSON.stringify(queryOptions.variables);
 
-  const [lastProcessedVariablesString, setLastProcessedVariablesString] =
-    useState<string | null>(null);
-
-  const [hasProcessedCurrentFetchCycle, setHasProcessedCurrentFetchCycle] =
-    useState(false);
-
-  const [hasEverLoaded, setHasEverLoaded] = useState(false);
+  const lastProcessedVariablesRef = useRef<string | null>(null);
+  const hasProcessedCurrentFetchCycleRef = useRef(false);
+  const hasEverLoadedRef = useRef(false);
 
   useEffect(() => {
     if (networkStatus !== NetworkStatus.ready) {
-      setHasProcessedCurrentFetchCycle(false);
+      hasProcessedCurrentFetchCycleRef.current = false;
       return;
     }
 
@@ -57,18 +54,18 @@ export const useQueryWithCallbacks = <
       return;
     }
 
-    const variablesChanged = variablesString !== lastProcessedVariablesString;
+    const variablesChanged = variablesString !== lastProcessedVariablesRef.current;
 
-    if (hasProcessedCurrentFetchCycle && !variablesChanged) {
+    if (hasProcessedCurrentFetchCycleRef.current && !variablesChanged) {
       return;
     }
 
-    setHasProcessedCurrentFetchCycle(true);
-    setLastProcessedVariablesString(variablesString);
+    hasProcessedCurrentFetchCycleRef.current = true;
+    lastProcessedVariablesRef.current = variablesString;
 
-    const isFirstLoad = !hasEverLoaded;
+    const isFirstLoad = !hasEverLoadedRef.current;
 
-    setHasEverLoaded(true);
+    hasEverLoadedRef.current = true;
 
     const typedData = data as TData;
 
@@ -83,9 +80,6 @@ export const useQueryWithCallbacks = <
     networkStatus,
     data,
     variablesString,
-    lastProcessedVariablesString,
-    hasProcessedCurrentFetchCycle,
-    hasEverLoaded,
     onFirstLoad,
     onSubsequentLoad,
     onDataLoaded,

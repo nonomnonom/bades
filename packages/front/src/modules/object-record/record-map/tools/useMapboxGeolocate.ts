@@ -1,4 +1,10 @@
+import type mapboxgl from 'mapbox-gl';
 import { useEffect, useRef } from 'react';
+
+import {
+  isMapUsable,
+  safeRemoveMapControl,
+} from '@/object-record/record-map/utils/isMapStyleLoaded';
 
 import { loadMapboxGl } from './loadMapboxGl';
 
@@ -47,13 +53,38 @@ export const useMapboxGeolocate = (
   useEffect(() => {
     if (!map) return undefined;
 
-    // Ref cleanup agar return useEffect bisa invoke dari async path.
     const cleanupRef: { current: (() => void) | null } = { current: null };
     let cancelled = false;
+    let waitForLoadHandler: (() => void) | null = null;
 
-    void (async () => {
-      const mapboxgl = await loadMapboxGl();
-      if (cancelled) return;
+    const detachControl = (control: mapboxgl.GeolocateControl) => {
+      try {
+        control.off('geolocate', handleGeolocate);
+        control.off('error', handleErrorEvent);
+      } catch {
+        // Kontrol belum selesai init — abaikan.
+      }
+      safeRemoveMapControl(map, control);
+      if (controlRef.current === control) {
+        controlRef.current = null;
+      }
+    };
+
+    const handleGeolocate = (event: GeolocationPosition) => {
+      onSuccess?.({
+        longitude: event.coords.longitude,
+        latitude: event.coords.latitude,
+      });
+    };
+
+    const handleErrorEvent = (event: GeolocationPositionError) => {
+      onError?.(event);
+    };
+
+    const attachControl = (mapboxgl: Awaited<ReturnType<typeof loadMapboxGl>>) => {
+      if (cancelled || !isMapUsable(map) || controlRef.current !== null) {
+        return;
+      }
 
       const control = new mapboxgl.GeolocateControl({
         positionOptions: { enableHighAccuracy: true },
@@ -63,33 +94,36 @@ export const useMapboxGeolocate = (
       controlRef.current = control;
       map.addControl(control, position);
 
-      const handleGeolocate = (event: GeolocationPosition) => {
-        onSuccess?.({
-          longitude: event.coords.longitude,
-          latitude: event.coords.latitude,
-        });
-      };
-
-      const handleErrorEvent = (event: GeolocationPositionError) => {
-        onError?.(event);
-      };
-
       control.on('geolocate', handleGeolocate);
       control.on('error', handleErrorEvent);
 
       cleanupRef.current = () => {
-        control.off('geolocate', handleGeolocate);
-        control.off('error', handleErrorEvent);
-        if (controlRef.current) {
-          map.removeControl(controlRef.current);
-          controlRef.current = null;
-        }
+        detachControl(control);
       };
+    };
+
+    void (async () => {
+      const mapboxgl = await loadMapboxGl();
+      if (cancelled) return;
+
+      if (isMapUsable(map)) {
+        attachControl(mapboxgl);
+        return;
+      }
+
+      waitForLoadHandler = () => {
+        attachControl(mapboxgl);
+      };
+      map.once('load', waitForLoadHandler);
     })();
 
     return () => {
       cancelled = true;
+      if (waitForLoadHandler !== null) {
+        map.off('load', waitForLoadHandler);
+      }
       cleanupRef.current?.();
+      cleanupRef.current = null;
     };
   }, [
     map,

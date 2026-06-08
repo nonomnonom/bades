@@ -6,7 +6,8 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { hasInitializedCurrentRecordFilterGroupsComponentFamilyState } from '@/views/states/hasInitializedCurrentRecordFilterGroupsComponentFamilyState';
 import { hasInitializedCurrentRecordFiltersComponentFamilyState } from '@/views/states/hasInitializedCurrentRecordFiltersComponentFamilyState';
 import { type FindRecordsActionFilter } from '@/workflow/workflow-steps/workflow-actions/find-records-action/components/WorkflowEditActionFindRecords';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import { isDefined } from 'shared/utils';
 
 export const WorkflowFindRecordsFiltersEffect = ({
@@ -14,8 +15,11 @@ export const WorkflowFindRecordsFiltersEffect = ({
 }: {
   defaultValue?: FindRecordsActionFilter;
 }) => {
+  const hasInitializedRecordFiltersRef = useRef(false);
+  const hasInitializedRecordFilterGroupsRef = useRef(false);
+
   const [
-    hasInitializedCurrentRecordFilters,
+    ,
     setHasInitializedCurrentRecordFilters,
   ] = useAtomComponentFamilyState(
     hasInitializedCurrentRecordFiltersComponentFamilyState,
@@ -23,7 +27,7 @@ export const WorkflowFindRecordsFiltersEffect = ({
   );
 
   const [
-    hasInitializedCurrentRecordFilterGroups,
+    ,
     setHasInitializedCurrentRecordFilterGroups,
   ] = useAtomComponentFamilyState(
     hasInitializedCurrentRecordFilterGroupsComponentFamilyState,
@@ -48,33 +52,31 @@ export const WorkflowFindRecordsFiltersEffect = ({
 
   useEffect(() => {
     if (
-      !hasInitializedCurrentRecordFilters &&
+      !hasInitializedRecordFiltersRef.current &&
       isDefined(defaultValue?.recordFilters)
     ) {
       setCurrentRecordFilters(defaultValue.recordFilters ?? []);
       setShouldSetAdvancedFilterDropdownStates(true);
+      hasInitializedRecordFiltersRef.current = true;
       setHasInitializedCurrentRecordFilters(true);
     }
   }, [
     setCurrentRecordFilters,
-    hasInitializedCurrentRecordFilters,
-    setHasInitializedCurrentRecordFilters,
     defaultValue?.recordFilters,
   ]);
 
   useEffect(() => {
     if (
-      !hasInitializedCurrentRecordFilterGroups &&
+      !hasInitializedRecordFilterGroupsRef.current &&
       isDefined(defaultValue?.recordFilterGroups) &&
       defaultValue.recordFilterGroups.length > 0
     ) {
       setCurrentRecordFilterGroups(defaultValue.recordFilterGroups ?? []);
+      hasInitializedRecordFilterGroupsRef.current = true;
       setHasInitializedCurrentRecordFilterGroups(true);
     }
   }, [
     setCurrentRecordFilterGroups,
-    hasInitializedCurrentRecordFilterGroups,
-    setHasInitializedCurrentRecordFilterGroups,
     defaultValue?.recordFilterGroups,
   ]);
 

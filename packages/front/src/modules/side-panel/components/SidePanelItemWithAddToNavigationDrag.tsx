@@ -45,6 +45,33 @@ const StyledDraggableMenuItem = styled.div<{
   }
 `;
 
+type DragHandleIconProps = {
+  icon?: IconComponent;
+  customIconContent?: ReactNode;
+  payload: AddToNavigationDragPayload;
+  isHovered: boolean;
+  disabled: boolean;
+  disableDrag: boolean;
+};
+
+const DragHandleIconComponent = ({
+  icon,
+  customIconContent,
+  payload,
+  isHovered,
+  disabled,
+  disableDrag,
+}: DragHandleIconProps) => (
+  <AddToNavigationDragHandle
+    icon={icon}
+    customIconContent={customIconContent}
+    payload={payload}
+    isHovered={isHovered}
+    disabled={disabled}
+    disableDrag={disableDrag}
+  />
+);
+
 export const SidePanelItemWithAddToNavigationDrag = ({
   icon,
   customIconContent,
@@ -68,7 +95,7 @@ export const SidePanelItemWithAddToNavigationDrag = ({
     : description;
 
   const DragHandleIcon = () => (
-    <AddToNavigationDragHandle
+    <DragHandleIconComponent
       icon={icon}
       customIconContent={customIconContent}
       payload={payload}

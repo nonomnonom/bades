@@ -37,6 +37,7 @@ export const CurrencyPickerDropdownSelect = ({
         onChange={(event) => setSearchFilter(event.target.value)}
         autoFocus
         role="combobox"
+        aria-label="Cari mata uang"
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>

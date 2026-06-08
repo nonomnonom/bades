@@ -1,6 +1,9 @@
 /* @license Enterprise */
 
 import { useEffect, useMemo, useState } from 'react';
+
+/* oxlint-disable no-adjust-state-on-prop-change */
+
 import { isDefined } from 'shared/utils';
 
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { unmountFrontComponent, useFrontComponentId } from '..';
 
@@ -7,16 +7,16 @@ export type CommandProps = {
 };
 
 export const Command = ({ execute }: CommandProps) => {
-  const [hasExecuted, setHasExecuted] = useState(false);
+  const hasExecutedRef = useRef(false);
 
   const frontComponentId = useFrontComponentId();
 
   useEffect(() => {
-    if (hasExecuted) {
+    if (hasExecutedRef.current) {
       return;
     }
 
-    setHasExecuted(true);
+    hasExecutedRef.current = true;
 
     const run = async () => {
       await execute();
@@ -25,7 +25,7 @@ export const Command = ({ execute }: CommandProps) => {
     };
 
     run();
-  }, [execute, hasExecuted, frontComponentId]);
+  }, [execute, frontComponentId]);
 
   return null;
 };

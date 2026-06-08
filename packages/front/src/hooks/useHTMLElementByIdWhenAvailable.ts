@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import { isDefined } from 'shared/utils';
 
 export const useHTMLElementByIdWhenAvailable = (id: string) => {
   const [element, setElement] = useState<HTMLElement | null>(null);
-  const [isObserving, setIsObserving] = useState<boolean>(false);
+  const isObservingRef = useRef(false);
 
   useEffect(() => {
-    if (isObserving || isDefined(element)) {
+    if (isObservingRef.current || isDefined(element)) {
       return;
     }
 
@@ -23,12 +24,12 @@ export const useHTMLElementByIdWhenAvailable = (id: string) => {
 
       if (isDefined(elementObserved)) {
         setElement(elementObserved);
-        setIsObserving(false);
+        isObservingRef.current = false;
         mutationObserver.disconnect();
       }
     });
 
-    setIsObserving(true);
+    isObservingRef.current = true;
     mutationObserver.observe(document.body, {
       childList: true,
       subtree: true,
@@ -37,7 +38,7 @@ export const useHTMLElementByIdWhenAvailable = (id: string) => {
     return () => {
       mutationObserver.disconnect();
     };
-  }, [element, id, isObserving]);
+  }, [element, id]);
 
   return {
     element,

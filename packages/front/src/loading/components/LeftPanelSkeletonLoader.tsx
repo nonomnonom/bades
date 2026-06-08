@@ -53,8 +53,12 @@ export const LeftPanelSkeletonLoader = () => {
     <StyledAnimatedContainer
       initial={false}
       animate={{
-        width: isMobile ? 0 : NAVIGATION_DRAWER_CONSTRAINTS.default,
+        scaleX: isMobile ? 0 : 1,
         opacity: isMobile ? 0 : 1,
+      }}
+      style={{
+        width: isMobile ? 0 : NAVIGATION_DRAWER_CONSTRAINTS.default,
+        transformOrigin: 'left',
       }}
       transition={{
         duration: theme.animation.duration.fast,

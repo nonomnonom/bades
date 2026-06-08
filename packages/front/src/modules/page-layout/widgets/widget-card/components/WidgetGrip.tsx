@@ -38,9 +38,9 @@ export const WidgetGrip = ({ className, onClick }: WidgetGripProps) => {
       layout
       className={className}
       onClick={onClick}
-      initial={{ width: 0, opacity: 0 }}
-      animate={{ width: 20, opacity: 1 }}
-      exit={{ width: 0, opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{
         duration: theme.animation.duration.fast,
         ease: 'easeInOut',

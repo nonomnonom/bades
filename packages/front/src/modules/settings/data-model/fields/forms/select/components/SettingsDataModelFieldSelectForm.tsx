@@ -29,7 +29,8 @@ import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/Gene
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
 import {
@@ -186,7 +187,7 @@ export const SettingsDataModelFieldSelectForm = ({
     getValues,
   } = useFormContext<SettingsDataModelFieldSelectFormValues>();
 
-  const [hasAppliedNewOption, setHasAppliedNewOption] = useState(false);
+  const hasAppliedNewOptionRef = useRef(false);
   const [isBulkInputMode, setIsBulkInputMode] = useState(false);
   const [bulkInputText, setBulkInputText] = useState('');
 
@@ -197,15 +198,15 @@ export const SettingsDataModelFieldSelectForm = ({
   useEffect(() => {
     const newOptionValue = searchParams.get('newOption');
 
-    if (isDefined(newOptionValue) && !hasAppliedNewOption) {
+    if (isDefined(newOptionValue) && !hasAppliedNewOptionRef.current) {
       const newOption = generateNewSelectOption(initialOptions, newOptionValue);
 
       const optionsWithNew = [...initialOptions, newOption];
 
       setFormValue('options', optionsWithNew, { shouldDirty: true });
-      setHasAppliedNewOption(true);
+      hasAppliedNewOptionRef.current = true;
     }
-  }, [searchParams, hasAppliedNewOption, initialOptions, setFormValue]);
+  }, [searchParams, initialOptions, setFormValue]);
 
   const handleDragEnd = (
     values: FieldMetadataItemOption[],

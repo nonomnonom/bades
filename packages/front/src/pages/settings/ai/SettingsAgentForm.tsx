@@ -31,7 +31,8 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 import { SettingsAgentDetailSkeletonLoader } from './components/SettingsAgentDetailSkeletonLoader';
 import { SettingsAgentEvalsTab } from './components/SettingsAgentEvalsTab';
@@ -58,6 +59,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const navigate = useNavigateSettings();
   const navigateApp = useNavigateApp();
   const { enqueueErrorSnackBar } = useSnackBar();
+  const isInitializedRef = useRef(false);
   const [isReadonlyMode, setIsReadonlyMode] = useState(false);
   const [originalFormValues, setOriginalFormValues] = useState<
     ReturnType<typeof useSettingsAgentFormState>['formValues'] | null
@@ -91,7 +93,8 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   });
 
   useEffect(() => {
-    if (data) {
+    if (!isInitializedRef.current && data) {
+      isInitializedRef.current = true;
       const agent = data?.findOneAgent;
       if (isDefined(agent)) {
         if (isDefined(agent.applicationId)) {

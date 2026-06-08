@@ -35,6 +35,9 @@ import {
   type SliceTooltipProps,
 } from '@nivo/line';
 import { useCallback, useContext, useRef, useState } from 'react';
+
+/* oxlint-disable no-nested-component-definition */
+
 import { isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
 import { useDebouncedCallback } from 'use-debounce';

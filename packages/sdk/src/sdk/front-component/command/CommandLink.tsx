@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { type NavigateOptions } from 'react-router-dom';
 import { type AppPath } from 'shared/types';
@@ -18,16 +18,16 @@ export const CommandLink = <T extends AppPath>({
   queryParams,
   options,
 }: CommandLinkProps<T>) => {
-  const [hasExecuted, setHasExecuted] = useState(false);
+  const hasExecutedRef = useRef(false);
 
   const frontComponentId = useFrontComponentId();
 
   useEffect(() => {
-    if (hasExecuted) {
+    if (hasExecutedRef.current) {
       return;
     }
 
-    setHasExecuted(true);
+    hasExecutedRef.current = true;
 
     const run = async () => {
       await navigate(to, params, queryParams, options);
@@ -36,7 +36,7 @@ export const CommandLink = <T extends AppPath>({
     };
 
     run();
-  }, [to, params, queryParams, options, hasExecuted, frontComponentId]);
+  }, [to, params, queryParams, options, frontComponentId]);
 
   return null;
 };

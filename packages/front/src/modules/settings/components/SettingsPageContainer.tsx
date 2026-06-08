@@ -37,7 +37,7 @@ export const SettingsPageContainer = ({
   children: ReactNode;
 }) => {
   const isMobile = useIsMobile();
-  const location = useLocation();
+  const { pathname } = useLocation();
   const settingsPath = useMemo(() => {
     const sortedPaths = Object.values(SettingsPath).sort(
       (a, b) => b.length - a.length,
@@ -45,10 +45,10 @@ export const SettingsPageContainer = ({
 
     return sortedPaths.find((path) => {
       const settingsPath = getSettingsPath(path);
-      const match = matchPath(settingsPath, location.pathname);
+      const match = matchPath(settingsPath, pathname);
       return isDefined(match);
     });
-  }, [location.pathname]);
+  }, [pathname]);
 
   const componentInstanceId = `scroll-wrapper-settings-page-container-${settingsPath}`;
 

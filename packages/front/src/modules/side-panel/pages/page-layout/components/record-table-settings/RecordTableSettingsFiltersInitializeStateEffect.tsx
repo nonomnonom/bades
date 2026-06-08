@@ -8,7 +8,8 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { type View } from '@/views/types/View';
 import { mapViewFilterGroupsToRecordFilterGroups } from '@/views/utils/mapViewFilterGroupsToRecordFilterGroups';
 import { mapViewFiltersToFilters } from '@/views/utils/mapViewFiltersToFilters';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import { isDefined } from 'shared/utils';
 
 type RecordTableSettingsFiltersInitializeStateEffectProps = {
@@ -41,18 +42,18 @@ export const RecordTableSettingsFiltersInitializeStateEffect = ({
     flattenedFieldMetadataItemsSelector,
   );
 
-  const [hasInitializedFilters, setHasInitializedFilters] = useState(false);
+  const hasInitializedFiltersRef = useRef(false);
 
   const stateAlreadyHasFilters =
     currentRecordFilters.length > 0 || currentRecordFilterGroups.length > 0;
 
   useEffect(() => {
-    if (hasInitializedFilters) {
+    if (hasInitializedFiltersRef.current) {
       return;
     }
 
     if (stateAlreadyHasFilters) {
-      setHasInitializedFilters(true);
+      hasInitializedFiltersRef.current = true;
       return;
     }
 
@@ -69,25 +70,23 @@ export const RecordTableSettingsFiltersInitializeStateEffect = ({
       );
     }
 
-    setHasInitializedFilters(true);
+    hasInitializedFiltersRef.current = true;
   }, [
     view,
     flattenedFieldMetadataItems,
-    hasInitializedFilters,
     stateAlreadyHasFilters,
     setCurrentRecordFilters,
     setCurrentRecordFilterGroups,
   ]);
 
   useEffect(() => {
-    if (!hasInitializedFilters) {
+    if (!hasInitializedFiltersRef.current) {
       return;
     }
 
     setAdvancedFilterDropdownStates();
   }, [
     currentRecordFilters,
-    hasInitializedFilters,
     setAdvancedFilterDropdownStates,
   ]);
 

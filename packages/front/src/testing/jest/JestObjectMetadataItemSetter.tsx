@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 import { useUpdateMetadataStoreDraft } from '@/metadata-store/hooks/useUpdateMetadataStoreDraft';
 import { splitCompositeObjectMetadataItems } from '@/metadata-store/utils/splitCompositeObjectMetadataItems';
@@ -14,8 +14,11 @@ export const JestObjectMetadataItemSetter = ({
 }) => {
   const { replaceDraft, applyChanges } = useUpdateMetadataStoreDraft();
   const [isLoaded, setIsLoaded] = useState(false);
+  const isInitializedRef = useRef(false);
 
   useEffect(() => {
+    if (isInitializedRef.current) return;
+    isInitializedRef.current = true;
     const items =
       objectMetadataItems ?? getTestEnrichedObjectMetadataItemsMock();
     const { flatObjects, flatFields, flatIndexes } =

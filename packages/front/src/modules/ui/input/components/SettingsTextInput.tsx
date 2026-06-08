@@ -1,4 +1,5 @@
 import { type FocusEventHandler, useEffect, useRef, useState } from 'react';
+
 import { Key } from 'ts-key-enum';
 
 import {
@@ -34,13 +35,15 @@ export const SettingsTextInput = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
+  const autoFocusAppliedRef = useRef(false);
 
   useEffect(() => {
-    if (autoFocusOnMount === true) {
+    if (autoFocusOnMount === true && !autoFocusAppliedRef.current) {
+      autoFocusAppliedRef.current = true;
       inputRef.current?.focus();
       setIsFocused(true);
     }
-  }, [autoFocusOnMount]);
+  }, [autoFocusOnMount, inputRef]);
 
   useEffect(() => {
     if (autoSelectOnMount === true) {

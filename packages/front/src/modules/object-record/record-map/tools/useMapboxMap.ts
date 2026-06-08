@@ -1,6 +1,7 @@
 import { type RefObject, useEffect, useRef, useState } from 'react';
 
 import { warnIfMapboxTokenLooksInvalid } from '@/object-record/record-map/utils/getMapboxAccessToken';
+import { isMapUsable } from '@/object-record/record-map/utils/isMapStyleLoaded';
 
 import { loadMapboxGl } from './loadMapboxGl';
 
@@ -90,6 +91,7 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
 
   // State `isReady` adalah pengecualian — dipakai untuk render conditional.
   const [isReady, setIsReady] = useState(false);
+  const [mapInstance, setMapInstance] = useState<mapboxgl.Map | null>(null);
 
   // Sinkronkan callback refs dengan nilai terbaru di setiap render.
   // TIDAK menyebabkan effect init re-run.
@@ -128,6 +130,7 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
 
       mapRef.current = map;
       mapInstance = map;
+      setMapInstance(map);
 
       const handleLoad = () => {
         if (cancelled) return;
@@ -161,32 +164,32 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
 
     return () => {
       cancelled = true;
+      setIsReady(false);
+      setMapInstance(null);
       if (moveEndTimerRef.current !== null) {
         clearTimeout(moveEndTimerRef.current);
         moveEndTimerRef.current = null;
       }
-      if (mapInstance) {
-        onBeforeUnmountRef.current?.(mapInstance);
+      const mapToRemove = mapInstance ?? mapRef.current;
+      if (mapToRemove && isMapUsable(mapToRemove)) {
+        onBeforeUnmountRef.current?.(mapToRemove);
       }
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
       }
-      setIsReady(false);
     };
-    // Efek init hanya bergantung pada identitas container, token, dan
-    // konfigurasi map. Callback di-pass via ref agar perubahan callback
-    // tidak memicu re-init.
+    // `style` sengaja tidak ada di deps — parent remount komponen peta via key
+    // saat tema berubah agar lifecycle Mapbox tidak race dengan effect sibling.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     containerRef,
     accessToken,
-    style,
     moveEndThrottleMs,
     centerLng,
     centerLat,
     zoom,
   ]);
 
-  return { map: mapRef.current, isReady };
+  return { map: mapInstance, isReady };
 };

@@ -71,11 +71,17 @@ const bootstrap = async () => {
             "'unsafe-inline'",
             "'unsafe-eval'",
             'https://challenges.cloudflare.com',
+            'https://static.cloudflareinsights.com',
             'https://www.google.com',
             'https://www.gstatic.com',
           ],
           // 'unsafe-inline' diperlukan karena Linaria meng-generate inline <style>.
-          styleSrc: ["'self'", "'unsafe-inline'"],
+          // fonts.googleapis.com dipakai di index.html (Inter, DM Mono).
+          styleSrc: [
+            "'self'",
+            "'unsafe-inline'",
+            'https://fonts.googleapis.com',
+          ],
           imgSrc: ["'self'", 'data:', 'blob:', 'https:'],
           connectSrc: [
             "'self'",
@@ -86,7 +92,12 @@ const bootstrap = async () => {
             'https://challenges.cloudflare.com',
             'https://www.google.com',
           ],
-          fontSrc: ["'self'", 'data:'],
+          fontSrc: [
+            "'self'",
+            'data:',
+            'https://fonts.gstatic.com',
+            'https://api.mapbox.com',
+          ],
           frameSrc: [
             "'self'",
             'https://challenges.cloudflare.com',

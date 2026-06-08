@@ -1,6 +1,8 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useState } from 'react';
 
+/* oxlint-disable no-adjust-state-on-prop-change */
+
 import { fetchAllThreadMessagesOperationSignatureFactory } from '@/activities/emails/graphql/operation-signatures/factories/fetchAllThreadMessagesOperationSignatureFactory';
 import { type EmailThread } from '@/activities/emails/types/EmailThread';
 import { type EmailThreadMessage } from '@/activities/emails/types/EmailThreadMessage';

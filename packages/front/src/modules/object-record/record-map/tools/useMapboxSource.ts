@@ -1,5 +1,10 @@
 import { useEffect, useRef } from 'react';
 
+import {
+  isMapUsable,
+  safeGetMapSource,
+} from '@/object-record/record-map/utils/isMapStyleLoaded';
+
 export type MapboxSourceOptions<TData> = {
   map: mapboxgl.Map | null;
   isReady: boolean;
@@ -60,7 +65,7 @@ export const useMapboxSource = <TData>(
 
   // Tambah source dan layer sekali saat map ready.
   useEffect(() => {
-    if (!map || !isReady) return undefined;
+    if (!map || !isReady || !isMapUsable(map)) return undefined;
     if (isSourceAddedRef.current) return undefined;
 
     const sourceConfig: mapboxgl.GeoJSONSourceSpecification = {
@@ -80,20 +85,29 @@ export const useMapboxSource = <TData>(
     onSourceReadyRef.current?.(map);
 
     return () => {
-      // Hapus dependent layers dulu (Mapbox butuh urutan ini), baru source.
-      const style = map.getStyle();
-      const layers = style?.layers;
-      if (layers !== undefined) {
-        for (const layer of layers) {
-          if ('source' in layer && layer.source === sourceId) {
-            if (map.getLayer(layer.id)) {
-              map.removeLayer(layer.id);
+      if (!isMapUsable(map)) {
+        isSourceAddedRef.current = false;
+        return;
+      }
+
+      try {
+        // Hapus dependent layers dulu (Mapbox butuh urutan ini), baru source.
+        const style = map.getStyle();
+        const layers = style?.layers;
+        if (layers !== undefined) {
+          for (const layer of layers) {
+            if ('source' in layer && layer.source === sourceId) {
+              if (map.getLayer(layer.id)) {
+                map.removeLayer(layer.id);
+              }
             }
           }
         }
-      }
-      if (map.getSource(sourceId)) {
-        map.removeSource(sourceId);
+        if (safeGetMapSource(map, sourceId)) {
+          map.removeSource(sourceId);
+        }
+      } catch {
+        // Map sedang di-teardown — abaikan error cleanup.
       }
       isSourceAddedRef.current = false;
     };
@@ -102,9 +116,9 @@ export const useMapboxSource = <TData>(
 
   // Update data via setData saat data berubah (efisien).
   useEffect(() => {
-    if (!map || !isReady) return;
+    if (!map || !isReady || !isMapUsable(map)) return;
     if (!isSourceAddedRef.current) return;
-    const source = map.getSource(sourceId) as
+    const source = safeGetMapSource(map, sourceId) as
       | mapboxgl.GeoJSONSource
       | undefined;
     source?.setData(data as GeoJSON.FeatureCollection | string);

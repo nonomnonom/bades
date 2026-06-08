@@ -41,6 +41,16 @@ type CalendarEventDetailsProps = {
 
 const INPUT_ID_PREFIX = 'calendar-event-details';
 
+const STANDARD_FIELD_ORDER = [
+  'startsAt',
+  'endsAt',
+  'conferenceLink',
+  'location',
+  'description',
+] as const;
+
+const RECORD_FIELDS_SCOPE_VALUE = { scopeInstanceId: INPUT_ID_PREFIX } as const;
+
 const StyledContainer = styled.div`
   align-items: flex-start;
   background: ${themeCssVariables.background.secondary};
@@ -102,24 +112,22 @@ export const CalendarEventDetails = ({
     excludeCreatedAtAndUpdatedAt: true,
   });
 
-  const standardFieldOrder = [
-    'startsAt',
-    'endsAt',
-    'conferenceLink',
-    'location',
-    'description',
-  ];
+  const standardFields = STANDARD_FIELD_ORDER.reduce<
+    FieldMetadataItem[]
+  >((acc, fieldName) => {
+    const field = inlineFieldMetadataItems.find(
+      (fieldMetadataItem) => fieldMetadataItem.name === fieldName,
+    );
 
-  const standardFields = standardFieldOrder
-    .map((fieldName) =>
-      inlineFieldMetadataItems.find(
-        (fieldMetadataItem) => fieldMetadataItem.name === fieldName,
-      ),
-    )
-    .filter(isDefined);
+    if (isDefined(field)) {
+      acc.push(field);
+    }
+
+    return acc;
+  }, []);
 
   const customFields = inlineFieldMetadataItems.filter(
-    (field) => field.isCustom && !standardFieldOrder.includes(field.name),
+    (field) => field.isCustom && !STANDARD_FIELD_ORDER.includes(field.name),
   );
 
   const { calendarEventParticipants } = calendarEvent;
@@ -206,9 +214,7 @@ export const CalendarEventDetails = ({
   };
 
   return (
-    <RecordFieldsScopeContextProvider
-      value={{ scopeInstanceId: INPUT_ID_PREFIX }}
-    >
+    <RecordFieldsScopeContextProvider value={RECORD_FIELDS_SCOPE_VALUE}>
       <StyledContainer>
         <StyledEventChipWrapper>
           <Chip

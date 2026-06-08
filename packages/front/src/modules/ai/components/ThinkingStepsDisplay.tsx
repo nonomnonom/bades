@@ -252,6 +252,11 @@ const StyledToolErrorText = styled.p`
 
 type ToolDetailsTab = 'output' | 'input';
 
+const TOOL_TABS = [
+  { id: 'output' as const, title: `Keluaran` },
+  { id: 'input' as const, title: `Masukan` },
+];
+
 const ThinkingToolStepRow = ({
   isActive,
   part,
@@ -288,10 +293,7 @@ const ThinkingToolStepRow = ({
   );
   const activeTab: ToolDetailsTab =
     activeTabId === 'input' ? 'input' : 'output';
-  const toolTabs = [
-    { id: 'output', title: `Keluaran` },
-    { id: 'input', title: `Masukan` },
-  ];
+
 
   return (
     <StyledToolRowContainer>
@@ -334,7 +336,7 @@ const ThinkingToolStepRow = ({
               <StyledToolDetailsContent>
                 <StyledToolTabListContainer>
                   <TabList
-                    tabs={toolTabs}
+                    tabs={TOOL_TABS}
                     behaveAsLinks={false}
                     componentInstanceId={toolTabListComponentInstanceId}
                   />

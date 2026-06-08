@@ -1,4 +1,4 @@
-import { type PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { type PropsWithChildren, useContext, useEffect, useRef, useState } from 'react';
 
 import { contextStoreCurrentObjectMetadataItemIdComponentState } from '@/context-store/states/contextStoreCurrentObjectMetadataItemIdComponentState';
 import { contextStoreCurrentPageTypeComponentState } from '@/context-store/states/contextStoreCurrentPageTypeComponentState';
@@ -100,7 +100,11 @@ export const JestContextStoreSetter = ({
   const contextStoreCurrentObjectMetadataId = objectMetadataItem.id;
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const isInitializedRef = useRef(false);
+
   useEffect(() => {
+    if (isInitializedRef.current) return;
+    isInitializedRef.current = true;
     setContextStoreCurrentViewId(contextStoreCurrentViewId);
     setContextStoreTargetedRecordsRule(contextStoreTargetedRecordsRule);
     setContextStoreCurrentObjectMetadataItemId(objectMetadataItem.id);

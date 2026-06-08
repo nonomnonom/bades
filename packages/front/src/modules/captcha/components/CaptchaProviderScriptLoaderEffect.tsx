@@ -6,7 +6,7 @@ import { useCaptcha } from '@/client-config/hooks/useCaptcha';
 import { captchaState } from '@/client-config/states/captchaState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 import { CaptchaDriverType } from '~/generated-metadata/graphql';
@@ -17,12 +17,15 @@ export const CaptchaProviderScriptLoaderEffect = () => {
   const { isCaptchaScriptLoaded, isCaptchaConfigured } = useCaptcha();
   const { requestFreshCaptchaToken } = useRequestFreshCaptchaToken();
   const location = useLocation();
+  const pathnameRef = useRef(location.pathname);
+
+  pathnameRef.current = location.pathname;
 
   useEffect(() => {
     if (
       !captcha?.provider ||
       !captcha.siteKey ||
-      !isCaptchaRequiredForPath(location.pathname)
+      !isCaptchaRequiredForPath(pathnameRef.current)
     ) {
       return;
     }

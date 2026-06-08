@@ -30,5 +30,11 @@ const normalizeAttachment = (
 export const filterAttachmentsWithFile = (
   attachments: Attachment[],
 ): AttachmentWithFile[] => {
-  return attachments.filter(hasFileWithUrl).map(normalizeAttachment);
+  return attachments.reduce<AttachmentWithFile[]>((acc, attachment) => {
+    if (hasFileWithUrl(attachment)) {
+      acc.push(normalizeAttachment(attachment));
+    }
+
+    return acc;
+  }, []);
 };

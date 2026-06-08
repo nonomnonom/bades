@@ -1,5 +1,5 @@
 import { type Decorator } from '@storybook/react-vite';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { MAIN_CONTEXT_STORE_INSTANCE_ID } from '@/context-store/constants/MainContextStoreInstanceId';
 import { contextStoreCurrentObjectMetadataItemIdComponentState } from '@/context-store/states/contextStoreCurrentObjectMetadataItemIdComponentState';
@@ -23,10 +23,13 @@ export const ContextStoreDecorator: Decorator = (Story, context) => {
   );
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const isInitializedRef = useRef(false);
 
   const objectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 
   useEffect(() => {
+    if (isInitializedRef.current) return;
+    isInitializedRef.current = true;
     setContextStoreCurrentObjectMetadataItemId(objectMetadataItem.id);
     setIsLoaded(true);
   }, [setContextStoreCurrentObjectMetadataItemId, objectMetadataItem]);

@@ -13,7 +13,7 @@ export const useMaintenanceModeBannerDismissal = ({
   maintenanceStartAt?: string;
 }) => {
   const apolloCoreClient = useApolloCoreClient();
-  const [isDismissed, setIsDismissed] = useState(false);
+  const [localDismissed, setLocalDismissed] = useState(false);
 
   const { data, loading, refetch } = useQuery<{
     isMaintenanceModeBannerDismissed: boolean;
@@ -31,7 +31,7 @@ export const useMaintenanceModeBannerDismissal = ({
 
   useEffect(() => {
     if (!enabled) {
-      setIsDismissed(false);
+      setLocalDismissed(false);
 
       return;
     }
@@ -42,18 +42,18 @@ export const useMaintenanceModeBannerDismissal = ({
       return;
     }
 
-    setIsDismissed(false);
+    setLocalDismissed(false);
     void refetch();
   }, [enabled, maintenanceStartAt, refetch]);
 
   const dismissBanner = async () => {
     await mutate();
-    setIsDismissed(true);
+    setLocalDismissed(true);
   };
 
   return {
     dismissBanner,
-    isDismissed: isDismissed || data?.isMaintenanceModeBannerDismissed === true,
+    isDismissed: localDismissed || data?.isMaintenanceModeBannerDismissed === true,
     isLoading: enabled ? loading : false,
   };
 };

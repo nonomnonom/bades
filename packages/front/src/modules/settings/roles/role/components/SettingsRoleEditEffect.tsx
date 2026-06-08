@@ -6,7 +6,8 @@ import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTab
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useStore } from 'jotai';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+
 import { isDefined } from 'shared/utils';
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 
@@ -17,7 +18,7 @@ type SettingsRoleEditEffectProps = {
 export const SettingsRoleEditEffect = ({
   roleId,
 }: SettingsRoleEditEffectProps) => {
-  const [isInitialized, setIsInitialized] = useState(false);
+  const isInitializedRef = useRef(false);
 
   const settingsPersistedRole = useAtomFamilyStateValue(
     settingsPersistedRoleFamilyState,
@@ -44,15 +45,14 @@ export const SettingsRoleEditEffect = ({
   );
 
   useEffect(() => {
-    if (isInitialized || !isDefined(settingsPersistedRole)) {
+    if (isInitializedRef.current || !isDefined(settingsPersistedRole)) {
       return;
     }
 
     setActiveTabId(SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.PERMISSIONS);
     updateDraftRoleIfNeeded(settingsPersistedRole);
-    setIsInitialized(true);
+    isInitializedRef.current = true;
   }, [
-    isInitialized,
     settingsPersistedRole,
     setActiveTabId,
     updateDraftRoleIfNeeded,

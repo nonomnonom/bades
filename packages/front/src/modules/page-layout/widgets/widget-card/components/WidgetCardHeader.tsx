@@ -115,9 +115,10 @@ export const WidgetCardHeader = ({
             onRemove &&
             widgetCardHovered && (
               <StyledIconButtonContainer
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: 'auto', opacity: 1 }}
-                exit={{ width: 0, opacity: 0 }}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{
                   duration: theme.animation.duration.fast,
                   ease: 'easeInOut',

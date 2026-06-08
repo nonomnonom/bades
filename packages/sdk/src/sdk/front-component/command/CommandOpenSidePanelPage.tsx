@@ -3,7 +3,7 @@ import {
   unmountFrontComponent,
   useFrontComponentId,
 } from '@/sdk/front-component';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { type SidePanelPages } from 'shared/types';
 
@@ -22,16 +22,16 @@ export const CommandOpenSidePanelPage = ({
   onClick,
   shouldResetSearchState = false,
 }: CommandOpenSidePanelPageProps) => {
-  const [hasExecuted, setHasExecuted] = useState(false);
+  const hasExecutedRef = useRef(false);
 
   const frontComponentId = useFrontComponentId();
 
   useEffect(() => {
-    if (hasExecuted) {
+    if (hasExecutedRef.current) {
       return;
     }
 
-    setHasExecuted(true);
+    hasExecutedRef.current = true;
 
     const run = async () => {
       onClick?.();
@@ -53,7 +53,6 @@ export const CommandOpenSidePanelPage = ({
     pageIcon,
     shouldResetSearchState,
     onClick,
-    hasExecuted,
     frontComponentId,
   ]);
 

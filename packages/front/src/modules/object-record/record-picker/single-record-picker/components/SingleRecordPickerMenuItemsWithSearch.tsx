@@ -114,6 +114,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
         onChange={handleSearchFilterChange}
         autoFocus
         role="combobox"
+        aria-label="Cari dan pilih"
       />
       {layoutDirection === 'search-bar-on-top' && (
         <>
