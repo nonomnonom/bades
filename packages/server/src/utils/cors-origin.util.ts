@@ -5,6 +5,39 @@ const getAllowedUrls = (): string[] =>
     (url): url is string => url != null,
   );
 
+const isLocalhostFamilyHostname = (hostname: string): boolean =>
+  hostname === 'localhost' || hostname.endsWith('.localhost');
+
+const hostnameMatchesAllowed = (
+  originHostname: string,
+  allowedHostname: string,
+): boolean => {
+  if (originHostname === allowedHostname) {
+    return true;
+  }
+
+  // Dev native: FRONTEND_URL=http://localhost:3001 → izinkan app.localhost:3001,
+  // desa.localhost:3001, dll. (multi-workspace subdomain di *.localhost).
+  if (
+    isLocalhostFamilyHostname(allowedHostname) &&
+    isLocalhostFamilyHostname(originHostname)
+  ) {
+    return true;
+  }
+
+  const allowedDomainParts = allowedHostname.split('.');
+
+  if (allowedDomainParts.length >= 3) {
+    const baseDomain = allowedDomainParts.slice(-2).join('.');
+
+    if (originHostname.endsWith('.' + baseDomain)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 export const isOriginAllowed = (origin: string | undefined): boolean => {
   const allowedUrls = getAllowedUrls();
 
@@ -21,18 +54,8 @@ export const isOriginAllowed = (origin: string | undefined): boolean => {
   for (const allowed of allowedUrls) {
     const allowedHostname = new URL(allowed).hostname;
 
-    if (originHostname === allowedHostname) {
+    if (hostnameMatchesAllowed(originHostname, allowedHostname)) {
       return true;
-    }
-
-    const allowedDomainParts = allowedHostname.split('.');
-
-    if (allowedDomainParts.length >= 3) {
-      const baseDomain = allowedDomainParts.slice(-2).join('.');
-
-      if (originHostname.endsWith('.' + baseDomain)) {
-        return true;
-      }
     }
   }
 

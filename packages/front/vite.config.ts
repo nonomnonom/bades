@@ -127,11 +127,15 @@ export default defineConfig(({ mode }) => {
     ],
 
     optimizeDeps: {
-      include: [
-        'react/jsx-dev-runtime',
-        'react/jsx-runtime',
-        '@radix-ui/colors',
-      ],
+      esbuildOptions: {
+        // Pre-bundle deps dengan NODE_ENV=development agar react/jsx-dev-runtime
+        // mengekspor jsxDEV (bukan jsxDEV=undefined dari build production).
+        define: {
+          'process.env.NODE_ENV': JSON.stringify(
+            mode === 'development' ? 'development' : 'production',
+          ),
+        },
+      },
       exclude: [
         '../../node_modules/.vite',
         '../../node_modules/.cache',
@@ -233,6 +237,7 @@ export default defineConfig(({ mode }) => {
       'process.env': {
         IS_DEBUG_MODE,
         IS_DEV_ENV: mode === 'development' ? 'true' : 'false',
+        NODE_ENV: JSON.stringify(mode),
       },
     },
     css: {

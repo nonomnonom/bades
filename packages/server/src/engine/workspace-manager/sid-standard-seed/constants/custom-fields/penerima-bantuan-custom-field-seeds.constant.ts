@@ -1,5 +1,5 @@
 import { FieldMetadataType } from 'shared/types';
-import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
+import { type FieldMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/field-metadata-seed.type';
 
 export const PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
   {

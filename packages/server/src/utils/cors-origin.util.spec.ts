@@ -41,4 +41,15 @@ describe('cors-origin.util', () => {
       'https://app.bades.id',
     );
   });
+
+  it('mengizinkan subdomain *.localhost saat FRONTEND_URL pakai localhost', () => {
+    process.env.FRONTEND_URL = 'http://localhost:3001';
+    process.env.SERVER_URL = 'http://localhost:3000';
+
+    expect(isOriginAllowed('http://app.localhost:3001')).toBe(true);
+    expect(getAllowedCorsOriginHeader('http://app.localhost:3001')).toBe(
+      'http://app.localhost:3001',
+    );
+    expect(isOriginAllowed('http://desa-sukamaju.localhost:3001')).toBe(true);
+  });
 });

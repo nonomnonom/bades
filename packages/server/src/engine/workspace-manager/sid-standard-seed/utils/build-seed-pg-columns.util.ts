@@ -2,7 +2,7 @@ import { compositeTypeDefinitions } from 'shared/types';
 
 import { computeCompositeColumnName } from 'src/engine/metadata-modules/field-metadata/utils/compute-column-name.util';
 import { isCompositeFieldMetadataType } from 'src/engine/metadata-modules/field-metadata/utils/is-composite-field-metadata-type.util';
-import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
+import { type FieldMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/field-metadata-seed.type';
 
 export const ACTOR_AUDIT_SEED_COLUMNS = [
   'createdBySource',

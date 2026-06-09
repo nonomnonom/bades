@@ -1,6 +1,5 @@
 import { FieldMetadataType } from 'shared/types';
-
-import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
+import { type FieldMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/field-metadata-seed.type';
 
 export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
   {

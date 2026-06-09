@@ -14,15 +14,15 @@
 // NOT NULL pada keduanya. Helper `withActorAudit()` di bawah menyalin
 // default `'System'` + source `'MANUAL'` ke setiap row supaya tidak terlupa.
 
-import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/aset-desa-custom-field-seeds.constant';
-import { JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/jabatan-custom-field-seeds.constant';
-import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/keluarga-custom-field-seeds.constant';
-import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penduduk-custom-field-seeds.constant';
-import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penerima-bantuan-custom-field-seeds.constant';
-import { PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/permohonan-surat-custom-field-seeds.constant';
-import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/program-bantuan-custom-field-seeds.constant';
-import { SURAT_KELUAR_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/surat-keluar-custom-field-seeds.constant';
-import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/wilayah-custom-field-seeds.constant';
+import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/aset-desa-custom-field-seeds.constant';
+import { JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/jabatan-custom-field-seeds.constant';
+import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/keluarga-custom-field-seeds.constant';
+import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/penduduk-custom-field-seeds.constant';
+import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/penerima-bantuan-custom-field-seeds.constant';
+import { PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/permohonan-surat-custom-field-seeds.constant';
+import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/program-bantuan-custom-field-seeds.constant';
+import { SURAT_KELUAR_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/surat-keluar-custom-field-seeds.constant';
+import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/wilayah-custom-field-seeds.constant';
 import { buildSidStandardSeedColumns } from 'src/engine/workspace-manager/sid-standard-seed/utils/build-seed-pg-columns.util';
 
 const ACTOR_AUDIT_DEFAULTS = {

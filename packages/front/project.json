@@ -38,7 +38,10 @@
       "executor": "@nx/vite:dev-server",
       "options": {
         "buildTarget": "front:build",
-        "hmr": true
+        "hmr": true,
+        "env": {
+          "NODE_ENV": "development"
+        }
       }
     },
     "preview": {

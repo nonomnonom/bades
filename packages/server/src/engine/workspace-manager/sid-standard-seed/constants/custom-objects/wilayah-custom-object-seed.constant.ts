@@ -1,4 +1,4 @@
-import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
+import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/object-metadata-seed.type';
 
 export const WILAYAH_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Wilayah',

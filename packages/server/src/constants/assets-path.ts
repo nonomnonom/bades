@@ -1,8 +1,10 @@
 import path from 'path';
 
-// If the code is built through the testing module, assets are not output to the dist/assets directory.
-const IS_BUILT_THROUGH_TESTING_MODULE = !__dirname.includes('/dist/');
+// Deteksi output compile (dist/) harus cross-platform — di Windows __dirname memakai
+// backslash sehingga includes('/dist/') selalu false dan ASSET_PATH salah.
+export const isRunningFromCompiledDist = (dirname: string): boolean =>
+  dirname.replace(/\\/g, '/').includes('/dist/');
 
-export const ASSET_PATH = IS_BUILT_THROUGH_TESTING_MODULE
-  ? path.resolve(__dirname, `../`)
-  : path.resolve(__dirname, `../assets`);
+export const ASSET_PATH = isRunningFromCompiledDist(__dirname)
+  ? path.resolve(__dirname, '../assets')
+  : path.resolve(__dirname, '../');

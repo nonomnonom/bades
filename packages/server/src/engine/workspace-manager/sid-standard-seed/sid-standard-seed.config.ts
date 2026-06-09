@@ -1,25 +1,25 @@
-import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
-import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
+import { type FieldMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/field-metadata-seed.type';
+import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/object-metadata-seed.type';
 
-import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/aset-desa-custom-field-seeds.constant';
-import { JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/jabatan-custom-field-seeds.constant';
-import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/keluarga-custom-field-seeds.constant';
-import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penduduk-custom-field-seeds.constant';
-import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penerima-bantuan-custom-field-seeds.constant';
-import { PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/permohonan-surat-custom-field-seeds.constant';
-import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/program-bantuan-custom-field-seeds.constant';
-import { SURAT_KELUAR_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/surat-keluar-custom-field-seeds.constant';
-import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/wilayah-custom-field-seeds.constant';
+import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/aset-desa-custom-field-seeds.constant';
+import { JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/jabatan-custom-field-seeds.constant';
+import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/keluarga-custom-field-seeds.constant';
+import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/penduduk-custom-field-seeds.constant';
+import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/penerima-bantuan-custom-field-seeds.constant';
+import { PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/permohonan-surat-custom-field-seeds.constant';
+import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/program-bantuan-custom-field-seeds.constant';
+import { SURAT_KELUAR_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/surat-keluar-custom-field-seeds.constant';
+import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/wilayah-custom-field-seeds.constant';
 
-import { ASET_DESA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/aset-desa-custom-object-seed.constant';
-import { JABATAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/jabatan-custom-object-seed.constant';
-import { KELUARGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/keluarga-custom-object-seed.constant';
-import { PENDUDUK_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penduduk-custom-object-seed.constant';
-import { PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penerima-bantuan-custom-object-seed.constant';
-import { PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/permohonan-surat-custom-object-seed.constant';
-import { PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/program-bantuan-custom-object-seed.constant';
-import { SURAT_KELUAR_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/surat-keluar-custom-object-seed.constant';
-import { WILAYAH_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/wilayah-custom-object-seed.constant';
+import { ASET_DESA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/aset-desa-custom-object-seed.constant';
+import { JABATAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/jabatan-custom-object-seed.constant';
+import { KELUARGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/keluarga-custom-object-seed.constant';
+import { PENDUDUK_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/penduduk-custom-object-seed.constant';
+import { PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/penerima-bantuan-custom-object-seed.constant';
+import { PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/permohonan-surat-custom-object-seed.constant';
+import { PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/program-bantuan-custom-object-seed.constant';
+import { SURAT_KELUAR_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/surat-keluar-custom-object-seed.constant';
+import { WILAYAH_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-objects/wilayah-custom-object-seed.constant';
 
 export type SidStandardObjectSeed = {
   object: ObjectMetadataSeed;

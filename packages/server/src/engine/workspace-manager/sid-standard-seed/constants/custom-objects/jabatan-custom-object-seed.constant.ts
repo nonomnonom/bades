@@ -1,4 +1,4 @@
-import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
+import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/sid-standard-seed/constants/types/object-metadata-seed.type';
 
 export const JABATAN_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   // Label publik "Perangkat Desa" per GOAL.md (UU 6/2014 + Permendagri

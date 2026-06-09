@@ -1,6 +1,6 @@
 import { FieldMetadataType } from 'shared/types';
 
-import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penduduk-custom-field-seeds.constant';
+import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/constants/custom-fields/penduduk-custom-field-seeds.constant';
 import {
   ACTOR_AUDIT_SEED_COLUMNS,
   buildSidStandardSeedColumns,
