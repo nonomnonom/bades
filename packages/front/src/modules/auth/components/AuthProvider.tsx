@@ -22,10 +22,6 @@ export const AuthProvider = ({ children }: React.PropsWithChildren) => {
   );
 
   return (
-    <AuthContext.Provider
-      value={authValue}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );
 };

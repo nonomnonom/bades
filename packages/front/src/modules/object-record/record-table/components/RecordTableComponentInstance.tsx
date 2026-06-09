@@ -11,15 +11,10 @@ export const RecordTableComponentInstance = ({
   children,
   recordTableId,
 }: RecordTableComponentInstanceProps) => {
-  const value = useMemo(
-    () => ({ instanceId: recordTableId }),
-    [recordTableId],
-  );
+  const value = useMemo(() => ({ instanceId: recordTableId }), [recordTableId]);
 
   return (
-    <RecordTableComponentInstanceContext.Provider
-      value={value}
-    >
+    <RecordTableComponentInstanceContext.Provider value={value}>
       {children}
     </RecordTableComponentInstanceContext.Provider>
   );

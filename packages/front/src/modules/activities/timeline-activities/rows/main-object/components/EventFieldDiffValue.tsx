@@ -62,9 +62,7 @@ export const EventFieldDiffValue = ({
 
   return (
     <StyledEventFieldDiffValue>
-      <RecordFieldComponentInstanceContext.Provider
-        value={instanceValue}
-      >
+      <RecordFieldComponentInstanceContext.Provider value={instanceValue}>
         <FieldContext.Provider value={fieldContextValue}>
           <FieldDisplay />
         </FieldContext.Provider>

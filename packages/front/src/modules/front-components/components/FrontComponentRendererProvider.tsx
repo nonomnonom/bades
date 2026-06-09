@@ -16,9 +16,7 @@ export const FrontComponentRendererProvider = ({
   );
 
   return (
-    <FrontComponentInstanceContext.Provider
-      value={value}
-    >
+    <FrontComponentInstanceContext.Provider value={value}>
       {children}
     </FrontComponentInstanceContext.Provider>
   );

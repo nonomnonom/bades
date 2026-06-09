@@ -53,7 +53,8 @@ export const useMaintenanceModeBannerDismissal = ({
 
   return {
     dismissBanner,
-    isDismissed: localDismissed || data?.isMaintenanceModeBannerDismissed === true,
+    isDismissed:
+      localDismissed || data?.isMaintenanceModeBannerDismissed === true,
     isLoading: enabled ? loading : false,
   };
 };

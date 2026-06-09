@@ -101,9 +101,7 @@ export const ExportRecordsCommand = () => {
   }
 
   return (
-    <ViewComponentInstanceContext.Provider
-      value={viewInstanceValue}
-    >
+    <ViewComponentInstanceContext.Provider value={viewInstanceValue}>
       <ExportIndexRecordsContent
         objectMetadataItem={objectMetadataItem}
         recordIndexId={recordIndexId}

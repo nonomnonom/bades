@@ -84,9 +84,7 @@ export const CommandMenuContextProviderContent = ({
   );
 
   return (
-    <CommandMenuContext.Provider
-      value={commandMenuValue}
-    >
+    <CommandMenuContext.Provider value={commandMenuValue}>
       {children}
     </CommandMenuContext.Provider>
   );

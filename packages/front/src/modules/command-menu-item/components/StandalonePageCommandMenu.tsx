@@ -127,9 +127,7 @@ export const StandalonePageCommandMenu = () => {
   );
 
   return (
-    <CommandMenuContext.Provider
-      value={commandMenuContextValue}
-    >
+    <CommandMenuContext.Provider value={commandMenuContextValue}>
       {!isMobile && <PinnedCommandMenuItemButtons />}
       <CommandMenuItemEditButton />
     </CommandMenuContext.Provider>

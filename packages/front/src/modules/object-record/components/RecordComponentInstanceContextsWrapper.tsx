@@ -19,18 +19,10 @@ export const RecordComponentInstanceContextsWrapper = ({
   );
 
   return (
-    <RecordFilterGroupsComponentInstanceContext.Provider
-      value={instanceValue}
-    >
-      <RecordFiltersComponentInstanceContext.Provider
-        value={instanceValue}
-      >
-        <RecordSortsComponentInstanceContext.Provider
-          value={instanceValue}
-        >
-          <RecordFieldsComponentInstanceContext.Provider
-            value={instanceValue}
-          >
+    <RecordFilterGroupsComponentInstanceContext.Provider value={instanceValue}>
+      <RecordFiltersComponentInstanceContext.Provider value={instanceValue}>
+        <RecordSortsComponentInstanceContext.Provider value={instanceValue}>
+          <RecordFieldsComponentInstanceContext.Provider value={instanceValue}>
             <RecordCalendarComponentInstanceContext.Provider
               value={instanceValue}
             >

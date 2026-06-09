@@ -91,8 +91,7 @@ export const RecordIndexContainerGater = () => {
             <CommandMenuComponentInstanceContext.Provider
               value={useMemo(
                 () => ({
-                  instanceId:
-                    getCommandMenuIdFromRecordIndexId(recordIndexId),
+                  instanceId: getCommandMenuIdFromRecordIndexId(recordIndexId),
                 }),
                 [recordIndexId],
               )}

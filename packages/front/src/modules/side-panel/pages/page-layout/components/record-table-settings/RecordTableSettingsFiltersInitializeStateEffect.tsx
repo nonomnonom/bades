@@ -86,10 +86,7 @@ export const RecordTableSettingsFiltersInitializeStateEffect = ({
     }
 
     setAdvancedFilterDropdownStates();
-  }, [
-    currentRecordFilters,
-    setAdvancedFilterDropdownStates,
-  ]);
+  }, [currentRecordFilters, setAdvancedFilterDropdownStates]);
 
   return null;
 };

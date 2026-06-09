@@ -42,9 +42,7 @@ export const MinimalMetadataGater = ({ children }: React.PropsWithChildren) => {
   }
 
   return (
-    <UserContext.Provider
-      value={userContextValue}
-    >
+    <UserContext.Provider value={userContextValue}>
       {children}
     </UserContext.Provider>
   );

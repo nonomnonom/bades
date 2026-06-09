@@ -31,9 +31,7 @@ export const PreComputedChipGeneratorsProvider = ({
 
   return (
     <>
-      <PreComputedChipGeneratorsContext.Provider
-        value={chipGeneratorsValue}
-      >
+      <PreComputedChipGeneratorsContext.Provider value={chipGeneratorsValue}>
         {children}
       </PreComputedChipGeneratorsContext.Provider>
     </>

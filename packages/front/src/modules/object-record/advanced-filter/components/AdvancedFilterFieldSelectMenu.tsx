@@ -187,22 +187,20 @@ export const AdvancedFilterFieldSelectMenu = ({
           <>
             <DropdownMenuSectionLabel label={`Kolom terlihat`} />
             <DropdownMenuItemsContainer>
-              {visibleFieldMetadataItems.map(
-                (visibleFieldMetadataItem) => (
-                  <SelectableListItem
-                    itemId={visibleFieldMetadataItem.id}
-                    key={visibleFieldMetadataItem.id}
-                    onEnter={() => {
-                      handleFieldMetadataItemSelect(visibleFieldMetadataItem);
-                    }}
-                  >
-                    <ObjectFilterDropdownFilterSelectMenuItem
-                      fieldMetadataItemToSelect={visibleFieldMetadataItem}
-                      onClick={handleFieldMetadataItemSelect}
-                    />
-                  </SelectableListItem>
-                ),
-              )}
+              {visibleFieldMetadataItems.map((visibleFieldMetadataItem) => (
+                <SelectableListItem
+                  itemId={visibleFieldMetadataItem.id}
+                  key={visibleFieldMetadataItem.id}
+                  onEnter={() => {
+                    handleFieldMetadataItemSelect(visibleFieldMetadataItem);
+                  }}
+                >
+                  <ObjectFilterDropdownFilterSelectMenuItem
+                    fieldMetadataItemToSelect={visibleFieldMetadataItem}
+                    onClick={handleFieldMetadataItemSelect}
+                  />
+                </SelectableListItem>
+              ))}
             </DropdownMenuItemsContainer>
           </>
         )}

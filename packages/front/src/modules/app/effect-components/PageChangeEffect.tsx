@@ -238,7 +238,9 @@ export const PageChangeEffect = () => {
           });
         }
 
-        const isSidePanelOpen = storeRef.current.get(isSidePanelOpenedState.atom);
+        const isSidePanelOpen = storeRef.current.get(
+          isSidePanelOpenedState.atom,
+        );
 
         if (isSidePanelOpen) {
           return;

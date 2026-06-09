@@ -115,7 +115,10 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
         autoFocus
         role="combobox"
         aria-label="Cari dan pilih"
-        aria-expanded={isDefined(singleRecordPickerSearchFilter) && singleRecordPickerSearchFilter.length > 0}
+        aria-expanded={
+          isDefined(singleRecordPickerSearchFilter) &&
+          singleRecordPickerSearchFilter.length > 0
+        }
         aria-controls="single-record-picker-dropdown-list"
       />
       {layoutDirection === 'search-bar-on-top' && (

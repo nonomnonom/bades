@@ -83,12 +83,7 @@ export const CaptchaProviderScriptLoaderEffect = () => {
         setIsCaptchaScriptLoaded(true);
       });
     }
-  }, [
-    captcha?.provider,
-    captcha?.siteKey,
-    setIsCaptchaScriptLoaded,
-    location,
-  ]);
+  }, [captcha?.provider, captcha?.siteKey, setIsCaptchaScriptLoaded, location]);
 
   useEffect(() => {
     if (!isCaptchaConfigured || !isCaptchaScriptLoaded) {

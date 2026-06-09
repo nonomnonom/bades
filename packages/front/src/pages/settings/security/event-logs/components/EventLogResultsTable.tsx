@@ -122,7 +122,9 @@ export const EventLogResultsTable = ({
   useEffect(() => {
     if (columnWidthsInitializedRef.current) {
       setColumnWidths(
-        Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
+        Object.fromEntries(
+          baseColumns.map((col) => [col.id, col.defaultWidth]),
+        ),
       );
     }
     columnWidthsInitializedRef.current = true;

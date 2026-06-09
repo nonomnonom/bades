@@ -52,11 +52,7 @@ export const SettingsRoleEditEffect = ({
     setActiveTabId(SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.PERMISSIONS);
     updateDraftRoleIfNeeded(settingsPersistedRole);
     isInitializedRef.current = true;
-  }, [
-    settingsPersistedRole,
-    setActiveTabId,
-    updateDraftRoleIfNeeded,
-  ]);
+  }, [settingsPersistedRole, setActiveTabId, updateDraftRoleIfNeeded]);
 
   return <></>;
 };

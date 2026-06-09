@@ -294,7 +294,6 @@ const ThinkingToolStepRow = ({
   const activeTab: ToolDetailsTab =
     activeTabId === 'input' ? 'input' : 'output';
 
-
   return (
     <StyledToolRowContainer>
       <StyledToolRowButton

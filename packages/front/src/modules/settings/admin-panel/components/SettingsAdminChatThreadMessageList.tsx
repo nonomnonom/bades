@@ -111,7 +111,10 @@ export const SettingsAdminChatThreadMessageList = ({
               </StyledMessageContent>
             )}
             {toolParts.map((part) => (
-              <StyledMessageContent key={`tool-${part.toolName}`} isUser={false}>
+              <StyledMessageContent
+                key={`tool-${part.toolName}`}
+                isUser={false}
+              >
                 {`Panggilan alat: ${part.toolName}`}
               </StyledMessageContent>
             ))}

@@ -112,19 +112,20 @@ export const CalendarEventDetails = ({
     excludeCreatedAtAndUpdatedAt: true,
   });
 
-  const standardFields = STANDARD_FIELD_ORDER.reduce<
-    FieldMetadataItem[]
-  >((acc, fieldName) => {
-    const field = inlineFieldMetadataItems.find(
-      (fieldMetadataItem) => fieldMetadataItem.name === fieldName,
-    );
+  const standardFields = STANDARD_FIELD_ORDER.reduce<FieldMetadataItem[]>(
+    (acc, fieldName) => {
+      const field = inlineFieldMetadataItems.find(
+        (fieldMetadataItem) => fieldMetadataItem.name === fieldName,
+      );
 
-    if (isDefined(field)) {
-      acc.push(field);
-    }
+      if (isDefined(field)) {
+        acc.push(field);
+      }
 
-    return acc;
-  }, []);
+      return acc;
+    },
+    [],
+  );
 
   const customFields = inlineFieldMetadataItems.filter(
     (field) => field.isCustom && !STANDARD_FIELD_ORDER.includes(field.name),

@@ -24,17 +24,15 @@ export const ActivityTargetChips = ({
   return (
     <StyledContainer maxWidth={maxWidth}>
       <ExpandableList isChipCountDisplayed>
-        {activityTargetObjectRecords.map(
-          (activityTargetObjectRecord) => (
-            <RecordChip
-              key={activityTargetObjectRecord.targetObject.id}
-              record={activityTargetObjectRecord.targetObject}
-              objectNameSingular={
-                activityTargetObjectRecord.targetObjectMetadataItem.nameSingular
-              }
-            />
-          ),
-        )}
+        {activityTargetObjectRecords.map((activityTargetObjectRecord) => (
+          <RecordChip
+            key={activityTargetObjectRecord.targetObject.id}
+            record={activityTargetObjectRecord.targetObject}
+            objectNameSingular={
+              activityTargetObjectRecord.targetObjectMetadataItem.nameSingular
+            }
+          />
+        ))}
       </ExpandableList>
     </StyledContainer>
   );

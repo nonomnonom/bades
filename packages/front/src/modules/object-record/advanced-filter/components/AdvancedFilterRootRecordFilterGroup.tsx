@@ -52,9 +52,7 @@ export const AdvancedFilterRootRecordFilterGroup = () => {
       componentInstanceId={`scroll-wrapper-dropdown-menu-${rootRecordFilterGroup.id}`}
     >
       <DropdownContent widthInPixels={ADVANCED_FILTER_DROPDOWN_CONTENT_WIDTH}>
-        <AdvancedFilterContext.Provider
-          value={advancedFilterValue}
-        >
+        <AdvancedFilterContext.Provider value={advancedFilterValue}>
           <AdvancedFilterSSEEffect />
           <StyledContainer>
             {childRecordFiltersAndRecordFilterGroups.map(

@@ -81,7 +81,9 @@ export const useMapboxGeolocate = (
       onError?.(event);
     };
 
-    const attachControl = (mapboxgl: Awaited<ReturnType<typeof loadMapboxGl>>) => {
+    const attachControl = (
+      mapboxgl: Awaited<ReturnType<typeof loadMapboxGl>>,
+    ) => {
       if (cancelled || !isMapUsable(map) || controlRef.current !== null) {
         return;
       }

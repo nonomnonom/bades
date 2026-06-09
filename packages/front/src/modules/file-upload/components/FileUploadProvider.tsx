@@ -81,10 +81,7 @@ export const FileUploadProvider = ({
     return () => input.removeEventListener('cancel', handleFileInputCancel);
   }, [handleFileInputCancel]);
 
-  const fileUploadValue = useMemo(
-    () => ({ openFileUpload }),
-    [openFileUpload],
-  );
+  const fileUploadValue = useMemo(() => ({ openFileUpload }), [openFileUpload]);
 
   return (
     <FileUploadContext.Provider value={fileUploadValue}>

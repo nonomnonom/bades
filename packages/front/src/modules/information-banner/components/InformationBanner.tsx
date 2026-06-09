@@ -66,9 +66,7 @@ export const InformationBanner = ({
   );
 
   return (
-    <InformationBannerComponentInstanceContext.Provider
-      value={value}
-    >
+    <InformationBannerComponentInstanceContext.Provider value={value}>
       {informationBannerIsOpen && (
         <Banner color={color} variant={variant}>
           <StyledContent hasCloseButton={!!onClose}>

@@ -538,7 +538,12 @@ const RecordMapCanvas = ({
   });
 
   useEffect(() => {
-    if (!map || !isReady || !isMapUsable(map) || geoJsonData.features.length === 0) {
+    if (
+      !map ||
+      !isReady ||
+      !isMapUsable(map) ||
+      geoJsonData.features.length === 0
+    ) {
       return;
     }
     fitMapToGeoJsonData(map, geoJsonData);

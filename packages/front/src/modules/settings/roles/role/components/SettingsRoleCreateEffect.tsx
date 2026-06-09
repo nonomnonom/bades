@@ -60,12 +60,7 @@ export const SettingsRoleCreateEffect = ({
     setSettingsPersistedRole(undefined);
     setSettingsDraftRole(newRole);
     isInitializedRef.current = true;
-  }, [
-    roleId,
-    setActiveTabId,
-    setSettingsDraftRole,
-    setSettingsPersistedRole,
-  ]);
+  }, [roleId, setActiveTabId, setSettingsDraftRole, setSettingsPersistedRole]);
 
   return null;
 };
