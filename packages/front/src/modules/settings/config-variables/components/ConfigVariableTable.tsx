@@ -38,7 +38,7 @@ export const ConfigVariableTable = ({
       </TableRow>
       <StyledTableBodyContainer>
         <TableBody>
-          {configVariables.map((variable, index) => (
+          {configVariables.map((variable) => (
             <TableRow
               key={variable.name}
               gridAutoColumns={GRID_AUTO_COLUMNS}

@@ -25,7 +25,7 @@ export const ActivityTargetChips = ({
     <StyledContainer maxWidth={maxWidth}>
       <ExpandableList isChipCountDisplayed>
         {activityTargetObjectRecords.map(
-          (activityTargetObjectRecord, index) => (
+          (activityTargetObjectRecord) => (
             <RecordChip
               key={activityTargetObjectRecord.targetObject.id}
               record={activityTargetObjectRecord.targetObject}

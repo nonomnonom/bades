@@ -84,6 +84,34 @@ export const ActivityTargetsInlineCell = ({
     [componentInstanceId],
   );
 
+  const recordInlineCellContextValue = useMemo(
+    () => ({
+      buttonIcon: IconPencil,
+      IconLabel: showLabel ? IconArrowUpRight : undefined,
+      showLabel: showLabel,
+      readonly: isReadOnly,
+      labelWidth: fieldDefinition?.labelWidth,
+      label: `Relasi`,
+      displayModeContent: (
+        <ActivityTargetChips
+          activityTargetObjectRecords={activityTargetObjectRecords}
+          maxWidth={maxWidth}
+        />
+      ),
+      onOpenEditMode: handleOpenRelationPicker,
+      onCloseEditMode: handleCloseRelationPicker,
+    }),
+    [
+      showLabel,
+      isReadOnly,
+      fieldDefinition?.labelWidth,
+      activityTargetObjectRecords,
+      maxWidth,
+      handleOpenRelationPicker,
+      handleCloseRelationPicker,
+    ],
+  );
+
   return (
     <RecordFieldsScopeContextProvider value={scopeValue}>
       <RecordFieldComponentInstanceContext.Provider value={instanceValue}>
@@ -98,22 +126,7 @@ export const ActivityTargetsInlineCell = ({
             anchorId={anchorId}
           >
             <RecordInlineCellContext.Provider
-              value={{
-                buttonIcon: IconPencil,
-                IconLabel: showLabel ? IconArrowUpRight : undefined,
-                showLabel: showLabel,
-                readonly: isReadOnly,
-                labelWidth: fieldDefinition?.labelWidth,
-                label: `Relasi`,
-                displayModeContent: (
-                  <ActivityTargetChips
-                    activityTargetObjectRecords={activityTargetObjectRecords}
-                    maxWidth={maxWidth}
-                  />
-                ),
-                onOpenEditMode: handleOpenRelationPicker,
-                onCloseEditMode: handleCloseRelationPicker,
-              }}
+              value={recordInlineCellContextValue}
             >
               <RecordInlineCellContainer />
               {isRelationPickerOpen && (

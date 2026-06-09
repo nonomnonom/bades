@@ -24,7 +24,7 @@ export const LineAreaGradientDefs = ({
             x2={def.x2}
             y2={def.y2}
           >
-            {def.colors.map((color, idx) => (
+            {def.colors.map((color) => (
               <stop
                 key={`${color.offset}-${color.color}`}
                 offset={`${color.offset}%`}
