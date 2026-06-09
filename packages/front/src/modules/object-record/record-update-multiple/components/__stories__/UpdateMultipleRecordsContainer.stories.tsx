@@ -55,14 +55,14 @@ const mockApolloCoreClient = new ApolloClient({
 });
 
 const SelectedRecordsSeedDecorator: Decorator = (Story) => {
-  const setNumberOfSelectedRecords = useSetAtomComponentState(
+  const setContextStoreNumberOfSelectedRecords = useSetAtomComponentState(
     contextStoreNumberOfSelectedRecordsComponentState,
     MAIN_CONTEXT_STORE_INSTANCE_ID,
   );
 
   useEffect(() => {
-    setNumberOfSelectedRecords(3);
-  }, [setNumberOfSelectedRecords]);
+    setContextStoreNumberOfSelectedRecords(3);
+  }, [setContextStoreNumberOfSelectedRecords]);
 
   return <Story />;
 };

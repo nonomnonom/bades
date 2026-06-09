@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { type ReactNode, lazy, Suspense, useState } from 'react';
+import { type ReactNode, lazy, Suspense, useCallback, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { type IconComponent } from 'ui/display';
 
@@ -45,28 +45,28 @@ const StyledDraggableMenuItem = styled.div<{
   }
 `;
 
-type DragHandleIconProps = {
+type DragHandleIconWrapperProps = {
   icon?: IconComponent;
   customIconContent?: ReactNode;
   payload: AddToNavigationDragPayload;
-  isHovered: boolean;
+  showDragAffordance: boolean;
   disabled: boolean;
   disableDrag: boolean;
 };
 
-const DragHandleIconComponent = ({
+const DragHandleIconWrapper = ({
   icon,
   customIconContent,
   payload,
-  isHovered,
+  showDragAffordance,
   disabled,
   disableDrag,
-}: DragHandleIconProps) => (
+}: DragHandleIconWrapperProps) => (
   <AddToNavigationDragHandle
     icon={icon}
     customIconContent={customIconContent}
     payload={payload}
-    isHovered={isHovered}
+    isHovered={showDragAffordance}
     disabled={disabled}
     disableDrag={disableDrag}
   />
@@ -94,15 +94,25 @@ export const SidePanelItemWithAddToNavigationDrag = ({
     ? `Seret untuk ditambah ke navbar`
     : description;
 
-  const DragHandleIcon = () => (
-    <DragHandleIconComponent
-      icon={icon}
-      customIconContent={customIconContent}
-      payload={payload}
-      isHovered={showDragAffordance}
-      disabled={disabled}
-      disableDrag={disableDrag}
-    />
+  const DragHandleIcon = useCallback(
+    () => (
+      <DragHandleIconWrapper
+        icon={icon}
+        customIconContent={customIconContent}
+        payload={payload}
+        showDragAffordance={showDragAffordance}
+        disabled={disabled}
+        disableDrag={disableDrag}
+      />
+    ),
+    [
+      icon,
+      customIconContent,
+      payload,
+      showDragAffordance,
+      disabled,
+      disableDrag,
+    ],
   );
 
   const registerPayload = () => {

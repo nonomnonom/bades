@@ -12,6 +12,8 @@ const tsConfig = JSON.parse(readFileSync(tsConfigPath, 'utf8'));
 // oxlint-disable-next-line no-undef
 process.env.TZ = 'Asia/Jakarta';
 // oxlint-disable-next-line no-undef
+process.env.NODE_ENV = 'test';
+// oxlint-disable-next-line no-undef
 process.env.LC_ALL = 'id_ID.UTF-8';
 // oxlint-disable-next-line no-undef
 process.env.LANG = 'id_ID.UTF-8';
@@ -91,6 +93,7 @@ const jestConfig = {
   maxWorkers: 3,
   workerIdleMemoryLimit: '512MB',
   errorOnDeprecated: true,
+  resetModules: true,
   // Default 5000ms terlalu ketat untuk hook yang menunggu mock/async state.
   // CI lebih lambat dari lokal, jadi test yang lulus di ~2.8s lokal bisa
   // melewati 5s di runner. Naikkan ke 30s agar timeout tidak flake.

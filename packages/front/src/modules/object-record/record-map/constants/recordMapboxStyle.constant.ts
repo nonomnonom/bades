@@ -1,3 +1,4 @@
+// oxlint-disable-next-line bades/max-consts-per-file
 export const MAPBOX_STANDARD_STYLES = {
   light: 'mapbox://styles/mapbox/light-v11',
   dark: 'mapbox://styles/mapbox/dark-v11',
@@ -5,4 +6,5 @@ export const MAPBOX_STANDARD_STYLES = {
 
 // Font glyph bawaan Mapbox Standard — hindari Noto Sans yang sering 404
 // jika token tidak punya scope fonts:read atau akun tidak punya akses font.
+// oxlint-disable-next-line bades/max-consts-per-file
 export const MAPBOX_CLUSTER_TEXT_FONT = ['Open Sans Bold'] as const;

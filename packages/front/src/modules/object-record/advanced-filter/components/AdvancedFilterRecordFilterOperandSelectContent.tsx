@@ -87,7 +87,7 @@ export const AdvancedFilterRecordFilterOperandSelectContent = ({
               )}
               selectableListInstanceId={dropdownId}
             >
-              {operandsForFilterType.map((filterOperand, index) => (
+              {operandsForFilterType.map((filterOperand) => (
                 <SelectableListItem
                   itemId={filterOperand}
                   key={filterOperand}

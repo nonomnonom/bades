@@ -13,12 +13,12 @@ export default meta;
 type Story = StoryObj<typeof FullScreenContainer>;
 
 const StyledContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  align-items: center;
   background-color: white;
   display: flex;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 `;
 
 export const Default: Story = {

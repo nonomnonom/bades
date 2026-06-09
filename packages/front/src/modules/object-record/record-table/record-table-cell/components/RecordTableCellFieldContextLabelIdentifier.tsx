@@ -36,9 +36,13 @@ export const RecordTableCellFieldContextLabelIdentifier = ({
   const { objectMetadataItem, onRecordIdentifierClick, triggerEvent } =
     useRecordTableContextOrThrow();
 
-  const objectPermissions = getObjectPermissionsForObject(
-    objectPermissionsByObjectMetadataId,
-    objectMetadataItem.id,
+  const objectPermissions = useMemo(
+    () =>
+      getObjectPermissionsForObject(
+        objectPermissionsByObjectMetadataId,
+        objectMetadataItem.id,
+      ),
+    [objectPermissionsByObjectMetadataId, objectMetadataItem.id],
   );
 
   const shouldCompactRecordIndexLabelIdentifier = useAtomComponentStateValue(
@@ -56,12 +60,13 @@ export const RecordTableCellFieldContextLabelIdentifier = ({
     onRecordIdentifierClick?.(rowIndex, recordId);
   }, [onRecordIdentifierClick, rowIndex, recordId]);
 
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   const fieldContextValue = useMemo(
     () => ({
       recordId,
       fieldDefinition,
       useUpdateRecord: updateRecord
-        ? (() => [updateRecord, {}] as unknown as ReturnType<RecordUpdateHook>)
+        ? () => [updateRecord, {}] as unknown as ReturnType<RecordUpdateHook>
         : undefined,
       isLabelIdentifier: true,
       isLabelIdentifierCompact: shouldCompactRecordIndexLabelIdentifier,
@@ -92,7 +97,6 @@ export const RecordTableCellFieldContextLabelIdentifier = ({
       isRecordTableCellsNonEditable,
       isRecordReadOnly,
       objectMetadataItem.isSystem,
-      objectMetadataItem.id,
       objectPermissions,
       recordField.fieldMetadataItemId,
       recordField.size,
@@ -105,9 +109,7 @@ export const RecordTableCellFieldContextLabelIdentifier = ({
   );
 
   return (
-    <FieldContext.Provider
-      value={fieldContextValue}
-    >
+    <FieldContext.Provider value={fieldContextValue}>
       {children}
     </FieldContext.Provider>
   );

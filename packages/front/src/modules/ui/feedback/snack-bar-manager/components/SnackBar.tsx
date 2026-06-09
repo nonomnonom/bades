@@ -1,6 +1,6 @@
 import { sanitizeMessageToRenderInSnackbar } from '@/ui/feedback/snack-bar-manager/utils/sanitizeMessageToRenderInSnackbar';
 import { styled } from '@linaria/react';
-import { i18n, type msg, useLingui } from '~/utils/i18n/badesI18n';
+import { type msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isUndefined } from '@sniptt/guards';
 import {
   type ComponentPropsWithoutRef,

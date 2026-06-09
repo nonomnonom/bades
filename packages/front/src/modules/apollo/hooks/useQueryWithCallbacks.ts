@@ -4,7 +4,7 @@ import {
   type TypedDocumentNode,
 } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { isDefined } from 'shared/utils';
 
@@ -40,13 +40,16 @@ export const useQueryWithCallbacks = <
 
   const variablesString = JSON.stringify(queryOptions.variables);
 
-  const lastProcessedVariablesRef = useRef<string | null>(null);
-  const hasProcessedCurrentFetchCycleRef = useRef(false);
-  const hasEverLoadedRef = useRef(false);
+  const [lastProcessedVariables, setLastProcessedVariables] = useState<
+    string | null
+  >(null);
+  const [hasProcessedCurrentFetchCycle, setHasProcessedCurrentFetchCycle] =
+    useState(false);
+  const [hasEverLoaded, setHasEverLoaded] = useState(false);
 
   useEffect(() => {
     if (networkStatus !== NetworkStatus.ready) {
-      hasProcessedCurrentFetchCycleRef.current = false;
+      setHasProcessedCurrentFetchCycle(false);
       return;
     }
 
@@ -54,18 +57,18 @@ export const useQueryWithCallbacks = <
       return;
     }
 
-    const variablesChanged = variablesString !== lastProcessedVariablesRef.current;
+    const variablesChanged = variablesString !== lastProcessedVariables;
 
-    if (hasProcessedCurrentFetchCycleRef.current && !variablesChanged) {
+    if (hasProcessedCurrentFetchCycle && !variablesChanged) {
       return;
     }
 
-    hasProcessedCurrentFetchCycleRef.current = true;
-    lastProcessedVariablesRef.current = variablesString;
+    setHasProcessedCurrentFetchCycle(true);
+    setLastProcessedVariables(variablesString);
 
-    const isFirstLoad = !hasEverLoadedRef.current;
+    const isFirstLoad = !hasEverLoaded;
 
-    hasEverLoadedRef.current = true;
+    setHasEverLoaded(true);
 
     const typedData = data as TData;
 
@@ -83,6 +86,9 @@ export const useQueryWithCallbacks = <
     onFirstLoad,
     onSubsequentLoad,
     onDataLoaded,
+    lastProcessedVariables,
+    hasProcessedCurrentFetchCycle,
+    hasEverLoaded,
   ]);
 
   useEffect(() => {

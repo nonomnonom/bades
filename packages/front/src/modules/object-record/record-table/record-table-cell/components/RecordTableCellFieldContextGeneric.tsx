@@ -47,59 +47,67 @@ export const RecordTableCellFieldContextGeneric = ({
 
   const updateRecord = useContext(RecordTableUpdateContext);
 
-  let hasObjectReadPermissions = objectPermissions.canReadObjectRecords;
+  const hasObjectReadPermissions = useMemo(() => {
+    let readable = objectPermissions.canReadObjectRecords;
 
-  // todo @guillim : adjust this to handle morph relations permissions display
-  if (
-    isFieldRelationManyToOne(fieldDefinition) ||
-    isFieldRelationOneToMany(fieldDefinition)
-  ) {
-    const relationObjectMetadataId =
-      fieldDefinition.metadata.relationObjectMetadataId;
-
-    const relationObjectPermissions = getObjectPermissionsForObject(
-      objectPermissionsByObjectMetadataId,
-      relationObjectMetadataId,
-    );
-
-    hasObjectReadPermissions = relationObjectPermissions.canReadObjectRecords;
-
+    // todo @guillim : adjust this to handle morph relations permissions display
     if (
-      hasObjectReadPermissions &&
-      hasJunctionConfig(fieldDefinition.metadata.settings)
+      isFieldRelationManyToOne(fieldDefinition) ||
+      isFieldRelationOneToMany(fieldDefinition)
     ) {
-      const junctionConfig = getJunctionConfig({
-        settings: fieldDefinition.metadata.settings,
+      const relationObjectMetadataId =
+        fieldDefinition.metadata.relationObjectMetadataId;
+
+      const relationObjectPermissions = getObjectPermissionsForObject(
+        objectPermissionsByObjectMetadataId,
         relationObjectMetadataId,
-        sourceObjectMetadataId: objectMetadataItem.id,
-        objectMetadataItems,
-      });
+      );
 
-      if (isDefined(junctionConfig)) {
-        const targetObjectMetadataIds = junctionConfig.targetFields.flatMap(
-          getTargetObjectMetadataIdsFromField,
-        );
+      readable = relationObjectPermissions.canReadObjectRecords;
 
-        if (targetObjectMetadataIds.length > 0) {
-          hasObjectReadPermissions = targetObjectMetadataIds.some(
-            (targetId) =>
-              getObjectPermissionsForObject(
-                objectPermissionsByObjectMetadataId,
-                targetId,
-              ).canReadObjectRecords,
+      if (readable && hasJunctionConfig(fieldDefinition.metadata.settings)) {
+        const junctionConfig = getJunctionConfig({
+          settings: fieldDefinition.metadata.settings,
+          relationObjectMetadataId,
+          sourceObjectMetadataId: objectMetadataItem.id,
+          objectMetadataItems,
+        });
+
+        if (isDefined(junctionConfig)) {
+          const targetObjectMetadataIds = junctionConfig.targetFields.flatMap(
+            getTargetObjectMetadataIdsFromField,
           );
+
+          if (targetObjectMetadataIds.length > 0) {
+            readable = targetObjectMetadataIds.some(
+              (targetId) =>
+                getObjectPermissionsForObject(
+                  objectPermissionsByObjectMetadataId,
+                  targetId,
+                ).canReadObjectRecords,
+            );
+          }
         }
       }
     }
-  }
 
+    return readable;
+  }, [
+    objectPermissions,
+    fieldDefinition,
+    objectPermissionsByObjectMetadataId,
+    objectMetadataItem.id,
+    objectMetadataItems,
+  ]);
+
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   const fieldContextValue = useMemo(
     () => ({
       fieldMetadataItemId: recordField.fieldMetadataItemId,
       recordId,
       fieldDefinition: fieldDefinition,
       useUpdateRecord: updateRecord
-        ? (() => [updateRecord, {}] as unknown as ReturnType<RecordUpdateHook>)
+        ? () => [updateRecord, {}] as unknown as ReturnType<RecordUpdateHook>
         : undefined,
       isLabelIdentifier: isLabelIdentifierField({
         fieldMetadataItem: {
@@ -132,7 +140,6 @@ export const RecordTableCellFieldContextGeneric = ({
       objectMetadataItem,
       isRecordTableCellsNonEditable,
       isRecordReadOnly,
-      objectMetadataItem.isSystem,
       objectPermissions,
       objectPermissionsByObjectMetadataId,
       hasObjectReadPermissions,
@@ -141,9 +148,7 @@ export const RecordTableCellFieldContextGeneric = ({
   );
 
   return (
-    <FieldContext.Provider
-      value={fieldContextValue}
-    >
+    <FieldContext.Provider value={fieldContextValue}>
       {children}
     </FieldContext.Provider>
   );

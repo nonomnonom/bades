@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { hasInitializedChartFiltersComponentState } from '@/side-panel/pages/page-layout/states/hasInitializedChartFiltersComponentState';
 import { type ChartFilters } from '@/side-panel/pages/page-layout/types/ChartFilters';
@@ -17,9 +17,10 @@ export type ChartFiltersSettingsInitializeStateEffectProps = {
 export const ChartFiltersSettingsInitializeStateEffect = ({
   initialChartFilters,
 }: ChartFiltersSettingsInitializeStateEffectProps) => {
-  const hasInitializedChartFiltersRef = useRef(false);
+  const [hasInitializedChartFilters, setHasInitializedChartFiltersLocal] =
+    useState(false);
 
-  const setHasInitializedChartFilters = useAtomComponentState(
+  const setHasInitializedChartFiltersAtom = useAtomComponentState(
     hasInitializedChartFiltersComponentState,
   )[1];
 
@@ -40,20 +41,23 @@ export const ChartFiltersSettingsInitializeStateEffect = ({
   ] = useState(false);
 
   useEffect(() => {
-    if (!hasInitializedChartFiltersRef.current && isDefined(initialChartFilters)) {
+    if (!hasInitializedChartFilters && isDefined(initialChartFilters)) {
       setCurrentRecordFilters(initialChartFilters.recordFilters ?? []);
       setCurrentRecordFilterGroups(
         initialChartFilters.recordFilterGroups ?? [],
       );
 
       setShouldSetAdvancedFilterDropdownStates(true);
-      hasInitializedChartFiltersRef.current = true;
-      setHasInitializedChartFilters(true);
+      setHasInitializedChartFiltersLocal(true);
+      setHasInitializedChartFiltersAtom(true);
     }
   }, [
     setCurrentRecordFilters,
     setCurrentRecordFilterGroups,
     initialChartFilters,
+    setShouldSetAdvancedFilterDropdownStates,
+    hasInitializedChartFilters,
+    setHasInitializedChartFiltersAtom,
   ]);
 
   useEffect(() => {

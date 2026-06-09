@@ -1,7 +1,6 @@
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { SidePanelPages } from 'shared/types';
 
-import { msg } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { IconBoxMultiple } from 'ui/display';
 
