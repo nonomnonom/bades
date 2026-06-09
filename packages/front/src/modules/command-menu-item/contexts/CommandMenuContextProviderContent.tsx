@@ -66,15 +66,26 @@ export const CommandMenuContextProviderContent = ({
     isInPreviewMode,
   ]);
 
+  const commandMenuValue = useMemo(
+    () => ({
+      displayType,
+      containerType,
+      commandMenuItems: filteredCommandMenuItems,
+      commandMenuContextApi,
+      isInPreviewMode,
+    }),
+    [
+      displayType,
+      containerType,
+      filteredCommandMenuItems,
+      commandMenuContextApi,
+      isInPreviewMode,
+    ],
+  );
+
   return (
     <CommandMenuContext.Provider
-      value={{
-        displayType,
-        containerType,
-        commandMenuItems: filteredCommandMenuItems,
-        commandMenuContextApi,
-        isInPreviewMode,
-      }}
+      value={commandMenuValue}
     >
       {children}
     </CommandMenuContext.Provider>

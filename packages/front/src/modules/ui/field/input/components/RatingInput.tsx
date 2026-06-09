@@ -70,7 +70,7 @@ export const RatingInput = ({
 
         return (
           <StyledRatingIconContainer
-            key={index}
+            key={value}
             color={isActive ? activeColor : inactiveColor}
             onClick={() => handleClick(value)}
             onMouseEnter={readonly ? undefined : () => setHoveredValue(value)}

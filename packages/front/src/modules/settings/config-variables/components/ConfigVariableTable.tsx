@@ -40,7 +40,7 @@ export const ConfigVariableTable = ({
         <TableBody>
           {configVariables.map((variable, index) => (
             <TableRow
-              key={index}
+              key={variable.name}
               gridAutoColumns={GRID_AUTO_COLUMNS}
               to={variable.to}
             >

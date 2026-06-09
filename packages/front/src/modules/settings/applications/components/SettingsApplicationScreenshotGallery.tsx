@@ -90,7 +90,7 @@ export const SettingsApplicationScreenshotGallery = ({
       <StyledScreenshotThumbnails>
         {screenshots.slice(0, 6).map((screenshot, index) => (
           <StyledThumbnail
-            key={index}
+            key={screenshot}
             isSelected={index === selectedScreenshotIndex}
             onClick={() => setSelectedScreenshotIndex(index)}
           >

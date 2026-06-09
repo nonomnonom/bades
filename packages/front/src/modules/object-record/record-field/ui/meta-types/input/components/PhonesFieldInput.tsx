@@ -193,7 +193,7 @@ export const PhonesFieldInput = () => {
         handleDelete,
       }) => (
         <PhonesFieldMenuItem
-          key={index}
+          key={`${phone.callingCode}${phone.number}`}
           dropdownId={`${MULTI_ITEM_FIELD_INPUT_DROPDOWN_ID_PREFIX}-${fieldDefinition.metadata.fieldName}-${index}`}
           showPrimaryIcon={getShowPrimaryIcon(index)}
           showSetAsPrimaryButton={getShowSetAsPrimaryButton(index)}

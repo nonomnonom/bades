@@ -7,7 +7,7 @@ import {
   type RecordUpdateHook,
   type RecordUpdateHookParams,
 } from '@/object-record/record-field/ui/contexts/FieldContext';
-import { type ReactNode } from 'react';
+import { type ReactNode, useCallback, useMemo } from 'react';
 
 export const FieldContextProvider = ({
   clearable,
@@ -44,7 +44,7 @@ export const FieldContextProvider = ({
 
   const { updateOneRecord } = useUpdateOneRecord();
 
-  const useUpdateOneObjectMutation: RecordUpdateHook = () => {
+  const useUpdateOneObjectMutation: RecordUpdateHook = useCallback(() => {
     const updateEntity = ({ variables }: RecordUpdateHookParams) => {
       updateOneRecord({
         objectNameSingular,
@@ -54,13 +54,48 @@ export const FieldContextProvider = ({
     };
 
     return [updateEntity, { loading: false }];
-  };
+  }, [updateOneRecord, objectNameSingular]);
 
   const isRecordFieldReadOnly = useIsRecordFieldReadOnly({
     recordId: objectRecordId,
     fieldMetadataId: fieldMetadataItem?.id ?? '',
     objectMetadataId: objectMetadataItem.id,
   });
+
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId: objectRecordId,
+      isLabelIdentifier,
+      fieldDefinition: formatFieldMetadataItemAsColumnDefinition({
+        field: fieldMetadataItem!,
+        showLabel: true,
+        position: fieldPosition,
+        objectMetadataItem,
+        labelWidth: 90,
+      }),
+      useUpdateRecord:
+        customUseUpdateOneObjectHook ?? useUpdateOneObjectMutation,
+      clearable,
+      overridenIsFieldEmpty,
+      isRecordFieldReadOnly,
+      onMouseEnter,
+      anchorId,
+    }),
+    [
+      objectRecordId,
+      isLabelIdentifier,
+      fieldMetadataItem,
+      fieldPosition,
+      objectMetadataItem,
+      customUseUpdateOneObjectHook,
+      useUpdateOneObjectMutation,
+      clearable,
+      overridenIsFieldEmpty,
+      isRecordFieldReadOnly,
+      onMouseEnter,
+      anchorId,
+    ],
+  );
 
   if (!fieldMetadataItem) {
     return null;
@@ -69,24 +104,7 @@ export const FieldContextProvider = ({
   return (
     <FieldContext.Provider
       key={objectRecordId + fieldMetadataItem.id}
-      value={{
-        recordId: objectRecordId,
-        isLabelIdentifier,
-        fieldDefinition: formatFieldMetadataItemAsColumnDefinition({
-          field: fieldMetadataItem,
-          showLabel: true,
-          position: fieldPosition,
-          objectMetadataItem,
-          labelWidth: 90,
-        }),
-        useUpdateRecord:
-          customUseUpdateOneObjectHook ?? useUpdateOneObjectMutation,
-        clearable,
-        overridenIsFieldEmpty,
-        isRecordFieldReadOnly,
-        onMouseEnter,
-        anchorId,
-      }}
+      value={fieldContextValue}
     >
       {children}
     </FieldContext.Provider>

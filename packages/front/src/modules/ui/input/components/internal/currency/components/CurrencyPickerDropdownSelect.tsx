@@ -38,6 +38,8 @@ export const CurrencyPickerDropdownSelect = ({
         autoFocus
         role="combobox"
         aria-label="Cari mata uang"
+        aria-expanded={searchFilter.length > 0}
+        aria-controls="currency-picker-dropdown-list"
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>

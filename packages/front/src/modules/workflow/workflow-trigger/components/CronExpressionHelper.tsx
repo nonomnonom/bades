@@ -147,7 +147,7 @@ export const CronExpressionHelper = ({
         <StyledSection>
           <StyledScheduleTitle>{`Waktu eksekusi berikutnya (${timeZone})`}</StyledScheduleTitle>
           {nextExecutions.slice(0, 3).map((execution, index) => (
-            <StyledExecutionItem key={index}>
+            <StyledExecutionItem key={execution.toISOString()}>
               {formatDateTimeString({
                 value: execution.toISOString(),
                 timeZone,

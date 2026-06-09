@@ -80,7 +80,7 @@ export const SettingsMessageFoldersBreadcrumb = ({
     <StyledBreadcrumbOverlay depth={depth}>
       {parentsIsLastList.map((parentIsLast, index) => (
         <StyledAncestorLine
-          key={index}
+          key={`ancestor-${index}`}
           index={index}
           showLine={!parentIsLast}
         />

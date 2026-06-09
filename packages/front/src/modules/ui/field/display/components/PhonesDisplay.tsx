@@ -74,13 +74,14 @@ export const PhonesDisplay = ({
 
   return isFocused ? (
     <ExpandableList isChipCountDisplayed>
-      {phones.map(({ number, callingCode }, index) => {
+      {phones.map(({ number, callingCode }) => {
         const { parsedPhone, invalidPhone } =
           parsePhoneNumberOrReturnInvalidValue(callingCode + number);
         const URI = parsedPhone?.getURI();
+        const phoneKey = callingCode + number;
         return (
           <RoundedLink
-            key={index}
+            key={phoneKey}
             href={URI || ''}
             label={
               parsedPhone ? parsedPhone.formatInternational() : invalidPhone
@@ -94,13 +95,14 @@ export const PhonesDisplay = ({
     </ExpandableList>
   ) : (
     <StyledContainer>
-      {phones.map(({ number, callingCode }, index) => {
+      {phones.map(({ number, callingCode }) => {
         const { parsedPhone, invalidPhone } =
           parsePhoneNumberOrReturnInvalidValue(callingCode + number);
         const URI = parsedPhone?.getURI();
+        const phoneKey = callingCode + number;
         return (
           <RoundedLink
-            key={index}
+            key={phoneKey}
             href={URI || ''}
             label={
               parsedPhone ? parsedPhone.formatInternational() : invalidPhone

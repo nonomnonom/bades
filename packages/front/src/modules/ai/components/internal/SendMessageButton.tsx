@@ -9,6 +9,10 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { IconArrowUp, IconPlayerStop } from 'ui/display';
 import { RoundedIconButton } from 'ui/input';
 
+const handleStopClick = () => {
+  dispatchBrowserEvent(AGENT_CHAT_STOP_EVENT_NAME);
+};
+
 type SendMessageButtonProps = {
   onSend: () => void;
 };
@@ -25,10 +29,6 @@ export const SendMessageButton = ({ onSend }: SendMessageButtonProps) => {
     agentChatIsStreamingComponentFamilyState,
     { threadId: currentAiChatThread },
   );
-
-  const handleStopClick = () => {
-    dispatchBrowserEvent(AGENT_CHAT_STOP_EVENT_NAME);
-  };
 
   if (agentChatIsStreaming) {
     return (

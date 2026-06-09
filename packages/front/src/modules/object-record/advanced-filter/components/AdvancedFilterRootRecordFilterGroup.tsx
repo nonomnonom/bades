@@ -15,6 +15,7 @@ import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/
 import { styled } from '@linaria/react';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
+import { useMemo } from 'react';
 
 const StyledContainer = styled.div`
   align-items: start;
@@ -37,6 +38,11 @@ export const AdvancedFilterRootRecordFilterGroup = () => {
 
   const { objectMetadataItem } = useContextStoreObjectMetadataItemOrThrow();
 
+  const advancedFilterValue = useMemo(
+    () => ({ objectMetadataItem }),
+    [objectMetadataItem],
+  );
+
   if (!isDefined(rootRecordFilterGroup)) {
     return null;
   }
@@ -46,7 +52,9 @@ export const AdvancedFilterRootRecordFilterGroup = () => {
       componentInstanceId={`scroll-wrapper-dropdown-menu-${rootRecordFilterGroup.id}`}
     >
       <DropdownContent widthInPixels={ADVANCED_FILTER_DROPDOWN_CONTENT_WIDTH}>
-        <AdvancedFilterContext.Provider value={{ objectMetadataItem }}>
+        <AdvancedFilterContext.Provider
+          value={advancedFilterValue}
+        >
           <AdvancedFilterSSEEffect />
           <StyledContainer>
             {childRecordFiltersAndRecordFilterGroups.map(

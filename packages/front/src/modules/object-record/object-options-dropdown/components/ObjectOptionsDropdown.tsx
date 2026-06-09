@@ -1,5 +1,6 @@
 import { Trans } from '~/utils/i18n/badesI18n';
 import { useDropdownContextCurrentContentId } from '@/dropdown-context-state-management/hooks/useDropdownContextCurrentContentId';
+import { useMemo } from 'react';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { ObjectOptionsDropdownContent } from '@/object-record/object-options-dropdown/components/ObjectOptionsDropdownContent';
 import { OBJECT_OPTIONS_DROPDOWN_ID } from '@/object-record/object-options-dropdown/constants/ObjectOptionsDropdownId';
@@ -53,16 +54,27 @@ export const ObjectOptionsDropdown = ({
         onClose={handleResetContent}
         dropdownComponents={
           <ObjectOptionsDropdownContext.Provider
-            value={{
-              viewType,
-              objectMetadataItem,
-              recordIndexId,
-              currentContentId,
-              onContentChange: handleContentChange,
-              resetContent: handleResetContent,
-              dropdownId: OBJECT_OPTIONS_DROPDOWN_ID,
-              handleRecordGroupOrderChangeWithModal,
-            }}
+            value={useMemo(
+              () => ({
+                viewType,
+                objectMetadataItem,
+                recordIndexId,
+                currentContentId,
+                onContentChange: handleContentChange,
+                resetContent: handleResetContent,
+                dropdownId: OBJECT_OPTIONS_DROPDOWN_ID,
+                handleRecordGroupOrderChangeWithModal,
+              }),
+              [
+                viewType,
+                objectMetadataItem,
+                recordIndexId,
+                currentContentId,
+                handleContentChange,
+                handleResetContent,
+                handleRecordGroupOrderChangeWithModal,
+              ],
+            )}
           >
             <ObjectOptionsDropdownContent />
           </ObjectOptionsDropdownContext.Provider>

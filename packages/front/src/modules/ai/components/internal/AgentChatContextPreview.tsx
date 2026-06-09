@@ -58,7 +58,7 @@ export const AgentChatContextPreview = () => {
         {agentChatUploadedFiles.map((file, index) => (
           <AgentChatFilePreview
             file={file}
-            key={index}
+            key={file.fileId ?? index}
             onRemove={() => handleRemoveUploadedFile(index)}
             isUploading={false}
           />

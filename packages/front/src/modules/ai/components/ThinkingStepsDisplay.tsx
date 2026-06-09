@@ -459,17 +459,24 @@ export const ThinkingStepsDisplay = ({
       {shouldRenderRows && (
         <StyledStepsContentContainer>
           <StyledRowsContainer>
-            {parts.map((part, index) => (
-              <ThinkingStepRow
-                key={index}
-                part={part}
-                rowIndex={index}
-                isActive={isThinkingStepPartActive(
-                  part,
-                  isLastMessageStreaming,
-                )}
-              />
-            ))}
+            {parts.map((part, index) => {
+              const stepKey =
+                part.type === 'reasoning'
+                  ? `reasoning-${index}`
+                  : `tool-${(part as ToolUIPart).toolCallId || index}`;
+
+              return (
+                <ThinkingStepRow
+                  key={stepKey}
+                  part={part}
+                  rowIndex={index}
+                  isActive={isThinkingStepPartActive(
+                    part,
+                    isLastMessageStreaming,
+                  )}
+                />
+              );
+            })}
           </StyledRowsContainer>
           {!!shouldDisplayReasoningContent && (
             <StyledReasoningContainer>

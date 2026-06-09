@@ -30,6 +30,12 @@ const StyledEmptyValue = styled.div`
   color: ${themeCssVariables.font.color.tertiary};
 `;
 
+const isValueEmpty = (value: unknown): boolean =>
+  value === null || value === undefined || value === '';
+
+const isObjectEmpty = (obj: Record<string, unknown>): boolean =>
+  Object.values(obj).every(isValueEmpty);
+
 export const EventFieldDiff = ({
   diffRecord,
   mainObjectMetadataItem,
@@ -39,12 +45,6 @@ export const EventFieldDiff = ({
   if (!fieldMetadataItem) {
     throw new Error('fieldMetadataItem diperlukan');
   }
-
-  const isValueEmpty = (value: unknown): boolean =>
-    value === null || value === undefined || value === '';
-
-  const isObjectEmpty = (obj: Record<string, unknown>): boolean =>
-    Object.values(obj).every(isValueEmpty);
 
   const isUpdatedToEmpty =
     isValueEmpty(diffRecord) ||

@@ -21,13 +21,18 @@ export const PreComputedChipGeneratorsProvider = ({
       );
     }, [allowRequestsToFaviconService, objectMetadataItems]);
 
+  const chipGeneratorsValue = useMemo(
+    () => ({
+      chipGeneratorPerObjectPerField,
+      identifierChipGeneratorPerObject,
+    }),
+    [chipGeneratorPerObjectPerField, identifierChipGeneratorPerObject],
+  );
+
   return (
     <>
       <PreComputedChipGeneratorsContext.Provider
-        value={{
-          chipGeneratorPerObjectPerField,
-          identifierChipGeneratorPerObject,
-        }}
+        value={chipGeneratorsValue}
       >
         {children}
       </PreComputedChipGeneratorsContext.Provider>

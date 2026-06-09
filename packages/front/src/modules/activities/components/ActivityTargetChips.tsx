@@ -27,7 +27,7 @@ export const ActivityTargetChips = ({
         {activityTargetObjectRecords.map(
           (activityTargetObjectRecord, index) => (
             <RecordChip
-              key={index}
+              key={activityTargetObjectRecord.targetObject.id}
               record={activityTargetObjectRecord.targetObject}
               objectNameSingular={
                 activityTargetObjectRecord.targetObjectMetadataItem.nameSingular

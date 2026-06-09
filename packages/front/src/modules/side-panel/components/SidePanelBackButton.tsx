@@ -62,7 +62,7 @@ export const SidePanelBackButton = () => {
           <DropdownMenuItemsContainer>
             {contextChips.slice(0, -1).map((chip, index) => (
               <MenuItem
-                key={index}
+                key={chip.text || `chip-${index}`}
                 LeftComponent={chip.Icons}
                 onClick={() => {
                   closeDropdown(SIDE_PANEL_NAVIGATION_HISTORY_DROPDOWN_ID);

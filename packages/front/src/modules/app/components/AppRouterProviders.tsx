@@ -40,6 +40,8 @@ import { StrictMode } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { getPageTitleFromPath } from '~/utils/title-utils';
 
+const DIALOG_INSTANCE_VALUE = { instanceId: 'dialog-manager' } as const;
+
 export const AppRouterProviders = () => {
   const { pathname } = useLocation();
   const pageTitle = getPageTitleFromPath(pathname);
@@ -66,7 +68,7 @@ export const AppRouterProviders = () => {
                             <ErrorMessageEffect />
                             <AgentChatProvider>
                               <DialogComponentInstanceContext.Provider
-                                value={{ instanceId: 'dialog-manager' }}
+                                value={DIALOG_INSTANCE_VALUE}
                               >
                                 <DialogManager>
                                   <StrictMode>

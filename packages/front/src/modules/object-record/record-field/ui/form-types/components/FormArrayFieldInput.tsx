@@ -348,7 +348,7 @@ export const FormArrayFieldInput = ({
                       {draftValue.type === 'static' &&
                         draftValue.value.map((value, index) => (
                           <ArrayFieldMenuItem
-                            key={index}
+                            key={`${value}-${index}`}
                             dropdownId={`array-field-input-${instanceId}-${index}`}
                             value={value}
                             onEdit={() => {

@@ -8,7 +8,7 @@ import { useExportSingleRecord } from '@/object-record/record-show/hooks/useExpo
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewComponentInstanceContext';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 const ExportIndexRecordsContent = ({
@@ -80,6 +80,11 @@ export const ExportRecordsCommand = () => {
   const recordId = selectedRecords[0]?.id;
   const isShowPageExport = !isDefined(recordIndexId) && isDefined(recordId);
 
+  const viewInstanceValue = useMemo(
+    () => ({ instanceId: recordIndexId ?? '' }),
+    [recordIndexId],
+  );
+
   if (isShowPageExport) {
     return (
       <ExportShowRecordContent
@@ -97,7 +102,7 @@ export const ExportRecordsCommand = () => {
 
   return (
     <ViewComponentInstanceContext.Provider
-      value={{ instanceId: recordIndexId }}
+      value={viewInstanceValue}
     >
       <ExportIndexRecordsContent
         objectMetadataItem={objectMetadataItem}

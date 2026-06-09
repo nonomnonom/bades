@@ -24,12 +24,17 @@ export const RecordTableCellWrapper = ({
     [recordFieldIndex, rowIndex],
   );
 
+  const cellContextValue = useMemo(
+    () => ({
+      recordField,
+      cellPosition: currentTableCellPosition,
+    }),
+    [recordField, currentTableCellPosition],
+  );
+
   return (
     <RecordTableCellContext.Provider
-      value={{
-        recordField,
-        cellPosition: currentTableCellPosition,
-      }}
+      value={cellContextValue}
       key={recordField.fieldMetadataItemId}
     >
       <RecordTableCellFieldContextWrapper recordField={recordField}>

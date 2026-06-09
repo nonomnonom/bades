@@ -31,6 +31,6 @@ export const RecordBoardCardMultiDragStack = () => {
   return Array.from({
     length: Math.min(5, originalDragSelection.length - 1),
   }).map((_, index) => (
-    <StyledRecordBoardCardStackCard key={index} offset={index + 1} />
+    <StyledRecordBoardCardStackCard key={`drag-stack-${index}`} offset={index + 1} />
   ));
 };

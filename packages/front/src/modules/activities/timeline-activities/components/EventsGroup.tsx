@@ -73,7 +73,7 @@ export const EventsGroup = ({
         {group.items.map((event, index) => (
           <EventRow
             mainObjectMetadataItem={mainObjectMetadataItem}
-            key={index}
+            key={event.id}
             event={event}
             isLastEvent={index === group.items.length - 1}
           />

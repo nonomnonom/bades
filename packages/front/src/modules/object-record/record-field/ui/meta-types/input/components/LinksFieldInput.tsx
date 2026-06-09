@@ -107,7 +107,7 @@ export const LinksFieldInput = () => {
         handleDelete,
       }) => (
         <LinksFieldMenuItem
-          key={index}
+          key={link.url}
           dropdownId={`${MULTI_ITEM_FIELD_INPUT_DROPDOWN_ID_PREFIX}-${fieldDefinition.metadata.fieldName}-${index}`}
           showPrimaryIcon={getShowPrimaryIcon(index)}
           showSetAsPrimaryButton={getShowSetAsPrimaryButton(index)}

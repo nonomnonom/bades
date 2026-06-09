@@ -110,8 +110,8 @@ export const SettingsAdminChatThreadMessageList = ({
                 {isUser ? textParts : <LazyMarkdownRenderer text={textParts} />}
               </StyledMessageContent>
             )}
-            {toolParts.map((part, index) => (
-              <StyledMessageContent key={index} isUser={false}>
+            {toolParts.map((part) => (
+              <StyledMessageContent key={`tool-${part.toolName}`} isUser={false}>
                 {`Panggilan alat: ${part.toolName}`}
               </StyledMessageContent>
             ))}

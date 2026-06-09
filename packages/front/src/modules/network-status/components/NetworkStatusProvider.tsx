@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -46,8 +47,10 @@ export const NetworkStatusProvider = ({
     };
   }, [handleOnline, handleOffline]);
 
+  const value = useMemo(() => ({ isOnline }), [isOnline]);
+
   return (
-    <NetworkStatusContext.Provider value={{ isOnline }}>
+    <NetworkStatusContext.Provider value={value}>
       {children}
       {!isOnline && banner}
     </NetworkStatusContext.Provider>

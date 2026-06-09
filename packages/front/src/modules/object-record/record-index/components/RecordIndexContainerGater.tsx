@@ -20,7 +20,7 @@ import { PageTitle } from '@/ui/utilities/page-title/components/PageTitle';
 import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewComponentInstanceContext';
 import { styled } from '@linaria/react';
 import { useStore } from 'jotai';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 const StyledIndexContainer = styled.div`
   display: flex;
@@ -80,15 +80,22 @@ export const RecordIndexContainerGater = () => {
         }}
       >
         <ViewComponentInstanceContext.Provider
-          value={{ instanceId: recordIndexId }}
+          value={useMemo(
+            () => ({ instanceId: recordIndexId }),
+            [recordIndexId],
+          )}
         >
           <RecordComponentInstanceContextsWrapper
             componentInstanceId={recordIndexId}
           >
             <CommandMenuComponentInstanceContext.Provider
-              value={{
-                instanceId: getCommandMenuIdFromRecordIndexId(recordIndexId),
-              }}
+              value={useMemo(
+                () => ({
+                  instanceId:
+                    getCommandMenuIdFromRecordIndexId(recordIndexId),
+                }),
+                [recordIndexId],
+              )}
             >
               <PageTitle title={objectMetadataItem.labelPlural} />
               <RecordIndexPageHeader />

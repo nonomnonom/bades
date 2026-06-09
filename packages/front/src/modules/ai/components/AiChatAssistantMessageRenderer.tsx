@@ -116,7 +116,7 @@ export const AiChatAssistantMessageRenderer = ({
         {renderItems.map((renderItem, index) =>
           renderItem.type === 'thinking-steps' ? (
             <ThinkingStepsDisplay
-              key={index}
+              key={`thinking-${index}`}
               parts={renderItem.parts}
               isLastMessageStreaming={isLastMessageStreaming}
               hasAssistantTextResponseStarted={renderItems
@@ -130,7 +130,7 @@ export const AiChatAssistantMessageRenderer = ({
             />
           ) : (
             <MessagePartRenderer
-              key={index}
+              key={`part-${index}`}
               part={renderItem.part}
               isStreaming={isLastMessageStreaming}
             />

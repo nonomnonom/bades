@@ -41,13 +41,13 @@ type CalendarEventDetailsProps = {
 
 const INPUT_ID_PREFIX = 'calendar-event-details';
 
-const STANDARD_FIELD_ORDER = [
+const STANDARD_FIELD_ORDER: readonly string[] = [
   'startsAt',
   'endsAt',
   'conferenceLink',
   'location',
   'description',
-] as const;
+];
 
 const RECORD_FIELDS_SCOPE_VALUE = { scopeInstanceId: INPUT_ID_PREFIX } as const;
 

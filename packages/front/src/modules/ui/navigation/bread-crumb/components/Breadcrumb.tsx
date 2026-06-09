@@ -54,9 +54,10 @@ export const Breadcrumb = ({ className, links }: BreadcrumbProps) => {
     <StyledWrapper className={className}>
       {links.map((link, index) => {
         const text = typeof link.children === 'string' ? link.children : '';
+        const linkKey = link.href || text || `breadcrumb-${index}`;
 
         return (
-          <Fragment key={index}>
+          <Fragment key={linkKey}>
             {link.href ? (
               <StyledLinkContainer>
                 <Link title={text} to={link.href}>

@@ -3,7 +3,7 @@ import {
   type FileUploadOptions,
 } from '@/file-upload/contexts/FileUploadContext';
 import { styled } from '@linaria/react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { isDefined } from 'shared/utils';
 
 const StyledFileInput = styled.input`
@@ -81,8 +81,13 @@ export const FileUploadProvider = ({
     return () => input.removeEventListener('cancel', handleFileInputCancel);
   }, [handleFileInputCancel]);
 
+  const fileUploadValue = useMemo(
+    () => ({ openFileUpload }),
+    [openFileUpload],
+  );
+
   return (
-    <FileUploadContext.Provider value={{ openFileUpload }}>
+    <FileUploadContext.Provider value={fileUploadValue}>
       {children}
       <StyledFileInput
         ref={fileInputRef}

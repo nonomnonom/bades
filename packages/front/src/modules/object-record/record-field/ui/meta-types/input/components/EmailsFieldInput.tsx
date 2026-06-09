@@ -117,7 +117,7 @@ export const EmailsFieldInput = () => {
         handleDelete,
       }) => (
         <EmailsFieldMenuItem
-          key={index}
+          key={email}
           dropdownId={`${MULTI_ITEM_FIELD_INPUT_DROPDOWN_ID_PREFIX}-${fieldDefinition.metadata.fieldName}-${index}`}
           showPrimaryIcon={getShowPrimaryIcon(index)}
           showSetAsPrimaryButton={getShowSetAsPrimaryButton(index)}

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useMemo, useState } from 'react';
 
 import { ActivityTargetChips } from '@/activities/components/ActivityTargetChips';
 import { useActivityTargetObjectRecords } from '@/activities/hooks/useActivityTargetObjectRecords';
@@ -74,15 +74,19 @@ export const ActivityTargetsInlineCell = ({
     goBackToPreviousDropdownFocusId();
   }, [goBackToPreviousDropdownFocusId]);
 
+  const scopeValue = useMemo(
+    () => ({ scopeInstanceId: componentInstanceId }),
+    [componentInstanceId],
+  );
+
+  const instanceValue = useMemo(
+    () => ({ instanceId: componentInstanceId }),
+    [componentInstanceId],
+  );
+
   return (
-    <RecordFieldsScopeContextProvider
-      value={{ scopeInstanceId: componentInstanceId }}
-    >
-      <RecordFieldComponentInstanceContext.Provider
-        value={{
-          instanceId: componentInstanceId,
-        }}
-      >
+    <RecordFieldsScopeContextProvider value={scopeValue}>
+      <RecordFieldComponentInstanceContext.Provider value={instanceValue}>
         <FieldFocusContextProvider>
           <FieldContextProvider
             objectNameSingular={activityObjectNameSingular}

@@ -97,7 +97,7 @@ export const PageLayoutGridOverlay = () => {
           const cellId = generateCellId(column, row);
           return (
             <StyledGridCell
-              key={i}
+              key={cellId}
               data-selectable-id={cellId}
               isSelected={pageLayoutSelectedCells.has(cellId)}
               onClick={() => createWidgetFromClick(cellId)}

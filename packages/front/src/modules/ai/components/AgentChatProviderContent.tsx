@@ -9,6 +9,10 @@ import { AgentChatThreadInitializationEffect } from '@/ai/components/AgentChatTh
 import { AgentChatComponentInstanceContext } from '@/ai/contexts/AgentChatComponentInstanceContext';
 import { Suspense } from 'react';
 
+const AGENT_CHAT_INSTANCE_VALUE = {
+  instanceId: 'agentChatComponentInstance',
+} as const;
+
 export const AgentChatProviderContent = ({
   children,
 }: {
@@ -17,7 +21,7 @@ export const AgentChatProviderContent = ({
   return (
     <Suspense fallback={null}>
       <AgentChatComponentInstanceContext.Provider
-        value={{ instanceId: 'agentChatComponentInstance' }}
+        value={AGENT_CHAT_INSTANCE_VALUE}
       >
         <AgentChatThreadInitializationEffect />
         <AgentChatStaleThreadRecoveryEffect />

@@ -54,6 +54,21 @@ export const StyledEventRowItemText = styled.span`
   color: ${themeCssVariables.font.color.primary};
 `;
 
+const getEventActionLabel = (action: string, object: string) => {
+  const objectLabel =
+    object === 'task' ? 'tugas' : object === 'note' ? 'catatan' : object;
+  switch (action) {
+    case 'added':
+      return `menambahkan ${objectLabel} terkait`;
+    case 'removed':
+      return `menghapus kaitan ${objectLabel} terkait`;
+    case 'updated':
+      return `memperbarui ${objectLabel} terkait`;
+    default:
+      return `${action} ${objectLabel} terkait`;
+  }
+};
+
 export const EventRowActivity = ({
   event,
   authorFullName,
@@ -78,35 +93,13 @@ export const EventRowActivity = ({
 
   const activityInStore = getActivityFromCache(event.linkedRecordId);
 
-  const computeActivityTitle = () => {
-    if (isNonEmptyString(activityInStore?.title)) {
-      return activityInStore?.title;
-    }
-
-    if (isNonEmptyString(event.linkedRecordCachedName)) {
-      return event.linkedRecordCachedName;
-    }
-
-    return `Tanpa judul`;
-  };
-  const activityTitle = computeActivityTitle();
+  const activityTitle = isNonEmptyString(activityInStore?.title)
+    ? activityInStore?.title
+    : isNonEmptyString(event.linkedRecordCachedName)
+      ? event.linkedRecordCachedName
+      : `Tanpa judul`;
 
   const { openRecordInSidePanel } = useOpenRecordInSidePanel();
-
-  const getEventActionLabel = (action: string, object: string) => {
-    const objectLabel =
-      object === 'task' ? 'tugas' : object === 'note' ? 'catatan' : object;
-    switch (action) {
-      case 'added':
-        return `menambahkan ${objectLabel} terkait`;
-      case 'removed':
-        return `menghapus kaitan ${objectLabel} terkait`;
-      case 'updated':
-        return `memperbarui ${objectLabel} terkait`;
-      default:
-        return `${action} ${objectLabel} terkait`;
-    }
-  };
 
   return (
     <StyledEventRow>

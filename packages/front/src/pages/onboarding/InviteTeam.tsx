@@ -176,7 +176,7 @@ export const InviteTeam = () => {
       <StyledAnimatedContainer>
         {fields.map((field, index) => (
           <Controller
-            key={index}
+            key={field.id}
             name={`emails.${index}.email`}
             control={control}
             render={({

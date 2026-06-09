@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 
 import { RecordTableComponentInstanceContext } from '@/object-record/record-table/states/context/RecordTableComponentInstanceContext';
 
@@ -11,11 +11,14 @@ export const RecordTableComponentInstance = ({
   children,
   recordTableId,
 }: RecordTableComponentInstanceProps) => {
+  const value = useMemo(
+    () => ({ instanceId: recordTableId }),
+    [recordTableId],
+  );
+
   return (
     <RecordTableComponentInstanceContext.Provider
-      value={{
-        instanceId: recordTableId,
-      }}
+      value={value}
     >
       {children}
     </RecordTableComponentInstanceContext.Provider>

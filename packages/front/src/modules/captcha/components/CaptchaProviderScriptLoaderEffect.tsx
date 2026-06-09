@@ -17,6 +17,7 @@ export const CaptchaProviderScriptLoaderEffect = () => {
   const { isCaptchaScriptLoaded, isCaptchaConfigured } = useCaptcha();
   const { requestFreshCaptchaToken } = useRequestFreshCaptchaToken();
   const location = useLocation();
+  // oxlint-disable-next-line bades/no-state-useref
   const pathnameRef = useRef(location.pathname);
 
   pathnameRef.current = location.pathname;
@@ -86,7 +87,7 @@ export const CaptchaProviderScriptLoaderEffect = () => {
     captcha?.provider,
     captcha?.siteKey,
     setIsCaptchaScriptLoaded,
-    location.pathname,
+    location,
   ]);
 
   useEffect(() => {

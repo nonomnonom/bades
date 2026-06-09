@@ -57,13 +57,15 @@ export const SettingsRadioCard = ({
   description,
   isSelected,
   Icon,
+  role,
+  ariaChecked,
 }: SettingsRadioCardProps) => {
   const { theme } = useContext(ThemeContext);
   const onClick = () => handleSelect(value);
 
   return (
     <StyledRadioCardContentContainer>
-      <CardContent tabIndex={0} onClick={onClick}>
+      <CardContent tabIndex={0} onClick={onClick} role={role} aria-checked={ariaChecked}>
         {Icon && <Icon size={theme.icon.size.xl} color={theme.color.gray10} />}
         <span>
           {title && <StyledTitle>{title}</StyledTitle>}

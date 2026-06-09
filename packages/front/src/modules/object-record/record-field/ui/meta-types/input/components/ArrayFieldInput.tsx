@@ -72,7 +72,7 @@ export const ArrayFieldInput = () => {
       fieldMetadataType={FieldMetadataType.ARRAY}
       renderItem={({ value, index, handleEdit, handleDelete }) => (
         <ArrayFieldMenuItem
-          key={index}
+          key={`${value}-${index}`}
           dropdownId={`${MULTI_ITEM_FIELD_INPUT_DROPDOWN_ID_PREFIX}-${fieldDefinition.metadata.fieldName}-${index}`}
           value={value}
           onEdit={handleEdit}

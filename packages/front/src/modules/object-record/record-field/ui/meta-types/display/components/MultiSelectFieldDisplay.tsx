@@ -20,9 +20,9 @@ export const MultiSelectFieldDisplay = () => {
 
   return isFocused ? (
     <ExpandableList isChipCountDisplayed={isFocused}>
-      {selectedOptions.map((selectedOption, index) => (
+      {selectedOptions.map((selectedOption) => (
         <Tag
-          key={index}
+          key={selectedOption.value}
           color={selectedOption.color}
           text={selectedOption.label}
         />

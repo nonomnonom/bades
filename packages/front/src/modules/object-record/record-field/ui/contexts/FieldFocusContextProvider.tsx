@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { FieldFocusContext } from '@/object-record/record-field/ui/contexts/FieldFocusContext';
 
@@ -15,13 +15,10 @@ const STATIC_FOCUSED_VALUE = {
 export const FieldFocusContextProvider = ({ children }: any) => {
   const [isFocused, setIsFocused] = useState(false);
 
+  const value = useMemo(() => ({ isFocused, setIsFocused }), [isFocused]);
+
   return (
-    <FieldFocusContext.Provider
-      value={{
-        isFocused,
-        setIsFocused,
-      }}
-    >
+    <FieldFocusContext.Provider value={value}>
       {children}
     </FieldFocusContext.Provider>
   );

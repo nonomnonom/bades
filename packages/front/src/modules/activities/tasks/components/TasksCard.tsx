@@ -12,13 +12,17 @@ const StyledContainer = styled.div`
   overflow: auto;
 `;
 
+const TASK_FILTER_CONTEXT_VALUE = {
+  instanceId: 'entity-tasks-filter-instance',
+} as const;
+
 export const TasksCard = () => {
   const targetRecord = useTargetRecord();
 
   return (
     <StyledContainer>
       <ObjectFilterDropdownComponentInstanceContext.Provider
-        value={{ instanceId: 'entity-tasks-filter-instance' }}
+        value={TASK_FILTER_CONTEXT_VALUE}
       >
         <TaskGroups targetableObject={targetRecord} />
       </ObjectFilterDropdownComponentInstanceContext.Provider>

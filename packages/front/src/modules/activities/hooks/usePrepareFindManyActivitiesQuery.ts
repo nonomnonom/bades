@@ -75,25 +75,37 @@ export const usePrepareFindManyActivitiesQuery = ({
 
     const activityTargetIds = [
       ...new Set(
-        activityTargets
-          .map((activityTarget) => activityTarget.id)
-          .filter(isDefined),
+        activityTargets.reduce<string[]>((acc, activityTarget) => {
+          if (isDefined(activityTarget.id)) {
+            acc.push(activityTarget.id);
+          }
+
+          return acc;
+        }, []),
       ),
     ];
 
-    const activities: (Task | Note)[] = activityTargetIds
-      .map((activityTargetId) => {
-        const activityTarget = activityTargets.find(
-          (activityTarget) => activityTarget.id === activityTargetId,
-        );
+    const activities: (Task | Note)[] = activityTargetIds.reduce<
+      (Task | Note)[]
+    >((acc, activityTargetId) => {
+      const activityTarget = activityTargets.find(
+        (activityTarget) => activityTarget.id === activityTargetId,
+      );
 
-        if (!activityTarget) {
-          return undefined;
-        }
+      if (!activityTarget) {
+        return acc;
+      }
 
-        return getActivityFromCache<Task | Note>(activityTarget.activityId);
-      })
-      .filter(isDefined);
+      const activity = getActivityFromCache<Task | Note>(
+        activityTarget.activityId,
+      );
+
+      if (isDefined(activity)) {
+        acc.push(activity);
+      }
+
+      return acc;
+    }, []);
 
     const activityIds = [...new Set(activities.map((activity) => activity.id))];
 

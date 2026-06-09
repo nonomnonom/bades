@@ -41,9 +41,9 @@ export const EmailsDisplay = ({
 
   return isFocused ? (
     <ExpandableList isChipCountDisplayed>
-      {emails.map((email, index) => (
+      {emails.map((email) => (
         <RoundedLink
-          key={index}
+          key={email}
           label={email}
           href={`mailto:${email}`}
           onClick={(event) => onEmailClick?.(email, event)}
@@ -52,9 +52,9 @@ export const EmailsDisplay = ({
     </ExpandableList>
   ) : (
     <StyledContainer>
-      {emails.map((email, index) => (
+      {emails.map((email) => (
         <RoundedLink
-          key={index}
+          key={email}
           label={email}
           href={`mailto:${email}`}
           onClick={(event) => onEmailClick?.(email, event)}

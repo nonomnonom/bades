@@ -29,7 +29,7 @@ import { contextStoreCurrentObjectMetadataItemIdComponentState } from '@/context
 import { contextStoreCurrentPageTypeComponentState } from '@/context-store/states/contextStoreCurrentPageTypeComponentState';
 import { contextStoreCurrentViewTypeComponentState } from '@/context-store/states/contextStoreCurrentViewTypeComponentState';
 import { ContextStoreComponentInstanceContext } from '@/context-store/states/contexts/ContextStoreComponentInstanceContext';
-import { ContextStorePageType } from 'shared/types';
+import { ContextStorePageType, SidePanelPages } from 'shared/types';
 import { ContextStoreViewType } from '@/context-store/types/ContextStoreViewType';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { RecordComponentInstanceContextsWrapper } from '@/object-record/components/RecordComponentInstanceContextsWrapper';
@@ -43,7 +43,6 @@ import { sidePanelPageInfoState } from '@/side-panel/states/sidePanelPageInfoSta
 import { sidePanelPageState } from '@/side-panel/states/sidePanelPageState';
 import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewComponentInstanceContext';
 import { HttpResponse, graphql } from 'msw';
-import { SidePanelPages } from 'shared/types';
 import { IconDotsVertical, IconPlus } from 'ui/display';
 import { JestContextStoreSetter } from '~/testing/jest/JestContextStoreSetter';
 

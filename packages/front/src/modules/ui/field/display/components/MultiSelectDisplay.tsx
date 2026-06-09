@@ -32,10 +32,10 @@ export const MultiSelectDisplay = ({
 
   return (
     <StyledContainer>
-      {selectedOptions.map((selectedOption, index) => (
+      {selectedOptions.map((selectedOption) => (
         <Tag
           preventShrink
-          key={index}
+          key={selectedOption.value}
           color={selectedOption.color ?? 'transparent'}
           text={selectedOption.label}
           Icon={selectedOption.Icon ?? undefined}

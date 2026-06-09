@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { AuthContext } from '@/auth/contexts/AuthContext';
 import { currentWorkspaceDeletedMembersState } from '@/auth/states/currentWorkspaceDeletedMembersState';
@@ -13,12 +13,17 @@ export const AuthProvider = ({ children }: React.PropsWithChildren) => {
     currentWorkspaceDeletedMembersState,
   );
 
+  const authValue = useMemo(
+    () => ({
+      currentWorkspaceMembers,
+      currentWorkspaceDeletedMembers,
+    }),
+    [currentWorkspaceMembers, currentWorkspaceDeletedMembers],
+  );
+
   return (
     <AuthContext.Provider
-      value={{
-        currentWorkspaceMembers,
-        currentWorkspaceDeletedMembers,
-      }}
+      value={authValue}
     >
       {children}
     </AuthContext.Provider>

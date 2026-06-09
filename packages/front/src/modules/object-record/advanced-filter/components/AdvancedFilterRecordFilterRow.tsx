@@ -8,6 +8,7 @@ import { getAdvancedFilterObjectFilterDropdownComponentInstanceId } from '@/obje
 import { ObjectFilterDropdownComponentInstanceContext } from '@/object-record/object-filter-dropdown/states/contexts/ObjectFilterDropdownComponentInstanceContext';
 import { type RecordFilterGroup } from '@/object-record/record-filter-group/types/RecordFilterGroup';
 import { type RecordFilter } from '@/object-record/record-filter/types/RecordFilter';
+import { useMemo } from 'react';
 
 export const AdvancedFilterRecordFilterRow = ({
   recordFilterGroup,
@@ -18,13 +19,18 @@ export const AdvancedFilterRecordFilterRow = ({
   recordFilter: RecordFilter;
   recordFilterIndex: number;
 }) => {
+  const instanceValue = useMemo(
+    () => ({
+      instanceId: getAdvancedFilterObjectFilterDropdownComponentInstanceId(
+        recordFilter.id,
+      ),
+    }),
+    [recordFilter.id],
+  );
+
   return (
     <ObjectFilterDropdownComponentInstanceContext.Provider
-      value={{
-        instanceId: getAdvancedFilterObjectFilterDropdownComponentInstanceId(
-          recordFilter.id,
-        ),
-      }}
+      value={instanceValue}
     >
       <AdvancedFilterDropdownRow>
         <AdvancedFilterLogicalOperatorCell

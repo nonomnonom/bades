@@ -2,6 +2,7 @@ import { InformationBannerComponentInstanceContext } from '@/information-banner/
 import { informationBannerIsOpenComponentState } from '@/information-banner/states/informationBannerIsOpenComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 import {
   Banner,
   type BannerColor,
@@ -59,11 +60,14 @@ export const InformationBanner = ({
   const isPrimary = variant === 'primary';
   const buttonAccent = color === 'danger' ? 'danger' : 'blue';
 
+  const value = useMemo(
+    () => ({ instanceId: componentInstanceId }),
+    [componentInstanceId],
+  );
+
   return (
     <InformationBannerComponentInstanceContext.Provider
-      value={{
-        instanceId: componentInstanceId,
-      }}
+      value={value}
     >
       {informationBannerIsOpen && (
         <Banner color={color} variant={variant}>

@@ -49,7 +49,7 @@ export const SettingsAccountsToggleSettingCard = ({
 }: SettingsAccountsToggleSettingCardProps) => (
   <Card rounded>
     {parameters.map((parameter, index) => (
-      <StyledCardContentContainer key={index}>
+      <StyledCardContentContainer key={parameter.title}>
         <CardContent
           divider={index < parameters.length - 1}
           onClick={() => parameter.onToggle(!parameter.value)}

@@ -2,7 +2,10 @@ import { getObjectPermissionsForObject } from '@/object-metadata/utils/getObject
 import { isLabelIdentifierField } from '@/object-metadata/utils/isLabelIdentifierField';
 import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
 import { type RecordField } from '@/object-record/record-field/types/RecordField';
-import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
+import {
+  FieldContext,
+  type RecordUpdateHook,
+} from '@/object-record/record-field/ui/contexts/FieldContext';
 import { isFieldRelationManyToOne } from '@/object-record/record-field/ui/types/guards/isFieldRelationManyToOne';
 import { isFieldRelationOneToMany } from '@/object-record/record-field/ui/types/guards/isFieldRelationOneToMany';
 import { getJunctionConfig } from '@/object-record/record-field/ui/utils/junction/getJunctionConfig';
@@ -14,7 +17,7 @@ import { useRecordTableRowContextOrThrow } from '@/object-record/record-table/co
 import { RecordTableUpdateContext } from '@/object-record/record-table/contexts/RecordTableUpdateContext';
 import { isRecordTableCellsNonEditableComponentState } from '@/object-record/record-table/states/isRecordTableCellsNonEditableComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useContext, type ReactNode } from 'react';
+import { useContext, type ReactNode, useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 type RecordTableCellFieldContextGenericProps = {
   recordField: RecordField;
@@ -90,37 +93,56 @@ export const RecordTableCellFieldContextGeneric = ({
     }
   }
 
-  return (
-    <FieldContext.Provider
-      value={{
-        fieldMetadataItemId: recordField.fieldMetadataItemId,
-        recordId,
-        fieldDefinition: fieldDefinition,
-        useUpdateRecord: updateRecord ? () => [updateRecord, {}] : undefined,
-        isLabelIdentifier: isLabelIdentifierField({
+  const fieldContextValue = useMemo(
+    () => ({
+      fieldMetadataItemId: recordField.fieldMetadataItemId,
+      recordId,
+      fieldDefinition: fieldDefinition,
+      useUpdateRecord: updateRecord
+        ? (() => [updateRecord, {}] as unknown as ReturnType<RecordUpdateHook>)
+        : undefined,
+      isLabelIdentifier: isLabelIdentifierField({
+        fieldMetadataItem: {
+          id: fieldDefinition.fieldMetadataId,
+          name: fieldDefinition.metadata.fieldName,
+        },
+        objectMetadataItem,
+      }),
+      displayedMaxRows: 1,
+      isRecordFieldReadOnly:
+        isRecordTableCellsNonEditable ||
+        isRecordFieldReadOnly({
+          isRecordReadOnly: isRecordReadOnly ?? false,
+          isSystemObject: objectMetadataItem.isSystem,
+          objectPermissions,
           fieldMetadataItem: {
             id: fieldDefinition.fieldMetadataId,
-            name: fieldDefinition.metadata.fieldName,
+            isUIReadOnly: fieldDefinition.metadata.isUIReadOnly ?? false,
+            isCustom: fieldDefinition.metadata.isCustom ?? false,
           },
-          objectMetadataItem,
+          fieldDefinition,
+          objectPermissionsByObjectMetadataId,
         }),
-        displayedMaxRows: 1,
-        isRecordFieldReadOnly:
-          isRecordTableCellsNonEditable ||
-          isRecordFieldReadOnly({
-            isRecordReadOnly: isRecordReadOnly ?? false,
-            isSystemObject: objectMetadataItem.isSystem,
-            objectPermissions,
-            fieldMetadataItem: {
-              id: fieldDefinition.fieldMetadataId,
-              isUIReadOnly: fieldDefinition.metadata.isUIReadOnly ?? false,
-              isCustom: fieldDefinition.metadata.isCustom ?? false,
-            },
-            fieldDefinition,
-            objectPermissionsByObjectMetadataId,
-          }),
-        isForbidden: !hasObjectReadPermissions,
-      }}
+      isForbidden: !hasObjectReadPermissions,
+    }),
+    [
+      recordField.fieldMetadataItemId,
+      recordId,
+      fieldDefinition,
+      objectMetadataItem,
+      isRecordTableCellsNonEditable,
+      isRecordReadOnly,
+      objectMetadataItem.isSystem,
+      objectPermissions,
+      objectPermissionsByObjectMetadataId,
+      hasObjectReadPermissions,
+      updateRecord,
+    ],
+  );
+
+  return (
+    <FieldContext.Provider
+      value={fieldContextValue}
     >
       {children}
     </FieldContext.Provider>

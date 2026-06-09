@@ -5,6 +5,7 @@ import { CommandComponentInstanceContext } from '@/command-menu-item/engine-comm
 import { headlessCommandContextApisState } from '@/command-menu-item/engine-command/states/headlessCommandContextApisState';
 import { ContextStoreComponentInstanceContext } from '@/context-store/states/contexts/ContextStoreComponentInstanceContext';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { useCallback } from 'react';
 
 export const CommandRunner = () => {
   const headlessCommandContextApis = useAtomStateValue(
@@ -12,16 +13,25 @@ export const CommandRunner = () => {
   );
   const unmountCommand = useUnmountCommand();
 
+  const makeContextStoreValue = useCallback(
+    (instanceId: string) => ({ instanceId }),
+    [],
+  );
+  const makeCommandValue = useCallback(
+    (instanceId: string) => ({ instanceId }),
+    [],
+  );
+
   return (
     <>
       {[...headlessCommandContextApis.entries()].map(
         ([commandMenuItemId, context]) => (
           <ContextStoreComponentInstanceContext.Provider
             key={commandMenuItemId}
-            value={{ instanceId: context.contextStoreInstanceId }}
+            value={makeContextStoreValue(context.contextStoreInstanceId)}
           >
             <CommandComponentInstanceContext.Provider
-              value={{ instanceId: commandMenuItemId }}
+              value={makeCommandValue(commandMenuItemId)}
             >
               <CommandMenuItemErrorBoundary
                 shouldReportToSentry

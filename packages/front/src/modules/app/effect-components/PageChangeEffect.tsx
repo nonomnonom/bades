@@ -60,6 +60,7 @@ const AUTH_AND_ONBOARDING_PATHS = [
 //  - moved usePageChangeEffectNavigateLocation into dedicated hook
 export const PageChangeEffect = () => {
   const store = useStore();
+  // oxlint-disable-next-line bades/no-state-useref
   const storeRef = useRef(store);
 
   storeRef.current = store;
@@ -144,7 +145,7 @@ export const PageChangeEffect = () => {
 
   useEffect(() => {
     closeSidePanelUnlessNotRelevant();
-  }, [location.pathname, closeSidePanelUnlessNotRelevant]);
+  }, [location, closeSidePanelUnlessNotRelevant]);
 
   useEffect(() => {
     if (!previousLocation || previousLocation !== location.pathname) {
@@ -418,7 +419,7 @@ export const PageChangeEffect = () => {
       });
     }, 500);
     return () => clearTimeout(timeoutId);
-  }, [eventTracker, location.pathname]);
+  }, [eventTracker, location]);
 
   const { requestFreshCaptchaToken } = useRequestFreshCaptchaToken();
   const isCaptchaScriptLoaded = useAtomStateValue(isCaptchaScriptLoadedState);
@@ -427,7 +428,7 @@ export const PageChangeEffect = () => {
     if (isCaptchaScriptLoaded && isCaptchaRequiredForPath(location.pathname)) {
       requestFreshCaptchaToken();
     }
-  }, [isCaptchaScriptLoaded, location.pathname, requestFreshCaptchaToken]);
+  }, [isCaptchaScriptLoaded, location, requestFreshCaptchaToken]);
 
   return <></>;
 };

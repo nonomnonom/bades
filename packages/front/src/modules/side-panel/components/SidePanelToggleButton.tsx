@@ -71,9 +71,9 @@ const AnimatedIcon = ({
         }}
       />
 
-      {Object.values(xPaths).map((path, index) => (
+      {Object.entries(xPaths).map(([direction, path]) => (
         <motion.path
-          key={index}
+          key={direction}
           d={path}
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{

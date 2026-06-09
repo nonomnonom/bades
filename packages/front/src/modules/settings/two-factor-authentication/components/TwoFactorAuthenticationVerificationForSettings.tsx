@@ -38,7 +38,7 @@ export const TwoFactorAuthenticationVerificationForSettings = () => {
             <StyledOTPContainer>
               {slots.slice(0, 3).map((slot, idx) => (
                 <TwoFactorAuthenticationVerificationCodeSlot
-                  key={idx}
+                  key={`first-${idx}`}
                   char={slot.char}
                   placeholderChar={slot.placeholderChar}
                   isActive={slot.isActive}
@@ -48,7 +48,7 @@ export const TwoFactorAuthenticationVerificationForSettings = () => {
               <TwoFactorAuthenticationVerificationCodeDash />
               {slots.slice(3).map((slot, idx) => (
                 <TwoFactorAuthenticationVerificationCodeSlot
-                  key={idx + 3}
+                  key={`second-${idx}`}
                   char={slot.char}
                   placeholderChar={slot.placeholderChar}
                   isActive={slot.isActive}

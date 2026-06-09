@@ -15,6 +15,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { IconsProvider } from 'ui/display';
 import { initialI18nActivate } from '~/utils/i18n/initialI18nActivate';
 
+const SNACK_BAR_INSTANCE_VALUE = { instanceId: 'snack-bar-manager' } as const;
+const CLICK_OUTSIDE_VALUE = { excludedClickOutsideId: undefined } as const;
+
 initialI18nActivate();
 
 const AppLoadingFallback = () => (
@@ -41,13 +44,13 @@ export const App = () => {
         <I18nProvider i18n={i18n}>
           <ApolloDevLogEffect />
           <SnackBarComponentInstanceContext.Provider
-            value={{ instanceId: 'snack-bar-manager' }}
+            value={SNACK_BAR_INSTANCE_VALUE}
           >
             <IconsProvider>
               <ExceptionHandlerProvider>
                 <HelmetProvider>
                   <ClickOutsideListenerContext.Provider
-                    value={{ excludedClickOutsideId: undefined }}
+                    value={CLICK_OUTSIDE_VALUE}
                   >
                     <Suspense fallback={<AppLoadingFallback />}>
                       <AppRouter />

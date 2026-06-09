@@ -8,7 +8,7 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { type View } from '@/views/types/View';
 import { mapViewFilterGroupsToRecordFilterGroups } from '@/views/utils/mapViewFilterGroupsToRecordFilterGroups';
 import { mapViewFiltersToFilters } from '@/views/utils/mapViewFiltersToFilters';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { isDefined } from 'shared/utils';
 
@@ -42,6 +42,7 @@ export const RecordTableSettingsFiltersInitializeStateEffect = ({
     flattenedFieldMetadataItemsSelector,
   );
 
+  // oxlint-disable-next-line bades/no-state-useref
   const hasInitializedFiltersRef = useRef(false);
 
   const stateAlreadyHasFilters =

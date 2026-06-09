@@ -68,7 +68,7 @@ export const SettingsDatabaseEventsForm = ({
   return (
     <>
       {events.map((operation, index) => (
-        <StyledFilterRow key={index} isMobile={isMobile}>
+        <StyledFilterRow key={`${operation.object}-${operation.action}-${index}`} isMobile={isMobile}>
           <WebhookEntitySelect
             dropdownId={`object-webhook-type-select-${index}`}
             value={operation.object}

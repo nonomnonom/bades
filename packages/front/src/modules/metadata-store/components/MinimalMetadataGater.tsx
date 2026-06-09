@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { isMinimalMetadataReadyState } from '@/metadata-store/states/isMinimalMetadataReadyState';
 import { useDateTimeFormat } from '@/localization/hooks/useDateTimeFormat';
@@ -28,17 +28,22 @@ export const MinimalMetadataGater = ({ children }: React.PropsWithChildren) => {
 
   const shouldShowLoader = !isMinimalMetadataReady && !isOnExcludedPath;
 
+  const userContextValue = useMemo(
+    () => ({
+      dateFormat,
+      timeFormat,
+      timeZone,
+    }),
+    [dateFormat, timeFormat, timeZone],
+  );
+
   if (shouldShowLoader) {
     return <UserOrMetadataLoader />;
   }
 
   return (
     <UserContext.Provider
-      value={{
-        dateFormat,
-        timeFormat,
-        timeZone,
-      }}
+      value={userContextValue}
     >
       {children}
     </UserContext.Provider>

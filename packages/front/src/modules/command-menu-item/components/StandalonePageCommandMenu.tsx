@@ -115,15 +115,20 @@ export const StandalonePageCommandMenu = () => {
       );
   }, [commandMenuItems, commandMenuContextApi, currentPageLayoutId]);
 
+  const commandMenuContextValue = useMemo(
+    () => ({
+      displayType: 'button' as const,
+      containerType: 'standalone-page-header' as const,
+      commandMenuItems: filteredCommandMenuItems,
+      commandMenuContextApi,
+      isInPreviewMode: false,
+    }),
+    [filteredCommandMenuItems, commandMenuContextApi],
+  );
+
   return (
     <CommandMenuContext.Provider
-      value={{
-        displayType: 'button',
-        containerType: 'standalone-page-header',
-        commandMenuItems: filteredCommandMenuItems,
-        commandMenuContextApi,
-        isInPreviewMode: false,
-      }}
+      value={commandMenuContextValue}
     >
       {!isMobile && <PinnedCommandMenuItemButtons />}
       <CommandMenuItemEditButton />

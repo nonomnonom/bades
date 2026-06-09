@@ -112,7 +112,7 @@ export const ColumnGrid = ({
 
             if (React.isValidElement(userColumn)) {
               return (
-                <div key={index}>
+                <div key={`col-${column.index}`}>
                   <StyledGridRow withBorder={!isSelect && !isLast}>
                     <StyledGridCell position="left">
                       {userColumn}

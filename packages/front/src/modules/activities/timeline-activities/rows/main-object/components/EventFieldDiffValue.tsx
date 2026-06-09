@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
@@ -27,32 +28,44 @@ export const EventFieldDiffValue = ({
   mainObjectMetadataItem,
   fieldMetadataItem,
 }: EventFieldDiffValueProps) => {
+  const instanceValue = useMemo(
+    () => ({
+      instanceId: `${diffArtificialRecordStoreId}-${fieldMetadataItem.name}`,
+    }),
+    [diffArtificialRecordStoreId, fieldMetadataItem.name],
+  );
+
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId: diffArtificialRecordStoreId,
+      isLabelIdentifier: false,
+      fieldDefinition: {
+        type: fieldMetadataItem.type,
+        iconName: fieldMetadataItem?.icon || 'FieldIcon',
+        fieldMetadataId: fieldMetadataItem.id || '',
+        label: fieldMetadataItem.label,
+        metadata: {
+          fieldName: fieldMetadataItem.name,
+          objectMetadataNameSingular: mainObjectMetadataItem.nameSingular,
+          options: fieldMetadataItem.options ?? [],
+        },
+        defaultValue: fieldMetadataItem.defaultValue,
+      },
+      isRecordFieldReadOnly: false,
+    }),
+    [
+      diffArtificialRecordStoreId,
+      fieldMetadataItem,
+      mainObjectMetadataItem.nameSingular,
+    ],
+  );
+
   return (
     <StyledEventFieldDiffValue>
       <RecordFieldComponentInstanceContext.Provider
-        value={{
-          instanceId: `${diffArtificialRecordStoreId}-${fieldMetadataItem.name}`,
-        }}
+        value={instanceValue}
       >
-        <FieldContext.Provider
-          value={{
-            recordId: diffArtificialRecordStoreId,
-            isLabelIdentifier: false,
-            fieldDefinition: {
-              type: fieldMetadataItem.type,
-              iconName: fieldMetadataItem?.icon || 'FieldIcon',
-              fieldMetadataId: fieldMetadataItem.id || '',
-              label: fieldMetadataItem.label,
-              metadata: {
-                fieldName: fieldMetadataItem.name,
-                objectMetadataNameSingular: mainObjectMetadataItem.nameSingular,
-                options: fieldMetadataItem.options ?? [],
-              },
-              defaultValue: fieldMetadataItem.defaultValue,
-            },
-            isRecordFieldReadOnly: false,
-          }}
-        >
+        <FieldContext.Provider value={fieldContextValue}>
           <FieldDisplay />
         </FieldContext.Provider>
       </RecordFieldComponentInstanceContext.Provider>
