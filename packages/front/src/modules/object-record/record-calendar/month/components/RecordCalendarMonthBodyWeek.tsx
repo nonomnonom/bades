@@ -37,9 +37,9 @@ export const RecordCalendarMonthBodyWeek = ({
 
   return (
     <StyledContainer>
-      {daysOfWeek.map((day, index) => (
+      {daysOfWeek.map((day) => (
         <RecordCalendarMonthBodyDay
-          key={`day-${index}`}
+          key={day.toISOString()}
           day={turnJSDateToPlainDate(day)}
         />
       ))}

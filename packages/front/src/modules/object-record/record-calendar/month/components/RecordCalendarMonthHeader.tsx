@@ -13,8 +13,8 @@ export const RecordCalendarMonthHeader = () => {
 
   return (
     <StyledContainer>
-      {weekDayLabels.map((label, index) => (
-        <RecordCalendarMonthHeaderDay key={`label-${index}`} label={label} />
+      {weekDayLabels.map((label) => (
+        <RecordCalendarMonthHeaderDay key={label} label={label} />
       ))}
     </StyledContainer>
   );

@@ -119,18 +119,18 @@ export const AdvancedFilterRelationTargetFieldSelectMenu = ({
           selectableItemIdArray={selectableItemIdArray}
           selectableListInstanceId={advancedFilterFieldSelectDropdownId}
         >
-          {relationTargetFields.map((targetField, index) => (
+          {relationTargetFields.map((targetField) => (
             <SelectableListItem
               itemId={targetField.id}
-              key={`select-filter-relation-${index}`}
+              key={targetField.id}
               onEnter={() => {
                 handleSelectTargetField(targetField);
               }}
             >
               <MenuItem
                 focused={selectedItemId === targetField.id}
-                key={`select-filter-relation-${index}`}
-                testId={`select-filter-relation-${index}`}
+                key={targetField.id}
+                testId={`select-filter-relation-${targetField.id}`}
                 onClick={() => {
                   handleSelectTargetField(targetField);
                 }}

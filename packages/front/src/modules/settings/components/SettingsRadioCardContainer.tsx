@@ -31,6 +31,7 @@ export const SettingsRadioCardContainer = ({
         <SettingsRadioCard
           key={option.value}
           role="radio"
+          aria-checked={value === option.value}
           value={option.value}
           isSelected={value === option.value}
           handleSelect={onChange}

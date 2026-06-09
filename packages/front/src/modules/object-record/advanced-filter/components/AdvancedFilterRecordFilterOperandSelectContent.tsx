@@ -90,7 +90,7 @@ export const AdvancedFilterRecordFilterOperandSelectContent = ({
               {operandsForFilterType.map((filterOperand, index) => (
                 <SelectableListItem
                   itemId={filterOperand}
-                  key={`select-filter-operand-${index}`}
+                  key={filterOperand}
                   onEnter={() => {
                     handleOperandChange(filterOperand);
                   }}

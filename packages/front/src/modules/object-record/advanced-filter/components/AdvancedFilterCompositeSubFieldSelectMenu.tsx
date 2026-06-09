@@ -155,10 +155,10 @@ export const AdvancedFilterCompositeSubFieldSelectMenu = ({
             )}
           {subFieldsAreFilterable &&
             isDefined(fieldMetadataItemUsedInDropdown) &&
-            subFieldNames.map((subFieldName, index) => (
+            subFieldNames.map((subFieldName) => (
               <SelectableListItem
                 itemId={subFieldName}
-                key={`select-filter-${index}`}
+                key={subFieldName}
                 onEnter={() => {
                   handleSelectFilter({
                     fieldMetadataItem: fieldMetadataItemUsedInDropdown,
@@ -168,8 +168,8 @@ export const AdvancedFilterCompositeSubFieldSelectMenu = ({
               >
                 <MenuItem
                   focused={selectedItemId === subFieldName}
-                  key={`select-filter-${index}`}
-                  testId={`select-filter-${index}`}
+                  key={subFieldName}
+                  testId={`select-filter-${subFieldName}`}
                   onClick={() => {
                     handleSelectFilter({
                       fieldMetadataItem: fieldMetadataItemUsedInDropdown,

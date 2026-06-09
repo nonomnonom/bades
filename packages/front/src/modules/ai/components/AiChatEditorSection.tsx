@@ -2,7 +2,6 @@ import { styled } from '@linaria/react';
 import { EditorContent } from '@tiptap/react';
 import { themeCssVariables } from 'ui/theme-constants';
 
-import { AiChatContextActionChips } from '@/ai/components/context-actions/AiChatContextActionChips';
 import { AiChatEmptyState } from '@/ai/components/AiChatEmptyState';
 import { AIChatNoMoreBillingCreditsBanner } from '@/ai/components/AIChatNoMoreBillingCreditsBanner';
 import { AiChatStandaloneError } from '@/ai/components/AiChatStandaloneError';
@@ -117,7 +116,6 @@ export const AiChatEditorSection = () => {
       <AiChatSkeletonLoader />
 
       <StyledInputArea isMobile={isMobile}>
-        <AiChatContextActionChips editor={editor} />
         <AgentChatContextPreview />
         {hasReachedCurrentBillingPeriodCap && (
           <AIChatNoMoreBillingCreditsBanner />
