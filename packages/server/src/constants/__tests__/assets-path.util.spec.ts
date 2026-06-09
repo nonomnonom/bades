@@ -11,9 +11,7 @@ describe('isRunningFromCompiledDist', () => {
 
   it('mendeteksi path dist di Windows', () => {
     expect(
-      isRunningFromCompiledDist(
-        'D:\\bades\\packages\\server\\dist\\constants',
-      ),
+      isRunningFromCompiledDist('D:\\bades\\packages\\server\\dist\\constants'),
     ).toBe(true);
   });
 

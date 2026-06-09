@@ -1,6 +1,6 @@
 import { getWorkflowStepConnectedAccountHandle } from 'test/integration/graphql/suites/workflow/utils/get-workflow-step-connected-account-handle.util';
 
-import { CONNECTED_ACCOUNT_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/connected-account-data-seeds.constant';
+import { CONNECTED_ACCOUNT_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/constants/seed-ids.constant';
 
 describe('workflowStepConnectedAccountHandle', () => {
   it('should return handle for own account', async () => {

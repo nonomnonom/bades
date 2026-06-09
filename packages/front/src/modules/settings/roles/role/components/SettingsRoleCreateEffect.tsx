@@ -4,7 +4,7 @@ import { settingsPersistedRoleFamilyState } from '@/settings/roles/states/settin
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 type SettingsRoleCreateEffectProps = {
   roleId: string;
@@ -28,10 +28,10 @@ export const SettingsRoleCreateEffect = ({
     SETTINGS_ROLE_DETAIL_TABS.COMPONENT_INSTANCE_ID + '-' + roleId,
   );
 
-  const isInitializedRef = useRef(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    if (isInitializedRef.current) {
+    if (isInitialized) {
       return;
     }
 
@@ -59,7 +59,7 @@ export const SettingsRoleCreateEffect = ({
 
     setSettingsPersistedRole(undefined);
     setSettingsDraftRole(newRole);
-    isInitializedRef.current = true;
+    setIsInitialized(true);
   }, [roleId, setActiveTabId, setSettingsDraftRole, setSettingsPersistedRole]);
 
   return null;

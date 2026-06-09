@@ -1,7 +1,5 @@
 import { FieldActorSource } from 'shared/types';
 
-import { NOTE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-data-seeds.constant';
-import { TASK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/task-data-seeds.constant';
 import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
 
 type AttachmentDataSeed = {
@@ -139,11 +137,6 @@ export const generateAttachmentSeedsForWorkspace = (
   const seeds: AttachmentDataSeed[] = [];
   const fileSeedMetadata: AttachmentFileSeedMetadata[] = [];
 
-  const NOTE_IDS = Object.values(NOTE_DATA_SEED_IDS).slice(0, 120);
-  const TASK_IDS = Object.values(TASK_DATA_SEED_IDS).slice(0, 120);
-
-  let entityIndex = 0;
-
   for (let index = 1; index <= 400; index++) {
     const nameVariationIndex = index % FILE_NAME_VARIATIONS.length;
     const nameVariation = FILE_NAME_VARIATIONS[nameVariationIndex];
@@ -151,21 +144,6 @@ export const generateAttachmentSeedsForWorkspace = (
 
     const attachmentId = ATTACHMENT_DATA_SEED_IDS[`ID_${index}`];
     const fileId = deriveFileId(index, workspaceId);
-
-    let targetNoteId: string | null = null;
-    let targetTaskId: string | null = null;
-
-    const distributionValue = index % 100;
-
-    if (distributionValue < 50) {
-      // 50% lampiran ke catatan warga
-      targetNoteId = NOTE_IDS[entityIndex % NOTE_IDS.length];
-      entityIndex++;
-    } else if (distributionValue < 100) {
-      // 50% lampiran ke tugas perangkat desa
-      targetTaskId = TASK_IDS[entityIndex % TASK_IDS.length];
-      entityIndex++;
-    }
 
     fileSeedMetadata.push({
       fileId,
@@ -187,8 +165,8 @@ export const generateAttachmentSeedsForWorkspace = (
       updatedBySource: FieldActorSource.MANUAL,
       updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
       updatedByName: 'Drs. H. Abdullah',
-      targetNoteId,
-      targetTaskId,
+      targetNoteId: null,
+      targetTaskId: null,
     });
   }
 

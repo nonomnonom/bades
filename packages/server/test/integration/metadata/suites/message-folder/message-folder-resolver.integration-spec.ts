@@ -1,8 +1,10 @@
 import { gql } from 'graphql-tag';
 import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/make-metadata-api-request.util';
 
-import { MESSAGE_CHANNEL_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-channel-data-seeds.constant';
-import { MESSAGE_FOLDER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-folder-data-seeds.constant';
+import {
+  MESSAGE_CHANNEL_DATA_SEED_IDS,
+  MESSAGE_FOLDER_DATA_SEED_IDS,
+} from 'src/engine/workspace-manager/dev-seeder/core/constants/seed-ids.constant';
 
 describe('messageFolderResolver (e2e)', () => {
   describe('myMessageFolders', () => {
@@ -42,7 +44,7 @@ describe('messageFolderResolver (e2e)', () => {
           }
         `,
         variables: {
-          messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.JANE,
+          messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.KASI,
         },
       });
 
@@ -66,7 +68,7 @@ describe('messageFolderResolver (e2e)', () => {
           }
         `,
         variables: {
-          messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.JONY,
+          messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.SEKDES,
         },
       });
 

@@ -3,7 +3,7 @@ import { currentRecordSortsComponentState } from '@/object-record/record-sort/st
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { type View } from '@/views/types/View';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 import { type ViewSortDirection } from '~/generated-metadata/graphql';
 
@@ -22,17 +22,17 @@ export const RecordTableSettingsSortsInitializeStateEffect = ({
     currentRecordSortsComponentState,
   );
 
-  const hasInitializedSortsRef = useRef(false);
+  const [hasInitializedSorts, setHasInitializedSorts] = useState(false);
 
   const stateAlreadyHasSorts = currentRecordSorts.length > 0;
 
   useEffect(() => {
-    if (hasInitializedSortsRef.current) {
+    if (hasInitializedSorts) {
       return;
     }
 
     if (stateAlreadyHasSorts) {
-      hasInitializedSortsRef.current = true;
+      setHasInitializedSorts(true);
       return;
     }
 
@@ -45,7 +45,7 @@ export const RecordTableSettingsSortsInitializeStateEffect = ({
     );
 
     setCurrentRecordSorts(recordSorts);
-    hasInitializedSortsRef.current = true;
+    setHasInitializedSorts(true);
   }, [view, stateAlreadyHasSorts, setCurrentRecordSorts]);
 
   return null;

@@ -1,8 +1,10 @@
 import { gql } from 'graphql-tag';
 import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/make-metadata-api-request.util';
 
-import { CALENDAR_CHANNEL_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-channel-data-seeds.constant';
-import { CONNECTED_ACCOUNT_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/connected-account-data-seeds.constant';
+import {
+  CALENDAR_CHANNEL_DATA_SEED_IDS,
+  CONNECTED_ACCOUNT_DATA_SEED_IDS,
+} from 'src/engine/workspace-manager/dev-seeder/core/constants/seed-ids.constant';
 
 describe('calendarChannelResolver (e2e)', () => {
   describe('myCalendarChannels', () => {
@@ -27,8 +29,8 @@ describe('calendarChannelResolver (e2e)', () => {
       const channels = response.body.data.myCalendarChannels;
       const channelIds = channels.map((channel: { id: string }) => channel.id);
 
-      expect(channelIds).toContain(CALENDAR_CHANNEL_DATA_SEED_IDS.JANE);
-      expect(channelIds).not.toContain(CALENDAR_CHANNEL_DATA_SEED_IDS.JONY);
+      expect(channelIds).toContain(CALENDAR_CHANNEL_DATA_SEED_IDS.KASI);
+      expect(channelIds).not.toContain(CALENDAR_CHANNEL_DATA_SEED_IDS.SEKDES);
     });
 
     it('should deny filtering by another user connectedAccountId', async () => {
@@ -63,7 +65,7 @@ describe('calendarChannelResolver (e2e)', () => {
         `,
         variables: {
           input: {
-            id: CALENDAR_CHANNEL_DATA_SEED_IDS.JANE,
+            id: CALENDAR_CHANNEL_DATA_SEED_IDS.KASI,
             update: { visibility: 'METADATA' },
           },
         },
@@ -87,7 +89,7 @@ describe('calendarChannelResolver (e2e)', () => {
         `,
         variables: {
           input: {
-            id: CALENDAR_CHANNEL_DATA_SEED_IDS.JONY,
+            id: CALENDAR_CHANNEL_DATA_SEED_IDS.SEKDES,
             update: { visibility: 'METADATA' },
           },
         },

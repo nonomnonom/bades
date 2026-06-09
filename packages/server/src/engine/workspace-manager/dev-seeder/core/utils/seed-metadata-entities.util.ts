@@ -1,5 +1,4 @@
 import { type QueryRunner } from 'typeorm';
-
 import {
   CalendarChannelVisibility,
   MessageChannelSyncStage,
@@ -13,10 +12,12 @@ import {
   SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { USER_WORKSPACE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-user-workspaces.util';
-import { CALENDAR_CHANNEL_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-channel-data-seeds.constant';
-import { CONNECTED_ACCOUNT_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/connected-account-data-seeds.constant';
-import { MESSAGE_CHANNEL_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-channel-data-seeds.constant';
-import { MESSAGE_FOLDER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-folder-data-seeds.constant';
+import {
+  CALENDAR_CHANNEL_DATA_SEED_IDS,
+  CONNECTED_ACCOUNT_DATA_SEED_IDS,
+  MESSAGE_CHANNEL_DATA_SEED_IDS,
+  MESSAGE_FOLDER_DATA_SEED_IDS,
+} from 'src/engine/workspace-manager/dev-seeder/core/constants/seed-ids.constant';
 
 type SeedMetadataEntitiesArgs = {
   queryRunner: QueryRunner;

@@ -520,6 +520,6 @@ const main = async () => {
 };
 
 main().catch((error: unknown) => {
-  console.error(error);
+  process.stderr.write(String(error) + '\n');
   process.exit(1);
 });

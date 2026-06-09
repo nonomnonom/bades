@@ -2,7 +2,6 @@ import {
   type PropsWithChildren,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from 'react';
 
@@ -106,11 +105,11 @@ export const JestContextStoreSetter = ({
   const contextStoreCurrentObjectMetadataId = objectMetadataItem.id;
 
   const [isLoaded, setIsLoaded] = useState(false);
-  const isInitializedRef = useRef(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    if (isInitializedRef.current) return;
-    isInitializedRef.current = true;
+    if (isInitialized) return;
+    setIsInitialized(true);
     setContextStoreCurrentViewId(contextStoreCurrentViewId);
     setContextStoreTargetedRecordsRule(contextStoreTargetedRecordsRule);
     setContextStoreCurrentObjectMetadataItemId(objectMetadataItem.id);

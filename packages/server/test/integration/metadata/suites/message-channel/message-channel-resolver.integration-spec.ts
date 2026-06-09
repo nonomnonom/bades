@@ -1,8 +1,10 @@
 import { gql } from 'graphql-tag';
 import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/make-metadata-api-request.util';
 
-import { CONNECTED_ACCOUNT_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/connected-account-data-seeds.constant';
-import { MESSAGE_CHANNEL_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-channel-data-seeds.constant';
+import {
+  CONNECTED_ACCOUNT_DATA_SEED_IDS,
+  MESSAGE_CHANNEL_DATA_SEED_IDS,
+} from 'src/engine/workspace-manager/dev-seeder/core/constants/seed-ids.constant';
 
 describe('messageChannelResolver (e2e)', () => {
   describe('myMessageChannels', () => {
@@ -25,10 +27,8 @@ describe('messageChannelResolver (e2e)', () => {
       expect(response.body.errors).toBeUndefined();
 
       const channels = response.body.data.myMessageChannels;
-      const channelIds = channels.map((channel: { id: string }) => channel.id);
-
-      expect(channelIds).toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.JANE);
-      expect(channelIds).not.toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.JONY);
+      const channelIds = channels.map((channel: { id: string }) => channel.id);        expect(channelIds).toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.KASI);
+      expect(channelIds).not.toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.SEKDES);
     });
 
     it('should filter by connectedAccountId', async () => {
@@ -50,10 +50,8 @@ describe('messageChannelResolver (e2e)', () => {
       expect(response.body.errors).toBeUndefined();
 
       const channels = response.body.data.myMessageChannels;
-      const channelIds = channels.map((channel: { id: string }) => channel.id);
-
-      expect(channelIds).toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.JANE);
-      expect(channelIds).not.toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.JONY);
+      const channelIds = channels.map((channel: { id: string }) => channel.id);        expect(channelIds).toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.KASI);
+      expect(channelIds).not.toContain(MESSAGE_CHANNEL_DATA_SEED_IDS.SEKDES);
     });
 
     it('should deny filtering by another user connectedAccountId', async () => {
@@ -104,7 +102,7 @@ describe('messageChannelResolver (e2e)', () => {
         `,
         variables: {
           input: {
-            id: MESSAGE_CHANNEL_DATA_SEED_IDS.JANE,
+            id: MESSAGE_CHANNEL_DATA_SEED_IDS.KASI,
             update: { visibility: 'METADATA' },
           },
         },
@@ -128,7 +126,7 @@ describe('messageChannelResolver (e2e)', () => {
         `,
         variables: {
           input: {
-            id: MESSAGE_CHANNEL_DATA_SEED_IDS.JONY,
+            id: MESSAGE_CHANNEL_DATA_SEED_IDS.SEKDES,
             update: { visibility: 'METADATA' },
           },
         },
