@@ -72,6 +72,31 @@ const formatSafeId = (columnKey: string) => {
   return camelCase(columnKey.replace('(', '').replace(')', ''));
 };
 
+type SelectRowFormatterProps = {
+  row: ImportedStructuredRow & ImportedStructuredRowMetadata;
+};
+
+const SelectRowFormatter = ({ row }: SelectRowFormatterProps) => {
+  const [isRowSelected, onRowSelectionChange] = useRowSelection();
+
+  return (
+    <StyledCheckboxContainer>
+      <Checkbox
+        aria-label={`Pilih`}
+        checked={isRowSelected}
+        variant={CheckboxVariant.Tertiary}
+        onChange={(event) => {
+          onRowSelectionChange({
+            row,
+            checked: event.target.checked,
+            isShiftClick: (event.nativeEvent as MouseEvent).shiftKey,
+          });
+        }}
+      />
+    </StyledCheckboxContainer>
+  );
+};
+
 export const generateColumns = (
   fields: SpreadsheetImportFields,
 ): Column<ImportedStructuredRow & ImportedStructuredRowMetadata>[] => [
@@ -85,25 +110,7 @@ export const generateColumns = (
     sortable: false,
     frozen: true,
     formatter: (props: any) => {
-      // oxlint-disable-next-line  react-hooks/rules-of-hooks
-      const [isRowSelected, onRowSelectionChange] = useRowSelection();
-
-      return (
-        <StyledCheckboxContainer>
-          <Checkbox
-            aria-label={`Pilih`}
-            checked={isRowSelected}
-            variant={CheckboxVariant.Tertiary}
-            onChange={(event) => {
-              onRowSelectionChange({
-                row: props.row,
-                checked: event.target.checked,
-                isShiftClick: (event.nativeEvent as MouseEvent).shiftKey,
-              });
-            }}
-          />
-        </StyledCheckboxContainer>
-      );
+      return <SelectRowFormatter row={props.row} />;
     },
   },
   ...fields.map(

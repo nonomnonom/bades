@@ -128,9 +128,7 @@ export const RecordTableCellFieldInput = () => {
   );
 
   return (
-    <FieldInputEventContext.Provider
-      value={fieldInputEventContextValue}
-    >
+    <FieldInputEventContext.Provider value={fieldInputEventContextValue}>
       <FieldInput />
     </FieldInputEventContext.Provider>
   );

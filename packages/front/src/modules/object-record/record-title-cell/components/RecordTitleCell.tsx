@@ -1,4 +1,4 @@
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import { FieldFocusContextProvider } from '@/object-record/record-field/ui/contexts/FieldFocusContextProvider';
@@ -128,24 +128,34 @@ export const RecordTitleCell = ({
     containerType,
   };
 
+  const fieldComponentInstanceValue = useMemo(
+    () => ({
+      instanceId: getRecordFieldInputInstanceId({
+        recordId,
+        fieldName: fieldDefinition.metadata.fieldName,
+        prefix: containerType,
+      }),
+    }),
+    [recordId, fieldDefinition.metadata.fieldName, containerType],
+  );
+
+  const titleCellComponentInstanceValue = useMemo(
+    () => ({
+      instanceId: getRecordFieldInputInstanceId({
+        recordId,
+        fieldName: fieldDefinition.metadata.fieldName,
+        prefix: containerType,
+      }),
+    }),
+    [recordId, fieldDefinition.metadata.fieldName, containerType],
+  );
+
   return (
     <RecordFieldComponentInstanceContext.Provider
-      value={{
-        instanceId: getRecordFieldInputInstanceId({
-          recordId,
-          fieldName: fieldDefinition.metadata.fieldName,
-          prefix: containerType,
-        }),
-      }}
+      value={fieldComponentInstanceValue}
     >
       <RecordTitleCellComponentInstanceContext.Provider
-        value={{
-          instanceId: getRecordFieldInputInstanceId({
-            recordId,
-            fieldName: fieldDefinition.metadata.fieldName,
-            prefix: containerType,
-          }),
-        }}
+        value={titleCellComponentInstanceValue}
       >
         <FieldFocusContextProvider>
           <RecordTitleCellContext.Provider value={recordTitleCellContextValue}>

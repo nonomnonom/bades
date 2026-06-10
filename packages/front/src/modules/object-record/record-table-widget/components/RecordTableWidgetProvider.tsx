@@ -112,9 +112,7 @@ export const RecordTableWidgetProvider = ({
         objectMetadataItemId={objectMetadataItem.id}
         viewId={viewId}
       />
-      <RecordIndexContextProvider
-        value={recordIndexContextValue}
-      >
+      <RecordIndexContextProvider value={recordIndexContextValue}>
         <ViewComponentInstanceContext.Provider
           value={{ instanceId: recordIndexId }}
         >

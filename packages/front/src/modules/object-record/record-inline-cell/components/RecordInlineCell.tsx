@@ -230,9 +230,7 @@ export const RecordInlineCell = ({
   );
 
   return (
-    <FieldInputEventContext.Provider
-      value={fieldInputEventContextValue}
-    >
+    <FieldInputEventContext.Provider value={fieldInputEventContextValue}>
       <FieldFocusContextProvider>
         <RecordInlineCellContext.Provider value={RecordInlineCellContextValue}>
           <RecordInlineCellContainer />

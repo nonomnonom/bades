@@ -16,8 +16,8 @@ import { isJunctionRelationForbidden } from '@/object-record/record-field/ui/uti
 import { RecordInlineCellAnchoredPortalContext } from '@/object-record/record-inline-cell/components/RecordInlineCellAnchoredPortalContext';
 import { RecordInlineCellCloseOnSidePanelOpeningEffect } from '@/object-record/record-inline-cell/components/RecordInlineCellCloseOnSidePanelOpeningEffect';
 import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFieldInputId';
+import { useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 type RecordInlineCellAnchoredPortalProps = {
@@ -74,7 +74,7 @@ export const RecordInlineCellAnchoredPortal = ({
 
   const { updateOneRecord } = useUpdateOneRecord();
 
-  const useUpdateOneObjectRecordMutation: RecordUpdateHook = () => {
+  const useUpdateOneObjectRecordMutation: RecordUpdateHook = useCallback(() => {
     const updateEntity = ({ variables }: RecordUpdateHookParams) => {
       updateOneRecord({
         objectNameSingular: objectMetadataItem.nameSingular,
@@ -84,17 +84,15 @@ export const RecordInlineCellAnchoredPortal = ({
     };
 
     return [updateEntity, { loading: false }];
-  };
+  }, [updateOneRecord, objectMetadataItem.nameSingular]);
 
-  if (!isDefined(anchorElement) || !isDefined(recordId)) {
-    return null;
-  }
-
+  // Move useMemo calls BEFORE the early return to comply with Rules of Hooks
   const recordFieldComponentValue = useMemo(
     () => ({ instanceId: fieldInstanceId }),
     [fieldInstanceId],
   );
 
+  // Only compute field context if anchor element and recordId are defined
   const fieldContextValue = useMemo(
     () => ({
       recordId,
@@ -123,6 +121,10 @@ export const RecordInlineCellAnchoredPortal = ({
       onCloseEditMode,
     ],
   );
+
+  if (!isDefined(anchorElement) || !isDefined(recordId)) {
+    return null;
+  }
 
   return (
     <FieldFocusContextProvider isFocused={true}>

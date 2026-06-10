@@ -36,17 +36,9 @@ import {
 } from '@nivo/line';
 import { useCallback, useContext, useRef, useState } from 'react';
 
-/* oxlint-disable no-nested-component-definition */
-
 import { isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
 import { useDebouncedCallback } from 'use-debounce';
-
-type CrosshairLayerProps = LineCustomSvgLayerProps<LineSeries>;
-type PointLabelsLayerProps = LineCustomSvgLayerProps<LineSeries>;
-type StackedAreasLayerProps = LineCustomSvgLayerProps<LineSeries>;
-type LinesLayerProps = LineCustomSvgLayerProps<LineSeries>;
-type NoDataLayerWrapperProps = LineCustomSvgLayerProps<LineSeries>;
 
 type GraphWidgetLineChartProps = {
   data: LineChartSeriesWithColor[];
@@ -73,6 +65,140 @@ const StyledContainer = styled.div`
   justify-content: center;
   width: 100%;
 `;
+
+type PointLabelsLayerProps = LineCustomSvgLayerProps<LineSeries> & {
+  hasNoData: boolean;
+  formatOptions: GraphValueFormatOptions;
+  groupMode?: 'stacked';
+  omitNullValues: boolean;
+  enablePointLabel: boolean;
+};
+
+const PointLabelsLayer = ({
+  hasNoData,
+  formatOptions,
+  groupMode,
+  omitNullValues,
+  enablePointLabel,
+  ...layerProps
+}: PointLabelsLayerProps) => {
+  if (hasNoData) {
+    return null;
+  }
+
+  return (
+    <CustomPointLabelsLayer
+      points={layerProps.points}
+      formatValue={(value) => formatGraphValue(value, formatOptions)}
+      offset={8}
+      groupMode={groupMode}
+      omitNullValues={omitNullValues}
+      enablePointLabel={enablePointLabel}
+    />
+  );
+};
+
+type CrosshairLayerProps = LineCustomSvgLayerProps<LineSeries> & {
+  hasNoData: boolean;
+  margins: ReturnType<typeof getLineChartLayout>['margins'];
+  onSliceHover: (sliceData: SliceHoverData) => void;
+  onSliceClick?: (point: Point<LineSeries>) => void;
+  onRectLeave: () => void;
+};
+
+const CrosshairLayer = ({
+  hasNoData,
+  margins,
+  onSliceHover,
+  onSliceClick,
+  onRectLeave,
+  ...layerProps
+}: CrosshairLayerProps) => {
+  if (hasNoData) {
+    return null;
+  }
+
+  return (
+    <CustomCrosshairLayer
+      key="custom-crosshair-layer"
+      points={layerProps.points}
+      innerHeight={layerProps.innerHeight}
+      innerWidth={layerProps.innerWidth}
+      marginLeft={margins.left}
+      marginTop={margins.top}
+      onSliceHover={onSliceHover}
+      onSliceClick={
+        isDefined(onSliceClick)
+          ? (sliceData) => onSliceClick(sliceData.closestPoint)
+          : undefined
+      }
+      onRectLeave={onRectLeave}
+    />
+  );
+};
+
+type StackedAreasLayerProps = LineCustomSvgLayerProps<LineSeries> & {
+  hasNoData: boolean;
+  enrichedSeries: ReturnType<typeof useLineChartData>['enrichedSeries'];
+  enableArea: boolean;
+  isStacked: boolean;
+};
+
+const StackedAreasLayer = ({
+  hasNoData,
+  enrichedSeries,
+  enableArea,
+  isStacked,
+  ...layerProps
+}: StackedAreasLayerProps) => {
+  if (hasNoData) {
+    return null;
+  }
+
+  return (
+    <CustomStackedAreasLayer
+      series={layerProps.series}
+      innerHeight={layerProps.innerHeight}
+      enrichedSeries={enrichedSeries}
+      enableArea={enableArea}
+      yScale={layerProps.yScale}
+      isStacked={isStacked}
+    />
+  );
+};
+
+type LinesLayerProps = LineCustomSvgLayerProps<LineSeries> & {
+  hasNoData: boolean;
+};
+
+const LinesLayer = ({ hasNoData, ...layerProps }: LinesLayerProps) => {
+  if (hasNoData) {
+    return null;
+  }
+
+  return (
+    <CustomLinesLayer
+      series={layerProps.series}
+      lineGenerator={layerProps.lineGenerator}
+      lineWidth={layerProps.lineWidth}
+    />
+  );
+};
+
+type NoDataLayerWrapperProps = LineCustomSvgLayerProps<LineSeries> & {
+  hasNoData: boolean;
+};
+
+const NoDataLayerWrapper = ({
+  hasNoData,
+  ...layerProps
+}: NoDataLayerWrapperProps) => (
+  <NoDataLayer
+    innerWidth={layerProps.innerWidth}
+    innerHeight={layerProps.innerHeight}
+    hasNoData={hasNoData}
+  />
+);
 
 export const GraphWidgetLineChart = ({
   data,
@@ -201,86 +327,6 @@ export const GraphWidgetLineChart = ({
     });
   };
 
-  const PointLabelsLayer = (layerProps: PointLabelsLayerProps) => {
-    if (hasNoData) {
-      return null;
-    }
-
-    return (
-      <CustomPointLabelsLayer
-        points={layerProps.points}
-        formatValue={(value) => formatGraphValue(value, formatOptions)}
-        offset={8}
-        groupMode={groupMode}
-        omitNullValues={omitNullValues}
-        enablePointLabel={enablePointLabel}
-      />
-    );
-  };
-
-  const CrosshairLayer = (layerProps: CrosshairLayerProps) => {
-    if (hasNoData) {
-      return null;
-    }
-
-    return (
-      <CustomCrosshairLayer
-        key="custom-crosshair-layer"
-        points={layerProps.points}
-        innerHeight={layerProps.innerHeight}
-        innerWidth={layerProps.innerWidth}
-        marginLeft={margins.left}
-        marginTop={margins.top}
-        onSliceHover={handleSliceEnter}
-        onSliceClick={
-          isDefined(onSliceClick)
-            ? (sliceData) => onSliceClick(sliceData.closestPoint)
-            : undefined
-        }
-        onRectLeave={handleSliceLeave}
-      />
-    );
-  };
-
-  const StackedAreasLayer = (layerProps: StackedAreasLayerProps) => {
-    if (hasNoData) {
-      return null;
-    }
-
-    return (
-      <CustomStackedAreasLayer
-        series={layerProps.series}
-        innerHeight={layerProps.innerHeight}
-        enrichedSeries={enrichedSeries}
-        enableArea={enableArea}
-        yScale={layerProps.yScale}
-        isStacked={groupMode === 'stacked'}
-      />
-    );
-  };
-
-  const LinesLayer = (layerProps: LinesLayerProps) => {
-    if (hasNoData) {
-      return null;
-    }
-
-    return (
-      <CustomLinesLayer
-        series={layerProps.series}
-        lineGenerator={layerProps.lineGenerator}
-        lineWidth={layerProps.lineWidth}
-      />
-    );
-  };
-
-  const NoDataLayerWrapper = (layerProps: NoDataLayerWrapperProps) => (
-    <NoDataLayer
-      innerWidth={layerProps.innerWidth}
-      innerHeight={layerProps.innerHeight}
-      hasNoData={hasNoData}
-    />
-  );
-
   return (
     <StyledContainer id={id}>
       <GraphWidgetChartContainer
@@ -331,13 +377,54 @@ export const GraphWidgetLineChart = ({
             'grid',
             'markers',
             'axes',
-            StackedAreasLayer,
-            LinesLayer,
-            CrosshairLayer,
+            (layerProps) => (
+              <StackedAreasLayer
+                // oxlint-disable-next-line react/jsx-props-no-spreading
+                {...layerProps}
+                hasNoData={hasNoData}
+                enrichedSeries={enrichedSeries}
+                enableArea={enableArea}
+                isStacked={groupMode === 'stacked'}
+              />
+            ),
+            (layerProps) => (
+              <LinesLayer
+                // oxlint-disable-next-line react/jsx-props-no-spreading
+                {...layerProps}
+                hasNoData={hasNoData}
+              />
+            ),
+            (layerProps) => (
+              <CrosshairLayer
+                // oxlint-disable-next-line react/jsx-props-no-spreading
+                {...layerProps}
+                hasNoData={hasNoData}
+                margins={margins}
+                onSliceHover={handleSliceEnter}
+                onSliceClick={onSliceClick}
+                onRectLeave={handleSliceLeave}
+              />
+            ),
             'points',
-            PointLabelsLayer,
+            (layerProps) => (
+              <PointLabelsLayer
+                // oxlint-disable-next-line react/jsx-props-no-spreading
+                {...layerProps}
+                hasNoData={hasNoData}
+                formatOptions={formatOptions}
+                groupMode={groupMode}
+                omitNullValues={omitNullValues}
+                enablePointLabel={enablePointLabel}
+              />
+            ),
             'legends',
-            NoDataLayerWrapper,
+            (layerProps) => (
+              <NoDataLayerWrapper
+                // oxlint-disable-next-line react/jsx-props-no-spreading
+                {...layerProps}
+                hasNoData={hasNoData}
+              />
+            ),
           ]}
           theme={chartTheme}
         />

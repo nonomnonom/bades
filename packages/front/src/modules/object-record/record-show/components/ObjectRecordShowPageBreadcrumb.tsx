@@ -82,18 +82,13 @@ export const ObjectRecordShowPageBreadcrumb = ({
   const { navigateToIndexView, rankInView, totalCount } =
     useRecordShowPagePagination(objectNameSingular, objectRecordId);
 
-  if (loading) {
-    return null;
-  }
-
+  // Move useMemo before early return to comply with Rules of Hooks
   const fieldContextValue = useMemo(
     () => ({
       recordId: objectRecordId,
       isLabelIdentifier: false,
       fieldDefinition: {
-        type:
-          labelIdentifierFieldMetadataItem?.type ||
-          FieldMetadataType.TEXT,
+        type: labelIdentifierFieldMetadataItem?.type || FieldMetadataType.TEXT,
         iconName: '',
         fieldMetadataId: labelIdentifierFieldMetadataItem?.id ?? '',
         label: labelIdentifierFieldMetadataItem?.label || '',
@@ -117,6 +112,10 @@ export const ObjectRecordShowPageBreadcrumb = ({
     ],
   );
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <StyledEditableTitleContainer>
       <StyledEditableTitlePrefix
@@ -131,9 +130,7 @@ export const ObjectRecordShowPageBreadcrumb = ({
         <span>{' / '}</span>
       </StyledEditableTitlePrefix>
       <StyledTitle>
-        <FieldContext.Provider
-          value={fieldContextValue}
-        >
+        <FieldContext.Provider value={fieldContextValue}>
           <RecordTitleCell
             sizeVariant="xs"
             containerType={RecordTitleCellContainerType.PageHeader}

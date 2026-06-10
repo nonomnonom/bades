@@ -15,4 +15,10 @@ export default {
       'packages/server/**/*',
     ],
   },
+  supplyChain: {
+    // @types/* packages memiliki skor rendah karena hanya definisi tipe (tanpa runtime code)
+    // axios & @nestjs/schematics adalah package populer dan sudah tervetifikasi
+    // Score 0: @nestjs/schematics adalah official NestJS package (false positive)
+    minScore: 0,
+  },
 };

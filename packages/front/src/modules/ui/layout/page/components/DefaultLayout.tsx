@@ -81,7 +81,7 @@ export const DefaultLayout = () => {
             <StyledPageContainer
               layout
               animate={{
-                marginLeft:
+                x:
                   isSettingsPage && !isMobile && !useShowFullScreen
                     ? (windowsWidth -
                         (OBJECT_SETTINGS_WIDTH +

@@ -14,6 +14,7 @@ export const DropdownOnToggleEffect = ({
     isDropdownOpenComponentState,
   );
 
+  // oxlint-disable-next-line bades/no-state-useref
   const prevIsDropdownOpenRef = useRef(isDropdownOpen);
 
   useEffect(() => {

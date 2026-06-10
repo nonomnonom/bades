@@ -42,7 +42,9 @@ export const RecordTableCellFieldContextWrapper = ({
   );
 
   return (
-    <RecordFieldComponentInstanceContext.Provider value={fieldComponentInstanceContextValue}>
+    <RecordFieldComponentInstanceContext.Provider
+      value={fieldComponentInstanceContextValue}
+    >
       {isLabelIdentifier ? (
         <RecordTableCellFieldContextLabelIdentifier key={instanceId}>
           {children}

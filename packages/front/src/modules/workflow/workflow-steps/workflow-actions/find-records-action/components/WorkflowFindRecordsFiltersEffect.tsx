@@ -6,22 +6,14 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { hasInitializedCurrentRecordFilterGroupsComponentFamilyState } from '@/views/states/hasInitializedCurrentRecordFilterGroupsComponentFamilyState';
 import { hasInitializedCurrentRecordFiltersComponentFamilyState } from '@/views/states/hasInitializedCurrentRecordFiltersComponentFamilyState';
 import { type FindRecordsActionFilter } from '@/workflow/workflow-steps/workflow-actions/find-records-action/components/WorkflowEditActionFindRecords';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { isDefined } from 'shared/utils';
-
 export const WorkflowFindRecordsFiltersEffect = ({
   defaultValue,
 }: {
   defaultValue?: FindRecordsActionFilter;
 }) => {
-  const [hasInitializedRecordFilters, setHasInitializedRecordFilters] =
-    useState(false);
-  const [
-    hasInitializedRecordFilterGroups,
-    setHasInitializedRecordFilterGroups,
-  ] = useState(false);
-
   const [, setHasInitializedCurrentRecordFilters] = useAtomComponentFamilyState(
     hasInitializedCurrentRecordFiltersComponentFamilyState,
     {},
@@ -44,52 +36,43 @@ export const WorkflowFindRecordsFiltersEffect = ({
   const { setAdvancedFilterDropdownStates } =
     useSetAdvancedFilterDropdownStates();
 
-  const [
-    shouldSetAdvancedFilterDropdownStates,
-    setShouldSetAdvancedFilterDropdownStates,
-  ] = useState(false);
+  // oxlint-disable-next-line bades/no-state-useref
+  const hasInitializedRecordFiltersRef = useRef(false);
+  // oxlint-disable-next-line bades/no-state-useref
+  const hasInitializedRecordFilterGroupsRef = useRef(false);
 
   useEffect(() => {
     if (
-      !hasInitializedRecordFilters &&
+      !hasInitializedRecordFiltersRef.current &&
       isDefined(defaultValue?.recordFilters)
     ) {
       setCurrentRecordFilters(defaultValue.recordFilters ?? []);
-      setShouldSetAdvancedFilterDropdownStates(true);
-      setHasInitializedRecordFilters(true);
+      setAdvancedFilterDropdownStates();
+      hasInitializedRecordFiltersRef.current = true;
       setHasInitializedCurrentRecordFilters(true);
     }
   }, [
     setCurrentRecordFilters,
     defaultValue?.recordFilters,
+    setAdvancedFilterDropdownStates,
     setHasInitializedCurrentRecordFilters,
-    setShouldSetAdvancedFilterDropdownStates,
-    hasInitializedRecordFilters,
   ]);
 
   useEffect(() => {
     if (
-      !hasInitializedRecordFilterGroups &&
+      !hasInitializedRecordFilterGroupsRef.current &&
       isDefined(defaultValue?.recordFilterGroups) &&
       defaultValue.recordFilterGroups.length > 0
     ) {
       setCurrentRecordFilterGroups(defaultValue.recordFilterGroups ?? []);
-      setHasInitializedRecordFilterGroups(true);
+      hasInitializedRecordFilterGroupsRef.current = true;
       setHasInitializedCurrentRecordFilterGroups(true);
     }
   }, [
     setCurrentRecordFilterGroups,
     defaultValue?.recordFilterGroups,
     setHasInitializedCurrentRecordFilterGroups,
-    hasInitializedRecordFilterGroups,
   ]);
-
-  useEffect(() => {
-    if (shouldSetAdvancedFilterDropdownStates) {
-      setAdvancedFilterDropdownStates();
-      setShouldSetAdvancedFilterDropdownStates(false);
-    }
-  }, [shouldSetAdvancedFilterDropdownStates, setAdvancedFilterDropdownStates]);
 
   return null;
 };

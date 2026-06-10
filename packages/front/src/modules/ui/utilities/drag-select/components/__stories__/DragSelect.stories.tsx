@@ -20,20 +20,20 @@ const StyledContainer = styled.div`
 `;
 
 const StyledSelectableItem = styled.div<{ selected?: boolean }>`
-  width: 100px;
-  height: 80px;
-  border: 1px solid ${themeCssVariables.border.color.medium};
-  border-radius: ${themeCssVariables.border.radius.sm};
+  align-items: center;
   background: ${({ selected }) =>
     selected
       ? themeCssVariables.color.blue3
       : themeCssVariables.background.secondary};
+  border: 1px solid ${themeCssVariables.border.color.medium};
+  border-radius: ${themeCssVariables.border.radius.sm};
+  cursor: pointer;
   display: flex;
-  align-items: center;
+  height: 80px;
   justify-content: center;
   margin: ${themeCssVariables.spacing[1]};
   user-select: none;
-  cursor: pointer;
+  width: 100px;
 
   &:hover {
     background: ${({ selected }) =>
@@ -45,27 +45,27 @@ const StyledSelectableItem = styled.div<{ selected?: boolean }>`
 
 const StyledGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: ${themeCssVariables.spacing[2]};
-  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
   height: 100%;
+  width: 100%;
 `;
 
 const StyledLargeGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: ${themeCssVariables.spacing[2]};
+  grid-template-columns: repeat(6, 1fr);
+  height: 600px;
   padding: ${themeCssVariables.spacing[4]};
   width: 900px;
-  height: 600px;
 `;
 
 const StyledScrollableWrapperContainer = styled.div`
   border: 1px solid ${themeCssVariables.border.color.light};
   border-radius: ${themeCssVariables.border.radius.md};
   height: 300px;
-  width: 600px;
   overflow: hidden;
+  width: 600px;
 `;
 
 type SelectableItemProps = {

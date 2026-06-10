@@ -44,7 +44,7 @@ import { computeMetadataNameFromLabel } from '~/pages/settings/data-model/utils/
 
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import Skeleton from 'react-loading-skeleton';
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
@@ -109,9 +109,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const navigate = useNavigateSettings();
   const navigateApp = useNavigateApp();
   const { enqueueErrorSnackBar } = useSnackBar();
-  const [isInitialized, setIsInitialized] = useState(false);
+  const isInitializedRef = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isReadonlyMode, setIsReadonlyMode] = useState(false);
   const [originalFormValues, setOriginalFormValues] =
     useState<SkillFormValues | null>(null);
   const { openModal, closeModal } = useModal();
@@ -138,13 +137,10 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   });
 
   useEffect(() => {
-    if (!isInitialized && data) {
-      setIsInitialized(true);
+    if (!isInitializedRef.current && data) {
+      isInitializedRef.current = true;
       const skill = data?.skill;
       if (isDefined(skill)) {
-        if (!skill.isCustom) {
-          setIsReadonlyMode(true);
-        }
         const computedNameFromLabel = computeMetadataNameFromLabel(skill.label);
         const isLabelSyncedWithName = skill.name === computedNameFromLabel;
 
@@ -185,6 +181,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const [deactivateSkill] = useMutation(DeactivateSkillDocument);
 
   const skill = data?.skill;
+  const isReadonlyMode = isDefined(skill) && !skill.isCustom;
 
   const handleFieldChange = <K extends keyof SkillFormValues>(
     fieldName: K,

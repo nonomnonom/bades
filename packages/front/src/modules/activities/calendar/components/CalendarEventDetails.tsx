@@ -22,7 +22,7 @@ import { RecordFieldComponentInstanceContext } from '@/object-record/record-fiel
 import { RecordInlineCell } from '@/object-record/record-inline-cell/components/RecordInlineCell';
 import { PropertyBox } from '@/object-record/record-inline-cell/property-box/components/PropertyBox';
 import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFieldInputId';
-import { CoreObjectNameSingular } from 'shared/types';
+import { CoreObjectNameSingular, type ObjectPermissions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {
   AvatarOrIcon,
@@ -99,6 +99,95 @@ const StyledPropertyBoxContainer = styled.div`
   width: 100%;
 `;
 
+type ObjectPermissionsByObjectMetadataId = Record<
+  string,
+  ObjectPermissions & { objectMetadataId: string }
+>;
+
+type CalendarEventDetailsFieldProps = {
+  fieldMetadataItem: FieldMetadataItem;
+  objectMetadataItem: ReturnType<
+    typeof useObjectMetadataItem
+  >['objectMetadataItem'];
+  calendarEvent: CalendarEvent;
+  isRecordReadOnly: boolean;
+  objectPermissions: ObjectPermissions & { objectMetadataId: string };
+  objectPermissionsByObjectMetadataId: ObjectPermissionsByObjectMetadataId;
+  useUpdateOneCalendarEventRecordMutation: RecordUpdateHook;
+};
+
+const CalendarEventDetailsField = ({
+  fieldMetadataItem,
+  objectMetadataItem,
+  calendarEvent,
+  isRecordReadOnly,
+  objectPermissions,
+  objectPermissionsByObjectMetadataId,
+  useUpdateOneCalendarEventRecordMutation,
+}: CalendarEventDetailsFieldProps) => {
+  const fieldDefinition = formatFieldMetadataItemAsFieldDefinition({
+    field: fieldMetadataItem,
+    objectMetadataItem,
+    showLabel: true,
+    labelWidth: 72,
+  });
+
+  const isReadOnly = isRecordFieldReadOnly({
+    isRecordReadOnly,
+    isSystemObject: objectMetadataItem.isSystem,
+    objectPermissions,
+    fieldMetadataItem: {
+      id: fieldMetadataItem.id,
+      isUIReadOnly: fieldMetadataItem.isUIReadOnly ?? false,
+      isCustom: fieldMetadataItem.isCustom ?? false,
+    },
+    fieldDefinition,
+    objectPermissionsByObjectMetadataId,
+  });
+
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId: calendarEvent.id,
+      isLabelIdentifier: false,
+      fieldDefinition,
+      useUpdateRecord: useUpdateOneCalendarEventRecordMutation,
+      maxWidth: 300,
+      isRecordFieldReadOnly: isReadOnly,
+    }),
+    [
+      calendarEvent.id,
+      fieldDefinition,
+      useUpdateOneCalendarEventRecordMutation,
+      isReadOnly,
+    ],
+  );
+
+  const recordFieldComponentInstanceContextValue = useMemo(
+    () => ({
+      instanceId: getRecordFieldInputInstanceId({
+        recordId: calendarEvent.id,
+        fieldName: fieldMetadataItem.name,
+        prefix: INPUT_ID_PREFIX,
+      }),
+    }),
+    [calendarEvent.id, fieldMetadataItem.name],
+  );
+
+  return (
+    <StyledPropertyBoxContainer key={fieldMetadataItem.id}>
+      <PropertyBox>
+        <FieldContext.Provider value={fieldContextValue}>
+          <RecordFieldComponentInstanceContext.Provider
+            value={recordFieldComponentInstanceContextValue}
+          >
+            <RecordInlineCell />
+          </RecordFieldComponentInstanceContext.Provider>
+        </FieldContext.Provider>
+      </PropertyBox>
+    </StyledPropertyBoxContainer>
+  );
+};
+
 export const CalendarEventDetails = ({
   calendarEvent,
 }: CalendarEventDetailsProps) => {
@@ -148,10 +237,10 @@ export const CalendarEventDetails = ({
     [updateOneRecord],
   );
 
-  const useUpdateOneCalendarEventRecordMutation: RecordUpdateHook = () => [
-    updateEntity,
-    { loading: isUpdating },
-  ];
+  const useUpdateOneCalendarEventRecordMutation: RecordUpdateHook = useCallback(
+    () => [updateEntity, { loading: isUpdating }],
+    [updateEntity, isUpdating],
+  );
 
   const objectPermissions = useObjectPermissionsForObject(
     objectMetadataItem.id,
@@ -164,67 +253,21 @@ export const CalendarEventDetails = ({
   });
 
   const renderField = (fieldMetadataItem: FieldMetadataItem) => {
-    const fieldDefinition = formatFieldMetadataItemAsFieldDefinition({
-      field: fieldMetadataItem,
-      objectMetadataItem,
-      showLabel: true,
-      labelWidth: 72,
-    });
-
-    const isReadOnly = isRecordFieldReadOnly({
-      isRecordReadOnly,
-      isSystemObject: objectMetadataItem.isSystem,
-      objectPermissions,
-      fieldMetadataItem: {
-        id: fieldMetadataItem.id,
-        isUIReadOnly: fieldMetadataItem.isUIReadOnly ?? false,
-        isCustom: fieldMetadataItem.isCustom ?? false,
-      },
-      fieldDefinition,
-      objectPermissionsByObjectMetadataId,
-    });
-
-    const fieldContextValue = useMemo(
-      () => ({
-        recordId: calendarEvent.id,
-        isLabelIdentifier: false,
-        fieldDefinition,
-        useUpdateRecord: useUpdateOneCalendarEventRecordMutation,
-        maxWidth: 300,
-        isRecordFieldReadOnly: isReadOnly,
-      }),
-      [
-	fieldDefinition,
-	useUpdateOneCalendarEventRecordMutation,
-	isReadOnly
-],
-    );
-
-    const recordFieldComponentInstanceContextValue = useMemo(
-      () => ({
-        instanceId: getRecordFieldInputInstanceId({
-          recordId: calendarEvent.id,
-          fieldName: fieldMetadataItem.name,
-          prefix: INPUT_ID_PREFIX,
-        }),
-      }),
-      [fieldMetadataItem.name],
-    );
-
     return (
-      <StyledPropertyBoxContainer key={fieldMetadataItem.id}>
-        <PropertyBox>
-          <FieldContext.Provider
-            value={fieldContextValue}
-          >
-            <RecordFieldComponentInstanceContext.Provider
-              value={recordFieldComponentInstanceContextValue}
-            >
-              <RecordInlineCell />
-            </RecordFieldComponentInstanceContext.Provider>
-          </FieldContext.Provider>
-        </PropertyBox>
-      </StyledPropertyBoxContainer>
+      <CalendarEventDetailsField
+        key={fieldMetadataItem.id}
+        fieldMetadataItem={fieldMetadataItem}
+        objectMetadataItem={objectMetadataItem}
+        calendarEvent={calendarEvent}
+        isRecordReadOnly={isRecordReadOnly}
+        objectPermissions={objectPermissions}
+        objectPermissionsByObjectMetadataId={
+          objectPermissionsByObjectMetadataId
+        }
+        useUpdateOneCalendarEventRecordMutation={
+          useUpdateOneCalendarEventRecordMutation
+        }
+      />
     );
   };
 

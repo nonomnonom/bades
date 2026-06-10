@@ -171,9 +171,7 @@ export const AttachmentRow = ({
   );
 
   return (
-    <FieldContext.Provider
-      value={fieldContextValue}
-    >
+    <FieldContext.Provider value={fieldContextValue}>
       <ActivityRow disabled>
         <StyledLeftContent>
           <FileIcon fileCategory={fileCategory} />

@@ -1,5 +1,5 @@
 import { useStore } from 'jotai';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useExecuteTasksOnAnyLocationChange } from '@/app/hooks/useExecuteTasksOnAnyLocationChange';
 import { isAppEffectRedirectEnabledState } from '@/app/states/isAppEffectRedirectEnabledState';
 import { ONBOARDING_PATHS } from '@/auth/constants/OnboardingPaths';
@@ -67,7 +67,8 @@ export const PageChangeEffect = () => {
 
   const navigate = useNavigate();
 
-  const [previousLocation, setPreviousLocation] = useState('');
+  // oxlint-disable-next-line bades/no-state-useref
+  const previousLocationRef = useRef('');
 
   const location = useLocation();
 
@@ -149,8 +150,9 @@ export const PageChangeEffect = () => {
 
   // oxlint-disable-next-line react-doctor/no-event-handler
   useEffect(() => {
-    if (!previousLocation || previousLocation !== location.pathname) {
-      setPreviousLocation(location.pathname);
+    const prevLocation = previousLocationRef.current;
+
+    if (!prevLocation || prevLocation !== location.pathname) {
       executeTasksOnAnyLocationChange();
 
       const newPageLayoutId = getPageLayoutIdForLocation({
@@ -160,7 +162,12 @@ export const PageChangeEffect = () => {
 
       storeRef.current.set(currentPageLayoutIdState.atom, newPageLayoutId);
     }
-  }, [location, previousLocation, executeTasksOnAnyLocationChange]);
+  }, [location, executeTasksOnAnyLocationChange]);
+
+  // Track previous location for effects that need it
+  useEffect(() => {
+    previousLocationRef.current = location.pathname;
+  }, [location]);
 
   useEffect(() => {
     initializeQueryParamState();
@@ -199,9 +206,11 @@ export const PageChangeEffect = () => {
   ]);
 
   useEffect(() => {
+    const prevLocation = previousLocationRef.current;
+
     const isLeavingRecordIndexPage = !!matchPath(
       AppPath.RecordIndexPage,
-      previousLocation,
+      prevLocation,
     );
 
     if (isLeavingRecordIndexPage) {
@@ -217,7 +226,7 @@ export const PageChangeEffect = () => {
       }
     }
 
-    if (location.pathname === previousLocation) {
+    if (location.pathname === prevLocation) {
       return;
     }
 
@@ -393,7 +402,6 @@ export const PageChangeEffect = () => {
     }
   }, [
     location,
-    previousLocation,
     contextStoreCurrentViewType,
     resetTableRowSelection,
     unfocusRecordTableRow,

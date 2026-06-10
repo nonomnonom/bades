@@ -1,7 +1,7 @@
 import { Trans } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { styled } from '@linaria/react';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 import { useInView } from 'react-intersection-observer';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -110,25 +110,18 @@ export const EventLogResultsTable = ({
     selectedTable === EventLogTable.APPLICATION_LOG;
   const baseColumns = getColumnsForEventLogTable(selectedTable);
 
-  const [columnWidths, setColumnWidths] = useState<Record<string, number>>(() =>
+  const [columnWidths, setColumnWidths] = useState<Record<string, number>>(
     Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
   );
 
-  const [columnWidthsInitialized, setColumnWidthsInitialized] = useState(false);
+  // Sync column widths when switching tables
+  useEffect(() => {
+    setColumnWidths(
+      Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
+    );
+  }, [selectedTable]);
 
   const [resizingColumn, setResizingColumn] = useState<string | null>(null);
-
-  // Reset column widths when switching tables to avoid undefined widths for new columns
-  useEffect(() => {
-    if (columnWidthsInitialized) {
-      setColumnWidths(
-        Object.fromEntries(
-          baseColumns.map((col) => [col.id, col.defaultWidth]),
-        ),
-      );
-    }
-    setColumnWidthsInitialized(true);
-  }, [selectedTable, baseColumns]);
 
   const handleResizeStart = useCallback(
     (columnId: string, event: React.PointerEvent) => {
@@ -166,7 +159,8 @@ export const EventLogResultsTable = ({
     EVENT_LOG_SCROLL_WRAPPER_INSTANCE_ID,
   );
 
-  const [shouldFetchMore, setShouldFetchMore] = useState(false);
+  // oxlint-disable-next-line bades/no-state-useref
+  const isFetchingRef = useRef(false);
 
   const { ref: fetchMoreRef, inView } = useInView({
     root: scrollWrapperHTMLElement,
@@ -174,15 +168,15 @@ export const EventLogResultsTable = ({
   });
 
   useEffect(() => {
-    if (inView && hasNextPage && !loading && !shouldFetchMore) {
-      setShouldFetchMore(true);
+    if (inView && hasNextPage && !loading && !isFetchingRef.current) {
+      isFetchingRef.current = true;
       onLoadMore();
     }
-  }, [inView, hasNextPage, loading, shouldFetchMore, onLoadMore]);
+  }, [inView, hasNextPage, loading, onLoadMore]);
 
   useEffect(() => {
     if (!loading) {
-      setShouldFetchMore(false);
+      isFetchingRef.current = false;
     }
   }, [loading]);
 

@@ -9,10 +9,7 @@ const RecordTableRecordGroupBodyEffectItem = ({
 }: {
   recordGroupId: string;
 }) => {
-  const groupContextValue = useMemo(
-    () => ({ recordGroupId }),
-    [recordGroupId],
-  );
+  const groupContextValue = useMemo(() => ({ recordGroupId }), [recordGroupId]);
 
   return (
     <RecordGroupContext.Provider value={groupContextValue}>

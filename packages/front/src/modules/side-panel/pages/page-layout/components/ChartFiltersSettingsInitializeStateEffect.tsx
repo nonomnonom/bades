@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { hasInitializedChartFiltersComponentState } from '@/side-panel/pages/page-layout/states/hasInitializedChartFiltersComponentState';
 import { type ChartFilters } from '@/side-panel/pages/page-layout/types/ChartFilters';
@@ -17,9 +17,6 @@ export type ChartFiltersSettingsInitializeStateEffectProps = {
 export const ChartFiltersSettingsInitializeStateEffect = ({
   initialChartFilters,
 }: ChartFiltersSettingsInitializeStateEffectProps) => {
-  const [hasInitializedChartFilters, setHasInitializedChartFiltersLocal] =
-    useState(false);
-
   const setHasInitializedChartFiltersAtom = useAtomComponentState(
     hasInitializedChartFiltersComponentState,
   )[1];
@@ -35,37 +32,27 @@ export const ChartFiltersSettingsInitializeStateEffect = ({
   const { setAdvancedFilterDropdownStates } =
     useSetAdvancedFilterDropdownStates();
 
-  const [
-    shouldSetAdvancedFilterDropdownStates,
-    setShouldSetAdvancedFilterDropdownStates,
-  ] = useState(false);
+  // oxlint-disable-next-line bades/no-state-useref
+  const hasInitializedRef = useRef(false);
 
   useEffect(() => {
-    if (!hasInitializedChartFilters && isDefined(initialChartFilters)) {
+    if (!hasInitializedRef.current && isDefined(initialChartFilters)) {
       setCurrentRecordFilters(initialChartFilters.recordFilters ?? []);
       setCurrentRecordFilterGroups(
         initialChartFilters.recordFilterGroups ?? [],
       );
 
-      setShouldSetAdvancedFilterDropdownStates(true);
-      setHasInitializedChartFiltersLocal(true);
+      setAdvancedFilterDropdownStates();
+      hasInitializedRef.current = true;
       setHasInitializedChartFiltersAtom(true);
     }
   }, [
     setCurrentRecordFilters,
     setCurrentRecordFilterGroups,
     initialChartFilters,
-    setShouldSetAdvancedFilterDropdownStates,
-    hasInitializedChartFilters,
+    setAdvancedFilterDropdownStates,
     setHasInitializedChartFiltersAtom,
   ]);
-
-  useEffect(() => {
-    if (shouldSetAdvancedFilterDropdownStates) {
-      setAdvancedFilterDropdownStates();
-      setShouldSetAdvancedFilterDropdownStates(false);
-    }
-  }, [shouldSetAdvancedFilterDropdownStates, setAdvancedFilterDropdownStates]);
 
   return null;
 };

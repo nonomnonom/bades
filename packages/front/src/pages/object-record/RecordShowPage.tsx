@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { SidePanelToggleButton } from '@/side-panel/components/SidePanelToggleButton';
@@ -36,16 +37,27 @@ export const RecordShowPage = () => {
   const recordShowComponentInstanceId =
     computeRecordShowComponentInstanceId(objectRecordId);
 
+  const contextStoreValue = useMemo(
+    () => ({ instanceId: MAIN_CONTEXT_STORE_INSTANCE_ID }),
+    [],
+  );
+
+  const commandMenuValue = useMemo(
+    () => ({ instanceId: recordShowComponentInstanceId }),
+    [recordShowComponentInstanceId],
+  );
+
+  const timelineValue = useMemo(
+    () => ({ recordId: objectRecordId }),
+    [objectRecordId],
+  );
+
   return (
     <RecordComponentInstanceContextsWrapper
       componentInstanceId={recordShowComponentInstanceId}
     >
-      <ContextStoreComponentInstanceContext.Provider
-        value={{ instanceId: MAIN_CONTEXT_STORE_INSTANCE_ID }}
-      >
-        <CommandMenuComponentInstanceContext.Provider
-          value={{ instanceId: recordShowComponentInstanceId }}
-        >
+      <ContextStoreComponentInstanceContext.Provider value={contextStoreValue}>
+        <CommandMenuComponentInstanceContext.Provider value={commandMenuValue}>
           <PageContainer>
             <RecordShowPageTitle
               objectNameSingular={objectNameSingular}
@@ -59,11 +71,7 @@ export const RecordShowPage = () => {
               {!isLayoutCustomizationModeEnabled && <SidePanelToggleButton />}
             </RecordShowPageHeader>
             <MainContainerLayoutWithSidePanel>
-              <TimelineActivityContext.Provider
-                value={{
-                  recordId: objectRecordId,
-                }}
-              >
+              <TimelineActivityContext.Provider value={timelineValue}>
                 <PageLayoutRecordPageRenderer
                   targetRecordIdentifier={{
                     id: objectRecordId,

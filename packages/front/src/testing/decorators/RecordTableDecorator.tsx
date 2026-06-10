@@ -151,50 +151,72 @@ const InternalTableContextProviders = ({
     },
   );
 
-  const triggerEvent = 'CLICK';
+  const triggerEvent = 'CLICK' as const;
+
+  const recordIndexContextValue = useMemo(
+    () => ({
+      indexIdentifierUrl: () => '',
+      onIndexRecordsLoaded: () => {},
+      objectNamePlural: objectMetadataItem.namePlural,
+      objectNameSingular: objectMetadataItem.nameSingular,
+      objectMetadataItem: objectMetadataItem,
+      objectPermissionsByObjectMetadataId,
+      recordIndexId: 'record-index',
+      viewBarInstanceId: 'viewBarInstanceId',
+      labelIdentifierFieldMetadataItem,
+      recordFieldByFieldMetadataItemId,
+      fieldDefinitionByFieldMetadataItemId,
+      fieldMetadataItemByFieldMetadataItemId,
+    }),
+    [
+      objectMetadataItem,
+      objectPermissionsByObjectMetadataId,
+      labelIdentifierFieldMetadataItem,
+      recordFieldByFieldMetadataItemId,
+      fieldDefinitionByFieldMetadataItemId,
+      fieldMetadataItemByFieldMetadataItemId,
+    ],
+  );
+
+  const recordTableContextValue = useMemo(
+    () => ({
+      objectNameSingular: objectMetadataItem.nameSingular,
+      objectMetadataItem: objectMetadataItem,
+      objectMetadataItems: objectMetadataItems,
+      recordTableId: objectMetadataItem.namePlural,
+      viewBarId: 'view-bar',
+      objectPermissions: getObjectPermissionsFromMapByObjectMetadataId({
+        objectPermissionsByObjectMetadataId,
+        objectMetadataId: objectMetadataItem.id,
+      }),
+      visibleRecordFields,
+      onRecordIdentifierClick: () => {},
+      triggerEvent,
+    }),
+    [
+      objectMetadataItem,
+      objectMetadataItems,
+      objectPermissionsByObjectMetadataId,
+      visibleRecordFields,
+      triggerEvent,
+    ],
+  );
+
+  const recordTableBodyContextValue = useMemo(
+    () => ({
+      onCloseTableCell: () => {},
+      onOpenTableCell: () => {},
+      onCommandMenuDropdownOpened: () => {},
+      onMoveFocus: () => {},
+      onMoveHoverToCurrentCell: () => {},
+    }),
+    [],
+  );
 
   return (
-    <RecordIndexContextProvider
-      value={{
-        indexIdentifierUrl: () => '',
-        onIndexRecordsLoaded: () => {},
-        objectNamePlural: objectMetadataItem.namePlural,
-        objectNameSingular: objectMetadataItem.nameSingular,
-        objectMetadataItem: objectMetadataItem,
-        objectPermissionsByObjectMetadataId,
-        recordIndexId: 'record-index',
-        viewBarInstanceId: 'viewBarInstanceId',
-        labelIdentifierFieldMetadataItem,
-        recordFieldByFieldMetadataItemId,
-        fieldDefinitionByFieldMetadataItemId,
-        fieldMetadataItemByFieldMetadataItemId,
-      }}
-    >
-      <RecordTableContextProvider
-        value={{
-          objectNameSingular: objectMetadataItem.nameSingular,
-          objectMetadataItem: objectMetadataItem,
-          objectMetadataItems: objectMetadataItems,
-          recordTableId: objectMetadataItem.namePlural,
-          viewBarId: 'view-bar',
-          objectPermissions: getObjectPermissionsFromMapByObjectMetadataId({
-            objectPermissionsByObjectMetadataId,
-            objectMetadataId: objectMetadataItem.id,
-          }),
-          visibleRecordFields,
-          onRecordIdentifierClick: () => {},
-          triggerEvent,
-        }}
-      >
-        <RecordTableBodyContextProvider
-          value={{
-            onCloseTableCell: () => {},
-            onOpenTableCell: () => {},
-            onCommandMenuDropdownOpened: () => {},
-            onMoveFocus: () => {},
-            onMoveHoverToCurrentCell: () => {},
-          }}
-        >
+    <RecordIndexContextProvider value={recordIndexContextValue}>
+      <RecordTableContextProvider value={recordTableContextValue}>
+        <RecordTableBodyContextProvider value={recordTableBodyContextValue}>
           {children}
         </RecordTableBodyContextProvider>
       </RecordTableContextProvider>

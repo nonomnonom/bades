@@ -1,4 +1,4 @@
-import { type FocusEventHandler, useEffect, useRef, useState } from 'react';
+import { type FocusEventHandler, useEffect, useRef } from 'react';
 
 import { Key } from 'ts-key-enum';
 
@@ -34,14 +34,14 @@ export const SettingsTextInput = ({
 }: SettingsTextInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [isFocused, setIsFocused] = useState(false);
+  const isFocusedRef = useRef(false);
   const autoFocusAppliedRef = useRef(false);
 
   useEffect(() => {
     if (autoFocusOnMount === true && !autoFocusAppliedRef.current) {
       autoFocusAppliedRef.current = true;
       inputRef.current?.focus();
-      setIsFocused(true);
+      isFocusedRef.current = true;
     }
   }, [autoFocusOnMount, inputRef]);
 
@@ -57,7 +57,7 @@ export const SettingsTextInput = ({
 
   const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
     onFocus?.(e);
-    setIsFocused(true);
+    isFocusedRef.current = true;
 
     if (!disableHotkeys) {
       pushFocusItemToFocusStack({
@@ -75,7 +75,7 @@ export const SettingsTextInput = ({
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (e) => {
     onBlur?.(e);
-    setIsFocused(false);
+    isFocusedRef.current = false;
 
     if (!disableHotkeys) {
       removeFocusItemFromFocusStackById({ focusId: instanceId });
@@ -83,22 +83,22 @@ export const SettingsTextInput = ({
   };
 
   const handleEscape = () => {
-    if (!isFocused) {
+    if (!isFocusedRef.current) {
       return;
     }
     if (isDefined(inputRef) && 'current' in inputRef) {
       inputRef.current?.blur();
-      setIsFocused(false);
+      isFocusedRef.current = false;
     }
   };
 
   const handleEnter = () => {
-    if (!isFocused) {
+    if (!isFocusedRef.current) {
       return;
     }
     onInputEnter?.();
     if (isDefined(inputRef) && 'current' in inputRef) {
-      setIsFocused(false);
+      isFocusedRef.current = false;
     }
   };
 

@@ -23,9 +23,7 @@ const StyledCenterMetricContainerBase = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 `;
-const StyledCenterMetricContainer = m.create(
-  StyledCenterMetricContainerBase,
-);
+const StyledCenterMetricContainer = m.create(StyledCenterMetricContainerBase);
 
 const StyledValue = styled.span`
   color: ${themeCssVariables.font.color.primary};

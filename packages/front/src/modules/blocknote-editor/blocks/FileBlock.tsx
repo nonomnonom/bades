@@ -37,6 +37,82 @@ const StyledUploadFileContainer = styled.div`
   gap: ${themeCssVariables.spacing[2]};
 `;
 
+type FileBlockRendererProps = {
+  block: {
+    id: string;
+    props: {
+      url: string;
+      name: string;
+      fileCategory: string;
+    };
+  };
+  editor: {
+    uploadFile?: (file: File) => Promise<string>;
+    updateBlock: (
+      id: string,
+      update: { props: Record<string, unknown> },
+    ) => void;
+  };
+};
+
+const FileBlockRenderer = ({ block, editor }: FileBlockRendererProps) => {
+  const inputFileRef = useRef<HTMLInputElement>(null);
+
+  const handleUploadAttachment = async (file: File) => {
+    if (isUndefinedOrNull(file)) {
+      return '';
+    }
+    const fileUrl = await editor.uploadFile?.(file);
+
+    if (!isNonEmptyString(fileUrl)) {
+      return '';
+    }
+
+    editor.updateBlock(block.id, {
+      props: {
+        ...block.props,
+        url: fileUrl,
+        fileCategory: getFileType(file.name),
+        name: file.name,
+      },
+    });
+  };
+
+  const handleUploadFileClick = () => {
+    inputFileRef?.current?.click?.();
+  };
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (isDefined(e.target.files)) handleUploadAttachment?.(e.target.files[0]);
+  };
+
+  const safeUrl = getSafeUrl(block.props.url);
+
+  if (safeUrl) {
+    return (
+      <StyledFileLine>
+        <FileIcon
+          fileCategory={block.props.fileCategory as AttachmentFileCategory}
+        />
+        <StyledLink href={safeUrl} target="_blank" rel="noopener noreferrer">
+          {block.props.name}
+        </StyledLink>
+      </StyledFileLine>
+    );
+  }
+
+  return (
+    <StyledUploadFileContainer>
+      <StyledFileInput
+        ref={inputFileRef}
+        onChange={handleFileChange}
+        type="file"
+      />
+      <Button onClick={handleUploadFileClick} title={`Unggah Berkas`}></Button>
+    </StyledUploadFileContainer>
+  );
+};
+
 export const FileBlock = createReactBlockSpec(
   {
     type: 'file',
@@ -55,67 +131,11 @@ export const FileBlock = createReactBlockSpec(
   },
   {
     render: ({ block, editor }) => {
-      // oxlint-disable react-hooks/rules-of-hooks
-      const inputFileRef = useRef<HTMLInputElement>(null);
-
-      const handleUploadAttachment = async (file: File) => {
-        if (isUndefinedOrNull(file)) {
-          return '';
-        }
-        const fileUrl = await editor.uploadFile?.(file);
-
-        if (!isNonEmptyString(fileUrl)) {
-          return '';
-        }
-
-        editor.updateBlock(block.id, {
-          props: {
-            ...block.props,
-            url: fileUrl,
-            fileCategory: getFileType(file.name),
-            name: file.name,
-          },
-        });
-      };
-      const handleUploadFileClick = () => {
-        inputFileRef?.current?.click?.();
-      };
-      const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (isDefined(e.target.files))
-          handleUploadAttachment?.(e.target.files[0]);
-      };
-
-      const safeUrl = getSafeUrl(block.props.url);
-
-      if (safeUrl) {
-        return (
-          <StyledFileLine>
-            <FileIcon
-              fileCategory={block.props.fileCategory as AttachmentFileCategory}
-            />
-            <StyledLink
-              href={safeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {block.props.name}
-            </StyledLink>
-          </StyledFileLine>
-        );
-      }
-
       return (
-        <StyledUploadFileContainer>
-          <StyledFileInput
-            ref={inputFileRef}
-            onChange={handleFileChange}
-            type="file"
-          />
-          <Button
-            onClick={handleUploadFileClick}
-            title={`Unggah Berkas`}
-          ></Button>
-        </StyledUploadFileContainer>
+        <FileBlockRenderer
+          block={block as FileBlockRendererProps['block']}
+          editor={editor as FileBlockRendererProps['editor']}
+        />
       );
     },
   },

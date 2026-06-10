@@ -1,8 +1,6 @@
 import {
   type PropsWithChildren,
   useContext,
-  useEffect,
-  useState,
 } from 'react';
 
 import { contextStoreCurrentObjectMetadataItemIdComponentState } from '@/context-store/states/contextStoreCurrentObjectMetadataItemIdComponentState';
@@ -102,42 +100,14 @@ export const JestContextStoreSetter = ({
     objectNameSingular: contextStoreCurrentObjectMetadataNameSingular,
   });
 
-  const contextStoreCurrentObjectMetadataId = objectMetadataItem.id;
+  setContextStoreCurrentViewId(contextStoreCurrentViewId);
+  setContextStoreTargetedRecordsRule(contextStoreTargetedRecordsRule);
+  setContextStoreCurrentObjectMetadataItemId(objectMetadataItem.id);
+  setContextStoreNumberOfSelectedRecords(contextStoreNumberOfSelectedRecords);
+  setContextStoreFilters(contextStoreFilters);
+  setContextStoreFilterGroups(contextStoreFilterGroups);
+  setContextStoreCurrentViewType(contextStoreCurrentViewType ?? null);
+  setContextStoreCurrentPageType(contextStoreCurrentPageType ?? null);
 
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  useEffect(() => {
-    if (isInitialized) return;
-    setIsInitialized(true);
-    setContextStoreCurrentViewId(contextStoreCurrentViewId);
-    setContextStoreTargetedRecordsRule(contextStoreTargetedRecordsRule);
-    setContextStoreCurrentObjectMetadataItemId(objectMetadataItem.id);
-    setContextStoreNumberOfSelectedRecords(contextStoreNumberOfSelectedRecords);
-    setContextStoreFilters(contextStoreFilters);
-    setContextStoreFilterGroups(contextStoreFilterGroups);
-    setContextStoreCurrentViewType(contextStoreCurrentViewType ?? null);
-    setContextStoreCurrentPageType(contextStoreCurrentPageType ?? null);
-    setIsLoaded(true);
-  }, [
-    setContextStoreTargetedRecordsRule,
-    setContextStoreCurrentObjectMetadataItemId,
-    contextStoreTargetedRecordsRule,
-    contextStoreCurrentObjectMetadataId,
-    setContextStoreNumberOfSelectedRecords,
-    contextStoreNumberOfSelectedRecords,
-    setContextStoreFilters,
-    contextStoreFilters,
-    objectMetadataItem,
-    setContextStoreCurrentViewId,
-    contextStoreCurrentViewId,
-    setContextStoreCurrentViewType,
-    contextStoreCurrentViewType,
-    setContextStoreCurrentPageType,
-    contextStoreCurrentPageType,
-    setContextStoreFilterGroups,
-    contextStoreFilterGroups,
-  ]);
-
-  return isLoaded ? <>{children}</> : null;
+  return <>{children}</>;
 };

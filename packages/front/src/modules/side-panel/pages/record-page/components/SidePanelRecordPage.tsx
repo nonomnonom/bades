@@ -11,6 +11,7 @@ import { useRecordShowPage } from '@/object-record/record-show/hooks/useRecordSh
 import { recordStoreFamilySelector } from '@/object-record/record-store/states/selectors/recordStoreFamilySelector';
 import { useComponentInstanceStateContext } from '@/ui/utilities/state/component-state/hooks/useComponentInstanceStateContext';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
+import { useMemo } from 'react';
 import { styled } from '@linaria/react';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
 
@@ -63,24 +64,29 @@ export const SidePanelRecordPage = () => {
     throw new Error('ID instans halaman menu perintah belum ditentukan');
   }
 
+  const contextStoreValue = useMemo(
+    () => ({ instanceId: sidePanelPageInstanceId }),
+    [sidePanelPageInstanceId],
+  );
+
+  const commandMenuValue = useMemo(
+    () => ({ instanceId: sidePanelPageInstanceId }),
+    [sidePanelPageInstanceId],
+  );
+
+  const timelineValue = useMemo(
+    () => ({ recordId: objectRecordId }),
+    [objectRecordId],
+  );
+
   return (
     <RecordComponentInstanceContextsWrapper
       componentInstanceId={`record-show-${objectRecordId}`}
     >
-      <ContextStoreComponentInstanceContext.Provider
-        value={{
-          instanceId: sidePanelPageInstanceId,
-        }}
-      >
-        <CommandMenuComponentInstanceContext.Provider
-          value={{ instanceId: sidePanelPageInstanceId }}
-        >
+      <ContextStoreComponentInstanceContext.Provider value={contextStoreValue}>
+        <CommandMenuComponentInstanceContext.Provider value={commandMenuValue}>
           <StyledSidePanelRecord hasDeletedRecordBanner={!!recordDeletedAt}>
-            <TimelineActivityContext.Provider
-              value={{
-                recordId: objectRecordId,
-              }}
-            >
+            <TimelineActivityContext.Provider value={timelineValue}>
               <PageLayoutRecordPageRenderer
                 targetRecordIdentifier={{
                   id: objectRecordId,

@@ -81,9 +81,7 @@ export const SummaryCard = ({
       recordId: objectRecordId,
       isLabelIdentifier: false,
       fieldDefinition: {
-        type:
-          labelIdentifierFieldMetadataItem?.type ||
-          FieldMetadataType.TEXT,
+        type: labelIdentifierFieldMetadataItem?.type || FieldMetadataType.TEXT,
         iconName: '',
         fieldMetadataId: labelIdentifierFieldMetadataItem?.id ?? '',
         label: labelIdentifierFieldMetadataItem?.label || '',
@@ -117,9 +115,7 @@ export const SummaryCard = ({
       date={recordCreatedAt ?? ''}
       loading={recordLoading || !isDefined(recordCreatedAt)}
       title={
-        <FieldContext.Provider
-          value={fieldContextValue}
-        >
+        <FieldContext.Provider value={fieldContextValue}>
           <RecordTitleCell
             sizeVariant="md"
             containerType={RecordTitleCellContainerType.ShowPage}

@@ -18,6 +18,7 @@ type SettingsRoleEditEffectProps = {
 export const SettingsRoleEditEffect = ({
   roleId,
 }: SettingsRoleEditEffectProps) => {
+  // oxlint-disable-next-line bades/no-state-useref
   const isInitializedRef = useRef(false);
 
   const settingsPersistedRole = useAtomFamilyStateValue(

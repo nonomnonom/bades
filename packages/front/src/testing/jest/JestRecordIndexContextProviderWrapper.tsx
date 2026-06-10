@@ -3,8 +3,8 @@ import { RecordFilterGroupsComponentInstanceContext } from '@/object-record/reco
 import { RecordFiltersComponentInstanceContext } from '@/object-record/record-filter/states/context/RecordFiltersComponentInstanceContext';
 import { RecordSortsComponentInstanceContext } from '@/object-record/record-sort/states/context/RecordSortsComponentInstanceContext';
 import { RecordIndexContextProvider } from '@/object-record/record-index/contexts/RecordIndexContext';
+import { useMemo, type PropsWithChildren } from 'react';
 import { useRecordIndexFieldMetadataDerivedStates } from '@/object-record/record-index/hooks/useRecordIndexFieldMetadataDerivedStates';
-import { type PropsWithChildren } from 'react';
 
 const RECORD_INDEX_ID = 'recordIndexId';
 
@@ -23,16 +23,21 @@ export const JestRecordIndexContextProviderWrapper = ({
     recordFieldByFieldMetadataItemId,
   } = useRecordIndexFieldMetadataDerivedStates(objectMetadataItem);
 
+  const filterGroupsValue = useMemo(
+    () => ({ instanceId: RECORD_INDEX_ID }),
+    [],
+  );
+
+  const filtersValue = useMemo(() => ({ instanceId: RECORD_INDEX_ID }), []);
+
+  const sortsValue = useMemo(() => ({ instanceId: RECORD_INDEX_ID }), []);
+
   return (
     <RecordFilterGroupsComponentInstanceContext.Provider
-      value={{ instanceId: RECORD_INDEX_ID }}
+      value={filterGroupsValue}
     >
-      <RecordFiltersComponentInstanceContext.Provider
-        value={{ instanceId: RECORD_INDEX_ID }}
-      >
-        <RecordSortsComponentInstanceContext.Provider
-          value={{ instanceId: RECORD_INDEX_ID }}
-        >
+      <RecordFiltersComponentInstanceContext.Provider value={filtersValue}>
+        <RecordSortsComponentInstanceContext.Provider value={sortsValue}>
           <RecordIndexContextProvider
             value={{
               objectPermissionsByObjectMetadataId: {},
