@@ -5,7 +5,7 @@ import {
   shift,
   useFloating,
 } from '@floating-ui/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   forwardRef,
   useImperativeHandle,
@@ -138,7 +138,7 @@ const SuggestionMenuInner = <TItem,>(
   }, [clampedSelectedIndex]);
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.1 }}
@@ -171,7 +171,7 @@ const SuggestionMenuInner = <TItem,>(
           </DropdownMenuItemsContainer>
         </DropdownContent>
       </OverlayContainer>
-    </motion.div>
+    </m.div>
   );
 };
 

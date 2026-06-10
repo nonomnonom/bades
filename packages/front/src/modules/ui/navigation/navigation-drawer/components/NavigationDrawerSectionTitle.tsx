@@ -3,7 +3,7 @@ import { isNavigationDrawerExpandedState } from '@/ui/navigation/states/isNaviga
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import React, { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconChevronRight, Label } from 'ui/display';
@@ -48,7 +48,7 @@ const StyledChevron = styled.div`
   }
 `;
 
-const MotionIconChevronRight = motion.create(IconChevronRight);
+const MotionIconChevronRight = m.create(IconChevronRight);
 
 type StyledRightIconProps = {
   isMobile: boolean;

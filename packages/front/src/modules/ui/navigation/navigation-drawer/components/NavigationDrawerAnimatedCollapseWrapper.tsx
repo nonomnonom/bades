@@ -4,7 +4,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { styled } from '@linaria/react';
 import {
   type AnimationControls,
-  motion,
+  m,
   type TargetAndTransition,
 } from 'framer-motion';
 import { useContext } from 'react';
@@ -13,7 +13,7 @@ const StyledAnimatedContainerBase = styled.span`
   display: block;
 `;
 
-const StyledAnimatedContainer = motion.create(StyledAnimatedContainerBase);
+const StyledAnimatedContainer = m.create(StyledAnimatedContainerBase);
 
 export const NavigationDrawerAnimatedCollapseWrapper = ({
   children,

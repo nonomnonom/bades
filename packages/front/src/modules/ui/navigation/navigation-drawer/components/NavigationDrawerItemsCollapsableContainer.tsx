@@ -5,13 +5,13 @@ import { styled } from '@linaria/react';
 import { type ReactNode, useContext } from 'react';
 import {
   type AnimationControls,
-  motion,
+  m,
   type TargetAndTransition,
 } from 'framer-motion';
 import { ThemeContext } from 'ui/theme-constants';
 const StyledAnimationGroupContainerBase = styled.div``;
 
-const StyledAnimationGroupContainer = motion.create(
+const StyledAnimationGroupContainer = m.create(
   StyledAnimationGroupContainerBase,
 );
 

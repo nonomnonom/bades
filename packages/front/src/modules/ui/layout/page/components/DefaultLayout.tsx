@@ -24,7 +24,7 @@ import { useShowAuthModal } from '@/ui/layout/hooks/useShowAuthModal';
 import { NAVIGATION_DRAWER_CONSTRAINTS } from '@/ui/layout/resizable-panel/constants/NavigationDrawerConstraints';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { styled } from '@linaria/react';
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+import { AnimatePresence, LayoutGroup, m } from 'framer-motion';
 import { Outlet } from 'react-router-dom';
 import { useScreenSize } from 'ui/utilities';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -50,7 +50,7 @@ const StyledPageContainerBase = styled.div`
   min-height: 0;
   min-width: 0;
 `;
-const StyledPageContainer = motion.create(StyledPageContainerBase);
+const StyledPageContainer = m.create(StyledPageContainerBase);
 
 const StyledNavigationDrawerWrapper = styled.div`
   flex-shrink: 0;

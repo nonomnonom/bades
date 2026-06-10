@@ -10,7 +10,7 @@ import {
 import { getFileCategoryFromExtension } from '@/object-record/record-field/ui/utils/getFileCategoryFromExtension';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useState, useContext } from 'react';
+import { useMemo, useState, useContext } from 'react';
 import { getSafeUrl, isDefined } from 'shared/utils';
 
 import { type AttachmentWithFile } from '@/activities/files/utils/filterAttachmentsWithFile';
@@ -162,13 +162,17 @@ export const AttachmentRow = ({
     }
   };
 
+  const fieldContextValue = useMemo(
+    () =>
+      ({
+        recordId: attachment.id,
+      }) as GenericFieldContextType,
+    [attachment.id],
+  );
+
   return (
     <FieldContext.Provider
-      value={
-        {
-          recordId: attachment.id,
-        } as GenericFieldContextType
-      }
+      value={fieldContextValue}
     >
       <ActivityRow disabled>
         <StyledLeftContent>

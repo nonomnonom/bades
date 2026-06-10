@@ -9,7 +9,7 @@ import { IconButton } from 'ui/input';
 
 import { type WidgetCardVariant } from '@/page-layout/widgets/types/WidgetCardVariant';
 import { WidgetGrip } from '@/page-layout/widgets/widget-card/components/WidgetGrip';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { isDefined, isNonEmptyArray } from 'shared/utils';
 import { themeCssVariables, ThemeContext } from 'ui/theme-constants';
 export type WidgetCardHeaderProps = {
@@ -63,7 +63,7 @@ const StyledIconButtonContainerBase = styled.div`
   display: flex;
   justify-content: center;
 `;
-const StyledIconButtonContainer = motion.create(StyledIconButtonContainerBase);
+const StyledIconButtonContainer = m.create(StyledIconButtonContainerBase);
 
 export const WidgetCardHeader = ({
   widgetId,

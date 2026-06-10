@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { IconGripVertical } from 'ui/display';
 import { themeCssVariables, ThemeContext } from 'ui/theme-constants';
 import { useContext } from 'react';
@@ -24,7 +24,7 @@ const StyledGripContainerBase = styled.div`
     background: ${themeCssVariables.background.tertiary};
   }
 `;
-const StyledGripContainer = motion.create(StyledGripContainerBase);
+const StyledGripContainer = m.create(StyledGripContainerBase);
 
 type WidgetGripProps = {
   className?: string;

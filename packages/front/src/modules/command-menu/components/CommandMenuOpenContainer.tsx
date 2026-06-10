@@ -19,7 +19,7 @@ import { WORKFLOW_DIAGRAM_EDGE_OPTIONS_CLICK_OUTSIDE_ID } from '@/workflow/workf
 import { useStore } from 'jotai';
 
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useCallback, useContext, useRef } from 'react';
 import { LINK_CHIP_CLICK_OUTSIDE_ID } from 'ui/components';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -39,7 +39,7 @@ const StyledCommandMenuBase = styled.div`
   top: 0%;
   z-index: ${RootStackingContextZIndices.SidePanel};
 `;
-const StyledCommandMenu = motion.create(StyledCommandMenuBase);
+const StyledCommandMenu = m.create(StyledCommandMenuBase);
 
 export const CommandMenuOpenContainer = ({
   children,

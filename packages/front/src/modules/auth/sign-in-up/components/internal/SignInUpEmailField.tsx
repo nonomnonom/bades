@@ -1,12 +1,12 @@
 import { type Form } from '@/auth/sign-in-up/hooks/useSignInUpForm';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Controller, useFormContext } from 'react-hook-form';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 
-const StyledFullWidthMotionDiv = styled(motion.div)`
+const StyledFullWidthMotionDiv = styled(m.div)`
   width: 100%;
 `;
 

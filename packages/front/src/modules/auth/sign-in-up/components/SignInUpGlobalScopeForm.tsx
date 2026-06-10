@@ -23,7 +23,7 @@ import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { DEFAULT_WORKSPACE_LOGO } from '@/ui/navigation/navigation-drawer/constants/DefaultWorkspaceLogo';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { isNonEmptyString } from '@sniptt/guards';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useContext } from 'react';
 import {
   Avatar,
@@ -35,7 +35,7 @@ import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { type AvailableWorkspace } from '~/generated-metadata/graphql';
 import { getWorkspaceUrl } from '~/utils/getWorkspaceUrl';
 
-const StyledContentContainer = styled(motion.div)`
+const StyledContentContainer = styled(m.div)`
   margin-bottom: ${themeCssVariables.spacing[8]};
   margin-top: ${themeCssVariables.spacing[4]};
   min-width: 200px;

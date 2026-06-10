@@ -1,7 +1,7 @@
 import { useBlockNoteEditor } from '@blocknote/react';
 import { styled } from '@linaria/react';
 import { autoUpdate, flip, offset, useFloating } from '@floating-ui/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { createPortal } from 'react-dom';
 
 import { SLASH_MENU_DROPDOWN_CLICK_OUTSIDE_ID } from '@/ui/input/constants/SlashMenuDropdownClickOutsideId';
@@ -64,7 +64,7 @@ export const CustomSlashMenu = ({
       />
       <>
         {createPortal(
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.1 }}
@@ -88,7 +88,7 @@ export const CustomSlashMenu = ({
                 </DropdownMenuItemsContainer>
               </DropdownContent>
             </OverlayContainer>
-          </motion.div>,
+          </m.div>,
           document.body,
         )}
       </>

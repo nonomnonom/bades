@@ -11,7 +11,7 @@ import { NodeDimensionEffect } from '@/ui/utilities/dimensions/components/NodeDi
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { styled } from '@linaria/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useContext, useRef, useState } from 'react';
 import {
   IconChevronLeft,
@@ -44,7 +44,7 @@ const StyledAnimationClipContainer = styled.div`
 const StyledLegendMotionWrapperBase = styled.div`
   width: 100%;
 `;
-const StyledLegendMotionWrapper = motion.create(StyledLegendMotionWrapperBase);
+const StyledLegendMotionWrapper = m.create(StyledLegendMotionWrapperBase);
 
 const StyledItemsWrapperBase = styled.div<{ centered?: boolean }>`
   display: flex;
@@ -54,7 +54,7 @@ const StyledItemsWrapperBase = styled.div<{ centered?: boolean }>`
   justify-content: ${({ centered }) => (centered ? 'center' : 'flex-start')};
   min-width: 0;
 `;
-const StyledItemsWrapper = motion.create(StyledItemsWrapperBase);
+const StyledItemsWrapper = m.create(StyledItemsWrapperBase);
 
 const StyledLegendContainer = styled.div<{ needsPagination: boolean }>`
   align-items: center;

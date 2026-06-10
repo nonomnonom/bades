@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
@@ -62,7 +62,7 @@ export const SnackBarProvider = ({ children }: React.PropsWithChildren) => {
               buttonOnClick,
               buttonTo,
             }) => (
-              <motion.div
+              <m.div
                 key={id}
                 variants={variants}
                 initial="out"
@@ -84,7 +84,7 @@ export const SnackBarProvider = ({ children }: React.PropsWithChildren) => {
                   }}
                   onClose={() => handleSnackBarClose(id)}
                 />
-              </motion.div>
+              </m.div>
             ),
           )}
         </AnimatePresence>

@@ -7,7 +7,7 @@ import { RecordTableColumnAggregateFooterValueCell } from '@/object-record/recor
 import { type RecordTableFooterAggregateContentId } from '@/object-record/record-table/record-table-footer/types/RecordTableFooterAggregateContentId';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { useToggleScrollWrapper } from '@/ui/utilities/scroll/hooks/useToggleScrollWrapper';
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 
 type RecordTableColumnFooterWithDropdownProps = {
   isFirstCell: boolean;
@@ -49,6 +49,25 @@ export const RecordTableColumnFooterWithDropdown = ({
     ? `${fieldMetadataId}-footer-${currentRecordGroupId}`
     : `${fieldMetadataId}-footer`;
 
+  const dropdownContextValue = useMemo(
+    () => ({
+      currentContentId,
+      onContentChange: handleContentChange,
+      resetContent: handleResetContent,
+      dropdownId: dropdownId,
+      fieldMetadataId: fieldMetadataId,
+      fieldMetadataType: fieldMetadata?.type,
+    }),
+    [
+      currentContentId,
+      handleContentChange,
+      handleResetContent,
+      dropdownId,
+      fieldMetadataId,
+      fieldMetadata?.type,
+    ],
+  );
+
   return (
     <Dropdown
       onOpen={handleDropdownOpen}
@@ -62,14 +81,7 @@ export const RecordTableColumnFooterWithDropdown = ({
       }
       dropdownComponents={
         <RecordTableColumnAggregateFooterDropdownContext.Provider
-          value={{
-            currentContentId,
-            onContentChange: handleContentChange,
-            resetContent: handleResetContent,
-            dropdownId: dropdownId,
-            fieldMetadataId: fieldMetadataId,
-            fieldMetadataType: fieldMetadata?.type,
-          }}
+          value={dropdownContextValue}
         >
           <RecordTableColumnAggregateFooterDropdownContent />
         </RecordTableColumnAggregateFooterDropdownContext.Provider>

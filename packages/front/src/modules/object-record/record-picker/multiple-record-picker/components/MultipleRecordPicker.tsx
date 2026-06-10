@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { useStore } from 'jotai';
 
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
@@ -118,9 +118,14 @@ export const MultipleRecordPicker = ({
       </DropdownMenuItemsContainer>
     ) : null;
 
+  const componentInstanceContextValue = useMemo(
+    () => ({ instanceId: componentInstanceId }),
+    [componentInstanceId],
+  );
+
   return (
     <MultipleRecordPickerComponentInstanceContext.Provider
-      value={{ instanceId: componentInstanceId }}
+      value={componentInstanceContextValue}
     >
       <MultipleRecordPickerOnClickOutsideEffect
         containerRef={containerRef}

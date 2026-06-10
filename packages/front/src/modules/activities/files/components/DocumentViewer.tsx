@@ -212,6 +212,7 @@ export const DocumentViewer = ({
 
   const mimeType = isPreviewable ? MIME_TYPE_MAPPING[fileExtension] : undefined;
 
+  // oxlint-disable-next-line react-doctor/no-event-handler
   useEffect(() => {
     if (fileExtension === 'csv') {
       fetchCsvPreview(documentUrl).then(setCsvPreview);

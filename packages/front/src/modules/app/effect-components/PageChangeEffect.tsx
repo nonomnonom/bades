@@ -147,6 +147,7 @@ export const PageChangeEffect = () => {
     closeSidePanelUnlessNotRelevant();
   }, [location, closeSidePanelUnlessNotRelevant]);
 
+  // oxlint-disable-next-line react-doctor/no-event-handler
   useEffect(() => {
     if (!previousLocation || previousLocation !== location.pathname) {
       setPreviousLocation(location.pathname);
@@ -426,6 +427,7 @@ export const PageChangeEffect = () => {
   const { requestFreshCaptchaToken } = useRequestFreshCaptchaToken();
   const isCaptchaScriptLoaded = useAtomStateValue(isCaptchaScriptLoadedState);
 
+  // oxlint-disable-next-line react-doctor/no-event-handler
   useEffect(() => {
     if (isCaptchaScriptLoaded && isCaptchaRequiredForPath(location.pathname)) {
       requestFreshCaptchaToken();

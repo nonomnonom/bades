@@ -29,6 +29,7 @@ export const EventFieldDiffValueEffect = ({
   const { recordId } = useContext(TimelineActivityContext);
   const recordStore = useAtomFamilyStateValue(recordStoreFamilyState, recordId);
 
+  // oxlint-disable-next-line react-doctor/no-event-handler
   useEffect(() => {
     if (!isDefined(diffRecord)) return;
 

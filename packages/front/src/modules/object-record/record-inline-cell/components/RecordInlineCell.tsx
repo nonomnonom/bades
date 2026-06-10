@@ -1,4 +1,4 @@
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 
 import { FieldDisplay } from '@/object-record/record-field/ui/components/FieldDisplay';
 import { FieldInput } from '@/object-record/record-field/ui/components/FieldInput';
@@ -90,49 +90,64 @@ export const RecordInlineCell = ({
   const { persistFieldFromFieldInputContext } =
     usePersistFieldFromFieldInputContext();
 
-  const handleEnter: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEnter: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
+      closeInlineCell();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCell],
+  );
+
+  const handleSubmit: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
+
+      closeInlineCell();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCell],
+  );
+
+  const handleCancel = useCallback(() => {
     closeInlineCell();
-  };
+  }, [closeInlineCell]);
 
-  const handleSubmit: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEscape: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeInlineCell();
-  };
+      closeInlineCell();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCell],
+  );
 
-  const handleCancel = () => {
-    closeInlineCell();
-  };
+  const handleTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-  const handleEscape: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+      closeInlineCell();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCell],
+  );
 
-    closeInlineCell();
-  };
+  const handleShiftTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-  const handleTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
-
-    closeInlineCell();
-  };
-
-  const handleShiftTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
-
-    closeInlineCell();
-  };
+      closeInlineCell();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCell],
+  );
 
   const handleClickOutside = useCallback(
     ({
@@ -193,17 +208,30 @@ export const RecordInlineCell = ({
     onCloseEditMode,
   };
 
+  const fieldInputEventContextValue = useMemo(
+    () => ({
+      onCancel: handleCancel,
+      onEnter: handleEnter,
+      onEscape: handleEscape,
+      onClickOutside: handleClickOutside,
+      onShiftTab: handleShiftTab,
+      onSubmit: handleSubmit,
+      onTab: handleTab,
+    }),
+    [
+      handleCancel,
+      handleEnter,
+      handleEscape,
+      handleClickOutside,
+      handleShiftTab,
+      handleSubmit,
+      handleTab,
+    ],
+  );
+
   return (
     <FieldInputEventContext.Provider
-      value={{
-        onCancel: handleCancel,
-        onEnter: handleEnter,
-        onEscape: handleEscape,
-        onClickOutside: handleClickOutside,
-        onShiftTab: handleShiftTab,
-        onSubmit: handleSubmit,
-        onTab: handleTab,
-      }}
+      value={fieldInputEventContextValue}
     >
       <FieldFocusContextProvider>
         <RecordInlineCellContext.Provider value={RecordInlineCellContextValue}>

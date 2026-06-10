@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { CalendarEventParticipantsResponseStatus } from '@/activities/calendar/components/CalendarEventParticipantsResponseStatus';
 import { type CalendarEvent } from '@/activities/calendar/types/CalendarEvent';
@@ -184,27 +184,41 @@ export const CalendarEventDetails = ({
       objectPermissionsByObjectMetadataId,
     });
 
+    const fieldContextValue = useMemo(
+      () => ({
+        recordId: calendarEvent.id,
+        isLabelIdentifier: false,
+        fieldDefinition,
+        useUpdateRecord: useUpdateOneCalendarEventRecordMutation,
+        maxWidth: 300,
+        isRecordFieldReadOnly: isReadOnly,
+      }),
+      [
+	fieldDefinition,
+	useUpdateOneCalendarEventRecordMutation,
+	isReadOnly
+],
+    );
+
+    const recordFieldComponentInstanceContextValue = useMemo(
+      () => ({
+        instanceId: getRecordFieldInputInstanceId({
+          recordId: calendarEvent.id,
+          fieldName: fieldMetadataItem.name,
+          prefix: INPUT_ID_PREFIX,
+        }),
+      }),
+      [fieldMetadataItem.name],
+    );
+
     return (
       <StyledPropertyBoxContainer key={fieldMetadataItem.id}>
         <PropertyBox>
           <FieldContext.Provider
-            value={{
-              recordId: calendarEvent.id,
-              isLabelIdentifier: false,
-              fieldDefinition,
-              useUpdateRecord: useUpdateOneCalendarEventRecordMutation,
-              maxWidth: 300,
-              isRecordFieldReadOnly: isReadOnly,
-            }}
+            value={fieldContextValue}
           >
             <RecordFieldComponentInstanceContext.Provider
-              value={{
-                instanceId: getRecordFieldInputInstanceId({
-                  recordId: calendarEvent.id,
-                  fieldName: fieldMetadataItem.name,
-                  prefix: INPUT_ID_PREFIX,
-                }),
-              }}
+              value={recordFieldComponentInstanceContextValue}
             >
               <RecordInlineCell />
             </RecordFieldComponentInstanceContext.Provider>

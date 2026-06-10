@@ -14,6 +14,7 @@ import { ShowPageSummaryCard } from '@/ui/layout/show-page/components/ShowPageSu
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
@@ -75,6 +76,38 @@ export const SummaryCard = ({
     objectMetadataId: objectMetadataItem.id,
   });
 
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId: objectRecordId,
+      isLabelIdentifier: false,
+      fieldDefinition: {
+        type:
+          labelIdentifierFieldMetadataItem?.type ||
+          FieldMetadataType.TEXT,
+        iconName: '',
+        fieldMetadataId: labelIdentifierFieldMetadataItem?.id ?? '',
+        label: labelIdentifierFieldMetadataItem?.label || '',
+        metadata: {
+          fieldName: labelIdentifierFieldMetadataItem?.name || '',
+          objectMetadataNameSingular: objectNameSingular,
+        },
+        defaultValue: labelIdentifierFieldMetadataItem?.defaultValue,
+      },
+      useUpdateRecord: useUpdateOneObjectRecordMutation,
+      isCentered: !isMobile,
+      isDisplayModeFixHeight: true,
+      isRecordFieldReadOnly: isTitleReadOnly,
+    }),
+    [
+      objectRecordId,
+      labelIdentifierFieldMetadataItem,
+      objectNameSingular,
+      useUpdateOneObjectRecordMutation,
+      isMobile,
+      isTitleReadOnly,
+    ],
+  );
+
   return (
     <ShowPageSummaryCard
       isMobile={isMobile}
@@ -85,27 +118,7 @@ export const SummaryCard = ({
       loading={recordLoading || !isDefined(recordCreatedAt)}
       title={
         <FieldContext.Provider
-          value={{
-            recordId: objectRecordId,
-            isLabelIdentifier: false,
-            fieldDefinition: {
-              type:
-                labelIdentifierFieldMetadataItem?.type ||
-                FieldMetadataType.TEXT,
-              iconName: '',
-              fieldMetadataId: labelIdentifierFieldMetadataItem?.id ?? '',
-              label: labelIdentifierFieldMetadataItem?.label || '',
-              metadata: {
-                fieldName: labelIdentifierFieldMetadataItem?.name || '',
-                objectMetadataNameSingular: objectNameSingular,
-              },
-              defaultValue: labelIdentifierFieldMetadataItem?.defaultValue,
-            },
-            useUpdateRecord: useUpdateOneObjectRecordMutation,
-            isCentered: !isMobile,
-            isDisplayModeFixHeight: true,
-            isRecordFieldReadOnly: isTitleReadOnly,
-          }}
+          value={fieldContextValue}
         >
           <RecordTitleCell
             sizeVariant="md"

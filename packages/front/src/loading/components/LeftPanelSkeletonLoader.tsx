@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
@@ -9,7 +9,7 @@ import { MainNavigationDrawerItemsSkeletonLoader } from '~/loading/components/Ma
 import { useContext } from 'react';
 import { ThemeContext } from 'ui/theme-constants';
 
-const StyledAnimatedContainer = styled(motion.div)`
+const StyledAnimatedContainer = styled(m.div)`
   align-items: center;
   display: flex;
   justify-content: end;

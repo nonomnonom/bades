@@ -1,6 +1,6 @@
 import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useCallback, useContext } from 'react';
 
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
@@ -53,7 +53,7 @@ const StyledClickableZone = styled.div`
   justify-content: flex-end;
 `;
 
-const MotionIconChevronDown = motion.create(IconChevronDown);
+const MotionIconChevronDown = m.create(IconChevronDown);
 
 const getDeleteRelationModalId = (recordId: string) =>
   `delete-relation-modal-${recordId}`;

@@ -6,7 +6,7 @@ import { RootStackingContextZIndices } from '@/ui/layout/constants/RootStackingC
 import { PAGE_HEADER_SIDE_PANEL_BUTTON_CLICK_OUTSIDE_ID } from '@/ui/layout/page-header/constants/PageHeaderSidePanelButtonClickOutsideId';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useContext } from 'react';
 import { AppTooltip, TooltipDelay, TooltipPosition } from 'ui/display';
 import { AnimatedButton } from 'ui/input';
@@ -57,7 +57,7 @@ const AnimatedIcon = ({
       style={{ display: 'block' }}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <motion.circle
+      <m.circle
         cx={12}
         cy={12}
         r="1"
@@ -72,7 +72,7 @@ const AnimatedIcon = ({
       />
 
       {Object.entries(xPaths).map(([direction, path]) => (
-        <motion.path
+        <m.path
           key={direction}
           d={path}
           initial={{ pathLength: 0, opacity: 0 }}
@@ -88,7 +88,7 @@ const AnimatedIcon = ({
         />
       ))}
 
-      <motion.circle
+      <m.circle
         cx="12"
         cy="5"
         r="1"
@@ -102,7 +102,7 @@ const AnimatedIcon = ({
         }}
       />
 
-      <motion.circle
+      <m.circle
         cx="12"
         cy="19"
         r="1"

@@ -12,7 +12,7 @@ import { useRecordTableBodyContextOrThrow } from '@/object-record/record-table/c
 import { currentFocusIdSelector } from '@/ui/utilities/focus/states/currentFocusIdSelector';
 import { useAvailableComponentInstanceId } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceId';
 import { useStore } from 'jotai';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 export const RecordTableCellFieldInput = () => {
   const { onMoveFocus, onCloseTableCell } = useRecordTableBodyContextOrThrow();
@@ -25,26 +25,32 @@ export const RecordTableCellFieldInput = () => {
   const { persistFieldFromFieldInputContext } =
     usePersistFieldFromFieldInputContext();
 
-  const handleEnter: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEnter: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
+      onCloseTableCell();
+      onMoveFocus('down');
+    },
+    [persistFieldFromFieldInputContext, onCloseTableCell, onMoveFocus],
+  );
+
+  const handleSubmit: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
+
+      onCloseTableCell();
+    },
+    [persistFieldFromFieldInputContext, onCloseTableCell],
+  );
+
+  const handleCancel = useCallback(() => {
     onCloseTableCell();
-    onMoveFocus('down');
-  };
-
-  const handleSubmit: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
-
-    onCloseTableCell();
-  };
-
-  const handleCancel = () => {
-    onCloseTableCell();
-  };
+  }, [onCloseTableCell]);
 
   const handleClickOutside: FieldInputClickOutsideEvent = useCallback(
     ({ newValue, event, skipPersist }) => {
@@ -65,43 +71,65 @@ export const RecordTableCellFieldInput = () => {
     [onCloseTableCell, instanceId, persistFieldFromFieldInputContext, store],
   );
 
-  const handleEscape: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEscape: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    onCloseTableCell();
-  };
+      onCloseTableCell();
+    },
+    [persistFieldFromFieldInputContext, onCloseTableCell],
+  );
 
-  const handleTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    onCloseTableCell();
-    onMoveFocus('right');
-  };
+      onCloseTableCell();
+      onMoveFocus('right');
+    },
+    [persistFieldFromFieldInputContext, onCloseTableCell, onMoveFocus],
+  );
 
-  const handleShiftTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleShiftTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    onCloseTableCell();
-    onMoveFocus('left');
-  };
+      onCloseTableCell();
+      onMoveFocus('left');
+    },
+    [persistFieldFromFieldInputContext, onCloseTableCell, onMoveFocus],
+  );
+
+  const fieldInputEventContextValue = useMemo(
+    () => ({
+      onCancel: handleCancel,
+      onEnter: handleEnter,
+      onEscape: handleEscape,
+      onClickOutside: handleClickOutside,
+      onShiftTab: handleShiftTab,
+      onSubmit: handleSubmit,
+      onTab: handleTab,
+    }),
+    [
+      handleCancel,
+      handleEnter,
+      handleEscape,
+      handleClickOutside,
+      handleShiftTab,
+      handleSubmit,
+      handleTab,
+    ],
+  );
 
   return (
     <FieldInputEventContext.Provider
-      value={{
-        onCancel: handleCancel,
-        onEnter: handleEnter,
-        onEscape: handleEscape,
-        onClickOutside: handleClickOutside,
-        onShiftTab: handleShiftTab,
-        onSubmit: handleSubmit,
-        onTab: handleTab,
-      }}
+      value={fieldInputEventContextValue}
     >
       <FieldInput />
     </FieldInputEventContext.Provider>

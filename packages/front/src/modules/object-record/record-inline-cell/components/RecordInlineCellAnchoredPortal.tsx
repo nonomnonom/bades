@@ -17,6 +17,7 @@ import { RecordInlineCellAnchoredPortalContext } from '@/object-record/record-in
 import { RecordInlineCellCloseOnSidePanelOpeningEffect } from '@/object-record/record-inline-cell/components/RecordInlineCellCloseOnSidePanelOpeningEffect';
 import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFieldInputId';
 import { createPortal } from 'react-dom';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 type RecordInlineCellAnchoredPortalProps = {
@@ -89,34 +90,50 @@ export const RecordInlineCellAnchoredPortal = ({
     return null;
   }
 
+  const recordFieldComponentValue = useMemo(
+    () => ({ instanceId: fieldInstanceId }),
+    [fieldInstanceId],
+  );
+
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId,
+      maxWidth: 200,
+      isLabelIdentifier: false,
+      fieldDefinition: formatFieldMetadataItemAsColumnDefinition({
+        field: fieldMetadataItem,
+        position: 0,
+        objectMetadataItem,
+        showLabel: true,
+        labelWidth: 90,
+      }),
+      useUpdateRecord: useUpdateOneObjectRecordMutation,
+      isDisplayModeFixHeight: true,
+      isRecordFieldReadOnly,
+      isForbidden,
+      onCloseEditMode,
+    }),
+    [
+      recordId,
+      fieldMetadataItem,
+      objectMetadataItem,
+      useUpdateOneObjectRecordMutation,
+      isRecordFieldReadOnly,
+      isForbidden,
+      onCloseEditMode,
+    ],
+  );
+
   return (
     <FieldFocusContextProvider isFocused={true}>
       <FieldContext.Provider
         key={recordId + fieldMetadataItem.id}
-        value={{
-          recordId,
-          maxWidth: 200,
-          isLabelIdentifier: false,
-          fieldDefinition: formatFieldMetadataItemAsColumnDefinition({
-            field: fieldMetadataItem,
-            position: 0,
-            objectMetadataItem,
-            showLabel: true,
-            labelWidth: 90,
-          }),
-          useUpdateRecord: useUpdateOneObjectRecordMutation,
-          isDisplayModeFixHeight: true,
-          isRecordFieldReadOnly,
-          isForbidden,
-          onCloseEditMode,
-        }}
+        value={fieldContextValue}
       >
         <>
           {createPortal(
             <RecordFieldComponentInstanceContext.Provider
-              value={{
-                instanceId: fieldInstanceId,
-              }}
+              value={recordFieldComponentValue}
             >
               <RecordInlineCellAnchoredPortalContext>
                 {children}

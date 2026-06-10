@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useAtomValue } from 'jotai';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
@@ -94,7 +94,7 @@ const LayoutCustomizationBarContent = () => {
     : `Sesuaikan tata letak`;
 
   return (
-    <motion.div
+    <m.div
       initial={{ height: 0, opacity: 0 }}
       animate={{ height: 'auto', opacity: 1 }}
       exit={{ height: 0, opacity: 0 }}
@@ -130,7 +130,7 @@ const LayoutCustomizationBarContent = () => {
           pageLayoutId={currentPageLayoutId}
         />
       )}
-    </motion.div>
+    </m.div>
   );
 };
 

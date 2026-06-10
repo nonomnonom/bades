@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 
 import { AppRouter } from '@/app/components/AppRouter';
+import { domAnimation, LazyMotion } from 'framer-motion';
 import { ApolloDevLogEffect } from '@/debug/components/ApolloDevLogEffect';
 import { AppErrorBoundary } from '@/error-handler/components/AppErrorBoundary';
 import { AppRootErrorFallback } from '@/error-handler/components/AppRootErrorFallback';
@@ -52,9 +53,11 @@ export const App = () => {
                   <ClickOutsideListenerContext.Provider
                     value={CLICK_OUTSIDE_VALUE}
                   >
-                    <Suspense fallback={<AppLoadingFallback />}>
-                      <AppRouter />
-                    </Suspense>
+                    <LazyMotion features={domAnimation}>
+                      <Suspense fallback={<AppLoadingFallback />}>
+                        <AppRouter />
+                      </Suspense>
+                    </LazyMotion>
                   </ClickOutsideListenerContext.Provider>
                 </HelmetProvider>
               </ExceptionHandlerProvider>

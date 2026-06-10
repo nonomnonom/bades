@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 import { autoUpdate, useFloating } from '@floating-ui/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { type MouseEvent as ReactMouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -53,7 +53,7 @@ export const CustomMentionMenu = ({
     <StyledContainer ref={refs.setReference}>
       <>
         {createPortal(
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.1 }}
@@ -81,7 +81,7 @@ export const CustomMentionMenu = ({
                 </DropdownMenuItemsContainer>
               </DropdownContent>
             </OverlayContainer>
-          </motion.div>,
+          </m.div>,
           document.body,
         )}
       </>

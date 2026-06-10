@@ -9,7 +9,7 @@ import { RecordTableWidgetContextStoreInitEffect } from '@/object-record/record-
 import { RecordTableWidgetViewLoadEffect } from '@/object-record/record-table-widget/components/RecordTableWidgetViewLoadEffect';
 import { getRecordIndexIdFromObjectNamePluralAndViewId } from '@/object-record/utils/getRecordIndexIdFromObjectNamePluralAndViewId';
 import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewComponentInstanceContext';
-import { type PropsWithChildren, useCallback } from 'react';
+import { type PropsWithChildren, useCallback, useMemo } from 'react';
 import { AppPath } from 'shared/types';
 import { getAppPath } from 'shared/utils';
 import { type PageLayoutWidget } from '~/generated-metadata/graphql';
@@ -65,33 +65,55 @@ export const RecordTableWidgetProvider = ({
 
   const handleIndexRecordsLoaded = useCallback(() => {}, []);
 
+  const contextStoreInstanceContextValue = useMemo(
+    () => ({ instanceId: `record-table-widget-${widgetId}` }),
+    [widgetId],
+  );
+
+  const recordIndexContextValue = useMemo(
+    () => ({
+      objectPermissionsByObjectMetadataId,
+      recordIndexId,
+      viewBarInstanceId: recordIndexId,
+      objectNamePlural: objectMetadataItem.namePlural,
+      objectNameSingular,
+      objectMetadataItem,
+      onIndexRecordsLoaded: handleIndexRecordsLoaded,
+      indexIdentifierUrl,
+      recordFieldByFieldMetadataItemId,
+      labelIdentifierFieldMetadataItem,
+      fieldMetadataItemByFieldMetadataItemId,
+      fieldDefinitionByFieldMetadataItemId,
+    }),
+    [
+      objectPermissionsByObjectMetadataId,
+      recordIndexId,
+      objectMetadataItem.namePlural,
+      objectNameSingular,
+      objectMetadataItem,
+      handleIndexRecordsLoaded,
+      indexIdentifierUrl,
+      recordFieldByFieldMetadataItemId,
+      labelIdentifierFieldMetadataItem,
+      fieldMetadataItemByFieldMetadataItemId,
+      fieldDefinitionByFieldMetadataItemId,
+    ],
+  );
+
   if (!objectPermissions.canReadObjectRecords) {
     return null;
   }
 
   return (
     <ContextStoreComponentInstanceContext.Provider
-      value={{ instanceId: `record-table-widget-${widgetId}` }}
+      value={contextStoreInstanceContextValue}
     >
       <RecordTableWidgetContextStoreInitEffect
         objectMetadataItemId={objectMetadataItem.id}
         viewId={viewId}
       />
       <RecordIndexContextProvider
-        value={{
-          objectPermissionsByObjectMetadataId,
-          recordIndexId,
-          viewBarInstanceId: recordIndexId,
-          objectNamePlural: objectMetadataItem.namePlural,
-          objectNameSingular,
-          objectMetadataItem,
-          onIndexRecordsLoaded: handleIndexRecordsLoaded,
-          indexIdentifierUrl,
-          recordFieldByFieldMetadataItemId,
-          labelIdentifierFieldMetadataItem,
-          fieldMetadataItemByFieldMetadataItemId,
-          fieldDefinitionByFieldMetadataItemId,
-        }}
+        value={recordIndexContextValue}
       >
         <ViewComponentInstanceContext.Provider
           value={{ instanceId: recordIndexId }}

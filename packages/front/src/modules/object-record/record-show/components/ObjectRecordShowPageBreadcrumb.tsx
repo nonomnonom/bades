@@ -9,6 +9,7 @@ import { useRecordShowPagePagination } from '@/object-record/record-show/hooks/u
 import { RecordTitleCell } from '@/object-record/record-title-cell/components/RecordTitleCell';
 import { RecordTitleCellContainerType } from '@/object-record/record-title-cell/types/RecordTitleCellContainerType';
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 import { FieldMetadataType } from 'shared/types';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -85,6 +86,37 @@ export const ObjectRecordShowPageBreadcrumb = ({
     return null;
   }
 
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId: objectRecordId,
+      isLabelIdentifier: false,
+      fieldDefinition: {
+        type:
+          labelIdentifierFieldMetadataItem?.type ||
+          FieldMetadataType.TEXT,
+        iconName: '',
+        fieldMetadataId: labelIdentifierFieldMetadataItem?.id ?? '',
+        label: labelIdentifierFieldMetadataItem?.label || '',
+        metadata: {
+          fieldName: labelIdentifierFieldMetadataItem?.name || '',
+          objectMetadataNameSingular: objectNameSingular,
+        },
+        defaultValue: labelIdentifierFieldMetadataItem?.defaultValue,
+      },
+      useUpdateRecord: useUpdateOneObjectRecordMutation,
+      isCentered: false,
+      isDisplayModeFixHeight: true,
+      isRecordFieldReadOnly: isLabelIdentifierReadOnly,
+    }),
+    [
+      objectRecordId,
+      labelIdentifierFieldMetadataItem,
+      objectNameSingular,
+      useUpdateOneObjectRecordMutation,
+      isLabelIdentifierReadOnly,
+    ],
+  );
+
   return (
     <StyledEditableTitleContainer>
       <StyledEditableTitlePrefix
@@ -100,27 +132,7 @@ export const ObjectRecordShowPageBreadcrumb = ({
       </StyledEditableTitlePrefix>
       <StyledTitle>
         <FieldContext.Provider
-          value={{
-            recordId: objectRecordId,
-            isLabelIdentifier: false,
-            fieldDefinition: {
-              type:
-                labelIdentifierFieldMetadataItem?.type ||
-                FieldMetadataType.TEXT,
-              iconName: '',
-              fieldMetadataId: labelIdentifierFieldMetadataItem?.id ?? '',
-              label: labelIdentifierFieldMetadataItem?.label || '',
-              metadata: {
-                fieldName: labelIdentifierFieldMetadataItem?.name || '',
-                objectMetadataNameSingular: objectNameSingular,
-              },
-              defaultValue: labelIdentifierFieldMetadataItem?.defaultValue,
-            },
-            useUpdateRecord: useUpdateOneObjectRecordMutation,
-            isCentered: false,
-            isDisplayModeFixHeight: true,
-            isRecordFieldReadOnly: isLabelIdentifierReadOnly,
-          }}
+          value={fieldContextValue}
         >
           <RecordTitleCell
             sizeVariant="xs"

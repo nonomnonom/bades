@@ -14,7 +14,7 @@ import { usePushFocusItemToFocusStack } from '@/ui/utilities/focus/hooks/usePush
 import { useRemoveFocusItemFromFocusStackById } from '@/ui/utilities/focus/hooks/useRemoveFocusItemFromFocusStackById';
 import { FocusComponentType } from '@/ui/utilities/focus/types/FocusComponentType';
 import { styled } from '@linaria/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useContext, useRef } from 'react';
@@ -135,17 +135,17 @@ export const SidePanelTopBar = () => {
       <StyledContentContainer>
         <AnimatePresence>
           {shouldShowBackButton && (
-            <motion.div
+            <m.div
               exit={{ opacity: 0, width: 0 }}
               transition={{
                 duration: theme.animation.duration.instant,
               }}
             >
               <SidePanelBackButton />
-            </motion.div>
+            </m.div>
           )}
           {shouldShowCloseButton && (
-            <motion.div
+            <m.div
               exit={{ opacity: 0, width: 0 }}
               transition={{
                 duration: theme.animation.duration.instant,
@@ -157,7 +157,7 @@ export const SidePanelTopBar = () => {
                 variant="tertiary"
                 onClick={closeSidePanelMenu}
               />
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
         {lastChip &&

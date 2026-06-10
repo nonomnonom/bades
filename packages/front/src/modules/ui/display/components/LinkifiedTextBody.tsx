@@ -1,10 +1,10 @@
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Linkify from 'linkify-react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { AnimatedEaseInOut } from 'ui/utilities';
 
-const StyledTextBody = styled(motion.div)`
+const StyledTextBody = styled(m.div)`
   color: ${themeCssVariables.font.color.primary};
   display: flex;
   flex-direction: column;

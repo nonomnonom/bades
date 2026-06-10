@@ -6,7 +6,7 @@ import { useRecordTableRowContextOrThrow } from '@/object-record/record-table/co
 import { RecordTableCellFieldContextGeneric } from '@/object-record/record-table/record-table-cell/components/RecordTableCellFieldContextGeneric';
 import { RecordTableCellFieldContextLabelIdentifier } from '@/object-record/record-table/record-table-cell/components/RecordTableCellFieldContextLabelIdentifier';
 import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFieldInputId';
-import { type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 
 type RecordTableCellFieldContextWrapperProps = {
   children: ReactNode;
@@ -36,8 +36,13 @@ export const RecordTableCellFieldContextWrapper = ({
   const isLabelIdentifier =
     labelIdentifierFieldMetadataItem?.id === recordField.fieldMetadataItemId;
 
+  const fieldComponentInstanceContextValue = useMemo(
+    () => ({ instanceId }),
+    [instanceId],
+  );
+
   return (
-    <RecordFieldComponentInstanceContext.Provider value={{ instanceId }}>
+    <RecordFieldComponentInstanceContext.Provider value={fieldComponentInstanceContextValue}>
       {isLabelIdentifier ? (
         <RecordTableCellFieldContextLabelIdentifier key={instanceId}>
           {children}

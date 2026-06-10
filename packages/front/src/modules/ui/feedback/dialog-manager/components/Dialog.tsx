@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Key } from 'ts-key-enum';
 
 import { DIALOG_CLICK_OUTSIDE_ID } from '@/ui/feedback/dialog-manager/constants/DialogClickOutsideId';
@@ -25,7 +25,7 @@ const StyledDialogOverlayBase = styled.div`
   width: 100vw;
   z-index: ${RootStackingContextZIndices.Dialog};
 `;
-const StyledDialogOverlay = motion.create(StyledDialogOverlayBase);
+const StyledDialogOverlay = m.create(StyledDialogOverlayBase);
 
 const StyledDialogContainerBase = styled.div`
   background: ${themeCssVariables.background.primary};
@@ -37,7 +37,7 @@ const StyledDialogContainerBase = styled.div`
   position: relative;
   width: 100%;
 `;
-const StyledDialogContainer = motion.create(StyledDialogContainerBase);
+const StyledDialogContainer = m.create(StyledDialogContainerBase);
 
 const StyledDialogTitle = styled.span`
   color: ${themeCssVariables.font.color.primary};
@@ -71,7 +71,7 @@ export type DialogButtonOptions = Omit<
   role?: 'confirm';
 };
 
-export type DialogProps = React.ComponentPropsWithoutRef<typeof motion.div> & {
+export type DialogProps = React.ComponentPropsWithoutRef<typeof m.div> & {
   title?: string;
   message?: string;
   buttons?: DialogButtonOptions[];

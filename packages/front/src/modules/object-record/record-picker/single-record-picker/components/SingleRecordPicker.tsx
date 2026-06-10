@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
 import {
   SingleRecordPickerMenuItemsWithSearch,
@@ -70,9 +70,14 @@ export const SingleRecordPicker = ({
     listenerId: SINGLE_RECORD_PICKER_LISTENER_ID,
   });
 
+  const componentInstanceContextValue = useMemo(
+    () => ({ instanceId: componentInstanceId }),
+    [componentInstanceId],
+  );
+
   return (
     <SingleRecordPickerComponentInstanceContext.Provider
-      value={{ instanceId: componentInstanceId }}
+      value={componentInstanceContextValue}
     >
       <DropdownContent ref={containerRef} widthInPixels={dropdownWidth}>
         <SingleRecordPickerMenuItemsWithSearch

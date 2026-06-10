@@ -8,7 +8,7 @@ import { sidePanelPageInfoState } from '@/side-panel/states/sidePanelPageInfoSta
 import { sidePanelPageState } from '@/side-panel/states/sidePanelPageState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import React, { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
@@ -40,7 +40,7 @@ export const SidePanelRouter = () => {
       <SidePanelPageComponentInstanceContext.Provider
         value={{ instanceId: sidePanelPageInfo.instanceId }}
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -50,7 +50,7 @@ export const SidePanelRouter = () => {
           }}
         >
           <SidePanelTopBar />
-        </motion.div>
+        </m.div>
         <StyledSidePanelContent>
           <CommandMenuContextProvider
             isInSidePanel={true}

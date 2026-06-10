@@ -5,11 +5,11 @@ import { PINNED_COMMAND_MENU_ITEMS_GAP } from '@/command-menu-item/display/const
 import { usePinnedCommandMenuItemsInlineLayout } from '@/command-menu-item/display/hooks/usePinnedCommandMenuItemsInlineLayout';
 import { NodeDimension } from '@/ui/utilities/dimensions/components/NodeDimension';
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useContext, useMemo } from 'react';
 import { ThemeContext } from 'ui/theme-constants';
 
-const StyledCommandMenuItemContainer = styled(motion.div)`
+const StyledCommandMenuItemContainer = styled(m.div)`
   align-items: center;
   display: flex;
   justify-content: center;

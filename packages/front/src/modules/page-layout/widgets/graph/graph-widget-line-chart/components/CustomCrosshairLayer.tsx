@@ -2,7 +2,7 @@ import { LINE_CHART_CONSTANTS } from '@/page-layout/widgets/graph/graph-widget-l
 import { graphWidgetLineCrosshairXComponentState } from '@/page-layout/widgets/graph/graph-widget-line-chart/states/graphWidgetLineCrosshairXComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { type LineSeries, type Point } from '@nivo/line';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { type MouseEvent, useCallback, useContext, useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
@@ -142,7 +142,7 @@ export const CustomCrosshairLayer = ({
   return (
     <g>
       {isDefined(graphWidgetLineCrosshairX) && (
-        <motion.line
+        <m.line
           x1={graphWidgetLineCrosshairX}
           x2={graphWidgetLineCrosshairX}
           y1={0}

@@ -18,7 +18,7 @@ import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { isNonEmptyString } from '@sniptt/guards';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -243,7 +243,7 @@ export const PasswordReset = () => {
             ) : (
               <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <StyledFullWidthContainer>
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     transition={{
@@ -261,10 +261,10 @@ export const PasswordReset = () => {
                         disabled
                       />
                     </StyledInputContainer>
-                  </motion.div>
+                  </m.div>
                 </StyledFullWidthContainer>
                 <StyledFullWidthContainer>
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     transition={{
@@ -294,7 +294,7 @@ export const PasswordReset = () => {
                         </StyledInputContainer>
                       )}
                     />
-                  </motion.div>
+                  </m.div>
                 </StyledFullWidthContainer>
 
                 <StyledMainButtonContainer>

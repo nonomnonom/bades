@@ -1,6 +1,6 @@
 import { usePieChartCenterMetricData } from '@/page-layout/widgets/graph/graph-widget-pie-chart/hooks/usePieChartCenterMetricData';
 import { styled } from '@linaria/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useContext } from 'react';
 import { type PieChartConfiguration } from '~/generated-metadata/graphql';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -23,7 +23,7 @@ const StyledCenterMetricContainerBase = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 `;
-const StyledCenterMetricContainer = motion.create(
+const StyledCenterMetricContainer = m.create(
   StyledCenterMetricContainerBase,
 );
 

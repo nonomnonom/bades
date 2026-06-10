@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useContext } from 'react';
 
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
@@ -38,7 +38,7 @@ const StyledStepCircleBase = styled.div<{ isInNextSteps: boolean }>`
   width: 20px;
 `;
 
-const StyledStepCircle = motion.create(StyledStepCircleBase);
+const StyledStepCircle = m.create(StyledStepCircleBase);
 
 const StyledStepIndex = styled.span<{ isCurrentStep: boolean }>`
   color: ${({ isCurrentStep }) =>
@@ -68,7 +68,7 @@ const StyledStepLineBase = styled.div`
   width: 100%;
 `;
 
-const StyledStepLine = motion.create(StyledStepLineBase);
+const StyledStepLine = m.create(StyledStepLineBase);
 
 export type StepProps = React.PropsWithChildren &
   React.ComponentProps<'div'> & {

@@ -6,6 +6,7 @@ import { SidePanelProvider } from '@/ui/layout/side-panel/contexts/SidePanelCont
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { TabListComponentInstanceContext } from '@/ui/layout/tab-list/states/contexts/TabListComponentInstanceContext';
+import { useMemo } from 'react';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 
 import { useMergeRecordsContainerTabs } from '@/object-record/record-merge/hooks/useMergeRecordsContainerTabs';
@@ -57,12 +58,17 @@ export const MergeRecordsContainer = ({
     instanceId,
   );
 
+  const tabListInstanceContextValue = useMemo(
+    () => ({ instanceId: instanceId }),
+    [instanceId],
+  );
+
   return (
     <SidePanelProvider value={{ isInSidePanel: true }}>
       <ShowPageContainer>
         <StyledShowPageRightContainer>
           <TabListComponentInstanceContext.Provider
-            value={{ instanceId: instanceId }}
+            value={tabListInstanceContextValue}
           >
             <StyledTabListContainer>
               <TabList
