@@ -3,7 +3,7 @@ import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMembe
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { sentryConfigState } from '@/client-config/states/sentryConfigState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { REACT_APP_SERVER_BASE_URL } from '~/config';
@@ -15,18 +15,18 @@ export const SentryInitEffect = () => {
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
-  const [isSentryInitialized, setIsSentryInitialized] = useState(false);
-  const [isSentryInitializing, setIsSentryInitializing] = useState(false);
-  const [isSentryUserDefined, setIsSentryUserDefined] = useState(false);
+  const isSentryInitializedRef = useRef(false);
+  const isSentryInitializingRef = useRef(false);
+  const isSentryUserDefinedRef = useRef(false);
 
   useEffect(() => {
     const initializeSentry = async () => {
       if (
         isNonEmptyString(sentryConfig?.dsn) &&
-        !isSentryInitialized &&
-        !isSentryInitializing
+        !isSentryInitializedRef.current &&
+        !isSentryInitializingRef.current
       ) {
-        setIsSentryInitializing(true);
+        isSentryInitializingRef.current = true;
 
         try {
           const {
@@ -56,21 +56,21 @@ export const SentryInitEffect = () => {
             replaysOnErrorSampleRate: 1.0,
           });
 
-          setIsSentryInitialized(true);
+          isSentryInitializedRef.current = true;
         } catch (error) {
           // oxlint-disable-next-line no-console
           console.error('Failed to initialize Sentry:', error);
         } finally {
-          setIsSentryInitializing(false);
+          isSentryInitializingRef.current = false;
         }
       }
     };
 
     const updateSentryUser = async () => {
       if (
-        isSentryInitialized &&
+        isSentryInitializedRef.current &&
         isDefined(currentUser) &&
-        !isSentryUserDefined
+        !isSentryUserDefinedRef.current
       ) {
         try {
           const { setUser } = await import('@sentry/react');
@@ -80,12 +80,12 @@ export const SentryInitEffect = () => {
             workspaceId: currentWorkspace?.id,
             workspaceMemberId: currentWorkspaceMember?.id,
           });
-          setIsSentryUserDefined(true);
+          isSentryUserDefinedRef.current = true;
         } catch (error) {
           // oxlint-disable-next-line no-console
           console.error('Failed to set Sentry user:', error);
         }
-      } else if (!isDefined(currentUser) && isSentryInitialized) {
+      } else if (!isDefined(currentUser) && isSentryInitializedRef.current) {
         try {
           const { setUser } = await import('@sentry/react');
           setUser(null);
@@ -100,12 +100,9 @@ export const SentryInitEffect = () => {
     updateSentryUser();
   }, [
     sentryConfig,
-    isSentryInitialized,
-    isSentryInitializing,
     currentUser,
     currentWorkspace,
     currentWorkspaceMember,
-    isSentryUserDefined,
   ]);
 
   return <></>;

@@ -10,6 +10,7 @@ import { isRecordFilterGroupChildARecordFilterGroup } from '@/object-record/adva
 import { type VariablePickerComponent } from '@/object-record/record-field/ui/form-types/types/VariablePickerComponent';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -51,16 +52,19 @@ export const AdvancedFilterSidePanelContainer = ({
       recordFilterGroupId: rootRecordFilterGroup?.id,
     });
 
+  const contextValue = useMemo(
+    () => ({
+      onUpdate: readonly ? undefined : onUpdate,
+      isWorkflowFindRecords,
+      readonly,
+      VariablePicker,
+      objectMetadataItem,
+    }),
+    [onUpdate, isWorkflowFindRecords, readonly, VariablePicker, objectMetadataItem],
+  );
+
   return (
-    <AdvancedFilterContext.Provider
-      value={{
-        onUpdate: readonly ? undefined : onUpdate,
-        isWorkflowFindRecords,
-        readonly,
-        VariablePicker,
-        objectMetadataItem,
-      }}
-    >
+    <AdvancedFilterContext.Provider value={contextValue}>
       {isDefined(rootRecordFilterGroup) ? (
         <StyledContainer>
           <StyledChildContainer>

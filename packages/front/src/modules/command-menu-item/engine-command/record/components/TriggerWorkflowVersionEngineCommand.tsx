@@ -12,6 +12,8 @@ import { useCallback } from 'react';
 import { type RecordGqlOperationFilter } from 'shared/types';
 import { isNonEmptyArray } from 'shared/utils';
 
+const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
+
 export const TriggerWorkflowVersionEngineCommand = () => {
   const mountedCommandState = useHeadlessCommandContextApi();
   const store = useStore();
@@ -21,8 +23,6 @@ export const TriggerWorkflowVersionEngineCommand = () => {
       'TriggerWorkflowVersionEngineCommand requires a workflow trigger context',
     );
   }
-
-  const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
 
   const { fetchAllRecords } = useLazyFetchAllRecords({
     objectNameSingular:
@@ -62,13 +62,15 @@ export const TriggerWorkflowVersionEngineCommand = () => {
       return;
     }
 
-    for (const payload of payloads) {
-      await runWorkflowVersion({
-        workflowId: mountedCommandState.workflowId,
-        workflowVersionId: mountedCommandState.workflowVersionId,
-        payload,
-      });
-    }
+    await Promise.all(
+      payloads.map((payload) =>
+        runWorkflowVersion({
+          workflowId: mountedCommandState.workflowId,
+          workflowVersionId: mountedCommandState.workflowVersionId,
+          payload,
+        }),
+      ),
+    );
   }, [mountedCommandState, fetchAllRecords, runWorkflowVersion, store]);
 
   return <HeadlessEngineCommandWrapperEffect execute={execute} />;

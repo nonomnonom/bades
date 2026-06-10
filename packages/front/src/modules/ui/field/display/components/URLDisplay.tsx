@@ -9,11 +9,11 @@ type URLDisplayProps = {
   value: string | null;
 };
 
-export const URLDisplay = ({ value }: URLDisplayProps) => {
-  const handleClick = (event: MouseEvent<HTMLElement>) => {
-    event.stopPropagation();
-  };
+const handleClick = (event: MouseEvent<HTMLElement>) => {
+  event.stopPropagation();
+};
 
+export const URLDisplay = ({ value }: URLDisplayProps) => {
   const absoluteUrl = value ? (getSafeUrl(value) ?? '') : '';
 
   const displayedValue = value ?? '';

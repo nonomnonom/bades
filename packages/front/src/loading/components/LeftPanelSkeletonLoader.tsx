@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 import { m } from 'framer-motion';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
+import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/const/skeleton-loader-height-sizes.const';
 import { NAVIGATION_DRAWER_CONSTRAINTS } from '@/ui/layout/resizable-panel/constants/NavigationDrawerConstraints';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { MainNavigationDrawerItemsSkeletonLoader } from '~/loading/components/MainNavigationDrawerItemsSkeletonLoader';

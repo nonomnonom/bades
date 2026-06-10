@@ -6,6 +6,7 @@ import { PageLayoutComponentInstanceContext } from '@/page-layout/states/context
 import { getTabListInstanceIdFromPageLayoutAndRecord } from '@/page-layout/utils/getTabListInstanceIdFromPageLayoutAndRecord';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { TabListComponentInstanceContext } from '@/ui/layout/tab-list/states/contexts/TabListComponentInstanceContext';
+import { useMemo } from 'react';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
@@ -24,17 +25,19 @@ export const PageLayoutRenderer = ({
     targetRecordIdentifier,
   });
 
+  const pageLayoutContextValue = useMemo(
+    () => ({ instanceId: pageLayoutId }),
+    [pageLayoutId],
+  );
+
+  const tabListContextValue = useMemo(
+    () => ({ instanceId: tabListInstanceId }),
+    [tabListInstanceId],
+  );
+
   return (
-    <PageLayoutComponentInstanceContext.Provider
-      value={{
-        instanceId: pageLayoutId,
-      }}
-    >
-      <TabListComponentInstanceContext.Provider
-        value={{
-          instanceId: tabListInstanceId,
-        }}
-      >
+    <PageLayoutComponentInstanceContext.Provider value={pageLayoutContextValue}>
+      <TabListComponentInstanceContext.Provider value={tabListContextValue}>
         <PageLayoutEditModeProvider
           layoutType={layoutType}
           pageLayoutId={pageLayoutId}

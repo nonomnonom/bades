@@ -20,15 +20,17 @@ export const StopWorkflowRunSingleRecordCommand = () => {
 
   const handleExecute = async () => {
     if (targetedRecordsRule.mode === 'selection') {
-      for (const selectedRecordId of targetedRecordsRule.selectedRecordIds) {
-        await stopWorkflowRun(selectedRecordId);
-      }
+      await Promise.all(
+        targetedRecordsRule.selectedRecordIds.map((selectedRecordId) =>
+          stopWorkflowRun(selectedRecordId),
+        ),
+      );
     } else {
       const records = await fetchAllRecordIds();
 
-      for (const record of records) {
-        await stopWorkflowRun(record.id);
-      }
+      await Promise.all(
+        records.map((record) => stopWorkflowRun(record.id)),
+      );
     }
   };
 

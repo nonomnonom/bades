@@ -8,6 +8,12 @@ import {
   type RecordUpdateHook,
 } from '@/object-record/record-field/ui/contexts/FieldContext';
 
+const useUpdateOneObjectMutation: RecordUpdateHook = () => {
+  const updateEntity = () => {};
+
+  return [updateEntity, { loading: false }];
+};
+
 export const useMockFieldContext = ({
   clearable,
   fieldMetadataName,
@@ -30,12 +36,6 @@ export const useMockFieldContext = ({
   const fieldMetadataItem = objectMetadataItem?.fields.find(
     (field) => field.name === fieldMetadataName,
   );
-
-  const useUpdateOneObjectMutation: RecordUpdateHook = () => {
-    const updateEntity = () => {};
-
-    return [updateEntity, { loading: false }];
-  };
 
   const FieldContextProvider =
     isDefined(fieldMetadataItem) && isDefined(objectMetadataItem)

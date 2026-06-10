@@ -1,7 +1,7 @@
 import { SuggestionMenu } from '@blocknote/core/extensions';
 import { useExtensionState } from '@blocknote/react';
 import { useStore } from 'jotai';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef } from 'react';
 
 import { isSlashMenuOpenComponentState } from '@/blocknote-editor/states/isSlashMenuOpenComponentState';
 import { useGoBackToPreviousDropdownFocusId } from '@/ui/layout/dropdown/hooks/useGoBackToPreviousDropdownFocusId';
@@ -9,7 +9,7 @@ import { useSetActiveDropdownFocusIdAndMemorizePrevious } from '@/ui/layout/drop
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
 
 export const BlockEditorDropdownFocusEffect = () => {
-  const [prevShowing, setPrevShowing] = useState<boolean | null>(null);
+  const prevShowingRef = useRef<boolean | null>(null);
 
   const isSlashMenuOpenState = useAtomComponentStateCallbackState(
     isSlashMenuOpenComponentState,
@@ -48,8 +48,8 @@ export const BlockEditorDropdownFocusEffect = () => {
     ],
   );
 
-  if (prevShowing !== isSlashMenuShowing) {
-    setPrevShowing(isSlashMenuShowing);
+  if (prevShowingRef.current !== isSlashMenuShowing) {
+    prevShowingRef.current = isSlashMenuShowing;
     syncSlashMenuState(isSlashMenuShowing);
   }
 

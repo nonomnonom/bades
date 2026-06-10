@@ -59,7 +59,6 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState,
 } from 'react';
 import { isDefined } from 'shared/utils';
 import { Tag, type TagColor } from 'ui/components';
@@ -201,10 +200,9 @@ export const WorkflowDiagramCanvasBase = ({
 
   const { setEdgeHovered, clearEdgeHover } = useEdgeState();
 
-  const [workflowDiagramFlowInitialized, setWorkflowDiagramFlowInitialized] =
-    useState<boolean>(false);
+  const workflowDiagramFlowInitializedRef = useRef<boolean>(false);
 
-  const [connectionStartInfo, setConnectionStartInfo] = useState<{
+  const connectionStartInfoRef = useRef<{
     nodeId: string;
     handleId: string;
     startPosition: { x: number; y: number };
@@ -344,18 +342,16 @@ export const WorkflowDiagramCanvasBase = ({
 
   const handleSetFlowViewportOnChange = useCallback(
     ({
-      workflowDiagramFlowInitialized,
       isSidePanelOpened,
       isInSidePanel,
     }: {
-      workflowDiagramFlowInitialized: boolean;
       isSidePanelOpened: boolean;
       isInSidePanel: boolean;
     }) => {
       setFlowViewport({
         isInSidePanel,
         isSidePanelOpened,
-        workflowDiagramFlowInitialized,
+        workflowDiagramFlowInitialized: workflowDiagramFlowInitializedRef.current,
         workflowDiagram: store.get(workflowDiagramCallbackState),
       });
     },
@@ -364,14 +360,12 @@ export const WorkflowDiagramCanvasBase = ({
 
   useEffect(() => {
     handleSetFlowViewportOnChange({
-      workflowDiagramFlowInitialized,
       isSidePanelOpened,
       isInSidePanel,
     });
   }, [
     handleSetFlowViewportOnChange,
     isSidePanelOpened,
-    workflowDiagramFlowInitialized,
     isInSidePanel,
   ]);
 
@@ -409,7 +403,7 @@ export const WorkflowDiagramCanvasBase = ({
 
       setFlowViewport({
         isSidePanelOpened,
-        workflowDiagramFlowInitialized,
+        workflowDiagramFlowInitialized: workflowDiagramFlowInitializedRef.current,
         workflowDiagram: updatedWorkflowDiagram,
         isInSidePanel,
       });
@@ -417,7 +411,6 @@ export const WorkflowDiagramCanvasBase = ({
     [
       isSidePanelOpened,
       setFlowViewport,
-      workflowDiagramFlowInitialized,
       workflowDiagramCallbackState,
       workflowDiagramWaitingNodesDimensions,
       isInSidePanel,
@@ -430,7 +423,7 @@ export const WorkflowDiagramCanvasBase = ({
       return;
     }
 
-    setWorkflowDiagramFlowInitialized(true);
+    workflowDiagramFlowInitializedRef.current = true;
 
     onInit?.();
   };
@@ -511,30 +504,27 @@ export const WorkflowDiagramCanvasBase = ({
 
       const bounds = containerRef.current.getBoundingClientRect();
 
-      setConnectionStartInfo({
+      connectionStartInfoRef.current = {
         nodeId: params.nodeId,
         handleId: params.handleId,
         startPosition: {
           x: clientX - bounds.left,
           y: clientY - bounds.top,
         },
-      });
+      };
     }
   };
 
   const handleConnect = (connection: Connection) => {
     assertWorkflowConnectionOrThrow(connection);
-    setConnectionStartInfo(null);
+    connectionStartInfoRef.current = null;
     onConnect?.(connection);
   };
 
   const handleConnectEnd = (event: MouseEvent | TouchEvent) => {
-    let startInfo = connectionStartInfo;
+    let startInfo = connectionStartInfoRef.current;
 
-    setConnectionStartInfo((prev) => {
-      startInfo = prev;
-      return null;
-    });
+    connectionStartInfoRef.current = null;
 
     if (
       !isDefined(startInfo) ||

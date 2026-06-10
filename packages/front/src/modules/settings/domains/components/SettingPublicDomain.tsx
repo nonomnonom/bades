@@ -52,6 +52,11 @@ const StyledRecordsWrapper = styled.div`
   }
 `;
 
+const applicationPinnedOption: SelectOption<string | null> = {
+  value: null,
+  label: `Ruang Kerja (semua aplikasi)`,
+};
+
 export const SettingPublicDomain = () => {
   const [selectedPublicDomain, setSelectedPublicDomain] = useAtomState(
     selectedPublicDomainState,
@@ -88,11 +93,6 @@ export const SettingPublicDomain = () => {
   );
 
   const { data: applicationsData } = useQuery(FindManyApplicationsDocument);
-
-  const applicationPinnedOption: SelectOption<string | null> = {
-    value: null,
-    label: `Ruang Kerja (semua aplikasi)`,
-  };
 
   const applicationOptions: SelectOption<string | null>[] = (
     applicationsData?.findManyApplications ?? []

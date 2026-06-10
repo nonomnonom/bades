@@ -9,7 +9,7 @@ import { useScrollWrapperHTMLElement } from '@/ui/utilities/scroll/hooks/useScro
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useStore } from 'jotai';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const RecordTableNoRecordGroupScrollToPreviousRecordEffect = () => {
   const store = useStore();
@@ -20,7 +20,7 @@ export const RecordTableNoRecordGroupScrollToPreviousRecordEffect = () => {
     recordIndexAllRecordIdsComponentSelector,
   );
 
-  const [hasInitializedScroll, setHasInitializedScroll] = useState(false);
+  const hasInitializedScrollRef = useRef(false);
 
   const { scrollTableToPosition } = useScrollTableToPosition();
 
@@ -77,7 +77,7 @@ export const RecordTableNoRecordGroupScrollToPreviousRecordEffect = () => {
 
       processTreadmillScrollTop(targetScrollPositionInPx);
 
-      setHasInitializedScroll(true);
+      hasInitializedScrollRef.current = true;
 
       await triggerFetchPagesWithoutDebounce();
     };
@@ -85,7 +85,6 @@ export const RecordTableNoRecordGroupScrollToPreviousRecordEffect = () => {
     run();
   }, [
     store,
-    hasInitializedScroll,
     scrollTableToPosition,
     allRecordIds,
     triggerInitialRecordTableDataLoad,

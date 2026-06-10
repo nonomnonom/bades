@@ -59,6 +59,10 @@ const StyledDelete = styled.button`
   }
 `;
 
+const handleChipClick = (event: React.MouseEvent) => {
+  event.stopPropagation();
+};
+
 export const AttachmentChip = ({
   file,
   onRemove,
@@ -66,10 +70,6 @@ export const AttachmentChip = ({
 }: AttachmentChipProps) => {
   const { theme } = useContext(ThemeContext);
   const iconColors = useFileCategoryColors();
-
-  const handleChipClick = (event: React.MouseEvent) => {
-    event.stopPropagation();
-  };
 
   const handleRemoveClick = (event: React.MouseEvent) => {
     event.stopPropagation();

@@ -46,6 +46,8 @@ const StyledNavigationSection = styled.div`
   justify-content: flex-end;
 `;
 
+const dropdownContentOffset = { x: 140, y: 0 } satisfies DropdownOffset;
+
 export const RecordCalendarTopBar = () => {
   const recordCalendarId = useAvailableComponentInstanceIdOrThrow(
     RecordCalendarComponentInstanceContext,
@@ -84,8 +86,6 @@ export const RecordCalendarTopBar = () => {
     turnPlainDateToShiftedDateInSystemTimeZone(recordCalendarSelectedDate),
     'MMMM yyyy',
   );
-
-  const dropdownContentOffset = { x: 140, y: 0 } satisfies DropdownOffset;
 
   return (
     <StyledContainer>

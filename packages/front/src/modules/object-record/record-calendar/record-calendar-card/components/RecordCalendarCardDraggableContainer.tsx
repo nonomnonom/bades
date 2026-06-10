@@ -9,6 +9,7 @@ import { RecordCalendarCard } from '@/object-record/record-calendar/record-calen
 import { RecordCalendarCardComponentInstanceContext } from '@/object-record/record-calendar/record-calendar-card/states/contexts/RecordCalendarCardComponentInstanceContext';
 import { recordIndexCalendarFieldMetadataIdState } from '@/object-record/record-index/states/recordIndexCalendarFieldMetadataIdState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 const StyledDraggableContainer = styled.div`
@@ -63,10 +64,13 @@ export const RecordCalendarCardDraggableContainer = ({
   const dragIsDisabled =
     recordIsReadOnly || calendarFieldMetadataItemIsReadOnly;
 
+  const contextValue = useMemo(
+    () => ({ instanceId: recordId }),
+    [recordId],
+  );
+
   return (
-    <RecordCalendarCardComponentInstanceContext.Provider
-      value={{ instanceId: recordId }}
-    >
+    <RecordCalendarCardComponentInstanceContext.Provider value={contextValue}>
       <Draggable
         key={recordId}
         draggableId={recordId}

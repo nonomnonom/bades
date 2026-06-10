@@ -14,6 +14,11 @@ import { themeCssVariables } from 'ui/theme-constants';
 import { ConfigVariableType } from '~/generated-admin/graphql';
 import { type ConfigVariableOptions } from '@/settings/admin-panel/config-variables/types/ConfigVariableOptions';
 
+const booleanOptions = [
+  { value: 'true', label: `Benar` },
+  { value: 'false', label: `Salah` },
+];
+
 const StyledJsonEditorContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,11 +59,6 @@ export const ConfigVariableDatabaseInput = ({
           label: String(option),
         }))
       : [];
-
-  const booleanOptions = [
-    { value: 'true', label: `Benar` },
-    { value: 'false', label: `Salah` },
-  ];
 
   const isValueSelected = (optionValue: string) => {
     if (!Array.isArray(value)) return false;

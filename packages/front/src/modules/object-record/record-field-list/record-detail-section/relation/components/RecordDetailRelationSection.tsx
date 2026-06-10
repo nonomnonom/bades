@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
@@ -166,24 +166,30 @@ export const RecordDetailRelationSection = ({
     },
   });
 
-  const handleSubmit: FieldInputEvent = ({ newValue }) => {
-    persistField({
-      recordId: recordId,
-      fieldDefinition,
-      valueToPersist: newValue,
-    });
-  };
+  const handleSubmit: FieldInputEvent = useCallback(
+    ({ newValue }) => {
+      persistField({
+        recordId: recordId,
+        fieldDefinition,
+        valueToPersist: newValue,
+      });
+    },
+    [persistField, recordId, fieldDefinition],
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      onSubmit: handleSubmit,
+    }),
+    [handleSubmit],
+  );
 
   if (loading) return null;
 
   const relationRecordsCount = relationAggregateResult?.id?.COUNT ?? 0;
 
   return (
-    <FieldInputEventContext.Provider
-      value={{
-        onSubmit: handleSubmit,
-      }}
-    >
+    <FieldInputEventContext.Provider value={contextValue}>
       <RecordDetailSectionContainer
         dataTestId={`${fieldDefinition.label.toLowerCase().replace(' ', '-')}-relation`}
         title={fieldDefinition.label}

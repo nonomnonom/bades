@@ -119,8 +119,10 @@ export const EventCardMessage = ({
   }
 
   const messageParticipantHandles = message.messageParticipants
-    .map((participant) => participant.handle)
-    .filter((handle) => isDefined(handle) && handle !== '')
+    .flatMap((participant) => {
+      const handle = participant.handle;
+      return isDefined(handle) && handle !== '' ? [handle] : [];
+    })
     .join(', ');
 
   const canOpen =

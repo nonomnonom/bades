@@ -14,7 +14,7 @@ export const RecordTableBodyNoRecordGroupDroppable = ({
   children,
   isDropDisabled,
 }: RecordTableBodyNoRecordGroupDroppableProps) => {
-  const [v4Persistable] = useState(v4());
+  const [v4Persistable] = useState(() => v4());
 
   return (
     <Droppable

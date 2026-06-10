@@ -1,6 +1,6 @@
 import { isDefined } from 'shared/utils';
 import { styled } from '@linaria/react';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 import { useRegisterInputEvents } from '@/object-record/record-field/ui/meta-types/input/hooks/useRegisterInputEvents';
 import { useNumberFormat } from '@/localization/hooks/useNumberFormat';
@@ -88,7 +88,7 @@ export const CurrencyInput = ({
   decimals,
 }: CurrencyInputProps) => {
   const { theme } = useContext(ThemeContext);
-  const [internalText, setInternalText] = useState(value);
+  const internalTextRef = useRef(value);
   const { numberFormat } = useNumberFormat();
 
   const wrapperRef = useRef<HTMLInputElement>(null);
@@ -97,7 +97,7 @@ export const CurrencyInput = ({
     getSeparatorsForNumberFormat(numberFormat);
 
   const handleChange = (value: string) => {
-    setInternalText(value);
+    internalTextRef.current = value;
     onChange?.(value);
   };
 
@@ -108,7 +108,7 @@ export const CurrencyInput = ({
   useRegisterInputEvents({
     focusId: instanceId,
     inputRef: wrapperRef,
-    inputValue: internalText,
+    inputValue: internalTextRef.current,
     onEnter,
     onEscape,
     onClickOutside,
@@ -119,7 +119,7 @@ export const CurrencyInput = ({
   const currency = CURRENCIES.find(({ value }) => value === currencyCode);
 
   useEffect(() => {
-    setInternalText(value);
+    internalTextRef.current = value;
   }, [value]);
 
   const Icon: IconComponent = currency?.Icon;

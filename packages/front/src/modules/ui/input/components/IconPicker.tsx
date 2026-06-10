@@ -6,9 +6,11 @@ import React, {
   useCallback,
   useContext,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { isDefined } from 'shared/utils';
+
 import {
   ColorSample,
   IconApps,
@@ -293,17 +295,17 @@ export const IconPicker = ({
 }: IconPickerProps) => {
   const [searchString, setSearchString] = useState('');
 
-  const [isMouseInsideIconList, setIsMouseInsideIconList] = useState(false);
+  const isMouseInsideIconListRef = useRef(false);
 
   const handleMouseEnter = () => {
-    if (!isMouseInsideIconList) {
-      setIsMouseInsideIconList(true);
+    if (!isMouseInsideIconListRef.current) {
+      isMouseInsideIconListRef.current = true;
     }
   };
 
   const handleMouseLeave = () => {
-    if (isMouseInsideIconList) {
-      setIsMouseInsideIconList(false);
+    if (isMouseInsideIconListRef.current) {
+      isMouseInsideIconListRef.current = false;
     }
   };
 

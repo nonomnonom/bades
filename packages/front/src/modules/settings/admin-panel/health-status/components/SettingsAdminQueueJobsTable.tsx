@@ -71,6 +71,16 @@ const RETRY_MODAL_ID = 'retry-jobs-modal';
 const DELETE_MODAL_ID = 'delete-jobs-modal';
 const LIMIT = 50;
 
+const jobStateOptions: { value: JobState; label: string }[] = [
+  { value: JobState.COMPLETED, label: 'Selesai' },
+  { value: JobState.FAILED, label: 'Gagal' },
+  { value: JobState.ACTIVE, label: 'Aktif' },
+  { value: JobState.WAITING, label: 'Menunggu' },
+  { value: JobState.DELAYED, label: 'Ditunda' },
+  { value: JobState.PRIORITIZED, label: 'Diprioritaskan' },
+  { value: JobState.WAITING_CHILDREN, label: 'Menunggu Anak' },
+];
+
 export const SettingsAdminQueueJobsTable = ({
   queueName,
   onRetentionConfigLoaded,
@@ -81,16 +91,6 @@ export const SettingsAdminQueueJobsTable = ({
   const [expandedJobId, setExpandedJobId] = useState<string | null>(null);
   const [selectedJobIds, setSelectedJobIds] = useState<Set<string>>(new Set());
   const { openModal } = useModal();
-
-  const jobStateOptions: { value: JobState; label: string }[] = [
-    { value: JobState.COMPLETED, label: 'Selesai' },
-    { value: JobState.FAILED, label: 'Gagal' },
-    { value: JobState.ACTIVE, label: 'Aktif' },
-    { value: JobState.WAITING, label: 'Menunggu' },
-    { value: JobState.DELAYED, label: 'Ditunda' },
-    { value: JobState.PRIORITIZED, label: 'Diprioritaskan' },
-    { value: JobState.WAITING_CHILDREN, label: 'Menunggu Anak' },
-  ];
 
   const offset = page * LIMIT;
 

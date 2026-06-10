@@ -5,6 +5,7 @@ import { recordGroupDefinitionFamilyState } from '@/object-record/record-group/s
 import { recordIndexRecordIdsByGroupComponentFamilyState } from '@/object-record/record-index/states/recordIndexRecordIdsByGroupComponentFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useAtomComponentFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilyStateValue';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 type RecordBoardColumnHeaderWrapperProps = {
@@ -36,15 +37,18 @@ export const RecordBoardColumnHeaderWrapper = ({
     return null;
   }
 
+  const contextValue = useMemo(
+    () => ({
+      columnId,
+      columnDefinition: recordGroupDefinition,
+      recordIds: recordIndexRecordIdsByGroup,
+      columnIndex,
+    }),
+    [columnId, recordGroupDefinition, recordIndexRecordIdsByGroup, columnIndex],
+  );
+
   return (
-    <RecordBoardColumnContext.Provider
-      value={{
-        columnId,
-        columnDefinition: recordGroupDefinition,
-        recordIds: recordIndexRecordIdsByGroup,
-        columnIndex,
-      }}
-    >
+    <RecordBoardColumnContext.Provider value={contextValue}>
       <RecordBoardColumnHeader />
     </RecordBoardColumnContext.Provider>
   );

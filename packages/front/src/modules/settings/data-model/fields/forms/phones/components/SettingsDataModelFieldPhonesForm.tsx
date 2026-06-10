@@ -38,6 +38,13 @@ export type SettingsDataModelFieldPhonesFormValues = z.infer<
 
 export type CountryCodeOrEmpty = CountryCode | '';
 
+const defaultDefaultValue = {
+  primaryPhoneNumber: "''",
+  primaryPhoneCountryCode: "''",
+  primaryPhoneCallingCode: "''",
+  additionalPhones: null,
+};
+
 export const SettingsDataModelFieldPhonesForm = ({
   disabled,
   existingFieldMetadataId,
@@ -59,12 +66,6 @@ export const SettingsDataModelFieldPhonesForm = ({
           country.Flag({ width: props.size, height: props.size }),
       })),
   ];
-  const defaultDefaultValue = {
-    primaryPhoneNumber: "''",
-    primaryPhoneCountryCode: "''",
-    primaryPhoneCallingCode: "''",
-    additionalPhones: null,
-  };
   const fieldMetadataItemDefaultValue = fieldMetadataItem?.defaultValue;
 
   return (

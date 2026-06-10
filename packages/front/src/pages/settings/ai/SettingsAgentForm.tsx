@@ -31,7 +31,7 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 import { SettingsAgentDetailSkeletonLoader } from './components/SettingsAgentDetailSkeletonLoader';
@@ -60,7 +60,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const navigateApp = useNavigateApp();
   const { enqueueErrorSnackBar } = useSnackBar();
   const isInitializedRef = useRef(false);
-  const [originalFormValues, setOriginalFormValues] = useState<
+  const originalFormValuesRef = useRef<
     ReturnType<typeof useSettingsAgentFormState>['formValues'] | null
   >(null);
 
@@ -111,7 +111,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
           evaluationInputs: agent.evaluationInputs ?? [],
         };
         resetForm(initialValues);
-        setOriginalFormValues(initialValues);
+        originalFormValuesRef.current = initialValues;
       } else {
         enqueueErrorSnackBar({
           message: `Agen tidak ditemukan`,
@@ -170,7 +170,8 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
     }
 
     const hasChanges =
-      originalFormValues && !isDeeplyEqual(formValues, originalFormValues);
+      originalFormValuesRef.current &&
+        !isDeeplyEqual(formValues, originalFormValuesRef.current);
 
     if (!hasChanges && !isRoleDirty) {
       return;
@@ -217,7 +218,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         },
       });
 
-      setOriginalFormValues({ ...formValues });
+      originalFormValuesRef.current = { ...formValues };
     } catch (error) {
       enqueueErrorSnackBar({
         apolloError: CombinedGraphQLErrors.is(error) ? error : undefined,
@@ -228,7 +229,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   }, 1_000);
 
   useEffect(() => {
-    if (isEditMode && !loading && isDefined(originalFormValues)) {
+    if (isEditMode && !loading && isDefined(originalFormValuesRef.current)) {
       autoSave();
     }
   }, [
@@ -236,7 +237,6 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
     isRoleDirty,
     isEditMode,
     loading,
-    originalFormValues,
     autoSave,
   ]);
 

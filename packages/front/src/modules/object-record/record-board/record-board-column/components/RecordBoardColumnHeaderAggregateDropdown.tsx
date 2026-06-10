@@ -8,6 +8,7 @@ import { type RecordBoardColumnHeaderAggregateContentId } from '@/object-record/
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DROPDOWN_OFFSET_Y } from '@/ui/layout/dropdown/constants/DropdownOffsetY';
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 import { type Nullable } from 'shared/types';
 
 type RecordBoardColumnHeaderAggregateDropdownProps = {
@@ -35,9 +36,33 @@ export const RecordBoardColumnHeaderAggregateDropdown = ({
   } =
     useDropdownContextCurrentContentId<RecordBoardColumnHeaderAggregateContentId>();
 
+  const instanceContextValue = useMemo(
+    () => ({ instanceId: dropdownId }),
+    [dropdownId],
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      currentContentId,
+      onContentChange: handleContentChange,
+      resetContent: handleResetContent,
+      previousContentId,
+      objectMetadataItem: objectMetadataItem,
+      dropdownId: dropdownId,
+    }),
+    [
+      currentContentId,
+      handleContentChange,
+      handleResetContent,
+      previousContentId,
+      objectMetadataItem,
+      dropdownId,
+    ],
+  );
+
   return (
     <RecordBoardColumnHeaderAggregateDropdownComponentInstanceContext.Provider
-      value={{ instanceId: dropdownId }}
+      value={instanceContextValue}
     >
       <StyledContainer>
         <Dropdown
@@ -53,14 +78,7 @@ export const RecordBoardColumnHeaderAggregateDropdown = ({
           }
           dropdownComponents={
             <RecordBoardColumnHeaderAggregateDropdownContext.Provider
-              value={{
-                currentContentId,
-                onContentChange: handleContentChange,
-                resetContent: handleResetContent,
-                previousContentId,
-                objectMetadataItem: objectMetadataItem,
-                dropdownId: dropdownId,
-              }}
+              value={contextValue}
             >
               <AggregateDropdownContent />
             </RecordBoardColumnHeaderAggregateDropdownContext.Provider>

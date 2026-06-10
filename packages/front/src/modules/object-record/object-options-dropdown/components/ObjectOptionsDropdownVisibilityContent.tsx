@@ -29,6 +29,11 @@ import {
 } from '~/generated-metadata/graphql';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 
+const selectableItemIdArray = [
+  ViewVisibility.WORKSPACE,
+  ViewVisibility.UNLISTED,
+];
+
 export const ObjectOptionsDropdownVisibilityContent = () => {
   const { resetContent } = useObjectOptionsDropdown();
   const { currentView } = useGetCurrentViewOnly();
@@ -41,11 +46,6 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
     selectedItemIdComponentState,
     OBJECT_OPTIONS_DROPDOWN_ID,
   );
-
-  const selectableItemIdArray = [
-    ViewVisibility.WORKSPACE,
-    ViewVisibility.UNLISTED,
-  ];
 
   const handleVisibilityChange = (visibility: ViewVisibility) => {
     if (!canPersistChanges || !currentView) return;

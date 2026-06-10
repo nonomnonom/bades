@@ -29,6 +29,13 @@ const StyledContainer = styled.div`
   }
 `;
 
+const handleClickToPreventParentClickEvents = (
+  event: React.MouseEvent<HTMLInputElement>,
+) => {
+  event.stopPropagation();
+  event.preventDefault();
+};
+
 type DoubleTextInputProps = {
   instanceId: string;
   firstValue: string;
@@ -86,7 +93,7 @@ export const DoubleTextInput = ({
     });
   };
 
-  const [focusPosition, setFocusPosition] = useState<'left' | 'right'>('left');
+  const focusPositionRef = useRef<'left' | 'right'>('left');
 
   useHotkeysOnFocusedElement({
     keys: [Key.Enter],
@@ -115,8 +122,8 @@ export const DoubleTextInput = ({
   useHotkeysOnFocusedElement({
     keys: ['tab'],
     callback: () => {
-      if (focusPosition === 'left') {
-        setFocusPosition('right');
+      if (focusPositionRef.current === 'left') {
+        focusPositionRef.current = 'right';
         secondValueInputRef.current?.focus();
       } else {
         onTab?.({
@@ -130,15 +137,14 @@ export const DoubleTextInput = ({
       onTab,
       firstInternalValue,
       secondInternalValue,
-      focusPosition,
     ],
   });
 
   useHotkeysOnFocusedElement({
     keys: ['shift+tab'],
     callback: () => {
-      if (focusPosition === 'right') {
-        setFocusPosition('left');
+      if (focusPositionRef.current === 'right') {
+        focusPositionRef.current = 'left';
         firstValueInputRef.current?.focus();
       } else {
         onShiftTab?.({
@@ -152,7 +158,6 @@ export const DoubleTextInput = ({
       onShiftTab,
       firstInternalValue,
       secondInternalValue,
-      focusPosition,
     ],
   });
 
@@ -185,20 +190,13 @@ export const DoubleTextInput = ({
     });
   };
 
-  const handleClickToPreventParentClickEvents = (
-    event: React.MouseEvent<HTMLInputElement>,
-  ) => {
-    event.stopPropagation();
-    event.preventDefault();
-  };
-
   return (
     <FieldInputContainer>
       <StyledContainer ref={containerRef}>
         <StyledTextInput
           autoComplete="off"
           autoFocus
-          onFocus={() => setFocusPosition('left')}
+          onFocus={() => { focusPositionRef.current = 'left'; }}
           ref={firstValueInputRef}
           placeholder={firstValuePlaceholder}
           value={firstInternalValue}
@@ -215,7 +213,7 @@ export const DoubleTextInput = ({
         />
         <StyledTextInput
           autoComplete="off"
-          onFocus={() => setFocusPosition('right')}
+          onFocus={() => { focusPositionRef.current = 'right'; }}
           ref={secondValueInputRef}
           placeholder={secondValuePlaceholder}
           value={secondInternalValue}

@@ -22,6 +22,12 @@ import {
 import { MenuItemSelect } from 'ui/navigation';
 import { ViewCalendarLayout } from '~/generated-metadata/graphql';
 
+const selectableItemIdArray = [
+  ViewCalendarLayout.WEEK,
+  ViewCalendarLayout.MONTH,
+  ViewCalendarLayout.DAY,
+];
+
 export const ObjectOptionsDropdownCalendarViewContent = () => {
   const { resetContent } = useObjectOptionsDropdown();
   const recordIndexCalendarLayout = useAtomStateValue(
@@ -38,12 +44,6 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
   );
 
   const { closeDropdown } = useObjectOptionsDropdown();
-
-  const selectableItemIdArray = [
-    ViewCalendarLayout.WEEK,
-    ViewCalendarLayout.MONTH,
-    ViewCalendarLayout.DAY,
-  ];
 
   const handleCalendarViewChange = async (calendarView: ViewCalendarLayout) => {
     setRecordIndexCalendarLayout(calendarView);

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { useRecordFieldsScopeContextOrThrow } from '@/object-record/record-field-list/contexts/RecordFieldsScopeContext';
@@ -72,51 +72,57 @@ export const RecordDetailMorphRelationSection = ({
     objectMetadataNameSingular: objectMetadataItem.nameSingular,
   });
 
-  const handleSubmit: FieldInputEvent = ({ newValue }) => {
-    if (!isDefined(newValue)) {
+  const handleSubmit: FieldInputEvent = useCallback(
+    ({ newValue }) => {
+      if (!isDefined(newValue)) {
+        persistMorphManyToOne({
+          recordId,
+          fieldDefinition,
+          valueToPersist: null,
+        });
+        return;
+      }
+
+      const { id, objectMetadataId } = newValue as {
+        id: string;
+        objectMetadataId: string;
+      };
+
+      if (!isDefined(id)) {
+        throw new CustomError('Id is required', 'ID_IS_REQUIRED');
+      }
+      const targetObjectMetadataNameSingular = objectMetadataItems.find(
+        (objectMetadataItem) => objectMetadataItem.id === objectMetadataId,
+      )?.nameSingular;
+
+      if (!isDefined(targetObjectMetadataNameSingular)) {
+        throw new CustomError(
+          'Target object metadata name singular is required',
+          'TARGET_OBJECT_METADATA_NAME_SINGULAR_IS_REQUIRED',
+        );
+      }
+
       persistMorphManyToOne({
         recordId,
         fieldDefinition,
-        valueToPersist: null,
+        valueToPersist: id,
+        targetObjectMetadataNameSingular,
       });
-      return;
-    }
+    },
+    [persistMorphManyToOne, objectMetadataItems, recordId, fieldDefinition],
+  );
 
-    const { id, objectMetadataId } = newValue as {
-      id: string;
-      objectMetadataId: string;
-    };
-
-    if (!isDefined(id)) {
-      throw new CustomError('Id is required', 'ID_IS_REQUIRED');
-    }
-    const targetObjectMetadataNameSingular = objectMetadataItems.find(
-      (objectMetadataItem) => objectMetadataItem.id === objectMetadataId,
-    )?.nameSingular;
-
-    if (!isDefined(targetObjectMetadataNameSingular)) {
-      throw new CustomError(
-        'Target object metadata name singular is required',
-        'TARGET_OBJECT_METADATA_NAME_SINGULAR_IS_REQUIRED',
-      );
-    }
-
-    persistMorphManyToOne({
-      recordId,
-      fieldDefinition,
-      valueToPersist: id,
-      targetObjectMetadataNameSingular,
-    });
-  };
+  const contextValue = useMemo(
+    () => ({
+      onSubmit: handleSubmit,
+    }),
+    [handleSubmit],
+  );
 
   if (loading) return null;
 
   return (
-    <FieldInputEventContext.Provider
-      value={{
-        onSubmit: handleSubmit,
-      }}
-    >
+    <FieldInputEventContext.Provider value={contextValue}>
       <RecordDetailSectionContainer
         title={fieldDefinition.label}
         hideRightAdornmentOnMouseLeave={!isDropdownOpen && !isMobile}

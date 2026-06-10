@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { type RefObject, useCallback, useState } from 'react';
+import { type RefObject, useCallback, useRef, useState } from 'react';
 
 import { useDragSelect } from '@/ui/utilities/drag-select/hooks/useDragSelect';
 import { useDragSelectWithAutoScroll } from '@/ui/utilities/drag-select/hooks/useDragSelectWithAutoScroll';
@@ -63,8 +63,8 @@ export const DragSelect = ({
     scrollWrapperComponentInstanceId,
   });
 
-  const [startPoint, setStartPoint] = useState<Position | null>(null);
-  const [endPoint, setEndPoint] = useState<Position | null>(null);
+  const startPointRef = useRef<Position | null>(null);
+  const endPointRef = useRef<Position | null>(null);
   const [selectionBox, setSelectionBox] = useState<SelectionBox | null>(null);
 
   const getPositionRelativeToContainer = useCallback(
@@ -89,14 +89,14 @@ export const DragSelect = ({
       if (shouldStartSelecting(event.target)) {
         setIsDragging(true);
         setIsSelecting(false);
-        setStartPoint({
+        startPointRef.current = {
           x: relativeX,
           y: relativeY,
-        });
-        setEndPoint({
+        };
+        endPointRef.current = {
           x: relativeX,
           y: relativeY,
-        });
+        };
         setSelectionBox({
           top: relativeY,
           left: relativeX,
@@ -114,26 +114,26 @@ export const DragSelect = ({
         );
 
         if (
-          !isDefined(startPoint) ||
-          !isDefined(endPoint) ||
+          !isDefined(startPointRef.current) ||
+          !isDefined(endPointRef.current) ||
           !isDefined(selectionBox)
         ) {
           return;
         }
 
-        const newEndPoint = { ...endPoint };
+        const newEndPoint = { ...endPointRef.current };
 
         newEndPoint.x = relativeX;
         newEndPoint.y = relativeY;
 
-        if (!isDeeplyEqual(newEndPoint, endPoint)) {
-          setEndPoint(newEndPoint);
+        if (!isDeeplyEqual(newEndPoint, endPointRef.current)) {
+          endPointRef.current = newEndPoint;
 
           const newSelectionBox = {
-            top: Math.min(startPoint.y, newEndPoint.y),
-            left: Math.min(startPoint.x, newEndPoint.x),
-            width: Math.abs(newEndPoint.x - startPoint.x),
-            height: Math.abs(newEndPoint.y - startPoint.y),
+            top: Math.min(startPointRef.current.y, newEndPoint.y),
+            left: Math.min(startPointRef.current.x, newEndPoint.x),
+            width: Math.abs(newEndPoint.x - startPointRef.current.x),
+            height: Math.abs(newEndPoint.y - startPointRef.current.y),
           };
 
           if (isValidSelectionStart(newSelectionBox)) {

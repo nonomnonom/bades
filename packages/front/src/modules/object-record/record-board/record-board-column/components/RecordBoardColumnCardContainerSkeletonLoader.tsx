@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
-import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
+import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/const/skeleton-loader-height-sizes.const';
 import { RecordCardBodyContainer } from '@/object-record/record-card/components/RecordCardBodyContainer';
 import { RecordCardHeaderContainer } from '@/object-record/record-card/components/RecordCardHeaderContainer';
 import { visibleRecordFieldsComponentSelector } from '@/object-record/record-field/states/visibleRecordFieldsComponentSelector';

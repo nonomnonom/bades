@@ -37,6 +37,12 @@ const castBooleanToStringifiedBoolean = (value: boolean | undefined) => {
   return value ? 'true' : 'false';
 };
 
+const defaultEmptyOption = {
+  label: `Pilih nilai`,
+  value: '',
+  icon: IconCircleOff,
+};
+
 export const FormBooleanFieldInput = ({
   label,
   defaultValue,
@@ -73,12 +79,6 @@ export const FormBooleanFieldInput = ({
           editingMode: 'view',
         },
   );
-
-  const defaultEmptyOption = {
-    label: `Pilih nilai`,
-    value: '',
-    icon: IconCircleOff,
-  };
 
   const onSelect = (option: string) => {
     const optionAsBoolean = parseStringifiedBooleanToBoolean(option);

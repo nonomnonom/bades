@@ -11,6 +11,7 @@ import { useRecordTableContextOrThrow } from '@/object-record/record-table/conte
 import { RecordTableAggregateFooterCell } from '@/object-record/record-table/record-table-footer/components/RecordTableAggregateFooterCell';
 import { RecordTableColumnAggregateFooterCellContext } from '@/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterCellContext';
 import { themeCssVariables } from 'ui/theme-constants';
+import { useMemo } from 'react';
 
 const StyledPlaceholderDragAndDropFooterCell = styled.div`
   background-color: ${themeCssVariables.background.primary};
@@ -47,6 +48,35 @@ const StyledAggregateFooterContainer = styled.div`
   z-index: ${TABLE_Z_INDEX.footer.default};
 `;
 
+type AggregateFooterCellContextProviderProps = {
+  recordField: { id: string; fieldMetadataItemId: string };
+  currentRecordGroupId?: string;
+  columnIndex: number;
+};
+
+const AggregateFooterCellContextProvider = ({
+  recordField,
+  currentRecordGroupId,
+  columnIndex,
+}: AggregateFooterCellContextProviderProps) => {
+  const contextValue = useMemo(
+    () => ({
+      viewFieldId: recordField.id || '',
+      fieldMetadataId: recordField.fieldMetadataItemId,
+    }),
+    [recordField.id, recordField.fieldMetadataItemId],
+  );
+
+  return (
+    <RecordTableColumnAggregateFooterCellContext.Provider value={contextValue}>
+      <RecordTableAggregateFooterCell
+        currentRecordGroupId={currentRecordGroupId}
+        columnIndex={columnIndex}
+      />
+    </RecordTableColumnAggregateFooterCellContext.Provider>
+  );
+};
+
 export const RecordTableAggregateFooter = ({
   currentRecordGroupId,
 }: {
@@ -59,18 +89,12 @@ export const RecordTableAggregateFooter = ({
       <StyledPlaceholderDragAndDropFooterCell />
       {visibleRecordFields.map((recordField, index) => {
         return (
-          <RecordTableColumnAggregateFooterCellContext.Provider
+          <AggregateFooterCellContextProvider
             key={`${recordField.fieldMetadataItemId}${currentRecordGroupId ? '-' + currentRecordGroupId : ''}`}
-            value={{
-              viewFieldId: recordField.id || '',
-              fieldMetadataId: recordField.fieldMetadataItemId,
-            }}
-          >
-            <RecordTableAggregateFooterCell
-              currentRecordGroupId={currentRecordGroupId}
-              columnIndex={index}
-            />
-          </RecordTableColumnAggregateFooterCellContext.Provider>
+            recordField={recordField}
+            currentRecordGroupId={currentRecordGroupId}
+            columnIndex={index}
+          />
         );
       })}
       <StyledPlaceholderAddButtonPlaceholderFooterCell />

@@ -30,6 +30,16 @@ import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
 const WEBHOOK_ENTITY_DROPDOWN_ID = 'webhook-entity-select';
 
+const metadataOptions = [
+  { label: `Semua Metadata`, value: 'metadata.*', icon: IconNorthStar },
+  { label: `Objek`, value: 'metadata.objectMetadata', icon: IconTable },
+  { label: `Kolom`, value: 'metadata.fieldMetadata', icon: IconBox },
+  { label: `Tampilan`, value: 'metadata.view', icon: IconEye },
+  { label: `Kolom Tampilan`, value: 'metadata.viewField', icon: IconEye },
+  { label: `Indeks`, value: 'metadata.index', icon: IconSettings },
+  { label: `Webhook`, value: 'metadata.webhook', icon: IconCode },
+];
+
 const StyledControlContainer = styled.div<{ disabled?: boolean }>`
   align-items: center;
   background-color: ${themeCssVariables.background.transparent.lighter};
@@ -95,16 +105,6 @@ export const WebhookEntitySelect = ({
     selectedItemIdComponentState,
     dropdownId,
   );
-
-  const metadataOptions = [
-    { label: `Semua Metadata`, value: 'metadata.*', icon: IconNorthStar },
-    { label: `Objek`, value: 'metadata.objectMetadata', icon: IconTable },
-    { label: `Kolom`, value: 'metadata.fieldMetadata', icon: IconBox },
-    { label: `Tampilan`, value: 'metadata.view', icon: IconEye },
-    { label: `Kolom Tampilan`, value: 'metadata.viewField', icon: IconEye },
-    { label: `Indeks`, value: 'metadata.index', icon: IconSettings },
-    { label: `Webhook`, value: 'metadata.webhook', icon: IconCode },
-  ];
 
   const objectOptions: SelectOption<string>[] = [
     { label: `Semua Objek`, value: '*', Icon: IconNorthStar },

@@ -157,7 +157,7 @@ export const MultiItemFieldInput = <T,>({
       : '',
   );
 
-  const [itemToEditIndex, setItemToEditIndex] = useState(0);
+  const itemToEditIndexRef = useRef(0);
   const [isAddingNewItem, setIsAddingNewItem] = useState(false);
 
   const [errorData, setErrorData] = useState({
@@ -212,7 +212,7 @@ export const MultiItemFieldInput = <T,>({
   };
 
   const handleEditButtonClick = (index: number) => {
-    setItemToEditIndex(index);
+    itemToEditIndexRef.current = index;
     setInputValue(getItemValueAsString(index));
     setIsAddingNewItem(false);
     setIsInputDisplayed(true);
@@ -258,7 +258,7 @@ export const MultiItemFieldInput = <T,>({
       return { isValid: false, updatedItems: items };
     }
 
-    const editingIndex = isAddingNewItem ? null : itemToEditIndex;
+    const editingIndex = isAddingNewItem ? null : itemToEditIndexRef.current;
 
     const updatedItems = computeUpdatedMultiItemFieldItems({
       sanitizedInput,

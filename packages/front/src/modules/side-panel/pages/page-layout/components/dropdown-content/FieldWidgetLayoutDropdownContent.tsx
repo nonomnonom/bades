@@ -31,6 +31,12 @@ const DISPLAY_MODE_ICONS: Record<FieldDisplayMode, IconComponent> = {
   [FieldDisplayMode.VIEW]: IconListDetails,
 };
 
+const layoutLabels: Record<string, string> = {
+  [FieldDisplayMode.FIELD]: `Kolom`,
+  [FieldDisplayMode.CARD]: `Kartu`,
+  [FieldDisplayMode.EDITOR]: `Editor`,
+};
+
 export const FieldWidgetLayoutDropdownContent = () => {
   const { pageLayoutId } = usePageLayoutIdFromContextStore();
 
@@ -76,12 +82,6 @@ export const FieldWidgetLayoutDropdownContent = () => {
       },
     });
     closeDropdown();
-  };
-
-  const layoutLabels: Record<string, string> = {
-    [FieldDisplayMode.FIELD]: `Kolom`,
-    [FieldDisplayMode.CARD]: `Kartu`,
-    [FieldDisplayMode.EDITOR]: `Editor`,
   };
 
   return (

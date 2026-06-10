@@ -14,6 +14,38 @@ import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 import { IdentityProviderType } from '~/generated-metadata/graphql';
 
+const IdentitiesProvidersMap: Record<
+  IdentityProviderType,
+  {
+    form: ReactElement;
+    option: {
+      Icon: IconComponent;
+      title: string;
+      value: string;
+      description: string;
+    };
+  }
+> = {
+  OIDC: {
+    option: {
+      Icon: IconKey,
+      title: 'OIDC',
+      value: 'OIDC',
+      description: '',
+    },
+    form: <SettingsSSOOIDCForm />,
+  },
+  SAML: {
+    option: {
+      Icon: IconKey,
+      title: 'SAML',
+      value: 'SAML',
+      description: '',
+    },
+    form: <SettingsSSOSAMLForm />,
+  },
+};
+
 const StyledInputsContainer = styled.div`
   display: grid;
   gap: ${themeCssVariables.spacing[2]} ${themeCssVariables.spacing[4]};
@@ -28,38 +60,6 @@ const StyledInputsContainer = styled.div`
 export const SettingsSSOIdentitiesProvidersForm = () => {
   const { control, watch } =
     useFormContext<SettingSecurityNewSSOIdentityFormValues>();
-
-  const IdentitiesProvidersMap: Record<
-    IdentityProviderType,
-    {
-      form: ReactElement;
-      option: {
-        Icon: IconComponent;
-        title: string;
-        value: string;
-        description: string;
-      };
-    }
-  > = {
-    OIDC: {
-      option: {
-        Icon: IconKey,
-        title: 'OIDC',
-        value: 'OIDC',
-        description: '',
-      },
-      form: <SettingsSSOOIDCForm />,
-    },
-    SAML: {
-      option: {
-        Icon: IconKey,
-        title: 'SAML',
-        value: 'SAML',
-        description: '',
-      },
-      form: <SettingsSSOSAMLForm />,
-    },
-  };
 
   const selectedType = watch('type');
 

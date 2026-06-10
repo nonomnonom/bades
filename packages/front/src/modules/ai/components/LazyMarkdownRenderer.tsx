@@ -1,4 +1,4 @@
-import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
+import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/const/skeleton-loader-height-sizes.const';
 import {
   parseRecordReference,
   RECORD_REFERENCE_REGEX,
@@ -20,6 +20,32 @@ import {
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { getSafeUrl, isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
+
+const processChildrenForRecordLinks = (
+  children: React.ReactNode,
+): React.ReactNode => {
+  if (typeof children === 'string') {
+    return <TextWithRecordLinks text={children} />;
+  }
+
+  if (Array.isArray(children)) {
+    return children.map((child, index) => (
+      <span key={index}>{processChildrenForRecordLinks(child)}</span>
+    ));
+  }
+
+  if (isValidElement<{ children?: React.ReactNode }>(children)) {
+    const childProps = children.props;
+
+    if (isDefined(childProps.children)) {
+      return cloneElement(children, {
+        children: processChildrenForRecordLinks(childProps.children),
+      });
+    }
+  }
+
+  return children;
+};
 
 const TextWithRecordLinks = ({ text }: { text: string }) => {
   const parts: React.ReactNode[] = [];
@@ -55,32 +81,6 @@ const TextWithRecordLinks = ({ text }: { text: string }) => {
   }
 
   return <>{parts}</>;
-};
-
-const processChildrenForRecordLinks = (
-  children: React.ReactNode,
-): React.ReactNode => {
-  if (typeof children === 'string') {
-    return <TextWithRecordLinks text={children} />;
-  }
-
-  if (Array.isArray(children)) {
-    return children.map((child, index) => (
-      <span key={index}>{processChildrenForRecordLinks(child)}</span>
-    ));
-  }
-
-  if (isValidElement<{ children?: React.ReactNode }>(children)) {
-    const childProps = children.props;
-
-    if (isDefined(childProps.children)) {
-      return cloneElement(children, {
-        children: processChildrenForRecordLinks(childProps.children),
-      });
-    }
-  }
-
-  return children;
 };
 
 const MarkdownRenderer = lazy(async () => {

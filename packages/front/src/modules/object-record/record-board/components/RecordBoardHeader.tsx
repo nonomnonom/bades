@@ -5,6 +5,7 @@ import { RecordIndexGroupAggregatesDataLoader } from '@/object-record/record-ind
 import { useAtomComponentFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilySelectorValue';
 import { ViewType } from '@/views/types/ViewType';
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledHeaderContainer = styled.div`
@@ -26,6 +27,24 @@ const StyledHeaderContainer = styled.div`
   }
 `;
 
+const RecordGroupContextProvider = ({
+  recordGroupId,
+  children,
+}: {
+  recordGroupId: string;
+  children: React.ReactNode;
+}) => {
+  const contextValue = useMemo(
+    () => ({ recordGroupId }),
+    [recordGroupId],
+  );
+  return (
+    <RecordGroupContext.Provider value={contextValue}>
+      {children}
+    </RecordGroupContext.Provider>
+  );
+};
+
 export const RecordBoardHeader = () => {
   const visibleRecordGroupIds = useAtomComponentFamilySelectorValue(
     visibleRecordGroupIdsComponentFamilySelector,
@@ -35,15 +54,12 @@ export const RecordBoardHeader = () => {
   return (
     <StyledHeaderContainer id="record-board-header">
       {visibleRecordGroupIds.map((recordGroupId, index) => (
-        <RecordGroupContext.Provider
-          key={recordGroupId}
-          value={{ recordGroupId }}
-        >
+        <RecordGroupContextProvider key={recordGroupId} recordGroupId={recordGroupId}>
           <RecordBoardColumnHeaderWrapper
             columnId={recordGroupId}
             columnIndex={index}
           />
-        </RecordGroupContext.Provider>
+        </RecordGroupContextProvider>
       ))}
       <RecordIndexGroupAggregatesDataLoader />
     </StyledHeaderContainer>

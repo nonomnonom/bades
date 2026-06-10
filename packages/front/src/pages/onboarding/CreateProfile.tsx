@@ -3,7 +3,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { styled } from '@linaria/react';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
 import { Key } from 'ts-key-enum';
 import { z } from 'zod';
@@ -153,10 +153,10 @@ export const CreateProfile = () => {
     ],
   );
 
-  const [isEditingMode, setIsEditingMode] = useState(false);
+  const isEditingModeRef = useRef(false);
 
   const handleEnter = () => {
-    if (isEditingMode) {
+    if (isEditingModeRef.current) {
       onSubmit(getValues());
     }
   };
@@ -203,10 +203,12 @@ export const CreateProfile = () => {
                   autoFocus
                   label={`Nama Depan`}
                   value={value}
-                  onFocus={() => setIsEditingMode(true)}
+                  onFocus={() => {
+                    isEditingModeRef.current = true;
+                  }}
                   onBlur={() => {
                     onBlur();
-                    setIsEditingMode(false);
+                    isEditingModeRef.current = false;
                   }}
                   onChange={onChange}
                   placeholder={`Budi`}
@@ -225,10 +227,12 @@ export const CreateProfile = () => {
                 <TextInput
                   label={`Nama Belakang`}
                   value={value}
-                  onFocus={() => setIsEditingMode(true)}
+                  onFocus={() => {
+                    isEditingModeRef.current = true;
+                  }}
                   onBlur={() => {
                     onBlur();
-                    setIsEditingMode(false);
+                    isEditingModeRef.current = false;
                   }}
                   onChange={onChange}
                   placeholder={`Santoso`}

@@ -106,12 +106,14 @@ export const WorkflowEditActionIfElseBody = ({
       },
     );
 
-    for (const emptyChildStepId of emptyChildStepIds) {
-      await deleteWorkflowVersionStep({
-        workflowVersionId,
-        stepId: emptyChildStepId,
-      });
-    }
+    await Promise.all(
+      emptyChildStepIds.map((emptyChildStepId) =>
+        deleteWorkflowVersionStep({
+          workflowVersionId,
+          stepId: emptyChildStepId,
+        }),
+      ),
+    );
 
     if (emptyChildStepIds.length > 0) {
       deleteStepsOutputSchema({

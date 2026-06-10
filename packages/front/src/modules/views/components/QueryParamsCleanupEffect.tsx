@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { useHasFiltersInQueryParams } from '@/views/hooks/internal/useHasFiltersInQueryParams';
@@ -13,7 +13,7 @@ export const QueryParamsCleanupEffect = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [hasCleanedQueryParams, setHasCleanedQueryParams] = useState(false);
+  const hasCleanedQueryParamsRef = useRef(false);
 
   const currentViewObjectMetadataItemIsDifferentFromURLObjectMetadataItem =
     currentView?.objectMetadataId !== objectMetadataItem.id;
@@ -21,7 +21,7 @@ export const QueryParamsCleanupEffect = () => {
   useEffect(() => {
     if (
       currentViewObjectMetadataItemIsDifferentFromURLObjectMetadataItem ||
-      hasCleanedQueryParams
+      hasCleanedQueryParamsRef.current
     ) {
       return;
     }
@@ -43,12 +43,11 @@ export const QueryParamsCleanupEffect = () => {
     });
 
     setSearchParams(newParams, { replace: true });
-    setHasCleanedQueryParams(true);
+    hasCleanedQueryParamsRef.current = true;
   }, [
     currentViewObjectMetadataItemIsDifferentFromURLObjectMetadataItem,
     hasFiltersQueryParams,
     hasSortsQueryParams,
-    hasCleanedQueryParams,
     searchParams,
     setSearchParams,
   ]);

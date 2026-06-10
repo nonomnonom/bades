@@ -15,6 +15,7 @@ import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingC
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { TabListComponentInstanceContext } from '@/ui/layout/tab-list/states/contexts/TabListComponentInstanceContext';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
+import { useMemo } from 'react';
 
 type PageLayoutSingleTabRendererProps = {
   pageLayoutId: string;
@@ -51,6 +52,14 @@ const PageLayoutSingleTabRendererInner = () => {
     pageLayoutType: currentPageLayout.type,
   });
 
+  const pageLayoutContentContextValue = useMemo(
+    () => ({
+      tabId: firstTab.id,
+      layoutMode,
+    }),
+    [firstTab.id, layoutMode],
+  );
+
   return (
     <>
       <SummaryCard
@@ -59,12 +68,7 @@ const PageLayoutSingleTabRendererInner = () => {
         isInSidePanel={isInSidePanel}
       />
 
-      <PageLayoutContentProvider
-        value={{
-          tabId: firstTab.id,
-          layoutMode,
-        }}
-      >
+      <PageLayoutContentProvider value={pageLayoutContentContextValue}>
         <PageLayoutContent />
       </PageLayoutContentProvider>
     </>
@@ -82,17 +86,19 @@ export const PageLayoutSingleTabRenderer = ({
     targetRecordIdentifier,
   });
 
+  const pageLayoutContextValue = useMemo(
+    () => ({ instanceId: pageLayoutId }),
+    [pageLayoutId],
+  );
+
+  const tabListContextValue = useMemo(
+    () => ({ instanceId: tabListInstanceId }),
+    [tabListInstanceId],
+  );
+
   return (
-    <PageLayoutComponentInstanceContext.Provider
-      value={{
-        instanceId: pageLayoutId,
-      }}
-    >
-      <TabListComponentInstanceContext.Provider
-        value={{
-          instanceId: tabListInstanceId,
-        }}
-      >
+    <PageLayoutComponentInstanceContext.Provider value={pageLayoutContextValue}>
+      <TabListComponentInstanceContext.Provider value={tabListContextValue}>
         <PageLayoutEditModeProvider
           layoutType={layoutType}
           pageLayoutId={pageLayoutId}

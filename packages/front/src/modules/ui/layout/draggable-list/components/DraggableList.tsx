@@ -22,7 +22,7 @@ export const DraggableList = ({
   onDragEnd,
   onDragStart,
 }: DraggableListProps) => {
-  const [v4Persistable] = useState(v4());
+  const [v4Persistable] = useState(() => v4());
 
   return (
     <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>

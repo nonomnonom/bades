@@ -8,6 +8,12 @@ import { AppPath, type RecordGqlOperationFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 
+const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
+
+const deletedAtFilter: RecordGqlOperationFilter = {
+  deletedAt: { is: 'NOT_NULL' },
+};
+
 export const DestroyRecordsCommand = () => {
   const { recordIndexId, objectMetadataItem, selectedRecords, graphqlFilter } =
     useHeadlessCommandContextApi();
@@ -25,12 +31,6 @@ export const DestroyRecordsCommand = () => {
   const { resetTableRowSelection } = useResetTableRowSelection(recordIndexId);
   const { removeSelectedRecordsFromRecordBoard } =
     useRemoveSelectedRecordsFromRecordBoard(recordIndexId);
-
-  const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
-
-  const deletedAtFilter: RecordGqlOperationFilter = {
-    deletedAt: { is: 'NOT_NULL' },
-  };
 
   const combinedFilter: RecordGqlOperationFilter = {
     ...(graphqlFilter ?? noMatchFilter),

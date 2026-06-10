@@ -49,6 +49,8 @@ const StyledScrollWrapperContainer = styled.div`
   min-height: 0;
 `;
 
+const SYSTEM_OBJECT_TABS = ['Beranda', 'Linimasa', 'Ringkasan', 'Alur'];
+
 export const PageLayoutTabsRenderer = () => {
   const { currentPageLayout } = useCurrentPageLayoutOrThrow();
 
@@ -125,8 +127,6 @@ export const PageLayoutTabsRenderer = () => {
     isInSidePanel,
     isEditMode: isPageLayoutInEditMode,
   });
-
-  const SYSTEM_OBJECT_TABS = ['Beranda', 'Linimasa', 'Ringkasan', 'Alur'];
 
   const isUsingDefaultRecordPageLayout =
     currentPageLayout.id === DEFAULT_RECORD_PAGE_LAYOUT_ID;

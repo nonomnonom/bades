@@ -24,6 +24,7 @@ import { useCurrentWidget } from '@/page-layout/widgets/hooks/useCurrentWidget';
 import { getObjectPermissionsFromMapByObjectMetadataId } from '@/settings/roles/role-permissions/objects-permissions/utils/getObjectPermissionsFromMapByObjectMetadataId';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
+import { useMemo } from 'react';
 import { assertIsDefinedOrThrow } from 'shared/utils';
 
 export const WidgetActionFieldEdit = () => {
@@ -79,8 +80,12 @@ export const WidgetActionFieldEdit = () => {
   });
 
   if (isRelationField) {
+    const scopeContextValue = useMemo(
+      () => ({ scopeInstanceId: instanceId }),
+      [instanceId],
+    );
     return (
-      <RecordFieldsScopeContextProvider value={{ scopeInstanceId: instanceId }}>
+      <RecordFieldsScopeContextProvider value={scopeContextValue}>
         <FieldWidgetRelationEditAction
           fieldDefinition={fieldDefinition}
           recordId={targetRecord.id}
@@ -99,37 +104,59 @@ export const WidgetActionFieldEdit = () => {
     prefix: instanceId,
   });
 
-  const fieldContextValue = {
-    recordId: targetRecord.id,
-    maxWidth: 200,
-    isLabelIdentifier: false,
-    fieldDefinition,
-    useUpdateRecord: useUpdateOneObjectRecordMutation,
-    isDisplayModeFixHeight: false,
-    isRecordFieldReadOnly: isRecordFieldReadOnly({
-      isRecordReadOnly,
-      isSystemObject: objectMetadataItem.isSystem,
-      objectPermissions: getObjectPermissionsFromMapByObjectMetadataId({
-        objectPermissionsByObjectMetadataId,
-        objectMetadataId: objectMetadataItem.id,
-      }),
-      fieldMetadataItem: {
-        id: fieldMetadataItem.id,
-        isUIReadOnly: fieldMetadataItem.isUIReadOnly ?? false,
-        isCustom: fieldMetadataItem.isCustom ?? false,
-      },
+  const fieldContextValue = useMemo(
+    () => ({
+      recordId: targetRecord.id,
+      maxWidth: 200,
+      isLabelIdentifier: false,
       fieldDefinition,
-      objectPermissionsByObjectMetadataId,
+      useUpdateRecord: useUpdateOneObjectRecordMutation,
+      isDisplayModeFixHeight: false,
+      isRecordFieldReadOnly: isRecordFieldReadOnly({
+        isRecordReadOnly,
+        isSystemObject: objectMetadataItem.isSystem,
+        objectPermissions: getObjectPermissionsFromMapByObjectMetadataId({
+          objectPermissionsByObjectMetadataId,
+          objectMetadataId: objectMetadataItem.id,
+        }),
+        fieldMetadataItem: {
+          id: fieldMetadataItem.id,
+          isUIReadOnly: fieldMetadataItem.isUIReadOnly ?? false,
+          isCustom: fieldMetadataItem.isCustom ?? false,
+        },
+        fieldDefinition,
+        objectPermissionsByObjectMetadataId,
+      }),
+      anchorId: recordFieldInputInstanceId,
     }),
-    anchorId: recordFieldInputInstanceId,
-  } satisfies GenericFieldContextType;
+    [
+      targetRecord.id,
+      fieldDefinition,
+      useUpdateOneObjectRecordMutation,
+      isRecordReadOnly,
+      objectMetadataItem.isSystem,
+      objectPermissionsByObjectMetadataId,
+      fieldMetadataItem.id,
+      fieldMetadataItem.isUIReadOnly,
+      fieldMetadataItem.isCustom,
+      recordFieldInputInstanceId,
+    ],
+  );
+
+  const scopeContextValue = useMemo(
+    () => ({ scopeInstanceId: instanceId }),
+    [instanceId],
+  );
+
+  const recordFieldInstanceContextValue = useMemo(
+    () => ({ instanceId: recordFieldInputInstanceId }),
+    [recordFieldInputInstanceId],
+  );
 
   return (
-    <RecordFieldsScopeContextProvider value={{ scopeInstanceId: instanceId }}>
+    <RecordFieldsScopeContextProvider value={scopeContextValue}>
       <RecordFieldComponentInstanceContext.Provider
-        value={{
-          instanceId: recordFieldInputInstanceId,
-        }}
+        value={recordFieldInstanceContextValue}
       >
         <FieldContext.Provider value={fieldContextValue}>
           <FieldWidgetEditAction />

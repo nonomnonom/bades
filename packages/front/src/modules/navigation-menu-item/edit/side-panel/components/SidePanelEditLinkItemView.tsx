@@ -1,5 +1,5 @@
 import { isNonEmptyString } from '@sniptt/guards';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ensureAbsoluteUrl } from 'shared/utils';
 import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 
@@ -38,7 +38,7 @@ export const SidePanelEditLinkItemView = ({
   showMoveToFolder = false,
 }: SidePanelEditLinkItemViewProps) => {
   const [urlEditInput, setUrlEditInput] = useState('');
-  const [lastAutoSetName, setLastAutoSetName] = useState<string | null>(null);
+  const lastAutoSetNameRef = useRef<string | null>(null);
 
   const defaultLabel = `Label tautan`;
   const selectableItemIds =
@@ -51,7 +51,7 @@ export const SidePanelEditLinkItemView = ({
   const canAutoUpdateName =
     currentName === defaultLabel ||
     currentName === currentDomain ||
-    currentName === lastAutoSetName;
+    currentName === lastAutoSetNameRef.current;
 
   const handleUrlChange = (value: string) => {
     setUrlEditInput(value);
@@ -60,7 +60,7 @@ export const SidePanelEditLinkItemView = ({
     if (!isNonEmptyString(trimmed)) return;
     const domain = extractDomainFromUrl(ensureAbsoluteUrl(trimmed));
     if (domain !== undefined) {
-      setLastAutoSetName(domain);
+      lastAutoSetNameRef.current = domain;
       onUpdateLink(selectedItem.id, { name: domain });
     }
   };

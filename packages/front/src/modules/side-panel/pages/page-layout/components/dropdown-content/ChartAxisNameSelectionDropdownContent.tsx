@@ -14,6 +14,13 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { MenuItemSelect } from 'ui/navigation';
 import { AxisNameDisplay } from '~/generated-metadata/graphql';
 
+const axisOptions: AxisNameDisplay[] = [
+  AxisNameDisplay.NONE,
+  AxisNameDisplay.X,
+  AxisNameDisplay.Y,
+  AxisNameDisplay.BOTH,
+];
+
 export const ChartAxisNameSelectionDropdownContent = () => {
   const { pageLayoutId } = usePageLayoutIdFromContextStore();
   const { widgetInEditMode } = useWidgetInEditMode(pageLayoutId);
@@ -38,13 +45,6 @@ export const ChartAxisNameSelectionDropdownContent = () => {
     selectedItemIdComponentState,
     dropdownId,
   );
-
-  const axisOptions: AxisNameDisplay[] = [
-    AxisNameDisplay.NONE,
-    AxisNameDisplay.X,
-    AxisNameDisplay.Y,
-    AxisNameDisplay.BOTH,
-  ];
 
   const { updateCurrentWidgetConfig } =
     useUpdateCurrentWidgetConfig(pageLayoutId);

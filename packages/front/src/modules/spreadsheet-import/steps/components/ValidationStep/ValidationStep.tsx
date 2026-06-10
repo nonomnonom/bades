@@ -126,11 +126,8 @@ export const ValidationStep = ({
   const [data, setData] = useState<
     (ImportedStructuredRow & ImportedStructuredRowMetadata)[]
   >(
-    useMemo(
-      () => addErrorsAndRunHooks(initialData, fields, rowHook, tableHook),
-      // oxlint-disable-next-line react-hooks/exhaustive-deps
-      [],
-    ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    () => addErrorsAndRunHooks(initialData, fields, rowHook, tableHook),
   );
   const [selectedRows, setSelectedRows] = useState<
     ReadonlySet<number | string>

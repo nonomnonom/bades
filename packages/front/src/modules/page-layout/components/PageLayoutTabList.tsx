@@ -249,6 +249,11 @@ export const PageLayoutTabList = ({
     [setPageLayoutTabSettingsOpenTabId, navigatePageLayoutSidePanel],
   );
 
+  const tabListComponentInstanceContextValue = useMemo(
+    () => ({ instanceId: componentInstanceId }),
+    [componentInstanceId],
+  );
+
   const isTabSettingsOpen = isDefined(pageLayoutTabSettingsOpenTabId);
 
   const handleSelectTab = useCallback(
@@ -319,7 +324,7 @@ export const PageLayoutTabList = ({
 
   return (
     <TabListComponentInstanceContext.Provider
-      value={{ instanceId: componentInstanceId }}
+      value={tabListComponentInstanceContextValue}
     >
       <TabListFromUrlOptionalEffect
         isInSidePanel={!!isInSidePanel}

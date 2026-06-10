@@ -10,6 +10,7 @@ import { recordIndexRecordIdsByGroupComponentFamilyState } from '@/object-record
 import { DragAndDropLibraryLegacyReRenderBreaker } from '@/ui/drag-and-drop/components/DragAndDropReRenderBreaker';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useAtomComponentFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilyStateValue';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 const StyledColumn = styled.div`
@@ -51,15 +52,23 @@ export const RecordBoardColumn = ({
     return null;
   }
 
+  const contextValue = useMemo(
+    () => ({
+      columnDefinition: recordGroupDefinition,
+      columnId: recordBoardColumnId,
+      recordIds: recordIndexRecordIdsByGroup,
+      columnIndex: recordBoardColumnIndex,
+    }),
+    [
+      recordGroupDefinition,
+      recordBoardColumnId,
+      recordIndexRecordIdsByGroup,
+      recordBoardColumnIndex,
+    ],
+  );
+
   return (
-    <RecordBoardColumnContext.Provider
-      value={{
-        columnDefinition: recordGroupDefinition,
-        columnId: recordBoardColumnId,
-        recordIds: recordIndexRecordIdsByGroup,
-        columnIndex: recordBoardColumnIndex,
-      }}
-    >
+    <RecordBoardColumnContext.Provider value={contextValue}>
       <Droppable droppableId={recordBoardColumnId} ignoreContainerClipping>
         {(droppableProvided) => (
           <StyledColumn

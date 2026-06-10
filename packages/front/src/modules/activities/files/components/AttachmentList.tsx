@@ -145,9 +145,7 @@ export const AttachmentList = ({
   };
 
   const onUploadFiles = async (files: File[]) => {
-    for (const file of files) {
-      await onUploadFile(file);
-    }
+    await Promise.all(files.map((file) => onUploadFile(file)));
   };
 
   const handlePreview = (attachment: AttachmentWithFile) => {

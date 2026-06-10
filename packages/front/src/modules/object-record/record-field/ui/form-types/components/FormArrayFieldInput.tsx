@@ -126,8 +126,8 @@ export const FormArrayFieldInput = ({
   const [newItemDraftValue, setNewItemDraftValue] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [isInputDisplayed, setIsInputDisplayed] = useState(false);
-  const [itemToEditIndex, setItemToEditIndex] = useState(-1);
-  const isAddingNewItem = itemToEditIndex === -1;
+  const itemToEditIndexRef = useRef(-1);
+  const isAddingNewItem = itemToEditIndexRef.current === -1;
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -168,7 +168,7 @@ export const FormArrayFieldInput = ({
 
   const handleEditItem = (index: number) => {
     setInputValue(draftValue.value[index]);
-    setItemToEditIndex(index);
+    itemToEditIndexRef.current = index;
     setIsInputDisplayed(true);
   };
 
@@ -241,13 +241,13 @@ export const FormArrayFieldInput = ({
     }
 
     if (sanitizedInput === '' && !isAddingNewItem) {
-      handleDeleteItem(itemToEditIndex);
+      handleDeleteItem(itemToEditIndexRef.current);
       return;
     }
 
     const items = draftValue.value;
 
-    if (!isAddingNewItem && sanitizedInput === items[itemToEditIndex]) {
+    if (!isAddingNewItem &&      sanitizedInput === items[itemToEditIndexRef.current]) {
       setIsInputDisplayed(false);
       setInputValue('');
       return;
@@ -255,7 +255,7 @@ export const FormArrayFieldInput = ({
 
     const updatedItems = isAddingNewItem
       ? [...items, sanitizedInput]
-      : toSpliced(items, itemToEditIndex, 1, sanitizedInput);
+      : toSpliced(items, itemToEditIndexRef.current, 1, sanitizedInput);
 
     setDraftValue({
       type: 'static',
@@ -272,7 +272,7 @@ export const FormArrayFieldInput = ({
   };
 
   const handleAddItemButtonClick = () => {
-    setItemToEditIndex(-1);
+    itemToEditIndexRef.current = -1;
     setIsInputDisplayed(true);
   };
 

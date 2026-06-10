@@ -104,6 +104,11 @@ export const RecordTableWidgetProvider = ({
     return null;
   }
 
+  const viewComponentInstanceContextValue = useMemo(
+    () => ({ instanceId: recordIndexId }),
+    [recordIndexId],
+  );
+
   return (
     <ContextStoreComponentInstanceContext.Provider
       value={contextStoreInstanceContextValue}
@@ -114,7 +119,7 @@ export const RecordTableWidgetProvider = ({
       />
       <RecordIndexContextProvider value={recordIndexContextValue}>
         <ViewComponentInstanceContext.Provider
-          value={{ instanceId: recordIndexId }}
+          value={viewComponentInstanceContextValue}
         >
           <RecordComponentInstanceContextsWrapper
             componentInstanceId={recordIndexId}

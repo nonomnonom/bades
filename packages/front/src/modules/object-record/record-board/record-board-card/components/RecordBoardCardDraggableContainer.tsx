@@ -1,6 +1,6 @@
 import { Draggable } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import { useIsRecordReadOnly } from '@/object-record/read-only/hooks/useIsRecordReadOnly';
 import { RecordBoardContext } from '@/object-record/record-board/contexts/RecordBoardContext';
@@ -53,10 +53,13 @@ export const RecordBoardCardDraggableContainer = ({
     },
   );
 
+  const contextValue = useMemo(
+    () => ({ recordId, isRecordReadOnly, rowIndex, columnIndex }),
+    [recordId, isRecordReadOnly, rowIndex, columnIndex],
+  );
+
   return (
-    <RecordBoardCardContext.Provider
-      value={{ recordId, isRecordReadOnly, rowIndex, columnIndex }}
-    >
+    <RecordBoardCardContext.Provider value={contextValue}>
       <Draggable
         key={recordId}
         draggableId={recordId}

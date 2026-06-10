@@ -51,6 +51,14 @@ type SidePanelDashboardRecordTableSettingsContentProps = {
   viewId: string;
 };
 
+const selectableItemIds = [
+  'object-view-layout',
+  'record-table-source',
+  'record-table-fields',
+  'record-table-filter',
+  'record-table-sort',
+];
+
 const SidePanelDashboardRecordTableSettingsContent = ({
   pageLayoutId,
   widgetInEditMode,
@@ -82,14 +90,6 @@ const SidePanelDashboardRecordTableSettingsContent = ({
     });
 
   const layoutDescription = displayViewType === ViewType.MAP ? `Peta` : `Tabel`;
-
-  const selectableItemIds = [
-    'object-view-layout',
-    'record-table-source',
-    'record-table-fields',
-    'record-table-filter',
-    'record-table-sort',
-  ];
 
   const handleFilterClick = () => {
     navigateToSidePanelSubPage(SidePanelSubPages.PageLayoutRecordTableFilter);

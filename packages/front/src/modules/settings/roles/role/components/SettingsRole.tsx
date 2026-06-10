@@ -27,6 +27,24 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 import { getDirtyFields } from '~/utils/getDirtyFields';
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 
+const tabs = [
+  {
+    id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.PERMISSIONS,
+    title: `Izin`,
+    Icon: IconLockOpen,
+  },
+  {
+    id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.ASSIGNMENT,
+    title: `Penugasan`,
+    Icon: IconUserPlus,
+  },
+  {
+    id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.SETTINGS,
+    title: `Pengaturan`,
+    Icon: IconSettings,
+  },
+];
+
 type SettingsRoleProps = {
   roleId: string;
   isCreateMode: boolean;
@@ -73,24 +91,6 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
   });
 
   const isRoleEditable = settingsDraftRole.isEditable;
-
-  const tabs = [
-    {
-      id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.PERMISSIONS,
-      title: `Izin`,
-      Icon: IconLockOpen,
-    },
-    {
-      id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.ASSIGNMENT,
-      title: `Penugasan`,
-      Icon: IconUserPlus,
-    },
-    {
-      id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: `Pengaturan`,
-      Icon: IconSettings,
-    },
-  ];
 
   const isDirty = !isDeeplyEqual(settingsDraftRole, settingsPersistedRole);
 

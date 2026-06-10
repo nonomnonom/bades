@@ -10,17 +10,17 @@ import {
 } from '~/generated-metadata/graphql';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
+const rowsDefinitions = [
+  { name: 'Pengaturan Domain', validationType: 'redirection' as const },
+  { name: 'Koneksi Aman', validationType: 'ssl' as const },
+];
+
 export const SettingsDomainRecords = ({
   records,
 }: {
   records: DomainValidRecords['records'];
 }) => {
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
-
-  const rowsDefinitions = [
-    { name: 'Pengaturan Domain', validationType: 'redirection' as const },
-    { name: 'Koneksi Aman', validationType: 'ssl' as const },
-  ];
 
   const defaultValues: { status: string; statusColor: ThemeColor } =
     currentWorkspace?.customDomain

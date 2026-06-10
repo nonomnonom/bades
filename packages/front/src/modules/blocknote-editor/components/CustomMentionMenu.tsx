@@ -24,6 +24,10 @@ const StyledContainer = styled.div`
   width: 1px;
 `;
 
+const handleContainerClick = (e: ReactMouseEvent) => {
+  e.stopPropagation();
+};
+
 export const CustomMentionMenu = ({
   items,
   selectedIndex,
@@ -33,10 +37,6 @@ export const CustomMentionMenu = ({
     placement: 'bottom-start',
     whileElementsMounted: autoUpdate,
   });
-
-  const handleContainerClick = (e: ReactMouseEvent) => {
-    e.stopPropagation();
-  };
 
   if (!isDefined(items) || items.length === 0) {
     return null;

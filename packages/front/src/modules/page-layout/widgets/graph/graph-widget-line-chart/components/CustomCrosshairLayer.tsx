@@ -7,6 +7,12 @@ import { type MouseEvent, useCallback, useContext, useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
 
+const transition = {
+  type: 'spring',
+  stiffness: LINE_CHART_CONSTANTS.CROSSHAIR_TRANSITION_STIFFNESS,
+  damping: LINE_CHART_CONSTANTS.CROSSHAIR_TRANSITION_DAMPING,
+} as const;
+
 export type SliceHoverData = {
   sliceX: number;
   mouseY: number;
@@ -132,12 +138,6 @@ export const CustomCrosshairLayer = ({
     },
     [buildSliceData, onSliceClick],
   );
-
-  const transition = {
-    type: 'spring',
-    stiffness: LINE_CHART_CONSTANTS.CROSSHAIR_TRANSITION_STIFFNESS,
-    damping: LINE_CHART_CONSTANTS.CROSSHAIR_TRANSITION_DAMPING,
-  } as const;
 
   return (
     <g>

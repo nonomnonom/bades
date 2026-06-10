@@ -1,7 +1,7 @@
 import { Trans } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useMemo, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useDebounce } from 'use-debounce';
 
@@ -83,7 +83,7 @@ export const SettingsWorkspaceMembersTeamTab = () => {
   const navigateApp = useNavigateApp();
   const navigateSettings = useNavigateSettings();
   const { closeDropdown } = useCloseDropdown();
-  const [isFetchingMore, setIsFetchingMore] = useState(false);
+  const isFetchingMoreRef = useRef(false);
   const [searchFilter, setSearchFilter] = useState('');
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
@@ -123,10 +123,10 @@ export const SettingsWorkspaceMembersTeamTab = () => {
 
   const { ref: fetchMoreRef } = useInView({
     onChange: async (inView) => {
-      if (inView && hasNextPage && !loading && !isFetchingMore) {
-        setIsFetchingMore(true);
+      if (inView && hasNextPage && !loading && !isFetchingMoreRef.current) {
+        isFetchingMoreRef.current = true;
         await fetchMoreRecords();
-        setIsFetchingMore(false);
+        isFetchingMoreRef.current = false;
       }
     },
     delay: 100,

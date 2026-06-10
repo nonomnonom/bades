@@ -18,6 +18,7 @@ import { useAtomComponentFamilyState } from '@/ui/utilities/state/jotai/hooks/us
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useGetCurrentViewOnly } from '@/views/hooks/useGetCurrentViewOnly';
 import { styled } from '@linaria/react';
+import { useMemo } from 'react';
 import { AnimatedEaseInOut } from 'ui/utilities';
 
 const StyledContainer = styled.div`
@@ -74,12 +75,15 @@ export const RecordCalendarCard = ({ recordId }: RecordCalendarCardProps) => {
     });
   };
 
+  const contextValue = useMemo(
+    () => ({
+      instanceId: recordId,
+    }),
+    [recordId],
+  );
+
   return (
-    <RecordCalendarCardComponentInstanceContext.Provider
-      value={{
-        instanceId: recordId,
-      }}
-    >
+    <RecordCalendarCardComponentInstanceContext.Provider value={contextValue}>
       <RecordFieldsScopeContextProvider
         value={{ scopeInstanceId: RECORD_CALENDAR_CARD_INPUT_ID_PREFIX }}
       >

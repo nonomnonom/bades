@@ -13,7 +13,26 @@ import { isRecordTableInitialLoadingComponentState } from '@/object-record/recor
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useAtomComponentFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilySelectorValue';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
+import { useMemo } from 'react';
 import { ViewType } from '@/views/types/ViewType';
+
+const RecordGroupContextProviderForBody = ({
+  recordGroupId,
+  children,
+}: {
+  recordGroupId: string;
+  children: React.ReactNode;
+}) => {
+  const contextValue = useMemo(
+    () => ({ recordGroupId }),
+    [recordGroupId],
+  );
+  return (
+    <RecordGroupContext.Provider value={contextValue}>
+      {children}
+    </RecordGroupContext.Provider>
+  );
+};
 
 export const RecordTableRecordGroupsBody = () => {
   const allRecordIds = useAtomComponentSelectorValue(
@@ -41,7 +60,7 @@ export const RecordTableRecordGroupsBody = () => {
             key={recordGroupId}
             recordGroupId={recordGroupId}
           >
-            <RecordGroupContext.Provider value={{ recordGroupId }}>
+            <RecordGroupContextProviderForBody recordGroupId={recordGroupId}>
               <RecordTableBodyRecordGroupDroppable
                 recordGroupId={recordGroupId}
               >
@@ -49,7 +68,7 @@ export const RecordTableRecordGroupsBody = () => {
                 <RecordTableRecordGroupRows />
                 {index === 0 && <RecordTableCellPortals />}
               </RecordTableBodyRecordGroupDroppable>
-            </RecordGroupContext.Provider>
+            </RecordGroupContextProviderForBody>
           </RecordTableRecordGroupBodyContextProvider>
         ))}
         <RecordIndexGroupAggregatesDataLoader />

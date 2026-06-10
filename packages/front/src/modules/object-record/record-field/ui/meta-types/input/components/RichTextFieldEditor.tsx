@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useAtom, useStore } from 'jotai';
 
 import { BLOCK_SCHEMA } from '@/blocknote-editor/blocks/Schema';
@@ -223,14 +223,14 @@ export const RichTextFieldEditor = ({
     fieldName,
   );
 
-  const [currentRecordId, setCurrentRecordId] = useState(recordId);
+  const currentRecordIdRef = useRef(recordId);
 
   useEffect(() => {
-    if (currentRecordId !== recordId) {
+    if (currentRecordIdRef.current !== recordId) {
       replaceBlockEditorContent(recordId);
-      setCurrentRecordId(recordId);
+      currentRecordIdRef.current = recordId;
     }
-  }, [recordId, currentRecordId, replaceBlockEditorContent]);
+  }, [recordId, replaceBlockEditorContent]);
 
   useHotkeysOnFocusedElement({
     keys: Key.Escape,

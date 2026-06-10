@@ -12,7 +12,7 @@ import { currentFocusIdSelector } from '@/ui/utilities/focus/states/currentFocus
 import { useAvailableComponentInstanceId } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceId';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useStore } from 'jotai';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 type RecordCalendarCardInputContextProviderProps = {
   children: React.ReactNode;
@@ -39,25 +39,31 @@ export const RecordCalendarCardInputContextProvider = ({
   const { persistFieldFromFieldInputContext } =
     usePersistFieldFromFieldInputContext();
 
-  const handleEnter: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEnter: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
+      closeInlineCellAndResetEditModePosition();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+  );
+
+  const handleSubmit: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
+
+      closeInlineCellAndResetEditModePosition();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+  );
+
+  const handleCancel = useCallback(() => {
     closeInlineCellAndResetEditModePosition();
-  };
-
-  const handleSubmit: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
-
-    closeInlineCellAndResetEditModePosition();
-  };
-
-  const handleCancel = () => {
-    closeInlineCellAndResetEditModePosition();
-  };
+  }, [closeInlineCellAndResetEditModePosition]);
 
   const handleClickOutside: FieldInputClickOutsideEvent = useCallback(
     ({ newValue, event, skipPersist }) => {
@@ -83,42 +89,62 @@ export const RecordCalendarCardInputContextProvider = ({
     ],
   );
 
-  const handleEscape: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEscape: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeInlineCellAndResetEditModePosition();
-  };
+      closeInlineCellAndResetEditModePosition();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+  );
 
-  const handleTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeInlineCellAndResetEditModePosition();
-  };
+      closeInlineCellAndResetEditModePosition();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+  );
 
-  const handleShiftTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleShiftTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeInlineCellAndResetEditModePosition();
-  };
+      closeInlineCellAndResetEditModePosition();
+    },
+    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      onCancel: handleCancel,
+      onEnter: handleEnter,
+      onEscape: handleEscape,
+      onClickOutside: handleClickOutside,
+      onShiftTab: handleShiftTab,
+      onSubmit: handleSubmit,
+      onTab: handleTab,
+    }),
+    [
+      handleCancel,
+      handleEnter,
+      handleEscape,
+      handleClickOutside,
+      handleShiftTab,
+      handleSubmit,
+      handleTab,
+    ],
+  );
 
   return (
-    <FieldInputEventContext.Provider
-      value={{
-        onCancel: handleCancel,
-        onEnter: handleEnter,
-        onEscape: handleEscape,
-        onClickOutside: handleClickOutside,
-        onShiftTab: handleShiftTab,
-        onSubmit: handleSubmit,
-        onTab: handleTab,
-      }}
-    >
+    <FieldInputEventContext.Provider value={contextValue}>
       {children}
     </FieldInputEventContext.Provider>
   );

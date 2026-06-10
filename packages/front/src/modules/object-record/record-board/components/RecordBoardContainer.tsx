@@ -15,6 +15,7 @@ import { RECORD_INDEX_REMOVE_SORTING_MODAL_ID } from '@/object-record/record-ind
 
 import { isModalOpenedComponentState } from '@/ui/layout/modal/states/isModalOpenedComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
+import { useCallback, useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 type RecordBoardContainerProps = {
@@ -46,14 +47,17 @@ export const RecordBoardContainer = ({
     shouldMatchRootQueryFilter: true,
   });
 
-  const updateOneRecord = (args: {
-    idToUpdate: string;
-    updateOneRecordInput: Record<string, unknown>;
-  }) =>
-    updateOneRecordHook({
-      objectNameSingular,
-      ...args,
-    });
+  const updateOneRecord = useCallback(
+    (args: {
+      idToUpdate: string;
+      updateOneRecordInput: Record<string, unknown>;
+    }) =>
+      updateOneRecordHook({
+        objectNameSingular,
+        ...args,
+      }),
+    [updateOneRecordHook, objectNameSingular],
+  );
 
   const isModalOpened = useAtomComponentStateValue(
     isModalOpenedComponentState,
@@ -64,20 +68,36 @@ export const RecordBoardContainer = ({
     return null;
   }
 
+  const contextValue = useMemo(
+    () => ({
+      objectMetadataItem,
+      selectFieldMetadataItem: recordIndexGroupFieldMetadataItem,
+      createOneRecord,
+      updateOneRecord,
+      deleteOneRecord,
+      recordBoardId,
+      objectPermissions,
+    }),
+    [
+      objectMetadataItem,
+      recordIndexGroupFieldMetadataItem,
+      createOneRecord,
+      updateOneRecord,
+      deleteOneRecord,
+      recordBoardId,
+      objectPermissions,
+    ],
+  );
+
+  const componentInstanceContextValue = useMemo(
+    () => ({ instanceId: recordBoardId }),
+    [recordBoardId],
+  );
+
   return (
-    <RecordBoardContext.Provider
-      value={{
-        objectMetadataItem,
-        selectFieldMetadataItem: recordIndexGroupFieldMetadataItem,
-        createOneRecord,
-        updateOneRecord,
-        deleteOneRecord,
-        recordBoardId,
-        objectPermissions,
-      }}
-    >
+    <RecordBoardContext.Provider value={contextValue}>
       <RecordBoardComponentInstanceContext.Provider
-        value={{ instanceId: recordBoardId }}
+        value={componentInstanceContextValue}
       >
         <RecordBoard />
         {isModalOpened && <RecordIndexRemoveSortingModal />}

@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
+import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/const/skeleton-loader-height-sizes.const';
+
 const StyledSkeletonContainer = styled.div`
   align-content: flex-start;
   align-items: center;
@@ -25,21 +27,6 @@ const StyledSkeletonSubSectionContent = styled.div`
   gap: ${themeCssVariables.spacing[3]};
   justify-content: center;
 `;
-
-export const SKELETON_LOADER_HEIGHT_SIZES = {
-  standard: {
-    xs: 13,
-    s: 16,
-    m: 24,
-    l: 32,
-    xl: 40,
-  },
-  columns: {
-    s: 84,
-    m: 120,
-    xxl: 542,
-  },
-};
 
 const SkeletonColumnLoader = ({ height }: { height: number }) => {
   const { theme } = useContext(ThemeContext);

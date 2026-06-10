@@ -5,7 +5,7 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
 import { useCreateDefaultViewForObject } from '@/views/hooks/useCreateDefaultViewForObject';
 import { viewFromViewIdFamilySelector } from '@/views/states/selectors/viewFromViewIdFamilySelector';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { isDefined } from 'shared/utils';
 
 export const RecordIndexLoadBaseOnContextStoreEffect = () => {
@@ -14,9 +14,7 @@ export const RecordIndexLoadBaseOnContextStoreEffect = () => {
     contextStoreCurrentViewIdComponentState,
   );
 
-  const [loadedViewId, setLoadedViewId] = useState<string | undefined>(
-    undefined,
-  );
+  const loadedViewIdRef = useRef<string | undefined>(undefined);
 
   const view = useAtomFamilySelectorValue(viewFromViewIdFamilySelector, {
     viewId: contextStoreCurrentViewId ?? '',
@@ -29,7 +27,7 @@ export const RecordIndexLoadBaseOnContextStoreEffect = () => {
   useEffect(() => {
     if (
       isDefined(contextStoreCurrentViewId) &&
-      loadedViewId === contextStoreCurrentViewId
+      loadedViewIdRef.current === contextStoreCurrentViewId
     ) {
       return;
     }
@@ -40,14 +38,13 @@ export const RecordIndexLoadBaseOnContextStoreEffect = () => {
 
     if (isDefined(view)) {
       loadRecordIndexStates(view, objectMetadataItem);
-      setLoadedViewId(contextStoreCurrentViewId);
+      loadedViewIdRef.current = contextStoreCurrentViewId;
     } else {
       createDefaultViewForObject(objectMetadataItem);
     }
   }, [
     contextStoreCurrentViewId,
     loadRecordIndexStates,
-    loadedViewId,
     objectMetadataItem,
     view,
     createDefaultViewForObject,

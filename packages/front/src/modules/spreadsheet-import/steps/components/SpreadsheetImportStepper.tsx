@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useRef, useState } from 'react';
 import { useSpreadsheetImportInternal } from '@/spreadsheet-import/hooks/useSpreadsheetImportInternal';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { ModalContent } from 'ui/layout';
@@ -30,10 +30,15 @@ export const SpreadsheetImportStepper = ({
     useState<SpreadsheetImportStep>(
       initialStepState ?? { type: SpreadsheetImportStepType.upload },
     );
-  const [previousStepState, setPreviousStepState] =
-    useState<SpreadsheetImportStep>(
-      initialStepState ?? { type: SpreadsheetImportStepType.upload },
-    );
+  const previousStepStateRef = useRef<SpreadsheetImportStep>(
+    initialStepState ?? { type: SpreadsheetImportStepType.upload },
+  );
+  const setPreviousStepState = useCallback(
+    (value: SpreadsheetImportStep) => {
+      previousStepStateRef.current = value;
+    },
+    [],
+  );
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
@@ -49,9 +54,9 @@ export const SpreadsheetImportStepper = ({
   );
 
   const handleBack = useCallback(() => {
-    setCurrentStepState(previousStepState);
+    setCurrentStepState(previousStepStateRef.current);
     prevStep();
-  }, [prevStep, previousStepState]);
+  }, [prevStep]);
 
   switch (currentStepState.type) {
     case SpreadsheetImportStepType.upload:

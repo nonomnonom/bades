@@ -14,7 +14,7 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { useMutation } from '@apollo/client/react';
 import { getOperationName } from '~/utils/getOperationName';
 import { styled } from '@linaria/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   IconDotsVertical,
@@ -63,7 +63,7 @@ export const SettingsAgentEvalsTab = ({
   disabled = false,
 }: SettingsAgentEvalsTabProps) => {
   const [newInput, setNewInput] = useState('');
-  const [inputToDelete, setInputToDelete] = useState<string | null>(null);
+  const inputToDeleteRef = useRef<string | null>(null);
   const { openModal } = useModal();
   const { closeDropdown } = useCloseDropdown();
   const { enqueueErrorSnackBar } = useSnackBar();
@@ -103,19 +103,19 @@ export const SettingsAgentEvalsTab = ({
   };
 
   const handleDeleteInput = () => {
-    if (inputToDelete !== null) {
-      const index = evalInputs.findIndex((input) => input.id === inputToDelete);
+    if (inputToDeleteRef.current !== null) {
+      const index = evalInputs.findIndex((input) => input.id === inputToDeleteRef.current);
       if (index !== -1) {
         const newInputs = [...evaluationInputs];
         newInputs.splice(index, 1);
         onEvaluationInputsChange(newInputs);
       }
-      setInputToDelete(null);
+      inputToDeleteRef.current = null;
     }
   };
 
   const openDeleteModal = (id: string) => {
-    setInputToDelete(id);
+    inputToDeleteRef.current = id;
     openModal(DELETE_EVAL_INPUT_MODAL_ID);
   };
 

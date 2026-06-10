@@ -5,7 +5,7 @@ import { useLoadMinimalMetadata } from '@/metadata-store/hooks/useLoadMinimalMet
 import { useLoadStaleMetadataEntities } from '@/metadata-store/hooks/useLoadStaleMetadataEntities';
 import { metadataLoadedVersionState } from '@/metadata-store/states/metadataLoadedVersionState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { isWorkspaceActiveOrSuspended } from 'shared/workspace';
 
 export const MinimalMetadataLoadEffect = () => {
@@ -13,7 +13,7 @@ export const MinimalMetadataLoadEffect = () => {
   const isCurrentUserLoaded = useAtomStateValue(isCurrentUserLoadedState);
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const metadataLoadedVersion = useAtomStateValue(metadataLoadedVersionState);
-  const [lastLoadedVersion, setLastLoadedVersion] = useState<number>(-1);
+  const lastLoadedVersionRef = useRef<number>(-1);
 
   const { loadMinimalMetadata } = useLoadMinimalMetadata();
   const { loadStaleMetadataEntities } = useLoadStaleMetadataEntities();
@@ -30,11 +30,11 @@ export const MinimalMetadataLoadEffect = () => {
       return;
     }
 
-    if (metadataLoadedVersion === lastLoadedVersion) {
+    if (metadataLoadedVersion === lastLoadedVersionRef.current) {
       return;
     }
 
-    setLastLoadedVersion(metadataLoadedVersion);
+    lastLoadedVersionRef.current = metadataLoadedVersion;
 
     const performLoad = async () => {
       const result = await loadMinimalMetadata();
@@ -48,7 +48,6 @@ export const MinimalMetadataLoadEffect = () => {
   }, [
     isCurrentUserLoaded,
     shouldLoadRealMetadata,
-    lastLoadedVersion,
     metadataLoadedVersion,
     loadMinimalMetadata,
     loadStaleMetadataEntities,

@@ -53,9 +53,7 @@ export const FilesCard = () => {
   };
 
   const onUploadFiles = async (files: File[]) => {
-    for (const file of files) {
-      await onUploadFile(file);
-    }
+    await Promise.all(files.map((file) => onUploadFile(file)));
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -39,6 +39,14 @@ const LABEL_IDENTIFIER_FIELD_METADATA_ID: SettingsDataModelObjectIdentifiers =
 const IMAGE_IDENTIFIER_FIELD_METADATA_ID: SettingsDataModelObjectIdentifiers =
   'imageIdentifierFieldMetadataId';
 
+const imageIdentifierFieldOptions: SelectOption<string | null>[] = [];
+
+const emptyOption: SelectOption<string | null> = {
+  Icon: IconCircleOff,
+  label: `Tidak ada`,
+  value: null,
+};
+
 const StyledContainer = styled.div`
   display: flex;
   gap: ${themeCssVariables.spacing[4]};
@@ -89,13 +97,6 @@ export const SettingsDataModelObjectIdentifiersForm = ({
         })),
     [getIcon, objectMetadataItem],
   );
-  const imageIdentifierFieldOptions: SelectOption<string | null>[] = [];
-
-  const emptyOption: SelectOption<string | null> = {
-    Icon: IconCircleOff,
-    label: `Tidak ada`,
-    value: null,
-  };
 
   const navigate = useNavigate();
 

@@ -59,13 +59,16 @@ export const RecordTitleCell = ({
   const { persistFieldFromFieldInputContext } =
     usePersistFieldFromFieldInputContext();
 
-  const handleEnter: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleEnter: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeCell();
-  };
+      closeCell();
+    },
+    [persistFieldFromFieldInputContext, closeCell],
+  );
 
   const handleClickOutside: FieldInputClickOutsideEvent = useCallback(
     ({ newValue, skipPersist }) => {
@@ -78,37 +81,46 @@ export const RecordTitleCell = ({
     [closeCell, persistFieldFromFieldInputContext],
   );
 
-  const handleEscape: FieldInputEvent = () => {
+  const handleEscape: FieldInputEvent = useCallback(() => {
     closeCell();
-  };
+  }, [closeCell]);
 
-  const handleTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeCell();
-  };
+      closeCell();
+    },
+    [persistFieldFromFieldInputContext, closeCell],
+  );
 
-  const handleShiftTab: FieldInputEvent = ({ newValue, skipPersist }) => {
-    if (skipPersist !== true) {
-      persistFieldFromFieldInputContext(newValue);
-    }
+  const handleShiftTab: FieldInputEvent = useCallback(
+    ({ newValue, skipPersist }) => {
+      if (skipPersist !== true) {
+        persistFieldFromFieldInputContext(newValue);
+      }
 
-    closeCell();
-  };
+      closeCell();
+    },
+    [persistFieldFromFieldInputContext, closeCell],
+  );
+
+  const fieldInputEventContextValue = useMemo(
+    () => ({
+      onClickOutside: handleClickOutside,
+      onEnter: handleEnter,
+      onEscape: handleEscape,
+      onShiftTab: handleShiftTab,
+      onTab: handleTab,
+    }),
+    [handleClickOutside, handleEnter, handleEscape, handleShiftTab, handleTab],
+  );
 
   const recordTitleCellContextValue: RecordTitleCellContextProps = {
     editModeContent: (
-      <FieldInputEventContext.Provider
-        value={{
-          onClickOutside: handleClickOutside,
-          onEnter: handleEnter,
-          onEscape: handleEscape,
-          onShiftTab: handleShiftTab,
-          onTab: handleTab,
-        }}
-      >
+      <FieldInputEventContext.Provider value={fieldInputEventContextValue}>
         <RecordTitleCellFieldInput
           instanceId={getRecordFieldInputInstanceId({
             recordId,

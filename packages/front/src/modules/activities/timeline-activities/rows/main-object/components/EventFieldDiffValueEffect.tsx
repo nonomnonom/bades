@@ -30,6 +30,11 @@ export const EventFieldDiffValueEffect = ({
   const recordStore = useAtomFamilyStateValue(recordStoreFamilyState, recordId);
 
   // oxlint-disable-next-line react-doctor/no-event-handler
+  // False positive: `diffRecord` adalah prop dari parent dan `recordStore`
+  // adalah Jotai atom subscription. Keduanya adalah sumber eksternal yang
+  // TIDAK bisa diobserve melalui event handler komponen ini — useEffect
+  // adalah satu-satunya cara untuk menyinkronkan forged record store ke
+  // atom ketika sumber eksternal berubah.
   useEffect(() => {
     if (!isDefined(diffRecord)) return;
 

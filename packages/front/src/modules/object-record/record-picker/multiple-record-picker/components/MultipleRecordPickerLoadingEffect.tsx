@@ -4,11 +4,11 @@ import { multipleRecordPickerShouldShowSkeletonComponentState } from '@/object-r
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 export const MultipleRecordPickerLoadingEffect = () => {
-  const [previousLoading, setPreviousLoading] = useState(false);
+  const previousLoadingRef = useRef(false);
 
   const multipleRecordPickerIsLoading = useAtomComponentStateValue(
     multipleRecordPickerIsLoadingComponentState,
@@ -28,8 +28,8 @@ export const MultipleRecordPickerLoadingEffect = () => {
   );
 
   useEffect(() => {
-    if (previousLoading !== multipleRecordPickerIsLoading) {
-      setPreviousLoading(multipleRecordPickerIsLoading);
+    if (previousLoadingRef.current !== multipleRecordPickerIsLoading) {
+      previousLoadingRef.current = multipleRecordPickerIsLoading;
 
       if (multipleRecordPickerIsLoading) {
         if (!multipleRecordPickerIsFetchingMore) {
@@ -42,7 +42,6 @@ export const MultipleRecordPickerLoadingEffect = () => {
     }
   }, [
     multipleRecordPickerIsLoading,
-    previousLoading,
     setMultipleRecordPickerShouldShowSkeleton,
     multipleRecordPickerIsFetchingMore,
     debouncedShowPickerSearchSkeleton,

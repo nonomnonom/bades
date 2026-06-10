@@ -25,6 +25,17 @@ type ChartDateGranularitySelectionDropdownContentProps = {
   axis?: 'primary' | 'secondary';
 };
 
+const dateGranularityOptions: ObjectRecordGroupByDateGranularity[] = [
+  ObjectRecordGroupByDateGranularity.DAY,
+  ObjectRecordGroupByDateGranularity.WEEK,
+  ObjectRecordGroupByDateGranularity.MONTH,
+  ObjectRecordGroupByDateGranularity.QUARTER,
+  ObjectRecordGroupByDateGranularity.YEAR,
+  ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK,
+  ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR,
+  ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR,
+];
+
 const getCurrentDateGranularity = ({
   configuration,
   axis,
@@ -113,17 +124,6 @@ export const ChartDateGranularitySelectionDropdownContent = ({
     selectedItemIdComponentState,
     dropdownId,
   );
-
-  const dateGranularityOptions: ObjectRecordGroupByDateGranularity[] = [
-    ObjectRecordGroupByDateGranularity.DAY,
-    ObjectRecordGroupByDateGranularity.WEEK,
-    ObjectRecordGroupByDateGranularity.MONTH,
-    ObjectRecordGroupByDateGranularity.QUARTER,
-    ObjectRecordGroupByDateGranularity.YEAR,
-    ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK,
-    ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR,
-    ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR,
-  ];
 
   const { updateCurrentWidgetConfig } =
     useUpdateCurrentWidgetConfig(pageLayoutId);

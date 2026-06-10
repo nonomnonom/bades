@@ -12,7 +12,7 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useRef,
 } from 'react';
 import { BarChartLayout } from '~/generated-metadata/graphql';
 import { ThemeContext } from 'ui/theme-constants';
@@ -60,21 +60,17 @@ export const BarChartBaseLayerEffect = ({
     theme.animation.duration.normal *
     CHART_CORE_CONSTANTS.MILLISECONDS_PER_SECOND;
 
-  const [dpr] = useState<number>(
-    () =>
-      (typeof window !== 'undefined' ? window.devicePixelRatio : undefined) ||
+  const dprRef = useRef<number>(
+    (typeof window !== 'undefined' ? window.devicePixelRatio : undefined) ||
       CHART_CORE_CONSTANTS.DEFAULT_DEVICE_PIXEL_RATIO,
   );
-  const [chartSize, setChartSize] = useState(() => ({
-    width: chartWidth,
-    height: chartHeight,
-  }));
-  const [animationState, setAnimationState] = useState<AnimationState>(() => ({
+  const chartSizeRef = useRef({ width: chartWidth, height: chartHeight });
+  const animationStateRef = useRef<AnimationState>({
     sourceBars: bars,
     targetBars: bars,
     startTime: performance.now(),
     isAnimating: false,
-  }));
+  });
 
   const innerWidth = chartWidth - margins.left - margins.right;
   const innerHeight = chartHeight - margins.top - margins.bottom;
@@ -93,66 +89,65 @@ export const BarChartBaseLayerEffect = ({
 
   useEffect(() => {
     const sizeIsStable =
-      chartSize.width === chartWidth && chartSize.height === chartHeight;
+      chartSizeRef.current.width === chartWidth && chartSizeRef.current.height === chartHeight;
 
     if (!sizeIsStable) {
-      setChartSize({ width: chartWidth, height: chartHeight });
-      setAnimationState({
+      chartSizeRef.current = { width: chartWidth, height: chartHeight };
+      animationStateRef.current = {
         sourceBars: bars,
         targetBars: bars,
         startTime: performance.now(),
         isAnimating: false,
-      });
+      };
       return;
     }
 
     if (!allowDataTransitions) {
-      setAnimationState({
+      animationStateRef.current = {
         sourceBars: bars,
         targetBars: bars,
         startTime: performance.now(),
         isAnimating: false,
-      });
+      };
       return;
     }
 
-    setAnimationState((prev) => {
-      const now = performance.now();
+    const prev = animationStateRef.current;
+    const now = performance.now();
 
-      if (prev.targetBars === bars) {
-        return prev;
-      }
+    if (prev.targetBars === bars) {
+      return;
+    }
 
-      if (bars.length === 0 && prev.targetBars.length === 0) {
-        return {
-          sourceBars: bars,
-          targetBars: bars,
-          startTime: now,
-          isAnimating: false,
-        };
-      }
-
-      const sourceBars = prev.isAnimating
-        ? interpolateBars(
-            prev.sourceBars,
-            prev.targetBars,
-            Math.min((now - prev.startTime) / durationMs, 1),
-            toBaselineBar,
-          )
-        : prev.targetBars;
-
-      return {
-        sourceBars,
+    if (bars.length === 0 && prev.targetBars.length === 0) {
+      animationStateRef.current = {
+        sourceBars: bars,
         targetBars: bars,
         startTime: now,
-        isAnimating: true,
+        isAnimating: false,
       };
-    });
+      return;
+    }
+
+    const sourceBars = prev.isAnimating
+      ? interpolateBars(
+          prev.sourceBars,
+          prev.targetBars,
+          Math.min((now - prev.startTime) / durationMs, 1),
+          toBaselineBar,
+        )
+      : prev.targetBars;
+
+    animationStateRef.current = {
+      sourceBars,
+      targetBars: bars,
+      startTime: now,
+      isAnimating: true,
+    };
   }, [
     allowDataTransitions,
     bars,
     chartHeight,
-    chartSize,
     chartWidth,
     durationMs,
     toBaselineBar,
@@ -168,8 +163,8 @@ export const BarChartBaseLayerEffect = ({
       return;
     }
 
-    canvas.width = chartWidth * dpr;
-    canvas.height = chartHeight * dpr;
+    canvas.width = chartWidth * dprRef.current;
+    canvas.height = chartHeight * dprRef.current;
     canvas.style.width = `${chartWidth}px`;
     canvas.style.height = `${chartHeight}px`;
 
@@ -178,7 +173,7 @@ export const BarChartBaseLayerEffect = ({
       return;
     }
 
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.setTransform(dprRef.current, 0, 0, dprRef.current, 0, 0);
 
     const render = (barsToRender: BarPosition[]) => {
       const innerW = chartWidth - margins.left - margins.right;
@@ -214,28 +209,30 @@ export const BarChartBaseLayerEffect = ({
       ctx.restore();
     };
 
+    const animState = animationStateRef.current;
+
     if (
-      !animationState.isAnimating ||
-      animationState.sourceBars === animationState.targetBars
+      !animState.isAnimating ||
+      animState.sourceBars === animState.targetBars
     ) {
-      render(animationState.targetBars);
+      render(animState.targetBars);
       return;
     }
 
     let frameId = 0;
 
     const drawFrame = () => {
-      const elapsed = performance.now() - animationState.startTime;
+      const elapsed = performance.now() - animState.startTime;
       const t = Math.min(elapsed / durationMs, 1);
 
       if (t >= 1) {
-        render(animationState.targetBars);
+        render(animState.targetBars);
         return;
       }
 
       const interpolatedBars = interpolateBars(
-        animationState.sourceBars,
-        animationState.targetBars,
+        animState.sourceBars,
+        animState.targetBars,
         t,
         toBaselineBar,
       );
@@ -249,11 +246,10 @@ export const BarChartBaseLayerEffect = ({
 
     return () => cancelAnimationFrame(frameId);
   }, [
-    animationState,
+    animationStateRef,
     borderRadius,
     chartHeight,
     chartWidth,
-    dpr,
     durationMs,
     gridColor,
     highlightedLegendId,

@@ -82,14 +82,13 @@ export const ExpandableList = ({
   const [childrenContainerElement, setChildrenContainerElement] =
     useState<HTMLDivElement | null>(null);
 
-  const [previousChildrenContainerWidth, setPreviousChildrenContainerWidth] =
-    useState(childrenContainerElement?.clientWidth ?? 0);
+  const previousChildrenContainerWidthRef = useRef(
+    childrenContainerElement?.clientWidth ?? 0,
+  );
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [firstHiddenChildIndex, setFirstHiddenChildIndex] = useState(
-    children.length,
-  );
+  const [firstHiddenChildIndex, setFirstHiddenChildIndex] = useState(children.length);
 
   const hiddenChildrenCount = children.length - firstHiddenChildIndex;
   const canDisplayChipCount = isChipCountDisplayed && hiddenChildrenCount > 0;
@@ -114,12 +113,12 @@ export const ExpandableList = ({
     setIsListExpanded(false);
 
     if (
-      childrenContainerElement?.clientWidth !== previousChildrenContainerWidth
+      childrenContainerElement?.clientWidth !==
+      previousChildrenContainerWidthRef.current
     ) {
       resetFirstHiddenChildIndex();
-      setPreviousChildrenContainerWidth(
-        childrenContainerElement?.clientWidth ?? 0,
-      );
+      previousChildrenContainerWidthRef.current =
+        childrenContainerElement?.clientWidth ?? 0;
     }
   };
 

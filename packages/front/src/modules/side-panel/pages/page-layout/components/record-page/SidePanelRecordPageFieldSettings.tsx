@@ -33,6 +33,12 @@ const StyledSidePanelContainer = styled.div`
   overflow: hidden;
 `;
 
+const displayModeLabels: Record<string, string> = {
+  [FieldDisplayMode.FIELD]: `Kolom`,
+  [FieldDisplayMode.CARD]: `Kartu`,
+  [FieldDisplayMode.EDITOR]: `Editor`,
+};
+
 export const SidePanelRecordPageFieldSettings = () => {
   const { pageLayoutId } = usePageLayoutIdFromContextStore();
 

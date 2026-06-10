@@ -31,7 +31,7 @@ import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomC
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useGetCurrentViewOnly } from '@/views/hooks/useGetCurrentViewOnly';
 import { styled } from '@linaria/react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { AnimatedEaseInOut } from 'ui/utilities';
 import { useDebouncedCallback } from 'use-debounce';
@@ -146,12 +146,15 @@ export const RecordBoardCard = () => {
   const isDraggingThisCard =
     isRecordIdPrimaryDragMultiple || isRecordIdSecondaryDragMultiple;
 
+  const contextValue = useMemo(
+    () => ({
+      instanceId: `record-board-card-${recordId}`,
+    }),
+    [recordId],
+  );
+
   return (
-    <RecordBoardCardComponentInstanceContext.Provider
-      value={{
-        instanceId: `record-board-card-${recordId}`,
-      }}
-    >
+    <RecordBoardCardComponentInstanceContext.Provider value={contextValue}>
       <RecordFieldsScopeContextProvider
         value={{ scopeInstanceId: RECORD_BOARD_CARD_INPUT_ID_PREFIX }}
       >

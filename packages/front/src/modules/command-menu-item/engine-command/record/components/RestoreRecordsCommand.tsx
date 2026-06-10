@@ -8,6 +8,12 @@ import { useResetTableRowSelection } from '@/object-record/record-table/hooks/in
 import { type RecordGqlOperationFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
+const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
+
+const deletedAtFilter: RecordGqlOperationFilter = {
+  deletedAt: { is: 'NOT_NULL' },
+};
+
 export const RestoreRecordsCommand = () => {
   const { recordIndexId, objectMetadataItem, selectedRecords, graphqlFilter } =
     useHeadlessCommandContextApi();
@@ -27,12 +33,6 @@ export const RestoreRecordsCommand = () => {
   const { restoreManyRecords } = useRestoreManyRecords({
     objectNameSingular: objectMetadataItem.nameSingular,
   });
-
-  const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
-
-  const deletedAtFilter: RecordGqlOperationFilter = {
-    deletedAt: { is: 'NOT_NULL' },
-  };
 
   const combinedFilter: RecordGqlOperationFilter = {
     ...(graphqlFilter ?? noMatchFilter),

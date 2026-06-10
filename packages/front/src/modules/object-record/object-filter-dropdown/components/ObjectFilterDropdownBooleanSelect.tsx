@@ -31,9 +31,10 @@ const StyledIconCheckContainer = styled.div`
   justify-content: flex-end;
 `;
 
+const options = [true, false];
+
 export const ObjectFilterDropdownBooleanSelect = () => {
   const { theme } = useContext(ThemeContext);
-  const options = [true, false];
 
   const { objectFilterDropdownFilterValue } =
     useObjectFilterDropdownFilterValue();

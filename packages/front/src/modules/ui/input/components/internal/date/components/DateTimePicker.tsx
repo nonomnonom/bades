@@ -1,4 +1,4 @@
-import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
+import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/const/skeleton-loader-height-sizes.const';
 import {
   convertFirstDayOfTheWeekToCalendarStartDayNumber,
   isDefined,
@@ -13,7 +13,7 @@ import { RelativeDatePickerHeader } from '@/ui/input/components/internal/date/co
 import { getHighlightedDates } from '@/ui/input/components/internal/date/utils/getHighlightedDates';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { styled } from '@linaria/react';
-import { lazy, Suspense, useContext, type ComponentType } from 'react';
+import { lazy, Suspense, useContext, useMemo, type ComponentType } from 'react';
 import type { ReactDatePickerProps as ReactDatePickerLibProps } from 'react-datepicker';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
@@ -460,20 +460,24 @@ export const DateTimePicker = ({
     timeZone ?? userTimezone,
   );
 
-  const selectedDates = isRelative
-    ? highlightedDates.map((plainDate) => {
-        const date = new Date();
+  const selectedDates = useMemo(
+    () =>
+      isRelative
+        ? highlightedDates.map((plainDate) => {
+            const date = new Date();
 
-        date.setDate(1);
+            date.setDate(1);
 
-        date.setFullYear(plainDate.year);
-        date.setMonth(plainDate.month - 1);
+            date.setFullYear(plainDate.year);
+            date.setMonth(plainDate.month - 1);
 
-        date.setDate(plainDate.day);
+            date.setDate(plainDate.day);
 
-        return date;
-      })
-    : [shiftedDateForReactDatePicker];
+            return date;
+          })
+        : [shiftedDateForReactDatePicker],
+    [isRelative, highlightedDates, shiftedDateForReactDatePicker],
+  );
 
   const calendarStartDayNumber =
     convertFirstDayOfTheWeekToCalendarStartDayNumber(userFirstDayOfTheWeek);

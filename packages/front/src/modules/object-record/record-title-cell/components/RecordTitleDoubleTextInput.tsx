@@ -81,7 +81,7 @@ export const RecordTitleDoubleTextInput = ({
     });
   };
 
-  const [focusPosition, setFocusPosition] = useState<'left' | 'right'>('left');
+  const focusPositionRef = useRef<'left' | 'right'>('left');
 
   const instanceId = useAvailableComponentInstanceIdOrThrow(
     RecordFieldComponentInstanceContext,
@@ -114,8 +114,8 @@ export const RecordTitleDoubleTextInput = ({
   useHotkeysOnFocusedElement({
     keys: ['tab'],
     callback: () => {
-      if (focusPosition === 'left') {
-        setFocusPosition('right');
+      if (focusPositionRef.current === 'left') {
+        focusPositionRef.current = 'right';
         secondValueInputRef.current?.focus();
       } else {
         onTab?.({
@@ -129,15 +129,14 @@ export const RecordTitleDoubleTextInput = ({
       onTab,
       firstInternalValue,
       secondInternalValue,
-      focusPosition,
     ],
   });
 
   useHotkeysOnFocusedElement({
     keys: ['shift+tab'],
     callback: () => {
-      if (focusPosition === 'right') {
-        setFocusPosition('left');
+      if (focusPositionRef.current === 'right') {
+        focusPositionRef.current = 'left';
         firstValueInputRef.current?.focus();
       } else {
         onShiftTab?.({
@@ -151,7 +150,6 @@ export const RecordTitleDoubleTextInput = ({
       onShiftTab,
       firstInternalValue,
       secondInternalValue,
-      focusPosition,
     ],
   });
 
@@ -204,7 +202,7 @@ export const RecordTitleDoubleTextInput = ({
             if (isDefined(firstInternalValue)) {
               event.target.select();
             }
-            setFocusPosition('left');
+            focusPositionRef.current = 'left';
           }}
           ref={firstValueInputRef}
           placeholder={firstValuePlaceholder}
@@ -231,7 +229,7 @@ export const RecordTitleDoubleTextInput = ({
             if (isDefined(secondInternalValue)) {
               event.target.select();
             }
-            setFocusPosition('right');
+            focusPositionRef.current = 'right';
           }}
           ref={secondValueInputRef}
           placeholder={secondValuePlaceholder}

@@ -22,6 +22,11 @@ import {
 } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
 
+const selectableItemIdArray = [
+  ViewOpenRecordIn.SIDE_PANEL,
+  ViewOpenRecordIn.RECORD_PAGE,
+];
+
 export const ObjectOptionsDropdownLayoutOpenInContent = () => {
   const { onContentChange } = useObjectOptionsDropdown();
   const recordIndexOpenRecordIn = useAtomStateValue(
@@ -38,11 +43,6 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
     selectedItemIdComponentState,
     OBJECT_OPTIONS_DROPDOWN_ID,
   );
-
-  const selectableItemIdArray = [
-    ViewOpenRecordIn.SIDE_PANEL,
-    ViewOpenRecordIn.RECORD_PAGE,
-  ];
 
   return (
     <DropdownContent>

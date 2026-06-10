@@ -81,23 +81,29 @@ export const SSEQuerySubscribeEffect = () => {
     }
 
     try {
-      for (const queryListenerToAdd of queryListenersToAdd) {
-        const result = await addQueryToEventStream({
-          variables: {
-            input: {
-              eventStreamId: sseEventStreamId,
-              queryId: queryListenerToAdd.queryId,
-              operationSignature: queryListenerToAdd.operationSignature,
+      const results = await Promise.all(
+        queryListenersToAdd.map((queryListenerToAdd) =>
+          addQueryToEventStream({
+            variables: {
+              input: {
+                eventStreamId: sseEventStreamId,
+                queryId: queryListenerToAdd.queryId,
+                operationSignature: queryListenerToAdd.operationSignature,
+              },
             },
-          },
-        });
+          }),
+        ),
+      );
 
-        if (result.data?.addQueryToEventStream === false) {
-          store.set(activeQueryListenersState.atom, []);
-          store.set(shouldDestroyEventStreamState.atom, true);
+      const hasFailure = results.some(
+        (result) => result.data?.addQueryToEventStream === false,
+      );
 
-          return;
-        }
+      if (hasFailure) {
+        store.set(activeQueryListenersState.atom, []);
+        store.set(shouldDestroyEventStreamState.atom, true);
+
+        return;
       }
     } catch (error) {
       handleError(error);
@@ -139,22 +145,28 @@ export const SSEQuerySubscribeEffect = () => {
     );
 
     try {
-      for (const queryListenerToRemove of queryListenersToRemove) {
-        const result = await removeQueryFromEventStream({
-          variables: {
-            input: {
-              eventStreamId: sseEventStreamId,
-              queryId: queryListenerToRemove.queryId,
+      const results = await Promise.all(
+        queryListenersToRemove.map((queryListenerToRemove) =>
+          removeQueryFromEventStream({
+            variables: {
+              input: {
+                eventStreamId: sseEventStreamId,
+                queryId: queryListenerToRemove.queryId,
+              },
             },
-          },
-        });
+          }),
+        ),
+      );
 
-        if (result.data?.removeQueryFromEventStream === false) {
-          store.set(activeQueryListenersState.atom, []);
-          store.set(shouldDestroyEventStreamState.atom, true);
+      const hasFailure = results.some(
+        (result) => result.data?.removeQueryFromEventStream === false,
+      );
 
-          return;
-        }
+      if (hasFailure) {
+        store.set(activeQueryListenersState.atom, []);
+        store.set(shouldDestroyEventStreamState.atom, true);
+
+        return;
       }
     } catch (error) {
       handleError(error);

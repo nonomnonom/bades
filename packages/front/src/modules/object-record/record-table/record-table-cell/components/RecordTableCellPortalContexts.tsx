@@ -8,6 +8,7 @@ import { RecordTableRowContextProvider } from '@/object-record/record-table/cont
 import { RecordTableCellFieldContextWrapper } from '@/object-record/record-table/record-table-cell/components/RecordTableCellFieldContextWrapper';
 import { type TableCellPosition } from '@/object-record/record-table/types/TableCellPosition';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
+import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 
 export const RecordTableCellPortalContexts = ({
@@ -44,26 +45,32 @@ export const RecordTableCellPortalContexts = ({
     return null;
   }
 
+  const rowContextValue = useMemo(
+    () => ({
+      recordId,
+      rowIndex: position.row,
+      isSelected: false,
+      pathToShowPage:
+        getBasePathToShowPage({
+          objectNameSingular: objectMetadataItem.nameSingular,
+        }) + recordId,
+      objectNameSingular: objectMetadataItem.nameSingular,
+      isRecordReadOnly,
+    }),
+    [recordId, position.row, objectMetadataItem.nameSingular, isRecordReadOnly],
+  );
+
+  const cellContextValue = useMemo(
+    () => ({
+      recordField,
+      cellPosition: position,
+    }),
+    [recordField, position],
+  );
+
   return (
-    <RecordTableRowContextProvider
-      value={{
-        recordId,
-        rowIndex: position.row,
-        isSelected: false,
-        pathToShowPage:
-          getBasePathToShowPage({
-            objectNameSingular: objectMetadataItem.nameSingular,
-          }) + recordId,
-        objectNameSingular: objectMetadataItem.nameSingular,
-        isRecordReadOnly,
-      }}
-    >
-      <RecordTableCellContext.Provider
-        value={{
-          recordField,
-          cellPosition: position,
-        }}
-      >
+    <RecordTableRowContextProvider value={rowContextValue}>
+      <RecordTableCellContext.Provider value={cellContextValue}>
         <RecordTableCellFieldContextWrapper recordField={recordField}>
           {children}
         </RecordTableCellFieldContextWrapper>

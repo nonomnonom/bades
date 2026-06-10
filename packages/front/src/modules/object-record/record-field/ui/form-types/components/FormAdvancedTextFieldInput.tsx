@@ -68,6 +68,12 @@ const StyledFullScreenEditorContainer = styled.div`
   padding: ${themeCssVariables.spacing[2]};
 `;
 
+const defaultBreadcrumbs: BreadcrumbProps['links'] = [
+  {
+    children: `Editor Teks`,
+  },
+];
+
 type FormAdvancedTextFieldInputProps = {
   label?: string;
   error?: string;
@@ -164,12 +170,6 @@ export const FormAdvancedTextFieldInput = ({
 
     editor.commands.insertVariableTag(variableName);
   };
-
-  const defaultBreadcrumbs: BreadcrumbProps['links'] = [
-    {
-      children: `Editor Teks`,
-    },
-  ];
 
   const breadcrumbLinks = fullScreenBreadcrumbs || defaultBreadcrumbs;
 

@@ -32,6 +32,24 @@ type SettingsRoleApplicabilityValues = {
   canBeAssignedToApiKeys: boolean;
 };
 
+const options = [
+  {
+    key: 'canBeAssignedToUsers' as const,
+    label: `Dapat ditetapkan ke Anggota Ruang Kerja`,
+    Icon: IconUsers,
+  },
+  {
+    key: 'canBeAssignedToAgents' as const,
+    label: `Dapat ditetapkan ke Agen`,
+    Icon: IconRobot,
+  },
+  {
+    key: 'canBeAssignedToApiKeys' as const,
+    label: `Dapat ditetapkan ke Kunci API`,
+    Icon: IconKey,
+  },
+];
+
 type SettingsRoleApplicabilityProps = {
   values: SettingsRoleApplicabilityValues;
   onApplicabilityChange: (
@@ -48,23 +66,6 @@ export const SettingsRoleApplicability = ({
 }: SettingsRoleApplicabilityProps) => {
   const { theme } = useContext(ThemeContext);
 
-  const options = [
-    {
-      key: 'canBeAssignedToUsers' as const,
-      label: `Dapat ditetapkan ke Anggota Ruang Kerja`,
-      Icon: IconUsers,
-    },
-    {
-      key: 'canBeAssignedToAgents' as const,
-      label: `Dapat ditetapkan ke Agen`,
-      Icon: IconRobot,
-    },
-    {
-      key: 'canBeAssignedToApiKeys' as const,
-      label: `Dapat ditetapkan ke Kunci API`,
-      Icon: IconKey,
-    },
-  ];
   return (
     <Section>
       <H2Title

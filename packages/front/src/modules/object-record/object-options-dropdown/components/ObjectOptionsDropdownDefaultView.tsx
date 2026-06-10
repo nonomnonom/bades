@@ -22,6 +22,12 @@ import {
 import { MenuItem } from 'ui/navigation';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
 
+const selectableItemIdArray = [
+  'Kolom',
+  'Salin tautan tampilan',
+  'Buat tampilan kustom',
+];
+
 export const ObjectOptionsDropdownDefaultView = () => {
   const { recordIndexId, onContentChange } = useObjectOptionsDropdown();
 
@@ -33,12 +39,6 @@ export const ObjectOptionsDropdownDefaultView = () => {
   );
 
   const visibleFieldsCount = visibleRecordFields.length;
-
-  const selectableItemIdArray = [
-    'Kolom',
-    'Salin tautan tampilan',
-    'Buat tampilan kustom',
-  ];
 
   const selectedItemId = useAtomComponentStateValue(
     selectedItemIdComponentState,

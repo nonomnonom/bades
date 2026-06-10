@@ -7,7 +7,7 @@ import { useResizeHandle } from '@ui/layout/resize-handle/hooks/useResizeHandle'
 import { getBaseCodeEditorTheme } from '@ui/input/code-editor/theme/utils/getBaseCodeEditorTheme';
 import { ThemeContext, themeCssVariables } from '@ui/theme-constants';
 import { type editor } from 'monaco-editor';
-import { type KeyboardEvent, useContext, useState } from 'react';
+import { type KeyboardEvent, useContext, useRef } from 'react';
 import { isDefined } from 'shared/utils';
 
 type CodeEditorVariant = 'default' | 'with-header' | 'borderless';
@@ -123,11 +123,9 @@ export const CodeEditor = ({
   resizable = false,
 }: CodeEditorProps) => {
   const { theme } = useContext(ThemeContext);
-  const [monaco, setMonaco] = useState<Monaco | undefined>(undefined);
-  const [editor, setEditor] = useState<
-    editor.IStandaloneCodeEditor | undefined
-  >(undefined);
-  const [isEditorFocused, setIsEditorFocused] = useState(false);
+  const monacoRef = useRef<Monaco | undefined>(undefined);
+  const editorRef = useRef<editor.IStandaloneCodeEditor | undefined>(undefined);
+  const isEditorFocusedRef = useRef(false);
 
   const numericHeight = typeof height === 'number' ? height : 450;
   const {
@@ -156,7 +154,7 @@ export const CodeEditor = ({
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (isEditorFocused) {
+    if (isEditorFocusedRef.current) {
       event.stopPropagation();
     }
   };
@@ -183,8 +181,8 @@ export const CodeEditor = ({
           language={language}
           loading=""
           onMount={(editor, monaco) => {
-            setMonaco(monaco);
-            setEditor(editor);
+            monacoRef.current = monaco;
+            editorRef.current = editor;
 
             monaco.editor.defineTheme(
               BASE_CODE_EDITOR_THEME_ID,
@@ -193,10 +191,10 @@ export const CodeEditor = ({
             monaco.editor.setTheme(BASE_CODE_EDITOR_THEME_ID);
 
             editor.onDidFocusEditorWidget(() => {
-              setIsEditorFocused(true);
+              isEditorFocusedRef.current = true;
             });
             editor.onDidBlurEditorWidget(() => {
-              setIsEditorFocused(false);
+              isEditorFocusedRef.current = false;
             });
 
             onMount?.(editor, monaco);
@@ -205,7 +203,7 @@ export const CodeEditor = ({
           onChange={(value) => {
             if (isDefined(value)) {
               onChange?.(value);
-              setModelMarkers(editor, monaco);
+              setModelMarkers(editorRef.current, monacoRef.current);
             }
           }}
           onValidate={(markers) => {

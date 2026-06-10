@@ -12,7 +12,7 @@ import { ObjectFilterDropdownComponentInstanceContext } from '@/object-record/ob
 import { type RecordFilterGroup } from '@/object-record/record-filter-group/types/RecordFilterGroup';
 import { type RecordFilter } from '@/object-record/record-filter/types/RecordFilter';
 import { styled } from '@linaria/react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledContainer = styled.div`
@@ -35,14 +35,17 @@ export const AdvancedFilterSidePanelRecordFilterColumn = ({
 }: AdvancedFilterSidePanelRecordFilterColumnProps) => {
   const { readonly } = useContext(AdvancedFilterContext);
 
+  const contextValue = useMemo(
+    () => ({
+      instanceId: getAdvancedFilterObjectFilterDropdownComponentInstanceId(
+        recordFilter.id,
+      ),
+    }),
+    [recordFilter.id],
+  );
+
   return (
-    <ObjectFilterDropdownComponentInstanceContext.Provider
-      value={{
-        instanceId: getAdvancedFilterObjectFilterDropdownComponentInstanceId(
-          recordFilter.id,
-        ),
-      }}
-    >
+    <ObjectFilterDropdownComponentInstanceContext.Provider value={contextValue}>
       <AdvancedFilterSidePanelColumn>
         <StyledContainer>
           <AdvancedFilterSidePanelLogicalOperatorCell

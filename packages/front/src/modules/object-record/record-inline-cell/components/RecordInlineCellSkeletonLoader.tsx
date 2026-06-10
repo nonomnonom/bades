@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
+import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/const/skeleton-loader-height-sizes.const';
 import { ThemeContext } from 'ui/theme-constants';
 import { StyledSkeletonDiv } from './RecordInlineCellContainer';
 

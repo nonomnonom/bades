@@ -1,6 +1,6 @@
 import { singleRecordPickerShouldShowSkeletonComponentState } from '@/object-record/record-picker/single-record-picker/states/singleRecordPickerShouldShowSkeletonComponentState';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 export const SingleRecordPickerLoadingEffect = ({
@@ -8,7 +8,7 @@ export const SingleRecordPickerLoadingEffect = ({
 }: {
   loading: boolean;
 }) => {
-  const [previousLoading, setPreviousLoading] = useState(false);
+  const previousLoadingRef = useRef(false);
 
   const setSingleRecordPickerShouldShowSkeleton = useSetAtomComponentState(
     singleRecordPickerShouldShowSkeletonComponentState,
@@ -19,8 +19,8 @@ export const SingleRecordPickerLoadingEffect = ({
   }, 350);
 
   useEffect(() => {
-    if (previousLoading !== loading) {
-      setPreviousLoading(loading);
+    if (previousLoadingRef.current !== loading) {
+      previousLoadingRef.current = loading;
 
       if (loading) {
         debouncedShowPickerSearchSkeleton();
@@ -31,7 +31,6 @@ export const SingleRecordPickerLoadingEffect = ({
     }
   }, [
     loading,
-    previousLoading,
     debouncedShowPickerSearchSkeleton,
     setSingleRecordPickerShouldShowSkeleton,
   ]);

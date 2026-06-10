@@ -9,6 +9,8 @@ import { useResetTableRowSelection } from '@/object-record/record-table/hooks/in
 import { type RecordGqlOperationFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
+const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
+
 export const DeleteRecordsCommand = () => {
   const { recordIndexId, objectMetadataItem, selectedRecords, graphqlFilter } =
     useHeadlessCommandContextApi();
@@ -25,8 +27,6 @@ export const DeleteRecordsCommand = () => {
 
   const { removeSelectedRecordsFromRecordBoard } =
     useRemoveSelectedRecordsFromRecordBoard(recordIndexId);
-
-  const noMatchFilter: RecordGqlOperationFilter = { id: { in: [] } };
 
   const { incrementalDeleteManyRecords } = useIncrementalDeleteManyRecords({
     objectNameSingular: objectMetadataItem.nameSingular,

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { useCanEditProfileField } from '@/settings/profile/hooks/useCanEditProfileField';
@@ -30,8 +30,7 @@ export const WorkspaceMemberPictureUploader = ({
   const { enqueueErrorSnackBar } = useSnackBar();
   const [isUploading, setIsUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [uploadController, setUploadController] =
-    useState<AbortController | null>(null);
+  const uploadControllerRef = useRef<AbortController | null>(null);
 
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
   const setCurrentWorkspaceMember = useSetAtomState(
@@ -56,7 +55,7 @@ export const WorkspaceMemberPictureUploader = ({
     }
 
     const controller = new AbortController();
-    setUploadController(controller);
+    uploadControllerRef.current = controller;
     setIsUploading(true);
     setErrorMessage(null);
 
@@ -94,7 +93,7 @@ export const WorkspaceMemberPictureUploader = ({
         onAvatarUpdated(signedUrl ?? newAvatarUrl);
       }
 
-      setUploadController(null);
+      uploadControllerRef.current = null;
       setErrorMessage(null);
     } catch (error) {
       const message =
@@ -140,9 +139,9 @@ export const WorkspaceMemberPictureUploader = ({
       return;
     }
 
-    if (isDefined(uploadController)) {
-      uploadController.abort();
-      setUploadController(null);
+    if (isDefined(uploadControllerRef.current)) {
+      uploadControllerRef.current.abort();
+      uploadControllerRef.current = null;
     }
     setIsUploading(false);
   };

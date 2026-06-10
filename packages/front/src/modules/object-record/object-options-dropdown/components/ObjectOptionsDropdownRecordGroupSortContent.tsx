@@ -23,6 +23,12 @@ import {
 } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
 
+const selectableItemIdArray = [
+  RecordGroupSort.Manual,
+  RecordGroupSort.Alphabetical,
+  RecordGroupSort.ReverseAlphabetical,
+];
+
 export const ObjectOptionsDropdownRecordGroupSortContent = () => {
   const { currentContentId, onContentChange } = useObjectOptionsDropdown();
 
@@ -50,12 +56,6 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
       onContentChange('recordGroups');
     }
   }, [hiddenRecordGroupIds, currentContentId, onContentChange]);
-
-  const selectableItemIdArray = [
-    RecordGroupSort.Manual,
-    RecordGroupSort.Alphabetical,
-    RecordGroupSort.ReverseAlphabetical,
-  ];
 
   return (
     <DropdownContent>

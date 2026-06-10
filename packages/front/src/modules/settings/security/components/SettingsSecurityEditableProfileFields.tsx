@@ -34,6 +34,13 @@ type ProfileFieldOption = {
   Icon: IconComponent;
 };
 
+const profileFieldOptions: ProfileFieldOption[] = [
+  { value: 'email', label: `Email`, Icon: IconMail },
+  { value: 'firstName', label: `Nama Depan`, Icon: IconUserCircle },
+  { value: 'lastName', label: `Nama Belakang`, Icon: IconUser },
+  { value: 'profilePicture', label: `Foto Profil`, Icon: IconPhoto },
+];
+
 export const SettingsSecurityEditableProfileFields = () => {
   const { enqueueErrorSnackBar } = useSnackBar();
 
@@ -41,13 +48,6 @@ export const SettingsSecurityEditableProfileFields = () => {
     currentWorkspaceState,
   );
   const [updateWorkspace] = useMutation(UpdateWorkspaceDocument);
-
-  const profileFieldOptions: ProfileFieldOption[] = [
-    { value: 'email', label: `Email`, Icon: IconMail },
-    { value: 'firstName', label: `Nama Depan`, Icon: IconUserCircle },
-    { value: 'lastName', label: `Nama Belakang`, Icon: IconUser },
-    { value: 'profilePicture', label: `Foto Profil`, Icon: IconPhoto },
-  ];
 
   const selectedFields =
     currentWorkspace?.editableProfileFields?.filter(isDefined) ?? [];
