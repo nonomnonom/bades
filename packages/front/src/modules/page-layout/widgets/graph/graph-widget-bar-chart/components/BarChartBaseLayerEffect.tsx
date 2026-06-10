@@ -60,11 +60,14 @@ export const BarChartBaseLayerEffect = ({
     theme.animation.duration.normal *
     CHART_CORE_CONSTANTS.MILLISECONDS_PER_SECOND;
 
+  // oxlint-disable-next-line bades/no-state-useref
   const dprRef = useRef<number>(
     (typeof window !== 'undefined' ? window.devicePixelRatio : undefined) ||
       CHART_CORE_CONSTANTS.DEFAULT_DEVICE_PIXEL_RATIO,
   );
+  // oxlint-disable-next-line bades/no-state-useref
   const chartSizeRef = useRef({ width: chartWidth, height: chartHeight });
+  // oxlint-disable-next-line bades/no-state-useref
   const animationStateRef = useRef<AnimationState>({
     sourceBars: bars,
     targetBars: bars,
@@ -89,7 +92,8 @@ export const BarChartBaseLayerEffect = ({
 
   useEffect(() => {
     const sizeIsStable =
-      chartSizeRef.current.width === chartWidth && chartSizeRef.current.height === chartHeight;
+      chartSizeRef.current.width === chartWidth &&
+      chartSizeRef.current.height === chartHeight;
 
     if (!sizeIsStable) {
       chartSizeRef.current = { width: chartWidth, height: chartHeight };

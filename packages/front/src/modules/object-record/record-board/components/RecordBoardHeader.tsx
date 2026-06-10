@@ -34,10 +34,7 @@ const RecordGroupContextProvider = ({
   recordGroupId: string;
   children: React.ReactNode;
 }) => {
-  const contextValue = useMemo(
-    () => ({ recordGroupId }),
-    [recordGroupId],
-  );
+  const contextValue = useMemo(() => ({ recordGroupId }), [recordGroupId]);
   return (
     <RecordGroupContext.Provider value={contextValue}>
       {children}
@@ -54,7 +51,10 @@ export const RecordBoardHeader = () => {
   return (
     <StyledHeaderContainer id="record-board-header">
       {visibleRecordGroupIds.map((recordGroupId, index) => (
-        <RecordGroupContextProvider key={recordGroupId} recordGroupId={recordGroupId}>
+        <RecordGroupContextProvider
+          key={recordGroupId}
+          recordGroupId={recordGroupId}
+        >
           <RecordBoardColumnHeaderWrapper
             columnId={recordGroupId}
             columnIndex={index}

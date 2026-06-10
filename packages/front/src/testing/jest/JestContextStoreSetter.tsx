@@ -1,7 +1,4 @@
-import {
-  type PropsWithChildren,
-  useContext,
-} from 'react';
+import { type PropsWithChildren, useContext } from 'react';
 
 import { contextStoreCurrentObjectMetadataItemIdComponentState } from '@/context-store/states/contextStoreCurrentObjectMetadataItemIdComponentState';
 import { contextStoreCurrentPageTypeComponentState } from '@/context-store/states/contextStoreCurrentPageTypeComponentState';

@@ -28,9 +28,7 @@ export const StopWorkflowRunSingleRecordCommand = () => {
     } else {
       const records = await fetchAllRecordIds();
 
-      await Promise.all(
-        records.map((record) => stopWorkflowRun(record.id)),
-      );
+      await Promise.all(records.map((record) => stopWorkflowRun(record.id)));
     }
   };
 

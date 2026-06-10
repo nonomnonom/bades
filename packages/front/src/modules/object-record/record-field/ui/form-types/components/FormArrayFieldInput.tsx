@@ -126,6 +126,7 @@ export const FormArrayFieldInput = ({
   const [newItemDraftValue, setNewItemDraftValue] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [isInputDisplayed, setIsInputDisplayed] = useState(false);
+  // oxlint-disable-next-line bades/no-state-useref
   const itemToEditIndexRef = useRef(-1);
   const isAddingNewItem = itemToEditIndexRef.current === -1;
 
@@ -247,7 +248,10 @@ export const FormArrayFieldInput = ({
 
     const items = draftValue.value;
 
-    if (!isAddingNewItem &&      sanitizedInput === items[itemToEditIndexRef.current]) {
+    if (
+      !isAddingNewItem &&
+      sanitizedInput === items[itemToEditIndexRef.current]
+    ) {
       setIsInputDisplayed(false);
       setInputValue('');
       return;

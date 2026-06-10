@@ -110,8 +110,8 @@ export const EventLogResultsTable = ({
     selectedTable === EventLogTable.APPLICATION_LOG;
   const baseColumns = getColumnsForEventLogTable(selectedTable);
 
-  const [columnWidths, setColumnWidths] = useState<Record<string, number>>(
-    () => Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
+  const [columnWidths, setColumnWidths] = useState<Record<string, number>>(() =>
+    Object.fromEntries(baseColumns.map((col) => [col.id, col.defaultWidth])),
   );
 
   // Sync column widths when switching tables

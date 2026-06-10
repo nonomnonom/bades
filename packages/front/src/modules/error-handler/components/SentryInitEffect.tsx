@@ -15,8 +15,11 @@ export const SentryInitEffect = () => {
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
+  // oxlint-disable-next-line bades/no-state-useref
   const isSentryInitializedRef = useRef(false);
+  // oxlint-disable-next-line bades/no-state-useref
   const isSentryInitializingRef = useRef(false);
+  // oxlint-disable-next-line bades/no-state-useref
   const isSentryUserDefinedRef = useRef(false);
 
   useEffect(() => {
@@ -98,12 +101,7 @@ export const SentryInitEffect = () => {
 
     initializeSentry();
     updateSentryUser();
-  }, [
-    sentryConfig,
-    currentUser,
-    currentWorkspace,
-    currentWorkspaceMember,
-  ]);
+  }, [sentryConfig, currentUser, currentWorkspace, currentWorkspaceMember]);
 
   return <></>;
 };

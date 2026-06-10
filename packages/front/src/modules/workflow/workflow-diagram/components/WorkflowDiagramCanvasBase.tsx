@@ -200,8 +200,10 @@ export const WorkflowDiagramCanvasBase = ({
 
   const { setEdgeHovered, clearEdgeHover } = useEdgeState();
 
+  // oxlint-disable-next-line bades/no-state-useref
   const workflowDiagramFlowInitializedRef = useRef<boolean>(false);
 
+  // oxlint-disable-next-line bades/no-state-useref
   const connectionStartInfoRef = useRef<{
     nodeId: string;
     handleId: string;
@@ -351,7 +353,8 @@ export const WorkflowDiagramCanvasBase = ({
       setFlowViewport({
         isInSidePanel,
         isSidePanelOpened,
-        workflowDiagramFlowInitialized: workflowDiagramFlowInitializedRef.current,
+        workflowDiagramFlowInitialized:
+          workflowDiagramFlowInitializedRef.current,
         workflowDiagram: store.get(workflowDiagramCallbackState),
       });
     },
@@ -363,11 +366,7 @@ export const WorkflowDiagramCanvasBase = ({
       isSidePanelOpened,
       isInSidePanel,
     });
-  }, [
-    handleSetFlowViewportOnChange,
-    isSidePanelOpened,
-    isInSidePanel,
-  ]);
+  }, [handleSetFlowViewportOnChange, isSidePanelOpened, isInSidePanel]);
 
   const handleNodesChanges = useCallback(
     (changes: NodeChange<WorkflowDiagramNode>[]) => {
@@ -403,7 +402,8 @@ export const WorkflowDiagramCanvasBase = ({
 
       setFlowViewport({
         isSidePanelOpened,
-        workflowDiagramFlowInitialized: workflowDiagramFlowInitializedRef.current,
+        workflowDiagramFlowInitialized:
+          workflowDiagramFlowInitializedRef.current,
         workflowDiagram: updatedWorkflowDiagram,
         isInSidePanel,
       });

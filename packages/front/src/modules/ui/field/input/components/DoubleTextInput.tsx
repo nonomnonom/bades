@@ -93,6 +93,7 @@ export const DoubleTextInput = ({
     });
   };
 
+  // oxlint-disable-next-line bades/no-state-useref
   const focusPositionRef = useRef<'left' | 'right'>('left');
 
   useHotkeysOnFocusedElement({
@@ -133,11 +134,7 @@ export const DoubleTextInput = ({
       }
     },
     focusId: instanceId,
-    dependencies: [
-      onTab,
-      firstInternalValue,
-      secondInternalValue,
-    ],
+    dependencies: [onTab, firstInternalValue, secondInternalValue],
   });
 
   useHotkeysOnFocusedElement({
@@ -154,11 +151,7 @@ export const DoubleTextInput = ({
       }
     },
     focusId: instanceId,
-    dependencies: [
-      onShiftTab,
-      firstInternalValue,
-      secondInternalValue,
-    ],
+    dependencies: [onShiftTab, firstInternalValue, secondInternalValue],
   });
 
   useListenClickOutside({
@@ -196,7 +189,9 @@ export const DoubleTextInput = ({
         <StyledTextInput
           autoComplete="off"
           autoFocus
-          onFocus={() => { focusPositionRef.current = 'left'; }}
+          onFocus={() => {
+            focusPositionRef.current = 'left';
+          }}
           ref={firstValueInputRef}
           placeholder={firstValuePlaceholder}
           value={firstInternalValue}
@@ -213,7 +208,9 @@ export const DoubleTextInput = ({
         />
         <StyledTextInput
           autoComplete="off"
-          onFocus={() => { focusPositionRef.current = 'right'; }}
+          onFocus={() => {
+            focusPositionRef.current = 'right';
+          }}
           ref={secondValueInputRef}
           placeholder={secondValuePlaceholder}
           value={secondInternalValue}

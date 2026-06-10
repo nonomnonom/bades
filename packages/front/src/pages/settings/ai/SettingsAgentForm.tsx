@@ -59,7 +59,9 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const navigate = useNavigateSettings();
   const navigateApp = useNavigateApp();
   const { enqueueErrorSnackBar } = useSnackBar();
+  // oxlint-disable-next-line bades/no-state-useref
   const isInitializedRef = useRef(false);
+  // oxlint-disable-next-line bades/no-state-useref
   const originalFormValuesRef = useRef<
     ReturnType<typeof useSettingsAgentFormState>['formValues'] | null
   >(null);
@@ -171,7 +173,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
     const hasChanges =
       originalFormValuesRef.current &&
-        !isDeeplyEqual(formValues, originalFormValuesRef.current);
+      !isDeeplyEqual(formValues, originalFormValuesRef.current);
 
     if (!hasChanges && !isRoleDirty) {
       return;
@@ -232,13 +234,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
     if (isEditMode && !loading && isDefined(originalFormValuesRef.current)) {
       autoSave();
     }
-  }, [
-    formValues,
-    isRoleDirty,
-    isEditMode,
-    loading,
-    autoSave,
-  ]);
+  }, [formValues, isRoleDirty, isEditMode, loading, autoSave]);
 
   useEffect(() => {
     return () => {

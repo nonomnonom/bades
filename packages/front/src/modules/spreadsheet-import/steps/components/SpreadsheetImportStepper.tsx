@@ -30,15 +30,13 @@ export const SpreadsheetImportStepper = ({
     useState<SpreadsheetImportStep>(
       initialStepState ?? { type: SpreadsheetImportStepType.upload },
     );
+  // oxlint-disable-next-line bades/no-state-useref
   const previousStepStateRef = useRef<SpreadsheetImportStep>(
     initialStepState ?? { type: SpreadsheetImportStepType.upload },
   );
-  const setPreviousStepState = useCallback(
-    (value: SpreadsheetImportStep) => {
-      previousStepStateRef.current = value;
-    },
-    [],
-  );
+  const setPreviousStepState = useCallback((value: SpreadsheetImportStep) => {
+    previousStepStateRef.current = value;
+  }, []);
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 

@@ -60,7 +60,13 @@ export const AdvancedFilterSidePanelContainer = ({
       VariablePicker,
       objectMetadataItem,
     }),
-    [onUpdate, isWorkflowFindRecords, readonly, VariablePicker, objectMetadataItem],
+    [
+      onUpdate,
+      isWorkflowFindRecords,
+      readonly,
+      VariablePicker,
+      objectMetadataItem,
+    ],
   );
 
   return (

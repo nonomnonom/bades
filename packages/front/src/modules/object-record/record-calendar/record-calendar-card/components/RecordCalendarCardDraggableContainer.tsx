@@ -64,10 +64,7 @@ export const RecordCalendarCardDraggableContainer = ({
   const dragIsDisabled =
     recordIsReadOnly || calendarFieldMetadataItemIsReadOnly;
 
-  const contextValue = useMemo(
-    () => ({ instanceId: recordId }),
-    [recordId],
-  );
+  const contextValue = useMemo(() => ({ instanceId: recordId }), [recordId]);
 
   return (
     <RecordCalendarCardComponentInstanceContext.Provider value={contextValue}>

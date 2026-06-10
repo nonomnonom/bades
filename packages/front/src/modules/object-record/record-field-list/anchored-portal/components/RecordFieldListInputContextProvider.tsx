@@ -75,7 +75,10 @@ export const RecordFieldListInputContextProvider = ({
 
       closeInlineCellAndResetEditModePosition();
     },
-    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+    [
+      persistFieldFromFieldInputContext,
+      closeInlineCellAndResetEditModePosition,
+    ],
   );
 
   const handleSubmit: FieldInputEvent = useCallback(
@@ -86,7 +89,10 @@ export const RecordFieldListInputContextProvider = ({
 
       closeInlineCellAndResetEditModePosition();
     },
-    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+    [
+      persistFieldFromFieldInputContext,
+      closeInlineCellAndResetEditModePosition,
+    ],
   );
 
   const handleCancel = useCallback(() => {
@@ -125,7 +131,10 @@ export const RecordFieldListInputContextProvider = ({
 
       closeInlineCellAndResetEditModePosition();
     },
-    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+    [
+      persistFieldFromFieldInputContext,
+      closeInlineCellAndResetEditModePosition,
+    ],
   );
 
   const handleTab: FieldInputEvent = useCallback(
@@ -136,7 +145,10 @@ export const RecordFieldListInputContextProvider = ({
 
       closeInlineCellAndResetEditModePosition();
     },
-    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+    [
+      persistFieldFromFieldInputContext,
+      closeInlineCellAndResetEditModePosition,
+    ],
   );
 
   const handleShiftTab: FieldInputEvent = useCallback(
@@ -147,7 +159,10 @@ export const RecordFieldListInputContextProvider = ({
 
       closeInlineCellAndResetEditModePosition();
     },
-    [persistFieldFromFieldInputContext, closeInlineCellAndResetEditModePosition],
+    [
+      persistFieldFromFieldInputContext,
+      closeInlineCellAndResetEditModePosition,
+    ],
   );
 
   const contextValue = useMemo(

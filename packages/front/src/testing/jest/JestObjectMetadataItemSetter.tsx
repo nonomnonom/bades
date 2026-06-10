@@ -14,8 +14,7 @@ export const JestObjectMetadataItemSetter = ({
 }) => {
   const { replaceDraft, applyChanges } = useUpdateMetadataStoreDraft();
 
-  const items =
-    objectMetadataItems ?? getTestEnrichedObjectMetadataItemsMock();
+  const items = objectMetadataItems ?? getTestEnrichedObjectMetadataItemsMock();
   const { flatObjects, flatFields, flatIndexes } =
     splitCompositeObjectMetadataItems(items);
 

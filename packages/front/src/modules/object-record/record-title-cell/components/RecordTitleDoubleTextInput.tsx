@@ -81,6 +81,7 @@ export const RecordTitleDoubleTextInput = ({
     });
   };
 
+  // oxlint-disable-next-line bades/no-state-useref
   const focusPositionRef = useRef<'left' | 'right'>('left');
 
   const instanceId = useAvailableComponentInstanceIdOrThrow(
@@ -125,11 +126,7 @@ export const RecordTitleDoubleTextInput = ({
       }
     },
     focusId: instanceId,
-    dependencies: [
-      onTab,
-      firstInternalValue,
-      secondInternalValue,
-    ],
+    dependencies: [onTab, firstInternalValue, secondInternalValue],
   });
 
   useHotkeysOnFocusedElement({
@@ -146,11 +143,7 @@ export const RecordTitleDoubleTextInput = ({
       }
     },
     focusId: instanceId,
-    dependencies: [
-      onShiftTab,
-      firstInternalValue,
-      secondInternalValue,
-    ],
+    dependencies: [onShiftTab, firstInternalValue, secondInternalValue],
   });
 
   useListenClickOutside({

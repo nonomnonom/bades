@@ -82,13 +82,16 @@ export const ExpandableList = ({
   const [childrenContainerElement, setChildrenContainerElement] =
     useState<HTMLDivElement | null>(null);
 
+  // oxlint-disable-next-line bades/no-state-useref
   const previousChildrenContainerWidthRef = useRef(
     childrenContainerElement?.clientWidth ?? 0,
   );
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [firstHiddenChildIndex, setFirstHiddenChildIndex] = useState(children.length);
+  const [firstHiddenChildIndex, setFirstHiddenChildIndex] = useState(
+    children.length,
+  );
 
   const hiddenChildrenCount = children.length - firstHiddenChildIndex;
   const canDisplayChipCount = isChipCountDisplayed && hiddenChildrenCount > 0;

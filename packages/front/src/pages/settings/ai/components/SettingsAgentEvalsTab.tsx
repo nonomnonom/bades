@@ -63,6 +63,7 @@ export const SettingsAgentEvalsTab = ({
   disabled = false,
 }: SettingsAgentEvalsTabProps) => {
   const [newInput, setNewInput] = useState('');
+  // oxlint-disable-next-line bades/no-state-useref
   const inputToDeleteRef = useRef<string | null>(null);
   const { openModal } = useModal();
   const { closeDropdown } = useCloseDropdown();
@@ -104,7 +105,9 @@ export const SettingsAgentEvalsTab = ({
 
   const handleDeleteInput = () => {
     if (inputToDeleteRef.current !== null) {
-      const index = evalInputs.findIndex((input) => input.id === inputToDeleteRef.current);
+      const index = evalInputs.findIndex(
+        (input) => input.id === inputToDeleteRef.current,
+      );
       if (index !== -1) {
         const newInputs = [...evaluationInputs];
         newInputs.splice(index, 1);

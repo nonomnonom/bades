@@ -23,10 +23,7 @@ const RecordGroupContextProviderForBody = ({
   recordGroupId: string;
   children: React.ReactNode;
 }) => {
-  const contextValue = useMemo(
-    () => ({ recordGroupId }),
-    [recordGroupId],
-  );
+  const contextValue = useMemo(() => ({ recordGroupId }), [recordGroupId]);
   return (
     <RecordGroupContext.Provider value={contextValue}>
       {children}
