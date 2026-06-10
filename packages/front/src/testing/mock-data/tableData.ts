@@ -25,47 +25,47 @@ export const mockedTableMetadata: TableMetadata<MockedTableType> = {
 
 export const mockedTableData = [
   {
-    labelPlural: 'Permohonan Layanan',
-    fieldsCount: 11,
-  },
-  {
     labelPlural: 'Penduduk',
-    fieldsCount: 3,
+    fieldsCount: 23,
   },
   {
-    labelPlural: 'Program Bantuan',
-    fieldsCount: 4,
+    labelPlural: 'Keluarga',
+    fieldsCount: 13,
+  },
+  {
+    labelPlural: 'Wilayah',
+    fieldsCount: 10,
   },
   {
     labelPlural: 'Aset Desa',
-    fieldsCount: 5,
+    fieldsCount: 15,
   },
 ];
 
 export const tableDataSortedBylabelInAscendingOrder = [
-  { labelPlural: 'Aset Desa', fieldsCount: 5 },
-  { labelPlural: 'Penduduk', fieldsCount: 3 },
-  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
-  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
+  { labelPlural: 'Aset Desa', fieldsCount: 15 },
+  { labelPlural: 'Keluarga', fieldsCount: 13 },
+  { labelPlural: 'Penduduk', fieldsCount: 23 },
+  { labelPlural: 'Wilayah', fieldsCount: 10 },
 ];
 
 export const tableDataSortedBylabelInDescendingOrder = [
-  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
-  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
-  { labelPlural: 'Penduduk', fieldsCount: 3 },
-  { labelPlural: 'Aset Desa', fieldsCount: 5 },
+  { labelPlural: 'Wilayah', fieldsCount: 10 },
+  { labelPlural: 'Penduduk', fieldsCount: 23 },
+  { labelPlural: 'Keluarga', fieldsCount: 13 },
+  { labelPlural: 'Aset Desa', fieldsCount: 15 },
 ];
 
 export const tableDataSortedByFieldsCountInAscendingOrder = [
-  { labelPlural: 'Penduduk', fieldsCount: 3 },
-  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
-  { labelPlural: 'Aset Desa', fieldsCount: 5 },
-  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
+  { labelPlural: 'Wilayah', fieldsCount: 10 },
+  { labelPlural: 'Keluarga', fieldsCount: 13 },
+  { labelPlural: 'Aset Desa', fieldsCount: 15 },
+  { labelPlural: 'Penduduk', fieldsCount: 23 },
 ];
 
 export const tableDataSortedByFieldsCountInDescendingOrder = [
-  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
-  { labelPlural: 'Aset Desa', fieldsCount: 5 },
-  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
-  { labelPlural: 'Penduduk', fieldsCount: 3 },
+  { labelPlural: 'Penduduk', fieldsCount: 23 },
+  { labelPlural: 'Aset Desa', fieldsCount: 15 },
+  { labelPlural: 'Keluarga', fieldsCount: 13 },
+  { labelPlural: 'Wilayah', fieldsCount: 10 },
 ];

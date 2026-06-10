@@ -14,17 +14,16 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'jenisAset',
     description: 'Jenis aset',
     options: [
-      { label: 'Tanah', value: 'TANAH', position: 0, color: 'green' },
-      { label: 'Bangunan', value: 'BANGUNAN', position: 1, color: 'blue' },
-      { label: 'Peralatan', value: 'PERALATAN', position: 2, color: 'orange' },
-      { label: 'Kendaraan', value: 'KENDARAAN', position: 3, color: 'yellow' },
+      { label: 'Tanah', value: 'TANAH', position: 0 },
+      { label: 'Bangunan', value: 'BANGUNAN', position: 1 },
+      { label: 'Peralatan', value: 'PERALATAN', position: 2 },
+      { label: 'Kendaraan', value: 'KENDARAAN', position: 3 },
       {
         label: 'Inventaris',
         value: 'INVENTARIS',
         position: 4,
-        color: 'purple',
       },
-      { label: 'Lainnya', value: 'LAINNYA', position: 5, color: 'gray' },
+      { label: 'Lainnya', value: 'LAINNYA', position: 5 },
     ],
   },
   {
@@ -59,21 +58,19 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'statusPengelolaan',
     description: 'Status pengelolaan aset (Permendagri 1/2016)',
     options: [
-      { label: 'Aktif Dipakai', value: 'AKTIF', position: 0, color: 'green' },
+      { label: 'Aktif Dipakai', value: 'AKTIF', position: 0 },
       {
         label: 'Tidak Dipakai',
         value: 'TIDAK_DIPAKAI',
         position: 1,
-        color: 'gray',
       },
       {
         label: 'Dipinjamkan',
         value: 'DIPINJAMKAN',
         position: 2,
-        color: 'blue',
       },
-      { label: 'Disewakan', value: 'DISEWAKAN', position: 3, color: 'yellow' },
-      { label: 'Dilepas/Dijual', value: 'DILEPAS', position: 4, color: 'red' },
+      { label: 'Disewakan', value: 'DISEWAKAN', position: 3 },
+      { label: 'Dilepas/Dijual', value: 'DILEPAS', position: 4 },
     ],
   },
   {
@@ -89,18 +86,16 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'kategoriAset',
     description: 'Kategori berdasarkan sifat aset',
     options: [
-      { label: 'Bergerak', value: 'BERGERAK', position: 0, color: 'blue' },
+      { label: 'Bergerak', value: 'BERGERAK', position: 0 },
       {
         label: 'Tidak Bergerak',
         value: 'TIDAK_BERGERAK',
         position: 1,
-        color: 'turquoise',
       },
       {
         label: 'Tak Berwujud',
         value: 'TAK_BERWUJUD',
         position: 2,
-        color: 'purple',
       },
     ],
   },
@@ -110,16 +105,15 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'asalPerolehan',
     description: 'Sumber perolehan aset',
     options: [
-      { label: 'APBDes', value: 'APBDES', position: 0, color: 'green' },
-      { label: 'Hibah', value: 'HIBAH', position: 1, color: 'sky' },
+      { label: 'APBDes', value: 'APBDES', position: 0 },
+      { label: 'Hibah', value: 'HIBAH', position: 1 },
       {
         label: 'Bantuan Pemerintah',
         value: 'BANTUAN_PEMERINTAH',
         position: 2,
-        color: 'blue',
       },
-      { label: 'Pembelian', value: 'PEMBELIAN', position: 3, color: 'yellow' },
-      { label: 'Lainnya', value: 'LAINNYA', position: 4, color: 'gray' },
+      { label: 'Pembelian', value: 'PEMBELIAN', position: 3 },
+      { label: 'Lainnya', value: 'LAINNYA', position: 4 },
     ],
   },
   {
@@ -134,21 +128,20 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'kondisi',
     description: 'Kondisi fisik aset saat ini',
     options: [
-      { label: 'Baik', value: 'BAIK', position: 0, color: 'green' },
+      { label: 'Baik', value: 'BAIK', position: 0 },
       {
         label: 'Rusak Ringan',
         value: 'RUSAK_RINGAN',
         position: 1,
-        color: 'yellow',
       },
-      { label: 'Rusak Berat', value: 'RUSAK_BERAT', position: 2, color: 'red' },
+      { label: 'Rusak Berat', value: 'RUSAK_BERAT', position: 2 },
     ],
   },
   {
-    type: FieldMetadataType.LINKS,
+    type: FieldMetadataType.FILES,
     label: 'Bukti Kepemilikan',
     name: 'buktiKepemilikan',
-    description: 'Tautan dokumen kepemilikan aset (sertifikat, BPKB, dll)',
+    description: 'Dokumen kepemilikan aset (sertifikat, BPKB, dll)',
   },
   {
     type: FieldMetadataType.TEXT,
@@ -157,9 +150,9 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Nama perangkat desa penanggung jawab aset',
   },
   {
-    type: FieldMetadataType.LINKS,
+    type: FieldMetadataType.FILES,
     label: 'Foto Aset',
     name: 'fotoAset',
-    description: 'Tautan foto aset',
+    description: 'Foto aset',
   },
 ];

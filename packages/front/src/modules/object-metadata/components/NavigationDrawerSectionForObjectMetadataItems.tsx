@@ -14,13 +14,7 @@ const ORDERED_FIRST_STANDARD_OBJECTS: string[] = [
   'penduduk',
   'keluarga',
   'wilayah',
-  'layanan',
-  'surat',
-  'programBantuan',
-  'penerimaBantuan',
-  'perangkatDesa',
   'asetDesa',
-  'jabatan',
   'catatan',
   'tugas',
 ];

@@ -155,15 +155,15 @@ Tujuannya adalah menceritakan kisah yang koheren dan realistis dengan data: fiel
 
 ## Strategi objek
 
-**Pertahankan objek standar — Penduduk, Keluarga, dan Program Bantuan — serta gunakan kembali data seed yang sudah ada.** Mereka sudah memiliki email dan acara kalender yang terhubung sebagai peserta. Cerita demo dibangun di atasnya, bukan menggantikannya.
+**Pertahankan objek standar — Wilayah, Penduduk, Keluarga, dan Aset Desa — serta gunakan kembali data seed yang sudah ada.** Cerita demo dibangun di atasnya, bukan menggantikannya.
 
 - **Penduduk** → petakan ke peran "kontak" domain (mis. warga, pemohon, penerima manfaat, petugas)
 - **Keluarga** → petakan ke peran "organisasi" domain (mis. unit keluarga, kelompok penerima, instansi)
-- **Program Bantuan** → petakan ke peran "pipeline/transaksi" domain (mis. pengajuan bantuan, proses pendaftaran, estimasi layanan)
+- **Aset Desa** → petakan ke inventaris dan pengelolaan aset domain (mis. bangunan, kendaraan, tanah)
 
-**Tambahkan 2 hingga 3 objek kustom tambahan** untuk entitas spesifik domain yang tidak dipetakan ke Penduduk/Keluarga/Program Bantuan (mis. Aset Desa, Surat Menyurat, Kegiatan Desa). Jaga jumlah objek kustom tetap rendah — objek standar membawa sebagian besar cerita.
+**Tambahkan 2 hingga 3 objek kustom tambahan** untuk entitas spesifik domain yang tidak dipetakan ke objek standar (mis. Program Bantuan, Surat Menyurat, Kegiatan Desa). Jaga jumlah objek kustom tetap rendah — objek standar membawa sebagian besar cerita.
 
-**Tambahkan field kustom** ke Penduduk, Keluarga, dan Program Bantuan untuk memperkayanya dengan data spesifik domain (mis. tambahkan "pendidikanTerakhir", "nomorKk" ke Penduduk; tambahkan "namaKepalaKeluarga", "kategoriEkonomi" ke Keluarga; tambahkan "tahapPenyaluran", "tanggalRealisasi" ke Program Bantuan).
+**Tambahkan field kustom** ke Penduduk, Keluarga, dan Aset Desa untuk memperkayanya dengan data spesifik domain (mis. tambahkan "pendidikanTerakhir" ke Penduduk; tambahkan "kategoriEkonomi" ke Keluarga; tambahkan "penanggungJawab", "tanggalPemeliharaan" ke Aset Desa).
 
 Buat field relasi yang kaya antara objek standar dan kustom untuk menunjukkan kemampuan relasional platform.
 
@@ -183,11 +183,11 @@ Untuk field yang akan dibuat, pastikan membuat berbagai jenis field untuk menamp
 
 LANGKAH 0: Sajikan rencana kepada pengguna dan tunggu persetujuan.
 - Gunakan list_object_metadata_items untuk melihat semua objek yang tersedia di workspace
-- Gunakan find_penduduks (limit: 5) dan find_keluargas (limit: 5) dan find_programBantuans (limit: 5) untuk memahami bentuk data seed yang ada
+- Gunakan find_penduduks (limit: 5), find_keluargas (limit: 5), dan find_asetDesas (limit: 5) untuk memahami bentuk data seed yang ada
 - Berdasarkan jenis bisnis pengguna, usulkan rencana yang mencantumkan:
-  - Bagaimana Penduduk, Keluarga, dan Program Bantuan dipetakan ke cerita domain (mis. "Penduduk = Pemohon", "Keluarga = Unit Penerima")
+  - Bagaimana Wilayah, Penduduk, Keluarga, dan Aset Desa dipetakan ke cerita domain (mis. "Penduduk = Warga", "Keluarga = KK")
   - 2–3 objek kustom yang akan dibuat, masing-masing dengan deskripsi satu baris tentang perannya
-  - Field kustom yang akan ditambahkan ke Penduduk, Keluarga, dan Program Bantuan
+  - Field kustom yang akan ditambahkan ke Penduduk, Keluarga, dan Aset Desa
   - Deskripsi singkat relasi utama antar objek
 - Sajikan rencana ini kepada pengguna dan *tunggu konfirmasi atau penyesuaian* sebelum melanjutkan
 - Setelah disetujui, panggil skill custom-objects-cleanup untuk mengarsipkan semua objek kustom yang ada tanpa meminta konfirmasi pengguna
@@ -201,7 +201,7 @@ LANGKAH 2: Tunggu 3 detik, agar efek samping backend selesai
 LANGKAH 3: Buat semua field NON-RELASI untuk SEMUA objek secara batch dengan create_many_field_metadata.
 Lakukan panggilan batch terpisah untuk setiap objek.
 Ini mencakup:
-- Field kustom baru untuk objek standar (Penduduk, Keluarga, Program Bantuan) — gunakan objectMetadataId dari list_object_metadata_items
+- Field kustom baru untuk objek standar (Wilayah, Penduduk, Keluarga, Aset Desa) — gunakan objectMetadataId dari list_object_metadata_items
 - Semua field non-relasi untuk objek kustom baru
 JANGAN sertakan field relasi di langkah ini. Hanya buat TEXT, NUMBER, BOOLEAN, DATE_TIME, SELECT, MULTI_SELECT, CURRENCY, dll.
 Nilai opsi SELECT harus UPPER_SNAKE_CASE
@@ -214,19 +214,19 @@ targetFieldIcon seperti IconSomething, tidak apa-apa jika tidak ada di library i
 
 LANGKAH 6: Tunggu 3 detik, agar efek samping backend selesai
 
-LANGKAH 7: Ganti nama dan perkaya N record pertama dari Penduduk, Keluarga, dan Program Bantuan.
-- Gunakan find_penduduks (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_keluargas (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_programBantuans (limit: 50, orderBy: [{ position: "AscNullsFirst" }]) untuk mendapatkan ID record pertama di setiap tabel
+LANGKAH 7: Ganti nama dan perkaya N record pertama dari Penduduk, Keluarga, dan Aset Desa.
+- Gunakan find_penduduks (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_keluargas (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_asetDesas (limit: 50, orderBy: [{ position: "AscNullsFirst" }]) untuk mendapatkan ID record pertama di setiap tabel
   - Pengurutan berdasarkan posisi ascending memberikan record yang dimasukkan pertama kali, yang berdekatan dalam tabel — ini menjaga data demo tetap rapat dan membuat workspace terasa koheren
-- Untuk setiap objek standar, panggil update_penduduks / update_keluargas / update_programBantuans **satu per satu per record** (satu panggilan per record) untuk menetapkan nama dan nilai field yang relevan dengan domain:
+- Untuk setiap objek standar, panggil update_penduduks / update_keluargas / update_asetDesas **satu per satu per record** (satu panggilan per record) untuk menetapkan nama dan nilai field yang relevan dengan domain:
   - **Penduduk**: ganti nameFirstName + nameLastName dengan nama realistis yang sesuai peran domain (mis. untuk administrasi desa: "Budi Santoso", "Siti Rahayu"; untuk klinik: "dr. Ahmad Fauzi", "Dewi Lestari"). Juga tetapkan jobTitle dengan jabatan yang sesuai domain.
   - **Keluarga**: ganti nama dengan identifikasi rumah tangga realistis yang sesuai domain (mis. nomor KK 16-digit seperti "3509012501800001", kepala keluarga seperti "Budi Santoso", alamat desa seperti "Jl. Mawar No. 12 RT 002/RW 003 Desa Sumberejo").
-  - **Program Bantuan**: ganti nama dengan nama program yang relevan dengan domain (mis. "PKH Triwulan II — Keluarga Santoso", "BLT-DD — Penerima Baru Desa Sumberejo").
+  - **Aset Desa**: ganti nama dengan nama aset yang relevan dengan domain (mis. "Balai Desa Sukamaju", "Traktor Pertanian Desa").
   - Juga tetapkan field kustom baru pada setiap record: sebar nilai realistis ke field SELECT, tetapkan jumlah CURRENCY/NUMERIC yang masuk akal, tetapkan field DATE_TIME sekitar HARI INI.
 - Lakukan ini satu record sekaligus — API tidak mendukung pembaruan individu massal dengan nilai berbeda per record
 - Tunggu 3 detik setelah menyelesaikan semua pembaruan untuk satu jenis objek sebelum pindah ke berikutnya
 
 LANGKAH 7.5: Tambahkan field tampilan ke tampilan default objek standar untuk mengekspos field kustom baru.
-Untuk setiap Penduduk, Keluarga, dan Program Bantuan:
+Untuk setiap Penduduk, Keluarga, dan Aset Desa:
 - Navigasi ke tampilan default objek menggunakan tool navigate_app
 - Tunggu 3 detik
 - Gunakan create_many_view_fields untuk menambahkan semua field kustom baru ke tampilan default agar terlihat
@@ -269,9 +269,9 @@ LANGKAH 8: Untuk setiap objek kustom baru, ulangi SEMUA sub-langkah berikut sebe
   - **WAJIB**: Navigasi ke tampilan ini segera menggunakan tool navigate_app — ANDA WAJIB MELAKUKAN INI UNTUK SETIAP TAMPILAN, tepat setelah field/filter/pengurutannya disiapkan, tanpa pengecualian
   - Tunggu 3 detik agar pengguna dapat melihat tampilan dan mengoreksi jika diperlukan
 
-Juga buat tampilan tambahan untuk objek standar (Penduduk, Keluarga, Program Bantuan) yang menampilkan field kustom baru:
+Juga buat tampilan tambahan untuk objek standar (Penduduk, Keluarga, Aset Desa) yang menampilkan field kustom baru:
 - Untuk Penduduk: tampilan KANBAN yang dikelompokkan berdasarkan field SELECT baru yang ditambahkan (mis. "Berdasarkan Pendidikan", "Berdasarkan Status")
-- Untuk Program Bantuan: tampilan KANBAN yang dikelompokkan berdasarkan field tahap/status baru (tampilan pipeline)
+- Untuk Aset Desa: tampilan KANBAN yang dikelompokkan berdasarkan field kondisi/status pengelolaan
 - Untuk Keluarga: tampilan TABLE yang dikelompokkan berdasarkan field SELECT baru
 Navigasi ke setiap tampilan setelah dibuat. Tunggu 3 detik.
 
@@ -284,17 +284,17 @@ Gunakan create_complete_dashboard untuk membuat tab pertama, kemudian add_dashbo
 **Struktur: 3 tab**
 
 Tab 1 — "Ringkasan": KPI dan grafik tingkat tinggi di seluruh workspace
-- Baris 0: 3–4 widget AGGREGATE_CHART (KPI) — satu per metrik utama (mis. total anggaran dari Program Bantuan, jumlah Penduduk aktif, jumlah program terbuka). columnSpan 3–4, rowSpan 3.
+- Baris 0: 3–4 widget AGGREGATE_CHART (KPI) — satu per metrik utama (mis. total Penduduk aktif, jumlah Keluarga, jumlah Aset Desa). columnSpan 3–4, rowSpan 3.
 - Baris 3: 1–2 widget BAR_CHART atau LINE_CHART yang menunjukkan tren dari waktu ke waktu (kelompokkan berdasarkan field DATE_TIME dengan granularitas MONTH). columnSpan 6, rowSpan 7.
 - Baris 3: 1 PIE_CHART yang menunjukkan distribusi berdasarkan field SELECT (mis. status, jenis). columnSpan 6, rowSpan 7.
 - Baris 10: 1 widget STANDALONE_RICH_TEXT yang meringkas cerita dashboard. columnSpan 12, rowSpan 3.
 
-Tab 2 — "Pipeline [Objek Domain]" (mis. "Bantuan", "Pengajuan", "Layanan"): fokus pada Program Bantuan yang diperkaya dengan data domain
+Tab 2 — "Inventaris [Objek Domain]" (mis. "Aset", "Wilayah"): fokus pada Aset Desa yang diperkaya dengan data domain
 - Sebelum menambahkan widget RECORD_TABLE, jalankan urutan 3 langkah ini:
   1. create_view (type TABLE, nama mis. "Bantuan Aktif") → dapatkan viewId baru
   2. create_many_view_fields pada viewId baru — tambahkan 4–6 field utama (nama, SELECT tahap/status baru, field CURRENCY/NUMERIC, field DATE, Penduduk atau Keluarga yang terhubung). Gunakan posisi 0, 1, 2… dan isVisible: true.
   3. create_many_view_filters + create_view_sort — mis. filter keluar record SELESAI/DITOLAK (SELECT IS_NOT "SELESAI"), urutkan berdasarkan nilai DESC
-- Baris 0: 1 widget RECORD_TABLE. Tetapkan objectMetadataId ke Program Bantuan, configuration.viewId ke tampilan yang didedikasikan. columnSpan 12, rowSpan 8.
+- Baris 0: 1 widget RECORD_TABLE. Tetapkan objectMetadataId ke Aset Desa, configuration.viewId ke tampilan yang didedikasikan. columnSpan 12, rowSpan 8.
 - Baris 8: 1 BAR_CHART yang dikelompokkan berdasarkan field SELECT tahap. columnSpan 6, rowSpan 7.
 - Baris 8: 1 PIE_CHART atau AGGREGATE_CHART pada field CURRENCY. columnSpan 6, rowSpan 7.
 
@@ -463,7 +463,7 @@ Anda membantu pengguna mengelola model data workspace dengan membuat, memperbaru
 
 ## Konsep Penting
 
-- **Objek**: Mewakili entitas dalam model data (mis. Keluarga, Penduduk, Program Bantuan)
+- **Objek**: Mewakili entitas dalam model data (mis. Keluarga, Penduduk, Aset Desa)
 - **Field**: Properti objek dengan tipe spesifik (TEXT, NUMBER, DATE_TIME, SELECT, RELATION, dll.)
 - **Relasi**: Tautan antar objek (satu-ke-banyak, banyak-ke-satu)
 - **Label vs Nama**: Label untuk tampilan, nama adalah pengenal internal (camelCase)
@@ -1147,15 +1147,15 @@ Anda membantu pengguna membuat dan mengonfigurasi tampilan untuk mengorganisasi 
 1. **Identifikasi objek target**: Jika pengguna tidak menentukan objek, tanyakan. Sajikan objek yang tersedia dan jelaskan isinya:
    - **Keluarga**: Kartu Keluarga (nomor KK, alamat, kepala keluarga)
    - **Penduduk**: Warga sesuai KTP-el (nama, NIK, tanggal lahir, jenis kelamin, agama, alamat, keluarga)
-   - **Program Bantuan**: PKH/BLT-DD/BPNT/dst (nama, jenis bantuan, periode, anggaran)
+   - **Aset Desa**: bangunan, kendaraan, tanah (nama, jenis, kondisi, nilai)
    - **Task**: Item tindakan (judul, status, tanggal jatuh tempo, penugasan)
    - **Note**: Catatan bebas (judul, isi)
    - Ditambah objek kustom apa pun di workspace
 
 2. **Pilih jenis tampilan**: Sarankan jenis terbaik berdasarkan data objek:
    - TABLE: Default yang baik untuk objek apa pun, bagus untuk menelusuri dataset besar
-   - KANBAN: Ideal saat objek memiliki field SELECT yang mewakili tahap/status (mis. Program Bantuan → tahap, Task → status)
-   - CALENDAR: Ideal saat objek memiliki field DATE/DATE_TIME (mis. Program Bantuan → tanggalRealisasi, Task → tanggalJatuhTempo)
+   - KANBAN: Ideal saat objek memiliki field SELECT yang mewakili tahap/status (mis. Aset Desa → kondisi, Task → status)
+   - CALENDAR: Ideal saat objek memiliki field DATE/DATE_TIME (mis. Aset Desa → tahunPerolehan, Task → tanggalJatuhTempo)
 
 3. **Buat tampilan**: Gunakan create_view dengan parameter yang tepat.
    - Untuk KANBAN: mainGroupByFieldName wajib — tanyakan pengguna field SELECT mana yang dikelompokkan, atau sarankan yang paling alami.
@@ -1169,14 +1169,14 @@ Anda membantu pengguna membuat dan mengonfigurasi tampilan untuk mengorganisasi 
 ## Praktik Terbaik KANBAN
 
 - Field pengelompokan harus bertipe SELECT
-- Pengelompokan umum: Program Bantuan berdasarkan tahap, Task berdasarkan status
+- Pengelompokan umum: Aset Desa berdasarkan kondisi, Task berdasarkan status
 - Opsional tetapkan kanbanAggregateOperation (COUNT, SUM, AVG, MIN, MAX) dan kanbanAggregateOperationFieldName untuk ringkasan kolom
-- Contoh: Jumlah anggaran per tahap untuk papan Program Bantuan
+- Contoh: Jumlah aset per kondisi untuk papan Aset Desa
 
 ## Praktik Terbaik CALENDAR
 
 - Memerlukan field DATE atau DATE_TIME pada objek
-- Terbaik untuk: tanggal realisasi Program Bantuan, tanggal jatuh tempo Task, data berbasis acara apa pun
+- Terbaik untuk: tahun perolehan Aset Desa, tanggal jatuh tempo Task, data berbasis acara apa pun
 
 ## TABLE dengan Grup
 
@@ -1341,7 +1341,7 @@ Anda membantu pengguna mengarsipkan objek kustom dari workspace mereka, seperti 
 
 1. **Daftar semua objek**: Gunakan list_object_metadata_items untuk mendapatkan daftar lengkap objek di workspace.
 
-2. **Identifikasi objek kustom**: Filter hasil untuk menemukan objek dengan isCustom bernilai true. Ini adalah objek yang dibuat oleh pengguna atau dev seed, berbeda dari objek standar bawaan (Keluarga, Penduduk, Program Bantuan, Task, Note, dll.).
+2. **Identifikasi objek kustom**: Filter hasil untuk menemukan objek dengan isCustom bernilai true. Ini adalah objek yang dibuat oleh pengguna atau dev seed, berbeda dari objek standar bawaan (Wilayah, Keluarga, Penduduk, Aset Desa, Task, Note, dll.).
 
 3. **Sajikan temuan**: Beri tahu pengguna objek kustom mana yang ditemukan. Jika tidak ada, informasikan bahwa workspace tidak memiliki objek kustom.
 

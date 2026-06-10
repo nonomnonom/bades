@@ -194,12 +194,12 @@ const createWelcomeRichText = ({
           content: [
             {
               type: 'text',
-              text: 'Program Bantuan & Penerima Bantuan',
+              text: 'Wilayah & Aset Desa',
               styles: { bold: true },
             },
             {
               type: 'text',
-              text: ' — PKH, BLT-DD, BPNT, dan program sosial lain.',
+              text: ' — struktur dusun/RW/RT dan inventaris desa.',
               styles: {},
             },
           ],

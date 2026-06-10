@@ -43,8 +43,7 @@ const resolveSidStandardMapViewIds = ({
   ),
 });
 
-// Seed 9 objek SID standar Bades (Penduduk, Keluarga, Wilayah, Layanan,
-// Surat, Perangkat Desa, Program Bantuan, Penerima Bantuan, Aset Desa) +
+// Seed 4 objek SID standar Bades (Wilayah, Penduduk, Keluarga, Aset Desa) +
 // sample record minimal ke setiap workspace baru.
 //
 // Berbeda dari `DevSeederMetadataService` yang dipakai untuk workspace dev
@@ -97,16 +96,26 @@ export class SidStandardSeedService {
         );
         objectMetadataId = existing.id;
       } else {
-        const created = await this.objectMetadataService.createOneObject({
-          createObjectInput: object,
-          workspaceId,
-          ownerFlatApplication: badesStandardFlatApplication,
-        });
-        objectMetadataId = created.id;
-        createdObjects += 1;
-        this.logger.log(
-          `Objek SID '${object.nameSingular}' dibuat di workspace ${workspaceId} (standard application)`,
-        );
+        try {
+          const created = await this.objectMetadataService.createOneObject({
+            createObjectInput: object,
+            workspaceId,
+            ownerFlatApplication: badesStandardFlatApplication,
+          });
+          objectMetadataId = created.id;
+          createdObjects += 1;
+          this.logger.log(
+            `Objek SID '${object.nameSingular}' dibuat di workspace ${workspaceId} (standard application)`,
+          );
+        } catch (error) {
+          this.logger.error(
+            `GAGAL membuat objek SID '${object.nameSingular}' di workspace ${workspaceId}: ${
+              error instanceof Error ? error.message : String(error)
+            }`,
+          );
+          // Lanjut ke objek berikutnya — jangan batalkan objek yang sudah berhasil.
+          continue;
+        }
       }
 
       // Field metadata: createMany sudah idempotent untuk nama field yang
@@ -143,10 +152,14 @@ export class SidStandardSeedService {
             fieldNames: fieldsToCreate.map((f) => f.name),
           });
         } catch (error) {
-          // Beberapa field yang sudah ada akan throw — log lalu lanjut ke
-          // object berikutnya, jangan rollback object yang sudah berhasil.
+          // Field yang sudah ada atau constraint violation akan throw — log
+          // lalu lanjut ke object berikutnya, jangan rollback object yang
+          // sudah berhasil.
+          const failedFieldNames = fieldsToCreate
+            .map((f) => f.name)
+            .join(', ');
           this.logger.warn(
-            `Gagal seed sebagian field untuk '${object.nameSingular}' di workspace ${workspaceId}: ${
+            `Gagal seed ${fieldsToCreate.length} field [${failedFieldNames}] untuk '${object.nameSingular}' di workspace ${workspaceId}: ${
               error instanceof Error ? error.message : String(error)
             }`,
           );
@@ -178,7 +191,7 @@ export class SidStandardSeedService {
 
   // Tanam RELATION fields antar object SID standar.
   // Setiap relasi MANY_TO_ONE membuat FK column `{fieldName}Id` di tabel
-  // source object (mis. `_jabatan."pendudukId"`) dan reverse ONE_TO_MANY
+  // source object (mis. `_penduduk."kartuKeluargaId"`) dan reverse ONE_TO_MANY
   // field di target object.
   //
   // Idempotent: field dengan nama yang sama akan di-skip oleh `createManyFields`
@@ -192,7 +205,7 @@ export class SidStandardSeedService {
   //
   // Catatan: method ini HARUS dipanggil setelah `seedSidStandardObjects`
   // (agar semua object exist) dan SEBELUM `seedSidStandardData` (agar kolom
-  // FK `pendudukId`, `wilayahId`, `programBantuanId` sudah ada di tabel
+  // FK `kartuKeluargaId`, `wilayahId` sudah ada di tabel
   // fisik sebelum INSERT data berjalan).
   async seedSidStandardRelations({
     workspaceId,
@@ -457,13 +470,8 @@ export class SidStandardSeedService {
     schemaName: string;
   }): Promise<{ deletedRecords: number; insertedRecords: number }> {
     const deleteTableOrder = [
-      '_penerimaBantuan',
-      '_permohonanSurat',
-      '_jabatan',
       '_penduduk',
       '_keluarga',
-      '_suratKeluar',
-      '_programBantuan',
       '_asetDesa',
       '_wilayah',
     ] as const;
@@ -740,7 +748,7 @@ export class SidStandardSeedService {
 
   // Tanam MAP view untuk object SID yang punya field ADDRESS ke workspace
   // baru. Setiap workspace baru otomatis mendapat view peta untuk objek
-  // keluarga dan penerima-bantuan sehingga operator desa bisa langsung
+  // keluarga dan aset desa sehingga operator desa bisa langsung
   // memvisualisasikan data di peta tanpa setup manual.
   //
   // Idempotent: ON CONFLICT (id) DO NOTHING — aman dipanggil ulang.
@@ -769,12 +777,6 @@ export class SidStandardSeedService {
         objectNameSingular: 'keluarga',
         viewName: 'Peta Keluarga',
         mapViewKey: 'keluarga',
-        addressFieldName: 'alamat',
-      },
-      {
-        objectNameSingular: 'penerimaBantuan',
-        viewName: 'Peta Penerima Bantuan',
-        mapViewKey: 'penerima-bantuan',
         addressFieldName: 'alamat',
       },
       {
@@ -1037,10 +1039,9 @@ export class SidStandardSeedService {
           AND ("mapFieldMetadataId" IS NULL OR "mapFieldMetadataId" <> $1)
       `,
       [mapFieldMetadataId, viewId],
-    );
-  }
+    );    }
 
-  // Tanam 3 dashboard contoh ke workspace baru. Dashboard menggunakan
+    // Tanam 2 dashboard contoh ke workspace baru. Dashboard menggunakan
   // workspaceMember pertama (berdasarkan createdAt ASC) sebagai actor, dan
   // pageLayoutId di-resolve dari `core."pageLayout"` berdasarkan
   // universalIdentifier standar (`STANDARD_DASHBOARD_PAGE_LAYOUT_CONFIG`).
@@ -1084,7 +1085,7 @@ export class SidStandardSeedService {
     const pageLayoutId: string | null =
       pageLayoutRows.length > 0 ? pageLayoutRows[0].id : null;
 
-    // 3 dashboard seed — prefix namespace `30303030-0009-...`
+    // 2 dashboard seed — prefix namespace `30303030-0009-...`
     const dashboards: Array<{
       id: string;
       title: string;
@@ -1094,16 +1095,6 @@ export class SidStandardSeedService {
         id: '30303030-0009-4000-8000-000000000001',
         title: 'Ringkasan Desa',
         position: 0,
-      },
-      {
-        id: '30303030-0009-4000-8000-000000000002',
-        title: 'Layanan Surat',
-        position: 1,
-      },
-      {
-        id: '30303030-0009-4000-8000-000000000003',
-        title: 'Program Bantuan',
-        position: 2,
       },
     ];
 
@@ -1146,129 +1137,98 @@ export class SidStandardSeedService {
     return { insertedDashboards };
   }
 
-  // Tanam 2 workflow contoh dalam status DRAFT ke workspace baru.
-  // Status DRAFT dipilih supaya workflow tidak otomatis aktif dan tidak
-  // memicu event saat signup. Operator desa bisa mengaktifkan secara manual
-  // dari halaman Alur Kerja jika diperlukan.
-  //
-  // Tabel target: `schemaName."workflow"` dan `schemaName."workflowVersion"`.
-  // Idempotent: ON CONFLICT (id) DO NOTHING.
-  async seedSidStandardWorkflows({
-    workspaceId,
-    schemaName,
-  }: {
-    workspaceId: string;
-    schemaName: string;
-  }): Promise<{ insertedWorkflows: number }> {
-    // workflow 1: Notifikasi Surat Selesai
-    const WORKFLOW_SURAT_ID = '30303030-000a-4000-8000-000000000001';
-    const WORKFLOW_SURAT_VERSION_ID = '30303030-000a-4000-8000-000000000011';
+    // 1 workflow contoh dalam status DRAFT ke workspace baru.
+    //
+    // Tabel target: `schemaName."workflow"` dan `schemaName."workflowVersion"`.
+    // Idempotent: ON CONFLICT (id) DO NOTHING.
+    async seedSidStandardWorkflows({
+      workspaceId,
+      schemaName,
+    }: {
+      workspaceId: string;
+      schemaName: string;
+    }): Promise<{ insertedWorkflows: number }> {
+      // workflow: Verifikasi Data Penduduk
+      const WORKFLOW_PENDUDUK_ID = '30303030-000a-4000-8000-000000000001';
+      const WORKFLOW_PENDUDUK_VERSION_ID =
+        '30303030-000a-4000-8000-000000000011';
 
-    // workflow 2: Cek Status Penerima Bantuan
-    const WORKFLOW_BANTUAN_ID = '30303030-000a-4000-8000-000000000002';
-    const WORKFLOW_BANTUAN_VERSION_ID = '30303030-000a-4000-8000-000000000012';
+      const workflowSql = `
+        INSERT INTO "${schemaName}"."workflow"
+          (id, name, "lastPublishedVersionId", statuses, position,
+           "createdBySource", "createdByWorkspaceMemberId", "createdByName",
+           "updatedBySource", "updatedByWorkspaceMemberId", "updatedByName")
+        VALUES
+          ($1, $2, NULL, $3, $4, 'MANUAL', NULL, 'Sistem', 'MANUAL', NULL, 'Sistem')
+        ON CONFLICT (id) DO NOTHING
+      `;
 
-    const workflowSql = `
-      INSERT INTO "${schemaName}"."workflow"
-        (id, name, "lastPublishedVersionId", statuses, position,
-         "createdBySource", "createdByWorkspaceMemberId", "createdByName",
-         "updatedBySource", "updatedByWorkspaceMemberId", "updatedByName")
-      VALUES
-        ($1, $2, NULL, $3, $4, 'MANUAL', NULL, 'Sistem', 'MANUAL', NULL, 'Sistem'),
-        ($5, $6, NULL, $7, $8, 'MANUAL', NULL, 'Sistem', 'MANUAL', NULL, 'Sistem')
-      ON CONFLICT (id) DO NOTHING
-    `;
+      let insertedWorkflows = 0;
 
-    let insertedWorkflows = 0;
+      try {
+        await this.coreDataSource.query(workflowSql, [
+          WORKFLOW_PENDUDUK_ID,
+          'Verifikasi Data Penduduk',
+          ['DRAFT'],
+          0,
+        ]);
 
-    try {
-      await this.coreDataSource.query(workflowSql, [
-        WORKFLOW_SURAT_ID,
-        'Notifikasi Surat Selesai',
-        ['DRAFT'],
-        0,
-        WORKFLOW_BANTUAN_ID,
-        'Cek Status Penerima Bantuan',
-        ['DRAFT'],
-        1,
-      ]);
+        this.logger.log(
+          `1 workflow contoh disisipkan ke workspace ${workspaceId}`,
+        );
+        insertedWorkflows += 1;
+      } catch (error) {
+        this.logger.warn(
+          `Gagal seed workflow (workspace ${workspaceId}): ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+        );
 
-      this.logger.log(
-        `2 workflow contoh disisipkan ke workspace ${workspaceId}`,
-      );
-      insertedWorkflows += 2;
-    } catch (error) {
-      this.logger.warn(
-        `Gagal seed workflow (workspace ${workspaceId}): ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
+        return { insertedWorkflows };
+      }
+
+      // Seed workflowVersion — status DRAFT, trigger minimal.
+      const versionSql = `
+        INSERT INTO "${schemaName}"."workflowVersion"
+          (id, name, trigger, steps, status, position, "workflowId")
+        VALUES
+          ($1, $2, $3, NULL, 'DRAFT', $4, $5)
+        ON CONFLICT (id) DO NOTHING
+      `;
+
+      try {
+        const triggerPenduduk = JSON.stringify({
+          name: 'Jalankan manual',
+          type: 'MANUAL',
+          settings: {
+            outputSchema: {},
+            icon: 'IconHandClick',
+            availability: { type: 'GLOBAL' },
+          },
+          nextStepIds: [],
+        });
+
+        await this.coreDataSource.query(versionSql, [
+          WORKFLOW_PENDUDUK_VERSION_ID,
+          'v1',
+          triggerPenduduk,
+          0,
+          WORKFLOW_PENDUDUK_ID,
+        ]);
+
+        this.logger.log(
+          `1 workflowVersion DRAFT disisipkan ke workspace ${workspaceId}`,
+        );
+      } catch (error) {
+        this.logger.warn(
+          `Gagal seed workflowVersion (workspace ${workspaceId}): ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+        );
+      }
 
       return { insertedWorkflows };
     }
-
-    // Seed workflowVersion — satu version per workflow, status DRAFT,
-    // trigger minimal agar UI Alur Kerja tidak menampilkan list kosong.
-    // Steps dikosongkan (null) supaya tidak perlu meresolve objectMetadataId
-    // dari SID custom object yang mungkin belum tersedia saat seed berjalan.
-    const versionSql = `
-      INSERT INTO "${schemaName}"."workflowVersion"
-        (id, name, trigger, steps, status, position, "workflowId")
-      VALUES
-        ($1, $2, $3, NULL, 'DRAFT', $4, $5),
-        ($6, $7, $8, NULL, 'DRAFT', $9, $10)
-      ON CONFLICT (id) DO NOTHING
-    `;
-
-    try {
-      const triggerSurat = JSON.stringify({
-        name: 'Status berubah ke Selesai',
-        type: 'DATABASE_EVENT',
-        settings: {
-          outputSchema: {},
-          icon: 'IconMail',
-          eventName: 'permohonanSurat.updated',
-        },
-        nextStepIds: [],
-      });
-
-      const triggerBantuan = JSON.stringify({
-        name: 'Jalankan manual',
-        type: 'MANUAL',
-        settings: {
-          outputSchema: {},
-          icon: 'IconHandClick',
-          availability: { type: 'GLOBAL' },
-        },
-        nextStepIds: [],
-      });
-
-      await this.coreDataSource.query(versionSql, [
-        WORKFLOW_SURAT_VERSION_ID,
-        'v1',
-        triggerSurat,
-        0,
-        WORKFLOW_SURAT_ID,
-        WORKFLOW_BANTUAN_VERSION_ID,
-        'v1',
-        triggerBantuan,
-        0,
-        WORKFLOW_BANTUAN_ID,
-      ]);
-
-      this.logger.log(
-        `2 workflowVersion DRAFT disisipkan ke workspace ${workspaceId}`,
-      );
-    } catch (error) {
-      this.logger.warn(
-        `Gagal seed workflowVersion (workspace ${workspaceId}): ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
-    }
-
-    return { insertedWorkflows };
-  }
 
   // Backfill viewField ke default list view (key = INDEX) untuk field yang
   // baru ditambah setelah object sudah ada. Engine hanya membuat viewField

@@ -16,11 +16,6 @@ export const getAvatarType = (objectNameSingular: string) => {
     objectNameSingular === 'penduduk' ||
     objectNameSingular === 'keluarga' ||
     objectNameSingular === 'wilayah' ||
-    objectNameSingular === 'layanan' ||
-    objectNameSingular === 'suratKeluar' ||
-    objectNameSingular === 'programBantuan' ||
-    objectNameSingular === 'penerimaBantuan' ||
-    objectNameSingular === 'perangkatDesa' ||
     objectNameSingular === 'asetDesa'
   ) {
     return 'rounded';

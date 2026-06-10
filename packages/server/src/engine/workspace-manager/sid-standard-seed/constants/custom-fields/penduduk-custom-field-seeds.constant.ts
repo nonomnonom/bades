@@ -6,14 +6,8 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.TEXT,
     label: 'NIK',
     name: 'nik',
-    description: 'Nomor Induk Kependudukan',
+    description: 'Nomor Induk Kependudukan (16 digit)',
     isUnique: true,
-  },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'Nomor KK',
-    name: 'nomorKk',
-    description: 'Nomor Kartu Keluarga',
   },
   {
     type: FieldMetadataType.FULL_NAME,
@@ -35,8 +29,8 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Jenis Kelamin',
     name: 'jenisKelamin',
     options: [
-      { label: 'Laki-laki', value: 'LAKI_LAKI', position: 0, color: 'blue' },
-      { label: 'Perempuan', value: 'PEREMPUAN', position: 1, color: 'pink' },
+      { label: 'Laki-laki', value: 'LAKI_LAKI', position: 0 },
+      { label: 'Perempuan', value: 'PEREMPUAN', position: 1 },
     ],
   },
   {
@@ -86,9 +80,76 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     ],
   },
   {
-    type: FieldMetadataType.TEXT,
+    type: FieldMetadataType.SELECT,
     label: 'Pekerjaan',
     name: 'pekerjaan',
+    description: 'Jenis pekerjaan sesuai nomenklatur BPS/Dukcapil',
+    options: [
+      {
+        label: 'Belum/Tidak Bekerja',
+        value: 'TIDAK_BEKERJA',
+        position: 0,
+      },
+      {
+        label: 'Pelajar/Mahasiswa',
+        value: 'PELAJAR_MAHASISWA',
+        position: 1,
+      },
+      { label: 'PNS', value: 'PNS', position: 2 },
+      { label: 'TNI', value: 'TNI', position: 3 },
+      { label: 'Polri', value: 'POLRI', position: 4 },
+      {
+        label: 'Petani/Pekebun',
+        value: 'PETANI',
+        position: 5,
+      },
+      {
+        label: 'Buruh Tani',
+        value: 'BURUH_TANI',
+        position: 6,
+      },
+      { label: 'Nelayan', value: 'NELAYAN', position: 7 },
+      {
+        label: 'Wiraswasta',
+        value: 'WIRASWASTA',
+        position: 8,
+      },
+      {
+        label: 'Pedagang',
+        value: 'PEDAGANG',
+        position: 9,
+      },
+      {
+        label: 'Karyawan Swasta',
+        value: 'KARYAWAN_SWASTA',
+        position: 10,
+      },
+      { label: 'Guru', value: 'GURU', position: 11 },
+      { label: 'Dosen', value: 'DOSEN', position: 12 },
+      {
+        label: 'Bidan/Perawat',
+        value: 'BIDAN_PERAWAT',
+        position: 13,
+      },
+      { label: 'Dokter', value: 'DOKTER', position: 14 },
+      { label: 'Sopir', value: 'SOPIR', position: 15 },
+      {
+        label: 'Buruh Harian',
+        value: 'BURUH_HARIAN',
+        position: 16,
+      },
+      {
+        label: 'Pensiunan',
+        value: 'PENSIUNAN',
+        position: 17,
+      },
+      {
+        label: 'Ibu Rumah Tangga',
+        value: 'IBU_RUMAH_TANGGA',
+        position: 18,
+      },
+      { label: 'Lainnya', value: 'LAINNYA', position: 19 },
+    ],
   },
   {
     type: FieldMetadataType.SELECT,
@@ -112,29 +173,6 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     ],
   },
   {
-    type: FieldMetadataType.ADDRESS,
-    label: 'Alamat',
-    name: 'alamat',
-  },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'RT',
-    name: 'rt',
-    description: 'Nomor RT',
-  },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'RW',
-    name: 'rw',
-    description: 'Nomor RW',
-  },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'Dusun',
-    name: 'dusun',
-    description: 'Nama dusun tempat tinggal',
-  },
-  {
     type: FieldMetadataType.SELECT,
     label: 'Status Hubungan dalam Keluarga',
     name: 'statusHubunganKeluarga',
@@ -154,20 +192,32 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
   },
   {
     type: FieldMetadataType.SELECT,
-    label: 'Tipe Warga',
-    name: 'tipeWarga',
+    label: 'Status Kependudukan',
+    name: 'statusKependudukan',
+    description: 'Status kependudukan warga di desa',
     options: [
-      { label: 'Tetap', value: 'TETAP', position: 0 },
-      { label: 'Tidak Tetap', value: 'TIDAK_TETAP', position: 1 },
+      { label: 'Menetap', value: 'MENETAP', position: 0 },
+      {
+        label: 'Pendatang',
+        value: 'PENDATANG',
+        position: 1,
+      },
     ],
   },
   {
     type: FieldMetadataType.SELECT,
-    label: 'Status Hidup',
-    name: 'statusHidup',
+    label: 'Status Dasar',
+    name: 'statusDasar',
+    description: 'Status dasar kependudukan (Hidup/Meninggal/Pindah/Hilang)',
     options: [
       { label: 'Hidup', value: 'HIDUP', position: 0 },
-      { label: 'Meninggal', value: 'MENINGGAL', position: 1 },
+      {
+        label: 'Meninggal',
+        value: 'MENINGGAL',
+        position: 1,
+      },
+      { label: 'Pindah', value: 'PINDAH', position: 2 },
+      { label: 'Hilang', value: 'HILANG', position: 3 },
     ],
   },
   {
@@ -181,6 +231,62 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'NIK Ibu',
     name: 'nikIbu',
     description: 'NIK Ibu Kandung',
+  },
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'Nama Ayah',
+    name: 'namaAyah',
+    description: 'Nama lengkap ayah kandung',
+  },
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'Nama Ibu',
+    name: 'namaIbu',
+    description: 'Nama lengkap ibu kandung',
+  },
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'No. Akta Kelahiran',
+    name: 'noAktaKelahiran',
+    description: 'Nomor akta kelahiran dari Dukcapil',
+  },
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Penyandang Disabilitas',
+    name: 'penyandangDisabilitas',
+    description: 'Jenis disabilitas (jika ada)',
+    options: [
+      {
+        label: 'Tidak Ada',
+        value: 'TIDAK_ADA',
+        position: 0,
+      },
+      {
+        label: 'Cacat Fisik',
+        value: 'CACAT_FISIK',
+        position: 1,
+      },
+      {
+        label: 'Cacat Netra/Buta',
+        value: 'CACAT_NETRA',
+        position: 2,
+      },
+      {
+        label: 'Cacat Rungu/Wicara',
+        value: 'CACAT_RUNGU_WICARA',
+        position: 3,
+      },
+      {
+        label: 'Cacat Mental/Jiwa',
+        value: 'CACAT_MENTAL',
+        position: 4,
+      },
+      {
+        label: 'Cacat Ganda (Fisik & Mental)',
+        value: 'CACAT_GANDA',
+        position: 5,
+      },
+    ],
   },
   {
     type: FieldMetadataType.PHONES,
@@ -198,13 +304,15 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.DATE,
     label: 'Tanggal Meninggal',
     name: 'tanggalMeninggal',
-    description: 'Tanggal meninggal dunia (diisi jika statusHidup = Meninggal)',
+    description:
+      'Tanggal meninggal dunia (diisi jika statusDasar = Meninggal)',
   },
   {
-    type: FieldMetadataType.LINKS,
+    type: FieldMetadataType.FILES,
     label: 'Foto',
     name: 'foto',
-    description: 'Link foto penduduk',
+    description: 'Foto penduduk (berkas, bukan tautan)',
+    settings: { maxNumberOfValues: 1 },
   },
   {
     type: FieldMetadataType.DATE,

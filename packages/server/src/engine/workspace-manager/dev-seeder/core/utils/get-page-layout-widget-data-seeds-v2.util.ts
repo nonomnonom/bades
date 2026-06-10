@@ -30,8 +30,8 @@ export const getPageLayoutWidgetDataSeedsV2 = (
   const keluargaObject = objectMetadataItems.find(
     (obj) => obj.nameSingular === 'keluarga',
   );
-  const permohonanSuratObject = objectMetadataItems.find(
-    (obj) => obj.nameSingular === 'permohonanSurat',
+  const asetDesaObject = objectMetadataItems.find(
+    (obj) => obj.nameSingular === 'asetDesa',
   );
 
   const pendudukIdFieldId = getFieldId(pendudukObject, 'id');
@@ -44,11 +44,8 @@ export const getPageLayoutWidgetDataSeedsV2 = (
   const keluargaIdFieldId = getFieldId(keluargaObject, 'id');
   const keluargaCreatedAtFieldId = getFieldId(keluargaObject, 'createdAt');
 
-  const permohonanIdFieldId = getFieldId(permohonanSuratObject, 'id');
-  const permohonanCreatedAtFieldId = getFieldId(
-    permohonanSuratObject,
-    'createdAt',
-  );
+  const asetDesaIdFieldId = getFieldId(asetDesaObject, 'id');
+  const asetDesaCreatedAtFieldId = getFieldId(asetDesaObject, 'createdAt');
 
   return [
     // LINE chart: Pertumbuhan Warga per Waktu (Ringkasan Layanan)
@@ -88,8 +85,8 @@ export const getPageLayoutWidgetDataSeedsV2 = (
         } satisfies SeederFlatPageLayoutWidget)
       : null,
 
-    // LINE chart: Permohonan Baru per Waktu (Ringkasan Warga)
-    isDefined(permohonanIdFieldId) && isDefined(permohonanCreatedAtFieldId)
+    // LINE chart: Aset Desa per Periode
+    isDefined(asetDesaIdFieldId) && isDefined(asetDesaCreatedAtFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -99,7 +96,7 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_OVERVIEW,
           ),
-          title: 'Permohonan Baru per Waktu',
+          title: 'Aset Desa per Periode',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 3, rowSpan: 6, columnSpan: 5 },
           position: {
@@ -111,16 +108,16 @@ export const getPageLayoutWidgetDataSeedsV2 = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.LINE_CHART,
-            aggregateFieldMetadataId: permohonanIdFieldId,
+            aggregateFieldMetadataId: asetDesaIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            primaryAxisGroupByFieldMetadataId: permohonanCreatedAtFieldId,
+            primaryAxisGroupByFieldMetadataId: asetDesaCreatedAtFieldId,
             primaryAxisOrderBy: GraphOrderBy.FIELD_ASC,
             axisNameDisplay: AxisNameDisplay.NONE,
             displayDataLabel: false,
             timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: permohonanSuratObject?.id ?? null,
+          objectMetadataId: asetDesaObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,

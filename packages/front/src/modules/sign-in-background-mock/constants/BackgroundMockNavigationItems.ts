@@ -1,10 +1,8 @@
 import {
-  IconBuildingSkyscraper,
   IconCalendarEvent,
   IconCheckbox,
   type IconComponent,
   IconFileText,
-  IconHeart,
   IconHome,
   IconLayoutDashboard,
   IconNotes,
@@ -21,9 +19,8 @@ export type BackgroundMockNavigationItem = {
 export const BACKGROUND_MOCK_WORKSPACE_ITEMS = [
   { label: 'Penduduk', Icon: IconUsers, color: 'blue' },
   { label: 'Keluarga', Icon: IconHome, color: 'blue' },
-  { label: 'Perangkat Desa', Icon: IconBuildingSkyscraper, color: 'green' },
-  { label: 'Surat', Icon: IconFileText, color: 'purple' },
-  { label: 'Bantuan Sosial', Icon: IconHeart, color: 'red' },
+
+  { label: 'Dokumen', Icon: IconFileText, color: 'red' },
   { label: 'Tugas', Icon: IconCheckbox, color: 'turquoise' },
   { label: 'Catatan', Icon: IconNotes, color: 'turquoise' },
   { label: 'Dasbor', Icon: IconLayoutDashboard, color: 'orange' },

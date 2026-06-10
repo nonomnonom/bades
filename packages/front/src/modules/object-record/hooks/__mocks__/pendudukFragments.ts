@@ -1,18 +1,10 @@
-// Intermediate state: fragment ini mencerminkan field aktual yang masih ada di
-// `mock-objects-metadata.ts` (warisan schema Penduduk). Saat seed Bades
-// SID lengkap (NIK, KK, nama lengkap, alamat, RT/RW, dst.) sudah selesai, mock
-// metadata akan diregenerasi via `packages/front/scripts/generate-mock-data.ts`
-// dan file ini ikut diperbarui dari field SID resmi.
+// Fragment GraphQL untuk object Penduduk (SID Bades).
+// Mencerminkan schema field aktual dari penduduk-custom-field-seeds.constant.ts.
+// Saat seed SID berubah, regenerate via:
+//   packages/front/scripts/generate-mock-data.ts
+
 export const PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS = `
       __typename
-      avatarFile {
-        fileId
-        label
-        extension
-        url
-      }
-      avatarUrl
-      city
       createdAt
       createdBy {
         source
@@ -21,31 +13,49 @@ export const PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS = `
         context
       }
       deletedAt
-      emails {
+      email {
         primaryEmail
         additionalEmails
       }
-      id
-      intro
-      jobTitle
-      keluargaId
-      linkedinLink {
-        primaryLinkUrl
-        primaryLinkLabel
-        secondaryLinks
+      foto {
+        fileId
+        label
+        extension
+        url
       }
-      name {
+      golonganDarah
+      id
+      jenisKelamin
+      kartuKeluargaId
+      kewarganegaraan
+      namaAyah
+      namaIbu
+      namaLengkap {
         firstName
         lastName
       }
-      performanceRating
-      phones {
+      nik
+      nikAyah
+      nikIbu
+      noAktaKelahiran
+      noHp {
         primaryPhoneNumber
         primaryPhoneCountryCode
         primaryPhoneCallingCode
         additionalPhones
       }
+      pekerjaan
+      pendidikan
+      penyandangDisabilitas
       position
+      statusDasar
+      statusHubunganKeluarga
+      statusKependudukan
+      statusPerkawinan
+      tanggalLahir
+      tanggalMeninggal
+      tanggalSinkronisasiDukcapil
+      tempatLahir
       updatedAt
       updatedBy {
         source
@@ -53,61 +63,11 @@ export const PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS = `
         name
         context
       }
-      whatsapp {
-        primaryPhoneNumber
-        primaryPhoneCountryCode
-        primaryPhoneCallingCode
-        additionalPhones
-      }
-      workPreference
-      xLink {
-        primaryLinkUrl
-        primaryLinkLabel
-        secondaryLinks
-      }
+      wilayahId
 `;
 
 export const PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS = `
       __typename
-      attachments {
-        edges {
-          node {
-            __typename
-            id
-            name
-          }
-        }
-      }
-      avatarFile {
-        fileId
-        label
-        extension
-        url
-      }
-      avatarUrl
-      calendarEventParticipants {
-        edges {
-          node {
-            __typename
-            handle
-            id
-          }
-        }
-      }
-      caredForPets {
-        edges {
-          node {
-            __typename
-            id
-            pet {
-              __typename
-              id
-              name
-            }
-          }
-        }
-      }
-      city
       createdAt
       createdBy {
         source
@@ -116,102 +76,67 @@ export const PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS = `
         context
       }
       deletedAt
-      emails {
+      email {
         primaryEmail
         additionalEmails
       }
+      foto {
+        fileId
+        label
+        extension
+        url
+      }
+      golonganDarah
       id
-      intro
-      jobTitle
-      keluarga {
+      jenisKelamin
+      kartuKeluargaId
+      kartuKeluarga {
         __typename
         id
-        name
-      }
-      keluargaId
-      linkedinLink {
-        primaryLinkUrl
-        primaryLinkLabel
-        secondaryLinks
-      }
-      messageParticipants {
-        edges {
-          node {
-            __typename
-            handle
-            id
-          }
+        nomorKk
+        namaKepalaKeluarga
+        alamat {
+          addressStreet1
+          addressStreet2
+          addressCity
+          addressState
+          addressPostcode
+          addressCountry
+          addressLat
+          addressLng
         }
+        jumlahAnggota
+        klasifikasiKeluarga
       }
-      name {
+      kewarganegaraan
+      namaAyah
+      namaIbu
+      namaLengkap {
         firstName
         lastName
       }
-      noteTargets {
-        edges {
-          node {
-            __typename
-            id
-            note {
-              __typename
-              id
-              title
-            }
-          }
-        }
-      }
-      performanceRating
-      phones {
+      nik
+      nikAyah
+      nikIbu
+      noAktaKelahiran
+      noHp {
         primaryPhoneNumber
         primaryPhoneCountryCode
         primaryPhoneCallingCode
         additionalPhones
       }
-      pointOfContactForOpportunities {
-        edges {
-          node {
-            __typename
-            id
-            name
-          }
-        }
-      }
+      pekerjaan
+      pendidikan
+      penyandangDisabilitas
       position
-      previousCompanies {
-        edges {
-          node {
-            __typename
-            id
-            keluarga {
-              __typename
-              id
-              name
-            }
-          }
-        }
-      }
-      taskTargets {
-        edges {
-          node {
-            __typename
-            id
-            task {
-              __typename
-              id
-              title
-            }
-          }
-        }
-      }
-      timelineActivities {
-        edges {
-          node {
-            __typename
-            id
-            name
-          }
-        }
-      }
+      statusDasar
+      statusHubunganKeluarga
+      statusKependudukan
+      statusPerkawinan
+      tanggalLahir
+      tanggalMeninggal
+      tanggalSinkronisasiDukcapil
+      tempatLahir
       updatedAt
       updatedBy {
         source
@@ -219,16 +144,12 @@ export const PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS = `
         name
         context
       }
-      whatsapp {
-        primaryPhoneNumber
-        primaryPhoneCountryCode
-        primaryPhoneCallingCode
-        additionalPhones
+      wilayah {
+        __typename
+        id
+        namaWilayah
+        jenisWilayah
+        kode
       }
-      workPreference
-      xLink {
-        primaryLinkUrl
-        primaryLinkLabel
-        secondaryLinks
-      }
+      wilayahId
 `;

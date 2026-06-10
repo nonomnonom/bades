@@ -15,14 +15,13 @@ export const WILAYAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'jenisWilayah',
     description: 'Jenis unit wilayah administratif desa',
     options: [
-      { label: 'Dusun', value: 'DUSUN', position: 0, color: 'purple' },
-      { label: 'RW', value: 'RW', position: 1, color: 'blue' },
-      { label: 'RT', value: 'RT', position: 2, color: 'green' },
+      { label: 'Dusun', value: 'DUSUN', position: 0 },
+      { label: 'RW', value: 'RW', position: 1 },
+      { label: 'RT', value: 'RT', position: 2 },
       {
         label: 'Lingkungan',
         value: 'LINGKUNGAN',
         position: 3,
-        color: 'orange',
       },
     ],
   },

@@ -72,8 +72,7 @@ export class WorkspaceManagerService {
         },
       );
 
-      // Bades SID standard seed: 9 objek desa (Penduduk, Keluarga, Wilayah,
-      // Layanan, Surat, Perangkat Desa, Program Bantuan, Penerima Bantuan,
+      // Bades SID standard seed: 4 objek desa (Wilayah, Penduduk, Keluarga,
       // Aset Desa) di-tanam ke setiap workspace baru menggantikan defaults
       // CRM. Idempotent — aman kalau dipanggil ulang lewat upgrade command.
       const sidSeedResult =
@@ -88,7 +87,7 @@ export class WorkspaceManagerService {
       // Tanam RELATION fields antar object SID standar.
       // Wajib dijalankan SETELAH seedSidStandardObjects (agar semua object
       // exist) dan SEBELUM seedSidStandardData (agar FK columns seperti
-      // pendudukId, wilayahId, programBantuanId sudah ada di tabel fisik
+      // kartuKeluargaId, wilayahId sudah ada di tabel fisik
       // sebelum INSERT data seed berjalan). Idempotent — field dengan nama
       // yang sama akan di-skip oleh createManyFields.
       const sidRelationResult =
@@ -190,12 +189,12 @@ export class WorkspaceManagerService {
       );
 
     // Inisialisasi permission SID standard: assign admin ke user pertama,
-    // upsert ObjectPermission untuk 9 object SID pada role admin + member,
+    // upsert ObjectPermission untuk 7 object SID pada role admin + member,
     // set `defaultRoleId` dan `activationStatus: ACTIVE` di workspace.
     //
     // Sebelumnya logic ini hanya ada di `DevSeederPermissionsService` yang
     // hardcoded ke workspace dev, sehingga workspace production baru tidak
-    // punya ACL eksplisit untuk 9 object SID. Service baru ini
+    // punya ACL eksplisit untuk 7 object SID. Service baru ini
     // workspace-agnostic dan aman dipanggil dari production path.
     await this.sidStandardPermissionInitService.initPermissionsForSidWorkspace({
       workspaceId,

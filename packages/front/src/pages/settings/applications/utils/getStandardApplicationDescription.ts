@@ -7,8 +7,7 @@ Setiap workspace Bades.id dimulai dari kumpulan objek ini. Objek-objek inilah ya
 
 #### Objek yang termasuk
 - **Warga & Keluarga**: data penduduk dan kartu keluarga
-- **Permohonan Layanan**: alur layanan warga di desa
-- **Surat & Dokumen**: berkas administrasi dan tindak lanjutnya
-- **Anggaran & Bantuan**: perencanaan desa dan program sosial
+- **Wilayah**: struktur dusun, RW, dan RT
+- **Aset Desa**: inventaris dan pengelolaan aset
 
 Jika aplikasi fondasi ini dihapus, bagian lain Bades.id tidak punya tempat berpijak.`;

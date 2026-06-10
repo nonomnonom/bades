@@ -233,7 +233,7 @@ export class DevSeederService {
     });
 
     // Tanam MAP view untuk object SID yang punya field ADDRESS
-    // (penduduk, keluarga, penerimaBantuan, asetDesa) supaya dev
+    // (penduduk, keluarga, wilayah, asetDesa) supaya dev
     // workspace juga mendapat view peta seperti workspace baru.
     const sidMapViewResult =
       await this.sidStandardSeedService.seedSidStandardMapViews({

@@ -112,8 +112,8 @@ export const getPageLayoutWidgetDataSeeds = (
   const keluargaObject = objectMetadataItems.find(
     (obj) => obj.nameSingular === 'keluarga',
   );
-  const permohonanSuratObject = objectMetadataItems.find(
-    (obj) => obj.nameSingular === 'permohonanSurat',
+  const wilayahObject = objectMetadataItems.find(
+    (obj) => obj.nameSingular === 'wilayah',
   );
 
   const taskIdFieldId = getFieldId(taskObject, 'id');
@@ -125,17 +125,17 @@ export const getPageLayoutWidgetDataSeeds = (
     pendudukObject,
     'jenisKelamin',
   );
-  const pendudukDusunFieldId = getFieldId(pendudukObject, 'dusun');
-  const keluargaIdFieldId = getFieldId(keluargaObject, 'id');
-  const permohonanIdFieldId = getFieldId(permohonanSuratObject, 'id');
-  const permohonanCreatedAtFieldId = getFieldId(
-    permohonanSuratObject,
-    'createdAt',
+  const pendudukStatusDasarFieldId = getFieldId(
+    pendudukObject,
+    'statusDasar',
   );
+  const keluargaIdFieldId = getFieldId(keluargaObject, 'id');
+  const wilayahIdFieldId = getFieldId(wilayahObject, 'id');
+  const wilayahCreatedAtFieldId = getFieldId(wilayahObject, 'createdAt');
 
   const v1Widgets: SeederFlatPageLayoutWidget[] = [
-    // Ringkasan Layanan Tab (Dasbor Pelayanan Warga)
-    isDefined(permohonanIdFieldId)
+    // Ringkasan Wilayah Tab (Dasbor Kependudukan)
+    isDefined(wilayahIdFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -145,7 +145,7 @@ export const getPageLayoutWidgetDataSeeds = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.SALES_OVERVIEW,
           ),
-          title: 'Total Permohonan Layanan',
+          title: 'Total Wilayah',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 0, rowSpan: 2, columnSpan: 3 },
           position: {
@@ -157,13 +157,13 @@ export const getPageLayoutWidgetDataSeeds = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.AGGREGATE_CHART,
-            aggregateFieldMetadataId: permohonanIdFieldId,
+            aggregateFieldMetadataId: wilayahIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
             displayDataLabel: true,
             timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: permohonanSuratObject?.id ?? null,
+          objectMetadataId: wilayahObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
@@ -199,7 +199,7 @@ export const getPageLayoutWidgetDataSeeds = (
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
-    isDefined(permohonanIdFieldId) && isDefined(permohonanCreatedAtFieldId)
+    isDefined(wilayahIdFieldId) && isDefined(wilayahCreatedAtFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -209,7 +209,7 @@ export const getPageLayoutWidgetDataSeeds = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.SALES_OVERVIEW,
           ),
-          title: 'Permohonan Layanan per Waktu',
+          title: 'Wilayah per Periode',
           type: WidgetType.GRAPH,
           gridPosition: { row: 4, column: 0, rowSpan: 8, columnSpan: 6 },
           position: {
@@ -221,9 +221,9 @@ export const getPageLayoutWidgetDataSeeds = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.BAR_CHART,
-            aggregateFieldMetadataId: permohonanIdFieldId,
+            aggregateFieldMetadataId: wilayahIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            primaryAxisGroupByFieldMetadataId: permohonanCreatedAtFieldId,
+            primaryAxisGroupByFieldMetadataId: wilayahCreatedAtFieldId,
             primaryAxisOrderBy: GraphOrderBy.FIELD_ASC,
             axisNameDisplay: AxisNameDisplay.NONE,
             displayDataLabel: false,
@@ -232,12 +232,12 @@ export const getPageLayoutWidgetDataSeeds = (
             timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: permohonanSuratObject?.id ?? null,
+          objectMetadataId: wilayahObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
 
-    // Rincian Permohonan Tab (Dasbor Pelayanan Warga)
+    // Rincian Penduduk Tab (Dasbor Kependudukan)
     isDefined(pendudukIdFieldId) && isDefined(pendudukCreatedAtFieldId)
       ? ({
           id: generateSeedId(
@@ -275,7 +275,7 @@ export const getPageLayoutWidgetDataSeeds = (
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
-    isDefined(permohonanIdFieldId)
+    isDefined(pendudukIdFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -285,7 +285,7 @@ export const getPageLayoutWidgetDataSeeds = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.SALES_DETAILS,
           ),
-          title: 'Jumlah Permohonan Surat',
+          title: 'Jumlah Penduduk Terdaftar',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 5, rowSpan: 5, columnSpan: 7 },
           position: {
@@ -297,13 +297,13 @@ export const getPageLayoutWidgetDataSeeds = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.AGGREGATE_CHART,
-            aggregateFieldMetadataId: permohonanIdFieldId,
+            aggregateFieldMetadataId: pendudukIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
             displayDataLabel: true,
             timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: permohonanSuratObject?.id ?? null,
+          objectMetadataId: pendudukObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
@@ -341,7 +341,7 @@ export const getPageLayoutWidgetDataSeeds = (
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
-    isDefined(pendudukIdFieldId) && isDefined(pendudukDusunFieldId)
+    isDefined(pendudukIdFieldId) && isDefined(pendudukStatusDasarFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -351,7 +351,7 @@ export const getPageLayoutWidgetDataSeeds = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_OVERVIEW,
           ),
-          title: 'Penduduk per Dusun',
+          title: 'Penduduk per Status Dasar',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 6, rowSpan: 10, columnSpan: 6 },
           position: {
@@ -365,7 +365,7 @@ export const getPageLayoutWidgetDataSeeds = (
             configurationType: WidgetConfigurationType.BAR_CHART,
             aggregateFieldMetadataId: pendudukIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            primaryAxisGroupByFieldMetadataId: pendudukDusunFieldId,
+            primaryAxisGroupByFieldMetadataId: pendudukStatusDasarFieldId,
             primaryAxisOrderBy: GraphOrderBy.VALUE_DESC,
             axisNameDisplay: AxisNameDisplay.NONE,
             displayDataLabel: false,
@@ -477,7 +477,7 @@ export const getPageLayoutWidgetDataSeeds = (
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
-    isDefined(pendudukIdFieldId) && isDefined(pendudukDusunFieldId)
+    isDefined(pendudukIdFieldId) && isDefined(pendudukStatusDasarFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -487,7 +487,7 @@ export const getPageLayoutWidgetDataSeeds = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.TEAM_OVERVIEW,
           ),
-          title: 'Sebaran Wilayah Dusun',
+          title: 'Distribusi Status Penduduk',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 6, rowSpan: 5, columnSpan: 6 },
           position: {
@@ -501,7 +501,7 @@ export const getPageLayoutWidgetDataSeeds = (
             configurationType: WidgetConfigurationType.BAR_CHART,
             aggregateFieldMetadataId: pendudukIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            primaryAxisGroupByFieldMetadataId: pendudukDusunFieldId,
+            primaryAxisGroupByFieldMetadataId: pendudukStatusDasarFieldId,
             primaryAxisOrderBy: GraphOrderBy.VALUE_DESC,
             axisNameDisplay: AxisNameDisplay.NONE,
             displayDataLabel: false,

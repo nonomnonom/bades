@@ -85,6 +85,8 @@ const bootstrap = async () => {
           imgSrc: ["'self'", 'data:', 'blob:', 'https:'],
           connectSrc: [
             "'self'",
+            'https://bades.id',
+            'https://*.bades.id',
             'https://*.tiles.mapbox.com',
             'https://api.mapbox.com',
             'https://events.mapbox.com',
