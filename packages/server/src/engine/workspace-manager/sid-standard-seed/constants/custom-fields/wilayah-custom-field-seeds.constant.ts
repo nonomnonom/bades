@@ -38,12 +38,8 @@ export const WILAYAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Catatan tambahan tentang wilayah',
   },
   // Hierarki & agregat wilayah desa (Permendagri 47/2016)
-  {
-    type: FieldMetadataType.UUID,
-    label: 'Wilayah Induk',
-    name: 'wilayahIndukId',
-    description: 'Referensi ke wilayah induk untuk hierarki (RT → RW → Dusun)',
-  },
+  // FK `wilayahIndukId` dibuat via RELATION field di SID_STANDARD_RELATIONS.
+  // Kolom UUID manual dihapus agar tidak konflik dengan FK yang dibuat engine.
   {
     type: FieldMetadataType.TEXT,
     label: 'Nama Kepala Wilayah',

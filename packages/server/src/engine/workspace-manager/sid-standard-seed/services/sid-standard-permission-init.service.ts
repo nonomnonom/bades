@@ -22,7 +22,7 @@ import { SID_STANDARD_OBJECT_SEEDS } from 'src/engine/workspace-manager/sid-stan
 // yang hardcoded ke workspace ID dev (`SEED_SUKAMAJU_WORKSPACE_ID` /
 // `SEED_MEKARSARI_WORKSPACE_ID`). Akibatnya workspace production baru yang
 // di-create lewat `activateWorkspace` mutation TIDAK punya:
-//   - row `ObjectPermission` eksplisit untuk 9 object SID
+//   - row `ObjectPermission` eksplisit untuk 4 object SID
 //   - `activationStatus: ACTIVE` di workspace entity
 //
 // Service ini dipanggil dari `WorkspaceManagerService.init()` setelah
@@ -33,7 +33,7 @@ import { SID_STANDARD_OBJECT_SEEDS } from 'src/engine/workspace-manager/sid-stan
 export class SidStandardPermissionInitService {
   private readonly logger = new Logger(SidStandardPermissionInitService.name);
 
-  // 9 nameSingular object SID standard yang harus dapat ObjectPermission row.
+  // 4 nameSingular object SID standard yang harus dapat ObjectPermission row.
   // Sumber kebenaran: SID_STANDARD_OBJECT_SEEDS di sid-standard-seed.config.ts
   // (di-derive sekali di constructor untuk menghindari import cyclic).
   private readonly SID_OBJECT_NAME_SINGULAR: readonly string[];
@@ -82,7 +82,7 @@ export class SidStandardPermissionInitService {
       );
     }
 
-    // 2. Resolve 9 SID object metadata IDs. Pengecekan ketat: kalau ada
+    // 2. Resolve 4 SID object metadata IDs. Pengecekan ketat: kalau ada
     // object yang hilang, seed dianggap tidak lengkap dan harus di-recover
     // lewat command `workspace:reseed:sid-standard` sebelum permission init.
     const sidObjects = await this.objectMetadataRepository.find({
@@ -132,7 +132,7 @@ export class SidStandardPermissionInitService {
       ownerFlatApplication: workspaceCustomFlatApplication,
     });
 
-    // 5. Upsert ObjectPermission untuk member role di 9 SID objects (full CRUD).
+    // 5. Upsert ObjectPermission untuk member role di 4 SID objects (full CRUD).
     await this.objectPermissionService.upsertObjectPermissions({
       workspaceId,
       input: {
@@ -161,7 +161,7 @@ export class SidStandardPermissionInitService {
 
     this.logger.log(
       `Permission SID standard initialized untuk workspace ${workspaceId}: ` +
-        `9 objek, admin role + member role siap.`,
+        `${this.SID_OBJECT_NAME_SINGULAR.length} objek SID, admin role + member role siap.`,
     );
 
     return { memberRole };

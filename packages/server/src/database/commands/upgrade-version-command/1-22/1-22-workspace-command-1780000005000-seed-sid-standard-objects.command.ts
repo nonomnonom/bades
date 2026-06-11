@@ -6,8 +6,8 @@ import { type RunOnWorkspaceArgs } from 'src/database/commands/command-runners/w
 import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
 import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.service';
 
-// Seed 23 objek SID standar Bades (Penduduk, Keluarga, Wilayah, Lembaga
-// Desa, Surat, Anggaran, Bantuan, Aset, dll) ke workspace yang sudah ada.
+// Seed 4 objek SID standar Bades (Penduduk, Keluarga, Wilayah, Aset Desa)
+// ke workspace yang sudah ada.
 //
 // Workspace baru otomatis dapat SID standard lewat workspace-manager.service
 // pada flow init. Command ini menutup gap untuk workspace yang dibuat
@@ -19,7 +19,7 @@ import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standar
 @Command({
   name: 'upgrade:1-22:seed-sid-standard-objects',
   description:
-    'Seed 23 objek SID standar Bades ke workspace lama (Penduduk, Keluarga, Wilayah, Lembaga Desa, dst)',
+    'Seed 4 objek SID standar Bades ke workspace lama (Penduduk, Keluarga, Wilayah, Aset Desa)',
 })
 export class SeedSidStandardObjectsCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
   constructor(

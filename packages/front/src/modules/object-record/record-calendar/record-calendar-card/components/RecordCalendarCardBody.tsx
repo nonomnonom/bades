@@ -20,6 +20,7 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { useMemo } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { type ObjectPermission } from '~/generated-metadata/graphql';
+import { type ObjectPermissions } from 'shared/types';
 
 type RecordCalendarCardBodyProps = {
   recordId: string;
@@ -31,7 +32,7 @@ type RecordCalendarCardBodyFieldProps = {
   isRecordReadOnly: boolean;
   objectMetadataItemIsSystem: boolean;
   objectPermissions: ObjectPermission;
-  objectPermissionsByObjectMetadataId: Record<string, ObjectPermission>;
+  objectPermissionsByObjectMetadataId: Record<string, ObjectPermissions & { objectMetadataId: string }>;
   recordFieldMetadataItemId: string;
   correspondingFieldDefinition: any;
   useUpdateOneRecordHook: RecordUpdateHook;

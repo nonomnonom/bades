@@ -19,13 +19,14 @@ import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useContext, useMemo } from 'react';
 import { type ObjectPermission } from '~/generated-metadata/graphql';
+import { type ObjectPermissions } from 'shared/types';
 
 type RecordBoardCardBodyFieldProps = {
   recordId: string;
   isRecordReadOnly: boolean;
   objectMetadataItemIsSystem: boolean;
   objectPermissions: ObjectPermission;
-  objectPermissionsByObjectMetadataId: Record<string, ObjectPermission>;
+  objectPermissionsByObjectMetadataId: Record<string, ObjectPermissions & { objectMetadataId: string }>;
   recordFieldMetadataItemId: string;
   correspondingFieldDefinition: any;
   useUpdateOneRecordHook: RecordUpdateHook;

@@ -6,15 +6,15 @@ import { type RunOnWorkspaceArgs } from 'src/database/commands/command-runners/w
 import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
 import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.service';
 
-// Backfill view MAP standar SID (Peta Keluarga, Penduduk, Penerima Bantuan,
-// Aset Desa) ke workspace yang dibuat sebelum seed map view ada.
+// Backfill view MAP standar SID (Peta Keluarga, Penduduk, Aset Desa) ke
+// workspace yang dibuat sebelum seed map view ada.
 //
 // Idempotent — ON CONFLICT (id) DO NOTHING di service.
 @RegisteredWorkspaceCommand('2.7.0', 1798000050000)
 @Command({
   name: 'upgrade:2-7:seed-sid-standard-map-views',
   description:
-    'Seed view MAP standar SID (Peta Keluarga, Penduduk, Penerima Bantuan, Aset Desa) ke workspace lama',
+    'Seed view MAP standar SID (Peta Keluarga, Penduduk, Aset Desa) ke workspace lama',
 })
 export class SeedSidStandardMapViewsCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
   constructor(

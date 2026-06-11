@@ -14,11 +14,11 @@ describe('getImageAbsoluteURI', () => {
     expect(result).toBe(imageUrl);
   });
 
-  it('should return fully formed url if imageUrl is a relative url starting with /', () => {
+  it('should return fully formed url if imageUrl is an absolute path starting with /', () => {
     const imageUrl = '/path/pic.png';
     const baseUrl = 'http://localhost:3000';
     const result = getImageAbsoluteURI({ imageUrl, baseUrl });
-    expect(result).toBe('http://localhost:3000/files/path/pic.png');
+    expect(result).toBe('http://localhost:3000/path/pic.png');
   });
 
   it('should return fully formed url if imageUrl is a relative url nost starting with slash', () => {
@@ -32,6 +32,6 @@ describe('getImageAbsoluteURI', () => {
     const imageUrl = '/pic.png?token=XXX';
     const baseUrl = 'http://localhost:3000';
     const result = getImageAbsoluteURI({ imageUrl, baseUrl });
-    expect(result).toBe('http://localhost:3000/files/pic.png?token=XXX');
+    expect(result).toBe('http://localhost:3000/pic.png?token=XXX');
   });
 });

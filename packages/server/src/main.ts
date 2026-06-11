@@ -100,11 +100,10 @@ const bootstrap = async () => {
             'https://fonts.gstatic.com',
             'https://api.mapbox.com',
           ],
-          frameSrc: [
-            "'self'",
-            'https://challenges.cloudflare.com',
-            'https://www.google.com',
-          ],
+          // https: scheme source — bebas embed iframe HTTPS manapun tanpa
+          // maintenance whitelist per domain. frameAncestors tetap 'self'
+          // untuk mencegah clickjacking.
+          frameSrc: ["'self'", 'https:'],
           frameAncestors: ["'self'"],
           workerSrc: ["'self'", 'blob:'],
           mediaSrc: ["'self'"],

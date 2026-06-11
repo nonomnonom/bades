@@ -10,7 +10,7 @@ import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standar
 @Command({
   name: 'upgrade:2-7:seed-sid-standard-map-navigation',
   description:
-    'Seed item navigasi sidebar untuk view Peta SID (Keluarga, Penduduk, Penerima Bantuan, Aset Desa)',
+    'Seed item navigasi sidebar untuk view Peta SID (Keluarga, Penduduk, Aset Desa)',
 })
 export class SeedSidStandardMapNavigationCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
   constructor(

@@ -35,6 +35,7 @@ export type SidStandardObjectSeed = {
 // (01) Penduduk.kartuKeluarga → Keluarga — column `kartuKeluargaId`
 // (02) Penduduk.wilayah       → Wilayah  — column `wilayahId`
 // (03) Keluarga.wilayah       → Wilayah  — column `wilayahId`
+// (04) Wilayah.wilayahInduk   → Wilayah  — column `wilayahIndukId` (self-referential)
 export type SidStandardRelationSeed = {
   sourceObjectNameSingular: string;
   fieldName: string;
@@ -75,6 +76,16 @@ export const SID_STANDARD_RELATIONS: SidStandardRelationSeed[] = [
     targetObjectNameSingular: 'wilayah',
     targetFieldLabel: 'Keluarga Wilayah',
     targetFieldIcon: 'IconHome',
+  },
+  // Wilayah → Wilayah (self-referential — hierarki RT→RW→Dusun)
+  {
+    sourceObjectNameSingular: 'wilayah',
+    fieldName: 'wilayahInduk',
+    fieldLabel: 'Wilayah Induk',
+    fieldIcon: 'IconArrowUp',
+    targetObjectNameSingular: 'wilayah',
+    targetFieldLabel: 'Sub-Wilayah',
+    targetFieldIcon: 'IconArrowDown',
   },
 ];
 
