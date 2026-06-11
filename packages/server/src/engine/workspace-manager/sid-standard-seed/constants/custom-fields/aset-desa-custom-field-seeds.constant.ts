@@ -142,6 +142,7 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Bukti Kepemilikan',
     name: 'buktiKepemilikan',
     description: 'Dokumen kepemilikan aset (sertifikat, BPKB, dll)',
+    settings: { maxNumberOfValues: 5 },
   },
   {
     type: FieldMetadataType.TEXT,
@@ -154,5 +155,6 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Foto Aset',
     name: 'fotoAset',
     description: 'Foto aset',
+    settings: { maxNumberOfValues: 1 },
   },
 ];
